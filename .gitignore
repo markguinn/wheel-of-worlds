@@ -1,0 +1,11 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+export.cfg
+export_presets.cfg
+*.ossl
+*.pck
+*.zip
+*.tmp
+/export/
+.DS_Store
