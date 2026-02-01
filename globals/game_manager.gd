@@ -1,11 +1,16 @@
 extends Node
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _get_container() -> Node2D:
+	return get_tree().get_first_node_in_group("scene_container")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func change_scene(new_scene: PackedScene, hud_visible = true) -> void:
+	var container := _get_container()
+	var cur_scene = container.get_child(0)
+	var new_instance = new_scene.instantiate()
+	# TODO: fade or do something nice
+	# TODO: show/hide hud
+	container.add_child(new_instance)
+	cur_scene.queue_free()
+	
