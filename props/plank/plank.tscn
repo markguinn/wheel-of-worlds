@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cpmxxndn8n308"]
+
+[ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://props/grab_box.gd" id="1_0vqwi"]
+
+[sub_resource type="Gradient" id="Gradient_br3cc"]
+offsets = PackedFloat32Array(0.3375959, 0.4398977)
+colors = PackedColorArray(0.15667456, 0.15667456, 0.15667456, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0vqwi"]
+gradient = SubResource("Gradient_br3cc")
+width = 256
+height = 16
+fill_to = Vector2(0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_br3cc"]
+size = Vector2(256, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_br3cc"]
+radius = 96.0
+
+[node name="Plank" type="RigidBody2D" unique_id=1965888217]
+collision_layer = 4
+collision_mask = 13
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=698020548]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -8.0
+offset_right = 256.0
+offset_bottom = 8.0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_0vqwi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=561600905]
+position = Vector2(128, 0)
+shape = SubResource("RectangleShape2D_br3cc")
+
+[node name="GrabBox" type="Area2D" parent="." unique_id=756793434]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_0vqwi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabBox" unique_id=1417858198]
+shape = SubResource("CircleShape2D_br3cc")
+debug_color = Color(0.21497008, 0.6323015, 0.2888236, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="GrabBox" unique_id=1781992657]
+position = Vector2(256, 0)
+shape = SubResource("CircleShape2D_br3cc")
+debug_color = Color(0.2608034, 0.63057584, 0.20227572, 0.41960785)
+
+[node name="Label" type="Label" parent="GrabBox" unique_id=1295419697]
+offset_top = -128.0
+offset_right = 77.0
+offset_bottom = -105.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "...pick up?"

@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmb0mj478j8hq"]
+[gd_scene format=3 uid="uid://cmb0mj478j8hq"]
 
-[ext_resource type="PackedScene" uid="uid://bbx2kb2li0f5s" path="res://scenes/ui_screens/title_screen.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bbx2kb2li0f5s" path="res://screens/title_screen.tscn" id="1_ig7tw"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=1319895979]
 
-[node name="Container" type="Node2D" parent="." groups=["scene_container"]]
+[node name="Container" type="Node2D" parent="." unique_id=1880419414 groups=["scene_container"]]
 
-[node name="TitleScreen" parent="Container" instance=ExtResource("1_ig7tw")]
+[node name="TitleScreen" parent="Container" unique_id=162755854 instance=ExtResource("1_ig7tw")]
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=61485945]

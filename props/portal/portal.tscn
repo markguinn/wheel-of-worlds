@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkqotn282b1im"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fuw3p"]
+radius = 25.0
+
+[sub_resource type="Gradient" id="Gradient_fuw3p"]
+offsets = PackedFloat32Array(0.006666667, 0.20666666, 0.38666666, 0.6, 0.79, 1)
+colors = PackedColorArray(0.61405647, 0.349113, 0.049095675, 1, 0.6156863, 0.34901962, 0.050980393, 0.80784315, 0.61405647, 0.349113, 0.049095675, 1, 0.6156863, 0.34901962, 0.050980393, 0.6784314, 0.61405647, 0.349113, 0.049095675, 1, 0.6156863, 0.34901962, 0.050980393, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2pe5p"]
+gradient = SubResource("Gradient_fuw3p")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Animation" id="Animation_fuw3p"]
+resource_name = "pulsing"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="Animation" id="Animation_2pe5p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8j420"]
+_data = {
+&"RESET": SubResource("Animation_2pe5p"),
+&"pulsing": SubResource("Animation_fuw3p")
+}
+
+[node name="Portal" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_fuw3p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_2pe5p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8j420")
+}
+autoplay = "pulsing"

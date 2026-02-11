@@ -8,12 +8,16 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
-config/name="Wheel of Worlds"
+config/name="Bert and the Wheel of Worlds"
 run/main_scene="uid://cmb0mj478j8hq"
-config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+config/icon="uid://url8qsld1aud"
 
 [autoload]
 
@@ -85,6 +89,13 @@ swap_right={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":10,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Props"
+2d_physics/layer_4="Monsters"
 
 [rendering]
 
