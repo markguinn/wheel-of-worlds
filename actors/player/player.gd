@@ -99,10 +99,8 @@ func _process(delta: float) -> void:
 
 # TODO: trigger a pickup animation?
 func pick_up_prop(target_node: Node2D, grab_box: GrabBox) -> bool:
-	if ground_detector.is_colliding():
-		print("floor:", ground_detector.get_collider())
-		if ground_detector.get_collider() == self or ground_detector.get_collider() == target_node:
-			return false
+	if ground_detector.is_colliding() and ground_detector.get_collider() == target_node:
+		return false
 	print("picking up: ", target_node)
 	if is_holding_prop:
 		return false
@@ -122,5 +120,4 @@ func put_down_prop() -> void:
 func _update_prop(_delta: float) -> void:
 	var prop: Node2D = is_holding_prop
 	prop.rotation = holding_hand.global_position.angle_to_point(resting_point.global_position) #+ PI / 2
-	#prop.scale = scale.normalized()
 	prop.global_position = holding_hand.global_position # lerp(holding_hand.global_position, resting_point.global_position, 0.5)
