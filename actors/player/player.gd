@@ -90,7 +90,7 @@ func _process(delta: float) -> void:
 	if move_and_slide():
 		for i in range(get_slide_collision_count()):
 			var col = get_slide_collision(i)
-			if col.get_collider() is GoalArtifact:
+			if col.get_collider() is Orb:
 				col.get_collider().apply_force(col.get_normal() * -PUSH_FORCE)
 	
 	if is_holding_prop:
@@ -111,7 +111,7 @@ func pick_up_prop(target_node: Node2D, grab_box: GrabBox) -> bool:
 
 func put_down_prop() -> void:
 	if is_holding_prop:
-		is_holding_prop.rotation = 0 if sprite.scale.x > 0 else PI
+		is_holding_prop.rotation = 0.0 if sprite.scale.x > 0 else PI
 		active_grab_box.put_down.emit(self)
 		is_holding_prop = null
 		active_grab_box = null

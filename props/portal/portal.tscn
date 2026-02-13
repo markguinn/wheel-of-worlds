@@ -1,4 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkqotn282b1im"]
+[gd_scene format=3 uid="uid://dkqotn282b1im"]
+
+[ext_resource type="Script" uid="uid://chluslqty1lns" path="res://props/portal/portal.gd" id="1_j2ixl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fuw3p"]
 radius = 25.0
@@ -12,23 +14,6 @@ gradient = SubResource("Gradient_fuw3p")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
-
-[sub_resource type="Animation" id="Animation_fuw3p"]
-resource_name = "pulsing"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
-}
 
 [sub_resource type="Animation" id="Animation_2pe5p"]
 length = 0.001
@@ -44,25 +29,171 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fuw3p"]
+resource_name = "active"
+length = 2.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.4745098), Color(1, 1, 1, 0.3254902)]
+}
+
+[sub_resource type="Animation" id="Animation_fqed5"]
+resource_name = "open"
+length = 2.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.75686276), Color(1, 1, 1, 0.8901961)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8j420"]
 _data = {
 &"RESET": SubResource("Animation_2pe5p"),
-&"pulsing": SubResource("Animation_fuw3p")
+&"active": SubResource("Animation_fuw3p"),
+&"open": SubResource("Animation_fqed5")
 }
 
-[node name="Portal" type="Node2D"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j2ixl"]
+animation = &"RESET"
 
-[node name="Area2D" type="Area2D" parent="."]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8cwj3"]
+animation = &"active"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_svfmt"]
+animation = &"open"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s305f"]
+priority = 0
+advance_mode = 2
+advance_expression = "!is_active"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wggwm"]
+advance_mode = 2
+advance_expression = "is_active"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yol6e"]
+xfade_time = 1.0
+priority = 2
+advance_mode = 2
+advance_expression = "is_active"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_plp08"]
+xfade_time = 1.0
+priority = 2
+advance_mode = 2
+advance_expression = "orb_is_present"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hxi1s"]
+xfade_time = 1.0
+advance_mode = 2
+advance_expression = "!orb_is_present"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g4wo6"]
+xfade_time = 1.0
+advance_mode = 2
+advance_expression = "!is_active"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_j2ixl"]
+states/RESET/node = SubResource("AnimationNodeAnimation_j2ixl")
+states/RESET/position = Vector2(456.81998, -8.752502)
+states/active/node = SubResource("AnimationNodeAnimation_8cwj3")
+states/active/position = Vector2(458.56998, 120.2475)
+states/open/node = SubResource("AnimationNodeAnimation_svfmt")
+states/open/position = Vector2(467.32, 257.7475)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_s305f"), "Start", "active", SubResource("AnimationNodeStateMachineTransition_wggwm"), "RESET", "active", SubResource("AnimationNodeStateMachineTransition_yol6e"), "active", "open", SubResource("AnimationNodeStateMachineTransition_plp08"), "open", "active", SubResource("AnimationNodeStateMachineTransition_hxi1s"), "active", "RESET", SubResource("AnimationNodeStateMachineTransition_g4wo6")]
+graph_offset = Vector2(-135.62991, -81.232506)
+
+[node name="Portal" type="Node2D" unique_id=567549234]
+script = ExtResource("1_j2ixl")
+
+[node name="TargetArea" type="Area2D" parent="." unique_id=87727293]
+visible = false
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea" unique_id=335970431]
 shape = SubResource("CircleShape2D_fuw3p")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1629893478]
+modulate = Color(1, 1, 1, 0)
 texture = SubResource("GradientTexture2D_2pe5p")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_8j420")
-}
-autoplay = "pulsing"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2013094637]
+libraries/ = SubResource("AnimationLibrary_8j420")
+autoplay = &"active"
+playback_default_blend_time = 1.0
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1859768669]
+tree_root = SubResource("AnimationNodeStateMachine_j2ixl")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Label" type="Label" parent="." unique_id=1833259820]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -95.0
+offset_right = 32.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "...enter?"

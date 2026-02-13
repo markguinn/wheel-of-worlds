@@ -5,7 +5,7 @@ func _get_container() -> Node2D:
 	return get_tree().get_first_node_in_group("scene_container")
 
 
-func change_scene(new_scene: PackedScene, hud_visible = true) -> void:
+func change_scene(new_scene: PackedScene, _hud_visible = true) -> void:
 	var container := _get_container()
 	var cur_scene = container.get_child(0)
 	var new_instance = new_scene.instantiate()

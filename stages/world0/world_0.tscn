@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://bql6g47of7osy" path="res://stages/world1/art/test_tiles.tres" id="1_4eaw5"]
 [ext_resource type="PackedScene" uid="uid://b85khgplioksi" path="res://actors/player/player.tscn" id="2_tsxbn"]
-[ext_resource type="PackedScene" uid="uid://cq30ppa4eh5d3" path="res://props/goal_artifact/goal_artifact.tscn" id="3_31a7b"]
+[ext_resource type="PackedScene" uid="uid://cq30ppa4eh5d3" path="res://props/orb/orb.tscn" id="3_31a7b"]
 [ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://props/portal/portal.tscn" id="4_tmikp"]
 [ext_resource type="PackedScene" uid="uid://cpmxxndn8n308" path="res://props/plank/plank.tscn" id="5_83wlx"]
 
@@ -30,17 +30,18 @@ tile_map_data = PackedByteArray("AAABAAcAAAADAAAAAAACAAcAAAADAAAAAAADAAcAAAADAAA
 tile_set = ExtResource("1_4eaw5")
 
 [node name="Player" parent="." unique_id=42652117 instance=ExtResource("2_tsxbn")]
-position = Vector2(-1501, 706)
+position = Vector2(1959, 248)
 scale = Vector2(4, 4)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=255349596]
 
-[node name="GoalArtifact" parent="." unique_id=1391753086 instance=ExtResource("3_31a7b")]
-position = Vector2(-2487, 482)
+[node name="Orb" parent="." unique_id=1391753086 instance=ExtResource("3_31a7b")]
+position = Vector2(1784, 353)
 mass = 0.01
 
 [node name="Portal" parent="." unique_id=820677622 instance=ExtResource("4_tmikp")]
 position = Vector2(2206, 232)
+linked_stage = "uid://nujivjavdosd"
 
 [node name="Plank" parent="." unique_id=691076463 instance=ExtResource("5_83wlx")]
 position = Vector2(-2033, 556)

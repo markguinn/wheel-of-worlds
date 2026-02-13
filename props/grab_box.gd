@@ -30,7 +30,7 @@ func _ready() -> void:
 
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if label.visible:
 		label.rotation = -global_rotation
 		label.global_position = global_position + label_offset

@@ -54,5 +54,4 @@ debug_color = Color(0.2608034, 0.63057584, 0.20227572, 0.41960785)
 offset_top = -128.0
 offset_right = 77.0
 offset_bottom = -105.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "...pick up?"

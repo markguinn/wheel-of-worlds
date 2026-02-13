@@ -31,6 +31,10 @@ window/stretch/mode="canvas_items"
 
 scene_container=""
 
+[gui]
+
+theme/custom="uid://oh3aeoiln57v"
+
 [input]
 
 left={
