@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cpmxxndn8n308"]
 
 [ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://props/grab_box.gd" id="1_0vqwi"]
+[ext_resource type="Script" uid="uid://dy8eeto3iw88" path="res://props/plank/plank.gd" id="1_vpluj"]
 
 [sub_resource type="Gradient" id="Gradient_br3cc"]
 offsets = PackedFloat32Array(0.3375959, 0.4398977)
@@ -18,9 +19,10 @@ size = Vector2(256, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_br3cc"]
 radius = 96.0
 
-[node name="Plank" type="RigidBody2D" unique_id=1965888217]
+[node name="Plank" type="RigidBody2D" unique_id=1965888217 groups=["persisted"]]
 collision_layer = 4
 collision_mask = 13
+script = ExtResource("1_vpluj")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=698020548]
 anchors_preset = 4

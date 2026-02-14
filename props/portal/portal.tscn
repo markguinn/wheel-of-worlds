@@ -159,7 +159,7 @@ states/open/position = Vector2(467.32, 257.7475)
 transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_s305f"), "Start", "active", SubResource("AnimationNodeStateMachineTransition_wggwm"), "RESET", "active", SubResource("AnimationNodeStateMachineTransition_yol6e"), "active", "open", SubResource("AnimationNodeStateMachineTransition_plp08"), "open", "active", SubResource("AnimationNodeStateMachineTransition_hxi1s"), "active", "RESET", SubResource("AnimationNodeStateMachineTransition_g4wo6")]
 graph_offset = Vector2(-135.62991, -81.232506)
 
-[node name="Portal" type="Node2D" unique_id=567549234]
+[node name="Portal" type="Node2D" unique_id=567549234 groups=["portals"]]
 script = ExtResource("1_j2ixl")
 
 [node name="TargetArea" type="Area2D" parent="." unique_id=87727293]

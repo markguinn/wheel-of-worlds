@@ -1,6 +1,6 @@
 extends Button
 
-@export var target_scene: PackedScene
+@export_file("*.tscn") var target_scene: String
 @export var hud_visible: bool = true
 @export var is_primary: bool = false
 

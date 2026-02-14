@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://bbx2kb2li0f5s"]
 
 [ext_resource type="Script" uid="uid://dwlqg5ma8i6be" path="res://screens/scene_change_button.gd" id="2_gxoam"]
-[ext_resource type="PackedScene" uid="uid://obcnvoariac3" path="res://stages/world0/world_0.tscn" id="3_5jm7q"]
-[ext_resource type="PackedScene" uid="uid://nujivjavdosd" path="res://stages/world1/world_1.tscn" id="4_30kwb"]
 
 [node name="TitleScreen" type="CanvasLayer" unique_id=1220633124]
 
@@ -37,11 +35,19 @@ size_flags_vertical = 3
 layout_mode = 2
 text = "Tutorial Level"
 script = ExtResource("2_gxoam")
-target_scene = ExtResource("3_5jm7q")
+target_scene = "uid://obcnvoariac3"
 is_primary = true
 
 [node name="Level1Button" type="Button" parent="VBoxContainer" unique_id=404563212]
 layout_mode = 2
 text = "Level 1"
 script = ExtResource("2_gxoam")
-target_scene = ExtResource("4_30kwb")
+target_scene = "uid://nujivjavdosd"
+is_primary = null
+
+[node name="WheelButton" type="Button" parent="VBoxContainer" unique_id=500953345]
+layout_mode = 2
+text = "The Wheel"
+script = ExtResource("2_gxoam")
+target_scene = "uid://b32q0e34faaed"
+is_primary = null

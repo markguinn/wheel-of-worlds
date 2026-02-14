@@ -22,6 +22,7 @@ config/icon="uid://url8qsld1aud"
 [autoload]
 
 GameManager="*res://globals/game_manager.gd"
+StateManager="*uid://1wumj61m8a4e"
 
 [display]
 
@@ -30,6 +31,9 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 scene_container=""
+player=""
+persisted=""
+portals=""
 
 [gui]
 

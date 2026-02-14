@@ -5,13 +5,13 @@ extends Node2D
 const ORB_WAIT_MS = 1000
 
 
+@export var portal_name: String
 @export var is_active := true
 @export_file("*.tscn") var linked_stage: String
-
+@export var target_portal: String
 
 var orb_is_present := false
 var orb_entered_at := 0
-
 
 @onready var target: Area2D = $TargetArea
 @onready var label: Label = $Label
@@ -32,8 +32,8 @@ func _on_body_exited(body: Node2D) -> void:
 	if body is Orb:
 		orb_is_present = false
 		orb_entered_at = 0
-		
-		
+
+
 func _process(_delta: float) -> void:
 	if orb_entered_at > 0 and Time.get_ticks_msec() > orb_entered_at + ORB_WAIT_MS:
 		label.show()
@@ -43,5 +43,5 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and orb_entered_at > 0 and Time.get_ticks_msec() > orb_entered_at + ORB_WAIT_MS:
-		GameManager.change_scene(load(linked_stage))
 		get_viewport().set_input_as_handled()
+		GameManager.change_scene.call_deferred(linked_stage, true, target_portal)
