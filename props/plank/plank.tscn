@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://props/grab_box.gd" id="1_0vqwi"]
 [ext_resource type="Script" uid="uid://dy8eeto3iw88" path="res://props/plank/plank.gd" id="1_vpluj"]
-[ext_resource type="Script" uid="uid://carejsh7txaft" path="res://props/plank/steady_label.gd" id="3_w4302"]
+[ext_resource type="Script" uid="uid://carejsh7txaft" path="res://props/steady_label.gd" id="3_w4302"]
 
 [sub_resource type="Gradient" id="Gradient_br3cc"]
 offsets = PackedFloat32Array(0.3375959, 0.4398977)

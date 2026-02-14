@@ -104,6 +104,7 @@ swap_right={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Props"
 2d_physics/layer_4="Monsters"
+2d_physics/layer_5="Orbs"
 
 [rendering]
 

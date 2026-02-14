@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cq30ppa4eh5d3" path="res://props/orb/orb.tscn" id="3_31a7b"]
 [ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://props/portal/portal.tscn" id="4_tmikp"]
 [ext_resource type="PackedScene" uid="uid://cpmxxndn8n308" path="res://props/plank/plank.tscn" id="5_83wlx"]
+[ext_resource type="PackedScene" uid="uid://rdlq677coghs" path="res://props/stone/stone.tscn" id="6_ru3fy"]
 
 [sub_resource type="Gradient" id="Gradient_83wlx"]
 colors = PackedColorArray(0.7919991, 0.79199916, 0.7919991, 1, 0.5951543, 0.5951542, 0.5951543, 1)
@@ -50,9 +51,6 @@ portal_name = "w0p1"
 linked_stage = "uid://b32q0e34faaed"
 target_portal = "ww0"
 
-[node name="Plank2" parent="." unique_id=1965888217 instance=ExtResource("5_83wlx")]
-position = Vector2(2275, 261)
-
 [node name="Plank" parent="." unique_id=691076463 instance=ExtResource("5_83wlx")]
 position = Vector2(-797, 728)
 
@@ -61,3 +59,9 @@ position = Vector2(-7501, 816)
 portal_name = "w0p2"
 linked_stage = "uid://nujivjavdosd"
 target_portal = "w1p2"
+
+[node name="Stone" parent="." unique_id=838538367 instance=ExtResource("6_ru3fy")]
+position = Vector2(2283, 256)
+
+[node name="Stone2" parent="." unique_id=586878421 instance=ExtResource("6_ru3fy")]
+position = Vector2(-887, 736)
