@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://props/grab_box.gd" id="1_0vqwi"]
 [ext_resource type="Script" uid="uid://dy8eeto3iw88" path="res://props/plank/plank.gd" id="1_vpluj"]
+[ext_resource type="Script" uid="uid://carejsh7txaft" path="res://props/plank/steady_label.gd" id="3_w4302"]
 
 [sub_resource type="Gradient" id="Gradient_br3cc"]
 offsets = PackedFloat32Array(0.3375959, 0.4398977)
@@ -52,8 +53,10 @@ position = Vector2(256, 0)
 shape = SubResource("CircleShape2D_br3cc")
 debug_color = Color(0.2608034, 0.63057584, 0.20227572, 0.41960785)
 
-[node name="Label" type="Label" parent="GrabBox" unique_id=1295419697]
+[node name="Label" type="Label" parent="GrabBox" unique_id=1305336113]
 offset_top = -128.0
 offset_right = 77.0
 offset_bottom = -105.0
 text = "...pick up?"
+script = ExtResource("3_w4302")
+metadata/_custom_type_script = "uid://carejsh7txaft"

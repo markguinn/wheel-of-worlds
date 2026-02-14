@@ -2,7 +2,7 @@ extends Node2D
 
 
 const ROTATION_FACTOR = 4.0
-const OBJECT_FACTOR = 70.0 # TODO: derive this from above using radius of wheel
+const OBJECT_FACTOR = 50.0 # TODO: derive this from above using radius of wheel
 const CAMERA_FACTOR = 0.05
 const MIN_ZOOM = 0.5
 const MAX_ZOOM = 1.0
