@@ -1005,7 +1005,7 @@ shape = SubResource("CapsuleShape2D_8afob")
 
 [node name="GroundDetector" type="RayCast2D" parent="." unique_id=1984008968]
 target_position = Vector2(0, 18)
-collision_mask = 5
+collision_mask = 21
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1171831929]
 libraries/ = SubResource("AnimationLibrary_75vfm")

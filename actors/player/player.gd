@@ -5,7 +5,10 @@ const SPEED = 300.0
 const JUMP_STRENGTH = 900.0
 const GRAVITY = 15.0
 const ROT_TWEEN = 0.2
-const PUSH_FORCE = 10.0
+const PUSH_FORCE = 10.0 # Vector2(3.0, 0.0)
+#const PUSH_FORCE = Vector2(3.0, 0.0)
+const PLANK_FORCE = Vector2(0.0, 0.8)
+const PLANK_BIAS = Vector2(0.0, 100.0)
 const COYOTE_TIME_MS = 100
 
 
@@ -27,7 +30,6 @@ enum State { idle, walk, jump, fall }
 
 @export var holding_hand: Node2D
 @export var resting_point: Node2D
-
 
 var state: State = State.idle
 var last_floor_touch: int
@@ -87,11 +89,25 @@ func _process(delta: float) -> void:
 	if anim_player.current_animation != ANIMS_BY_STATE[state]:
 		anim_player.play(ANIMS_BY_STATE[state], BLEND_TIME_BY_STATE[state])
 
+	var v := velocity
 	if move_and_slide():
+		# TODO: this is ugly. replace it with a more flexible system
+		# I tried a bunch of things here and they were all glitch and less fun than the original 
 		for i in range(get_slide_collision_count()):
 			var col = get_slide_collision(i)
-			if col.get_collider() is Orb:
-				col.get_collider().apply_force(col.get_normal() * -PUSH_FORCE)
+			var obj = col.get_collider()
+			if obj is Orb:
+				obj.apply_force(col.get_normal() * -PUSH_FORCE)
+				#if ground_detector.get_collider() != obj and sign(col.get_normal().x) != sign(v.x):
+					#var force := col.get_normal().abs() * v * PUSH_FORCE * delta
+					#print("force:", [force, col.get_normal().x, v.x])
+					#obj.apply_force(force, col.get_position() - obj.global_position)
+					#obj.apply_force(force)
+			if obj is Plank:
+				if v.y > 1.0:
+					var force := col.get_normal().abs() * v * PLANK_FORCE
+					print("force:", [force, col.get_normal().x, v.x])
+					obj.apply_impulse(force, col.get_position() - obj.global_position)
 	
 	if is_holding_prop:
 		_update_prop(delta)
