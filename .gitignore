@@ -2,7 +2,6 @@
 .godot/
 /android/
 export.cfg
-export_presets.cfg
 *.ossl
 *.pck
 *.zip
