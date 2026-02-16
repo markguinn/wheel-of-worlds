@@ -13,6 +13,7 @@ var can_hold: Player = null
 var is_holding: Player = null
 var label_offset: Vector2
 var starting_layer_mask: int
+var starting_layer: int
 
 
 @onready var label: Label = $Label

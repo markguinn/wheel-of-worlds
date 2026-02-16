@@ -21,7 +21,7 @@ radius = 100.0
 
 [node name="Stone" type="RigidBody2D" unique_id=838538367]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 23
 script = ExtResource("1_cki8f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1803141038]
