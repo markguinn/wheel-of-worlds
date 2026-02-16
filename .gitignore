@@ -7,5 +7,6 @@ export_presets.cfg
 *.pck
 *.zip
 *.tmp
-/export/
+/export/*
+!/export/.gitkeep
 .DS_Store
