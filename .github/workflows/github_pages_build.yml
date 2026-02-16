@@ -1,5 +1,5 @@
-name: Debug build
-run-name: Building github pages build
+name: Github Pages build
+run-name: Building and deploying to GitHub Pages
 on:
   push:
     branches: [main]
@@ -8,14 +8,12 @@ env:
   GODOT_CHANNEL: stable
   GODOT_PROJECT_LOCATION: project.godot
   WORKING_DIRECTORY: .
-  EXPORT_FOLDER_WEB: export
-
+  EXPORT_FOLDER_WEB: ./export
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
-
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
@@ -65,10 +63,10 @@ jobs:
         shell: bash
         run: godot --headless --path ${{ env.WORKING_DIRECTORY }} --export-release Web
 
-      - name: Upload artifact
+      - name: Upload artifact for deployment
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './export'
+          path: ${{ env.EXPORT_FOLDER_WEB }}
 
       - name: Deploy to GitHub Pages
         id: deployment
