@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://bbx2kb2li0f5s"]
 
+[ext_resource type="Script" uid="uid://c8pi532nmx254" path="res://common/file_label.gd" id="2_81buc"]
 [ext_resource type="Script" uid="uid://dwlqg5ma8i6be" path="res://common/scene_change_button.gd" id="2_gxoam"]
 
 [node name="TitleScreen" type="CanvasLayer" unique_id=1220633124]
 
-[node name="Label" type="Label" parent="." unique_id=1474112737]
+[node name="TitleLabel" type="Label" parent="." unique_id=1474112737]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.2
@@ -51,3 +52,19 @@ text = "The Wheel"
 script = ExtResource("2_gxoam")
 target_scene = "uid://b32q0e34faaed"
 is_primary = null
+
+[node name="VersionLabel" type="Label" parent="." unique_id=2059173511]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.5
+offset_top = -23.0
+offset_right = 35.5
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "dev build"
+script = ExtResource("2_81buc")
+file_path = "res://version.txt"

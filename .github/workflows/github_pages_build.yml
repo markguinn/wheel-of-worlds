@@ -75,6 +75,10 @@ jobs:
           rm -f Godot_v${{ env.GODOT_VERSION }}-${{ env.GODOT_CHANNEL }}_linux.x86_64.zip Godot_v${{ env.GODOT_VERSION }}-${{ env.GODOT_CHANNEL }}_export_templates.tpz
           mv ./Godot_v${{ env.GODOT_VERSION }}-${{ env.GODOT_CHANNEL }}_linux.x86_64 /usr/local/bin/godot
 
+      - name: Write version file
+        shell: bash
+        run: echo "dev build / ${GITHUB_SHA} / $(date)" > version.txt
+
       - name: Open project once to import assets in editor mode
         shell: bash
         continue-on-error: true # timeout will exit with code 124
