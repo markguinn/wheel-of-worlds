@@ -77,7 +77,7 @@ jobs:
 
       - name: Write version file
         shell: bash
-        run: echo "dev build / ${GITHUB_SHA} / $(date)" > version.txt
+        run: echo "dev $(head -c 7 <<< ${GITHUB_SHA}) / $(TZ=America/Los_Angeles date -Is)" > version.txt
 
       - name: Open project once to import assets in editor mode
         shell: bash
