@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dkqotn282b1im"]
 
 [ext_resource type="Script" uid="uid://chluslqty1lns" path="res://props/portal/portal.gd" id="1_j2ixl"]
-[ext_resource type="Script" uid="uid://carejsh7txaft" path="res://props/steady_label.gd" id="2_8cwj3"]
+[ext_resource type="Script" uid="uid://carejsh7txaft" path="res://common/steady_label.gd" id="2_8cwj3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fuw3p"]
 radius = 65.0

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://rdlq677coghs"]
 
 [ext_resource type="Script" uid="uid://cbx6wlfmu87ux" path="res://props/stone/stone.gd" id="1_cki8f"]
-[ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://props/grab_box.gd" id="2_34n21"]
-[ext_resource type="Script" uid="uid://carejsh7txaft" path="res://props/steady_label.gd" id="3_6iym6"]
+[ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://common/grab_box.gd" id="2_34n21"]
+[ext_resource type="Script" uid="uid://carejsh7txaft" path="res://common/steady_label.gd" id="3_6iym6"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_6iym6"]
 points = PackedVector2Array(-36, 32, 0, -32, 36, 32)

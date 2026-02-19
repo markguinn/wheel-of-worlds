@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dn6gswqjkyx14"]
 
 [ext_resource type="Script" uid="uid://cbx6wlfmu87ux" path="res://props/stone/stone.gd" id="1_wqvjq"]
-[ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://props/grab_box.gd" id="2_xndk2"]
-[ext_resource type="Script" uid="uid://carejsh7txaft" path="res://props/steady_label.gd" id="3_32iop"]
+[ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://common/grab_box.gd" id="2_xndk2"]
+[ext_resource type="Script" uid="uid://carejsh7txaft" path="res://common/steady_label.gd" id="3_32iop"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqvjq"]
 size = Vector2(64, 64)

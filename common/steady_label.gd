@@ -1,10 +1,13 @@
 class_name SteadyLabel
 extends Label
 
+########################################################
 ## A label that floats above its parent element even when the 
 ## parent rotates. Whatever offset from the parent it has when
 ## it comes in will be maintained and the label will appear to
 ## have a rotation of 0.
+########################################################
+
 
 var target_offset: Vector2
 

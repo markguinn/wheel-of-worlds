@@ -8,9 +8,9 @@ const CAMERA_FACTOR = 0.05
 const MIN_ZOOM = 0.5
 const MAX_ZOOM = 1.0
 
+
 var spin_velocity := 0.0
 var in_gravity := 0.0
-
 
 @onready var wheel_body: Node2D = $WheelTiles
 @onready var left_gravity: Area2D = $LeftGravity

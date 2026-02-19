@@ -4,6 +4,12 @@ extends Area2D
 signal picked_up
 signal put_down
 
+########################################################
+## Adding this to an Area2D attached to a RigidBody
+## will turn that body into something the player can
+## pick up.
+########################################################
+
 
 enum State { DISABLED, AVAILABLE, ACTIVE_CANDIDATE, HOLDING }
 
@@ -70,6 +76,8 @@ static func update_active_candidate() -> void:
 func _ready() -> void:
 	if not target_node:
 		target_node = get_parent()
+	if not self.get_collision_mask_value(2):
+		print("[GrabBox] WARNING: grab box will not detect the player on ", target_node.get_path())
 	target_node_collision_layer = target_node.collision_layer
 	label.hide()
 	body_entered.connect(_on_body_entered)

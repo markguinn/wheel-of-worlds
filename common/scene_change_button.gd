@@ -1,6 +1,11 @@
 class_name SceneChangeButton
 extends Button
 
+########################################################
+## A button that switches the current scene when pressed.
+## This can go to a stage or a UI scene.
+########################################################
+
 
 ## The scene that loads when the button is clicked
 @export_file("*.tscn") var target_scene: String

@@ -17,7 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Bert and the Wheel of Worlds"
 run/main_scene="uid://cmb0mj478j8hq"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="uid://url8qsld1aud"
+config/icon="uid://cbes0uptrr53g"
 
 [autoload]
 
