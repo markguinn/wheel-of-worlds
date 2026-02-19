@@ -1,4 +1,5 @@
-extends Node2D
+class_name WheelStage
+extends Stage
 
 
 const ROTATION_FACTOR = 4.0
@@ -14,7 +15,6 @@ var in_gravity := 0.0
 @onready var wheel_body: Node2D = $WheelTiles
 @onready var left_gravity: Area2D = $LeftGravity
 @onready var right_gravity: Area2D = $RightGravity
-@onready var player: Player = $Player
 @onready var orb: Orb = $Orb
 
 
@@ -25,7 +25,7 @@ func _ready() -> void:
 	right_gravity.body_exited.connect(_on_exit_gravity)
 
 
-func init_player(portal: Node2D) -> void:
+func init_player_at_portal(portal: Node2D) -> void:
 	var rot = player.position.normalized().angle() + PI / 2.0
 	wheel_body.rotation = rot
 	player.global_position = portal.global_position

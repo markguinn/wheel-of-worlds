@@ -5,6 +5,18 @@ signal persisted_state_changed(node: Node)
 
 var last_pos: Vector2
 var last_rot: float
+var start_pos: Vector2
+var start_rot: float
+
+func _ready() -> void:
+	start_pos = position
+	start_rot = rotation
+
+
+func reset_after_fall() -> void:
+	# TODO: make a fun animation
+	position = start_pos
+	rotation = start_rot
 
 
 func get_persisted_state() -> Dictionary:

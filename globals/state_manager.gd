@@ -28,13 +28,16 @@ func manage_node(node: Node, key: String, parent_key = "") -> void:
 		print("[StateManager] managing node: ", [key, parent_key, data[key]])
 
 
-func manage_scene(scene_path: String) -> void:
+func manage_scene(scene_instance: Node, scene_key: String, params: Dictionary) -> void:
 	if not get_tree():
 		return
 	if LOG_ENABLED:
-		print("[StateManager] managing scene: ", scene_path)
+		print("[StateManager] managing scene: ", scene_key)
 	for node in get_tree().get_nodes_in_group("persisted"):
-		manage_node(node, node.get_path(), scene_path)
+		if scene_instance.is_ancestor_of(node):
+			manage_node(node, node.get_path(), scene_key)
+	if scene_instance.has_method("init_with_state"):
+		scene_instance.init_with_state(_get_dict(scene_key), params)
 
 
 func has_key(key: String, parent_key = "") -> bool:

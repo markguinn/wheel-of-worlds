@@ -8,7 +8,7 @@ const ROT_TWEEN = 0.2
 const PUSH_FORCE = 10.0 # Vector2(3.0, 0.0)
 #const PUSH_FORCE = Vector2(3.0, 0.0)
 const PLANK_FORCE = Vector2(0.0, 0.8)
-const PLANK_BIAS = Vector2(0.0, 100.0)
+#const PLANK_BIAS = Vector2(0.0, 100.0)
 const COYOTE_TIME_MS = 100
 
 
@@ -18,6 +18,7 @@ const ANIMS_BY_STATE = {
 	State.jump: "jump",
 	State.fall: "fall",
 }
+
 const BLEND_TIME_BY_STATE = {
 	State.idle: 0.4,
 	State.walk: 0.1,
@@ -35,6 +36,7 @@ var state: State = State.idle
 var last_floor_touch: int
 var is_holding_prop: Node2D = null
 var active_grab_box: GrabBox = null
+var start_pos: Vector2
 
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Node2D = $Sprite
@@ -44,6 +46,11 @@ var active_grab_box: GrabBox = null
 
 func _ready() -> void:
 	anim_player.play("idle")
+	start_pos = position
+
+
+func reset_after_fall() -> void:
+	position = start_pos
 
 
 func _in_coyote_window() -> bool:
@@ -111,6 +118,8 @@ func _process(delta: float) -> void:
 	
 	if is_holding_prop:
 		_update_prop(delta)
+	elif velocity != Vector2.ZERO:
+		GrabBox.update_active_candidate()
 
 
 # TODO: trigger a pickup animation?

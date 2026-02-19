@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://nujivjavdosd"]
 
 [ext_resource type="Texture2D" uid="uid://cg1ijisjgp16e" path="res://stages/world1/art/temp-bg-far.png" id="1_a71q3"]
+[ext_resource type="Script" uid="uid://bxxbctnq2ubio" path="res://stages/stage.gd" id="1_owuco"]
 [ext_resource type="Texture2D" uid="uid://wnh0mpcgrkhq" path="res://stages/world1/art/tiles2.png" id="2_a8vjp"]
 [ext_resource type="PackedScene" uid="uid://b85khgplioksi" path="res://actors/player/player.tscn" id="2_a71q3"]
 [ext_resource type="Texture2D" uid="uid://cxw2lb6tv0a8s" path="res://stages/world1/art/temp-bg-mid.png" id="2_coegi"]
@@ -492,6 +493,7 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_a71q3")
 
 [node name="World1" type="Node2D" unique_id=2094321631]
+script = ExtResource("1_owuco")
 
 [node name="ParallaxBGFar" type="Parallax2D" parent="." unique_id=627006989]
 scroll_scale = Vector2(0, 0)
@@ -542,7 +544,6 @@ expand_mode = 5
 stretch_mode = 1
 
 [node name="ParallaxFG" type="Parallax2D" parent="." unique_id=1262448611]
-visible = false
 z_index = 50
 scroll_scale = Vector2(2, 0.8)
 repeat_size = Vector2(2000, 0)

@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://props/grab_box.gd" id="2_34n21"]
 [ext_resource type="Script" uid="uid://carejsh7txaft" path="res://props/steady_label.gd" id="3_6iym6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cki8f"]
-size = Vector2(64, 64)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_6iym6"]
+points = PackedVector2Array(-36, 32, 0, -32, 36, 32)
 
 [sub_resource type="Gradient" id="Gradient_cki8f"]
 offsets = PackedFloat32Array(0.42564103, 0.83589745)
@@ -25,10 +25,16 @@ collision_mask = 23
 script = ExtResource("1_cki8f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1803141038]
-shape = SubResource("RectangleShape2D_cki8f")
+shape = SubResource("ConvexPolygonShape2D_6iym6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=842565659]
+visible = false
 texture = SubResource("GradientTexture2D_34n21")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=50576003]
+color = Color(0.04755766, 0.047557645, 0.047557645, 1)
+polygon = PackedVector2Array(-36, 32, 0, -32, 36, 32)
+uv = PackedVector2Array(-43.5, 39.5, 5, -35, 59, 29.5)
 
 [node name="GrabBox" type="Area2D" parent="." unique_id=1924670030]
 collision_layer = 0

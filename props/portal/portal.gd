@@ -53,4 +53,4 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and _can_enter():
 		get_viewport().set_input_as_handled()
-		GameManager.change_scene.call_deferred(linked_stage, true, target_portal)
+		GameManager.change_scene.call_deferred(linked_stage, {"target_portal": target_portal})
