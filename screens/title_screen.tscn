@@ -1,9 +1,95 @@
 [gd_scene format=3 uid="uid://bbx2kb2li0f5s"]
 
+[ext_resource type="Texture2D" uid="uid://cg1ijisjgp16e" path="res://stages/world1/art/temp-bg-far.png" id="1_cjojn"]
 [ext_resource type="Script" uid="uid://c8pi532nmx254" path="res://common/file_label.gd" id="2_81buc"]
 [ext_resource type="Script" uid="uid://dwlqg5ma8i6be" path="res://common/scene_change_button.gd" id="2_gxoam"]
+[ext_resource type="Texture2D" uid="uid://g28bty4q48nr" path="res://stages/world1/art/temp-bg-near.png" id="2_txg6x"]
+[ext_resource type="Texture2D" uid="uid://cgsnvvnnwwlo1" path="res://stages/world1/art/temp-foreground.png" id="3_7jf2m"]
+
+[sub_resource type="Animation" id="Animation_cjojn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-96, -21)]
+}
+
+[sub_resource type="Animation" id="Animation_txg6x"]
+resource_name = "idle"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.0666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-7, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect3:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.1666667, 6.8333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-96, -21), Vector2(-35, -11)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7jf2m"]
+_data = {
+&"RESET": SubResource("Animation_cjojn"),
+&"idle": SubResource("Animation_txg6x")
+}
 
 [node name="TitleScreen" type="CanvasLayer" unique_id=1220633124]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=851863605]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_cjojn")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1016047337]
+offset_right = 2100.0
+offset_bottom = 1500.0
+texture = ExtResource("2_txg6x")
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=893808402]
+offset_left = -96.0
+offset_top = -21.0
+offset_right = 2004.0
+offset_bottom = 1479.0
+texture = ExtResource("3_7jf2m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=852756476]
+libraries/ = SubResource("AnimationLibrary_7jf2m")
+autoplay = &"idle"
 
 [node name="TitleLabel" type="Label" parent="." unique_id=1474112737]
 anchors_preset = -1
