@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cxw2lb6tv0a8s" path="res://stages/world1/art/temp-bg-mid.png" id="2_coegi"]
 [ext_resource type="PackedScene" uid="uid://cq30ppa4eh5d3" path="res://props/orb/orb.tscn" id="3_a8vjp"]
 [ext_resource type="Texture2D" uid="uid://g28bty4q48nr" path="res://stages/world1/art/temp-bg-near.png" id="3_coegi"]
-[ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://props/portal/portal.tscn" id="4_coegi"]
+[ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="4_coegi"]
 [ext_resource type="Texture2D" uid="uid://cgsnvvnnwwlo1" path="res://stages/world1/art/temp-foreground.png" id="4_rbu2t"]
 [ext_resource type="PackedScene" uid="uid://cpmxxndn8n308" path="res://props/plank/plank.tscn" id="9_5nduw"]
 

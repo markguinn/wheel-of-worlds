@@ -119,7 +119,7 @@ func _process(delta: float) -> void:
 	if is_holding_prop:
 		_update_prop(delta)
 	elif velocity != Vector2.ZERO:
-		GrabBox.update_active_candidate()
+		GrabBoxManager.update_active_candidate()
 
 
 # TODO: trigger a pickup animation?

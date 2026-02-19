@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://68x22xaudf43" path="res://stages/wheel/wheel.gd" id="1_slp1w"]
 [ext_resource type="PackedScene" uid="uid://b85khgplioksi" path="res://actors/player/player.tscn" id="2_slp1w"]
 [ext_resource type="PackedScene" uid="uid://cq30ppa4eh5d3" path="res://props/orb/orb.tscn" id="3_qmu1q"]
-[ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://props/portal/portal.tscn" id="4_fjyco"]
+[ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="4_fjyco"]
 
 [sub_resource type="Gradient" id="Gradient_4eaw5"]
 offsets = PackedFloat32Array(0.0076923077, 1)

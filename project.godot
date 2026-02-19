@@ -23,6 +23,7 @@ config/icon="uid://cbes0uptrr53g"
 
 GameManager="*res://globals/game_manager.gd"
 StateManager="*uid://1wumj61m8a4e"
+GrabBoxManager="*uid://clgun121kw42n"
 
 [display]
 

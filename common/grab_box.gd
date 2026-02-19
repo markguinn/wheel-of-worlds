@@ -24,55 +24,6 @@ var target_node_collision_layer: int
 @onready var label: Label = $Label
 
 
-##########################################################
-# Globally manage props that could be picked up
-# but only make the closest one available. 
-
-
-static var candidates_for_holding: Array[GrabBox] = []
-
-
-static func add_candidate(obj: GrabBox) -> void:
-	if not candidates_for_holding.has(obj):
-		candidates_for_holding.append(obj)
-		update_active_candidate()
-
-
-static func remove_candidate(obj: GrabBox) -> void:
-	if candidates_for_holding.has(obj):
-		if obj.state == State.ACTIVE_CANDIDATE:
-			obj._release_active_candidate()
-		candidates_for_holding.erase(obj)
-		update_active_candidate()
-
-
-static func update_active_candidate() -> void:
-	var player: Player = GameManager.get_player()
-	if candidates_for_holding.size() == 0 or player.is_holding_prop:
-		return
-
-	var cur_active: GrabBox = null
-	var next_active: GrabBox = null
-	var min_dist: float = 1_000_000.0 # TODO: use constant when i have internet again
-	for obj in candidates_for_holding:
-		var my_dist = obj.target_node.global_position.distance_squared_to(player.global_position)
-		if my_dist < min_dist:
-			next_active = obj
-		if obj.state == State.ACTIVE_CANDIDATE:
-			cur_active = obj
-
-	if cur_active != next_active:
-		if cur_active:
-			cur_active._release_active_candidate()
-		if next_active:
-			next_active._become_active_candidate()
-
-
-################################################################
-# Locally manage when this prop comes in range and when it's picked
-# up. Some of this might move to the player (especially the input?)
-
-
 func _ready() -> void:
 	if not target_node:
 		target_node = get_parent()
@@ -88,12 +39,12 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		add_candidate(self)
+		GrabBoxManager.add_candidate(self)
 
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player:
-		remove_candidate(self)
+		GrabBoxManager.remove_candidate(self)
 
 
 func _input(event: InputEvent):
