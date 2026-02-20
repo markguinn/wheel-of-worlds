@@ -3,14 +3,14 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_STRENGTH = 900.0
-const GRAVITY = 15.0
+const GRAVIY_MULTIPLIER = 1.8
 const ROT_TWEEN = 0.2
-const PUSH_FORCE = 10.0 # Vector2(3.0, 0.0)
-#const PUSH_FORCE = Vector2(3.0, 0.0)
-const PLANK_FORCE = Vector2(0.0, 0.8)
-#const PLANK_BIAS = Vector2(0.0, 100.0)
+const PUSH_FORCE = 10.0 # Applied to the orb
+const PLANK_FORCE = Vector2(0.2, 0.6) # Applied to the plank
 const COYOTE_TIME_MS = 100
 
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 const ANIMS_BY_STATE = {
 	State.idle: "idle",
@@ -87,7 +87,7 @@ func _process(delta: float) -> void:
 		else:
 			state = State.idle
 	elif state == State.jump or state == State.fall or not _in_coyote_window():
-		velocity.y -= up_direction.y * GRAVITY
+		velocity.y -= up_direction.y * gravity * GRAVIY_MULTIPLIER * delta
 		if velocity.y < 0:
 			state = State.jump
 		else:
@@ -113,7 +113,7 @@ func _process(delta: float) -> void:
 			if obj is Plank:
 				if v.y > 1.0:
 					var force := col.get_normal().abs() * v * PLANK_FORCE
-					print("force:", [force, col.get_normal().x, v.x])
+					#print("force:", [force, col.get_normal().x, v.x])
 					obj.apply_impulse(force, col.get_position() - obj.global_position)
 	
 	if is_holding_prop:
