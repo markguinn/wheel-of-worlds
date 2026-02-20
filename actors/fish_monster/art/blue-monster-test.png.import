@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmuoqja5iadj8"
-path="res://.godot/imported/Untitled_Artwork.png-c9ebf630013aaf861f2b0334e0670082.ctex"
+uid="uid://ddh3of4qnwhyn"
+path="res://.godot/imported/blue-monster-test.png-81cbfb531f239f98745061bc6df0e0c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_source_assets/art/Untitled_Artwork.png"
-dest_files=["res://.godot/imported/Untitled_Artwork.png-c9ebf630013aaf861f2b0334e0670082.ctex"]
+source_file="res://actors/fish_monster/art/blue-monster-test.png"
+dest_files=["res://.godot/imported/blue-monster-test.png-81cbfb531f239f98745061bc6df0e0c4.ctex"]
 
 [params]
 

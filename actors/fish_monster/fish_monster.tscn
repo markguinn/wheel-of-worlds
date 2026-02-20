@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://n0yb8g02gr8b"]
+
+[ext_resource type="Script" uid="uid://c5n8o372gfmft" path="res://actors/fish_monster/fish_monster.gd" id="1_7b7uw"]
+[ext_resource type="Texture2D" uid="uid://ddh3of4qnwhyn" path="res://actors/fish_monster/art/blue-monster-test.png" id="1_8t8ag"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8t8ag"]
+radius = 90.0
+height = 470.0
+
+[node name="FishMonster" type="RigidBody2D" unique_id=1857891672]
+z_index = 100
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_7b7uw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2050835415]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_8t8ag")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=240524648]
+position = Vector2(51, 53)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_8t8ag")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1226011668]
+collision_layer = 8
+collision_mask = 54
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=409700252]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_8t8ag")
+debug_color = Color(0.95767456, 0.20083219, 0.13908029, 0.41960785)
