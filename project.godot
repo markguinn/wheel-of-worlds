@@ -19,11 +19,16 @@ run/main_scene="uid://cmb0mj478j8hq"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://cbes0uptrr53g"
 
+[audio]
+
+buses/default_bus_layout="uid://bxeygrg1rwug6"
+
 [autoload]
 
 GameManager="*res://globals/game_manager.gd"
 StateManager="*uid://1wumj61m8a4e"
 GrabBoxManager="*uid://clgun121kw42n"
+AudioManager="*uid://dl6qiwmawjdvr"
 
 [display]
 
