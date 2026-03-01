@@ -164,6 +164,7 @@ graph_offset = Vector2(-135.62991, -81.232506)
 script = ExtResource("1_j2ixl")
 
 [node name="TargetArea" type="Area2D" parent="." unique_id=87727293]
+visible = false
 collision_layer = 0
 collision_mask = 18
 
@@ -185,6 +186,7 @@ advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="Label" type="Label" parent="." unique_id=535447298]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

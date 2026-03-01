@@ -1,6 +1,12 @@
 extends Node
 
+########################################################
+# This is the spot for things that orchestrate game play
+# outside of a single stage or screen
+########################################################
 
+
+# Returns the parent node for the active screen or stage
 func get_container() -> Node2D:
 	return get_tree().get_first_node_in_group("scene_container")
 

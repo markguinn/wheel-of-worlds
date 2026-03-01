@@ -7,6 +7,7 @@ extends Label
 ##########################################################
 
 
+## Path to the file that will define this label's text if present
 @export_file("*.txt") var file_path: String
 
 

@@ -2,8 +2,11 @@ extends Node
 
 
 ##########################################################
-# Globally manage props that could be picked up
-# but only make the closest one available. 
+# Globally manage objects that could be picked up
+# but only one at a time. So each prop knows if it is a
+# candidate for pickup, but only the closest one actually
+# responds to the interaction.
+##########################################################
 
 
 var candidates_for_holding: Array[GrabBox] = []

@@ -1,5 +1,12 @@
 extends Node
 
+########################################################
+# Handles node state that needs to survive changing scenes.
+# We're not really tracking health or score or inventory so it
+# may not be needed for the player. But for props, we need to
+# keep them in the same place when you're coming and going.
+########################################################
+
 # player
 	# field1 => val1
 	# field2 => val2

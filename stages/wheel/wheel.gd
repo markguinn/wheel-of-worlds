@@ -2,8 +2,12 @@ class_name WheelStage
 extends Stage
 
 
+# converts spin_velocity into degrees per second
 const ROTATION_FACTOR = 4.0
-const OBJECT_FACTOR = 50.0 # TODO: derive this from above using radius of wheel
+# converts spin_velocity into pixels per second of player movement
+# this needs to match ROTATION_FACTOR such that it looks like you're moving with the wheel
+# TODO: we can probably derive this from above using radius of wheel
+const OBJECT_FACTOR = 50.0 
 const CAMERA_FACTOR = 0.05
 const MIN_ZOOM = 0.5
 const MAX_ZOOM = 1.0
@@ -12,10 +16,13 @@ const MAX_ZOOM = 1.0
 var spin_velocity := 0.0
 var in_gravity := 0.0
 
+@onready var orb: Orb = $Orb
 @onready var wheel_body: Node2D = $WheelTiles
+# We're sort of forcing the physics here with two area2d's.
+# If you enter one, it starts rotating the wheel and moving you until you're back in the middle.
+# I think that will be less glitchy than using a rigidbody and force/impule.
 @onready var left_gravity: Area2D = $LeftGravity
 @onready var right_gravity: Area2D = $RightGravity
-@onready var orb: Orb = $Orb
 
 
 func _ready() -> void:
@@ -26,7 +33,8 @@ func _ready() -> void:
 
 
 func init_player_at_portal(portal: Node2D) -> void:
-	var rot = player.position.normalized().angle() + PI / 2.0
+	var player := GameManager.get_player()
+	var rot := player.position.normalized().angle() + PI / 2.0
 	wheel_body.rotation = rot
 	player.global_position = portal.global_position
 	orb.global_position = player.global_position + Vector2(128, 0)

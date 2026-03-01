@@ -13,6 +13,7 @@ signal put_down
 
 enum State { DISABLED, AVAILABLE, ACTIVE_CANDIDATE, HOLDING }
 
+
 ## Starting state
 @export var state := State.AVAILABLE
 

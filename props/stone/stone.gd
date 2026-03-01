@@ -3,10 +3,12 @@ extends RigidBody2D
 
 signal persisted_state_changed(node: Node)
 
+
 var last_pos: Vector2
 var last_rot: float
 var start_pos: Vector2
 var start_rot: float
+
 
 func _ready() -> void:
 	start_pos = position
