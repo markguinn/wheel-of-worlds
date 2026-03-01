@@ -2,6 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://bql6g47of7osy" path="res://stages/world1/art/test_tiles.tres" id="1_4eaw5"]
 [ext_resource type="Script" uid="uid://bxxbctnq2ubio" path="res://stages/stage.gd" id="1_5t46c"]
+[ext_resource type="Script" uid="uid://pqhkda8683a4" path="res://common/music_zone.gd" id="2_cokg4"]
 [ext_resource type="PackedScene" uid="uid://b85khgplioksi" path="res://actors/player/player.tscn" id="2_tsxbn"]
 [ext_resource type="PackedScene" uid="uid://cq30ppa4eh5d3" path="res://props/orb/orb.tscn" id="3_31a7b"]
 [ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="4_tmikp"]
@@ -17,6 +18,12 @@ colors = PackedColorArray(0.7919991, 0.79199916, 0.7919991, 1, 0.5951543, 0.5951
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tsxbn"]
 gradient = SubResource("Gradient_83wlx")
 fill_to = Vector2(0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xakyt"]
+radius = 970.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cokg4"]
+radius = 1210.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_boxlk"]
 size = Vector2(451, 1373)
@@ -36,6 +43,28 @@ offset_right = 1157.0
 offset_bottom = 658.0
 texture = SubResource("GradientTexture2D_tsxbn")
 metadata/_edit_use_anchors_ = true
+
+[node name="PuzzleMusic" type="Area2D" parent="." unique_id=29023726]
+position = Vector2(1610, 227)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_cokg4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleMusic" unique_id=2100498643]
+shape = SubResource("CircleShape2D_xakyt")
+debug_color = Color(0.6825967, 0.502751, 0.0007993555, 0.41960785)
+
+[node name="ChaseMusicZone" type="Area2D" parent="." unique_id=1196966716]
+position = Vector2(4079, 569)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_cokg4")
+intensity = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseMusicZone" unique_id=1410942706]
+position = Vector2(-222, 105)
+shape = SubResource("CircleShape2D_cokg4")
+debug_color = Color(0.6825967, 0.502751, 0.0007993555, 0.41960785)
 
 [node name="Platforms" type="TileMapLayer" parent="." unique_id=1762748484]
 scale = Vector2(3, 3)

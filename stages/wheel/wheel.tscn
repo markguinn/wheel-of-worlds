@@ -21,6 +21,7 @@ size = Vector2(1400, 2400)
 
 [node name="WheelWorld" type="Node2D" unique_id=1658201799]
 script = ExtResource("1_slp1w")
+music_type = "wheel"
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1620192141]
 scroll_scale = Vector2(0, 0)
