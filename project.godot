@@ -29,6 +29,7 @@ GameManager="*res://globals/game_manager.gd"
 StateManager="*uid://1wumj61m8a4e"
 GrabBoxManager="*uid://clgun121kw42n"
 AudioManager="*uid://dl6qiwmawjdvr"
+VFX="*uid://jmlethaw3ljf"
 
 [display]
 
@@ -41,6 +42,7 @@ player=""
 persisted=""
 portals=""
 background_music=""
+world_environment=""
 
 [gui]
 
@@ -118,3 +120,4 @@ swap_right={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

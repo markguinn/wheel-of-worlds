@@ -6,6 +6,14 @@
 [ext_resource type="AudioStream" uid="uid://bflttih4i7ucd" path="res://_temp_replace_me_please/temp-layer3b.mp3" id="4_7mycd"]
 [ext_resource type="AudioStream" uid="uid://b50w8ka84lngi" path="res://_temp_replace_me_please/temp-wheel.mp3" id="5_lquwl"]
 
+[sub_resource type="Environment" id="Environment_lquwl"]
+background_mode = 3
+ambient_light_source = 1
+reflected_light_source = 1
+glow_enabled = true
+glow_intensity = 0.5
+adjustment_enabled = true
+
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_272bh"]
 clip_count = 4
 clip_0/name = &"exploring-1"
@@ -175,6 +183,9 @@ Vector2i(3, 3): {
 }
 
 [node name="Main" type="Node2D" unique_id=1319895979]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=725012286 groups=["world_environment"]]
+environment = SubResource("Environment_lquwl")
 
 [node name="Container" type="Node2D" parent="." unique_id=1880419414 groups=["scene_container"]]
 

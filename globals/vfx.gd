@@ -1,0 +1,144 @@
+extends Node
+
+#################################################################
+# Global VFX (screenshake etc) and shared constants.
+# Common utility methods are also welcome here.
+#################################################################
+
+const SHAKE_SPEED = 1.0
+const STRENGTH_MULTIPLIER = 16.0 # convert 1.0 strength to pixels
+
+# Intensity constants
+const QUAKE = 1.0
+const TREMOR = 0.5
+
+# Timing constants
+const SHORT = 0.3
+const MID = 0.7
+const LONG = 1.0
+const EXTENDED = 2.0
+
+# Types of screen flash. See "flash" method below for details.
+enum Flash { NONE, NEUTRAL, LIGHT, DARK, STARK, BLAND }
+
+
+@onready var noise := FastNoiseLite.new()
+var shake_strength: float = 0.0
+var shake_decay: float = 1.0
+var flash_tween: Tween
+
+
+## Timesaver for shake + flash. Use flash_intensity_ratio if you want a stronger shake than flash.
+func hit(seconds = MID, intensity = QUAKE, flash_type = Flash.NEUTRAL, flash_intensity_ratio = 1.0, controller_shake = true) -> void:
+	shake(seconds, intensity, controller_shake)
+	if flash_type != Flash.NONE:
+		flash(seconds, intensity * flash_intensity_ratio, flash_type)
+
+
+## Screen shake with optional controller shake
+func shake(seconds = MID, intensity = QUAKE, controller_shake = true) -> void:
+	var new_strength = intensity * STRENGTH_MULTIPLIER
+	if new_strength <= shake_strength or seconds <= 0.0:
+		return
+	shake_strength = new_strength
+	shake_decay = new_strength / seconds
+
+	var weak_vibes := 0.0
+	var strong_vibes := 0.0
+	if intensity > TREMOR:
+		strong_vibes = clampf((intensity - 0.5) * 2.0, 0.0, 1.0)
+	else:
+		weak_vibes = clampf(intensity * 2.0, 0.0, 1.0)
+	if controller_shake:
+		Input.start_joy_vibration(0, weak_vibes, strong_vibes, seconds)
+
+
+## Screen flash only
+## NEUTRAL is only bloom. 
+## LIGHT/DARK adds brightness.
+## STARK and BLAND add saturation as well.
+## We'll probably need to tweak these as the real art and lighting evolves.
+func flash(seconds = MID, intensity = QUAKE, type = Flash.NEUTRAL) ->void:
+	var env := _get_world_env()
+	if env and type != Flash.NONE:
+		if flash_tween and flash_tween.is_running():
+			flash_tween.stop()
+		flash_tween = create_tween()
+		flash_tween.set_ease(Tween.EASE_IN)
+		flash_tween.set_parallel(true)
+		env.environment.glow_bloom = intensity
+		match type:
+			Flash.LIGHT:
+				env.environment.adjustment_brightness = 1.0 + 2.0 * intensity
+			Flash.DARK:
+				env.environment.glow_bloom = 0.0 # bloom doesn't look nice with this one
+				env.environment.adjustment_brightness = 1.0 - intensity * 1.2
+			Flash.STARK:
+				env.environment.adjustment_contrast = 1.0 + intensity * 0.5
+				env.environment.adjustment_saturation = 1.0 + intensity * 5.0
+			Flash.BLAND:
+				env.environment.adjustment_saturation = 1.0 - intensity
+		flash_tween.tween_property(env.environment, "glow_bloom", 0.0, seconds)
+		flash_tween.tween_property(env.environment, "adjustment_brightness", 1.0, seconds)
+		flash_tween.tween_property(env.environment, "adjustment_contrast", 1.0, seconds)
+		flash_tween.tween_property(env.environment, "adjustment_saturation", 1.0, seconds)
+
+
+## Fade the whole screen or a single node in or out
+# TODO: this doesn't actually fade the title screen in and out, which is weird
+# It's because it's a canvas layer, which isn't affected by the modulate on the container or the root node
+# and doesn't have a modulate property of its own.
+func fade(seconds = MID, node = null, to_color = Color.TRANSPARENT) -> Tween:
+	if not node:
+		node = GameManager.get_container().get_parent()
+	var tween = node.create_tween()
+	tween.set_ease(Tween.EASE_IN)
+	tween.tween_property(node, "modulate", to_color, seconds)
+	return tween
+
+
+## Fade a given node to transparency or fade the whole screen to black
+func fade_out(seconds = MID, node = null) -> Tween:
+	return fade(seconds, node, Color.TRANSPARENT if node else Color.BLACK)
+
+
+## Fade a given node (or the whole screen) from its current modulate value to white
+func fade_in(seconds = MID, node = null):
+	return fade(seconds, node, Color.WHITE)
+
+
+func _get_world_env() -> WorldEnvironment:
+	return get_tree().get_first_node_in_group("world_environment")
+
+
+func _process(delta: float) -> void:
+	var cam = get_viewport().get_camera_2d()
+	if not cam: return
+	if shake_strength > 0.0:
+		shake_strength = move_toward(shake_strength, 0.0, shake_decay * delta)
+		var noise_idx := Time.get_ticks_msec() * SHAKE_SPEED
+		var shake_offset := Vector2(
+			noise.get_noise_2d(1, noise_idx),
+			noise.get_noise_2d(100, noise_idx),
+		)
+		cam.offset = shake_offset * shake_strength
+
+
+# This is just for testing. We should remove it before release
+func _input(event: InputEvent) -> void:
+	if GameManager.DEV_MODE and event is InputEventKey and event.pressed and not event.is_echo():
+		match event.physical_keycode:
+			KEY_1:
+				shake(SHORT, TREMOR)
+			KEY_2:
+				hit(LONG, QUAKE, Flash.NEUTRAL)
+			KEY_3:
+				hit(LONG, QUAKE, Flash.LIGHT)
+			KEY_4:
+				hit(LONG, QUAKE, Flash.DARK)
+			KEY_5:
+				hit(LONG, QUAKE, Flash.STARK)
+			KEY_6:
+				hit(LONG, QUAKE, Flash.BLAND)
+			KEY_7:
+				flash(MID, MID, Flash.NEUTRAL)
