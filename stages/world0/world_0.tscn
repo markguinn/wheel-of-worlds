@@ -137,3 +137,46 @@ shape = SubResource("RectangleShape2D_xakyt")
 [node name="FishMonster" parent="FishTerritory" unique_id=599123084 instance=ExtResource("10_xakyt")]
 position = Vector2(1192, -970)
 jump_y_max = 1790.0
+
+[node name="Tutorial - movement" type="Label" parent="." unique_id=664178008]
+offset_left = -230.0
+offset_top = 596.0
+offset_right = -36.0
+offset_bottom = 645.0
+text = "Arrows or WASD to move
+SPACEBAR to jump"
+
+[node name="Tutorial - push" type="Label" parent="." unique_id=312992981]
+offset_left = -1237.0
+offset_top = 592.0
+offset_right = -1043.0
+offset_bottom = 641.0
+text = "Push me..."
+
+[node name="Tutorial - hint 1" type="Label" parent="." unique_id=1155930642]
+offset_left = 956.0
+offset_top = 215.0
+offset_right = 1150.0
+offset_bottom = 264.0
+text = "Hint: bring a friend..."
+
+[node name="Tutorial - jump" type="Label" parent="." unique_id=634532999]
+offset_left = 1550.0
+offset_top = 295.0
+offset_right = 1744.0
+offset_bottom = 344.0
+text = "Danger! "
+
+[node name="Tutorial - hint 2" type="Label" parent="." unique_id=1377871802]
+offset_left = 4852.0
+offset_top = 916.0
+offset_right = 5046.0
+offset_bottom = 965.0
+text = "Up here!"
+
+[node name="Tutorial - goal" type="Label" parent="." unique_id=60848654]
+offset_left = 5579.0
+offset_top = 496.0
+offset_right = 5773.0
+offset_bottom = 545.0
+text = "You made it!"
