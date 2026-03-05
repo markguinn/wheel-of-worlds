@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://bbq81ngylpi8h"]
+
+[ext_resource type="Script" uid="uid://bx63s05emcisp" path="res://common/shadow_blob.gd" id="1_sf7u1"]
+[ext_resource type="Script" uid="uid://ndxq88baykfk" path="res://common/shadow_probe.gd" id="2_ajmar"]
+
+[sub_resource type="Gradient" id="Gradient_sf7u1"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mx6et"]
+gradient = SubResource("Gradient_sf7u1")
+width = 1
+height = 1
+fill = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sf7u1"]
+light_mode = 1
+
+[node name="ShadowBlob" type="Node2D" unique_id=1434955370 node_paths=PackedStringArray("point_probes", "test_probes", "line")]
+z_index = 10
+script = ExtResource("1_sf7u1")
+point_probes = [NodePath("ShadowProbe"), NodePath("ShadowProbe2"), NodePath("ShadowProbe3"), NodePath("ShadowProbe4"), NodePath("ShadowProbe5")]
+test_probes = [NodePath("ShadowProbe6"), NodePath("ShadowProbe7"), NodePath("ShadowProbe8"), NodePath("ShadowProbe9"), NodePath("ShadowProbe10")]
+line = NodePath("DebugLine")
+debug_image_clear = 0.005
+
+[node name="ShadowProbe" type="Sprite2D" parent="." unique_id=1465923522]
+top_level = true
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="ShadowProbe2" type="Sprite2D" parent="." unique_id=1438009755]
+top_level = true
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="ShadowProbe3" type="Sprite2D" parent="." unique_id=1095487151]
+top_level = true
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="ShadowProbe4" type="Sprite2D" parent="." unique_id=1687954975]
+top_level = true
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="ShadowProbe5" type="Sprite2D" parent="." unique_id=123484342]
+top_level = true
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="ShadowProbe6" type="Sprite2D" parent="." unique_id=1897191302]
+top_level = true
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="ShadowProbe7" type="Sprite2D" parent="." unique_id=1729622268]
+top_level = true
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="ShadowProbe8" type="Sprite2D" parent="." unique_id=1649470297]
+top_level = true
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="ShadowProbe9" type="Sprite2D" parent="." unique_id=1409680951]
+top_level = true
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="ShadowProbe10" type="Sprite2D" parent="." unique_id=95868239]
+top_level = true
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="CenterProbe" type="Sprite2D" parent="." unique_id=1392079960]
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="DebugLine" type="Line2D" parent="." unique_id=33639866]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+closed = true
+default_color = Color(0.31, 0.31, 0.31, 0.39215687)
+
+[node name="DebugLine2" type="Line2D" parent="." unique_id=96756594]
+visible = false
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+closed = true
+default_color = Color(0.9655, 1, 0.77, 0.39215687)
+
+[node name="DebugSprite" type="Sprite2D" parent="." unique_id=861191880]
+modulate = Color(1, 1, 1, 0.50980395)
+z_index = 100
+material = SubResource("CanvasItemMaterial_sf7u1")
+position = Vector2(512, 0)
+scale = Vector2(-0.595, -0.595)
