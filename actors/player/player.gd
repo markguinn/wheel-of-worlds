@@ -18,6 +18,7 @@ const ANIMS_BY_STATE = {
 	State.walk: "walk",
 	State.jump: "jump",
 	State.fall: "fall",
+	State.ragdolling: "idle",
 }
 
 const BLEND_TIME_BY_STATE = {
@@ -25,6 +26,7 @@ const BLEND_TIME_BY_STATE = {
 	State.walk: 0.1,
 	State.jump: 0.1,
 	State.fall: 0.4,
+	State.ragdolling: 0.4,
 }
 
 enum State { idle, walk, jump, fall, ragdolling }
@@ -61,16 +63,28 @@ func set_ragdoll(val: bool) -> void:
 		return
 	ragdoll = val
 	if ragdoll:
+		last_rd_move = Time.get_ticks_msec()
 		state = State.ragdolling
 		$Sprite/Ragdoll/FootL.global_position = $Sprite/GuidePoints/LegL.global_position
 		$Sprite/Ragdoll/FootR.global_position = $Sprite/GuidePoints/LegR.global_position
 		$Sprite/Ragdoll/HandL.global_position = $Sprite/GuidePoints/ArmL.global_position
 		$Sprite/Ragdoll/HandR.global_position = $Sprite/GuidePoints/ArmR.global_position
 		$Sprite/Ragdoll/Torso.global_position = $Sprite/GuidePoints/Torso.global_position
+		$Sprite/Ragdoll/FootL.global_rotation = 0
+		$Sprite/Ragdoll/FootR.global_rotation = 0
+		$Sprite/Ragdoll/HandL.global_rotation = 0
+		$Sprite/Ragdoll/HandR.global_rotation = 0
 		$Sprite/Ragdoll/Torso.global_rotation = 0
+		$Sprite/Ragdoll/Torso.linear_velocity = velocity
+		$Sprite/Ragdoll/FootL.linear_velocity = velocity * randf()
+		$Sprite/Ragdoll/FootR.linear_velocity = velocity * randf()
+		$Sprite/Ragdoll/HandL.linear_velocity = velocity * randf()
+		$Sprite/Ragdoll/HandR.linear_velocity = velocity * randf()
 	else:
 		state = State.idle
-		rotation = 0
+		global_rotation = 0
+		#$Sprite/Skeleton2D/Hips.global_rotation = 0
+		#$Sprite/Ragdoll/Torso.global_rotation = 0 
 	
 	anim_player.active = not ragdoll
 	shape.disabled = ragdoll
@@ -102,23 +116,39 @@ func _input(event: InputEvent) -> void:
 		put_down_prop()
 		get_viewport().set_input_as_handled()
 
+var last_rd_move := 0
 func _physics_process(delta: float) -> void:
 	if state == State.ragdolling:
 		var torso = $Sprite/Ragdoll/Torso
 		var marker = $Sprite/GuidePoints/Torso
-		var diff = torso.global_position - marker.global_position
-		var rdiff = torso.global_rotation - global_rotation
+		var diff : Vector2 = torso.global_position - marker.global_position
+		var rdiff : float = torso.global_rotation - global_rotation
 		global_position += diff
+		global_rotation += rdiff
+		#$Sprite/Skeleton2D/Hips.global_rotation = torso.global_rotation
+		#torso.global_rotation -= rdiff
 		for n in get_tree().get_nodes_in_group("ragdoll"):
 			if n is RigidBody2D:
 				n.global_position -= diff
-		global_rotation += rdiff
-		torso.global_rotation -= rdiff
+				n.global_rotation -= rdiff
+		if diff.length_squared() < 1.0:
+			print("diff:", last_rd_move)
+			if Time.get_ticks_msec() > last_rd_move + 1000:
+				print("diffff:", diff)
+				set_ragdoll(false)
+		else:
+			last_rd_move = Time.get_ticks_msec()
 
 	
 func _process(delta: float) -> void:
 	if state == State.ragdolling:
 		return
+	# TODO: really no need to store this in two places
+	# but if we use the state alone we need to clean up
+	# the state transitions (its probably state machine
+	# time, eh?)
+	if ragdoll:
+		set_ragdoll(false)
 	var dir = Input.get_vector("left", "right", "up", "down")
 	var cam = get_viewport().get_camera_2d()
 	velocity.x = dir.x * SPEED
@@ -138,6 +168,8 @@ func _process(delta: float) -> void:
 			state = State.walk
 		else:
 			state = State.idle
+		if ground_detector.is_colliding() and ground_detector.get_collider() is Orb:
+			set_ragdoll(true)
 	elif state == State.jump or state == State.fall or not _in_coyote_window():
 		velocity.y -= up_direction.y * gravity * GRAVIY_MULTIPLIER * delta
 		if velocity.y < 0:

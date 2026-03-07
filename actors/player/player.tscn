@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b3vikmg8i8dr3" path="res://actors/player/player.gd" id="1_8afob"]
 [ext_resource type="Texture2D" uid="uid://d0xsp47hu4mpe" path="res://actors/player/art/bert-torso2.png" id="4_15y17"]
 [ext_resource type="Texture2D" uid="uid://c2np0625cal20" path="res://actors/player/art/bert-head.png" id="5_bop6h"]
+[ext_resource type="PhysicsMaterial" uid="uid://cnt2e34s48efd" path="res://actors/player/ragdoll_physics_material.tres" id="6_15y17"]
 [ext_resource type="Texture2D" uid="uid://c3cyjt0ydh0eb" path="res://actors/player/art/bert-arm.png" id="6_a744p"]
 [ext_resource type="Texture2D" uid="uid://bxdw8uj476pq2" path="res://actors/player/art/bert-feet.png" id="7_bop6h"]
 
@@ -425,17 +426,20 @@ modifications/3 = SubResource("SkeletonModification2DTwoBoneIK_lsln6")
 modifications/4 = SubResource("SkeletonModification2DLookAt_bop6h")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15y17"]
+radius = 8.0
+height = 16.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a744p"]
-radius = 3.0
+radius = 4.0
+height = 8.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_388e2"]
-radius = 2.0
-height = 22.0
+radius = 3.0
+height = 6.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bop6h"]
 radius = 6.0
-height = 20.0
+height = 12.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6p1w3"]
 radius = 32.0
@@ -464,7 +468,7 @@ collision_mask = 21
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1171831929 groups=["not_ragdoll"]]
 libraries/ = SubResource("AnimationLibrary_75vfm")
 playback_default_blend_time = 0.1
-speed_scale = 1.5
+speed_scale = 2.0
 
 [node name="Sprite" type="Node2D" parent="." unique_id=2112411734]
 
@@ -705,6 +709,7 @@ position = Vector2(2, -45)
 position = Vector2(-8, 62)
 collision_layer = 2
 collision_mask = 31
+physics_material_override = ExtResource("6_15y17")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/FootR" unique_id=1405800100 groups=["ragdoll"]]
 shape = SubResource("CapsuleShape2D_15y17")
@@ -719,12 +724,14 @@ update_scale = false
 position = Vector2(0, -45)
 node_a = NodePath("../../Torso")
 node_b = NodePath("..")
+disable_collision = false
 softness = 16.0
 
 [node name="HandR" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=119937587 groups=["ragdoll"]]
-position = Vector2(-28, 0)
+position = Vector2(-22, 12)
 collision_layer = 2
 collision_mask = 31
+physics_material_override = ExtResource("6_15y17")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/HandR" unique_id=134055102 groups=["ragdoll"]]
 shape = SubResource("CapsuleShape2D_a744p")
@@ -739,12 +746,14 @@ update_scale = false
 position = Vector2(-2, -23)
 node_a = NodePath("../../Torso")
 node_b = NodePath("..")
+disable_collision = false
 softness = 16.0
 
 [node name="HandL" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=276096580 groups=["ragdoll"]]
-position = Vector2(37, -8)
+position = Vector2(43, 3)
 collision_layer = 2
 collision_mask = 31
+physics_material_override = ExtResource("6_15y17")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/HandL" unique_id=135997834 groups=["ragdoll"]]
 shape = SubResource("CapsuleShape2D_388e2")
@@ -759,12 +768,14 @@ update_scale = false
 position = Vector2(-2, -19)
 node_a = NodePath("../../Torso")
 node_b = NodePath("..")
+disable_collision = false
 softness = 16.0
 
 [node name="FootL" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=1522681864 groups=["ragdoll"]]
 position = Vector2(21, 61)
 collision_layer = 2
 collision_mask = 31
+physics_material_override = ExtResource("6_15y17")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/FootL" unique_id=509873298 groups=["ragdoll"]]
 shape = SubResource("CapsuleShape2D_bop6h")
@@ -779,12 +790,14 @@ update_scale = false
 position = Vector2(0, -45)
 node_a = NodePath("../../Torso")
 node_b = NodePath("..")
+disable_collision = false
 softness = 16.0
 
 [node name="Torso" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=1915935399 groups=["ragdoll"]]
 position = Vector2(5, -42)
 collision_layer = 2
 collision_mask = 31
+physics_material_override = ExtResource("6_15y17")
 
 [node name="RagdollCollision" type="CollisionShape2D" parent="Sprite/Ragdoll/Torso" unique_id=592121951 groups=["ragdoll"]]
 position = Vector2(-3, -3)
