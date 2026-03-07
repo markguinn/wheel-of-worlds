@@ -27,11 +27,12 @@ const BLEND_TIME_BY_STATE = {
 	State.fall: 0.4,
 }
 
-enum State { idle, walk, jump, fall }
+enum State { idle, walk, jump, fall, ragdolling }
 
 
 @export var holding_hand: Node2D
 @export var resting_point: Node2D
+@export var ragdoll := false : set=set_ragdoll
 
 var state: State = State.idle
 var last_floor_touch: int
@@ -41,18 +42,46 @@ var start_pos: Vector2
 
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Node2D = $Sprite
-@onready var shape: CollisionShape2D = $CollisionShape2D
+@onready var shape: CollisionShape2D = $NormalCollision
 @onready var ground_detector: RayCast2D = $GroundDetector
 
 
 func _ready() -> void:
 	anim_player.play("idle")
 	start_pos = position
+	set_ragdoll.call_deferred(ragdoll)
 
 
 func reset_after_fall() -> void:
 	position = start_pos
 
+
+func set_ragdoll(val: bool) -> void:
+	if not anim_player:
+		return
+	ragdoll = val
+	if ragdoll:
+		state = State.ragdolling
+		$Sprite/Ragdoll/FootL.global_position = $Sprite/GuidePoints/LegL.global_position
+		$Sprite/Ragdoll/FootR.global_position = $Sprite/GuidePoints/LegR.global_position
+		$Sprite/Ragdoll/HandL.global_position = $Sprite/GuidePoints/ArmL.global_position
+		$Sprite/Ragdoll/HandR.global_position = $Sprite/GuidePoints/ArmR.global_position
+		$Sprite/Ragdoll/Torso.global_position = $Sprite/GuidePoints/Torso.global_position
+		$Sprite/Ragdoll/Torso.global_rotation = 0
+	else:
+		state = State.idle
+		rotation = 0
+	
+	anim_player.active = not ragdoll
+	shape.disabled = ragdoll
+	for n in get_tree().get_nodes_in_group("ragdoll"):
+		if n is CollisionShape2D:
+			n.disabled = not ragdoll
+		if n is RigidBody2D:
+			n.freeze = not ragdoll
+		if n is RemoteTransform2D:
+			n.update_position = ragdoll
+			n.update_rotation = ragdoll
 
 func _in_coyote_window() -> bool:
 	return not is_on_floor() and last_floor_touch + COYOTE_TIME_MS > Time.get_ticks_msec()
@@ -63,6 +92,8 @@ func _can_jump() -> bool:
 
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		set_ragdoll(not ragdoll)
 	if event.is_action_pressed("jump") and _can_jump():
 		velocity += up_direction * JUMP_STRENGTH
 		state = State.jump
@@ -71,8 +102,23 @@ func _input(event: InputEvent) -> void:
 		put_down_prop()
 		get_viewport().set_input_as_handled()
 
+func _physics_process(delta: float) -> void:
+	if state == State.ragdolling:
+		var torso = $Sprite/Ragdoll/Torso
+		var marker = $Sprite/GuidePoints/Torso
+		var diff = torso.global_position - marker.global_position
+		var rdiff = torso.global_rotation - global_rotation
+		global_position += diff
+		for n in get_tree().get_nodes_in_group("ragdoll"):
+			if n is RigidBody2D:
+				n.global_position -= diff
+		global_rotation += rdiff
+		torso.global_rotation -= rdiff
 
+	
 func _process(delta: float) -> void:
+	if state == State.ragdolling:
+		return
 	var dir = Input.get_vector("left", "right", "up", "down")
 	var cam = get_viewport().get_camera_2d()
 	velocity.x = dir.x * SPEED
