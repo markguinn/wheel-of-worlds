@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://g28bty4q48nr" path="res://stages/world1/art/temp-bg-near.png" id="3_coegi"]
 [ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="4_coegi"]
 [ext_resource type="Texture2D" uid="uid://cgsnvvnnwwlo1" path="res://stages/world1/art/temp-foreground.png" id="4_rbu2t"]
+[ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="8_hfsb7"]
 [ext_resource type="PackedScene" uid="uid://cpmxxndn8n308" path="res://props/plank/plank.tscn" id="9_5nduw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a71q3"]
@@ -565,9 +566,8 @@ tile_set = SubResource("TileSet_ckxa0")
 
 [node name="Player" parent="." unique_id=1914274124 instance=ExtResource("2_a71q3")]
 position = Vector2(618, 513)
-scale = Vector2(5, 5)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1608275848]
+[node name="StandardCamera" parent="Player" unique_id=552340171 instance=ExtResource("8_hfsb7")]
 
 [node name="Orb" parent="." unique_id=2065401576 instance=ExtResource("3_a8vjp")]
 position = Vector2(708, 521)

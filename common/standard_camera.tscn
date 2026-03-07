@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://csc4mxjijlm81"]
+
+[node name="StandardCamera" type="Camera2D" unique_id=552340171]
+position_smoothing_enabled = true

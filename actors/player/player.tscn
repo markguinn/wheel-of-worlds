@@ -1,205 +1,88 @@
 [gd_scene format=3 uid="uid://b85khgplioksi"]
 
 [ext_resource type="Script" uid="uid://b3vikmg8i8dr3" path="res://actors/player/player.gd" id="1_8afob"]
-[ext_resource type="Texture2D" uid="uid://76cffg48ohmy" path="res://actors/player/art/temp-bert2.png" id="4_lvxji"]
-[ext_resource type="Texture2D" uid="uid://daamevqqar1d2" path="res://actors/player/art/temp-bert3.png" id="5_p47bc"]
+[ext_resource type="Texture2D" uid="uid://d0xsp47hu4mpe" path="res://actors/player/art/bert-torso2.png" id="4_15y17"]
+[ext_resource type="Texture2D" uid="uid://c2np0625cal20" path="res://actors/player/art/bert-head.png" id="5_bop6h"]
+[ext_resource type="Texture2D" uid="uid://c3cyjt0ydh0eb" path="res://actors/player/art/bert-arm.png" id="6_a744p"]
+[ext_resource type="Texture2D" uid="uid://bxdw8uj476pq2" path="res://actors/player/art/bert-feet.png" id="7_bop6h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
-radius = 4.0
+radius = 19.0
+height = 132.0
 
 [sub_resource type="Animation" id="Animation_75vfm"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/ArmR:points")
+tracks/0/path = NodePath("Sprite/GuidePoints/LegR:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [PackedVector2Array(-6.3, -10, -6, -4)]
+"values": [Vector2(-7, 62), Vector2(-7, 62)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/HandR:position")
+tracks/1/path = NodePath("Sprite/GuidePoints/LegL:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-5.7, -1.1)]
+"values": [Vector2(21, 61), Vector2(21, 61)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite/HandR:rotation")
+tracks/2/path = NodePath("Sprite/GuidePoints/ArmR:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(-22, 12), Vector2(-22, 12)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite/ArmL:points")
+tracks/3/path = NodePath("Sprite/GuidePoints/ArmL:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [PackedVector2Array(6, -12, 7, -4)]
+"values": [Vector2(43, 3), Vector2(42, 2)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite/ThighL:points")
+tracks/4/path = NodePath("Sprite/GuidePoints/Head:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [PackedVector2Array(1, -3, 1.5, 2.8)]
+"values": [Vector2(49, -65)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite/LegL:points")
+tracks/5/path = NodePath("Sprite/Skeleton2D/Hips:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.001),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [PackedVector2Array(2, 2, 1, 9)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite/FootL:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(5, 13.000001)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Sprite/ThighR:points")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [PackedVector2Array(-5.7, -3, -4.5, 2.8)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Sprite/LegR:points")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [PackedVector2Array(-4.5, 2.8, -5.8, 9.5)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Sprite/Body:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Sprite/FootR:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1.9999999, 13.999999)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Sprite/FootL:rotation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Sprite/FootR:rotation")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Sprite/HandL:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(7.3, -2.2)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Sprite/HandL:rotation")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Sprite:position")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(3, -19)]
 }
 
 [sub_resource type="Animation" id="Animation_gmlin"]
@@ -209,380 +92,140 @@ step = 0.16666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/ArmR:points")
+tracks/0/path = NodePath("Sprite/GuidePoints/ArmR:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8333334),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5, 0.8333334),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [PackedVector2Array(-6.3, -10, -9.1, -5.6), PackedVector2Array(-6.3, -10, -6.7, -4.8)]
+"values": [Vector2(-28, -2), Vector2(-18, 5), Vector2(-19, 10)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/HandR:position")
+tracks/1/path = NodePath("Sprite/GuidePoints/ArmL:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8333334),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-8, -3.0000005), Vector2(-6, -2)]
+"values": [Vector2(67, -17), Vector2(50, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite/HandR:rotation")
+tracks/2/path = NodePath("Sprite/GuidePoints/Head:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.8333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-0.28972465, -0.11519173]
+"values": [Vector2(62, -65), Vector2(67, -42)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite/ArmL:points")
+tracks/3/path = NodePath("Sprite/GuidePoints/LegL:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [PackedVector2Array(6, -12, 8.2, -4.7), PackedVector2Array(6, -12, 7.4, -5)]
+"values": [Vector2(42, 57)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite/ThighL:points")
+tracks/4/path = NodePath("Sprite/GuidePoints/LegR:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [PackedVector2Array(1, -3, 3.5, 1.8)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite/LegL:points")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [PackedVector2Array(4, 1, 5, 8)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite/FootL:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(8.999999, 12)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Sprite/ThighR:points")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [PackedVector2Array(-5.7, -3, -5.5, 2.8)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Sprite/LegR:points")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [PackedVector2Array(-5.5, 2.8, -10.6, 4)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Sprite/Body:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Sprite/FootR:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-9.000001, 6.9999995)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Sprite/FootL:rotation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.16406095]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Sprite/FootR:rotation")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.425934]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Sprite/HandL:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(10.000001, -4), Vector2(8, -3)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Sprite/HandL:rotation")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-1.0437069, -0.16580628]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Sprite:position")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(-43, 36)]
 }
 
 [sub_resource type="Animation" id="Animation_0owmy"]
 resource_name = "idle"
-length = 2.0000167
+length = 4.0000167
 loop_mode = 1
 step = 0.16666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/ArmR:points")
+tracks/0/path = NodePath("Sprite/GuidePoints/ArmR:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [PackedVector2Array(-6.3, -10, -6, -4), PackedVector2Array(-6.7, -10, -6, -4)]
+"values": [Vector2(-22, 12), Vector2(-31, 14)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/HandR:position")
-tracks/1/interp = 1
+tracks/1/path = NodePath("Sprite/GuidePoints/ArmL:position")
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-5.7, -1.1), Vector2(-6.2, -1.1)]
+"values": [Vector2(43, 3), Vector2(47, 4)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite/HandR:rotation")
-tracks/2/interp = 1
+tracks/2/path = NodePath("Sprite/GuidePoints/Head:position")
+tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 0.23212878]
+"values": [Vector2(49, -65), Vector2(49, -65), Vector2(59, -78)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite/ArmL:points")
+tracks/3/path = NodePath("Sprite/GuidePoints/LegR:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [PackedVector2Array(6, -12, 7, -4), PackedVector2Array(5.6, -12, 7, -4)]
+"values": [Vector2(-7, 62)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite/ThighL:points")
+tracks/4/path = NodePath("Sprite/GuidePoints/LegL:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [PackedVector2Array(1, -3, 1.5, 2.8), PackedVector2Array(0.7, -3, 1.7, 2.8), PackedVector2Array(0.8499975, -3, 1.8, 2.8)]
+"values": [Vector2(21, 61)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite/LegL:points")
-tracks/5/interp = 1
+tracks/5/path = NodePath("Sprite/Skeleton2D/Hips:position")
+tracks/5/interp = 2
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [PackedVector2Array(2, 2, 1, 9), PackedVector2Array(2.3, 2, 1, 9)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite/FootL:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(5, 13.000001)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Sprite/ThighR:points")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [PackedVector2Array(-5.7, -3, -4.5, 2.8), PackedVector2Array(-6.2, -3, -4.5, 2.8)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Sprite/LegR:points")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [PackedVector2Array(-4.5, 2.8, -5.8, 9.5)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Sprite/Body:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-0.5, 0)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Sprite/FootR:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1.9999999, 13.999999)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Sprite/FootL:rotation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Sprite/FootR:rotation")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Sprite/HandL:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(7.3, -2.2), Vector2(7.3, -2.7)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Sprite/HandL:rotation")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"values": [Vector2(3, -19), Vector2(1, -19)]
 }
 
 [sub_resource type="Animation" id="Animation_qek5x"]
@@ -592,194 +235,62 @@ step = 0.16666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/ArmR:points")
+tracks/0/path = NodePath("Sprite/GuidePoints/ArmR:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [PackedVector2Array(-6.3, -10, -6, -4), PackedVector2Array(-6.3, -10, -10.2, -6.7)]
+"values": [Vector2(-22, 12), Vector2(-34, -7)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/HandR:position")
+tracks/1/path = NodePath("Sprite/GuidePoints/ArmL:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-5.7, -1.1), Vector2(-9, -4)]
+"values": [Vector2(43, 3), Vector2(55, -42)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite/HandR:rotation")
+tracks/2/path = NodePath("Sprite/GuidePoints/Head:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, -0.28972465]
+"values": [Vector2(49, -65), Vector2(54, -83)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite/ArmL:points")
+tracks/3/path = NodePath("Sprite/GuidePoints/LegR:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [PackedVector2Array(6, -12, 7, -4), PackedVector2Array(6, -12, 9, -4.7)]
+"values": [Vector2(-7, 62), Vector2(-25, 34)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite/ThighL:points")
+tracks/4/path = NodePath("Sprite/GuidePoints/LegL:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [PackedVector2Array(1, -3, 1.5, 2.8), PackedVector2Array(1, -3, 8.5, -3.2)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite/LegL:points")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [PackedVector2Array(2, 2, 1, 9), PackedVector2Array(9, -4, 6.8, 2.7)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite/FootL:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(5, 13.000001), Vector2(10, 7.0000005)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Sprite/ThighR:points")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [PackedVector2Array(-5.7, -3, -4.5, 2.8), PackedVector2Array(-5.7, -3, -1.5, 1.8)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Sprite/LegR:points")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [PackedVector2Array(-4.5, 2.8, -5.8, 9.5), PackedVector2Array(-1.5, 1.8, -8.5, 4)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Sprite/Body:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Sprite/FootR:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-1.9999999, 13.999999), Vector2(-7.000001, 7)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Sprite/FootL:rotation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.49392816]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Sprite/FootR:rotation")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.425934]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Sprite/HandL:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(7.3, -2.2), Vector2(10, -6)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Sprite/HandL:rotation")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -2.30558]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Sprite:position")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(21, 61), Vector2(47, 33)]
 }
 
 [sub_resource type="Animation" id="Animation_p47bc"]
@@ -790,194 +301,74 @@ step = 0.16666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/ArmR:points")
+tracks/0/path = NodePath("Sprite/GuidePoints/ArmR:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [PackedVector2Array(-6.3, -10, -6, -4), PackedVector2Array(-6.2, -11, -6.8, -5), PackedVector2Array(-6.2, -10.467, -4.7, -3.8), PackedVector2Array(-6.2, -11, -4.4, -4.3)]
+"values": [Vector2(-22, 12), Vector2(-37, 15), Vector2(-10, 17), Vector2(1, -4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/HandR:position")
+tracks/1/path = NodePath("Sprite/GuidePoints/LegR:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-5.7, -1.1), Vector2(-7.000001, -2.0000002), Vector2(-4, -1.0000002), Vector2(-3, -2)]
+"values": [Vector2(-7, 62), Vector2(4, 33), Vector2(31, 44)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite/HandR:rotation")
+tracks/2/path = NodePath("Sprite/GuidePoints/LegL:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.20943952, -0.3926991]
+"values": [Vector2(21, 61), Vector2(-3, 75), Vector2(-22, 74), Vector2(1, 30)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite/ArmL:points")
+tracks/3/path = NodePath("Sprite/GuidePoints/ArmL:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5, 1, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [PackedVector2Array(6, -12, 7, -4), PackedVector2Array(6, -13, 8, -4.8), PackedVector2Array(6, -12.666666, 6.65, -4.4), PackedVector2Array(6, -12.333333, 5.3, -5)]
+"values": [Vector2(43, 3), Vector2(56, 0), Vector2(42, 2), Vector2(27, -2)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite/ThighL:points")
+tracks/4/path = NodePath("Sprite/GuidePoints/Head:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5000001),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [PackedVector2Array(1, -3, 1.5, 2.8), PackedVector2Array(1, -3.9, -0.5, 3.8), PackedVector2Array(1, -3.1, -2.5, 3.8), PackedVector2Array(1, -3.85, 4.5, 1.8)]
+"values": [Vector2(49, -65), Vector2(48, -60), Vector2(49, -75)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite/LegL:points")
+tracks/5/path = NodePath("Sprite/Skeleton2D/Hips:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5000001),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [PackedVector2Array(2, 2, 1, 9), PackedVector2Array(0, 3, -2.5, 8.8), PackedVector2Array(-2, 3, -6, 8.8), PackedVector2Array(5.0000005, 0.9999999, -3, 3)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite/FootL:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 1, 1.5000001),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(5, 13.000001), Vector2(-2.9999995, 13), Vector2(-1, 7.3)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Sprite/ThighR:points")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5000001),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [PackedVector2Array(-5.7, -3, -4.5, 2.8), PackedVector2Array(-5.7, -4, 0.5, -1.2), PackedVector2Array(-5.7, -3.067, -0.5, 2.8), PackedVector2Array(-5.7, -4.2, -2.5000002, 2.8)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Sprite/LegR:points")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [PackedVector2Array(-4.5, 2.8, -5.8, 9.5), PackedVector2Array(0.5, -1.2, -2.5, 3.8), PackedVector2Array(-0.5, 2.8, 2.499999, 8.8)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Sprite/Body:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5000001),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, -1)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Sprite/FootR:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-1.9999999, 13.999999), Vector2(0, 8), Vector2(6.9999995, 13)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Sprite/FootL:rotation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0, 1, 1.5000001),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.75398225, 1.2147492]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Sprite/FootR:rotation")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.5864306, -0.3630285]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Sprite/HandL:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
 "times": PackedFloat32Array(0, 0.5, 1, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(7.3, -2.2), Vector2(9, -3), Vector2(7, -2.5), Vector2(5, -3.5)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Sprite/HandL:rotation")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -0.38397244, 0.31241393]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = false
-tracks/15/path = NodePath("Sprite:position")
-tracks/15/interp = 2
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(4, 0), Vector2(0, 0), Vector2(4, 0)]
+"values": [Vector2(3, -19), Vector2(3, -24), Vector2(3, -19.333), Vector2(3, -24.167)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_75vfm"]
@@ -989,6 +380,50 @@ _data = {
 &"walk": SubResource("Animation_p47bc")
 }
 
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_bop6h"]
+target_nodepath = NodePath("../GuidePoints/LegR")
+joint_one_bone_idx = 1
+joint_one_bone2d_node = NodePath("Hips/ThighR")
+joint_two_bone_idx = 2
+joint_two_bone2d_node = NodePath("Hips/ThighR/ShinR")
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_a744p"]
+target_nodepath = NodePath("../GuidePoints/LegL")
+joint_one_bone_idx = 4
+joint_one_bone2d_node = NodePath("Hips/ThighL")
+joint_two_bone_idx = 5
+joint_two_bone2d_node = NodePath("Hips/ThighL/ShinL")
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_388e2"]
+target_nodepath = NodePath("../GuidePoints/ArmR")
+flip_bend_direction = true
+joint_one_bone_idx = 9
+joint_one_bone2d_node = NodePath("Hips/ArmR")
+joint_two_bone_idx = 10
+joint_two_bone2d_node = NodePath("Hips/ArmR/HandR")
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_lsln6"]
+target_nodepath = NodePath("../GuidePoints/ArmL")
+flip_bend_direction = true
+joint_one_bone_idx = 11
+joint_one_bone2d_node = NodePath("Hips/ArmL")
+joint_two_bone_idx = 12
+joint_two_bone2d_node = NodePath("Hips/ArmL/HandL")
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_bop6h"]
+bone_index = 8
+bone2d_node = NodePath("Hips/Torso/Head")
+target_nodepath = NodePath("../GuidePoints/Head")
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_ax26v"]
+enabled = true
+modification_count = 5
+modifications/0 = SubResource("SkeletonModification2DTwoBoneIK_bop6h")
+modifications/1 = SubResource("SkeletonModification2DTwoBoneIK_a744p")
+modifications/2 = SubResource("SkeletonModification2DTwoBoneIK_388e2")
+modifications/3 = SubResource("SkeletonModification2DTwoBoneIK_lsln6")
+modifications/4 = SubResource("SkeletonModification2DLookAt_bop6h")
+
 [node name="Player" type="CharacterBody2D" unique_id=317056800 node_paths=PackedStringArray("holding_hand", "resting_point") groups=["player"]]
 z_index = 1
 collision_layer = 2
@@ -997,14 +432,14 @@ floor_max_angle = 1.0471976
 floor_snap_length = 10.0
 platform_floor_layers = 4294901781
 script = ExtResource("1_8afob")
-holding_hand = NodePath("Sprite/HandL")
-resting_point = NodePath("PlankRestingPoint")
+holding_hand = NodePath("Sprite/GuidePoints/ArmL")
+resting_point = NodePath("Sprite/GuidePoints/PlankRestingPoint")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=120194031]
 shape = SubResource("CapsuleShape2D_8afob")
 
 [node name="GroundDetector" type="RayCast2D" parent="." unique_id=1984008968]
-target_position = Vector2(0, 18)
+target_position = Vector2(0, 81)
 collision_mask = 21
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1171831929]
@@ -1012,95 +447,236 @@ libraries/ = SubResource("AnimationLibrary_75vfm")
 playback_default_blend_time = 0.1
 speed_scale = 1.5
 
-[node name="Sprite" type="Node2D" parent="." unique_id=2108115287]
+[node name="Sprite" type="Node2D" parent="." unique_id=2112411734]
 
-[node name="ArmR" type="Line2D" parent="Sprite" unique_id=1810763717]
-z_index = 1
-points = PackedVector2Array(-6.3, -10, -6, -4)
-width = 0.3
-default_color = Color(0, 0, 0, 1)
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
+[node name="Skeleton2D" type="Skeleton2D" parent="Sprite" unique_id=1146146976]
+modification_stack = SubResource("SkeletonModificationStack2D_ax26v")
+metadata/_edit_lock_ = true
 
-[node name="HandR" type="Sprite2D" parent="Sprite" unique_id=1659232958]
-z_index = 1
-position = Vector2(-5.7, -1.1)
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("5_p47bc")
-region_enabled = true
-region_rect = Rect2(34, 362, 135, 360)
+[node name="Hips" type="Bone2D" parent="Sprite/Skeleton2D" unique_id=598144107]
+visible = false
+position = Vector2(3, -19)
+rest = Transform2D(1, 0, 0, 1, 0, -20)
 
-[node name="ArmL" type="Line2D" parent="Sprite" unique_id=371804058]
-points = PackedVector2Array(6, -12, 7, -4)
-width = 0.3
-default_color = Color(0, 0, 0, 1)
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
+[node name="ThighR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=25801670]
+position = Vector2(-13.999999, 15)
+rotation = -0.06786859
+scale = Vector2(0.9999999, 0.9999999)
+rest = Transform2D(0.990083, -0.14043507, 0.14043507, 0.990083, -13.999999, 15)
+metadata/_local_pose_override_enabled_ = true
 
-[node name="HandL" type="Sprite2D" parent="Sprite" unique_id=1929046864]
-position = Vector2(7.3, -2.2)
-scale = Vector2(0.02, 0.02)
-texture = ExtResource("5_p47bc")
-region_enabled = true
-region_rect = Rect2(34, 362, 135, 360)
+[node name="ShinR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighR" unique_id=1375386282]
+position = Vector2(4.9493895, 30.405651)
+rotation = 0.011750523
+scale = Vector2(0.999997, 0.999997)
+rest = Transform2D(0.9999695, 0.006863794, -0.006863794, 0.9999695, 4.9493895, 30.405651)
+metadata/_local_pose_override_enabled_ = true
 
-[node name="ThighL" type="Line2D" parent="Sprite" unique_id=2065954873]
-position = Vector2(3.5, 2.2)
-points = PackedVector2Array(1, -3, 1.5, 2.8)
-width = 0.3
-default_color = Color(0, 0, 0, 1)
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
+[node name="FootR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighR/ShinR" unique_id=114270177]
+position = Vector2(-11.005056, 35.43864)
+rest = Transform2D(1, 0, 0, 1, -11.005056, 35.43864)
+auto_calculate_length_and_angle = false
+length = 18.0
+bone_angle = 90.0
 
-[node name="LegL" type="Line2D" parent="Sprite" unique_id=743822887]
-position = Vector2(3, 3)
-points = PackedVector2Array(2, 2, 1, 9)
-width = 0.3
-default_color = Color(0, 0, 0, 1)
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
+[node name="ThighL" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=226334277]
+position = Vector2(20, 14)
+rotation = 0.17467225
+scale = Vector2(0.9999999, 0.9999999)
+rest = Transform2D(0.96731144, 0.25359097, -0.25359097, 0.96731144, 20, 14)
+metadata/_local_pose_override_enabled_ = true
 
-[node name="FootL" type="Sprite2D" parent="Sprite" unique_id=1147441783]
-position = Vector2(5, 13.000001)
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("5_p47bc")
-region_enabled = true
-region_rect = Rect2(363, 942, 160, 179)
+[node name="ShinL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighL" unique_id=919169516]
+position = Vector2(7.1831293, 29.195942)
+rotation = -0.38006765
+rest = Transform2D(0.831756, -0.5551414, 0.5551414, 0.831756, 7.1831293, 29.195942)
+metadata/_local_pose_override_enabled_ = true
 
-[node name="ThighR" type="Line2D" parent="Sprite" unique_id=1137500481]
-position = Vector2(3.5, 2.2)
-points = PackedVector2Array(-5.7, -3, -4.5, 2.8)
-width = 0.3
-default_color = Color(0, 0, 0, 1)
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
+[node name="FootL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighL/ShinL" unique_id=832718881]
+position = Vector2(-12.033302, 33.24454)
+rest = Transform2D(1, 0, 0, 1, -12.033302, 33.24454)
+auto_calculate_length_and_angle = false
+length = 13.0
+bone_angle = 90.0
 
-[node name="LegR" type="Line2D" parent="Sprite" unique_id=271207717]
-position = Vector2(3.5, 2.2)
-points = PackedVector2Array(-4.5, 2.8, -5.8, 9.5)
-width = 0.3
-default_color = Color(0, 0, 0, 1)
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
+[node name="Torso" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=2022925139]
+position = Vector2(0, -32)
+rotation = -1.664273
+scale = Vector2(0.99995226, 0.99995226)
+rest = Transform2D(-0.09333617, -0.9955867, 0.9955867, -0.09333617, 0, -32)
 
-[node name="FootR" type="Sprite2D" parent="Sprite" unique_id=258260234]
-position = Vector2(-1.9999999, 13.999999)
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("5_p47bc")
-region_enabled = true
-region_rect = Rect2(147, 943, 146, 193)
+[node name="Head" type="Bone2D" parent="Sprite/Skeleton2D/Hips/Torso" unique_id=1580104760]
+position = Vector2(12.477138, 6.1918945)
+rotation = 0.1914215
+scale = Vector2(0.99992, 0.99992)
+rest = Transform2D(0.98157996, 0.19081554, -0.19081554, 0.98157996, 11.294762, 8.0899105)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 82.991
+metadata/_local_pose_override_enabled_ = true
 
-[node name="Body" type="Sprite2D" parent="Sprite" unique_id=1760802059]
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("4_lvxji")
-region_enabled = true
-region_rect = Rect2(10, 10, 552, 1142)
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite/Skeleton2D/Hips/Torso/Head" unique_id=333483355]
+rotation = 1.4486233
+remote_path = NodePath("../../../../../Parts/Head")
+update_scale = false
 
-[node name="PlankRestingPoint" type="Marker2D" parent="." unique_id=1332208180]
-position = Vector2(4, -16)
+[node name="ArmR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1756135333]
+position = Vector2(-33, -32)
+rotation = 0.27851748
+scale = Vector2(0.9999606, 0.9999606)
+rest = Transform2D(0.999362, -0.0357162, 0.0357162, 0.999362, -33, -31)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="HandR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ArmR" unique_id=88591762]
+position = Vector2(0, 32)
+rest = Transform2D(0.99928516, -0.03780409, 0.03780409, 0.99928516, 0, 32)
+auto_calculate_length_and_angle = false
+length = 32.0
+bone_angle = 79.99997
+metadata/_local_pose_override_enabled_ = true
+
+[node name="ArmL" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1793998611]
+position = Vector2(28, -36)
+rest = Transform2D(0.9953148, -0.09668779, 0.09668779, 0.9953148, 28, -36)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="HandL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ArmL" unique_id=1933907137]
+position = Vector2(4, 36)
+rest = Transform2D(0.9979606, 0.063832715, -0.063832715, 0.9979606, 4, 36)
+auto_calculate_length_and_angle = false
+length = 21.0
+bone_angle = 79.99997
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Parts" type="Node2D" parent="Sprite" unique_id=1880770915]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="ArmL" type="Polygon2D" parent="Sprite/Parts" unique_id=566013497]
+position = Vector2(31, -55)
+color = Color(0, 0, 0, 1)
+offset = Vector2(31.5, 53)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(-35, -52, -30.5, -17, -29.5, -17, -34, -54)
+bones = ["Hips", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0), "Hips/Torso", PackedFloat32Array(0, 0, 0, 0), "Hips/Torso/Head", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0.54, 0.54, 0.54, 0.54), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0)]
+
+[node name="HandL" type="Polygon2D" parent="Sprite/Parts" unique_id=328159552]
+position = Vector2(35, -19)
+scale = Vector2(0.2, 0.2)
+offset = Vector2(-44, -20)
+texture = ExtResource("6_a744p")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(14.293579, 13.275242, 39.805603, 8.838367, 56.44388, 111.995636, 39.52829, 139.72609, 15.957428, 124.19704, 29.268036, 107.836075)
+uv = PackedVector2Array(14.293579, 13.275242, 39.805603, 8.838367, 56.44388, 111.995636, 39.52829, 139.72609, 15.957428, 124.19704, 29.268036, 107.836075)
+bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0.54, 0.54, 0.54, 0.54, 0.54, 0.54)]
+
+[node name="ArmR" type="Polygon2D" parent="Sprite/Parts" unique_id=919929024]
+position = Vector2(-30, -49)
+color = Color(0, 0, 0, 1)
+offset = Vector2(27, 49)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(-30.5, -50, -30.5, -18, -29.5, -18, -29, -49)
+bones = ["Hips", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0), "Hips/Head", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0.54, 0.54, 0.54, 0.54), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0)]
+
+[node name="ThighR" type="Polygon2D" parent="Sprite/Parts" unique_id=1312145123]
+position = Vector2(-10, -5)
+color = Color(0, 0, 0, 1)
+offset = Vector2(25, 49)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(-30, -50, -23, -18, -22, -18, -28, -50)
+bones = ["Hips", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0.54, 0.54, 0.54, 0.54), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0), "Hips/Head", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0)]
+
+[node name="ShinR" type="Polygon2D" parent="Sprite/Parts" unique_id=750877573]
+position = Vector2(-3, 27)
+color = Color(0, 0, 0, 1)
+offset = Vector2(25, 48)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(-30, -50, -39, -14, -38, -14, -29, -50)
+bones = ["Hips", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0.54, 0.54, 0.54, 0.54), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0), "Hips/Head", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0)]
+
+[node name="ThighL" type="Polygon2D" parent="Sprite/Parts" unique_id=395953329]
+position = Vector2(23, -4)
+color = Color(0, 0, 0, 1)
+offset = Vector2(26, 48)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(-30, -50, -27, -19, -26, -19, -28, -50)
+bones = ["Hips", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0.54, 0.54, 0.54, 0.54), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0), "Hips/Head", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0)]
+
+[node name="ShinL" type="Polygon2D" parent="Sprite/Parts" unique_id=2046178348]
+position = Vector2(26, 27)
+color = Color(0, 0, 0, 1)
+offset = Vector2(26, 47)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(-30, -50, -34, -15, -33, -15, -29, -50)
+bones = ["Hips", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0.54, 0.54, 0.54, 0.54), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0), "Hips/Head", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0)]
+
+[node name="Torso" type="Polygon2D" parent="Sprite/Parts" unique_id=601538012]
+position = Vector2(0, -52)
+scale = Vector2(0.3, 0.3)
+offset = Vector2(-117.667, -96)
+texture = ExtResource("4_15y17")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(15.121307, 45.683594, -6.2755127, 100.4196, 8.154907, 148.18921, 65.876495, 262.13962, 192.26694, 259.6516, 224.61093, 74.544395, 196.24771, 13.339588, 104.19171, -8.057213, 36.518097, 14.334789)
+uv = PackedVector2Array(15.121307, 45.683594, -6.2755127, 100.4196, 8.154907, 148.18921, 65.876495, 262.13962, 192.26694, 259.6516, 224.61093, 74.544395, 196.24771, 13.339588, 104.19171, -8.057213, 36.518097, 14.334789)
+bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/Torso", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5), "Hips/Torso/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="HandR" type="Polygon2D" parent="Sprite/Parts" unique_id=773485820]
+position = Vector2(-30, -18)
+scale = Vector2(0.3, 0.3)
+offset = Vector2(-38, -16.667)
+texture = ExtResource("6_a744p")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(20.384766, 11.101519, 38.865997, 11.354685, 57.600403, 103.25455, 44.942017, 135.91318, 17.34674, 129.07765)
+uv = PackedVector2Array(20.384766, 11.101519, 38.865997, 11.354685, 57.600403, 103.25455, 44.942017, 135.91318, 17.34674, 129.07765)
+bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/Head", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0.54, 0.54, 0.54, 0.54, 0.54), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0, 0)]
+
+[node name="FootL" type="Polygon2D" parent="Sprite/Parts" unique_id=2047258122]
+position = Vector2(22, 61)
+scale = Vector2(0.3, 0.3)
+offset = Vector2(-155.333, -36)
+texture = ExtResource("7_bop6h")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(137.05292, 21.692007, 153.0225, 24.752844, 179.77155, 68.40303, 165.93124, 82.90874, 137.31908, 72.5285)
+uv = PackedVector2Array(137.05292, 21.692007, 153.0225, 24.752844, 179.77155, 68.40303, 165.93124, 82.90874, 137.31908, 72.5285)
+bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0.54, 0.54, 0.54, 0.54, 0.54), "Hips/Head", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0, 0)]
+
+[node name="FootR" type="Polygon2D" parent="Sprite/Parts" unique_id=1814920816]
+position = Vector2(-12, 63)
+scale = Vector2(0.3, 0.3)
+offset = Vector2(-56, -22)
+texture = ExtResource("7_bop6h")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(27.999695, 7.2499847, 51.999695, 12.249985, 49.499695, 56.749985, 73.999695, 83.749985, 55.499695, 95.749985, 21.999695, 79.749985)
+uv = PackedVector2Array(27.999695, 7.2499847, 51.999695, 12.249985, 49.499695, 56.749985, 73.999695, 83.749985, 55.499695, 95.749985, 21.999695, 79.749985)
+bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0.54, 0.54, 0.54, 0.54, 0.54, 0.54), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0, 0, 0)]
+
+[node name="Head" type="Sprite2D" parent="Sprite/Parts" unique_id=857872474]
+position = Vector2(7.9999995, -67.47431)
+rotation = -0.11928329
+scale = Vector2(0.30002785, 0.3000288)
+texture = ExtResource("5_bop6h")
+
+[node name="GuidePoints" type="Node2D" parent="Sprite" unique_id=1022049703]
+
+[node name="LegR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=1174652303]
+position = Vector2(-7, 62)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="LegL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=467743092]
+position = Vector2(21, 61)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="ArmR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=792042139]
+position = Vector2(-22, 12)
+
+[node name="ArmL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=2103726077]
+position = Vector2(43, 3)
+
+[node name="Head" type="Marker2D" parent="Sprite/GuidePoints" unique_id=2081966703]
+position = Vector2(49, -65)
+
+[node name="PlankRestingPoint" type="Marker2D" parent="Sprite/GuidePoints" unique_id=1332208180]
+position = Vector2(22, -72)
+
+[node name="Torso" type="Marker2D" parent="Sprite/GuidePoints" unique_id=1991809634]
+position = Vector2(27, -99)

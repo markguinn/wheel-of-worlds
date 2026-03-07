@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b85khgplioksi" path="res://actors/player/player.tscn" id="2_slp1w"]
 [ext_resource type="PackedScene" uid="uid://cq30ppa4eh5d3" path="res://props/orb/orb.tscn" id="3_qmu1q"]
 [ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="4_fjyco"]
+[ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="5_slp1w"]
 
 [sub_resource type="Gradient" id="Gradient_4eaw5"]
 offsets = PackedFloat32Array(0.0076923077, 1)
@@ -73,9 +74,8 @@ target_portal = "w1p1"
 
 [node name="Player" parent="." unique_id=317056800 groups=["free_movers"] instance=ExtResource("2_slp1w")]
 position = Vector2(-81, 603)
-scale = Vector2(5, 5)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1201522989]
+[node name="StandardCamera" parent="Player" unique_id=552340171 instance=ExtResource("5_slp1w")]
 
 [node name="Orb" parent="." unique_id=1425831707 groups=["free_movers"] instance=ExtResource("3_qmu1q")]
 position = Vector2(101, 608)

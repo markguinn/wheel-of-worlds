@@ -8,6 +8,7 @@ const ROT_TWEEN = 0.2
 const PUSH_FORCE = 10.0 # Applied to the orb
 const PLANK_FORCE = Vector2(0.2, 0.6) # Applied to the plank
 const COYOTE_TIME_MS = 100
+const CAMERA_HORIZONTAL_OFFSET = 1.2
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -73,12 +74,17 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	var dir = Input.get_vector("left", "right", "up", "down")
+	var cam = get_viewport().get_camera_2d()
 	velocity.x = dir.x * SPEED
 
-	if dir.x < 0:
+	if dir.x < 0 and sprite.scale.x > 0:
 		sprite.scale.x = -1.0
-	elif dir.x > 0:
+		if cam:
+			cam.drag_horizontal_offset = -CAMERA_HORIZONTAL_OFFSET
+	elif dir.x > 0 and sprite.scale.x < 0:
 		sprite.scale.x = 1.0
+		if cam:
+			cam.drag_horizontal_offset = CAMERA_HORIZONTAL_OFFSET
 
 	if is_on_floor() and state != State.jump:
 		last_floor_touch = Time.get_ticks_msec()
