@@ -139,8 +139,15 @@ script = ExtResource("2_gxoam")
 target_scene = "uid://b32q0e34faaed"
 is_primary = null
 
+[node name="ShadowMonsterTest" type="Button" parent="VBoxContainer" unique_id=464317488]
+layout_mode = 2
+text = "Shadow Monster Test"
+script = ExtResource("2_gxoam")
+target_scene = "uid://obcnvoariac3"
+is_primary = null
+
 [node name="VersionLabel" type="Label" parent="." unique_id=2059173511]
-anchors_preset = -1
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
