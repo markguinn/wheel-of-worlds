@@ -2,6 +2,8 @@ class_name Player
 extends CharacterBody2D
 
 const SPEED = 300.0
+const WALK_ACCEL = 0.3
+const TURNING_ACCEL = 0.1
 const JUMP_STRENGTH = 900.0
 const GRAVIY_MULTIPLIER = 1.8
 const ROT_TWEEN = 0.2
@@ -35,6 +37,10 @@ enum State { idle, walk, jump, fall, ragdolling }
 @export var holding_hand: Node2D
 @export var resting_point: Node2D
 @export var ragdoll := false : set=set_ragdoll
+## may not use this but the idea was that we could try to animate the motion a little bit
+## to line up motion with the feet on the ground. it didn't pan out  very well but i didn't
+## rip it out yet. the animation is disabled
+@export var walk_multiplier := 1.0
 
 var state: State = State.idle
 var last_floor_touch: int
@@ -151,7 +157,11 @@ func _process(delta: float) -> void:
 		set_ragdoll(false)
 	var dir = Input.get_vector("left", "right", "up", "down")
 	var cam = get_viewport().get_camera_2d()
-	velocity.x = dir.x * SPEED
+	var target_vx: float = dir.x * SPEED * walk_multiplier
+	# feels annoying to have too much delay when changing directions
+	# this is imperfect though because it flips when you get to zero anyway. we can iterate more another time
+	var accel_val : float = TURNING_ACCEL if velocity.x and signf(target_vx) != signf(velocity.x) else WALK_ACCEL
+	velocity.x = move_toward(velocity.x, target_vx, delta * SPEED / accel_val)
 
 	if dir.x < 0 and sprite.scale.x > 0:
 		sprite.scale.x = -1.0
@@ -164,7 +174,7 @@ func _process(delta: float) -> void:
 
 	if is_on_floor() and state != State.jump:
 		last_floor_touch = Time.get_ticks_msec()
-		if velocity.x != 0:
+		if dir.x != 0:
 			state = State.walk
 		else:
 			state = State.idle
