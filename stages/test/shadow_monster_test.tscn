@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://obcnvoariac3"]
+[gd_scene format=4 uid="uid://obcnvoariac4"]
 
 [ext_resource type="Script" uid="uid://bxxbctnq2ubio" path="res://stages/stage.gd" id="1_pvy53"]
 [ext_resource type="PackedScene" uid="uid://bbq81ngylpi8h" path="res://common/shadow_blob.tscn" id="2_aphng"]
@@ -60,7 +60,7 @@ size = Vector2(451, 1373)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xakyt"]
 size = Vector2(8214, 656)
 
-[node name="World0" type="Node2D" unique_id=831090977]
+[node name="ShadowMonsterTest" type="Node2D" unique_id=831090977]
 script = ExtResource("1_pvy53")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=157870837]
