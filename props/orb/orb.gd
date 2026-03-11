@@ -21,7 +21,7 @@ func reset_after_fall() -> void:
 	next_pos = start_pos
 
 
-func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
 	if next_pos != Vector2.INF:
 		position = next_pos
 		next_pos = Vector2.INF

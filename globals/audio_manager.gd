@@ -21,7 +21,7 @@ var cur_intensity := 1
 # people are willing and abel to write.
 func set_music(music_type: String, intensity = 1) -> void:
 	var player: AudioStreamPlayer = get_tree().get_first_node_in_group("background_music")
-	var stream: AudioStreamInteractive = player.stream if player else null
+	#var stream: AudioStreamInteractive = player.stream if player else null
 	var playback = player.get_stream_playback() if player else null
 	if playback and playback is AudioStreamPlaybackInteractive:
 		playback.switch_to_clip_by_name(music_type + "-" + str(intensity))

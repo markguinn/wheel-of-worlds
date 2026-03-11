@@ -74,7 +74,7 @@ func _start_holding() -> void:
 		target_node.collision_layer = 0
 
 
-func _on_put_down(holder: Player) -> void:
+func _on_put_down(_holder: Player) -> void:
 	_become_active_candidate()
 	target_node.freeze = false
 	target_node.collision_layer = target_node_collision_layer
