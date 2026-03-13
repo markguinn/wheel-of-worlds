@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c2np0625cal20" path="res://actors/player/art/bert-head.png" id="5_bop6h"]
 [ext_resource type="PhysicsMaterial" uid="uid://cnt2e34s48efd" path="res://actors/player/ragdoll_physics_material.tres" id="6_15y17"]
 [ext_resource type="Texture2D" uid="uid://c3cyjt0ydh0eb" path="res://actors/player/art/bert-arm.png" id="6_a744p"]
+[ext_resource type="Texture2D" uid="uid://bh6wia2ufmi2g" path="res://actors/player/art/dizzystars.png" id="7_7aotg"]
 [ext_resource type="Script" uid="uid://vmdvty45rk5y" path="res://common/state_machine/state_machine.gd" id="7_a744p"]
 [ext_resource type="Texture2D" uid="uid://bxdw8uj476pq2" path="res://actors/player/art/bert-feet.png" id="7_bop6h"]
 [ext_resource type="Script" uid="uid://ctkj6n8ftkcm8" path="res://actors/player/states/player_idle.gd" id="8_lsln6"]
@@ -475,6 +476,37 @@ height = 12.0
 radius = 32.0
 height = 68.0
 
+[sub_resource type="Curve" id="Curve_k67x5"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5037129, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_12xki"]
+curve = SubResource("Curve_k67x5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rt46e"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 32.0
+emission_ring_inner_radius = 16.0
+emission_ring_cone_angle = 90.0
+angle_min = 1.0728835e-05
+angle_max = 90.000015
+spread = 180.0
+flatness = 1.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = -2.2351742e-06
+tangential_accel_min = 19.999998
+tangential_accel_max = 29.999996
+attractor_interaction_enabled = false
+scale_min = 0.25
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_12xki")
+color = Color(0.8664945, 0.94085056, 0, 1)
+
 [node name="Player" type="CharacterBody2D" unique_id=317056800 node_paths=PackedStringArray("holding_hand", "resting_point") groups=["player"]]
 z_index = 1
 collision_layer = 2
@@ -542,7 +574,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighL" unique_id=919169516]
 position = Vector2(7.1831293, 29.195942)
-rotation = -0.38006765
+rotation = -0.38006768
 rest = Transform2D(0.831756, -0.5551414, 0.5551414, 0.831756, 7.1831293, 29.195942)
 metadata/_local_pose_override_enabled_ = true
 
@@ -574,9 +606,12 @@ rotation = 1.4486233
 remote_path = NodePath("../../../../../Parts/Head")
 update_scale = false
 
+[node name="DizzyRemoteTransform" type="RemoteTransform2D" parent="Sprite/Skeleton2D/Hips/Torso/Head" unique_id=2058064896]
+remote_path = NodePath("../../../../../../DizzyParticles")
+
 [node name="ArmR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1756135333]
 position = Vector2(-33, -32)
-rotation = 0.27851748
+rotation = 0.2785175
 scale = Vector2(0.9999606, 0.9999606)
 rest = Transform2D(0.999362, -0.0357162, 0.0357162, 0.999362, -33, -31)
 metadata/_local_pose_override_enabled_ = true
@@ -834,6 +869,19 @@ physics_material_override = ExtResource("6_15y17")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/Torso" unique_id=592121951 groups=["ragdoll"]]
 position = Vector2(-3, -3)
 shape = SubResource("CapsuleShape2D_6p1w3")
+
+[node name="DizzyParticles" type="GPUParticles2D" parent="." unique_id=806147118]
+unique_name_in_owner = true
+position = Vector2(7.9999995, -64)
+rotation = -1.4728515
+scale = Vector2(0.99987227, 0.99987227)
+emitting = false
+amount = 6
+texture = ExtResource("7_7aotg")
+lifetime = 1.2
+fixed_fps = 12
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_rt46e")
 
 [node name="StateMachine" type="Node" parent="." unique_id=425844762]
 script = ExtResource("7_a744p")
