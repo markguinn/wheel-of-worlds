@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c2np0625cal20" path="res://actors/player/art/bert-head.png" id="5_bop6h"]
 [ext_resource type="PhysicsMaterial" uid="uid://cnt2e34s48efd" path="res://actors/player/ragdoll_physics_material.tres" id="6_15y17"]
 [ext_resource type="Texture2D" uid="uid://c3cyjt0ydh0eb" path="res://actors/player/art/bert-arm.png" id="6_a744p"]
+[ext_resource type="Script" uid="uid://cn4cp7mcr2aj8" path="res://actors/player/guidepoints_syncing.gd" id="6_k67x5"]
 [ext_resource type="Script" uid="uid://d1d8irkuomsw0" path="res://common/moveable_rigid_body.gd" id="7_7aotg"]
 [ext_resource type="Script" uid="uid://vmdvty45rk5y" path="res://common/state_machine/state_machine.gd" id="7_a744p"]
 [ext_resource type="Texture2D" uid="uid://bxdw8uj476pq2" path="res://actors/player/art/bert-feet.png" id="7_bop6h"]
@@ -95,18 +96,6 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(3, -19)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath(".:walk_multiplier")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_gmlin"]
@@ -319,7 +308,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_p47bc"]
 resource_name = "walk"
-length = 2.0
+length = 2.0000167
 loop_mode = 1
 step = 0.16666667
 tracks/0/type = "value"
@@ -344,7 +333,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5, 1, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-7, 62), Vector2(4, 33), Vector2(31, 44), Vector2(2, 56)]
+"values": [Vector2(-33, 60), Vector2(13, 26), Vector2(32, 48), Vector2(2, 56)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -353,10 +342,10 @@ tracks/2/path = NodePath("Sprite/GuidePoints/AnimatedLegL:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"times": PackedFloat32Array(0, 0.5, 0.8333333, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(21, 61), Vector2(-9, 65), Vector2(-12, 42), Vector2(24, 30)]
+"values": [Vector2(47, 57), Vector2(-9, 65), Vector2(-14.999999, 48), Vector2(32, 12)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -392,19 +381,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.5, 1, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(3, -19), Vector2(3, -24), Vector2(3, -19.333), Vector2(3, -24.167)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = false
-tracks/6/path = NodePath(".:walk_multiplier")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
-"transitions": PackedFloat32Array(0.8, 1, 0.8, 1),
-"update": 0,
-"values": [0.2, 1.5, 0.2, 1.5]
+"values": [Vector2(3, -19), Vector2(3, -24), Vector2(3, -19.333), Vector2(3, -30)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_75vfm"]
@@ -507,19 +484,21 @@ collision_mask = 21
 libraries/ = SubResource("AnimationLibrary_75vfm")
 autoplay = &"idle"
 playback_default_blend_time = 0.1
-speed_scale = 2.0
+speed_scale = 1.7
 
 [node name="Sprite" type="Node2D" parent="." unique_id=2112411734]
 
 [node name="GroundDetectorR" type="RayCast2D" parent="Sprite" unique_id=1920877544]
 unique_name_in_owner = true
-position = Vector2(-15, 0)
+visible = false
+position = Vector2(9.264055, 0)
 target_position = Vector2(0, 87)
 collision_mask = 21
 
 [node name="GroundDetectorL" type="RayCast2D" parent="Sprite" unique_id=529607088]
 unique_name_in_owner = true
-position = Vector2(25, 0)
+visible = false
+position = Vector2(23.464737, 0)
 target_position = Vector2(0, 75)
 collision_mask = 21
 
@@ -541,7 +520,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighR" unique_id=1375386282]
 position = Vector2(2.437, 32.666)
-rotation = 0.0068638856
+rotation = 0.006863885
 scale = Vector2(0.999993, 0.999993)
 rest = Transform2D(0.9999695, 0.0068637845, -0.0068637845, 0.9999695, 2.437, 32.666)
 metadata/_local_pose_override_enabled_ = true
@@ -596,7 +575,7 @@ update_scale = false
 
 [node name="ArmR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1756135333]
 position = Vector2(-33, -31)
-rotation = -0.03572379
+rotation = -0.035723787
 rest = Transform2D(0.999362, -0.0357162, 0.0357162, 0.999362, -33, -31)
 metadata/_local_pose_override_enabled_ = true
 
@@ -645,14 +624,6 @@ polygon = PackedVector2Array(14.293579, 13.275242, 39.805603, 8.838367, 56.44388
 uv = PackedVector2Array(14.293579, 13.275242, 39.805603, 8.838367, 56.44388, 111.995636, 39.52829, 139.72609, 15.957428, 124.19704, 29.268036, 107.836075)
 bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/Torso/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0.54, 0.54, 0.54, 0.54, 0.54, 0.54)]
 
-[node name="ArmR" type="Polygon2D" parent="Sprite/Parts" unique_id=919929024]
-position = Vector2(-30, -49)
-color = Color(0, 0, 0, 1)
-offset = Vector2(27, 49)
-skeleton = NodePath("../../Skeleton2D")
-polygon = PackedVector2Array(-30.5, -50, -30.5, -18, -29.5, -18, -29, -49)
-bones = ["Hips", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0), "Hips/Head", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0.54, 0.54, 0.54, 0.54), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0)]
-
 [node name="ThighR" type="Polygon2D" parent="Sprite/Parts" unique_id=1312145123]
 position = Vector2(-10, -5)
 color = Color(0, 0, 0, 1)
@@ -699,6 +670,14 @@ polygon = PackedVector2Array(15.121307, 45.683594, -6.2755127, 100.4196, 8.15490
 uv = PackedVector2Array(15.121307, 45.683594, -6.2755127, 100.4196, 8.154907, 148.18921, 65.876495, 262.13962, 192.26694, 259.6516, 224.61093, 74.544395, 196.24771, 13.339588, 104.19171, -8.057213, 36.518097, 14.334789)
 bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/Torso", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5), "Hips/Torso/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
+[node name="ArmR" type="Polygon2D" parent="Sprite/Parts" unique_id=919929024]
+position = Vector2(-30, -49)
+color = Color(0, 0, 0, 1)
+offset = Vector2(27, 49)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(-30.5, -50, -30.5, -18, -29.5, -18, -29, -49)
+bones = ["Hips", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0), "Hips/Head", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0.54, 0.54, 0.54, 0.54), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0)]
+
 [node name="HandR" type="Polygon2D" parent="Sprite/Parts" unique_id=773485820]
 position = Vector2(-30, -18)
 scale = Vector2(0.3, 0.3)
@@ -730,26 +709,29 @@ uv = PackedVector2Array(27.999695, 7.2499847, 51.999695, 12.249985, 49.499695, 5
 bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0.54, 0.54, 0.54, 0.54, 0.54, 0.54), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0, 0, 0)]
 
 [node name="Head" type="Sprite2D" parent="Sprite/Parts" unique_id=857872474]
-position = Vector2(9.999997, -62.999996)
-rotation = -0.05108005
-scale = Vector2(0.2998966, 0.2998966)
+position = Vector2(9.999997, -71.41714)
+rotation = -0.095511146
+scale = Vector2(0.29987323, 0.29987323)
 texture = ExtResource("5_bop6h")
 
 [node name="GuidePoints" type="Node2D" parent="Sprite" unique_id=1022049703]
 unique_name_in_owner = true
+script = ExtResource("6_k67x5")
 
 [node name="AnimatedLegR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=1174652303]
 position = Vector2(-7, 62)
 
 [node name="LegR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=460055182]
-position = Vector2(-7, 62)
+visible = false
+position = Vector2(9.264055, 54.06292)
 
 [node name="AnimatedLegL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=467743092]
 position = Vector2(21, 61)
 scale = Vector2(1.0000001, 1.0000001)
 
 [node name="LegL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=1184928012]
-position = Vector2(21, 61)
+visible = false
+position = Vector2(23.464737, 18.537651)
 scale = Vector2(1.0000001, 1.0000001)
 
 [node name="ArmR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=792042139]
@@ -769,12 +751,14 @@ position = Vector2(2, -45)
 
 [node name="Ragdoll" type="Node2D" parent="Sprite" unique_id=728832692]
 unique_name_in_owner = true
+visible = false
 
 [node name="HandR" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=505087904 groups=["ragdoll"]]
 position = Vector2(-22, 12)
 collision_layer = 2
 collision_mask = 31
 physics_material_override = ExtResource("6_15y17")
+continuous_cd = 2
 script = ExtResource("7_7aotg")
 metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
@@ -824,6 +808,7 @@ position = Vector2(43, 3)
 collision_layer = 2
 collision_mask = 31
 physics_material_override = ExtResource("6_15y17")
+continuous_cd = 2
 script = ExtResource("7_7aotg")
 metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
@@ -873,6 +858,7 @@ position = Vector2(-8, 62)
 collision_layer = 2
 collision_mask = 31
 physics_material_override = ExtResource("6_15y17")
+continuous_cd = 2
 script = ExtResource("7_7aotg")
 metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
@@ -922,6 +908,7 @@ position = Vector2(21, 61)
 collision_layer = 2
 collision_mask = 31
 physics_material_override = ExtResource("6_15y17")
+continuous_cd = 2
 script = ExtResource("7_7aotg")
 metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
@@ -971,75 +958,11 @@ position = Vector2(5, -42)
 collision_layer = 2
 collision_mask = 31
 physics_material_override = ExtResource("6_15y17")
+continuous_cd = 2
 script = ExtResource("7_7aotg")
 metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/Torso" unique_id=592121951 groups=["ragdoll"]]
-position = Vector2(-3, -3)
-shape = SubResource("CapsuleShape2D_6p1w3")
-
-[node name="WalkingLegs" type="Node2D" parent="Sprite" unique_id=1826250446]
-unique_name_in_owner = true
-visible = false
-
-[node name="FootR" type="RigidBody2D" parent="Sprite/WalkingLegs" unique_id=1679747677 groups=["ragdoll"]]
-position = Vector2(-8, 62)
-collision_layer = 0
-collision_mask = 29
-physics_material_override = ExtResource("6_15y17")
-gravity_scale = 2.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/WalkingLegs/FootR" unique_id=1197289500 groups=["ragdoll"]]
-shape = SubResource("CapsuleShape2D_15y17")
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite/WalkingLegs/FootR" unique_id=942795860 groups=["ragdoll"]]
-remote_path = NodePath("../../../GuidePoints/AnimatedLegR")
-update_position = false
-update_rotation = false
-update_scale = false
-
-[node name="Joint" type="DampedSpringJoint2D" parent="Sprite/WalkingLegs/FootR" unique_id=1488544914]
-position = Vector2(0, -45)
-node_a = NodePath("../../Torso")
-node_b = NodePath("..")
-disable_collision = false
-length = 100.0
-rest_length = 40.0
-
-[node name="FootL" type="RigidBody2D" parent="Sprite/WalkingLegs" unique_id=1242841458 groups=["ragdoll"]]
-position = Vector2(21, 61)
-collision_layer = 0
-collision_mask = 29
-physics_material_override = ExtResource("6_15y17")
-gravity_scale = 2.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/WalkingLegs/FootL" unique_id=1839603372 groups=["ragdoll"]]
-shape = SubResource("CapsuleShape2D_bop6h")
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite/WalkingLegs/FootL" unique_id=1680603404 groups=["ragdoll"]]
-remote_path = NodePath("../../../GuidePoints/AnimatedLegL")
-update_position = false
-update_rotation = false
-update_scale = false
-
-[node name="Joint" type="DampedSpringJoint2D" parent="Sprite/WalkingLegs/FootL" unique_id=16843760]
-position = Vector2(0, -45)
-node_a = NodePath("../../Torso")
-node_b = NodePath("..")
-disable_collision = false
-length = 100.0
-rest_length = 40.0
-
-[node name="Torso" type="RigidBody2D" parent="Sprite/WalkingLegs" unique_id=1743097423 groups=["ragdoll"]]
-position = Vector2(5, -42)
-collision_layer = 0
-collision_mask = 29
-physics_material_override = ExtResource("6_15y17")
-gravity_scale = 0.0
-freeze = true
-freeze_mode = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/WalkingLegs/Torso" unique_id=1967756186 groups=["ragdoll"]]
 position = Vector2(-3, -3)
 shape = SubResource("CapsuleShape2D_6p1w3")
 
@@ -1057,10 +980,12 @@ metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="Jump" type="Node" parent="StateMachine" unique_id=1167554938]
 script = ExtResource("10_hiosj")
+horizontal_speed = 400.0
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="Fall" type="Node" parent="StateMachine" unique_id=1791540762]
 script = ExtResource("11_ssdk0")
+horizontal_speed = 350.0
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="Ragdoll" type="Node" parent="StateMachine" unique_id=1205713261]

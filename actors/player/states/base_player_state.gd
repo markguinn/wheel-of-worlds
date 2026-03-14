@@ -3,10 +3,8 @@ extends StateNode
 
 const CAMERA_HORIZONTAL_OFFSET = 1.2
 
-const SPEED = 250.0
 const WALK_ACCEL = 0.2
 const TURNING_ACCEL = 0.1
-const FOOT_MARKER_GROUND_OFFSET = 10
 
 const GRAVITY_MULTIPLIER = 1.8
 const GRAVITY_DIRECTION = Vector2.DOWN
@@ -15,6 +13,7 @@ const ROT_TWEEN = 0.2
 const PUSH_FORCE = 2.5 # Applied to the orb
 const PLANK_FORCE = Vector2(0.2, 0.6) # Applied to the plank
 
+@export var horizontal_speed := 250.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -42,11 +41,11 @@ func _get_input_vector() -> Vector2:
 
 
 func _update_horizontal_movement(dir: Vector2, delta: float) -> void:
-	var target_vx: float = dir.x * SPEED * player.walk_multiplier
+	var target_vx: float = dir.x * horizontal_speed * player.walk_multiplier
 	# feels annoying to have too much delay when changing directions
 	# this is imperfect though because it flips when you get to zero anyway. we can iterate more another time
 	var accel_val : float = TURNING_ACCEL if player.velocity.x and signf(target_vx) != signf(player.velocity.x) else WALK_ACCEL
-	player.velocity.x = move_toward(player.velocity.x, target_vx, delta * SPEED / accel_val)
+	player.velocity.x = move_toward(player.velocity.x, target_vx, delta * horizontal_speed / accel_val)
 
 
 func _update_facing_direction(dir: Vector2) -> void:
@@ -68,29 +67,6 @@ func _apply_gravity(delta: float) -> void:
 		player.velocity += GRAVITY_DIRECTION * gravity * GRAVITY_MULTIPLIER * delta
 	if player.velocity.y > 0 and name != "Fall":
 		machine.transition_by_name("Fall")
-
-
-# We animate one marker, but the skeleton2D solves from a second one
-# This gives us freedom to place the feet realistically on slopes.
-# In this function we sync the real leg markers to the animated ones,
-# and then check them against the ground detector ray casts and adjust
-# upwards if needed.
-func _sync_feet_markers() -> void:
-	leg_r.global_position = animated_leg_r.global_position
-	if ground_detector_r.is_colliding():
-		var cp: Vector2 = ground_detector_r.get_collision_point()
-		if cp.y < leg_r.global_position.y + FOOT_MARKER_GROUND_OFFSET:
-			leg_r.global_position.y = cp.y - FOOT_MARKER_GROUND_OFFSET
-			#leg_r.global_position = leg_r.global_position.lerp(cp, 0.5)
-	ground_detector_r.global_position.x = animated_leg_r.global_position.x
-	
-	leg_l.global_position = animated_leg_l.global_position
-	if ground_detector_l.is_colliding():
-		var cp: Vector2 = ground_detector_l.get_collision_point()
-		if cp.y < leg_l.global_position.y + FOOT_MARKER_GROUND_OFFSET:
-			leg_l.global_position.y = cp.y - FOOT_MARKER_GROUND_OFFSET
-			#leg_l.global_position = leg_l.global_position.lerp(cp, 0.5)
-	ground_detector_l.global_position.x = animated_leg_l.global_position.x
 
 
 func _move_and_slide(_delta: float) -> void:
@@ -122,4 +98,3 @@ func _process(delta: float) -> void:
 	_update_camera_offset(dir)
 	_apply_gravity(delta)
 	_move_and_slide(delta)
-	_sync_feet_markers()

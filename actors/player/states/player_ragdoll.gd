@@ -49,7 +49,7 @@ var last_ragdoll_movement := 0
 	%Ragdoll/KneeL/CollisionShape2D,
 	%Ragdoll/KneeR/CollisionShape2D,
 ]
-@onready var guidepoints_container: Node2D = %GuidePoints
+@onready var guidepoints_container: GuidepointSyncingBehaviors = %GuidePoints
 @onready var ragdoll_container: Node2D = %Ragdoll
 
 
@@ -86,6 +86,7 @@ func _init_ragdoll_elements() -> void:
 func _enable_ragdoll_elements() -> void:
 	# make the animation player disconnect from controlling the guidepoints
 	player.anim_player.active = false
+	guidepoints_container.sync_legs_to_animated = false
 	# don't do the normal collision
 	player.shape.disabled = true
 	player.shape2.disabled = true
@@ -107,9 +108,12 @@ func _enable_ragdoll_elements() -> void:
 
 	for n in ragdoll_collision_shapes:
 		n.disabled = false
+
+	await get_tree().physics_frame
+
 	for n in ragdoll_remote_transforms:
-		n.update_position = true
-		n.update_rotation = true
+		n.set_deferred("update_position", true)
+		n.set_deferred("update_rotation", true)
 
 
 func _disable_ragdoll_elements() -> void:
@@ -119,10 +123,12 @@ func _disable_ragdoll_elements() -> void:
 	# restore the animation and player collision
 	if player.anim_player:
 		player.anim_player.active = true
+		guidepoints_container.sync_legs_to_animated = true
 	if player.shape:
 		player.shape.disabled = false
 	if player.shape2:
 		player.shape2.disabled = false
+		
 	
 	# disable the ragdoll bodies so they don't get in the way
 	for n in ragdoll_bodies:
@@ -161,8 +167,9 @@ func _process(_delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	var diff: Vector2 = ragdoll_bodies[0].global_position - guidepoints[0].global_position
 	#prints("[PlayerRagdollState]", diff, diff.length() / delta, ragdoll_bodies[0].global_position, guidepoints[0].global_position)
-	player.global_position += diff
-	player.global_rotation = ragdoll_bodies[0].global_rotation
+	if ragdoll_remote_transforms[0].update_position:
+		player.global_position += diff
+		player.global_rotation = ragdoll_bodies[0].global_rotation
 
 	# when the player has stopped moving for a short time, switch back to idle
 	if diff.length() / delta < STILLNESS_THRESHOLD:
