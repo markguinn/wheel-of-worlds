@@ -20,6 +20,7 @@ var start_pos: Vector2
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Node2D = $Sprite
 @onready var shape: CollisionShape2D = $NormalCollision
+@onready var shape2: CollisionShape2D = $NormalCollision2
 @onready var ground_detector: RayCast2D = $GroundDetector
 
 

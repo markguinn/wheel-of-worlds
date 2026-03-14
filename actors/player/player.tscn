@@ -14,8 +14,12 @@
 [ext_resource type="Script" uid="uid://d0dmoudghrdys" path="res://actors/player/states/player_ragdoll.gd" id="12_ssdk0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
-radius = 19.0
-height = 132.0
+radius = 5.0
+height = 140.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ssdk0"]
+radius = 25.0
+height = 60.0
 
 [sub_resource type="Animation" id="Animation_75vfm"]
 length = 0.001
@@ -412,14 +416,14 @@ _data = {
 }
 
 [sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_bop6h"]
-target_nodepath = NodePath("../GuidePoints/AnimatedLegR")
+target_nodepath = NodePath("../GuidePoints/LegR")
 joint_one_bone_idx = 1
 joint_one_bone2d_node = NodePath("Hips/ThighR")
 joint_two_bone_idx = 2
 joint_two_bone2d_node = NodePath("Hips/ThighR/ShinR")
 
 [sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_a744p"]
-target_nodepath = NodePath("../GuidePoints/AnimatedLegL")
+target_nodepath = NodePath("../GuidePoints/LegL")
 joint_one_bone_idx = 4
 joint_one_bone2d_node = NodePath("Hips/ThighL")
 joint_two_bone_idx = 5
@@ -447,6 +451,7 @@ bone2d_node = NodePath("Hips/Torso/Head")
 target_nodepath = NodePath("../GuidePoints/Head")
 
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_ax26v"]
+enabled = true
 modification_count = 5
 modifications/0 = SubResource("SkeletonModification2DTwoBoneIK_bop6h")
 modifications/1 = SubResource("SkeletonModification2DTwoBoneIK_a744p")
@@ -486,25 +491,15 @@ holding_hand = NodePath("Sprite/GuidePoints/ArmL")
 resting_point = NodePath("Sprite/GuidePoints/PlankRestingPoint")
 
 [node name="NormalCollision" type="CollisionShape2D" parent="." unique_id=120194031 groups=["not_ragdoll"]]
-visible = false
 shape = SubResource("CapsuleShape2D_8afob")
 disabled = true
 
+[node name="NormalCollision2" type="CollisionShape2D" parent="." unique_id=1887406032]
+position = Vector2(0, -40)
+shape = SubResource("CapsuleShape2D_ssdk0")
+
 [node name="GroundDetector" type="RayCast2D" parent="." unique_id=1984008968]
-visible = false
 target_position = Vector2(0, 81)
-collision_mask = 21
-
-[node name="GroundDetectorL" type="RayCast2D" parent="." unique_id=1920877544]
-visible = false
-position = Vector2(-20, 0)
-target_position = Vector2(0, 100)
-collision_mask = 21
-
-[node name="GroundDetectorR" type="RayCast2D" parent="." unique_id=529607088]
-visible = false
-position = Vector2(20, 0)
-target_position = Vector2(0, 100)
 collision_mask = 21
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1171831929 groups=["not_ragdoll"]]
@@ -514,6 +509,18 @@ playback_default_blend_time = 0.1
 speed_scale = 2.0
 
 [node name="Sprite" type="Node2D" parent="." unique_id=2112411734]
+
+[node name="GroundDetectorR" type="RayCast2D" parent="Sprite" unique_id=1920877544]
+unique_name_in_owner = true
+position = Vector2(-15, 0)
+target_position = Vector2(0, 87)
+collision_mask = 21
+
+[node name="GroundDetectorL" type="RayCast2D" parent="Sprite" unique_id=529607088]
+unique_name_in_owner = true
+position = Vector2(25, 0)
+target_position = Vector2(0, 75)
+collision_mask = 21
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Sprite" unique_id=1146146976]
 modification_stack = SubResource("SkeletonModificationStack2D_ax26v")
@@ -528,12 +535,14 @@ position = Vector2(-13.999999, 15)
 rotation = -0.1409018
 scale = Vector2(0.99999315, 0.99999315)
 rest = Transform2D(0.990083, -0.14043507, 0.14043507, 0.990083, -13.999999, 15)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighR" unique_id=1375386282]
 position = Vector2(2.437, 32.666)
 rotation = 0.006863886
 scale = Vector2(0.999993, 0.999993)
 rest = Transform2D(0.9999695, 0.0068637845, -0.0068637845, 0.9999695, 2.437, 32.666)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="FootR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighR/ShinR" unique_id=114270177]
 position = Vector2(-15.712479, 34.207558)
@@ -547,11 +556,13 @@ position = Vector2(20.000002, 13.000002)
 rotation = 0.2563908
 scale = Vector2(0.9999999, 0.9999999)
 rest = Transform2D(0.967, 0.254, -0.254, 0.967, 23, 14)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighL" unique_id=919169516]
 position = Vector2(10.763253, 29.225883)
 rotation = -0.5885329
 rest = Transform2D(0.832, -0.555, 0.555, 0.832, 10.783, 29.196)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="FootL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighL/ShinL" unique_id=832718881]
 position = Vector2(-12.033302, 33.24454)
@@ -574,6 +585,7 @@ rest = Transform2D(0.98157996, 0.19081554, -0.19081554, 0.98157996, 11.294762, 8
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 82.991
+metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite/Skeleton2D/Hips/Torso/Head" unique_id=333483355]
 rotation = 1.4486233
@@ -584,6 +596,7 @@ update_scale = false
 position = Vector2(-33, -31)
 rotation = -0.035723794
 rest = Transform2D(0.999362, -0.0357162, 0.0357162, 0.999362, -33, -31)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="HandR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ArmR" unique_id=88591762]
 position = Vector2(0, 32)
@@ -592,11 +605,13 @@ rest = Transform2D(0.99928516, -0.03780409, 0.03780409, 0.99928516, 0, 32)
 auto_calculate_length_and_angle = false
 length = 32.0
 bone_angle = 79.99997
+metadata/_local_pose_override_enabled_ = true
 
 [node name="ArmL" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1793998611]
 position = Vector2(28, -36)
 rotation = -0.09683907
 rest = Transform2D(0.9953148, -0.09668779, 0.09668779, 0.9953148, 28, -36)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="HandL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ArmL" unique_id=1933907137]
 position = Vector2(1.399125, 37.310078)
@@ -605,6 +620,7 @@ rest = Transform2D(0.998, 0.064, -0.064, 0.998, 4, 36)
 auto_calculate_length_and_angle = false
 length = 21.0
 bone_angle = 79.99997
+metadata/_local_pose_override_enabled_ = true
 
 [node name="Parts" type="Node2D" parent="Sprite" unique_id=1880770915]
 metadata/_edit_lock_ = true
@@ -713,7 +729,7 @@ bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloa
 
 [node name="Head" type="Sprite2D" parent="Sprite/Parts" unique_id=857872474]
 position = Vector2(9.999997, -62.999996)
-rotation = -0.02364808
+rotation = -0.05108005
 scale = Vector2(0.2998966, 0.2998966)
 texture = ExtResource("5_bop6h")
 
@@ -724,7 +740,6 @@ unique_name_in_owner = true
 position = Vector2(-7, 62)
 
 [node name="LegR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=460055182]
-visible = false
 position = Vector2(-7, 62)
 
 [node name="AnimatedLegL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=467743092]
@@ -732,7 +747,6 @@ position = Vector2(21, 61)
 scale = Vector2(1.0000001, 1.0000001)
 
 [node name="LegL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=1184928012]
-visible = false
 position = Vector2(21, 61)
 scale = Vector2(1.0000001, 1.0000001)
 
@@ -809,7 +823,7 @@ physics_material_override = ExtResource("6_15y17")
 shape = SubResource("CapsuleShape2D_15y17")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite/Ragdoll/FootR" unique_id=1409945004 groups=["ragdoll"]]
-remote_path = NodePath("../../../GuidePoints/AnimatedLegR")
+remote_path = NodePath("../../../GuidePoints/LegR")
 update_position = false
 update_rotation = false
 update_scale = false
@@ -831,7 +845,7 @@ physics_material_override = ExtResource("6_15y17")
 shape = SubResource("CapsuleShape2D_bop6h")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite/Ragdoll/FootL" unique_id=1176617047 groups=["ragdoll"]]
-remote_path = NodePath("../../../GuidePoints/AnimatedLegL")
+remote_path = NodePath("../../../GuidePoints/LegL")
 update_position = false
 update_rotation = false
 update_scale = false

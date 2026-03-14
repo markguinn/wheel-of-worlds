@@ -59,6 +59,7 @@ func _enable_ragdoll_elements() -> void:
 	player.anim_player.active = false
 	# don't do the normal collision
 	player.shape.disabled = true
+	player.shape2.disabled = true
 	
 	# enable the ragdoll bodies and reset them to match the guidepoints
 	for i in range(guidepoints.size()):
@@ -83,6 +84,8 @@ func _disable_ragdoll_elements() -> void:
 		player.anim_player.active = true
 	if player.shape:
 		player.shape.disabled = false
+	if player.shape2:
+		player.shape2.disabled = false
 	
 	# disable the ragdoll bodies so they don't get in the way
 	for n in ragdoll_bodies:
