@@ -38,15 +38,15 @@ func in_coyote_window() -> bool:
 
 
 func can_jump() -> bool:
+	if state_machine.get_active() == "Ragdoll":
+		return false
 	return is_on_floor() or in_coyote_window()
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		if state_machine.get_active() == "Ragdoll":
-			state_machine.transition_by_name("Idle")
-		else:
-			state_machine.transition_by_name("Ragdoll")
+	if event.is_action_pressed("ui_cancel") and state_machine.get_active() != "Ragdoll":
+		state_machine.transition_by_name("Ragdoll")
+		get_viewport().set_input_as_handled()
 	if event.is_action_pressed("jump") and can_jump():
 		state_machine.transition_by_name("Jump")
 		get_viewport().set_input_as_handled()

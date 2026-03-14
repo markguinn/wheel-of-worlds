@@ -3,7 +3,7 @@ extends StateNode
 
 const CAMERA_HORIZONTAL_OFFSET = 1.2
 
-const SPEED = 400.0
+const SPEED = 250.0
 const WALK_ACCEL = 0.2
 const TURNING_ACCEL = 0.1
 const FOOT_MARKER_GROUND_OFFSET = 10
