@@ -146,7 +146,11 @@ func _disable_ragdoll_elements() -> void:
 		n.update_rotation = false
 
 
-func start_standing_up() -> void:
+# do a small animation to get up off the ground before returning
+# to a non-ragdoll state so we're not stuck in the ground
+func transition_before_exit(to_state: StateNode) -> void:
+	if to_state.name == "Fall":
+		return
 	dizzy_particles.emitting = false
 	standing_up = true
 	var body := ragdoll_bodies[0]
@@ -155,12 +159,11 @@ func start_standing_up() -> void:
 	tween.tween_property(body, "position", body.position + Vector2(0, -STANDUP_DIST), STANDUP_TIME)
 	tween.parallel().tween_property(body, "rotation", 0.0, STANDUP_TIME)
 	await tween.finished
-	machine.transition_by_name("Idle")
 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and not standing_up:
-		start_standing_up()
+		machine.transition_by_name("Idle")
 		get_viewport().set_input_as_handled()
 
 
@@ -178,7 +181,6 @@ func _physics_process(delta: float) -> void:
 	# when the player has stopped moving for a short time, switch back to idle
 	if diff.length() / delta < STILLNESS_THRESHOLD:
 		if not standing_up and Time.get_ticks_msec() > last_ragdoll_movement + STILLNESS_WINDOW_MS:
-			#machine.transition_by_name("Idle")
-			start_standing_up()
+			machine.transition_by_name("Idle")
 	else:
 		last_ragdoll_movement = Time.get_ticks_msec()

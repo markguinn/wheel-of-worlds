@@ -27,3 +27,11 @@ func can_enter(_from_state: StateNode) -> bool:
 
 func can_transition_to(_to_state: StateNode) -> bool:
 	return true
+
+
+# Subclasses can implement this to implement any animations or behaviors
+# that need to happen and fully complete before the transition.
+# The state machine will await this method before initiating the
+# transition (i.e. before the "before_exit" signal is triggered)
+func transition_before_exit(_to_state: StateNode) -> void:
+	pass
