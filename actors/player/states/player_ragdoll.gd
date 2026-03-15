@@ -52,6 +52,8 @@ var last_ragdoll_movement := 0
 @onready var guidepoints_container: GuidepointSyncingBehaviors = %GuidePoints
 @onready var ragdoll_container: Node2D = %Ragdoll
 
+@onready var dizzy_particles: GPUParticles2D = %DizzyParticles
+
 
 func init_state(_machine: StateMachine, _target: Node2D) -> void:
 	super.init_state(_machine, _target)
@@ -62,11 +64,12 @@ func _entered(_prev_state: StateNode) -> void:
 	last_ragdoll_movement = Time.get_ticks_msec()
 	standing_up = false
 	_enable_ragdoll_elements()
+	dizzy_particles.emitting = true
 	if player.is_holding_prop:
 		player.put_down_prop()
 
 
-func	 _before_exit(_next_state: StateNode) -> void:
+func _before_exit(_next_state: StateNode) -> void:
 	_disable_ragdoll_elements()
 	standing_up = false
 
@@ -81,7 +84,7 @@ func _init_ragdoll_elements() -> void:
 	ragdoll_container.reparent(player.get_parent(), false)
 	
 	_disable_ragdoll_elements()
-	
+		dizzy_particles.emitting = false
 
 func _enable_ragdoll_elements() -> void:
 	# make the animation player disconnect from controlling the guidepoints
