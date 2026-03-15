@@ -98,6 +98,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(3, -19)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite/Skeleton2D/Hips:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_gmlin"]
 resource_name = "fall"
@@ -240,6 +252,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(3, -19), Vector2(1, -19)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite/Skeleton2D/Hips:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_qek5x"]
@@ -401,6 +425,18 @@ tracks/6/keys = {
 "method": &"puff_left_dust"
 }]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite/Skeleton2D/Hips:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.20943951023931956, -0.05235987755982989]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_75vfm"]
 _data = {
@@ -554,13 +590,13 @@ speed_scale = 1.7
 
 [node name="GroundDetectorR" type="RayCast2D" parent="Sprite" unique_id=1920877544]
 unique_name_in_owner = true
-position = Vector2(-33, 0)
+position = Vector2(32, 0)
 target_position = Vector2(0, 100)
 collision_mask = 21
 
 [node name="GroundDetectorL" type="RayCast2D" parent="Sprite" unique_id=529607088]
 unique_name_in_owner = true
-position = Vector2(47, 0)
+position = Vector2(-3.2499962, 0)
 target_position = Vector2(0, 100)
 collision_mask = 21
 
@@ -570,6 +606,7 @@ metadata/_edit_lock_ = true
 
 [node name="Hips" type="Bone2D" parent="Sprite/Skeleton2D" unique_id=598144107]
 position = Vector2(3, -19)
+scale = Vector2(0.99998057, 0.99998057)
 rest = Transform2D(1, 0, 0, 1, 0, -20)
 
 [node name="ThighR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=25801670]
@@ -773,9 +810,9 @@ uv = PackedVector2Array(27.999695, 7.2499847, 51.999695, 12.249985, 49.499695, 5
 bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0.54, 0.54, 0.54, 0.54, 0.54, 0.54), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0, 0, 0)]
 
 [node name="Head" type="Sprite2D" parent="Sprite/Parts" unique_id=857872474]
-position = Vector2(9.999997, -62.999996)
-rotation = -0.05108005
-scale = Vector2(0.29981256, 0.29981256)
+position = Vector2(7.6875315, -63.638187)
+rotation = -0.11484483
+scale = Vector2(0.2998142, 0.2998142)
 texture = ExtResource("5_bop6h")
 
 [node name="GuidePoints" type="Node2D" parent="Sprite" unique_id=1022049703]
@@ -787,7 +824,7 @@ position = Vector2(-7, 62)
 
 [node name="LegR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=460055182]
 visible = false
-position = Vector2(-33, 60)
+position = Vector2(32, 48)
 
 [node name="AnimatedLegL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=467743092]
 position = Vector2(21, 61)
@@ -795,7 +832,7 @@ scale = Vector2(1.0000001, 1.0000001)
 
 [node name="LegL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=1184928012]
 visible = false
-position = Vector2(47, 57)
+position = Vector2(-3.2499962, 39)
 scale = Vector2(1.0000001, 1.0000001)
 
 [node name="ArmR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=792042139]
@@ -867,9 +904,9 @@ color_initial_ramp = SubResource("Gradient_rt46e")
 
 [node name="DizzyParticles" type="GPUParticles2D" parent="Sprite/VFX" unique_id=806147118]
 unique_name_in_owner = true
-position = Vector2(9.999997, -62.999996)
-rotation = -1.4997033
-scale = Vector2(0.99990594, 0.99990594)
+position = Vector2(7.6875315, -63.638187)
+rotation = -1.5634681
+scale = Vector2(0.9997992, 0.9997992)
 emitting = false
 amount = 6
 texture = ExtResource("7_7aotz")
@@ -880,6 +917,7 @@ process_material = SubResource("ParticleProcessMaterial_rt46e")
 
 [node name="Ragdoll" type="Node2D" parent="Sprite" unique_id=728832692]
 unique_name_in_owner = true
+visible = false
 
 [node name="HandR" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=505087904 groups=["ragdoll"]]
 position = Vector2(-22, 12)
