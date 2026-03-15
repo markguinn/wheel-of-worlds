@@ -3,7 +3,7 @@ extends PlayerState
 
 
 const RAGDOLL_AFTER_MS = 1000
-
+const LANDING_DUST_SCALE = 20.0
 
 var started_falling_at: int
 
@@ -15,6 +15,10 @@ func _entered(_from_state: StateNode) -> void:
 
 func _process(delta: float) -> void:
 	super._process(delta)
+	
+	if player.ground_detector.is_colliding():
+		player.puff_left_dust(LANDING_DUST_SCALE)
+		player.puff_right_dust(LANDING_DUST_SCALE)
 
 	if player.ground_detector.is_colliding() and player.ground_detector.get_collider() is Orb:
 		machine.transition_by_name("Ragdoll")

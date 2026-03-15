@@ -17,8 +17,8 @@
 [ext_resource type="Script" uid="uid://d0dmoudghrdys" path="res://actors/player/states/player_ragdoll.gd" id="12_ssdk0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
-radius = 5.0
-height = 140.0
+radius = 18.0
+height = 130.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ssdk0"]
 radius = 25.0
@@ -384,6 +384,23 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(3, -19), Vector2(3, -24), Vector2(3, -19.333), Vector2(3, -30)]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"puff_right_dust"
+}, {
+"args": [],
+"method": &"puff_left_dust"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_75vfm"]
 _data = {
@@ -438,25 +455,21 @@ modifications/2 = SubResource("SkeletonModification2DTwoBoneIK_388e2")
 modifications/3 = SubResource("SkeletonModification2DTwoBoneIK_lsln6")
 modifications/4 = SubResource("SkeletonModification2DLookAt_bop6h")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a744p"]
-radius = 4.0
-height = 8.0
+[sub_resource type="Gradient" id="Gradient_0wchr"]
+offsets = PackedFloat32Array(0, 0.45833334, 0.7083333, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.48530263, 1, 1, 1, 0.3159722, 1, 1, 1, 0)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_388e2"]
-radius = 3.0
-height = 6.0
+[sub_resource type="Gradient" id="Gradient_qrxv1"]
+offsets = PackedFloat32Array(0.0052083335, 0.9965278)
+colors = PackedColorArray(1, 1, 1, 0.1882353, 1, 1, 1, 0.28235295)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15y17"]
-radius = 8.0
-height = 16.0
+[sub_resource type="Gradient" id="Gradient_12xki"]
+offsets = PackedFloat32Array(0, 0.45833334, 0.7083333, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.48530263, 1, 1, 1, 0.3159722, 1, 1, 1, 0)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bop6h"]
-radius = 6.0
-height = 12.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6p1w3"]
-radius = 32.0
-height = 68.0
+[sub_resource type="Gradient" id="Gradient_rt46e"]
+offsets = PackedFloat32Array(0.0052083335, 0.9965278)
+colors = PackedColorArray(1, 1, 1, 0.1882353, 1, 1, 1, 0.28235295)
 
 [sub_resource type="Curve" id="Curve_k67x5"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5037129, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -488,6 +501,26 @@ scale_min = 0.25
 scale_max = 0.5
 scale_curve = SubResource("CurveTexture_12xki")
 color = Color(0.8664945, 0.94085056, 0, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a744p"]
+radius = 4.0
+height = 8.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_388e2"]
+radius = 3.0
+height = 6.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15y17"]
+radius = 8.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bop6h"]
+radius = 6.0
+height = 12.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6p1w3"]
+radius = 32.0
+height = 68.0
 
 [node name="Player" type="CharacterBody2D" unique_id=317056800 node_paths=PackedStringArray("holding_hand", "resting_point") groups=["player"]]
 z_index = 1
@@ -521,16 +554,14 @@ speed_scale = 1.7
 
 [node name="GroundDetectorR" type="RayCast2D" parent="Sprite" unique_id=1920877544]
 unique_name_in_owner = true
-visible = false
-position = Vector2(-7, 0)
-target_position = Vector2(0, 87)
+position = Vector2(-33, 0)
+target_position = Vector2(0, 100)
 collision_mask = 21
 
 [node name="GroundDetectorL" type="RayCast2D" parent="Sprite" unique_id=529607088]
 unique_name_in_owner = true
-visible = false
-position = Vector2(21, 0)
-target_position = Vector2(0, 75)
+position = Vector2(47, 0)
+target_position = Vector2(0, 100)
 collision_mask = 21
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Sprite" unique_id=1146146976]
@@ -604,7 +635,7 @@ remote_path = NodePath("../../../../../Parts/Head")
 update_scale = false
 
 [node name="DizzyRemoteTransform" type="RemoteTransform2D" parent="Sprite/Skeleton2D/Hips/Torso/Head" unique_id=2058064896]
-remote_path = NodePath("../../../../../../DizzyParticles")
+remote_path = NodePath("../../../../../VFX/DizzyParticles")
 
 [node name="ArmR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1756135333]
 position = Vector2(-33, -31)
@@ -744,7 +775,7 @@ bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloa
 [node name="Head" type="Sprite2D" parent="Sprite/Parts" unique_id=857872474]
 position = Vector2(9.999997, -62.999996)
 rotation = -0.05108005
-scale = Vector2(0.29987323, 0.29987323)
+scale = Vector2(0.29981256, 0.29981256)
 texture = ExtResource("5_bop6h")
 
 [node name="GuidePoints" type="Node2D" parent="Sprite" unique_id=1022049703]
@@ -756,7 +787,7 @@ position = Vector2(-7, 62)
 
 [node name="LegR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=460055182]
 visible = false
-position = Vector2(-7, 62)
+position = Vector2(-33, 60)
 
 [node name="AnimatedLegL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=467743092]
 position = Vector2(21, 61)
@@ -764,7 +795,7 @@ scale = Vector2(1.0000001, 1.0000001)
 
 [node name="LegL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=1184928012]
 visible = false
-position = Vector2(21, 61)
+position = Vector2(47, 57)
 scale = Vector2(1.0000001, 1.0000001)
 
 [node name="ArmR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=792042139]
@@ -782,9 +813,73 @@ position = Vector2(22, -72)
 [node name="Torso" type="Marker2D" parent="Sprite/GuidePoints" unique_id=1991809634]
 position = Vector2(2, -45)
 
+[node name="VFX" type="Node2D" parent="Sprite" unique_id=1603292766]
+
+[node name="DustParticlesL" type="CPUParticles2D" parent="Sprite/VFX" unique_id=439452128]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.49019608)
+position = Vector2(48, 60)
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.78
+randomness = 0.31
+lifetime_randomness = 0.43
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+linear_accel_min = -70.12
+linear_accel_max = -45.73
+damping_min = 75.61
+damping_max = 100.0
+scale_amount_min = 4.0
+scale_amount_max = 8.0
+color_ramp = SubResource("Gradient_0wchr")
+color_initial_ramp = SubResource("Gradient_qrxv1")
+
+[node name="DustParticlesR" type="CPUParticles2D" parent="Sprite/VFX" unique_id=139616382]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.49019608)
+position = Vector2(48, 60)
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.75
+randomness = 0.3
+lifetime_randomness = 0.5
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+linear_accel_min = -70.12
+linear_accel_max = -45.73
+damping_min = 67.988
+damping_max = 100.0
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+color_ramp = SubResource("Gradient_12xki")
+color_initial_ramp = SubResource("Gradient_rt46e")
+
+[node name="DizzyParticles" type="GPUParticles2D" parent="Sprite/VFX" unique_id=806147118]
+unique_name_in_owner = true
+position = Vector2(9.999997, -62.999996)
+rotation = -1.4997033
+scale = Vector2(0.99990594, 0.99990594)
+emitting = false
+amount = 6
+texture = ExtResource("7_7aotz")
+lifetime = 1.2
+fixed_fps = 12
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_rt46e")
+
 [node name="Ragdoll" type="Node2D" parent="Sprite" unique_id=728832692]
 unique_name_in_owner = true
-visible = false
 
 [node name="HandR" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=505087904 groups=["ragdoll"]]
 position = Vector2(-22, 12)
@@ -809,7 +904,7 @@ position = Vector2(-2, -23)
 node_a = NodePath("../../ElbowR")
 node_b = NodePath("..")
 disable_collision = false
-softness = 16.0
+softness = 4.5
 angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
@@ -829,9 +924,8 @@ shape = SubResource("CapsuleShape2D_a744p")
 position = Vector2(-2, -23)
 node_a = NodePath("../../Torso")
 node_b = NodePath("..")
-bias = 0.9
 disable_collision = false
-softness = 16.0
+softness = 4.5
 angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
@@ -859,7 +953,7 @@ position = Vector2(-2, -19)
 node_a = NodePath("../../ElbowL")
 node_b = NodePath("..")
 disable_collision = false
-softness = 16.0
+softness = 4.5
 angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
@@ -879,9 +973,8 @@ shape = SubResource("CapsuleShape2D_388e2")
 position = Vector2(-2, -19)
 node_a = NodePath("../../Torso")
 node_b = NodePath("..")
-bias = 0.9
 disable_collision = false
-softness = 16.0
+softness = 4.5
 angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
@@ -929,9 +1022,8 @@ shape = SubResource("CapsuleShape2D_15y17")
 position = Vector2(0, -45)
 node_a = NodePath("../../Torso")
 node_b = NodePath("..")
-bias = 0.9
 disable_collision = false
-softness = 16.0
+softness = 4.5
 angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
@@ -959,7 +1051,7 @@ position = Vector2(0, -45)
 node_a = NodePath("../../KneeL")
 node_b = NodePath("..")
 disable_collision = false
-softness = 16.0
+softness = 4.5
 angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
@@ -979,9 +1071,8 @@ shape = SubResource("CapsuleShape2D_bop6h")
 position = Vector2(0, -45)
 node_a = NodePath("../../Torso")
 node_b = NodePath("..")
-bias = 0.9
 disable_collision = false
-softness = 16.0
+softness = 4.5
 angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
@@ -998,19 +1089,6 @@ metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/Torso" unique_id=592121951 groups=["ragdoll"]]
 position = Vector2(-3, -3)
 shape = SubResource("CapsuleShape2D_6p1w3")
-
-[node name="DizzyParticles" type="GPUParticles2D" parent="." unique_id=806147118]
-unique_name_in_owner = true
-position = Vector2(9.999997, -62.999996)
-rotation = -1.4997033
-scale = Vector2(0.99990594, 0.99990594)
-emitting = false
-amount = 6
-texture = ExtResource("7_7aotz")
-lifetime = 1.2
-fixed_fps = 12
-local_coords = true
-process_material = SubResource("ParticleProcessMaterial_rt46e")
 
 [node name="StateMachine" type="Node" parent="." unique_id=425844762]
 script = ExtResource("7_a744p")

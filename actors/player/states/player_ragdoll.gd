@@ -2,7 +2,7 @@ class_name PlayerRagdollState
 extends PlayerState
 
 
-const STILLNESS_THRESHOLD = 50.0
+const STILLNESS_THRESHOLD = 100.0
 const STILLNESS_WINDOW_MS = 1000
 const STANDUP_DIST = 80.0
 const STANDUP_TIME = 0.2
@@ -83,6 +83,7 @@ func _init_ragdoll_elements() -> void:
 
 	# move the ragdoll stuff outside of the player so it can move freely
 	ragdoll_container.reparent(player.get_parent(), false)
+	_disable_ragdoll_elements()
 
 
 func _enable_ragdoll_elements() -> void:

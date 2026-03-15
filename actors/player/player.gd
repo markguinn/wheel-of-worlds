@@ -23,6 +23,8 @@ var start_pos: Vector2
 @onready var shape2: CollisionShape2D = $NormalCollision2
 @onready var ground_detector: RayCast2D = $GroundDetector
 
+@onready var dust_particles_l: CPUParticles2D = %DustParticlesL
+@onready var dust_particles_r: CPUParticles2D = %DustParticlesR
 
 func _ready() -> void:
 	anim_player.play("idle")
@@ -41,6 +43,22 @@ func can_jump() -> bool:
 	if state_machine.get_active() == "Ragdoll":
 		return false
 	return is_on_floor() or in_coyote_window()
+
+
+func puff_left_dust(dust_scale = 10.0) -> void:
+	prints("left", dust_scale, dust_particles_l.global_position, is_on_floor())
+	if is_on_floor():
+		dust_particles_l.scale_amount_max = dust_scale
+		dust_particles_l.scale_amount_min = dust_scale / 2
+		dust_particles_l.emitting = true
+
+
+func puff_right_dust(dust_scale = 10.0) -> void:
+	prints("right", dust_scale, dust_particles_r.global_position, is_on_floor())
+	if is_on_floor():
+		dust_particles_r.scale_amount_max = dust_scale
+		dust_particles_r.scale_amount_min = dust_scale / 2
+		dust_particles_r.emitting = true
 
 
 func _input(event: InputEvent) -> void:
