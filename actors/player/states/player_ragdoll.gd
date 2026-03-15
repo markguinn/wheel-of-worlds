@@ -72,6 +72,7 @@ func _entered(_prev_state: StateNode) -> void:
 func _before_exit(_next_state: StateNode) -> void:
 	_disable_ragdoll_elements()
 	standing_up = false
+	dizzy_particles.emitting = false
 
 
 func _init_ragdoll_elements() -> void:
@@ -82,9 +83,7 @@ func _init_ragdoll_elements() -> void:
 
 	# move the ragdoll stuff outside of the player so it can move freely
 	ragdoll_container.reparent(player.get_parent(), false)
-	
-	_disable_ragdoll_elements()
-		dizzy_particles.emitting = false
+
 
 func _enable_ragdoll_elements() -> void:
 	# make the animation player disconnect from controlling the guidepoints
@@ -147,6 +146,7 @@ func _disable_ragdoll_elements() -> void:
 
 
 func start_standing_up() -> void:
+	dizzy_particles.emitting = false
 	standing_up = true
 	var body := ragdoll_bodies[0]
 	body.freeze = true

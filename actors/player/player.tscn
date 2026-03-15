@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://c2np0625cal20" path="res://actors/player/art/bert-head.png" id="5_bop6h"]
 [ext_resource type="PhysicsMaterial" uid="uid://cnt2e34s48efd" path="res://actors/player/ragdoll_physics_material.tres" id="6_15y17"]
 [ext_resource type="Texture2D" uid="uid://c3cyjt0ydh0eb" path="res://actors/player/art/bert-arm.png" id="6_a744p"]
-[ext_resource type="Texture2D" uid="uid://bh6wia2ufmi2g" path="res://actors/player/art/dizzystars.png" id="7_7aotz"]
 [ext_resource type="Script" uid="uid://cn4cp7mcr2aj8" path="res://actors/player/guidepoints_syncing.gd" id="6_k67x5"]
 [ext_resource type="Script" uid="uid://d1d8irkuomsw0" path="res://common/moveable_rigid_body.gd" id="7_7aotg"]
+[ext_resource type="Texture2D" uid="uid://bh6wia2ufmi2g" path="res://actors/player/art/dizzystars.png" id="7_7aotz"]
 [ext_resource type="Script" uid="uid://vmdvty45rk5y" path="res://common/state_machine/state_machine.gd" id="7_a744p"]
 [ext_resource type="Texture2D" uid="uid://bxdw8uj476pq2" path="res://actors/player/art/bert-feet.png" id="7_bop6h"]
 [ext_resource type="Script" uid="uid://ctkj6n8ftkcm8" path="res://actors/player/states/player_idle.gd" id="8_lsln6"]
@@ -502,7 +502,6 @@ resting_point = NodePath("Sprite/GuidePoints/PlankRestingPoint")
 
 [node name="NormalCollision" type="CollisionShape2D" parent="." unique_id=120194031 groups=["not_ragdoll"]]
 shape = SubResource("CapsuleShape2D_8afob")
-disabled = true
 
 [node name="NormalCollision2" type="CollisionShape2D" parent="." unique_id=1887406032]
 position = Vector2(0, -40)
@@ -551,7 +550,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighR" unique_id=1375386282]
 position = Vector2(2.437, 32.666)
-rotation = 0.006863885
+rotation = 0.0068638846
 scale = Vector2(0.999993, 0.999993)
 rest = Transform2D(0.9999695, 0.0068637845, -0.0068637845, 0.9999695, 2.437, 32.666)
 metadata/_local_pose_override_enabled_ = true
@@ -609,7 +608,7 @@ remote_path = NodePath("../../../../../../DizzyParticles")
 
 [node name="ArmR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1756135333]
 position = Vector2(-33, -31)
-rotation = -0.035723787
+rotation = -0.035723783
 rest = Transform2D(0.999362, -0.0357162, 0.0357162, 0.999362, -33, -31)
 metadata/_local_pose_override_enabled_ = true
 
@@ -744,7 +743,7 @@ bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloa
 
 [node name="Head" type="Sprite2D" parent="Sprite/Parts" unique_id=857872474]
 position = Vector2(9.999997, -62.999996)
-rotation = -0.05108029
+rotation = -0.05108005
 scale = Vector2(0.29987323, 0.29987323)
 texture = ExtResource("5_bop6h")
 
@@ -1002,9 +1001,9 @@ shape = SubResource("CapsuleShape2D_6p1w3")
 
 [node name="DizzyParticles" type="GPUParticles2D" parent="." unique_id=806147118]
 unique_name_in_owner = true
-position = Vector2(7.9999995, -64)
-rotation = -1.4728515
-scale = Vector2(0.99987227, 0.99987227)
+position = Vector2(9.999997, -62.999996)
+rotation = -1.4997033
+scale = Vector2(0.99990594, 0.99990594)
 emitting = false
 amount = 6
 texture = ExtResource("7_7aotz")
