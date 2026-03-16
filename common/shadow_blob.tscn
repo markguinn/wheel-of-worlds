@@ -119,3 +119,7 @@ z_index = 100
 material = SubResource("CanvasItemMaterial_sf7u1")
 position = Vector2(512, 0)
 scale = Vector2(-0.595, -0.595)
+
+[node name="DebugLabel" type="Label" parent="." unique_id=1459679890]
+offset_right = 40.0
+offset_bottom = 23.0

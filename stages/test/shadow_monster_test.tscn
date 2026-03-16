@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://obcnvoariac4"]
 
-[ext_resource type="Script" uid="uid://bxxbctnq2ubio" path="res://stages/stage.gd" id="1_pvy53"]
-[ext_resource type="PackedScene" uid="uid://bbq81ngylpi8h" path="res://common/shadow_blob.tscn" id="2_aphng"]
+[ext_resource type="Script" uid="uid://dd6w67arj1okg" path="res://stages/test/shadow_monster_test.gd" id="1_pvy53"]
 [ext_resource type="Script" uid="uid://ndxq88baykfk" path="res://common/shadow_probe.gd" id="3_gfmxe"]
 [ext_resource type="Script" uid="uid://pqhkda8683a4" path="res://common/music_zone.gd" id="4_hg843"]
 [ext_resource type="TileSet" uid="uid://bql6g47of7osy" path="res://stages/world1/art/test_tiles.tres" id="5_eamve"]
@@ -13,19 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://dn6gswqjkyx14" path="res://props/stone/square_stone.tscn" id="11_oaxvq"]
 [ext_resource type="Script" uid="uid://bbb2phdibbqcc" path="res://common/kill_zone.gd" id="12_5rwlj"]
 [ext_resource type="PackedScene" uid="uid://n0yb8g02gr8b" path="res://actors/fish_monster/fish_monster.tscn" id="13_rqqa7"]
-
-[sub_resource type="Gradient" id="Gradient_gcinv"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.5, 0.5, 0.5, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_mx6et"]
-gradient = SubResource("Gradient_gcinv")
-width = 1
-height = 1
-fill = 1
-
-[sub_resource type="LabelSettings" id="LabelSettings_mx6et"]
-font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="Gradient" id="Gradient_83wlx"]
 colors = PackedColorArray(0.7919991, 0.79199916, 0.7919991, 1, 0.5951543, 0.5951542, 0.5951543, 1)
@@ -52,7 +38,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.6, 0)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cokg4"]
-polygon = PackedVector2Array(-2.3999996, -2, -6.6000004, -9.400002, -5, -13.199997, -1.3999996, -15.199997, 4, -15, 4, -15, 6.3999996, -11, 5.2, -5.2000046, 4, -2.2000046, 4, -2.2000046)
+polygon = PackedVector2Array(-2.3999996, -2, -20, -19, -32, -51, -22, -71, 10, -78, 30, -64, 30, -33, 19, -4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_boxlk"]
 size = Vector2(451, 1373)
@@ -60,34 +46,21 @@ size = Vector2(451, 1373)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xakyt"]
 size = Vector2(8214, 656)
 
+[sub_resource type="Gradient" id="Gradient_sf7u1"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kfob1"]
+gradient = SubResource("Gradient_sf7u1")
+width = 1
+height = 1
+fill = 1
+
 [node name="ShadowMonsterTest" type="Node2D" unique_id=831090977]
 script = ExtResource("1_pvy53")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=157870837]
 color = Color(0.17400001, 0.18353334, 0.2, 1)
-
-[node name="ShadowBlob" parent="." unique_id=1434955370 instance=ExtResource("2_aphng")]
-position = Vector2(-931, 696)
-scale = Vector2(0.9999999, 0.9999999)
-loops_to_wait_for_probes = 2
-debug_image_clear = 0.0
-
-[node name="ShadowProbe" type="Sprite2D" parent="." unique_id=1697197547]
-visible = false
-z_index = 4096
-position = Vector2(405, 345)
-scale = Vector2(0.99999976, 0.99999976)
-texture = SubResource("GradientTexture2D_mx6et")
-script = ExtResource("3_gfmxe")
-lit_value = -0.5
-
-[node name="DebugLabel" type="Label" parent="ShadowProbe" unique_id=1386892183]
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 48.0
-offset_bottom = 24.0
-text = "-0.500"
-label_settings = SubResource("LabelSettings_mx6et")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=856755979]
 scroll_scale = Vector2(0, 0)
@@ -205,3 +178,16 @@ shape = SubResource("RectangleShape2D_xakyt")
 [node name="FishMonster" parent="FishTerritory" unique_id=599123084 instance=ExtResource("13_rqqa7")]
 position = Vector2(1192, -970)
 jump_y_max = 1790.0
+
+[node name="ShadowProbe" type="Sprite2D" parent="." unique_id=453747552]
+visible = false
+top_level = true
+position = Vector2(-1053.61, 363.775)
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_kfob1")
+script = ExtResource("3_gfmxe")
+lit_value = nan
+
+[node name="DebugLabel" type="Label" parent="ShadowProbe" unique_id=330473097]
+offset_right = 40.0
+offset_bottom = 23.0
