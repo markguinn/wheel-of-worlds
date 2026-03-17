@@ -35,6 +35,22 @@ VFX="*uid://jmlethaw3ljf"
 
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://_ignored_assets/": "gray",
+"res://_references/": "gray",
+"res://_source_assets/": "gray",
+"res://_temp_replace_me_please/": "red",
+"res://actors/": "green",
+"res://common/": "yellow",
+"res://export/": "gray",
+"res://globals/": "yellow",
+"res://props/": "green",
+"res://screens/": "blue",
+"res://stages/": "blue"
+}
+
 [global_group]
 
 scene_container=""
