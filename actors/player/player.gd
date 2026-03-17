@@ -1,6 +1,10 @@
 class_name Player
 extends CharacterBody2D
 
+signal did_pick_up(prop: Node2D)
+signal did_put_down(prop: Node2D)
+
+
 const COYOTE_TIME_MS = 100
 
 @export var holding_hand: Node2D
@@ -86,23 +90,54 @@ func _process(delta: float) -> void:
 func pick_up_prop(target_node: Node2D, grab_box: GrabBox) -> bool:
 	if ground_detector.is_colliding() and ground_detector.get_collider() == target_node:
 		return false
-	print("[Player] picking up: ", target_node)
 	if is_holding_prop:
 		return false
+	if not is_on_floor():
+		return false
+	print("[Player] picking up: ", target_node)
+	target_node.z_index += 1
+	anim_player.play("pickup")
+	_finish_pickup(target_node, grab_box)
+	return true
+	
+func _finish_pickup(target_node: Node2D, grab_box: GrabBox) -> void:
+	# TODO: should we call a method from the animation
+	# TODO: animate the prop
+	await get_tree().create_timer(0.25).timeout
 	is_holding_prop = target_node
 	active_grab_box = grab_box
-	return true
-
+	await get_tree().create_timer(0.25).timeout
+	did_pick_up.emit(target_node)
 
 func put_down_prop() -> void:
 	if is_holding_prop:
 		is_holding_prop.rotation = 0.0 if sprite.scale.x > 0 else PI
+		is_holding_prop.z_index -= 1
 		active_grab_box.put_down.emit(self)
+		did_put_down.emit(is_holding_prop)
 		is_holding_prop = null
 		active_grab_box = null
 
 
-func _update_prop(_delta: float) -> void:
+# TODO: I think this is hacky and physically wrong.
+# I think it's needed because I'm using a negative scale on 
+# the sprite to change direction. We're going to have to change 
+# that but I want to get the animations right first.
+func _normalize_prop_angle(a: float) -> float:
+	var target_rot := a
+	while target_rot > 0.0:
+		target_rot -= PI
+	while target_rot < -PI:
+		target_rot += PI
+	return target_rot
+
+# FIXME: depending on the angle you come at the plank
+# it may look right-ish or totally wrong if you picked
+# it up from the other side previously. It should be
+# possible to normalize that at pickup or put down.
+# TODO: add some easing? it looks suuuuuper fake at linear
+func _update_prop(delta: float) -> void:
 	var prop: Node2D = is_holding_prop
-	prop.rotation = holding_hand.global_position.angle_to_point(resting_point.global_position) #+ PI / 2
+	var target_rot := holding_hand.global_position.angle_to_point(resting_point.global_position)
+	prop.rotation = move_toward(_normalize_prop_angle(prop.rotation), _normalize_prop_angle(target_rot), delta * PI * 2.0)
 	prop.global_position = holding_hand.global_position # lerp(holding_hand.global_position, resting_point.global_position, 0.5)

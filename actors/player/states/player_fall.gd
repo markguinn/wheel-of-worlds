@@ -10,7 +10,10 @@ var started_falling_at: int
 
 func _entered(_from_state: StateNode) -> void:
 	started_falling_at = Time.get_ticks_msec()
-	player.anim_player.play("fall", 0.8)
+	if player.is_holding_prop:
+		player.anim_player.play("fall_carry", 0.8)
+	else:
+		player.anim_player.play("fall", 0.8)
 
 
 func _process(delta: float) -> void:
