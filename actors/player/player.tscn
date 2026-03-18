@@ -6,6 +6,8 @@
 [ext_resource type="PhysicsMaterial" uid="uid://cnt2e34s48efd" path="res://actors/player/ragdoll_physics_material.tres" id="6_15y17"]
 [ext_resource type="Texture2D" uid="uid://c3cyjt0ydh0eb" path="res://actors/player/art/bert-arm.png" id="6_a744p"]
 [ext_resource type="Script" uid="uid://cn4cp7mcr2aj8" path="res://actors/player/guidepoints_syncing.gd" id="6_k67x5"]
+[ext_resource type="Texture2D" uid="uid://qswdsxv1itns" path="res://actors/player/art/blinking-eyes.png" id="6_rt46e"]
+[ext_resource type="Script" uid="uid://qkfutrbwbkhj" path="res://actors/player/blinking-eyes.gd" id="7_0wchr"]
 [ext_resource type="Script" uid="uid://d1d8irkuomsw0" path="res://common/moveable_rigid_body.gd" id="7_7aotg"]
 [ext_resource type="Texture2D" uid="uid://bh6wia2ufmi2g" path="res://actors/player/art/dizzystars.png" id="7_7aotz"]
 [ext_resource type="Script" uid="uid://vmdvty45rk5y" path="res://common/state_machine/state_machine.gd" id="7_a744p"]
@@ -1114,13 +1116,13 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="GroundDetectorR" type="RayCast2D" parent="Sprite" unique_id=1920877544]
 unique_name_in_owner = true
-position = Vector2(-33, 0)
+position = Vector2(-7, 0)
 target_position = Vector2(0, 100)
 collision_mask = 21
 
 [node name="GroundDetectorL" type="RayCast2D" parent="Sprite" unique_id=529607088]
 unique_name_in_owner = true
-position = Vector2(47, 0)
+position = Vector2(21, 0)
 target_position = Vector2(0, 100)
 collision_mask = 21
 
@@ -1137,14 +1139,14 @@ rest = Transform2D(1, 0, 0, 1, 0, -20)
 
 [node name="ThighR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=25801670]
 position = Vector2(-13.999999, 15)
-rotation = -0.1409018
+rotation = -0.14090179
 scale = Vector2(0.99999315, 0.99999315)
 rest = Transform2D(0.990083, -0.14043507, 0.14043507, 0.990083, -13.999999, 15)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighR" unique_id=1375386282]
 position = Vector2(2.437, 32.666)
-rotation = 0.0068638828
+rotation = 0.0068638823
 scale = Vector2(0.999993, 0.999993)
 rest = Transform2D(0.9999695, 0.0068637845, -0.0068637845, 0.9999695, 2.437, 32.666)
 metadata/_local_pose_override_enabled_ = true
@@ -1202,7 +1204,7 @@ remote_path = NodePath("../../../../../VFX/DizzyParticles")
 
 [node name="ArmR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1756135333]
 position = Vector2(-33, -31)
-rotation = -0.03572377
+rotation = -0.035723764
 rest = Transform2D(0.999362, -0.0357162, 0.0357162, 0.999362, -33, -31)
 metadata/_local_pose_override_enabled_ = true
 
@@ -1338,10 +1340,18 @@ uv = PackedVector2Array(27.999695, 7.2499847, 51.999695, 12.249985, 49.499695, 5
 bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0.54, 0.54, 0.54, 0.54, 0.54, 0.54), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0, 0, 0)]
 
 [node name="Head" type="Sprite2D" parent="Sprite/Parts" unique_id=857872474]
-position = Vector2(18.992466, -60.57614)
-rotation = -0.1462136
+position = Vector2(9.998825, -62.992626)
+rotation = -0.051266987
 scale = Vector2(0.2998434, 0.2998434)
 texture = ExtResource("5_bop6h")
+
+[node name="BlinkingEyelids" type="Node2D" parent="Sprite/Parts/Head" unique_id=1197610821]
+
+[node name="EyelidSprite" type="Sprite2D" parent="Sprite/Parts/Head/BlinkingEyelids" unique_id=177562539]
+visible = false
+position = Vector2(5, 0)
+texture = ExtResource("6_rt46e")
+script = ExtResource("7_0wchr")
 
 [node name="GuidePoints" type="Node2D" parent="Sprite" unique_id=1022049703]
 unique_name_in_owner = true
@@ -1352,7 +1362,7 @@ position = Vector2(-7, 62)
 
 [node name="LegR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=460055182]
 visible = false
-position = Vector2(-33, 60)
+position = Vector2(-7, 62)
 
 [node name="AnimatedLegL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=467743092]
 position = Vector2(21, 61)
@@ -1360,7 +1370,7 @@ scale = Vector2(1.0000001, 1.0000001)
 
 [node name="LegL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=1184928012]
 visible = false
-position = Vector2(47, 57)
+position = Vector2(21, 61)
 scale = Vector2(1.0000001, 1.0000001)
 
 [node name="ArmR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=792042139]
@@ -1432,9 +1442,9 @@ color_initial_ramp = SubResource("Gradient_rt46e")
 
 [node name="DizzyParticles" type="GPUParticles2D" parent="Sprite/VFX" unique_id=806147118]
 unique_name_in_owner = true
-position = Vector2(18.992466, -60.57614)
-rotation = -1.5948368
-scale = Vector2(0.9997161, 0.9997161)
+position = Vector2(9.998825, -62.992626)
+rotation = -1.4998903
+scale = Vector2(0.9997396, 0.9997396)
 emitting = false
 amount = 6
 texture = ExtResource("7_7aotz")
