@@ -33,6 +33,9 @@ func transition_before_exit(to_state: StateNode) -> void:
 		player.puff_left_dust(LANDING_DUST_SCALE)
 		player.puff_right_dust(LANDING_DUST_SCALE)
 	if to_state.name != "Ragdoll":
-		player.anim_player.play("land_after_fall", 0.1)
+		if player.is_holding_prop:
+			player.anim_player.play("land_while_carrying", 0.1)
+		else:
+			player.anim_player.play("land_after_fall", 0.1)
 		player.velocity.x /= 2
 		await player.anim_player.animation_finished

@@ -728,8 +728,8 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_ctwkf"]
 resource_name = "land_after_fall"
-length = 0.6666834
-step = 0.16666667
+length = 0.5
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -737,7 +737,7 @@ tracks/0/path = NodePath("Sprite/GuidePoints/ArmR:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.33333334),
+"times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-19, 10), Vector2(-32, 61)]
@@ -749,7 +749,7 @@ tracks/1/path = NodePath("Sprite/GuidePoints/ArmL:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.33333334),
+"times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(50, 0), Vector2(43, 37)]
@@ -761,10 +761,10 @@ tracks/2/path = NodePath("Sprite/GuidePoints/Head:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.6666667, 0.6666834),
-"transitions": PackedFloat32Array(1, 0.5, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 0.5000167),
+"transitions": PackedFloat32Array(0.5, 1, 1),
 "update": 0,
-"values": [Vector2(67, -42), Vector2(59, -2), Vector2(68, -71), Vector2(51, -45)]
+"values": [Vector2(71, -31), Vector2(68, -71), Vector2(51, -45)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -773,7 +773,7 @@ tracks/3/path = NodePath("Sprite/GuidePoints/AnimatedLegL:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6666667),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(42, 57), Vector2(33, 61)]
@@ -785,7 +785,7 @@ tracks/4/path = NodePath("Sprite/GuidePoints/AnimatedLegR:position")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.6666667),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-35, 60), Vector2(-27, 62)]
@@ -797,10 +797,98 @@ tracks/5/path = NodePath("Sprite/Skeleton2D/Hips:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.33333334, 0.6666667),
+"times": PackedFloat32Array(0, 0.25, 0.33333334, 0.5),
+"transitions": PackedFloat32Array(0.5, 2, 1, 1),
+"update": 0,
+"values": [Vector2(3, -19), Vector2(1.9999996, 18.000004), Vector2(2, 2.999998), Vector2(3, -19)]
+}
+
+[sub_resource type="Animation" id="Animation_icg72"]
+resource_name = "land_while_carrying"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/GuidePoints/ArmR:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(12, -11), Vector2(33, 46), Vector2(17, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/GuidePoints/ArmL:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(12, -11), Vector2(21, 46), Vector2(17, -11)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/GuidePoints/Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.0000167),
+"transitions": PackedFloat32Array(0.5, 1, 1),
+"update": 0,
+"values": [Vector2(71, -31), Vector2(68, -71), Vector2(51, -45)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/GuidePoints/AnimatedLegL:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(42, 57), Vector2(33, 61)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite/GuidePoints/AnimatedLegR:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-35, 60), Vector2(-27, 62)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite/Skeleton2D/Hips:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.25, 1),
 "transitions": PackedFloat32Array(0.5, 2, 1),
 "update": 0,
 "values": [Vector2(3, -19), Vector2(1.9999996, 18.000004), Vector2(3, -19)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite/GuidePoints:is_left_arm_over_body")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_12xki"]
@@ -1152,6 +1240,7 @@ _data = {
 &"jump_carry": SubResource("Animation_otn2r"),
 &"jump_carry_old": SubResource("Animation_qrxv1"),
 &"land_after_fall": SubResource("Animation_ctwkf"),
+&"land_while_carrying": SubResource("Animation_icg72"),
 &"pickup": SubResource("Animation_12xki"),
 &"walk": SubResource("Animation_p47bc"),
 &"walk_carry": SubResource("Animation_0wchr")
@@ -1308,18 +1397,19 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="GroundDetectorR" type="RayCast2D" parent="Sprite" unique_id=1920877544]
 unique_name_in_owner = true
-position = Vector2(-27, 0)
+position = Vector2(-35, 0)
 target_position = Vector2(0, 100)
 collision_mask = 21
 
 [node name="GroundDetectorL" type="RayCast2D" parent="Sprite" unique_id=529607088]
 unique_name_in_owner = true
-position = Vector2(33, 0)
+position = Vector2(42, 0)
 target_position = Vector2(0, 100)
 collision_mask = 21
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Sprite" unique_id=1146146976]
 unique_name_in_owner = true
+visible = false
 modification_stack = SubResource("SkeletonModificationStack2D_ax26v")
 metadata/_edit_lock_ = true
 
@@ -1337,7 +1427,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighR" unique_id=1375386282]
 position = Vector2(2.437, 32.666)
-rotation = 0.0068638814
+rotation = 0.006863881
 scale = Vector2(0.999993, 0.999993)
 rest = Transform2D(0.9999695, 0.0068637845, -0.0068637845, 0.9999695, 2.437, 32.666)
 metadata/_local_pose_override_enabled_ = true
@@ -1395,7 +1485,7 @@ remote_path = NodePath("../../../../../VFX/DizzyParticles")
 
 [node name="ArmR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1756135333]
 position = Vector2(-33, -31)
-rotation = -0.03572376
+rotation = -0.035723757
 rest = Transform2D(0.999362, -0.0357162, 0.0357162, 0.999362, -33, -31)
 metadata/_local_pose_override_enabled_ = true
 
@@ -1532,8 +1622,8 @@ bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloa
 
 [node name="Head" type="Sprite2D" parent="Sprite/Parts" unique_id=857872474]
 position = Vector2(9.998825, -62.992626)
-rotation = 0.41368505
-scale = Vector2(0.29984483, 0.29984483)
+rotation = 0.48318002
+scale = Vector2(0.29984707, 0.29984707)
 texture = ExtResource("5_bop6h")
 
 [node name="BlinkingEyelids" type="Node2D" parent="Sprite/Parts/Head" unique_id=1197610821]
@@ -1553,7 +1643,7 @@ position = Vector2(-7, 62)
 
 [node name="LegR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=460055182]
 visible = false
-position = Vector2(-27, 62)
+position = Vector2(-35, 60)
 
 [node name="AnimatedLegL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=467743092]
 position = Vector2(21, 61)
@@ -1561,7 +1651,7 @@ scale = Vector2(1.0000001, 1.0000001)
 
 [node name="LegL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=1184928012]
 visible = false
-position = Vector2(33, 61)
+position = Vector2(42, 57)
 scale = Vector2(1.0000001, 1.0000001)
 
 [node name="ArmR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=792042139]
@@ -1634,8 +1724,8 @@ color_initial_ramp = SubResource("Gradient_rt46e")
 [node name="DizzyParticles" type="GPUParticles2D" parent="Sprite/VFX" unique_id=806147118]
 unique_name_in_owner = true
 position = Vector2(9.998825, -62.992626)
-rotation = -1.0349383
-scale = Vector2(0.9997013, 0.9997013)
+rotation = -0.96544325
+scale = Vector2(0.99973273, 0.99973273)
 emitting = false
 amount = 6
 texture = ExtResource("7_7aotz")
