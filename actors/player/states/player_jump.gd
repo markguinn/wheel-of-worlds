@@ -3,7 +3,7 @@ extends PlayerState
 
 const JUMP_STRENGTH = 900.0
 const CARRYING_JUMP_STRENGTH = 600.0
-const WIND_UP_TIME = 0.3
+const WIND_UP_TIME = 0.34
 
 func _entered(_from_state: StateNode) -> void:
 	if player.is_holding_prop:
@@ -21,6 +21,7 @@ func _entered(_from_state: StateNode) -> void:
 		player.velocity += -GRAVITY_DIRECTION * CARRYING_JUMP_STRENGTH
 	else:
 		player.velocity += -GRAVITY_DIRECTION * JUMP_STRENGTH
+
 
 func _process(delta: float) -> void:
 	super._process(delta)

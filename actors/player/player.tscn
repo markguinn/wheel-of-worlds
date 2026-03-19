@@ -169,25 +169,25 @@ tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/path = NodePath("Sprite/GuidePoints/AnimatedLegL:position")
-tracks/3/interp = 1
+tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1, 2, 2.6666667, 3.6666665, 4.6666665, 5.3333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(42, 57)]
+"values": [Vector2(42, 57), Vector2(48, 53), Vector2(38.999996, 62), Vector2(32, 57), Vector2(48, 53), Vector2(38.999996, 62), Vector2(32, 57)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("Sprite/GuidePoints/AnimatedLegR:position")
-tracks/4/interp = 1
+tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.8333334, 2.1666667, 3.1666665, 3.5, 4.8333335, 5.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-43, 36)]
+"values": [Vector2(-43, 36), Vector2(-43, 41), Vector2(-43, 30), Vector2(-36, 50), Vector2(-43, 41), Vector2(-43, 30), Vector2(-36, 50)]
 }
 
 [sub_resource type="Animation" id="Animation_dqf5y"]
@@ -482,7 +482,7 @@ tracks/0/path = NodePath("Sprite/GuidePoints/ArmR:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.5, 2.3333335, 3.8333335),
+"times": PackedFloat32Array(0, 0.33333334, 1, 2.3333335, 3.8333335),
 "transitions": PackedFloat32Array(3, 2, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-24, -8), Vector2(-9, -37), Vector2(-37, 39), Vector2(-52, 27), Vector2(-58, 3)]
@@ -494,7 +494,7 @@ tracks/1/path = NodePath("Sprite/GuidePoints/ArmL:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.5, 2.8333335, 3.8333335, 4.3333335),
+"times": PackedFloat32Array(0, 0.33333334, 1.1666666, 2.8333335, 3.8333335, 4.3333335),
 "transitions": PackedFloat32Array(3, 2, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(49, -19), Vector2(64, -22), Vector2(-15, 51), Vector2(29, 25), Vector2(37, 9), Vector2(9, 18)]
@@ -506,7 +506,7 @@ tracks/2/path = NodePath("Sprite/GuidePoints/Head:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0, 0.33333334, 0.6666667),
 "transitions": PackedFloat32Array(3, 1, 1),
 "update": 0,
 "values": [Vector2(49, -65), Vector2(49, -65), Vector2(54, -83)]
@@ -518,7 +518,7 @@ tracks/3/path = NodePath("Sprite/GuidePoints/AnimatedLegR:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.3333334, 2.1666667, 2.5, 3, 3.1666667, 3.8333335, 4),
+"times": PackedFloat32Array(0, 0.33333334, 0.6666667, 1, 1.8333334, 2.1666665, 2.6666665, 2.8333335, 3.5, 3.6666665),
 "transitions": PackedFloat32Array(3, 0.5, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-7, 62), Vector2(-7, 62), Vector2(-24, 62), Vector2(-19, 65), Vector2(-7, 75), Vector2(-7, 62), Vector2(-9, 57), Vector2(-22, 60), Vector2(-15, 68), Vector2(-24, 62)]
@@ -530,7 +530,7 @@ tracks/4/path = NodePath("Sprite/GuidePoints/AnimatedLegL:position")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.6666667, 2.1666667, 2.5, 2.8333335, 3.1666667, 3.6666667, 4.3333335),
+"times": PackedFloat32Array(0, 0.33333334, 0.6666667, 1.3333334, 1.8333334, 2.1666665, 2.5, 2.8333335, 3.3333335, 4),
 "transitions": PackedFloat32Array(3, 0.5, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(21, 61), Vector2(21, 61), Vector2(5, 57), Vector2(21, 65), Vector2(28, 75), Vector2(13, 65), Vector2(17, 71), Vector2(25, 65), Vector2(17, 57), Vector2(29, 65)]
@@ -542,7 +542,7 @@ tracks/5/path = NodePath("Sprite/Skeleton2D/Hips:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0, 0.33333334, 0.6666667),
 "transitions": PackedFloat32Array(3, 0.5, 1),
 "update": 0,
 "values": [Vector2(3, -19), Vector2(-4.065758e-20, 32), Vector2(0, -16)]
@@ -724,6 +724,83 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ctwkf"]
+resource_name = "land_after_fall"
+length = 0.6666834
+step = 0.16666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/GuidePoints/ArmR:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-19, 10), Vector2(-32, 61)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/GuidePoints/ArmL:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(50, 0), Vector2(43, 37)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/GuidePoints/Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.6666667, 0.6666834),
+"transitions": PackedFloat32Array(1, 0.5, 1, 1),
+"update": 0,
+"values": [Vector2(67, -42), Vector2(59, -2), Vector2(68, -71), Vector2(51, -45)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/GuidePoints/AnimatedLegL:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(42, 57), Vector2(33, 61)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite/GuidePoints/AnimatedLegR:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-35, 60), Vector2(-27, 62)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite/Skeleton2D/Hips:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.6666667),
+"transitions": PackedFloat32Array(0.5, 2, 1),
+"update": 0,
+"values": [Vector2(3, -19), Vector2(1.9999996, 18.000004), Vector2(3, -19)]
 }
 
 [sub_resource type="Animation" id="Animation_12xki"]
@@ -1074,6 +1151,7 @@ _data = {
 &"jump": SubResource("Animation_qek5x"),
 &"jump_carry": SubResource("Animation_otn2r"),
 &"jump_carry_old": SubResource("Animation_qrxv1"),
+&"land_after_fall": SubResource("Animation_ctwkf"),
 &"pickup": SubResource("Animation_12xki"),
 &"walk": SubResource("Animation_p47bc"),
 &"walk_carry": SubResource("Animation_0wchr")
@@ -1230,19 +1308,18 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="GroundDetectorR" type="RayCast2D" parent="Sprite" unique_id=1920877544]
 unique_name_in_owner = true
-position = Vector2(-7, 0)
+position = Vector2(-27, 0)
 target_position = Vector2(0, 100)
 collision_mask = 21
 
 [node name="GroundDetectorL" type="RayCast2D" parent="Sprite" unique_id=529607088]
 unique_name_in_owner = true
-position = Vector2(21, 0)
+position = Vector2(33, 0)
 target_position = Vector2(0, 100)
 collision_mask = 21
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Sprite" unique_id=1146146976]
 unique_name_in_owner = true
-visible = false
 modification_stack = SubResource("SkeletonModificationStack2D_ax26v")
 metadata/_edit_lock_ = true
 
@@ -1455,8 +1532,8 @@ bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloa
 
 [node name="Head" type="Sprite2D" parent="Sprite/Parts" unique_id=857872474]
 position = Vector2(9.998825, -62.992626)
-rotation = -0.05126699
-scale = Vector2(0.2998435, 0.2998435)
+rotation = 0.41368505
+scale = Vector2(0.29984483, 0.29984483)
 texture = ExtResource("5_bop6h")
 
 [node name="BlinkingEyelids" type="Node2D" parent="Sprite/Parts/Head" unique_id=1197610821]
@@ -1476,7 +1553,7 @@ position = Vector2(-7, 62)
 
 [node name="LegR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=460055182]
 visible = false
-position = Vector2(-7, 62)
+position = Vector2(-27, 62)
 
 [node name="AnimatedLegL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=467743092]
 position = Vector2(21, 61)
@@ -1484,7 +1561,7 @@ scale = Vector2(1.0000001, 1.0000001)
 
 [node name="LegL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=1184928012]
 visible = false
-position = Vector2(21, 61)
+position = Vector2(33, 61)
 scale = Vector2(1.0000001, 1.0000001)
 
 [node name="ArmR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=792042139]
@@ -1557,8 +1634,8 @@ color_initial_ramp = SubResource("Gradient_rt46e")
 [node name="DizzyParticles" type="GPUParticles2D" parent="Sprite/VFX" unique_id=806147118]
 unique_name_in_owner = true
 position = Vector2(9.998825, -62.992626)
-rotation = -1.4998903
-scale = Vector2(0.9997396, 0.9997396)
+rotation = -1.0349383
+scale = Vector2(0.9997013, 0.9997013)
 emitting = false
 amount = 6
 texture = ExtResource("7_7aotz")
