@@ -8,6 +8,7 @@ signal before_exit(to_state: StateNode)
 
 var target: Node2D
 var machine: StateMachine
+var transitioning_out := false
 
 
 func init_state(_machine: StateMachine, _target: Node2D) -> void:

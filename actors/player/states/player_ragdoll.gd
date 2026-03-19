@@ -7,7 +7,6 @@ const STILLNESS_WINDOW_MS = 1000
 const STANDUP_DIST = 80.0
 const STANDUP_TIME = 0.2
 
-var standing_up := false
 var last_ragdoll_movement := 0
 
 # NOTE: these need to be in the same order as ragdoll_bodies
@@ -62,7 +61,6 @@ func init_state(_machine: StateMachine, _target: Node2D) -> void:
 
 func _entered(_prev_state: StateNode) -> void:
 	last_ragdoll_movement = Time.get_ticks_msec()
-	standing_up = false
 	_enable_ragdoll_elements()
 	dizzy_particles.emitting = true
 	if player.is_holding_prop:
@@ -71,7 +69,6 @@ func _entered(_prev_state: StateNode) -> void:
 
 func _before_exit(_next_state: StateNode) -> void:
 	_disable_ragdoll_elements()
-	standing_up = false
 	dizzy_particles.emitting = false
 
 
@@ -152,7 +149,6 @@ func transition_before_exit(to_state: StateNode) -> void:
 	if to_state.name == "Fall":
 		return
 	dizzy_particles.emitting = false
-	standing_up = true
 	var body := ragdoll_bodies[0]
 	body.freeze = true
 	var tween := create_tween()
@@ -162,7 +158,7 @@ func transition_before_exit(to_state: StateNode) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel") and not standing_up:
+	if event.is_action_pressed("ui_cancel") and not transitioning_out:
 		machine.transition_by_name("Idle")
 		get_viewport().set_input_as_handled()
 
@@ -180,7 +176,7 @@ func _physics_process(delta: float) -> void:
 
 	# when the player has stopped moving for a short time, switch back to idle
 	if diff.length() / delta < STILLNESS_THRESHOLD:
-		if not standing_up and Time.get_ticks_msec() > last_ragdoll_movement + STILLNESS_WINDOW_MS:
+		if not transitioning_out and Time.get_ticks_msec() > last_ragdoll_movement + STILLNESS_WINDOW_MS:
 			machine.transition_by_name("Idle")
 	else:
 		last_ragdoll_movement = Time.get_ticks_msec()

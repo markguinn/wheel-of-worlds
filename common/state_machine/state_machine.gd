@@ -60,11 +60,14 @@ func transition(next_state: StateNode) -> bool:
 	if can_transition(active_state, next_state):
 		var prev_state := active_state
 		if prev_state:
+			prev_state.transitioning_out = true
 			await prev_state.transition_before_exit(next_state)
 			prev_state.before_exit.emit(next_state)
 			_disable_state_node(prev_state)
+			prev_state.transitioning_out = false
 
 		next_state.before_enter.emit(prev_state)
+		next_state.transitioning_out = false
 		active_state = next_state
 		prints("[StateMachine] transitioning", target.name, "from", cur_name, "to", next_state.name)
 		_enable_state_node(next_state)
@@ -78,10 +81,18 @@ func transition(next_state: StateNode) -> bool:
 
 
 func can_transition(from_state: StateNode, to_state: StateNode) -> bool:
+	if from_state == to_state:
+		return false
 	if not to_state:
 		return false
-	if from_state and not from_state.can_transition_to(to_state):
-		return false
+	if from_state:
+		if not from_state.can_transition_to(to_state):
+			return false
+		# TODO: this feels bad. we should buffer the input
+		# or queue up the change so inputs don't just get
+		# lost. especially repeat jumps
+		if from_state.transitioning_out:
+			return false
 	return to_state.can_enter(from_state)
 
 
