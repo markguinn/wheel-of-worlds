@@ -66,6 +66,10 @@ func _apply_gravity(delta: float) -> void:
 	if not player.is_on_floor() and not player.in_coyote_window():
 		player.velocity += GRAVITY_DIRECTION * gravity * GRAVITY_MULTIPLIER * delta
 	if player.velocity.y > 0 and name != "Fall":
+		# this didn't look as cool as I'd hoped, but we could probably make it:
+		#if name != "Jump" and player.is_holding_prop:
+			#machine.transition_by_name("Ragdoll")
+		#else:
 		machine.transition_by_name("Fall")
 
 

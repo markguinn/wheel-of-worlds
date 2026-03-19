@@ -50,7 +50,6 @@ func can_jump() -> bool:
 
 
 func puff_left_dust(dust_scale = 10.0) -> void:
-	prints("left", dust_scale, dust_particles_l.global_position, is_on_floor())
 	if is_on_floor():
 		dust_particles_l.scale_amount_max = dust_scale
 		dust_particles_l.scale_amount_min = dust_scale / 2
@@ -58,7 +57,6 @@ func puff_left_dust(dust_scale = 10.0) -> void:
 
 
 func puff_right_dust(dust_scale = 10.0) -> void:
-	prints("right", dust_scale, dust_particles_r.global_position, is_on_floor())
 	if is_on_floor():
 		dust_particles_r.scale_amount_max = dust_scale
 		dust_particles_r.scale_amount_min = dust_scale / 2
