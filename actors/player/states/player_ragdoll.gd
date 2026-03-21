@@ -6,8 +6,11 @@ const STILLNESS_THRESHOLD = 100.0
 const STILLNESS_WINDOW_MS = 1000
 const STANDUP_DIST = 80.0
 const STANDUP_TIME = 0.2
+const DEBOUNCE_SFX_MS = 1000
 
 var last_ragdoll_movement := 0
+var temp_return_at := 0
+var temp_return_to: StateNode = null
 
 # NOTE: these need to be in the same order as ragdoll_bodies
 @onready var guidepoints: Array[Marker2D] = [
@@ -50,8 +53,8 @@ var last_ragdoll_movement := 0
 ]
 @onready var guidepoints_container: GuidepointSyncingBehaviors = %GuidePoints
 @onready var ragdoll_container: Node2D = %Ragdoll
-
 @onready var dizzy_particles: GPUParticles2D = %DizzyParticles
+@onready var sfx: PlayerSFX = %SFX
 
 
 func init_state(_machine: StateMachine, _target: Node2D) -> void:
@@ -70,6 +73,9 @@ func _entered(_prev_state: StateNode) -> void:
 func _before_exit(_next_state: StateNode) -> void:
 	_disable_ragdoll_elements()
 	dizzy_particles.emitting = false
+	player.velocity = ragdoll_bodies[0].linear_velocity
+	temp_return_at = 0
+	temp_return_to = null
 
 
 func _init_ragdoll_elements() -> void:
@@ -93,7 +99,7 @@ func _enable_ragdoll_elements() -> void:
 	
 	# enable the ragdoll bodies and reset them to match the guidepoints
 	for i in range(guidepoints.size()):
-		var limb_velocity = player.velocity * randf_range(0.8, 1.2) if i > 0 else player.velocity
+		var limb_velocity = player.velocity # * randf_range(0.8, 1.2) if i > 0 else player.velocity
 		ragdoll_bodies[i].set_next_global_position(guidepoints[i].global_position)
 		ragdoll_bodies[i].set_next_global_rotation(0.0)
 		ragdoll_bodies[i].set_next_linear_velocity(limb_velocity)
@@ -146,15 +152,24 @@ func _disable_ragdoll_elements() -> void:
 # do a small animation to get up off the ground before returning
 # to a non-ragdoll state so we're not stuck in the ground
 func transition_before_exit(to_state: StateNode) -> void:
-	if to_state.name == "Fall":
+	if temp_return_at > 0 or to_state.name == "Fall" or not player.ground_detector.is_colliding():
 		return
+	
+	sfx.play_stand_up()
 	dizzy_particles.emitting = false
+	
 	var body := ragdoll_bodies[0]
 	body.freeze = true
 	var tween := create_tween()
 	tween.tween_property(body, "position", body.position + Vector2(0, -STANDUP_DIST), STANDUP_TIME)
 	tween.parallel().tween_property(body, "rotation", 0.0, STANDUP_TIME)
 	await tween.finished
+
+
+func temporary_ragdoll(return_after_ms = 500) -> void:
+	temp_return_to = machine.active_state
+	temp_return_at = Time.get_ticks_msec() + return_after_ms
+	machine.transition(self)
 
 
 func _input(event: InputEvent) -> void:
@@ -168,15 +183,27 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	var now_ms := Time.get_ticks_msec()
 	var diff: Vector2 = ragdoll_bodies[0].global_position - guidepoints[0].global_position
-	#prints("[PlayerRagdollState]", diff, diff.length() / delta, ragdoll_bodies[0].global_position, guidepoints[0].global_position)
 	if ragdoll_remote_transforms[0].update_position:
 		player.global_position += diff
 		player.global_rotation = ragdoll_bodies[0].global_rotation
 
 	# when the player has stopped moving for a short time, switch back to idle
 	if diff.length() / delta < STILLNESS_THRESHOLD:
-		if not transitioning_out and Time.get_ticks_msec() > last_ragdoll_movement + STILLNESS_WINDOW_MS:
+		if not transitioning_out and now_ms > last_ragdoll_movement + STILLNESS_WINDOW_MS:
 			machine.transition_by_name("Idle")
 	else:
-		last_ragdoll_movement = Time.get_ticks_msec()
+		last_ragdoll_movement = now_ms
+		
+	if temp_return_at > 0 and now_ms > temp_return_at:
+		machine.transition(temp_return_to)
+
+
+
+var last_impact_sound := 0
+func _on_torso_body_entered(body: Node) -> void:
+	if body is TileMapLayer or not body.get_collision_layer_value(2):
+		if Time.get_ticks_msec() > last_impact_sound + DEBOUNCE_SFX_MS:
+			sfx.play_ragdoll_impact()
+			last_impact_sound = Time.get_ticks_msec()

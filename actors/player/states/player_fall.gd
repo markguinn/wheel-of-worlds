@@ -7,6 +7,7 @@ const LANDING_DUST_SCALE = 20.0
 
 var started_falling_at: int
 
+
 func _entered(_from_state: StateNode) -> void:
 	started_falling_at = Time.get_ticks_msec()
 	if player.is_holding_prop:
@@ -17,7 +18,7 @@ func _entered(_from_state: StateNode) -> void:
 
 func _process(delta: float) -> void:
 	super._process(delta)
-	
+
 	if transitioning_out:
 		return
 	elif player.ground_detector.is_colliding() and player.ground_detector.get_collider() is Orb:

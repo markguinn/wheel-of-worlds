@@ -129,6 +129,7 @@ func _normalize_prop_angle(a: float) -> float:
 		target_rot += PI
 	return target_rot
 
+
 # FIXME: depending on the angle you come at the plank
 # it may look right-ish or totally wrong if you picked
 # it up from the other side previously. It should be

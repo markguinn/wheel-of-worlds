@@ -4,8 +4,13 @@ extends PlayerState
 const JUMP_STRENGTH = 900.0
 const CARRYING_JUMP_STRENGTH = 600.0
 const WIND_UP_TIME = 0.34
+const RAGDOLL_SECONDS = 0.2
 
-func _entered(_from_state: StateNode) -> void:
+
+func _entered(from_state: StateNode) -> void:
+	if from_state.name == "Ragdoll" or from_state.name == "Fall":
+		return
+
 	if player.is_holding_prop:
 		player.anim_player.play("jump_carry", 0.1)
 	else:

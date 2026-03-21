@@ -14,12 +14,15 @@ const PUSH_FORCE = 2.5 # Applied to the orb
 const PLANK_FORCE = Vector2(0.2, 0.6) # Applied to the plank
 
 @export var horizontal_speed := 250.0
+@export var wall_bounce_amount := 0.0
+@export var wall_bounce_ms := 250
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var player: Player
 
+@onready var wall_detector: RayCast2D = %WallDetector
 @onready var ground_detector_r: RayCast2D = %GroundDetectorR
 @onready var animated_leg_r: Marker2D = %GuidePoints/AnimatedLegR
 @onready var leg_r: Marker2D = %GuidePoints/LegR
@@ -73,6 +76,12 @@ func _apply_gravity(delta: float) -> void:
 		machine.transition_by_name("Fall")
 
 
+func _bounce_off_walls() -> void:
+	if not is_zero_approx(wall_bounce_amount) and wall_detector.is_colliding():
+		#player.velocity.x = wall_detector.get_collision_normal().x * absf(player.velocity.x) * wall_bounce_amount
+		machine.get_state("Ragdoll").temporary_ragdoll(wall_bounce_ms)
+
+
 func _move_and_slide(_delta: float) -> void:
 	var v := player.velocity
 	if player.move_and_slide():
@@ -102,3 +111,4 @@ func _process(delta: float) -> void:
 	_update_camera_offset(dir)
 	_apply_gravity(delta)
 	_move_and_slide(delta)
+	_bounce_off_walls()

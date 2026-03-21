@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://b85khgplioksi"]
 
 [ext_resource type="Script" uid="uid://b3vikmg8i8dr3" path="res://actors/player/player.gd" id="1_8afob"]
+[ext_resource type="AudioStream" uid="uid://dgwypw6n6lgja" path="res://actors/player/sfx/jump.tres" id="2_dqf5y"]
+[ext_resource type="AudioStream" uid="uid://qg5hsh1q7do1" path="res://actors/player/sfx/footsteps.tres" id="2_qrxv1"]
 [ext_resource type="Texture2D" uid="uid://d0xsp47hu4mpe" path="res://actors/player/art/bert-torso2.png" id="4_15y17"]
 [ext_resource type="Texture2D" uid="uid://c2np0625cal20" path="res://actors/player/art/bert-head.png" id="5_bop6h"]
 [ext_resource type="PhysicsMaterial" uid="uid://cnt2e34s48efd" path="res://actors/player/ragdoll_physics_material.tres" id="6_15y17"]
@@ -17,6 +19,11 @@
 [ext_resource type="Script" uid="uid://2oxv8sv1riet" path="res://actors/player/states/player_jump.gd" id="10_hiosj"]
 [ext_resource type="Script" uid="uid://74a5mhali56n" path="res://actors/player/states/player_fall.gd" id="11_ssdk0"]
 [ext_resource type="Script" uid="uid://d0dmoudghrdys" path="res://actors/player/states/player_ragdoll.gd" id="12_ssdk0"]
+[ext_resource type="Script" uid="uid://bxy3hd0npr4vn" path="res://actors/player/player_sfx.gd" id="18_otn2r"]
+[ext_resource type="AudioStream" uid="uid://7sdkehy4wjof" path="res://_temp_replace_me_please/sfx-low-short.wav" id="21_ctwkf"]
+[ext_resource type="AudioStream" uid="uid://c2ngc0suu8cnw" path="res://_temp_replace_me_please/sfx-high-mid.wav" id="22_nsxbo"]
+[ext_resource type="AudioStream" uid="uid://rggsqrknnh0a" path="res://_temp_replace_me_please/sfx-low-mid.wav" id="23_yeioo"]
+[ext_resource type="AudioStream" uid="uid://ka7aieklosvt" path="res://_temp_replace_me_please/sfx-high-short.wav" id="24_qct7d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
 radius = 18.0
@@ -559,6 +566,20 @@ tracks/6/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SFX")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.33333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_jump"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_otn2r"]
 resource_name = "jump_carry"
@@ -648,88 +669,25 @@ tracks/6/keys = {
 "update": 1,
 "values": [true]
 }
-
-[sub_resource type="Animation" id="Animation_qrxv1"]
-resource_name = "jump_carry_old"
-length = 100.00002
-step = 0.16666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/GuidePoints/ArmR:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SFX")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(12, -11)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/GuidePoints/ArmL:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(12, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite/GuidePoints/Head:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(49, -65), Vector2(54, -83)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite/GuidePoints/AnimatedLegR:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-7, 62), Vector2(-25, 34)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite/GuidePoints/AnimatedLegL:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(21, 61), Vector2(47, 33)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite/GuidePoints:is_left_arm_over_body")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"values": [{
+"args": [],
+"method": &"play_jump"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_ctwkf"]
 resource_name = "land_after_fall"
 length = 0.5
-step = 0.25
+step = 0.0625
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -802,10 +760,24 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(3, -19), Vector2(1.9999996, 18.000004), Vector2(2, 2.999998), Vector2(3, -19)]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SFX")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.0625),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_landing"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_icg72"]
 resource_name = "land_while_carrying"
-step = 0.25
+step = 0.125
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -889,6 +861,20 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SFX")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.125),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_landing"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_12xki"]
@@ -989,6 +975,20 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SFX")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.16666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_pick_up"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_p47bc"]
@@ -1109,6 +1109,23 @@ tracks/8/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SFX")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1, 2.0000167),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_footstep"
+}, {
+"args": [],
+"method": &"play_footstep"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_0wchr"]
 resource_name = "walk_carry"
@@ -1228,6 +1245,23 @@ tracks/8/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SFX")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1, 2.0000167),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_footstep"
+}, {
+"args": [],
+"method": &"play_footstep"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_75vfm"]
 _data = {
@@ -1238,7 +1272,6 @@ _data = {
 &"idle_carry": SubResource("Animation_rt46e"),
 &"jump": SubResource("Animation_qek5x"),
 &"jump_carry": SubResource("Animation_otn2r"),
-&"jump_carry_old": SubResource("Animation_qrxv1"),
 &"land_after_fall": SubResource("Animation_ctwkf"),
 &"land_while_carrying": SubResource("Animation_icg72"),
 &"pickup": SubResource("Animation_12xki"),
@@ -1360,6 +1393,13 @@ height = 12.0
 radius = 32.0
 height = 68.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2vokq"]
+streams_count = 4
+stream_0/stream = ExtResource("22_nsxbo")
+stream_1/stream = ExtResource("21_ctwkf")
+stream_2/stream = ExtResource("23_yeioo")
+stream_3/stream = ExtResource("24_qct7d")
+
 [node name="Player" type="CharacterBody2D" unique_id=317056800 node_paths=PackedStringArray("holding_hand", "resting_point") groups=["player"]]
 z_index = 1
 collision_layer = 2
@@ -1371,7 +1411,7 @@ script = ExtResource("1_8afob")
 holding_hand = NodePath("Sprite/GuidePoints/ArmL")
 resting_point = NodePath("Sprite/GuidePoints/PlankRestingPoint")
 
-[node name="NormalCollision" type="CollisionShape2D" parent="." unique_id=120194031 groups=["not_ragdoll"]]
+[node name="NormalCollision" type="CollisionShape2D" parent="." unique_id=120194031]
 shape = SubResource("CapsuleShape2D_8afob")
 
 [node name="NormalCollision2" type="CollisionShape2D" parent="." unique_id=1887406032]
@@ -1382,7 +1422,7 @@ shape = SubResource("CapsuleShape2D_ssdk0")
 target_position = Vector2(0, 81)
 collision_mask = 21
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1171831929 groups=["not_ragdoll"]]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1171831929]
 libraries/ = SubResource("AnimationLibrary_75vfm")
 autoplay = &"idle"
 playback_default_blend_time = 0.1
@@ -1397,14 +1437,20 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="GroundDetectorR" type="RayCast2D" parent="Sprite" unique_id=1920877544]
 unique_name_in_owner = true
-position = Vector2(-35, 0)
+position = Vector2(-7, 0)
 target_position = Vector2(0, 100)
 collision_mask = 21
 
 [node name="GroundDetectorL" type="RayCast2D" parent="Sprite" unique_id=529607088]
 unique_name_in_owner = true
-position = Vector2(42, 0)
+position = Vector2(21, 0)
 target_position = Vector2(0, 100)
+collision_mask = 21
+
+[node name="WallDetector" type="RayCast2D" parent="Sprite" unique_id=1273289105]
+unique_name_in_owner = true
+position = Vector2(0, -45)
+target_position = Vector2(45, 0)
 collision_mask = 21
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Sprite" unique_id=1146146976]
@@ -1415,7 +1461,7 @@ metadata/_edit_lock_ = true
 
 [node name="Hips" type="Bone2D" parent="Sprite/Skeleton2D" unique_id=598144107]
 position = Vector2(3, -19)
-scale = Vector2(0.9998325, 0.9998325)
+scale = Vector2(0.99982685, 0.99982685)
 rest = Transform2D(1, 0, 0, 1, 0, -20)
 
 [node name="ThighR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=25801670]
@@ -1427,7 +1473,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighR" unique_id=1375386282]
 position = Vector2(2.437, 32.666)
-rotation = 0.006863881
+rotation = 0.00686388
 scale = Vector2(0.999993, 0.999993)
 rest = Transform2D(0.9999695, 0.0068637845, -0.0068637845, 0.9999695, 2.437, 32.666)
 metadata/_local_pose_override_enabled_ = true
@@ -1485,7 +1531,7 @@ remote_path = NodePath("../../../../../VFX/DizzyParticles")
 
 [node name="ArmR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1756135333]
 position = Vector2(-33, -31)
-rotation = -0.035723757
+rotation = -0.03572375
 rest = Transform2D(0.999362, -0.0357162, 0.0357162, 0.999362, -33, -31)
 metadata/_local_pose_override_enabled_ = true
 
@@ -1621,9 +1667,9 @@ uv = PackedVector2Array(27.999695, 7.2499847, 51.999695, 12.249985, 49.499695, 5
 bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0.54, 0.54, 0.54, 0.54, 0.54, 0.54), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0, 0, 0)]
 
 [node name="Head" type="Sprite2D" parent="Sprite/Parts" unique_id=857872474]
-position = Vector2(9.998825, -62.992626)
-rotation = 0.48318002
-scale = Vector2(0.29984707, 0.29984707)
+position = Vector2(9.998785, -62.99238)
+rotation = -0.051273502
+scale = Vector2(0.2998488, 0.2998488)
 texture = ExtResource("5_bop6h")
 
 [node name="BlinkingEyelids" type="Node2D" parent="Sprite/Parts/Head" unique_id=1197610821]
@@ -1643,7 +1689,7 @@ position = Vector2(-7, 62)
 
 [node name="LegR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=460055182]
 visible = false
-position = Vector2(-35, 60)
+position = Vector2(-7, 62)
 
 [node name="AnimatedLegL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=467743092]
 position = Vector2(21, 61)
@@ -1651,7 +1697,7 @@ scale = Vector2(1.0000001, 1.0000001)
 
 [node name="LegL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=1184928012]
 visible = false
-position = Vector2(42, 57)
+position = Vector2(21, 61)
 scale = Vector2(1.0000001, 1.0000001)
 
 [node name="ArmR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=792042139]
@@ -1723,9 +1769,9 @@ color_initial_ramp = SubResource("Gradient_rt46e")
 
 [node name="DizzyParticles" type="GPUParticles2D" parent="Sprite/VFX" unique_id=806147118]
 unique_name_in_owner = true
-position = Vector2(9.998825, -62.992626)
-rotation = -0.96544325
-scale = Vector2(0.99973273, 0.99973273)
+position = Vector2(9.998785, -62.99238)
+rotation = -1.4998968
+scale = Vector2(0.99973387, 0.99973387)
 emitting = false
 amount = 6
 texture = ExtResource("7_7aotz")
@@ -1738,7 +1784,7 @@ process_material = SubResource("ParticleProcessMaterial_rt46e")
 unique_name_in_owner = true
 visible = false
 
-[node name="HandR" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=505087904 groups=["ragdoll"]]
+[node name="HandR" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=505087904]
 position = Vector2(-22, 12)
 collision_layer = 2
 collision_mask = 31
@@ -1747,10 +1793,10 @@ continuous_cd = 2
 script = ExtResource("7_7aotg")
 metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/HandR" unique_id=134055102 groups=["ragdoll"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/HandR" unique_id=134055102]
 shape = SubResource("CapsuleShape2D_a744p")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite/Ragdoll/HandR" unique_id=1131176574 groups=["ragdoll"]]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite/Ragdoll/HandR" unique_id=1131176574]
 remote_path = NodePath("../../../GuidePoints/ArmR")
 update_position = false
 update_rotation = false
@@ -1766,7 +1812,7 @@ angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
-[node name="ElbowR" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=549167027 groups=["ragdoll"]]
+[node name="ElbowR" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=549167027]
 position = Vector2(-33, -18)
 collision_layer = 2
 collision_mask = 31
@@ -1774,7 +1820,7 @@ physics_material_override = ExtResource("6_15y17")
 script = ExtResource("7_7aotg")
 metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/ElbowR" unique_id=211265992 groups=["ragdoll"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/ElbowR" unique_id=211265992]
 shape = SubResource("CapsuleShape2D_a744p")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Sprite/Ragdoll/ElbowR" unique_id=615404832]
@@ -1787,7 +1833,7 @@ angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
-[node name="HandL" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=2096464986 groups=["ragdoll"]]
+[node name="HandL" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=2096464986]
 position = Vector2(43, 3)
 collision_layer = 2
 collision_mask = 31
@@ -1796,10 +1842,10 @@ continuous_cd = 2
 script = ExtResource("7_7aotg")
 metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/HandL" unique_id=135997834 groups=["ragdoll"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/HandL" unique_id=135997834]
 shape = SubResource("CapsuleShape2D_388e2")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite/Ragdoll/HandL" unique_id=2132467164 groups=["ragdoll"]]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite/Ragdoll/HandL" unique_id=2132467164]
 remote_path = NodePath("../../../GuidePoints/ArmL")
 update_position = false
 update_rotation = false
@@ -1815,7 +1861,7 @@ angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
-[node name="ElbowL" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=1527696111 groups=["ragdoll"]]
+[node name="ElbowL" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=1527696111]
 position = Vector2(39, -18)
 collision_layer = 2
 collision_mask = 31
@@ -1823,7 +1869,7 @@ physics_material_override = ExtResource("6_15y17")
 script = ExtResource("7_7aotg")
 metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/ElbowL" unique_id=1422410821 groups=["ragdoll"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/ElbowL" unique_id=1422410821]
 shape = SubResource("CapsuleShape2D_388e2")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Sprite/Ragdoll/ElbowL" unique_id=1289184311]
@@ -1836,19 +1882,21 @@ angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
-[node name="FootR" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=889066508 groups=["ragdoll"]]
+[node name="FootR" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=889066508]
 position = Vector2(-8, 62)
 collision_layer = 2
 collision_mask = 31
 physics_material_override = ExtResource("6_15y17")
 continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 3
 script = ExtResource("7_7aotg")
 metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/FootR" unique_id=1405800100 groups=["ragdoll"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/FootR" unique_id=1405800100]
 shape = SubResource("CapsuleShape2D_15y17")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite/Ragdoll/FootR" unique_id=1409945004 groups=["ragdoll"]]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite/Ragdoll/FootR" unique_id=1409945004]
 remote_path = NodePath("../../../GuidePoints/LegR")
 update_position = false
 update_rotation = false
@@ -1864,7 +1912,7 @@ angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
-[node name="KneeR" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=1756820371 groups=["ragdoll"]]
+[node name="KneeR" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=1756820371]
 position = Vector2(2, 26)
 collision_layer = 2
 collision_mask = 31
@@ -1872,7 +1920,7 @@ physics_material_override = ExtResource("6_15y17")
 script = ExtResource("7_7aotg")
 metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/KneeR" unique_id=1699548841 groups=["ragdoll"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/KneeR" unique_id=1699548841]
 shape = SubResource("CapsuleShape2D_15y17")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Sprite/Ragdoll/KneeR" unique_id=1469043642]
@@ -1885,19 +1933,21 @@ angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
-[node name="FootL" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=1180854341 groups=["ragdoll"]]
+[node name="FootL" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=1180854341]
 position = Vector2(21, 61)
 collision_layer = 2
 collision_mask = 31
 physics_material_override = ExtResource("6_15y17")
 continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 3
 script = ExtResource("7_7aotg")
 metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/FootL" unique_id=509873298 groups=["ragdoll"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/FootL" unique_id=509873298]
 shape = SubResource("CapsuleShape2D_bop6h")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite/Ragdoll/FootL" unique_id=1176617047 groups=["ragdoll"]]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite/Ragdoll/FootL" unique_id=1176617047]
 remote_path = NodePath("../../../GuidePoints/LegL")
 update_position = false
 update_rotation = false
@@ -1913,7 +1963,7 @@ angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
-[node name="KneeL" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=447736901 groups=["ragdoll"]]
+[node name="KneeL" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=447736901]
 position = Vector2(22, 26)
 collision_layer = 2
 collision_mask = 31
@@ -1921,7 +1971,7 @@ physics_material_override = ExtResource("6_15y17")
 script = ExtResource("7_7aotg")
 metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/KneeL" unique_id=1519386603 groups=["ragdoll"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/KneeL" unique_id=1519386603]
 shape = SubResource("CapsuleShape2D_bop6h")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Sprite/Ragdoll/KneeL" unique_id=1929631938]
@@ -1934,17 +1984,19 @@ angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
-[node name="Torso" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=1883681753 groups=["ragdoll"]]
+[node name="Torso" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=1883681753]
 position = Vector2(5, -42)
 collision_layer = 2
 collision_mask = 31
 collision_priority = 2.0
 physics_material_override = ExtResource("6_15y17")
 continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 3
 script = ExtResource("7_7aotg")
 metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/Torso" unique_id=592121951 groups=["ragdoll"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/Torso" unique_id=592121951]
 position = Vector2(-3, -3)
 shape = SubResource("CapsuleShape2D_6p1w3")
 
@@ -1963,13 +2015,47 @@ metadata/_custom_type_script = "uid://dljix40x8qlm1"
 [node name="Jump" type="Node" parent="StateMachine" unique_id=1167554938]
 script = ExtResource("10_hiosj")
 horizontal_speed = 400.0
+wall_bounce_amount = 0.5
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="Fall" type="Node" parent="StateMachine" unique_id=1791540762]
 script = ExtResource("11_ssdk0")
 horizontal_speed = 350.0
+wall_bounce_amount = 0.2
+wall_bounce_ms = 500
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="Ragdoll" type="Node" parent="StateMachine" unique_id=1205713261]
 script = ExtResource("12_ssdk0")
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
+
+[node name="SFX" type="Node2D" parent="." unique_id=2054879864]
+unique_name_in_owner = true
+script = ExtResource("18_otn2r")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="SFX" unique_id=128494251]
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="SFX" unique_id=1342045896]
+stream = ExtResource("2_qrxv1")
+volume_db = -12.0
+bus = &"Atmosphere"
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="SFX" unique_id=1591825923]
+stream = ExtResource("2_dqf5y")
+bus = &"SFX"
+
+[node name="PickUp" type="AudioStreamPlayer2D" parent="SFX" unique_id=1424104023]
+stream = ExtResource("21_ctwkf")
+bus = &"SFX"
+
+[node name="StandUp" type="AudioStreamPlayer2D" parent="SFX" unique_id=1743924838]
+stream = ExtResource("21_ctwkf")
+bus = &"SFX"
+
+[node name="Ouch" type="AudioStreamPlayer2D" parent="SFX" unique_id=1678676952]
+stream = SubResource("AudioStreamRandomizer_2vokq")
+bus = &"SFX"
+
+[connection signal="body_entered" from="Sprite/Ragdoll/FootR" to="StateMachine/Ragdoll" method="_on_torso_body_entered"]
+[connection signal="body_entered" from="Sprite/Ragdoll/FootL" to="StateMachine/Ragdoll" method="_on_torso_body_entered"]
+[connection signal="body_entered" from="Sprite/Ragdoll/Torso" to="StateMachine/Ragdoll" method="_on_torso_body_entered"]

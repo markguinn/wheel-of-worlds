@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://dgwypw6n6lgja"]
+
+[ext_resource type="AudioStream" uid="uid://rggsqrknnh0a" path="res://_temp_replace_me_please/sfx-low-mid.wav" id="1_34fr1"]
+[ext_resource type="AudioStream" uid="uid://7sdkehy4wjof" path="res://_temp_replace_me_please/sfx-low-short.wav" id="2_tdyri"]
+
+[resource]
+random_pitch = 1.1892071
+random_volume_offset_db = 3.0
+streams_count = 2
+stream_0/stream = ExtResource("1_34fr1")
+stream_1/stream = ExtResource("2_tdyri")
