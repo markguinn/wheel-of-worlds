@@ -5,6 +5,7 @@ const CAMERA_HORIZONTAL_OFFSET = 1.2
 
 const WALK_ACCEL = 0.2
 const TURNING_ACCEL = 0.1
+const WALL_BOUNCE_COOLDOWN_MS = 1000
 
 const GRAVITY_MULTIPLIER = 1.8
 const GRAVITY_DIRECTION = Vector2.DOWN
@@ -76,10 +77,16 @@ func _apply_gravity(delta: float) -> void:
 		machine.transition_by_name("Fall")
 
 
+var last_wall_bounce_ms := 0
 func _bounce_off_walls() -> void:
-	if not is_zero_approx(wall_bounce_amount) and wall_detector.is_colliding():
+	if is_zero_approx(player.velocity.x) or is_zero_approx(wall_bounce_amount):
+		return
+	if wall_detector.is_colliding() and Time.get_ticks_msec() > last_wall_bounce_ms + WALL_BOUNCE_COOLDOWN_MS:
 		#player.velocity.x = wall_detector.get_collision_normal().x * absf(player.velocity.x) * wall_bounce_amount
-		machine.get_state("Ragdoll").temporary_ragdoll(wall_bounce_ms)
+		#var torso_velocity := wall_detector.get_collision_normal() * player.velocity.length() * wall_bounce_amount
+		var torso_velocity := player.velocity.bounce(wall_detector.get_collision_normal()) * wall_bounce_amount
+		#prints(player.velocity, wall_detector.get_collision_normal(), torso_velocity)
+		machine.get_state("Ragdoll").temporary_ragdoll(wall_bounce_ms, torso_velocity)
 
 
 func _move_and_slide(_delta: float) -> void:

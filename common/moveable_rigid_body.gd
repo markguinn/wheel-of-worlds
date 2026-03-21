@@ -8,15 +8,19 @@ var next_angular_velocity := INF
 
 
 func set_next_global_position(v: Vector2) -> void:
+	global_position = v
 	next_global_position = v
 
 func set_next_linear_velocity(v: Vector2) -> void:
+	linear_velocity = v
 	next_linear_velocity = v
 
 func set_next_global_rotation(v: float) -> void:
+	global_rotation = v
 	next_global_rotation = v
 	
 func set_next_angular_velocity(v: float) -> void:
+	angular_velocity = v
 	next_angular_velocity = v
 
 

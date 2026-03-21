@@ -1473,7 +1473,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighR" unique_id=1375386282]
 position = Vector2(2.437, 32.666)
-rotation = 0.00686388
+rotation = 0.0068638795
 scale = Vector2(0.999993, 0.999993)
 rest = Transform2D(0.9999695, 0.0068637845, -0.0068637845, 0.9999695, 2.437, 32.666)
 metadata/_local_pose_override_enabled_ = true
@@ -1531,7 +1531,7 @@ remote_path = NodePath("../../../../../VFX/DizzyParticles")
 
 [node name="ArmR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1756135333]
 position = Vector2(-33, -31)
-rotation = -0.03572375
+rotation = -0.035723746
 rest = Transform2D(0.999362, -0.0357162, 0.0357162, 0.999362, -33, -31)
 metadata/_local_pose_override_enabled_ = true
 
@@ -1804,27 +1804,6 @@ update_scale = false
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Sprite/Ragdoll/HandR" unique_id=124494546]
 position = Vector2(-2, -23)
-node_a = NodePath("../../ElbowR")
-node_b = NodePath("..")
-disable_collision = false
-softness = 4.5
-angular_limit_enabled = true
-angular_limit_lower = -1.5707964
-angular_limit_upper = 1.5707964
-
-[node name="ElbowR" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=549167027]
-position = Vector2(-33, -18)
-collision_layer = 2
-collision_mask = 31
-physics_material_override = ExtResource("6_15y17")
-script = ExtResource("7_7aotg")
-metadata/_custom_type_script = "uid://d1d8irkuomsw0"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/ElbowR" unique_id=211265992]
-shape = SubResource("CapsuleShape2D_a744p")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="Sprite/Ragdoll/ElbowR" unique_id=615404832]
-position = Vector2(-2, -23)
 node_a = NodePath("../../Torso")
 node_b = NodePath("..")
 disable_collision = false
@@ -1852,27 +1831,6 @@ update_rotation = false
 update_scale = false
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Sprite/Ragdoll/HandL" unique_id=223076313]
-position = Vector2(-2, -19)
-node_a = NodePath("../../ElbowL")
-node_b = NodePath("..")
-disable_collision = false
-softness = 4.5
-angular_limit_enabled = true
-angular_limit_lower = -1.5707964
-angular_limit_upper = 1.5707964
-
-[node name="ElbowL" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=1527696111]
-position = Vector2(39, -18)
-collision_layer = 2
-collision_mask = 31
-physics_material_override = ExtResource("6_15y17")
-script = ExtResource("7_7aotg")
-metadata/_custom_type_script = "uid://d1d8irkuomsw0"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/ElbowL" unique_id=1422410821]
-shape = SubResource("CapsuleShape2D_388e2")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="Sprite/Ragdoll/ElbowL" unique_id=1289184311]
 position = Vector2(-2, -19)
 node_a = NodePath("../../Torso")
 node_b = NodePath("..")
@@ -1904,31 +1862,10 @@ update_scale = false
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Sprite/Ragdoll/FootR" unique_id=1992931304]
 position = Vector2(0, -45)
-node_a = NodePath("../../KneeR")
-node_b = NodePath("..")
-disable_collision = false
-softness = 16.0
-angular_limit_enabled = true
-angular_limit_lower = -1.5707964
-angular_limit_upper = 1.5707964
-
-[node name="KneeR" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=1756820371]
-position = Vector2(2, 26)
-collision_layer = 2
-collision_mask = 31
-physics_material_override = ExtResource("6_15y17")
-script = ExtResource("7_7aotg")
-metadata/_custom_type_script = "uid://d1d8irkuomsw0"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/KneeR" unique_id=1699548841]
-shape = SubResource("CapsuleShape2D_15y17")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="Sprite/Ragdoll/KneeR" unique_id=1469043642]
-position = Vector2(0, -45)
 node_a = NodePath("../../Torso")
 node_b = NodePath("..")
 disable_collision = false
-softness = 4.5
+softness = 16.0
 angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
@@ -1954,27 +1891,6 @@ update_rotation = false
 update_scale = false
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Sprite/Ragdoll/FootL" unique_id=257614057]
-position = Vector2(0, -45)
-node_a = NodePath("../../KneeL")
-node_b = NodePath("..")
-disable_collision = false
-softness = 4.5
-angular_limit_enabled = true
-angular_limit_lower = -1.5707964
-angular_limit_upper = 1.5707964
-
-[node name="KneeL" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=447736901]
-position = Vector2(22, 26)
-collision_layer = 2
-collision_mask = 31
-physics_material_override = ExtResource("6_15y17")
-script = ExtResource("7_7aotg")
-metadata/_custom_type_script = "uid://d1d8irkuomsw0"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/KneeL" unique_id=1519386603]
-shape = SubResource("CapsuleShape2D_bop6h")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="Sprite/Ragdoll/KneeL" unique_id=1929631938]
 position = Vector2(0, -45)
 node_a = NodePath("../../Torso")
 node_b = NodePath("..")
@@ -2016,12 +1932,13 @@ metadata/_custom_type_script = "uid://dljix40x8qlm1"
 script = ExtResource("10_hiosj")
 horizontal_speed = 400.0
 wall_bounce_amount = 0.5
+wall_bounce_ms = 500
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="Fall" type="Node" parent="StateMachine" unique_id=1791540762]
 script = ExtResource("11_ssdk0")
 horizontal_speed = 350.0
-wall_bounce_amount = 0.2
+wall_bounce_amount = 1.0
 wall_bounce_ms = 500
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 

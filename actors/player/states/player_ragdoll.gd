@@ -11,6 +11,7 @@ const DEBOUNCE_SFX_MS = 1000
 var last_ragdoll_movement := 0
 var temp_return_at := 0
 var temp_return_to: StateNode = null
+var temp_torso_velocity: Vector2 = Vector2.INF
 
 # NOTE: these need to be in the same order as ragdoll_bodies
 @onready var guidepoints: Array[Marker2D] = [
@@ -28,11 +29,11 @@ var temp_return_to: StateNode = null
 	%Ragdoll/FootR,
 ]
 @onready var ragdoll_bodies_mid: Array[RigidBody2D] = [
-	null,
-	%Ragdoll/ElbowL,
-	%Ragdoll/ElbowR,
-	%Ragdoll/KneeL,
-	%Ragdoll/KneeR,
+	#null,
+	#%Ragdoll/ElbowL,
+	#%Ragdoll/ElbowR,
+	#%Ragdoll/KneeL,
+	#%Ragdoll/KneeR,
 ]
 @onready var ragdoll_remote_transforms: Array[RemoteTransform2D] = [
 	%Ragdoll/HandL/RemoteTransform2D,
@@ -46,10 +47,10 @@ var temp_return_to: StateNode = null
 	%Ragdoll/HandR/CollisionShape2D,
 	%Ragdoll/FootL/CollisionShape2D,
 	%Ragdoll/FootR/CollisionShape2D,
-	%Ragdoll/ElbowL/CollisionShape2D,
-	%Ragdoll/ElbowR/CollisionShape2D,
-	%Ragdoll/KneeL/CollisionShape2D,
-	%Ragdoll/KneeR/CollisionShape2D,
+	#%Ragdoll/ElbowL/CollisionShape2D,
+	#%Ragdoll/ElbowR/CollisionShape2D,
+	#%Ragdoll/KneeL/CollisionShape2D,
+	#%Ragdoll/KneeR/CollisionShape2D,
 ]
 @onready var guidepoints_container: GuidepointSyncingBehaviors = %GuidePoints
 @onready var ragdoll_container: Node2D = %Ragdoll
@@ -65,7 +66,6 @@ func init_state(_machine: StateMachine, _target: Node2D) -> void:
 func _entered(_prev_state: StateNode) -> void:
 	last_ragdoll_movement = Time.get_ticks_msec()
 	_enable_ragdoll_elements()
-	dizzy_particles.emitting = true
 	if player.is_holding_prop:
 		player.put_down_prop()
 
@@ -76,6 +76,7 @@ func _before_exit(_next_state: StateNode) -> void:
 	player.velocity = ragdoll_bodies[0].linear_velocity
 	temp_return_at = 0
 	temp_return_to = null
+	temp_torso_velocity = Vector2.INF
 
 
 func _init_ragdoll_elements() -> void:
@@ -100,12 +101,15 @@ func _enable_ragdoll_elements() -> void:
 	# enable the ragdoll bodies and reset them to match the guidepoints
 	for i in range(guidepoints.size()):
 		var limb_velocity = player.velocity # * randf_range(0.8, 1.2) if i > 0 else player.velocity
+		if i == 0 and temp_torso_velocity != Vector2.INF:
+			print("tv:", temp_torso_velocity)
+			limb_velocity = temp_torso_velocity
 		ragdoll_bodies[i].set_next_global_position(guidepoints[i].global_position)
 		ragdoll_bodies[i].set_next_global_rotation(0.0)
 		ragdoll_bodies[i].set_next_linear_velocity(limb_velocity)
 		ragdoll_bodies[i].set_next_angular_velocity(0.0)
 		ragdoll_bodies[i].freeze = false
-		if ragdoll_bodies_mid[i]:
+		if i < ragdoll_bodies_mid.size() and ragdoll_bodies_mid[i]:
 			ragdoll_bodies_mid[i].set_next_global_position(guidepoints[i].global_position.lerp(guidepoints[0].global_position, 0.5))
 			ragdoll_bodies_mid[i].set_next_global_rotation(0.0)
 			ragdoll_bodies_mid[i].set_next_linear_velocity(player.velocity.lerp(limb_velocity, 0.5))
@@ -152,7 +156,7 @@ func _disable_ragdoll_elements() -> void:
 # do a small animation to get up off the ground before returning
 # to a non-ragdoll state so we're not stuck in the ground
 func transition_before_exit(to_state: StateNode) -> void:
-	if temp_return_at > 0 or to_state.name == "Fall" or not player.ground_detector.is_colliding():
+	if temp_return_at > 0 or to_state.name == "Fall":
 		return
 	
 	sfx.play_stand_up()
@@ -166,8 +170,10 @@ func transition_before_exit(to_state: StateNode) -> void:
 	await tween.finished
 
 
-func temporary_ragdoll(return_after_ms = 500) -> void:
-	temp_return_to = machine.active_state
+func temporary_ragdoll(return_after_ms = 500, torso_velocity = Vector2.INF) -> void:
+	temp_torso_velocity = torso_velocity
+	# it looks funky to return to jump, so we special case that to go straight to fall
+	temp_return_to = machine.get_state("Fall") if machine.active_state.name == "Jump" else machine.active_state
 	temp_return_at = Time.get_ticks_msec() + return_after_ms
 	machine.transition(self)
 
@@ -196,14 +202,15 @@ func _physics_process(delta: float) -> void:
 	else:
 		last_ragdoll_movement = now_ms
 		
-	if temp_return_at > 0 and now_ms > temp_return_at:
+	if temp_return_at > 0 and now_ms > temp_return_at and not transitioning_out:
 		machine.transition(temp_return_to)
-
 
 
 var last_impact_sound := 0
 func _on_torso_body_entered(body: Node) -> void:
 	if body is TileMapLayer or not body.get_collision_layer_value(2):
+		if not dizzy_particles.emitting and not temp_return_at:
+			dizzy_particles.emitting = true
 		if Time.get_ticks_msec() > last_impact_sound + DEBOUNCE_SFX_MS:
 			sfx.play_ragdoll_impact()
 			last_impact_sound = Time.get_ticks_msec()
