@@ -21,9 +21,8 @@
 [ext_resource type="Script" uid="uid://d0dmoudghrdys" path="res://actors/player/states/player_ragdoll.gd" id="12_ssdk0"]
 [ext_resource type="Script" uid="uid://bxy3hd0npr4vn" path="res://actors/player/player_sfx.gd" id="18_otn2r"]
 [ext_resource type="AudioStream" uid="uid://7sdkehy4wjof" path="res://_temp_replace_me_please/sfx-low-short.wav" id="21_ctwkf"]
-[ext_resource type="AudioStream" uid="uid://c2ngc0suu8cnw" path="res://_temp_replace_me_please/sfx-high-mid.wav" id="22_nsxbo"]
-[ext_resource type="AudioStream" uid="uid://rggsqrknnh0a" path="res://_temp_replace_me_please/sfx-low-mid.wav" id="23_yeioo"]
-[ext_resource type="AudioStream" uid="uid://ka7aieklosvt" path="res://_temp_replace_me_please/sfx-high-short.wav" id="24_qct7d"]
+[ext_resource type="AudioStream" uid="uid://dvs04bomaqwne" path="res://_temp_replace_me_please/sfx-noise-short.wav" id="22_yeioo"]
+[ext_resource type="AudioStream" uid="uid://ds2wv0wraqr8b" path="res://_temp_replace_me_please/sfx-noise-mid.wav" id="23_qct7d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
 radius = 18.0
@@ -1394,11 +1393,9 @@ radius = 32.0
 height = 68.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2vokq"]
-streams_count = 4
-stream_0/stream = ExtResource("22_nsxbo")
-stream_1/stream = ExtResource("21_ctwkf")
-stream_2/stream = ExtResource("23_yeioo")
-stream_3/stream = ExtResource("24_qct7d")
+streams_count = 2
+stream_0/stream = ExtResource("22_yeioo")
+stream_1/stream = ExtResource("23_qct7d")
 
 [node name="Player" type="CharacterBody2D" unique_id=317056800 node_paths=PackedStringArray("holding_hand", "resting_point") groups=["player"]]
 z_index = 1
@@ -1971,6 +1968,8 @@ bus = &"SFX"
 
 [node name="Ouch" type="AudioStreamPlayer2D" parent="SFX" unique_id=1678676952]
 stream = SubResource("AudioStreamRandomizer_2vokq")
+volume_db = -12.0
+pitch_scale = 0.57
 bus = &"SFX"
 
 [connection signal="body_entered" from="Sprite/Ragdoll/FootR" to="StateMachine/Ragdoll" method="_on_torso_body_entered"]
