@@ -73,10 +73,11 @@ tile_map_data = PackedByteArray("AAABAAcAAAADAAAAAAACAAcAAAADAAAAAAADAAcAAAADAAA
 tile_set = ExtResource("1_4eaw5")
 
 [node name="Camera2D" parent="." unique_id=552340171 instance=ExtResource("4_gcinv")]
-position = Vector2(-1208, 505)
+position = Vector2(-7, 502)
 
 [node name="Player" parent="." unique_id=42652117 instance=ExtResource("2_tsxbn")]
-position = Vector2(-1208, 505)
+position = Vector2(-7, 502)
+metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1198040456]
 remote_path = NodePath("../../Camera2D")
@@ -84,7 +85,7 @@ update_rotation = false
 update_scale = false
 
 [node name="Orb" parent="." unique_id=1391753086 instance=ExtResource("3_31a7b")]
-position = Vector2(-91, 496)
+position = Vector2(-1229, 511)
 mass = 0.01
 
 [node name="Orb2" parent="." unique_id=1425831707 instance=ExtResource("3_31a7b")]

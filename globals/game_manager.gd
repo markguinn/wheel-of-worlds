@@ -48,3 +48,15 @@ func change_scene(new_scene_path: String, params = {}, fade = false) -> void:
 		VFX.fade_in()
 	
 	# TODO: show/hide hud - maybe new_instance can have a is_hud_visible()->bool method? or maybe we just always hide the hud when the scene changes and each scene can call GameManager.show_hud()?
+
+
+# This is just for testing. We should remove it before release
+func _input(event: InputEvent) -> void:
+	if GameManager.DEV_MODE and event is InputEventKey and event.pressed and not event.is_echo():
+		match event.physical_keycode:
+			KEY_0:
+				Engine.time_scale = 1.0
+			KEY_9:
+				Engine.time_scale = 0.5
+			KEY_8:
+				Engine.time_scale = 0.25

@@ -1422,6 +1422,7 @@ collision_mask = 21
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1171831929]
 libraries/ = SubResource("AnimationLibrary_75vfm")
 autoplay = &"idle"
+playback_auto_capture_duration = 0.3
 playback_default_blend_time = 0.1
 speed_scale = 1.7
 
@@ -1470,7 +1471,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighR" unique_id=1375386282]
 position = Vector2(2.437, 32.666)
-rotation = 0.0068638795
+rotation = 0.006863879
 scale = Vector2(0.999993, 0.999993)
 rest = Transform2D(0.9999695, 0.0068637845, -0.0068637845, 0.9999695, 2.437, 32.666)
 metadata/_local_pose_override_enabled_ = true
@@ -1528,7 +1529,7 @@ remote_path = NodePath("../../../../../VFX/DizzyParticles")
 
 [node name="ArmR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1756135333]
 position = Vector2(-33, -31)
-rotation = -0.035723746
+rotation = -0.035723742
 rest = Transform2D(0.999362, -0.0357162, 0.0357162, 0.999362, -33, -31)
 metadata/_local_pose_override_enabled_ = true
 
@@ -1928,14 +1929,14 @@ metadata/_custom_type_script = "uid://dljix40x8qlm1"
 [node name="Jump" type="Node" parent="StateMachine" unique_id=1167554938]
 script = ExtResource("10_hiosj")
 horizontal_speed = 400.0
-wall_bounce_amount = 0.5
-wall_bounce_ms = 500
+wall_bounce_amount = 0.1
+wall_bounce_ms = 200
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="Fall" type="Node" parent="StateMachine" unique_id=1791540762]
 script = ExtResource("11_ssdk0")
 horizontal_speed = 350.0
-wall_bounce_amount = 1.0
+wall_bounce_amount = 0.6
 wall_bounce_ms = 500
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 

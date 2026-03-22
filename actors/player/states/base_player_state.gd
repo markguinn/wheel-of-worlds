@@ -5,7 +5,7 @@ const CAMERA_HORIZONTAL_OFFSET = 1.2
 
 const WALK_ACCEL = 0.2
 const TURNING_ACCEL = 0.1
-const WALL_BOUNCE_COOLDOWN_MS = 1000
+const WALL_BOUNCE_COOLDOWN_MS = 2000
 
 const GRAVITY_MULTIPLIER = 1.8
 const GRAVITY_DIRECTION = Vector2.DOWN
@@ -85,7 +85,6 @@ func _bounce_off_walls() -> void:
 		#player.velocity.x = wall_detector.get_collision_normal().x * absf(player.velocity.x) * wall_bounce_amount
 		#var torso_velocity := wall_detector.get_collision_normal() * player.velocity.length() * wall_bounce_amount
 		var torso_velocity := player.velocity.bounce(wall_detector.get_collision_normal()) * wall_bounce_amount
-		#prints(player.velocity, wall_detector.get_collision_normal(), torso_velocity)
 		machine.get_state("Ragdoll").temporary_ragdoll(wall_bounce_ms, torso_velocity)
 
 
