@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://cn4cp7mcr2aj8" path="res://actors/player/guidepoints_syncing.gd" id="6_k67x5"]
 [ext_resource type="Texture2D" uid="uid://qswdsxv1itns" path="res://actors/player/art/blinking-eyes.png" id="6_rt46e"]
 [ext_resource type="Script" uid="uid://qkfutrbwbkhj" path="res://actors/player/blinking-eyes.gd" id="7_0wchr"]
-[ext_resource type="Script" uid="uid://d1d8irkuomsw0" path="res://common/moveable_rigid_body.gd" id="7_7aotg"]
 [ext_resource type="Texture2D" uid="uid://bh6wia2ufmi2g" path="res://actors/player/art/dizzystars.png" id="7_7aotz"]
 [ext_resource type="Script" uid="uid://vmdvty45rk5y" path="res://common/state_machine/state_machine.gd" id="7_a744p"]
 [ext_resource type="Texture2D" uid="uid://bxdw8uj476pq2" path="res://actors/player/art/bert-feet.png" id="7_bop6h"]
@@ -18,6 +17,7 @@
 [ext_resource type="Script" uid="uid://bjpnd3ffv6q6o" path="res://actors/player/states/player_walk.gd" id="9_lsln6"]
 [ext_resource type="Script" uid="uid://2oxv8sv1riet" path="res://actors/player/states/player_jump.gd" id="10_hiosj"]
 [ext_resource type="Script" uid="uid://74a5mhali56n" path="res://actors/player/states/player_fall.gd" id="11_ssdk0"]
+[ext_resource type="Script" uid="uid://c3rmeunxh7l15" path="res://actors/player/ragdoll_body.gd" id="12_nsxbo"]
 [ext_resource type="Script" uid="uid://d0dmoudghrdys" path="res://actors/player/states/player_ragdoll.gd" id="12_ssdk0"]
 [ext_resource type="Script" uid="uid://bxy3hd0npr4vn" path="res://actors/player/player_sfx.gd" id="18_otn2r"]
 [ext_resource type="AudioStream" uid="uid://7sdkehy4wjof" path="res://_temp_replace_me_please/sfx-low-short.wav" id="21_ctwkf"]
@@ -1681,6 +1681,7 @@ script = ExtResource("7_0wchr")
 [node name="GuidePoints" type="Node2D" parent="Sprite" unique_id=1022049703]
 unique_name_in_owner = true
 script = ExtResource("6_k67x5")
+smoothing = null
 
 [node name="AnimatedLegR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=1174652303]
 position = Vector2(-7, 62)
@@ -1782,14 +1783,14 @@ process_material = SubResource("ParticleProcessMaterial_rt46e")
 unique_name_in_owner = true
 visible = false
 
-[node name="HandR" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=505087904]
+[node name="HandR" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=1665258212]
 position = Vector2(-22, 12)
 collision_layer = 2
 collision_mask = 31
 physics_material_override = ExtResource("6_15y17")
 continuous_cd = 2
-script = ExtResource("7_7aotg")
-metadata/_custom_type_script = "uid://d1d8irkuomsw0"
+script = ExtResource("12_nsxbo")
+metadata/_custom_type_script = "uid://c3rmeunxh7l15"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/HandR" unique_id=134055102]
 shape = SubResource("CapsuleShape2D_a744p")
@@ -1810,14 +1811,14 @@ angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
-[node name="HandL" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=2096464986]
+[node name="HandL" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=1337164306]
 position = Vector2(43, 3)
 collision_layer = 2
 collision_mask = 31
 physics_material_override = ExtResource("6_15y17")
 continuous_cd = 2
-script = ExtResource("7_7aotg")
-metadata/_custom_type_script = "uid://d1d8irkuomsw0"
+script = ExtResource("12_nsxbo")
+metadata/_custom_type_script = "uid://c3rmeunxh7l15"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/HandL" unique_id=135997834]
 shape = SubResource("CapsuleShape2D_388e2")
@@ -1838,7 +1839,7 @@ angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
-[node name="FootR" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=889066508]
+[node name="FootR" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=2100754943]
 position = Vector2(-8, 62)
 collision_layer = 2
 collision_mask = 31
@@ -1846,8 +1847,8 @@ physics_material_override = ExtResource("6_15y17")
 continuous_cd = 2
 contact_monitor = true
 max_contacts_reported = 3
-script = ExtResource("7_7aotg")
-metadata/_custom_type_script = "uid://d1d8irkuomsw0"
+script = ExtResource("12_nsxbo")
+metadata/_custom_type_script = "uid://c3rmeunxh7l15"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/FootR" unique_id=1405800100]
 shape = SubResource("CapsuleShape2D_15y17")
@@ -1868,7 +1869,7 @@ angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
-[node name="FootL" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=1180854341]
+[node name="FootL" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=1066357875]
 position = Vector2(21, 61)
 collision_layer = 2
 collision_mask = 31
@@ -1876,8 +1877,8 @@ physics_material_override = ExtResource("6_15y17")
 continuous_cd = 2
 contact_monitor = true
 max_contacts_reported = 3
-script = ExtResource("7_7aotg")
-metadata/_custom_type_script = "uid://d1d8irkuomsw0"
+script = ExtResource("12_nsxbo")
+metadata/_custom_type_script = "uid://c3rmeunxh7l15"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/FootL" unique_id=509873298]
 shape = SubResource("CapsuleShape2D_bop6h")
@@ -1898,7 +1899,7 @@ angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
-[node name="Torso" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=1883681753]
+[node name="Torso" type="RigidBody2D" parent="Sprite/Ragdoll" unique_id=1079815207]
 position = Vector2(5, -42)
 collision_layer = 2
 collision_mask = 31
@@ -1907,8 +1908,10 @@ physics_material_override = ExtResource("6_15y17")
 continuous_cd = 2
 contact_monitor = true
 max_contacts_reported = 3
-script = ExtResource("7_7aotg")
-metadata/_custom_type_script = "uid://d1d8irkuomsw0"
+angular_damp_mode = 1
+angular_damp = 1.0
+script = ExtResource("12_nsxbo")
+metadata/_custom_type_script = "uid://c3rmeunxh7l15"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/Torso" unique_id=592121951]
 position = Vector2(-3, -3)
@@ -1929,14 +1932,14 @@ metadata/_custom_type_script = "uid://dljix40x8qlm1"
 [node name="Jump" type="Node" parent="StateMachine" unique_id=1167554938]
 script = ExtResource("10_hiosj")
 horizontal_speed = 400.0
-wall_bounce_amount = 0.1
-wall_bounce_ms = 200
+wall_bounce_amount = 1.0
+wall_bounce_ms = 500
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="Fall" type="Node" parent="StateMachine" unique_id=1791540762]
 script = ExtResource("11_ssdk0")
 horizontal_speed = 350.0
-wall_bounce_amount = 0.6
+wall_bounce_amount = 1.0
 wall_bounce_ms = 500
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 

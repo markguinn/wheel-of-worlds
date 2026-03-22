@@ -26,7 +26,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Orb:
 		orb_is_present = true
-		orb_entered_at = Time.get_ticks_msec()
+		orb_entered_at = GameManager.now_ms()
 	if body is Player:
 		player_is_present = true
 
@@ -40,7 +40,7 @@ func _on_body_exited(body: Node2D) -> void:
 
 
 func _can_enter() -> bool:
-	return player_is_present and orb_entered_at > 0 and Time.get_ticks_msec() > orb_entered_at + ORB_WAIT_MS
+	return player_is_present and orb_entered_at > 0 and GameManager.now_ms() > orb_entered_at + ORB_WAIT_MS
 
 
 func _process(_delta: float) -> void:

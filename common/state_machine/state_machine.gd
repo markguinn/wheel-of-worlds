@@ -69,7 +69,7 @@ func transition(next_state: StateNode) -> bool:
 		next_state.before_enter.emit(prev_state)
 		next_state.transitioning_out = false
 		active_state = next_state
-		prints("[StateMachine]", Time.get_ticks_msec(), "transitioning", target.name, "from", cur_name, "to", next_state.name)
+		prints("[StateMachine]", GameManager.now_ms(), "transitioning", target.name, "from", cur_name, "to", next_state.name)
 		_enable_state_node(next_state)
 		active_state.entered.emit(prev_state)
 

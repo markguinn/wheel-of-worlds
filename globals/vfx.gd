@@ -116,7 +116,7 @@ func _process(delta: float) -> void:
 	if not cam: return
 	if shake_strength > 0.0:
 		shake_strength = move_toward(shake_strength, 0.0, shake_decay * delta)
-		var noise_idx := Time.get_ticks_msec() * SHAKE_SPEED
+		var noise_idx := GameManager.now_ms() * SHAKE_SPEED
 		var shake_offset := Vector2(
 			noise.get_noise_2d(1, noise_idx),
 			noise.get_noise_2d(100, noise_idx),

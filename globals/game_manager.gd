@@ -9,6 +9,8 @@ extends Node
 # we can use this to enable/disable logging, cheats, debug visuals, etc
 const DEV_MODE = true
 
+var _now := 0
+
 
 ## Returns the parent node for the active screen or stage
 func get_container() -> Node2D:
@@ -23,6 +25,20 @@ func get_active_scene() -> Node:
 ## Returns the currently active player
 func get_player() -> Player:
 	return get_tree().get_first_node_in_group("player")
+
+
+## Just like Time.get_ticks_msec except it responds to
+## pausing and adjusting Engine.time_scale
+func now_ms() -> int:
+	return _now
+
+
+var last_times: Dictionary[Variant, int] = {}
+func rate_limit(min_ms: int, scope: Variant) -> bool:
+	if last_times.has(scope) and _now < last_times[scope] + min_ms:
+		return true
+	last_times[scope] = _now
+	return false
 
 
 ## Load in a new scene. For playable stages, params can generally have a "target_portal"
@@ -48,6 +64,10 @@ func change_scene(new_scene_path: String, params = {}, fade = false) -> void:
 		VFX.fade_in()
 	
 	# TODO: show/hide hud - maybe new_instance can have a is_hud_visible()->bool method? or maybe we just always hide the hud when the scene changes and each scene can call GameManager.show_hud()?
+
+
+func _physics_process(delta: float) -> void:
+	_now += roundi(delta * 1000.0)
 
 
 # This is just for testing. We should remove it before release

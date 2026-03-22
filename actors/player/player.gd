@@ -40,7 +40,7 @@ func reset_after_fall() -> void:
 
 
 func in_coyote_window() -> bool:
-	return not is_on_floor() and last_floor_touch + COYOTE_TIME_MS > Time.get_ticks_msec()
+	return not is_on_floor() and last_floor_touch + COYOTE_TIME_MS > GameManager.now_ms()
 
 
 func can_jump() -> bool:
@@ -77,7 +77,7 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	if is_on_floor():
-		last_floor_touch = Time.get_ticks_msec()
+		last_floor_touch = GameManager.now_ms()
 	if is_holding_prop:
 		_update_prop(delta)
 	elif velocity != Vector2.ZERO:

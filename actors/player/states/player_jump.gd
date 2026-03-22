@@ -15,7 +15,7 @@ func _entered(from_state: StateNode) -> void:
 		player.anim_player.play("jump_carry", 0.1)
 	else:
 		player.anim_player.play("jump", 0.1)
-		
+
 	var old_horizontal_speed := horizontal_speed
 	horizontal_speed = 0
 	player.velocity.x /= 2

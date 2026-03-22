@@ -9,7 +9,7 @@ var started_falling_at: int
 
 
 func _entered(_from_state: StateNode) -> void:
-	started_falling_at = Time.get_ticks_msec()
+	started_falling_at = GameManager.now_ms()
 	if player.is_holding_prop:
 		player.anim_player.play("fall_carry", 0.8)
 	else:
@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		machine.transition_by_name("Ragdoll")
 	elif player.is_on_floor():
 		machine.transition_by_name("Idle")
-	elif Time.get_ticks_msec() > started_falling_at + RAGDOLL_AFTER_MS:
+	elif GameManager.now_ms() > started_falling_at + RAGDOLL_AFTER_MS:
 		machine.transition_by_name("Ragdoll")
 
 

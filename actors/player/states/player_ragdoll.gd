@@ -6,7 +6,6 @@ const STILLNESS_THRESHOLD = 100.0
 const STILLNESS_WINDOW_MS = 1000
 const STANDUP_DIST = 80.0
 const STANDUP_TIME = 0.2
-const DEBOUNCE_SFX_MS = 1000
 
 var last_ragdoll_movement := 0
 var temp_return_at := 0
@@ -21,7 +20,7 @@ var temp_torso_velocity: Vector2 = Vector2.INF
 	%GuidePoints/LegL,
 	%GuidePoints/LegR,
 ]
-@onready var ragdoll_bodies: Array[RigidBody2D] = [
+@onready var ragdoll_bodies: Array[PlayerRagdollBody] = [
 	%Ragdoll/Torso,
 	%Ragdoll/HandL,
 	%Ragdoll/HandR,
@@ -64,7 +63,7 @@ func init_state(_machine: StateMachine, _target: Node2D) -> void:
 
 
 func _entered(_prev_state: StateNode) -> void:
-	last_ragdoll_movement = Time.get_ticks_msec()
+	last_ragdoll_movement = GameManager.now_ms()
 	_enable_ragdoll_elements()
 	if player.is_holding_prop:
 		player.put_down_prop()
@@ -84,6 +83,8 @@ func _init_ragdoll_elements() -> void:
 	for t in ragdoll_remote_transforms:
 		var n := t.get_node(t.remote_path)
 		t.remote_path = n.get_path()
+	for b in ragdoll_bodies:
+		b.impact.connect(_on_impact)
 
 	# move the ragdoll stuff outside of the player so it can move freely
 	ragdoll_container.reparent(player.get_parent(), false)
@@ -97,7 +98,8 @@ func _enable_ragdoll_elements() -> void:
 	# don't do the normal collision
 	player.shape.disabled = true
 	player.shape2.disabled = true
-	
+	ragdoll_bodies[0].angular_damp = 30.0 if temp_return_at else 1.0
+
 	# enable the ragdoll bodies and reset them to match the guidepoints
 	for i in range(guidepoints.size()):
 		var limb_velocity = player.velocity # * randf_range(0.8, 1.2) if i > 0 else player.velocity
@@ -156,11 +158,12 @@ func _disable_ragdoll_elements() -> void:
 # do a small animation to get up off the ground before returning
 # to a non-ragdoll state so we're not stuck in the ground
 func transition_before_exit(to_state: StateNode) -> void:
+	dizzy_particles.emitting = false
+	guidepoints_container.set_temp_smoothing(1.0, 500)
 	if temp_return_at > 0 or to_state.name == "Fall":
 		return
 	
 	sfx.play_stand_up()
-	dizzy_particles.emitting = false
 	
 	var body := ragdoll_bodies[0]
 	body.freeze = true
@@ -174,7 +177,7 @@ func temporary_ragdoll(return_after_ms = 500, torso_velocity = Vector2.INF) -> v
 	temp_torso_velocity = torso_velocity
 	# it looks funky to return to jump, so we special case that to go straight to fall
 	temp_return_to = machine.get_state("Fall") if machine.active_state.name == "Jump" else machine.active_state
-	temp_return_at = Time.get_ticks_msec() + return_after_ms
+	temp_return_at = GameManager.now_ms() + return_after_ms
 	machine.transition(self)
 
 
@@ -189,7 +192,7 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var now_ms := Time.get_ticks_msec()
+	var now_ms := GameManager.now_ms()
 	var diff: Vector2 = ragdoll_bodies[0].global_position - guidepoints[0].global_position
 	if ragdoll_remote_transforms[0].update_position:
 		player.global_position += diff
@@ -201,16 +204,24 @@ func _physics_process(delta: float) -> void:
 			machine.transition_by_name("Idle")
 	else:
 		last_ragdoll_movement = now_ms
-		
+
 	if temp_return_at > 0 and now_ms > temp_return_at and not transitioning_out:
 		machine.transition(temp_return_to)
 
 
-var last_impact_sound := 0
-func _on_torso_body_entered(body: Node) -> void:
-	if body is TileMapLayer or not body.get_collision_layer_value(2):
-		if not dizzy_particles.emitting and not temp_return_at:
-			dizzy_particles.emitting = true
-		if Time.get_ticks_msec() > last_impact_sound + DEBOUNCE_SFX_MS:
-			sfx.play_ragdoll_impact()
-			last_impact_sound = Time.get_ticks_msec()
+func _on_impact(collision_point: Vector2, collision_velocity: Vector2, colliding_body: Node, _body_part: PlayerRagdollBody) -> void:
+	prints("[PlayerRagdoll]", GameManager.now_ms(), "impact at", collision_point, "with", colliding_body.name, "at velocity", collision_velocity)
+	var cv_len := collision_velocity.length()
+	
+	if not dizzy_particles.emitting and not temp_return_at:
+		dizzy_particles.emitting = true
+
+	var particles = player.dust_particles_l if player.dust_particles_r.emitting else player.dust_particles_r
+	particles.global_position = collision_point
+	particles.emitting = true
+
+	if cv_len > 200:
+		sfx.play_ragdoll_impact()
+		if not GameManager.rate_limit(2000, "player_impact_shake"):
+			# shake a little harder if we were moving faster (like from a long fall)
+			VFX.shake(VFX.SHORT, VFX.TREMOR if cv_len < 800 else VFX.QUAKE)

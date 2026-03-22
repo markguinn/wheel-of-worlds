@@ -8,6 +8,12 @@ const FOOT_MARKER_GROUND_OFFSET = 10
 @export var sync_legs_to_animated := true
 @export var is_left_arm_over_body := false : set=set_left_arm_inversion
 
+## If greater than 0, this controls how quickly the feet will move toward the
+## animated markers for the legs. If set it should be high (e.g., 1000), but
+## we probably want to leave it as zero. There are times when the code temporarily
+## sets it though (e.g. when recovering from a ragdoll)
+@export var smoothing := 0.0
+
 @onready var ground_detector_l: RayCast2D = %GroundDetectorL
 @onready var animated_leg_l: Marker2D = %GuidePoints/AnimatedLegL
 @onready var leg_l: Marker2D = %GuidePoints/LegL
@@ -27,9 +33,12 @@ const FOOT_MARKER_GROUND_OFFSET = 10
 # In this function we sync the real leg markers to the animated ones,
 # and then check them against the ground detector ray casts and adjust
 # upwards if needed.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if sync_legs_to_animated:
-		leg_r.position = animated_leg_r.position
+		if smoothing > 0.0:
+			leg_r.position = leg_r.position.move_toward(animated_leg_r.position, delta * smoothing)
+		else:
+			leg_r.position = animated_leg_r.position
 		if ground_detector_r.is_colliding():
 			var cp: Vector2 = ground_detector_r.get_collision_point()
 			dust_particles_r.global_position = cp
@@ -38,7 +47,10 @@ func _process(_delta: float) -> void:
 				#leg_r.global_position = leg_r.global_position.lerp(cp, 0.5)
 		ground_detector_r.global_position.x = animated_leg_r.global_position.x
 		
-		leg_l.position = animated_leg_l.position
+		if smoothing > 0.0:
+			leg_l.position = leg_l.position.move_toward(animated_leg_l.position, delta * smoothing)
+		else:
+			leg_l.position = animated_leg_l.position
 		if ground_detector_l.is_colliding():
 			var cp: Vector2 = ground_detector_l.get_collision_point()
 			dust_particles_l.global_position = cp
@@ -56,3 +68,15 @@ func set_left_arm_inversion(v: bool) -> void:
 		#if mod_arm_l.target_nodepath.get_name() # TODO: error maybe?
 		mod_arm_l.flip_bend_direction = not v
 		hand_l_poly.z_index = 1 if v else 0
+
+
+var original_smoothing: float = -1.0
+func set_temp_smoothing(seconds: float, speed = 500.0) -> void:
+	if original_smoothing < 0.0:
+		original_smoothing = smoothing
+		smoothing = speed
+		await get_tree().create_timer(seconds).timeout
+		smoothing = original_smoothing
+		original_smoothing = -1.0
+	else:
+		smoothing = speed
