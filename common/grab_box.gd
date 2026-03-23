@@ -20,6 +20,7 @@ enum State { DISABLED, AVAILABLE, ACTIVE_CANDIDATE, HOLDING }
 ## The object that's getting grabbed. If not set manually, we'll use the parent node of the grab box
 @export var target_node: RigidBody2D
 
+
 var target_node_collision_layer: int
 
 @onready var label: Label = $Label

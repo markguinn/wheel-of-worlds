@@ -92,12 +92,15 @@ func pick_up_prop(target_node: Node2D, grab_box: GrabBox) -> bool:
 		return false
 	if not is_on_floor():
 		return false
-	print("[Player] picking up: ", target_node)
+	if GameManager.rate_limit(500, "player_pick_up"):
+		return false
+	prints("[Player] picking up:", target_node.name, grab_box.name)
 	target_node.z_index += 1
 	anim_player.play("pickup")
 	_finish_pickup(target_node, grab_box)
 	return true
-	
+
+
 func _finish_pickup(target_node: Node2D, grab_box: GrabBox) -> void:
 	# TODO: should we call a method from the animation
 	# TODO: animate the prop
@@ -107,9 +110,10 @@ func _finish_pickup(target_node: Node2D, grab_box: GrabBox) -> void:
 	await get_tree().create_timer(0.25).timeout
 	did_pick_up.emit(target_node)
 
+
 func put_down_prop() -> void:
 	if is_holding_prop:
-		is_holding_prop.rotation = 0.0 if sprite.scale.x > 0 else PI
+		is_holding_prop.rotation_degrees = 0.0 if sprite.scale.x > 0 else 180.0
 		is_holding_prop.z_index -= 1
 		active_grab_box.put_down.emit(self)
 		did_put_down.emit(is_holding_prop)
@@ -123,10 +127,10 @@ func put_down_prop() -> void:
 # that but I want to get the animations right first.
 func _normalize_prop_angle(a: float) -> float:
 	var target_rot := a
-	while target_rot > 0.0:
-		target_rot -= PI
-	while target_rot < -PI:
-		target_rot += PI
+	while target_rot > 90.0:
+		target_rot -= 360.0
+	while target_rot < -270.0:
+		target_rot += 360.0
 	return target_rot
 
 
@@ -137,6 +141,8 @@ func _normalize_prop_angle(a: float) -> float:
 # TODO: add some easing? it looks suuuuuper fake at linear
 func _update_prop(delta: float) -> void:
 	var prop: Node2D = is_holding_prop
-	var target_rot := holding_hand.global_position.angle_to_point(resting_point.global_position)
-	prop.rotation = move_toward(_normalize_prop_angle(prop.rotation), _normalize_prop_angle(target_rot), delta * PI * 2.0)
+	var target_deg := _normalize_prop_angle(rad_to_deg(holding_hand.global_position.angle_to_point(resting_point.global_position)))
+	prop.rotation_degrees = _normalize_prop_angle(prop.rotation_degrees)
+	#prints("[Player]", sprite.scale.x, target_deg)
+	prop.rotation_degrees = move_toward(prop.rotation_degrees, target_deg, delta * 360.0)
 	prop.global_position = holding_hand.global_position # lerp(holding_hand.global_position, resting_point.global_position, 0.5)

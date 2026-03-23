@@ -220,8 +220,7 @@ func _on_impact(collision_point: Vector2, collision_velocity: Vector2, colliding
 	particles.global_position = collision_point
 	particles.emitting = true
 
-	if cv_len > 200:
+	if cv_len > 400:
 		sfx.play_ragdoll_impact()
-		if not GameManager.rate_limit(2000, "player_impact_shake"):
-			# shake a little harder if we were moving faster (like from a long fall)
-			VFX.shake(VFX.SHORT, VFX.TREMOR if cv_len < 800 else VFX.QUAKE)
+		# shake a little harder if we were moving faster (like from a long fall)
+		VFX.shake(VFX.SHORT, VFX.TREMOR if cv_len < 800 else VFX.QUAKE)

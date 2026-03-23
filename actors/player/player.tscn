@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bxdw8uj476pq2" path="res://actors/player/art/bert-feet.png" id="7_bop6h"]
 [ext_resource type="Script" uid="uid://ctkj6n8ftkcm8" path="res://actors/player/states/player_idle.gd" id="8_lsln6"]
 [ext_resource type="Script" uid="uid://bjpnd3ffv6q6o" path="res://actors/player/states/player_walk.gd" id="9_lsln6"]
+[ext_resource type="PackedScene" uid="uid://y7c5vk1033l6" path="res://common/vfx/dust_particles.tscn" id="9_nsxbo"]
 [ext_resource type="Script" uid="uid://2oxv8sv1riet" path="res://actors/player/states/player_jump.gd" id="10_hiosj"]
 [ext_resource type="Script" uid="uid://74a5mhali56n" path="res://actors/player/states/player_fall.gd" id="11_ssdk0"]
 [ext_resource type="Script" uid="uid://c3rmeunxh7l15" path="res://actors/player/ragdoll_body.gd" id="12_nsxbo"]
@@ -1333,14 +1334,6 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.48530263, 1, 1, 1, 0.3159722, 1
 offsets = PackedFloat32Array(0.0052083335, 0.9965278)
 colors = PackedColorArray(1, 1, 1, 0.2509804, 1, 1, 1, 0.28235295)
 
-[sub_resource type="Gradient" id="Gradient_12xki"]
-offsets = PackedFloat32Array(0, 0.45833334, 0.7083333, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.48530263, 1, 1, 1, 0.3159722, 1, 1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_rt46e"]
-offsets = PackedFloat32Array(0.0052083335, 0.9965278)
-colors = PackedColorArray(1, 1, 1, 0.1882353, 1, 1, 1, 0.28235295)
-
 [sub_resource type="Curve" id="Curve_k67x5"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5037129, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -1464,15 +1457,15 @@ rest = Transform2D(1, 0, 0, 1, 0, -20)
 
 [node name="ThighR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=25801670]
 position = Vector2(-13.999999, 15)
-rotation = -0.14090179
-scale = Vector2(0.99999315, 0.99999315)
+rotation = -0.3621533
+scale = Vector2(0.9999931, 0.9999931)
 rest = Transform2D(0.990083, -0.14043507, 0.14043507, 0.990083, -13.999999, 15)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighR" unique_id=1375386282]
 position = Vector2(2.437, 32.666)
-rotation = 0.006863879
-scale = Vector2(0.999993, 0.999993)
+rotation = 0.19642335
+scale = Vector2(0.9999929, 0.9999929)
 rest = Transform2D(0.9999695, 0.0068637845, -0.0068637845, 0.9999695, 2.437, 32.666)
 metadata/_local_pose_override_enabled_ = true
 
@@ -1485,14 +1478,14 @@ bone_angle = 90.0
 
 [node name="ThighL" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=226334277]
 position = Vector2(20.000002, 13.000002)
-rotation = 0.2563908
+rotation = 0.38265383
 scale = Vector2(0.9999999, 0.9999999)
 rest = Transform2D(0.967, 0.254, -0.254, 0.967, 23, 14)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighL" unique_id=919169516]
 position = Vector2(10.763253, 29.225883)
-rotation = -0.5885329
+rotation = -0.70015705
 rest = Transform2D(0.832, -0.555, 0.555, 0.832, 10.783, 29.196)
 metadata/_local_pose_override_enabled_ = true
 
@@ -1511,8 +1504,8 @@ rest = Transform2D(-0.09333617, -0.9955867, 0.9955867, -0.09333617, 0, -32)
 
 [node name="Head" type="Bone2D" parent="Sprite/Skeleton2D/Hips/Torso" unique_id=1580104760]
 position = Vector2(11.294762, 8.0899105)
-rotation = 0.19200166
-scale = Vector2(0.9999549, 0.9999549)
+rotation = 0.16437611
+scale = Vector2(0.99995476, 0.99995476)
 rest = Transform2D(0.98157996, 0.19081554, -0.19081554, 0.98157996, 11.294762, 8.0899105)
 auto_calculate_length_and_angle = false
 length = 16.0
@@ -1529,13 +1522,14 @@ remote_path = NodePath("../../../../../VFX/DizzyParticles")
 
 [node name="ArmR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1756135333]
 position = Vector2(-33, -31)
-rotation = -0.035723742
+rotation = 0.087320715
 rest = Transform2D(0.999362, -0.0357162, 0.0357162, 0.999362, -33, -31)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="HandR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ArmR" unique_id=88591762]
 position = Vector2(0, 32)
-rotation = -0.0378131
+rotation = -0.25659505
+scale = Vector2(0.9999997, 0.9999997)
 rest = Transform2D(0.99928516, -0.03780409, 0.03780409, 0.99928516, 0, 32)
 auto_calculate_length_and_angle = false
 length = 32.0
@@ -1544,13 +1538,15 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ArmL" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1793998611]
 position = Vector2(28, -36)
-rotation = -0.09683907
+rotation = -0.16663711
+scale = Vector2(0.9999997, 0.9999997)
 rest = Transform2D(0.9953148, -0.09668779, 0.09668779, 0.9953148, 28, -36)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="HandL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ArmL" unique_id=1933907137]
 position = Vector2(1.399125, 37.310078)
-rotation = 0.063876145
+rotation = 0.13705105
+scale = Vector2(0.9999997, 0.9999997)
 rest = Transform2D(0.998, 0.064, -0.064, 0.998, 4, 36)
 auto_calculate_length_and_angle = false
 length = 21.0
@@ -1565,6 +1561,7 @@ metadata/_edit_lock_ = true
 position = Vector2(31, -55)
 color = Color(0, 0, 0, 1)
 offset = Vector2(31.5, 53)
+antialiased = true
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(-35, -52, -30.5, -17, -29.5, -17, -34, -54)
 bones = ["Hips", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0), "Hips/Torso", PackedFloat32Array(0, 0, 0, 0), "Hips/Torso/Head", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0.54, 0.54, 0.54, 0.54), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0)]
@@ -1573,6 +1570,7 @@ bones = ["Hips", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR", PackedFloat32Arr
 position = Vector2(35, -19)
 scale = Vector2(0.2, 0.2)
 offset = Vector2(-29, -26)
+antialiased = true
 texture = ExtResource("6_a744p")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(14.293579, 13.275242, 39.805603, 8.838367, 56.44388, 111.995636, 39.52829, 139.72609, 15.957428, 124.19704, 29.268036, 107.836075)
@@ -1583,6 +1581,7 @@ bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloa
 position = Vector2(-10, -5)
 color = Color(0, 0, 0, 1)
 offset = Vector2(25, 49)
+antialiased = true
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(-30, -50, -23, -17, -22, -17, -28, -50)
 uv = PackedVector2Array(-30, -50, -23, -18, -22, -18, -28, -50)
@@ -1591,6 +1590,7 @@ bones = ["Hips", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR", PackedFloat32Arr
 [node name="ShinR" type="Polygon2D" parent="Sprite/Parts" unique_id=750877573]
 color = Color(0, 0, 0, 1)
 offset = Vector2(25, 48)
+antialiased = true
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(-33, -22, -43.76766, 15.897978, -42.76766, 16.897978, -32, -21)
 uv = PackedVector2Array(-33, -22, -43.76766, 15.897978, -42.76766, 16.897978, -32, -21)
@@ -1610,6 +1610,7 @@ bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloa
 position = Vector2(26, 27)
 color = Color(0, 0, 0, 1)
 offset = Vector2(26, 47)
+antialiased = true
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(-26.5, -49, -27, -13, -26.5, -12.5, -26, -13, -25.5, -49, -26, -49.5)
 uv = PackedVector2Array(-30, -50, -34, -15, -33, -15, -25, -49)
@@ -1619,6 +1620,7 @@ bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloa
 position = Vector2(0, -52)
 scale = Vector2(0.3, 0.3)
 offset = Vector2(-117.667, -96)
+antialiased = true
 texture = ExtResource("4_15y17")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(15.121307, 45.683594, -6.2755127, 100.4196, 8.154907, 148.18921, 65.876495, 262.13962, 192.26694, 259.6516, 224.61093, 74.544395, 196.24771, 13.339588, 104.19171, -8.057213, 36.518097, 14.334789)
@@ -1629,6 +1631,7 @@ bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hips/ThighR", P
 position = Vector2(-30, -49)
 color = Color(0, 0, 0, 1)
 offset = Vector2(27, 49)
+antialiased = true
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(-30.5, -50, -30.5, -18, -29.5, -18, -29, -49)
 bones = ["Hips", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0), "Hips/Head", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0.54, 0.54, 0.54, 0.54), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0)]
@@ -1638,6 +1641,7 @@ z_index = 1
 position = Vector2(-30, -18)
 scale = Vector2(0.3, 0.3)
 offset = Vector2(-38, -16.667)
+antialiased = true
 texture = ExtResource("6_a744p")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(20.384766, 11.101519, 38.865997, 11.354685, 57.600403, 103.25455, 44.942017, 135.91318, 17.34674, 129.07765)
@@ -1648,6 +1652,7 @@ bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ThighR", PackedFloat32
 position = Vector2(22, 61)
 scale = Vector2(0.3, 0.3)
 offset = Vector2(-155.333, -36)
+antialiased = true
 texture = ExtResource("7_bop6h")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(137.05292, 21.692007, 153.0225, 24.752844, 179.77155, 68.40303, 165.93124, 82.90874, 137.31908, 72.5285)
@@ -1658,6 +1663,7 @@ bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0), "Hips/ThighR", PackedFloat32
 position = Vector2(-14, 64)
 scale = Vector2(0.3, 0.3)
 offset = Vector2(-56, -22)
+antialiased = true
 texture = ExtResource("7_bop6h")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(27.999695, 7.2499847, 51.999695, 12.249985, 49.499695, 56.749985, 73.999695, 83.749985, 55.499695, 95.749985, 21.999695, 79.749985)
@@ -1681,7 +1687,6 @@ script = ExtResource("7_0wchr")
 [node name="GuidePoints" type="Node2D" parent="Sprite" unique_id=1022049703]
 unique_name_in_owner = true
 script = ExtResource("6_k67x5")
-smoothing = null
 
 [node name="AnimatedLegR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=1174652303]
 position = Vector2(-7, 62)
@@ -1741,30 +1746,9 @@ scale_amount_max = 8.0
 color_ramp = SubResource("Gradient_0wchr")
 color_initial_ramp = SubResource("Gradient_qrxv1")
 
-[node name="DustParticlesR" type="CPUParticles2D" parent="Sprite/VFX" unique_id=139616382]
+[node name="DustParticlesR" parent="Sprite/VFX" unique_id=996804833 instance=ExtResource("9_nsxbo")]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.49019608)
 position = Vector2(48, 60)
-emitting = false
-amount = 10
-lifetime = 0.5
-one_shot = true
-explosiveness = 0.75
-randomness = 0.3
-lifetime_randomness = 0.5
-direction = Vector2(0, -1)
-spread = 90.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 40.0
-initial_velocity_max = 80.0
-linear_accel_min = -70.12
-linear_accel_max = -45.73
-damping_min = 67.988
-damping_max = 100.0
-scale_amount_min = 5.0
-scale_amount_max = 10.0
-color_ramp = SubResource("Gradient_12xki")
-color_initial_ramp = SubResource("Gradient_rt46e")
 
 [node name="DizzyParticles" type="GPUParticles2D" parent="Sprite/VFX" unique_id=806147118]
 unique_name_in_owner = true

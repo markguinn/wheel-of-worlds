@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://y7c5vk1033l6"]
+
+[sub_resource type="Gradient" id="Gradient_12xki"]
+offsets = PackedFloat32Array(0, 0.45833334, 0.7083333, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.48530263, 1, 1, 1, 0.3159722, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_rt46e"]
+offsets = PackedFloat32Array(0.0052083335, 0.9965278)
+colors = PackedColorArray(1, 1, 1, 0.1882353, 1, 1, 1, 0.28235295)
+
+[node name="DustParticles" type="CPUParticles2D" unique_id=996804833]
+modulate = Color(1, 1, 1, 0.49019608)
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.75
+randomness = 0.3
+lifetime_randomness = 0.5
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+linear_accel_min = -70.12
+linear_accel_max = -45.73
+damping_min = 67.988
+damping_max = 100.0
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+color_ramp = SubResource("Gradient_12xki")
+color_initial_ramp = SubResource("Gradient_rt46e")
