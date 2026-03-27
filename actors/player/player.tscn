@@ -1522,14 +1522,14 @@ remote_path = NodePath("../../../../../VFX/DizzyParticles")
 
 [node name="ArmR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1756135333]
 position = Vector2(-33, -31)
-rotation = 0.087320715
+rotation = 0.08732072
 rest = Transform2D(0.999362, -0.0357162, 0.0357162, 0.999362, -33, -31)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="HandR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ArmR" unique_id=88591762]
 position = Vector2(0, 32)
 rotation = -0.25659505
-scale = Vector2(0.9999997, 0.9999997)
+scale = Vector2(0.99999964, 0.99999964)
 rest = Transform2D(0.99928516, -0.03780409, 0.03780409, 0.99928516, 0, 32)
 auto_calculate_length_and_angle = false
 length = 32.0
@@ -1538,15 +1538,15 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ArmL" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1793998611]
 position = Vector2(28, -36)
-rotation = -0.16663711
-scale = Vector2(0.9999997, 0.9999997)
+rotation = -0.16663712
+scale = Vector2(0.99999964, 0.99999964)
 rest = Transform2D(0.9953148, -0.09668779, 0.09668779, 0.9953148, 28, -36)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="HandL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ArmL" unique_id=1933907137]
 position = Vector2(1.399125, 37.310078)
 rotation = 0.13705105
-scale = Vector2(0.9999997, 0.9999997)
+scale = Vector2(0.99999964, 0.99999964)
 rest = Transform2D(0.998, 0.064, -0.064, 0.998, 4, 36)
 auto_calculate_length_and_angle = false
 length = 21.0

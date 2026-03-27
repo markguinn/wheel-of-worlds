@@ -81,7 +81,7 @@ func _process(delta: float) -> void:
 	if is_holding_prop:
 		_update_prop(delta)
 	elif velocity != Vector2.ZERO:
-		GrabBoxManager.update_active_candidate()
+		Activator.update_active_candidate()
 
 
 # TODO: trigger a pickup animation?
@@ -107,12 +107,14 @@ func _finish_pickup(target_node: Node2D, grab_box: GrabBox) -> void:
 	await get_tree().create_timer(0.25).timeout
 	is_holding_prop = target_node
 	active_grab_box = grab_box
+	Activator.clear_candidates()
 	await get_tree().create_timer(0.25).timeout
 	did_pick_up.emit(target_node)
 
 
 func put_down_prop() -> void:
 	if is_holding_prop:
+		prints("[Player] putting down:", is_holding_prop.name, active_grab_box.name)
 		is_holding_prop.rotation_degrees = 0.0 if sprite.scale.x > 0 else 180.0
 		is_holding_prop.z_index -= 1
 		active_grab_box.put_down.emit(self)

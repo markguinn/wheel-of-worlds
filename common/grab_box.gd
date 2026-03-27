@@ -1,5 +1,5 @@
 class_name GrabBox
-extends Area2D
+extends Activator
 
 signal picked_up
 signal put_down
@@ -11,63 +11,25 @@ signal put_down
 ########################################################
 
 
-enum State { DISABLED, AVAILABLE, ACTIVE_CANDIDATE, HOLDING }
-
-
-## Starting state
-@export var state := State.AVAILABLE
-
 ## The object that's getting grabbed. If not set manually, we'll use the parent node of the grab box
 @export var target_node: RigidBody2D
 
-
+var is_holding := false
 var target_node_collision_layer: int
-
-@onready var label: Label = $Label
 
 
 func _ready() -> void:
+	super._ready()
 	if not target_node:
 		target_node = get_parent()
-	if not self.get_collision_mask_value(2):
-		print("[GrabBox] WARNING: grab box will not detect the player on ", target_node.get_path())
 	target_node_collision_layer = target_node.collision_layer
-	label.hide()
-	body_entered.connect(_on_body_entered)
-	body_exited.connect(_on_body_exited)
+	activated.connect(_start_holding)
 	put_down.connect(_on_put_down)
 
 
-
-func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
-		GrabBoxManager.add_candidate(self)
-
-
-func _on_body_exited(body: Node2D) -> void:
-	if body is Player:
-		GrabBoxManager.remove_candidate(self)
-
-
-func _input(event: InputEvent):
-	if event.is_action_pressed("interact") and state == State.ACTIVE_CANDIDATE:
-		_start_holding()
-		get_viewport().set_input_as_handled()
-
-
-func _become_active_candidate() -> void:
-	label.show()
-	state = State.ACTIVE_CANDIDATE
-
-
-func _release_active_candidate() -> void:
-	label.hide()
-	state = State.AVAILABLE
-
-
-func _start_holding() -> void:
+func _start_holding(_source: Activator) -> void:
 	if GameManager.get_player().pick_up_prop(target_node, self):
-		state = State.HOLDING
+		is_holding = true
 		label.hide()
 		picked_up.emit()
 		target_node.freeze = true
@@ -76,8 +38,9 @@ func _start_holding() -> void:
 
 
 func _on_put_down(_holder: Player) -> void:
-	_become_active_candidate()
+	is_holding = false
 	target_node.freeze = false
 	target_node.collision_layer = target_node_collision_layer
+	Activator.set_active_candidate(self)
 	#holder.collision_mask |= target_node_collision_layer
 	#print("putting down: ", target_node)

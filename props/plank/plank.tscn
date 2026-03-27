@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dy8eeto3iw88" path="res://props/plank/plank.gd" id="1_vpluj"]
 [ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://common/grab_box.gd" id="2_w4302"]
-[ext_resource type="Script" uid="uid://carejsh7txaft" path="res://common/steady_label.gd" id="3_w4302"]
+[ext_resource type="PackedScene" uid="uid://bw7ujmd6681ln" path="res://common/activator.tscn" id="3_eqyr0"]
 [ext_resource type="PackedScene" uid="uid://y7c5vk1033l6" path="res://common/vfx/dust_particles.tscn" id="4_jou1n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_br3cc"]
@@ -17,9 +17,6 @@ gradient = SubResource("Gradient_br3cc")
 width = 256
 height = 16
 fill_to = Vector2(0, 1)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_br3cc"]
-radius = 96.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_w4302"]
 polygon = PackedVector2Array(0, 8, -1, -8, 256, -8, 256, 10)
@@ -53,45 +50,16 @@ offset_bottom = 8.0
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_0vqwi")
 
-[node name="GrabBoxL" type="Area2D" parent="Sprite" unique_id=2046519921 node_paths=PackedStringArray("target_node")]
-collision_layer = 0
-collision_mask = 2
+[node name="GrabBoxL" parent="Sprite" unique_id=1410287907 node_paths=PackedStringArray("target_node") instance=ExtResource("3_eqyr0")]
 script = ExtResource("2_w4302")
 target_node = NodePath("../..")
-metadata/_custom_type_script = "uid://dow018kqyajrv"
+label_text = "Press X to pick up!"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/GrabBoxL" unique_id=1417858198]
-shape = SubResource("CircleShape2D_br3cc")
-debug_color = Color(0.21497008, 0.6323015, 0.2888236, 0.41960785)
-
-[node name="Label" type="Label" parent="Sprite/GrabBoxL" unique_id=1305336113]
-offset_top = -128.0
-offset_right = 77.0
-offset_bottom = -105.0
-text = "Press [X] to pick up!"
-script = ExtResource("3_w4302")
-metadata/_custom_type_script = "uid://carejsh7txaft"
-
-[node name="GrabBoxR" type="Area2D" parent="Sprite" unique_id=1374974504 node_paths=PackedStringArray("target_node")]
+[node name="GrabBoxR" parent="Sprite" unique_id=518770626 node_paths=PackedStringArray("target_node") instance=ExtResource("3_eqyr0")]
 position = Vector2(256, 0)
-collision_layer = 0
-collision_mask = 2
 script = ExtResource("2_w4302")
 target_node = NodePath("../..")
-metadata/_custom_type_script = "uid://dow018kqyajrv"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/GrabBoxR" unique_id=116974263]
-shape = SubResource("CircleShape2D_br3cc")
-debug_color = Color(0.6235878, 0.5286689, 0.17257962, 0.41960785)
-
-[node name="Label" type="Label" parent="Sprite/GrabBoxR" unique_id=577364726]
-offset_left = -69.0
-offset_top = -126.0
-offset_right = 82.0
-offset_bottom = -103.0
-text = "Press [X] to pick up!"
-script = ExtResource("3_w4302")
-metadata/_custom_type_script = "uid://carejsh7txaft"
+label_text = "Press X to pick up!"
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite" unique_id=1914264648]
 occluder = SubResource("OccluderPolygon2D_w4302")
