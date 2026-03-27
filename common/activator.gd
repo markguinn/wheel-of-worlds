@@ -25,7 +25,7 @@ func _ready() -> void:
 	become_candidate.connect(_become_active_candidate)
 	resign_candidate.connect(_resign_active_candidate)
 	if not self.get_collision_mask_value(2):
-		push_warning("[Activator] WARNING: grab box will not detect the player", self.get_path())
+		Log.warn(self, self.get_path(), "will not detect the player. you should check the collision mask")
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -50,7 +50,7 @@ func _resign_active_candidate(_next: Activator) -> void:
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("interact") and active_candidate == self:
-		prints("[Activator] actived", self.name)
+		Log.debug(self, self.name, "activated")
 		get_viewport().set_input_as_handled()
 		activated.emit(self)
 

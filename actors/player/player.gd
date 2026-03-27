@@ -94,7 +94,7 @@ func pick_up_prop(target_node: Node2D, grab_box: GrabBox) -> bool:
 		return false
 	if GameManager.rate_limit(500, "player_pick_up"):
 		return false
-	prints("[Player] picking up:", target_node.name, grab_box.name)
+	Log.info(self, "picking up:", target_node.name, grab_box.name)
 	target_node.z_index += 1
 	anim_player.play("pickup")
 	_finish_pickup(target_node, grab_box)
@@ -114,7 +114,7 @@ func _finish_pickup(target_node: Node2D, grab_box: GrabBox) -> void:
 
 func put_down_prop() -> void:
 	if is_holding_prop:
-		prints("[Player] putting down:", is_holding_prop.name, active_grab_box.name)
+		Log.info(self, "putting down:", is_holding_prop.name, active_grab_box.name)
 		is_holding_prop.rotation_degrees = 0.0 if sprite.scale.x > 0 else 180.0
 		is_holding_prop.z_index -= 1
 		active_grab_box.put_down.emit(self)

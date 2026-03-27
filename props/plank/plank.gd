@@ -36,7 +36,6 @@ func reset_after_fall() -> void:
 
 
 func _on_impact(pos: Vector2, vel: Vector2, obj: Node, _part) -> void:
-	prints("[Plank]", pos, vel, obj.name, debounce_impact_scope)
 	sfx_impact.play()
 	vfx_dust.global_position = pos
 	vfx_dust.emitting = true

@@ -37,7 +37,7 @@ func init_state(_machine: StateMachine, _target: Node2D) -> void:
 	if _target is Player:
 		player = _target
 	else:
-		push_error("PlayerState needs the target to the be the player")
+		Log.error(self, "PlayerState needs the target to the be the player")
 
 
 func _get_input_vector() -> Vector2:

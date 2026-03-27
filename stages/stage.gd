@@ -17,10 +17,10 @@ const OFFSET_FROM_PORTAL = Vector2(-128, 0)
 func init_with_state(_persisted_state: Dictionary, params: Dictionary) -> void:
 	var target_portal = params.get("target_portal")
 	if target_portal:
-		print("[Stage] attempting to start at: ", target_portal)
+		Log.info(self, "attempting to start at:", target_portal)
 		for portal in get_tree().get_nodes_in_group("portals"):
 			if portal.portal_name == target_portal and self.is_ancestor_of(portal):
-				print("[GameManager] found target at ", portal.global_position)
+				Log.debug(self, "found target at ", portal.global_position)
 				GameManager.get_player().global_position = portal.global_position + OFFSET_FROM_PORTAL
 				# this allows individual stages to add their own initialization
 				# this may only be needed in the wheel (which adjusts its rotation to the players position)

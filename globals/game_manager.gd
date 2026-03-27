@@ -46,7 +46,7 @@ func rate_limit(min_ms: int, scope: Variant) -> bool:
 ## have. Maybe there will be more. Who knows.
 # TODO: can we keep the instances or the loaded scene in memory?
 func change_scene(new_scene_path: String, params = {}, fade = false) -> void:
-	print("[GameManager] changing to ", new_scene_path)
+	Log.info(self, "changing to ", new_scene_path)
 	var container := get_container()
 	var cur_scene := get_active_scene()
 	var new_scene: Resource = load(new_scene_path)

@@ -15,8 +15,6 @@ extends Node
 		# field1 => val1
 		# field2 => val2
 
-const LOG_ENABLED = true
-
 var state := {}
 
 
@@ -31,15 +29,13 @@ func manage_node(node: Node, key: String, parent_key = "") -> void:
 	else:
 		data[key] = node.get_persisted_state()
 	node.connect("persisted_state_changed", _on_state_update.bind(key, parent_key))
-	if LOG_ENABLED:
-		print("[StateManager] managing node: ", [key, parent_key, data[key]])
+	Log.debug(self, "managing node:", key, parent_key, data[key])
 
 
 func manage_scene(scene_instance: Node, scene_key: String, params: Dictionary) -> void:
 	if not get_tree():
 		return
-	if LOG_ENABLED:
-		print("[StateManager] managing scene: ", scene_key)
+	Log.debug(self, "managing scene:", scene_key)
 	for node in get_tree().get_nodes_in_group("persisted"):
 		if scene_instance.is_ancestor_of(node):
 			manage_node(node, node.get_path(), scene_key)
@@ -60,15 +56,13 @@ func get_key(key: String, parent_key = "") -> Variant:
 func set_key(key: String, val: Variant, parent_key = "") -> void:
 	var data = _get_dict(parent_key)
 	data[key] = val
-	if LOG_ENABLED:
-		print_verbose("[StateManager] set ", key, ": ", val, ", parent=", parent_key)
+	Log.debug(self, "set", key, ":", val, "parent=", parent_key)
 
 
 func clear_key(key: String, parent_key = "") -> void:
 	var data = _get_dict(parent_key)
 	data.erase(key)
-	if LOG_ENABLED:
-		print_verbose("[StateManager] clear ", key, ", parent=", parent_key)
+	Log.debug(self, "clear", key, "parent=", parent_key)
 
 
 func _get_dict(parent_key: String) -> Dictionary:
@@ -82,5 +76,4 @@ func _get_dict(parent_key: String) -> Dictionary:
 func _on_state_update(node: Node, key: String, parent_key = "") -> void:
 	var data = _get_dict(parent_key)
 	data[key] = node.get_persisted_state()
-	if LOG_ENABLED:
-		print_verbose("[StateManager] update: ", [key, parent_key, data[key]])
+	Log.debug(self, "update:", key, parent_key, data[key])

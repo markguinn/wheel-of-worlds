@@ -25,7 +25,7 @@ func _ready() -> void:
 			territory_rect = node.shape.get_rect()
 			territory_rect.position = node.to_global(territory_rect.position)
 	if not territory_rect:
-		push_warning("[FishMonster] no territory rect found. This node should be the child of an Area2d")
+		Log.warn(self, self.get_path(), "no territory rect found. This node should be the child of an Area2d")
 
 
 func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
@@ -35,15 +35,15 @@ func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
 		var px := GameManager.get_player().global_position.x
 		linear_velocity.x = (px - global_position.x) * JUMP_X_FACTOR
 		linear_velocity.x = signf(linear_velocity.x) * clampf(absf(linear_velocity.x), jump_x_min, jump_x_max)
-		#print("[FishMonster] jump:", linear_velocity, " from:", global_position, " player:", GameManager.get_player().global_position.x)
+		Log.debug(self, "jump:", linear_velocity, "from:", global_position, "player:", GameManager.get_player().global_position.x)
 	if global_position.x > territory_rect.position.x + territory_rect.size.x:
 		global_position.x = territory_rect.position.x + territory_rect.size.x
 		linear_velocity.x = -randf_range(jump_x_min, jump_x_max)
-		#print("[FishMonster] right:", linear_velocity, " from:", global_position)
+		Log.debug(self, "right:", linear_velocity, "from:", global_position)
 	if global_position.x < territory_rect.position.x:
 		global_position.x = territory_rect.position.x
 		linear_velocity.x = randf_range(jump_x_min, jump_x_max)		
-		#print("[FishMonster] left:", linear_velocity, " from:", global_position)
+		Log.debug(self, "left:", linear_velocity, "from:", global_position)
 	if linear_velocity.x > 0:
 		sprite.rotation = linear_velocity.angle()
 		sprite.scale.x = -absf(sprite.scale.x)

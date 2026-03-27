@@ -29,7 +29,7 @@ func _init_states() -> void:
 			states.append(state)
 	if not initial_state and states.size() > 0:
 		initial_state = states[0]
-	prints("[StateMachine] found states", get_state_names(), "for", target.name)
+	Log.info(self, "found states", get_state_names(), "for", target.name)
 	if initial_state:
 		transition(initial_state)
 
@@ -51,7 +51,7 @@ func transition_by_name(next_state_name: String) -> bool:
 	if next_state:
 		return await transition(next_state)
 	else:
-		push_warning("[StateMachine] invalid state name: " + next_state_name)
+		Log.warn(self, "invalid state name:", next_state_name)
 		return false
 
 
@@ -69,14 +69,14 @@ func transition(next_state: StateNode) -> bool:
 		next_state.before_enter.emit(prev_state)
 		next_state.transitioning_out = false
 		active_state = next_state
-		prints("[StateMachine]", GameManager.now_ms(), "transitioning", target.name, "from", cur_name, "to", next_state.name)
+		Log.debug(self, "transitioning", target.name, "from", cur_name, "to", next_state.name)
 		_enable_state_node(next_state)
 		active_state.entered.emit(prev_state)
 
 		state_changed.emit(prev_state, next_state)
 		return true
 	else:
-		push_warning("[StateMachine] invalid transition: " + cur_name + " to " + next_state.name)
+		Log.warn(self, "invalid transition: " + cur_name + " to " + next_state.name)
 		return false
 
 

@@ -104,7 +104,6 @@ func _enable_ragdoll_elements() -> void:
 	for i in range(guidepoints.size()):
 		var limb_velocity = player.velocity # * randf_range(0.8, 1.2) if i > 0 else player.velocity
 		if i == 0 and temp_torso_velocity != Vector2.INF:
-			print("tv:", temp_torso_velocity)
 			limb_velocity = temp_torso_velocity
 		ragdoll_bodies[i].set_next_global_position(guidepoints[i].global_position)
 		ragdoll_bodies[i].set_next_global_rotation(0.0)
@@ -210,9 +209,9 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_impact(collision_point: Vector2, collision_velocity: Vector2, colliding_body: Node, _body_part: PlayerRagdollBody) -> void:
-	prints("[PlayerRagdoll]", GameManager.now_ms(), "impact at", collision_point, "with", colliding_body.name, "at velocity", collision_velocity)
+	Log.debug(self, "impact at", collision_point, "with", colliding_body.name, "at velocity", collision_velocity)
 	var cv_len := collision_velocity.length()
-	
+
 	if not dizzy_particles.emitting and not temp_return_at:
 		dizzy_particles.emitting = true
 
