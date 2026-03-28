@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cq30ppa4eh5d3" path="res://props/orb/orb.tscn" id="3_qmu1q"]
 [ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="4_fjyco"]
 [ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="5_slp1w"]
+[ext_resource type="PackedScene" uid="uid://dxykffs3v4670" path="res://common/pause_menu.tscn" id="7_qmu1q"]
 
 [sub_resource type="Gradient" id="Gradient_4eaw5"]
 offsets = PackedFloat32Array(0.0076923077, 1)
@@ -80,3 +81,5 @@ position = Vector2(-81, 603)
 [node name="Orb" parent="." unique_id=1425831707 groups=["free_movers"] instance=ExtResource("3_qmu1q")]
 position = Vector2(101, 608)
 mass = 0.01
+
+[node name="PauseMenu" parent="." unique_id=1472950510 instance=ExtResource("7_qmu1q")]

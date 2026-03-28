@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cgsnvvnnwwlo1" path="res://stages/world1/art/temp-foreground.png" id="4_rbu2t"]
 [ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="8_hfsb7"]
 [ext_resource type="PackedScene" uid="uid://cpmxxndn8n308" path="res://props/plank/plank.tscn" id="9_5nduw"]
+[ext_resource type="PackedScene" uid="uid://dxykffs3v4670" path="res://common/pause_menu.tscn" id="12_6xun2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a71q3"]
 texture = ExtResource("2_a8vjp")
@@ -590,3 +591,5 @@ position = Vector2(3494, 295)
 
 [node name="Plank2" parent="." unique_id=12267628 instance=ExtResource("9_5nduw")]
 position = Vector2(96, 367)
+
+[node name="PauseMenu" parent="." unique_id=1472950510 instance=ExtResource("12_6xun2")]
