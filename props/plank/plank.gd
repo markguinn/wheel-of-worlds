@@ -35,7 +35,7 @@ func reset_after_fall() -> void:
 	set_next_linear_velocity(Vector2.ZERO)
 
 
-func _on_impact(pos: Vector2, vel: Vector2, obj: Node, _part) -> void:
+func _on_impact(pos: Vector2, _vel: Vector2, _obj: Node, _part) -> void:
 	sfx_impact.play()
 	vfx_dust.global_position = pos
 	vfx_dust.emitting = true

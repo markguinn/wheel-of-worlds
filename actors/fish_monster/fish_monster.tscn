@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://c5n8o372gfmft" path="res://actors/fish_monster/fish_monster.gd" id="1_7b7uw"]
 [ext_resource type="Texture2D" uid="uid://ddh3of4qnwhyn" path="res://actors/fish_monster/art/blue-monster-test.png" id="1_8t8ag"]
+[ext_resource type="Script" uid="uid://vmdvty45rk5y" path="res://common/state_machine/state_machine.gd" id="3_htvvn"]
+[ext_resource type="Script" uid="uid://dxam5420ufq2c" path="res://actors/fish_monster/fish_patrolling.gd" id="4_ymvi3"]
+[ext_resource type="Script" uid="uid://chlioeglswitp" path="res://actors/fish_monster/fish_attacking.gd" id="5_tienk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7b7uw"]
+radius = 83.0
+height = 190.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8t8ag"]
 radius = 90.0
@@ -11,22 +18,42 @@ height = 470.0
 z_index = 100
 collision_layer = 8
 collision_mask = 0
+contact_monitor = true
+max_contacts_reported = 1
+angular_damp = 100.0
 script = ExtResource("1_7b7uw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2050835415]
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_8t8ag")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=240524648]
 position = Vector2(51, 53)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_8t8ag")
 
-[node name="HitBox" type="Area2D" parent="." unique_id=1226011668]
+[node name="HitBox" type="Area2D" parent="Sprite2D" unique_id=1226011668]
+position = Vector2(-63.749992, -66.24999)
+scale = Vector2(1.2499999, 1.2499999)
 collision_layer = 8
 collision_mask = 54
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=409700252]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitBox" unique_id=409700252]
+position = Vector2(-156, -8)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_7b7uw")
+debug_color = Color(0.95767456, 0.20083219, 0.13908029, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2050835415]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_8t8ag")
-debug_color = Color(0.95767456, 0.20083219, 0.13908029, 0.41960785)
+
+[node name="StateMachine" type="Node" parent="." unique_id=336115411 node_paths=PackedStringArray("target", "initial_state")]
+script = ExtResource("3_htvvn")
+target = NodePath("..")
+initial_state = NodePath("Patrolling")
+metadata/_custom_type_script = "uid://vmdvty45rk5y"
+
+[node name="Patrolling" type="Node" parent="StateMachine" unique_id=1086534189]
+script = ExtResource("4_ymvi3")
+metadata/_custom_type_script = "uid://dljix40x8qlm1"
+
+[node name="Attacking" type="Node" parent="StateMachine" unique_id=1891119915]
+script = ExtResource("5_tienk")
+metadata/_custom_type_script = "uid://dljix40x8qlm1"

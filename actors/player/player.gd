@@ -100,6 +100,9 @@ func pick_up_prop(target_node: Node2D, grab_box: GrabBox) -> bool:
 	_finish_pickup(target_node, grab_box)
 	return true
 
+# TODO: what if we move this to the prop instead of the player?
+# that might make it easier to animate and interact with the world again at the end?
+# and to allow different behaviors
 
 func _finish_pickup(target_node: Node2D, grab_box: GrabBox) -> void:
 	# TODO: should we call a method from the animation
@@ -145,6 +148,5 @@ func _update_prop(delta: float) -> void:
 	var prop: Node2D = is_holding_prop
 	var target_deg := _normalize_prop_angle(rad_to_deg(holding_hand.global_position.angle_to_point(resting_point.global_position)))
 	prop.rotation_degrees = _normalize_prop_angle(prop.rotation_degrees)
-	#prints("[Player]", sprite.scale.x, target_deg)
 	prop.rotation_degrees = move_toward(prop.rotation_degrees, target_deg, delta * 360.0)
 	prop.global_position = holding_hand.global_position # lerp(holding_hand.global_position, resting_point.global_position, 0.5)

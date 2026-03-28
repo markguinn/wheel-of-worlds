@@ -32,7 +32,7 @@ radius = 1210.0
 size = Vector2(451, 1373)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xakyt"]
-size = Vector2(8214, 656)
+size = Vector2(8214, 699)
 
 [node name="World0" type="Node2D" unique_id=831090977]
 script = ExtResource("1_5t46c")
@@ -75,10 +75,10 @@ tile_map_data = PackedByteArray("AAABAAcAAAADAAAAAAACAAcAAAADAAAAAAADAAcAAAADAAA
 tile_set = ExtResource("1_4eaw5")
 
 [node name="Camera2D" parent="." unique_id=552340171 instance=ExtResource("4_gcinv")]
-position = Vector2(-7, 502)
+position = Vector2(-73, 504)
 
 [node name="Player" parent="." unique_id=42652117 instance=ExtResource("2_tsxbn")]
-position = Vector2(-7, 502)
+position = Vector2(-73, 504)
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1198040456]
@@ -87,12 +87,10 @@ update_rotation = false
 update_scale = false
 
 [node name="Orb" parent="." unique_id=1391753086 instance=ExtResource("3_31a7b")]
-position = Vector2(-1229, 511)
-mass = 0.01
+position = Vector2(-1287, 494)
 
 [node name="Orb2" parent="." unique_id=1425831707 instance=ExtResource("3_31a7b")]
 position = Vector2(-7402, 794)
-mass = 0.01
 
 [node name="Portal" parent="." unique_id=820677622 instance=ExtResource("4_tmikp")]
 position = Vector2(5633, 364)
@@ -140,11 +138,11 @@ gravity = 50.0
 script = ExtResource("8_p7lwt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FishTerritory" unique_id=882843566]
-position = Vector2(2136, -322)
+position = Vector2(2136, -343.5)
 shape = SubResource("RectangleShape2D_xakyt")
 
 [node name="FishMonster" parent="FishTerritory" unique_id=599123084 instance=ExtResource("10_xakyt")]
-position = Vector2(1192, -970)
+position = Vector2(584, -525)
 jump_y_max = 1790.0
 
 [node name="Tutorial - movement" type="Label" parent="." unique_id=664178008]

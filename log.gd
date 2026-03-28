@@ -24,8 +24,9 @@ const levels = {
 	"StateMachine": WARNING,
 	"GameManager": WARNING,
 	"AudioManager": WARNING,
-	#"PlayerRagdollState": WARNING,
+	"PlayerRagdollState": WARNING,
 	"FishMonster": INFO,
+	"FishPatrollingState": INFO,
 }
 
 
