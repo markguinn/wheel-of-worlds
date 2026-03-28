@@ -6,15 +6,26 @@ const WARNING = 3
 const ERROR = 4
 const EMPTY = []
 
-const HEADER_FORMAT = "%8d [%s]:"
-const DEFAULT_LEVEL = INFO
+const HEADER_FORMAT = "[%s] %8d %s:"
+const DEFAULT_LEVEL = DEBUG
+
+const LABELS = {
+	DEBUG: "D",
+	INFO: "I",
+	WARNING: "W",
+	ERROR: "E",
+}
 
 # TODO: move this to a gitignored json file?
 # Feel free to add any component here that's too noisy or that we might want more output 
 # from during development. What's listed here will be the minimum level that gets through
 const levels = {
-	#"StateMachine": DEBUG,
-	"AudioManager": WARNING
+	"StateManager": WARNING,
+	"StateMachine": WARNING,
+	"GameManager": WARNING,
+	"AudioManager": WARNING,
+	#"PlayerRagdollState": WARNING,
+	"FishMonster": INFO,
 }
 
 
@@ -31,7 +42,11 @@ func _format(source: Variant, level: int, args: Array[Variant]) -> Array[Variant
 			source_name = str(source)
 	if level < levels.get(source_name, DEFAULT_LEVEL):
 		return EMPTY
-	var header: String = HEADER_FORMAT % [Time.get_ticks_msec(), source_name]
+	var header := HEADER_FORMAT % [
+		LABELS[level],
+		Time.get_ticks_msec(),
+		source_name,
+	]
 	var output: Array[Variant] = [header]
 	output.append_array(args)
 	return output

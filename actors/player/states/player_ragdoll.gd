@@ -60,7 +60,8 @@ var temp_torso_velocity: Vector2 = Vector2.INF
 func init_state(_machine: StateMachine, _target: Node2D) -> void:
 	super.init_state(_machine, _target)
 	_init_ragdoll_elements.call_deferred()
-
+	ragdoll_bodies[0].entered_kill_zone.connect(_on_entered_kill_zone)
+	
 
 func _entered(_prev_state: StateNode) -> void:
 	last_ragdoll_movement = GameManager.now_ms()
@@ -76,6 +77,13 @@ func _before_exit(_next_state: StateNode) -> void:
 	temp_return_at = 0
 	temp_return_to = null
 	temp_torso_velocity = Vector2.INF
+
+
+func _on_entered_kill_zone() -> void:
+	Log.debug(self, "ragdoll entered water. resetting")
+	machine.transition_by_name("Idle")
+	player.reset_after_fall()
+	
 
 
 func _init_ragdoll_elements() -> void:
