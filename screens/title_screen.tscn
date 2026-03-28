@@ -146,6 +146,13 @@ script = ExtResource("2_gxoam")
 target_scene = "uid://obcnvoariac4"
 is_primary = null
 
+[node name="PropMuseum" type="Button" parent="VBoxContainer" unique_id=1642428389]
+layout_mode = 2
+text = "Prop Museum"
+script = ExtResource("2_gxoam")
+target_scene = "uid://c71noy568icli"
+is_primary = null
+
 [node name="VersionLabel" type="Label" parent="." unique_id=2059173511]
 anchors_preset = 7
 anchor_left = 0.5

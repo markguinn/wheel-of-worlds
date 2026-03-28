@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://rdlq677coghs" path="res://props/stone/triangle_stone.tscn" id="10_m4xq1"]
 [ext_resource type="PackedScene" uid="uid://dn6gswqjkyx14" path="res://props/stone/square_stone.tscn" id="11_oaxvq"]
 [ext_resource type="Script" uid="uid://bbb2phdibbqcc" path="res://common/kill_zone.gd" id="12_5rwlj"]
-[ext_resource type="PackedScene" uid="uid://dxykffs3v4670" path="res://common/pause_menu.tscn" id="13_pvy53"]
 [ext_resource type="PackedScene" uid="uid://n0yb8g02gr8b" path="res://actors/fish_monster/fish_monster.tscn" id="13_rqqa7"]
 
 [sub_resource type="Gradient" id="Gradient_83wlx"]
@@ -59,8 +58,6 @@ fill = 1
 
 [node name="ShadowMonsterTest" type="Node2D" unique_id=831090977]
 script = ExtResource("1_pvy53")
-
-[node name="PauseMenu" parent="." unique_id=1472950510 instance=ExtResource("13_pvy53")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=157870837]
 color = Color(0.17400001, 0.18353334, 0.2, 1)
@@ -118,7 +115,6 @@ occluder = SubResource("OccluderPolygon2D_cokg4")
 
 [node name="Orb" parent="." unique_id=1391753086 instance=ExtResource("7_hek2x")]
 position = Vector2(-1201, 503)
-mass = 0.01
 
 [node name="light" type="PointLight2D" parent="Orb" unique_id=1407864051]
 color = Color(1, 0.961, 0.61, 1)
@@ -127,7 +123,6 @@ texture = SubResource("GradientTexture2D_gcinv")
 
 [node name="Orb2" parent="." unique_id=1425831707 instance=ExtResource("7_hek2x")]
 position = Vector2(-7402, 794)
-mass = 0.01
 
 [node name="Portal" parent="." unique_id=820677622 instance=ExtResource("8_et16p")]
 position = Vector2(5633, 364)
