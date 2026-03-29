@@ -1,7 +1,7 @@
 class_name FishAttackingState
 extends StateNode
 
-@export var attack_ms := 10_000
+@export var attack_ms := 20_000
 
 var fish: FishMonster
 var entered_at := 0

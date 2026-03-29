@@ -3,7 +3,7 @@ extends StateNode
 
 @export var move_after_ms := 5000
 @export var move_speed := 500.0
-@export var min_patrolling_ms := 5000
+@export var min_patrolling_ms := 20_000
 @export var attack_distance := 350.0
 @export var vertical_range := 40.0
 

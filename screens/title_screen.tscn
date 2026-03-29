@@ -153,6 +153,13 @@ script = ExtResource("2_gxoam")
 target_scene = "uid://c71noy568icli"
 is_primary = null
 
+[node name="FishArena" type="Button" parent="VBoxContainer" unique_id=1529892179]
+layout_mode = 2
+text = "Fish Arena"
+script = ExtResource("2_gxoam")
+target_scene = "uid://kp1emqrppuje"
+is_primary = null
+
 [node name="VersionLabel" type="Label" parent="." unique_id=2059173511]
 anchors_preset = 7
 anchor_left = 0.5
