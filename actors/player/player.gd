@@ -4,7 +4,7 @@ extends CharacterBody2D
 signal did_pick_up(prop: Node2D)
 signal did_put_down(prop: Node2D)
 
-
+const AVG_WINDOW_MS = 50.0 # NOTE: this isn't _really_ milliseconds.
 const COYOTE_TIME_MS = 100
 
 @export var holding_hand: Node2D
@@ -19,6 +19,8 @@ var last_floor_touch: int
 var is_holding_prop: Node2D = null
 var active_grab_box: GrabBox = null
 var start_pos: Vector2
+var avg_recent_velocity := Vector2.ZERO
+
 
 @onready var state_machine: StateMachine = $StateMachine
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
@@ -63,6 +65,7 @@ func puff_right_dust(dust_scale = 10.0) -> void:
 		dust_particles_r.emitting = true
 
 
+var _dev_walk_speeds := {}
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump") and can_jump():
 		state_machine.transition_by_name("Jump")
@@ -77,15 +80,41 @@ func _input(event: InputEvent) -> void:
 			state_machine.transition_by_name.call_deferred("Ragdoll")
 			get_viewport().set_input_as_handled()
 
+	if GameManager.DEV_MODE and event is InputEventKey and event.pressed and not event.is_echo():
+		match event.physical_keycode:
+			KEY_F:
+				for s in state_machine.get_states():
+					if is_zero_approx(_dev_walk_speeds.get(s.name, 0.0)):
+						_dev_walk_speeds[s.name] = s.horizontal_speed
+						s.horizontal_speed = 1000.0
+					else:
+						s.horizontal_speed = _dev_walk_speeds.get(s.name, 0.0)
+						_dev_walk_speeds[s.name] = 0.0
+				var jump := state_machine.get_state("Jump")
+				for k in ["jump_strength", "carrying_jump_strength"]:
+					if is_zero_approx(_dev_walk_speeds.get(k, 0.0)):
+						_dev_walk_speeds[k] = jump.get(k)
+						jump.set(k, 1800.0)
+					else:
+						jump.set(k, _dev_walk_speeds[k])
+						_dev_walk_speeds[k] = 0.0
+
 
 func _process(delta: float) -> void:
+	_update_avg_recent_velocity(delta)
 	if is_on_floor():
 		last_floor_touch = GameManager.now_ms()
 	if is_holding_prop:
 		_update_prop(delta)
 	elif velocity != Vector2.ZERO:
 		Activator.update_active_candidate()
-
+		
+		
+func _update_avg_recent_velocity(delta: float) -> void:
+	var delta_ms := delta * 1000.0
+	var idelta_ms := AVG_WINDOW_MS - delta_ms
+	avg_recent_velocity.x = (avg_recent_velocity.x * idelta_ms + velocity.x * delta_ms) / AVG_WINDOW_MS
+	avg_recent_velocity.y = (avg_recent_velocity.y * idelta_ms + velocity.y * delta_ms) / AVG_WINDOW_MS
 
 # TODO: trigger a pickup animation?
 func pick_up_prop(target_node: Node2D, grab_box: GrabBox) -> bool:

@@ -7,7 +7,7 @@ const ERROR = 4
 const EMPTY = []
 
 const HEADER_FORMAT = "[%s] %8d %s:"
-const DEFAULT_LEVEL = DEBUG
+const DEFAULT_LEVEL = INFO
 
 const LABELS = {
 	DEBUG: "D",
@@ -20,14 +20,15 @@ const LABELS = {
 # Feel free to add any component here that's too noisy or that we might want more output 
 # from during development. What's listed here will be the minimum level that gets through
 const levels = {
-	"AudioManager": INFO,
-	"FishMonster": INFO,
-	"FishPatrollingState": INFO,
-	"GameManager": INFO,
-	"PlayerRagdollState": INFO,
-	"Portal": INFO,
-	"StateMachine": INFO,
-	"StateManager": INFO,
+	#"AudioManager": INFO,
+	#"FishMonster": INFO,
+	#"FishPatrollingState": INFO,
+	#"GameManager": INFO,
+	"Player": DEBUG,
+	#"PlayerRagdollState": INFO,
+	#"Portal": INFO,
+	#"StateMachine": DEBUG,
+	#"StateManager": INFO,
 }
 
 
@@ -61,19 +62,21 @@ func _log(source: Variant, level: int, args: Array[Variant]) -> void:
 
 
 func _convert_and_join(a: Array[Variant]) -> String:
-	return " ".join(a.map(func(v): str(v)))
+	return " ".join(a.map(func(v): return str(v)))
 
 
 func error(source: Variant, ...args) -> void:
 	var output = _format(source, WARNING, args)
 	if output:
-		push_error(output)
+		push_error(_convert_and_join(output))
+		prints.callv(output)
 
 
 func warn(source: Variant, ...args) -> void:
 	var output = _format(source, WARNING, args)
 	if output:
-		push_warning(output)
+		push_warning(_convert_and_join(output))
+		prints.callv(output)
 
 
 func info(source: Variant, ...args) -> void:

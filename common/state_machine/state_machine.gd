@@ -13,7 +13,7 @@ signal state_changed(from_state: StateNode, to_state: StateNode)
 
 var states: Array[StateNode] = []
 var active_state: StateNode
-
+var next_state: StateNode
 
 func _ready() -> void:
 	if not target:
@@ -55,8 +55,12 @@ func transition_by_name(next_state_name: String) -> bool:
 		return false
 
 
-func transition(next_state: StateNode) -> bool:
+func transition(immediate_next_state: StateNode) -> bool:
 	var cur_name := get_active()
+	next_state = immediate_next_state
+	if active_state and active_state.transitioning_out:
+		Log.debug(self, "queueing state change to", next_state.name, "during transition")
+		return true
 	if can_transition(active_state, next_state):
 		var prev_state := active_state
 		if prev_state:
@@ -87,11 +91,6 @@ func can_transition(from_state: StateNode, to_state: StateNode) -> bool:
 		return false
 	if from_state:
 		if not from_state.can_transition_to(to_state):
-			return false
-		# TODO: this feels bad. we should buffer the input
-		# or queue up the change so inputs don't just get
-		# lost. especially repeat jumps
-		if from_state.transitioning_out:
 			return false
 	return to_state.can_enter(from_state)
 

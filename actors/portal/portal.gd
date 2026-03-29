@@ -17,6 +17,7 @@ var orb_entered_at := 0
 @onready var activator: Activator = $Activator
 @onready var orb_detector: Area2D = $OrbDetector
 
+
 func _ready() -> void:
 	activator.activated.connect(_on_activated)
 	activator.enabled = false

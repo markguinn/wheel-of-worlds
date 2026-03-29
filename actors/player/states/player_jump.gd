@@ -1,14 +1,16 @@
 class_name PlayerJumpState
 extends PlayerState
 
-const JUMP_STRENGTH = 900.0
-const CARRYING_JUMP_STRENGTH = 600.0
 const WIND_UP_TIME = 0.34
 const RAGDOLL_SECONDS = 0.2
 
 
+@export var jump_strength := 900.0
+@export var carrying_jump_string := 600.0
+
+
 func _entered(from_state: StateNode) -> void:
-	if from_state.name == "Ragdoll" or from_state.name == "Fall":
+	if from_state.name == "Ragdoll":
 		return
 
 	if player.is_holding_prop:
@@ -23,9 +25,9 @@ func _entered(from_state: StateNode) -> void:
 	horizontal_speed = old_horizontal_speed
 	
 	if player.is_holding_prop:
-		player.velocity += -GRAVITY_DIRECTION * CARRYING_JUMP_STRENGTH
+		player.velocity += -GRAVITY_DIRECTION * carrying_jump_string
 	else:
-		player.velocity += -GRAVITY_DIRECTION * JUMP_STRENGTH
+		player.velocity += -GRAVITY_DIRECTION * jump_strength
 
 
 func _process(delta: float) -> void:
@@ -33,4 +35,4 @@ func _process(delta: float) -> void:
 	# If they let up on the jump button early we want to end the jump a little 
 	# earlier so we slow them down gently but not immediately
 	if not Input.is_action_pressed("jump"):
-		player.velocity.y = move_toward(player.velocity.y, 0.0, JUMP_STRENGTH * delta * 1.5)
+		player.velocity.y = move_toward(player.velocity.y, 0.0, jump_strength * delta * 1.5)
