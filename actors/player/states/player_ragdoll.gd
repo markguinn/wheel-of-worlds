@@ -71,8 +71,8 @@ func _entered(_prev_state: StateNode) -> void:
 
 
 func _before_exit(_next_state: StateNode) -> void:
-	_disable_ragdoll_elements()
 	dizzy_particles.emitting = false
+	_disable_ragdoll_elements()
 	player.velocity = ragdoll_bodies[0].linear_velocity
 	temp_return_at = 0
 	temp_return_to = null
@@ -103,7 +103,6 @@ func _enable_ragdoll_elements() -> void:
 	guidepoints_container.sync_legs_to_animated = false
 	# don't do the normal collision
 	player.shape.disabled = true
-	player.shape2.disabled = true
 	ragdoll_bodies[0].angular_damp = 30.0 if temp_return_at else 1.0
 
 	# enable the ragdoll bodies and reset them to match the guidepoints
@@ -143,8 +142,6 @@ func _disable_ragdoll_elements() -> void:
 		guidepoints_container.sync_legs_to_animated = true
 	if player.shape:
 		player.shape.disabled = false
-	if player.shape2:
-		player.shape2.disabled = false
 		
 	
 	# disable the ragdoll bodies so they don't get in the way

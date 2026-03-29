@@ -73,7 +73,7 @@ func _update_camera_offset(dir: Vector2) -> void:
 func _apply_gravity(delta: float) -> void:
 	if not player.is_on_floor() and not player.in_coyote_window():
 		player.velocity += GRAVITY_DIRECTION * gravity * GRAVITY_MULTIPLIER * delta
-	if player.velocity.y > 0 and name != "Fall":
+	if player.velocity.y > 0 and name != "Fall" and not player.is_on_floor():
 		# this didn't look as cool as I'd hoped, but we could probably make it:
 		#if name != "Jump" and player.is_holding_prop:
 			#machine.transition_by_name("Ragdoll")
@@ -96,7 +96,7 @@ func _move_and_slide(delta: float) -> void:
 	var v := player.velocity
 	if player.move_and_slide():
 		# bump up a little bit if you just hit a low ledge, but add a slight risk of tripping
-		if foot_ray.is_colliding() and not shin_ray.is_colliding():
+		if is_zero_approx(player.velocity.x) and not is_zero_approx(v.x) and foot_ray.is_colliding() and not shin_ray.is_colliding():
 			player.velocity = v
 			if not GameManager.rate_limit(TRIP_ROLL_DEBOUNCE, "player_trip_roll"):
 				var trip_roll := randf()

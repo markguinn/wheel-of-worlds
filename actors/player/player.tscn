@@ -29,10 +29,6 @@
 radius = 18.0
 height = 130.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ssdk0"]
-radius = 25.0
-height = 60.0
-
 [sub_resource type="Animation" id="Animation_75vfm"]
 length = 0.001
 tracks/0/type = "value"
@@ -1403,12 +1399,6 @@ resting_point = NodePath("Sprite/GuidePoints/PlankRestingPoint")
 
 [node name="NormalCollision" type="CollisionShape2D" parent="." unique_id=120194031]
 shape = SubResource("CapsuleShape2D_8afob")
-
-[node name="NormalCollision2" type="CollisionShape2D" parent="." unique_id=1887406032]
-visible = false
-position = Vector2(0, -40)
-shape = SubResource("CapsuleShape2D_ssdk0")
-disabled = true
 
 [node name="GroundDetector" type="RayCast2D" parent="." unique_id=1984008968]
 position = Vector2(0, -40)
