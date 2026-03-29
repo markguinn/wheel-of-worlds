@@ -48,13 +48,6 @@ func _resign_active_candidate(_next: Activator) -> void:
 	label.hide()
 
 
-func _input(event: InputEvent):
-	if event.is_action_pressed("interact") and active_candidate == self:
-		Log.debug(self, self.name, "activated")
-		get_viewport().set_input_as_handled()
-		activated.emit(self)
-
-
 static func get_active_candidate() -> Activator:
 	return active_candidate
 
@@ -87,12 +80,12 @@ static func update_active_candidate() -> void:
 		clear_candidates()
 		return
 
-	var next_active: Activator = candidates[0]
+	var next_active: Activator = candidates[0] if candidates.size() > 0 and candidates[0].enabled else null
 	if candidates.size() > 1:
 		var min_dist: float = 1_000_000.0
 		for obj in candidates:
 			var my_dist = obj.global_position.distance_squared_to(player.global_position)
-			if my_dist < min_dist:
+			if obj.enabled and my_dist < min_dist:
 				next_active = obj
 
 	if active_candidate != next_active:

@@ -80,10 +80,8 @@ func _before_exit(_next_state: StateNode) -> void:
 
 
 func _on_entered_kill_zone() -> void:
-	Log.debug(self, "ragdoll entered water. resetting")
 	machine.transition_by_name("Idle")
 	player.reset_after_fall()
-	
 
 
 func _init_ragdoll_elements() -> void:
@@ -172,12 +170,18 @@ func transition_before_exit(to_state: StateNode) -> void:
 	
 	sfx.play_stand_up()
 	
+	player.ground_detector.rotation = -player.rotation
+	player.ground_detector.force_update_transform()
+	player.ground_detector.force_raycast_update()
+	
 	var body := ragdoll_bodies[0]
 	body.freeze = true
 	var tween := create_tween()
-	tween.tween_property(body, "position", body.position + Vector2(0, -STANDUP_DIST), STANDUP_TIME)
-	tween.parallel().tween_property(body, "rotation", 0.0, STANDUP_TIME)
+	tween.tween_property(body, "rotation", 0.0, STANDUP_TIME)
+	if player.ground_detector.is_colliding():	
+		tween.parallel().tween_property(body, "position", body.position + Vector2(0, -STANDUP_DIST), STANDUP_TIME)
 	await tween.finished
+	player.ground_detector.rotation = -player.rotation
 
 
 func temporary_ragdoll(return_after_ms = 500, torso_velocity = Vector2.INF) -> void:
@@ -189,7 +193,7 @@ func temporary_ragdoll(return_after_ms = 500, torso_velocity = Vector2.INF) -> v
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel") and not transitioning_out:
+	if event.is_action_pressed("interact") and not transitioning_out:
 		machine.transition_by_name("Idle")
 		get_viewport().set_input_as_handled()
 

@@ -14,43 +14,39 @@ var player_is_present := false
 var orb_is_present := false
 var orb_entered_at := 0
 
-@onready var target: Area2D = $TargetArea
-@onready var label: Label = $Label
-
+@onready var activator: Activator = $Activator
+@onready var orb_detector: Area2D = $OrbDetector
 
 func _ready() -> void:
-	target.body_entered.connect(_on_body_entered)
-	target.body_exited.connect(_on_body_exited)
+	activator.activated.connect(_on_activated)
+	activator.enabled = false
+	orb_detector.body_entered.connect(_on_body_entered)
+	orb_detector.body_exited.connect(_on_body_exited)
 
 
-func _on_body_entered(body: Node2D) -> void:
-	if body is Orb:
-		orb_is_present = true
-		orb_entered_at = GameManager.now_ms()
-	if body is Player:
-		player_is_present = true
+func _on_body_entered(_body: Node2D) -> void:
+	Log.debug(self, 'orb entered')
+	orb_is_present = true
+	orb_entered_at = GameManager.now_ms()
 
 
-func _on_body_exited(body: Node2D) -> void:
-	if body is Orb:
-		orb_is_present = false
-		orb_entered_at = 0
-	if body is Player:
-		player_is_present = false
-
-
-func _can_enter() -> bool:
-	return player_is_present and orb_entered_at > 0 and GameManager.now_ms() > orb_entered_at + ORB_WAIT_MS
+func _on_body_exited(_body: Node2D) -> void:
+	Log.debug(self, 'orb exited')
+	orb_is_present = false
+	orb_entered_at = 0
 
 
 func _process(_delta: float) -> void:
-	if _can_enter():
-		label.show()
+	if orb_entered_at > 0 and GameManager.now_ms() > orb_entered_at + ORB_WAIT_MS:
+		if not activator.enabled:
+			Log.debug(self, 'enabling activator')
+		activator.enabled = true
 	else:
-		label.hide()
+		if activator.enabled:
+			Log.debug(self, 'disabling activator')
+		activator.enabled = false
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and _can_enter():
-		get_viewport().set_input_as_handled()
-		GameManager.change_scene.call_deferred(linked_stage, {"target_portal": target_portal})
+func _on_activated(_source: Activator) -> void:
+	Log.info(self, 'portal activated', self.name)
+	GameManager.change_scene.call_deferred(linked_stage, {"target_portal": target_portal})

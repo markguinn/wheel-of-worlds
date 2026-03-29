@@ -20,13 +20,14 @@ const LABELS = {
 # Feel free to add any component here that's too noisy or that we might want more output 
 # from during development. What's listed here will be the minimum level that gets through
 const levels = {
-	"StateManager": WARNING,
-	"StateMachine": WARNING,
-	"GameManager": WARNING,
-	"AudioManager": WARNING,
-	"PlayerRagdollState": WARNING,
+	"AudioManager": INFO,
 	"FishMonster": INFO,
 	"FishPatrollingState": INFO,
+	"GameManager": INFO,
+	"PlayerRagdollState": INFO,
+	"Portal": INFO,
+	"StateMachine": INFO,
+	"StateManager": INFO,
 }
 
 

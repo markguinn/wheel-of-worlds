@@ -37,8 +37,7 @@ func _before_exit(_to_state: StateNode) -> void:
 func _move() -> void:
 	#var dir := 1.0 if fish.linear_velocity.x > 0 else -1.0
 	var dir := 1.0 if GameManager.get_player().global_position.x > fish.global_position.x else -1.0
-	var vy := (fish.territory_rect.position.y - fish.global_position.y) / (move_after_ms / 1000)
-	Log.debug(self, "vy", vy)
+	var vy := (fish.territory_rect.position.y - fish.global_position.y) / (move_after_ms / 1000.0)
 	fish.set_next_linear_velocity(Vector2(move_speed * dir, vy))
 
 

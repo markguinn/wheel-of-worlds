@@ -64,15 +64,18 @@ func puff_right_dust(dust_scale = 10.0) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel") and state_machine.get_active() != "Ragdoll":
-		state_machine.transition_by_name("Ragdoll")
-		get_viewport().set_input_as_handled()
 	if event.is_action_pressed("jump") and can_jump():
 		state_machine.transition_by_name("Jump")
 		get_viewport().set_input_as_handled()
-	if event.is_action_pressed("interact") and is_holding_prop:
-		put_down_prop()
-		get_viewport().set_input_as_handled()
+	if event.is_action_pressed("interact"):
+		if is_holding_prop:
+			put_down_prop.call_deferred()
+			get_viewport().set_input_as_handled()
+		elif Activator.active_candidate:
+			Activator.active_candidate.activated.emit.call_deferred(Activator.active_candidate)
+		elif state_machine.get_active() != "Ragdoll":
+			state_machine.transition_by_name.call_deferred("Ragdoll")
+			get_viewport().set_input_as_handled()
 
 
 func _process(delta: float) -> void:
