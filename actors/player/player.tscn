@@ -1405,8 +1405,10 @@ resting_point = NodePath("Sprite/GuidePoints/PlankRestingPoint")
 shape = SubResource("CapsuleShape2D_8afob")
 
 [node name="NormalCollision2" type="CollisionShape2D" parent="." unique_id=1887406032]
+visible = false
 position = Vector2(0, -40)
 shape = SubResource("CapsuleShape2D_ssdk0")
+disabled = true
 
 [node name="GroundDetector" type="RayCast2D" parent="." unique_id=1984008968]
 position = Vector2(0, -40)
@@ -1426,24 +1428,6 @@ tree_root = SubResource("AnimationNodeStateMachine_12xki")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="Sprite" type="Node2D" parent="." unique_id=2112411734]
-
-[node name="GroundDetectorR" type="RayCast2D" parent="Sprite" unique_id=1920877544]
-unique_name_in_owner = true
-position = Vector2(-7, 0)
-target_position = Vector2(0, 100)
-collision_mask = 21
-
-[node name="GroundDetectorL" type="RayCast2D" parent="Sprite" unique_id=529607088]
-unique_name_in_owner = true
-position = Vector2(21, 0)
-target_position = Vector2(0, 100)
-collision_mask = 21
-
-[node name="WallDetector" type="RayCast2D" parent="Sprite" unique_id=1273289105]
-unique_name_in_owner = true
-position = Vector2(0, -45)
-target_position = Vector2(45, 0)
-collision_mask = 21
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Sprite" unique_id=1146146976]
 unique_name_in_owner = true
@@ -1899,6 +1883,38 @@ metadata/_custom_type_script = "uid://c3rmeunxh7l15"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Ragdoll/Torso" unique_id=592121951]
 position = Vector2(-3, -3)
 shape = SubResource("CapsuleShape2D_6p1w3")
+
+[node name="Rays" type="Node2D" parent="Sprite" unique_id=37252186]
+
+[node name="GroundDetectorR" type="RayCast2D" parent="Sprite/Rays" unique_id=1920877544]
+unique_name_in_owner = true
+position = Vector2(-7, 0)
+target_position = Vector2(0, 100)
+collision_mask = 21
+
+[node name="GroundDetectorL" type="RayCast2D" parent="Sprite/Rays" unique_id=529607088]
+unique_name_in_owner = true
+position = Vector2(21, 0)
+target_position = Vector2(0, 100)
+collision_mask = 21
+
+[node name="WallDetector" type="RayCast2D" parent="Sprite/Rays" unique_id=1273289105]
+unique_name_in_owner = true
+position = Vector2(0, -45)
+target_position = Vector2(45, 0)
+collision_mask = 21
+
+[node name="FootWallRay" type="RayCast2D" parent="Sprite/Rays" unique_id=1139127553]
+unique_name_in_owner = true
+position = Vector2(0, 60)
+target_position = Vector2(30, 0)
+collision_mask = 21
+
+[node name="ShinWallRay" type="RayCast2D" parent="Sprite/Rays" unique_id=453500696]
+unique_name_in_owner = true
+position = Vector2(0, 30)
+target_position = Vector2(30, 0)
+collision_mask = 21
 
 [node name="StateMachine" type="Node" parent="." unique_id=425844762]
 script = ExtResource("7_a744p")

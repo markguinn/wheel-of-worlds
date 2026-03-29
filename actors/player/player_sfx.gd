@@ -24,3 +24,7 @@ func play_stand_up() -> void:
 
 func play_ragdoll_impact() -> void:
 	$Ouch.play()
+
+
+func play_tripped() -> void:
+	pass

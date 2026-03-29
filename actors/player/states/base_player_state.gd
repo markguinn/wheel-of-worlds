@@ -2,6 +2,8 @@ class_name PlayerState
 extends StateNode
 
 const CAMERA_HORIZONTAL_OFFSET = 1.2
+const TRIP_ROLL_DC = 0.1 # when you hit a low ledge, this is the probability you'll trip into ragdoll
+const TRIP_ROLL_DEBOUNCE = 2000
 
 const WALK_ACCEL = 0.2
 const TURNING_ACCEL = 0.1
@@ -23,6 +25,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var player: Player
 
+@onready var foot_ray: RayCast2D = %FootWallRay
+@onready var shin_ray: RayCast2D = %ShinWallRay
 @onready var wall_detector: RayCast2D = %WallDetector
 @onready var ground_detector_r: RayCast2D = %GroundDetectorR
 @onready var animated_leg_r: Marker2D = %GuidePoints/AnimatedLegR
@@ -88,9 +92,26 @@ func _bounce_off_walls() -> void:
 		machine.get_state("Ragdoll").temporary_ragdoll(wall_bounce_ms, torso_velocity)
 
 
-func _move_and_slide(_delta: float) -> void:
+func _move_and_slide(delta: float) -> void:
 	var v := player.velocity
 	if player.move_and_slide():
+		# bump up a little bit if you just hit a low ledge, but add a slight risk of tripping
+		if foot_ray.is_colliding() and not shin_ray.is_colliding():
+			player.velocity = v
+			if not GameManager.rate_limit(TRIP_ROLL_DEBOUNCE, "player_trip_roll"):
+				var trip_roll := randf()
+				Log.debug(self, "rolled trip save", trip_roll)
+				if trip_roll <= TRIP_ROLL_DC:
+					Log.info(self, "failed trip save", trip_roll)
+					%SFX.play_tripped()
+					machine.transition_by_name("Ragdoll")
+			else:
+				player.position.y -= 100.0 * delta
+				# if we don't do this ugly special case, you can get stuck in a jump up there
+				# because your velocity is instantly 0
+				if name == "Jump":
+					machine.transition_by_name("Walk")
+		
 		# TODO: this is ugly. replace it with a more flexible system
 		# I tried a bunch of things here and they were all glitch and less fun than the original 
 		for i in range(player.get_slide_collision_count()):
