@@ -1,6 +1,14 @@
 [gd_resource type="Theme" format=3 uid="uid://oh3aeoiln57v"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvktn"]
+bg_color = Color(0.056291588, 0.05629161, 0.05629155, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [resource]
+Button/styles/focus = SubResource("StyleBoxFlat_wvktn")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/colors/font_outline_color = Color(0.57700837, 0.5770084, 0.57700837, 1)
 Label/constants/outline_size = 2
