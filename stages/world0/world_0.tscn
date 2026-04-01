@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dn6gswqjkyx14" path="res://props/stone/square_stone.tscn" id="7_boxlk"]
 [ext_resource type="Script" uid="uid://bbb2phdibbqcc" path="res://common/kill_zone.gd" id="8_p7lwt"]
 [ext_resource type="PackedScene" uid="uid://n0yb8g02gr8b" path="res://actors/fish_monster/fish_monster.tscn" id="10_xakyt"]
+[ext_resource type="PackedScene" uid="uid://ca6l7rdg7ytm5" path="res://props/debris/pile_of_boxes.tscn" id="14_nmsql"]
 
 [sub_resource type="Gradient" id="Gradient_83wlx"]
 colors = PackedColorArray(0.7919991, 0.79199916, 0.7919991, 1, 0.5951543, 0.5951542, 0.5951543, 1)
@@ -185,3 +186,9 @@ offset_top = 496.0
 offset_right = 5773.0
 offset_bottom = 545.0
 text = "You made it!"
+
+[node name="pile-of-boxes" parent="." unique_id=1432650709 instance=ExtResource("14_nmsql")]
+position = Vector2(-190, 571)
+
+[node name="pile-of-boxes2" parent="." unique_id=457957057 instance=ExtResource("14_nmsql")]
+position = Vector2(928, 203)
