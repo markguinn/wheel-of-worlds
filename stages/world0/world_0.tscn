@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dn6gswqjkyx14" path="res://props/stone/square_stone.tscn" id="7_boxlk"]
 [ext_resource type="Script" uid="uid://bbb2phdibbqcc" path="res://common/kill_zone.gd" id="8_p7lwt"]
 [ext_resource type="PackedScene" uid="uid://n0yb8g02gr8b" path="res://actors/fish_monster/fish_monster.tscn" id="10_xakyt"]
+[ext_resource type="PackedScene" uid="uid://cunorerlmyhey" path="res://props/water/water.tscn" id="12_nmsql"]
 [ext_resource type="PackedScene" uid="uid://ca6l7rdg7ytm5" path="res://props/debris/pile_of_boxes.tscn" id="14_nmsql"]
 
 [sub_resource type="Gradient" id="Gradient_83wlx"]
@@ -135,6 +136,11 @@ collision_mask = 22
 gravity_space_override = 3
 gravity = 50.0
 script = ExtResource("8_p7lwt")
+
+[node name="water" parent="FishTerritory" unique_id=1133434219 instance=ExtResource("12_nmsql")]
+z_index = 50
+position = Vector2(930, -738)
+scale = Vector2(2, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FishTerritory" unique_id=882843566]
 position = Vector2(2136, -343.5)

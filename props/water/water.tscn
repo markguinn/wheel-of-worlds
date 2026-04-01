@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cunorerlmyhey"]
+
+[ext_resource type="Material" uid="uid://dtsgjv1uwqkom" path="res://props/water/water-material.tres" id="1_lj1sx"]
+[ext_resource type="Texture2D" uid="uid://rweu8spv4nfd" path="res://props/water/water-sprite.png" id="1_rafis"]
+
+[node name="water" type="Node2D" unique_id=1133434219]
+
+[node name="water-sprite" type="Sprite2D" parent="." unique_id=335133294]
+material = ExtResource("1_lj1sx")
+position = Vector2(0, 256)
+texture = ExtResource("1_rafis")
