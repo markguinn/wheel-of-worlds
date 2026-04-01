@@ -12,6 +12,7 @@ func _entered(_from_state: StateNode) -> void:
 		Log.error(self, "this state needs a FishMonster target to work")
 	fish = target
 	fish.gravity_scale = 1.0
+	#fish.tail_body.gravity_scale = 0.5
 	entered_at = GameManager.now_ms()
 	fish.jumping.connect(_on_jump)
 
