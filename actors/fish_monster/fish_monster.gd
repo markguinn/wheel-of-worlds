@@ -38,16 +38,19 @@ var bone_idx: Array[int] = [0, 0, 0, 0]
 # the length of each bone at rest
 var bone_len: Array[float] = []
 
-@onready var hit_box: Area2D = $Sprite2D/HitBox
-@onready var sprite: Node2D = $Sprite2D
+var splash_idx := 0
+
+@onready var hit_box: Area2D = $HitBox
+@onready var splash_particles: Array[GPUParticles2D] = [$SplashParticles, $SplashParticles2, $SplashParticles3, $SplashParticles4]
+@onready var sprite: Node2D = $SpriteContainer
 @onready var main_shape: CollisionShape2D = $CollisionShape2D
-@onready var polygon_l: Polygon2D = $Sprite2D/PolygonL
-@onready var polygon_r: Polygon2D = $Sprite2D/PolygonR
+@onready var polygon_l: Polygon2D = $SpriteContainer/PolygonL
+@onready var polygon_r: Polygon2D = $SpriteContainer/PolygonR
 @onready var bones: Array[Bone2D] = [
-	$Sprite2D/Skeleton2D/Bone2D,
-	$Sprite2D/Skeleton2D/Bone2D/Bone2D,
-	$Sprite2D/Skeleton2D/Bone2D/Bone2D/Bone2D,
-	$Sprite2D/Skeleton2D/Bone2D/Bone2D/Bone2D/Bone2D,
+	$SpriteContainer/Skeleton2D/Bone2D,
+	$SpriteContainer/Skeleton2D/Bone2D/Bone2D,
+	$SpriteContainer/Skeleton2D/Bone2D/Bone2D/Bone2D,
+	$SpriteContainer/Skeleton2D/Bone2D/Bone2D/Bone2D/Bone2D,
 ]
 
 
@@ -58,10 +61,12 @@ func _ready() -> void:
 		if node is CollisionShape2D:
 			territory_rect = node.shape.get_rect()
 			territory_rect.position = node.to_global(territory_rect.position)
-	Log.debug(self, "territory", territory_rect)
 	if not territory_rect:
 		Log.warn(self, self.get_path(), "no territory rect found. This node should be the child of an Area2d")
+	
 	hit_box.body_entered.connect(_on_body_entered)
+	for e in splash_particles:
+		e.emitting = false
 
 	# NOTE: this is a hack for the temporary polygon because setting scale.x=-1 had bad
 	# side effects. When we get a real sprite, it will probably be better to create both
@@ -181,3 +186,10 @@ func _physics_process(delta: float) -> void:
 		bone_idx[i] = idx
 		bones[i - 1].global_rotation = prev.angle_to_point(cur)
 		bones[i].global_position = cur
+
+	var is_out_of_water := last_pos.y < territory_rect.position.y
+	var was_out_of_water := start_pos.y < territory_rect.position.y
+	if is_out_of_water != was_out_of_water:
+		Log.debug(self, "splash", last_pos)
+		splash_particles[splash_idx].set_deferred("emitting", true)
+		splash_idx = (splash_idx + 1) % 4
