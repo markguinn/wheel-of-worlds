@@ -51,7 +51,6 @@ position = Vector2(3627, 946)
 
 [node name="Player" parent="." unique_id=42652117 instance=ExtResource("5_arxws")]
 position = Vector2(3627, 946)
-collision_layer = 0
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1198040456]

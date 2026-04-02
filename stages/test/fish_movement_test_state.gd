@@ -1,8 +1,11 @@
 extends StateNode
 
+# this is just for the test arena. it gives us a state where we can drive the
+# fish around and see how it moves
 
 func _entered(_fs) -> void:
 	target.gravity_scale = 0
+	target.set_next_linear_velocity(Vector2.LEFT * 500.0)
 
 
 func _input(event: InputEvent):

@@ -17,9 +17,6 @@ func _entered(_from_state: StateNode) -> void:
 		Log.error(self, "this state needs a FishMonster target to work")
 	fish = target
 	fish.gravity_scale = 0
-	#if fish.tail_body:
-		#fish.tail_body.gravity_scale = 0
-	#_move_to_top.call_deferred()
 	entered_at = GameManager.now_ms()
 	_move.call_deferred()
 
@@ -28,18 +25,7 @@ func _before_exit(_to_state: StateNode) -> void:
 	fish.sprite.position.y = 0
 
 
-#func _move_to_top() -> void:
-	#var water_top = Vector2(fish.global_position.x, fish.territory_rect.position.y)
-	#fish.set_next_global_position(water_top)
-	#fish.set_next_linear_velocity(Vector2.ZERO)
-	#fish.gravity_scale = 0
-	#_move()
-
-
 func _move() -> void:
-	#if fish.tail_body:
-		#fish.tail_body.gravity_scale = 0
-	#var dir := 1.0 if fish.linear_velocity.x > 0 else -1.0
 	var dir := 1.0 if GameManager.get_player().global_position.x > fish.global_position.x else -1.0
 	var vy := (fish.territory_rect.position.y - fish.global_position.y) / (move_after_ms / 1000.0)
 	fish.set_next_linear_velocity(Vector2(move_speed * dir, vy))
