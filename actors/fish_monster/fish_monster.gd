@@ -21,6 +21,10 @@ signal jumping
 
 ## Defines the area where the beast can roam. Defaults to the parent node.
 @export var territory: Area2D
+## How far above or below the territory line should splashes appear?
+@export var splash_offset := -20.0
+## How far above or below the territory line should the creature target when swimming?
+@export var patrol_offset := 20.0
 @export var jump_y_min := 1200.0
 @export var jump_y_max := 1800.0
 @export var jump_x_min := 200.0
@@ -41,7 +45,8 @@ var bone_len: Array[float] = []
 var splash_idx := 0
 
 @onready var hit_box: Area2D = $HitBox
-@onready var splash_particles: Array[GPUParticles2D] = [$SplashParticles, $SplashParticles2, $SplashParticles3, $SplashParticles4]
+@onready var splash_particles: CPUParticles2D = $SplashParticles
+@onready var swim_particles: CPUParticles2D = $SwimParticles
 @onready var sprite: Node2D = $SpriteContainer
 @onready var main_shape: CollisionShape2D = $CollisionShape2D
 @onready var polygon_l: Polygon2D = $SpriteContainer/PolygonL
@@ -65,8 +70,8 @@ func _ready() -> void:
 		Log.warn(self, self.get_path(), "no territory rect found. This node should be the child of an Area2d")
 	
 	hit_box.body_entered.connect(_on_body_entered)
-	for e in splash_particles:
-		e.emitting = false
+	splash_particles.emitting = false
+	swim_particles.emitting = false
 
 	# NOTE: this is a hack for the temporary polygon because setting scale.x=-1 had bad
 	# side effects. When we get a real sprite, it will probably be better to create both
@@ -189,7 +194,10 @@ func _physics_process(delta: float) -> void:
 
 	var is_out_of_water := last_pos.y < territory_rect.position.y
 	var was_out_of_water := start_pos.y < territory_rect.position.y
-	if is_out_of_water != was_out_of_water:
-		Log.debug(self, "splash", last_pos)
-		splash_particles[splash_idx].set_deferred("emitting", true)
-		splash_idx = (splash_idx + 1) % 4
+	if is_out_of_water != was_out_of_water and not swim_particles.emitting:
+		if is_out_of_water:
+			splash_particles.direction = linear_velocity.normalized()
+		else:
+			splash_particles.direction = -linear_velocity.normalized()
+		splash_particles.global_position = Vector2(last_pos.x, territory_rect.position.y + splash_offset)
+		splash_particles.set_deferred("emitting", true)
