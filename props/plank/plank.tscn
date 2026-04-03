@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://y7c5vk1033l6" path="res://common/vfx/dust_particles.tscn" id="4_jou1n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_br3cc"]
-size = Vector2(256, 16)
+size = Vector2(224, 16)
 
 [sub_resource type="Gradient" id="Gradient_br3cc"]
 offsets = PackedFloat32Array(0.3375959, 0.4398977)
@@ -37,6 +37,8 @@ shape = SubResource("RectangleShape2D_br3cc")
 position = Vector2(127, -1)
 
 [node name="DustParticles" parent="." unique_id=996804833 instance=ExtResource("4_jou1n")]
+scale_amount_min = 10.0
+scale_amount_max = 20.0
 
 [node name="Sprite" type="Node2D" parent="." unique_id=606360389]
 
@@ -53,12 +55,16 @@ texture = SubResource("GradientTexture2D_0vqwi")
 [node name="GrabBoxL" parent="Sprite" unique_id=1410287907 node_paths=PackedStringArray("target_node") instance=ExtResource("3_eqyr0")]
 script = ExtResource("2_w4302")
 target_node = NodePath("../..")
+hold_offset = Vector2(0, 0)
+hold_degrees = inf
 label_text = "Press X to pick up!"
 
 [node name="GrabBoxR" parent="Sprite" unique_id=518770626 node_paths=PackedStringArray("target_node") instance=ExtResource("3_eqyr0")]
 position = Vector2(256, 0)
 script = ExtResource("2_w4302")
 target_node = NodePath("../..")
+hold_offset = Vector2(0, 0)
+hold_degrees = inf
 label_text = "Press X to pick up!"
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite" unique_id=1914264648]

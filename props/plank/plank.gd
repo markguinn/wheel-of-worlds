@@ -41,7 +41,7 @@ func _on_impact(pos: Vector2, _vel: Vector2, _obj: Node, _part) -> void:
 	vfx_dust.emitting = true
 
 
-func _on_left_pickup() -> void:
+func _on_left_pickup(_holding_point: Node2D) -> void:
 	global_position = grab_box_l.global_position
 	if sprite.position != Vector2.ZERO:
 		sprite.position = Vector2.ZERO
@@ -51,7 +51,7 @@ func _on_left_pickup() -> void:
 
 # we have to do this funky thing because the origin of the
 # plank is always what's in the hand of the player.
-func _on_right_pickup() -> void:
+func _on_right_pickup(_holding_point: Node2D) -> void:
 	global_position = grab_box_r.global_position
 	if sprite.position == Vector2.ZERO:
 		sprite.position = grab_box_r.position

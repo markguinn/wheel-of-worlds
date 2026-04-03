@@ -1,7 +1,7 @@
 class_name GrabBox
 extends Activator
 
-signal picked_up
+signal picked_up(holding_point: Node2D)
 signal put_down
 
 ########################################################
@@ -14,8 +14,12 @@ signal put_down
 ## The object that's getting grabbed. If not set manually, we'll use the parent node of the grab box
 @export var target_node: RigidBody2D
 
+@export var hold_offset := Vector2.ZERO
+@export var hold_degrees := INF
+
 var is_holding := false
 var target_node_collision_layer: int
+var holding_point: Node2D = null
 
 
 func _ready() -> void:
@@ -23,24 +27,39 @@ func _ready() -> void:
 	if not target_node:
 		target_node = get_parent()
 	target_node_collision_layer = target_node.collision_layer
-	activated.connect(_start_holding)
+	activated.connect(_on_activated)
 	put_down.connect(_on_put_down)
+	picked_up.connect(_on_picked_up)
 
 
-func _start_holding(_source: Activator) -> void:
+func _on_activated(_source: Activator) -> void:
 	if GameManager.get_player().pick_up_prop(target_node, self):
 		is_holding = true
 		label.hide()
-		picked_up.emit()
 		target_node.freeze = true
-		#is_holding.collision_mask ^= target_node_collision_layer
 		target_node.collision_layer = 0
 
 
-func _on_put_down(_holder: Player) -> void:
+func _on_picked_up(_holding_point: Node2D) -> void:
+	Log.debug(self, "player picked me up!", _holding_point)
+	holding_point = _holding_point
+	target_node.z_index += 1
+	if not is_inf(hold_degrees):
+		target_node.rotation_degrees = hold_degrees
+
+
+func _on_put_down() -> void:
+	Log.debug(self, "player put me down")
 	is_holding = false
-	target_node.freeze = false
-	target_node.collision_layer = target_node_collision_layer
+	holding_point = null
+	target_node.z_index -= 1
+	if not is_inf(hold_degrees):
+		target_node.global_rotation = 0.0
+	target_node.set_deferred("freeze", false)
+	target_node.set_deferred("collision_layer", target_node_collision_layer)
 	Activator.set_active_candidate(self)
-	#holder.collision_mask |= target_node_collision_layer
-	#print("putting down: ", target_node)
+
+
+func _process(_delta: float) -> void:
+	if holding_point:
+		target_node.global_position = holding_point.global_position + hold_offset

@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-signal did_pick_up(prop: Node2D)
+signal did_pick_up(prop: Node2D, holding_point: Node2D)
 signal did_put_down(prop: Node2D)
 
 const AVG_WINDOW_MS = 50.0 # NOTE: this isn't _really_ milliseconds.
@@ -126,33 +126,28 @@ func pick_up_prop(target_node: Node2D, grab_box: GrabBox) -> bool:
 	if GameManager.rate_limit(500, "player_pick_up"):
 		return false
 	Log.info(self, "picking up:", target_node.name, grab_box.name)
-	target_node.z_index += 1
+	#target_node.z_index += 1
 	anim_player.play("pickup")
-	_finish_pickup(target_node, grab_box)
+	active_grab_box = grab_box
 	return true
 
-# TODO: what if we move this to the prop instead of the player?
-# that might make it easier to animate and interact with the world again at the end?
-# and to allow different behaviors
 
-func _finish_pickup(target_node: Node2D, grab_box: GrabBox) -> void:
-	# TODO: should we call a method from the animation
-	# TODO: animate the prop
-	await get_tree().create_timer(0.25).timeout
-	is_holding_prop = target_node
-	active_grab_box = grab_box
+# this is called by the animation player at the point when it makes sense in the animation
+func finish_pickup() -> void:
+	Log.debug(self, "finished pick up")
+	is_holding_prop = active_grab_box.target_node
+	active_grab_box.picked_up.emit(holding_hand)
+	did_pick_up.emit(active_grab_box.target_node)
 	Activator.clear_candidates()
-	await get_tree().create_timer(0.25).timeout
-	did_pick_up.emit(target_node)
 
 
 func put_down_prop() -> void:
 	if is_holding_prop:
 		Log.info(self, "putting down:", is_holding_prop.name, active_grab_box.name)
-		is_holding_prop.rotation_degrees = 0.0 if sprite.scale.x > 0 else 180.0
-		is_holding_prop.z_index -= 1
-		active_grab_box.put_down.emit(self)
-		did_put_down.emit(is_holding_prop)
+		#is_holding_prop.rotation_degrees = 0.0 if sprite.scale.x > 0 else 180.0
+		#is_holding_prop.z_index -= 1
+		active_grab_box.put_down.emit()
+		did_put_down.emit(active_grab_box.target_node)
 		is_holding_prop = null
 		active_grab_box = null
 
@@ -175,9 +170,10 @@ func _normalize_prop_angle(a: float) -> float:
 # it up from the other side previously. It should be
 # possible to normalize that at pickup or put down.
 # TODO: add some easing? it looks suuuuuper fake at linear
-func _update_prop(delta: float) -> void:
-	var prop: Node2D = is_holding_prop
-	var target_deg := _normalize_prop_angle(rad_to_deg(holding_hand.global_position.angle_to_point(resting_point.global_position)))
-	prop.rotation_degrees = _normalize_prop_angle(prop.rotation_degrees)
-	prop.rotation_degrees = move_toward(prop.rotation_degrees, target_deg, delta * 360.0)
-	prop.global_position = holding_hand.global_position # lerp(holding_hand.global_position, resting_point.global_position, 0.5)
+func _update_prop(_delta: float) -> void:
+	pass
+	#var prop: Node2D = is_holding_prop
+	#var target_deg := _normalize_prop_angle(rad_to_deg(holding_hand.global_position.angle_to_point(resting_point.global_position)))
+	#prop.rotation_degrees = _normalize_prop_angle(prop.rotation_degrees)
+	#prop.rotation_degrees = move_toward(prop.rotation_degrees, target_deg, delta * 360.0)
+	#prop.global_position = holding_hand.global_position # lerp(holding_hand.global_position, resting_point.global_position, 0.5)
