@@ -2,6 +2,7 @@ class_name Activator
 extends Area2D
 
 
+@warning_ignore("unused_signal")
 signal activated(source: Activator)
 signal become_candidate(prev_candidate: Activator)
 signal resign_candidate(next_candidate: Activator)

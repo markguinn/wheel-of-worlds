@@ -47,9 +47,9 @@ func _disable_state_node(state: StateNode) -> void:
 
 
 func transition_by_name(next_state_name: String) -> bool:
-	var next_state := get_state(next_state_name)
-	if next_state:
-		return await transition(next_state)
+	var next_state_node := get_state(next_state_name)
+	if next_state_node:
+		return await transition(next_state_node)
 	else:
 		Log.warn(self, "invalid state name:", next_state_name)
 		return false
@@ -65,6 +65,7 @@ func transition(immediate_next_state: StateNode) -> bool:
 		var prev_state := active_state
 		if prev_state:
 			prev_state.transitioning_out = true
+			@warning_ignore("redundant_await")
 			await prev_state.transition_before_exit(next_state)
 			prev_state.before_exit.emit(next_state)
 			_disable_state_node(prev_state)

@@ -2,6 +2,7 @@ class_name PlayerRagdollBody
 extends MoveableRigidBody2D
 
 
+@warning_ignore("unused_signal")
 signal entered_kill_zone
 
 
