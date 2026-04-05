@@ -12,3 +12,6 @@ extends Node2D
 @export var nests: Array[Node2D] = []
 
 ## TODO: do we want to limit what kinds of props/actors it will try to pick up?
+
+var carried_obj: GrabBox = null
+var recently_carried: Array[GrabBox] = []

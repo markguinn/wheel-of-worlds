@@ -62,6 +62,7 @@ persisted=""
 portals=""
 background_music=""
 world_environment=""
+bird_targets=""
 
 [gui]
 

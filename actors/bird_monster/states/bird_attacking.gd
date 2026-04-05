@@ -1,19 +1,10 @@
-extends StateNode
+extends BirdBaseState
 
 
 const MAX_DISTANCE = 1_000_000.0
+const GRAB_DISTANCE = 100.0
 
-var bird: BirdMonster
-var destination: Vector2 = Vector2.INF
 var attack_target: Node2D
-
-
-func init_state(_machine: StateMachine, _target: Node2D) -> void:
-	super.init_state(_machine, _target)
-	if _target is BirdMonster:
-		bird = _target
-	else:
-		Log.error(self, "this state needs a BirdMonster as the target to work")
 
 
 func _entered(_from: StateNode) -> void:
@@ -21,6 +12,9 @@ func _entered(_from: StateNode) -> void:
 	var min_dist := MAX_DISTANCE
 	attack_target = null
 	for node in get_tree().get_nodes_in_group("bird_targets"):
+		if node in bird.recently_carried:
+			Log.debug(bird, "skipping", node)
+			continue
 		var d := bird.global_position.distance_to(node.global_position)
 		if d < min_dist:
 			attack_target = node
@@ -35,11 +29,11 @@ func _entered(_from: StateNode) -> void:
 		destination = attack_target.global_position
 
 
-func _process(delta: float) -> void:
-	if bird.global_position.is_equal_approx(destination):
+# TODO: if it hits the orb or player it should yeet them I think?
+
+
+func _reached_destination() -> void:
+	if bird.global_position.distance_to(attack_target.global_position) < GRAB_DISTANCE:
 		Log.debug(bird, "gotcha")
-		# TODO: oh shit, we're going to need grabbox to work with other entities than the player. fuuuuuck
+		bird.carried_obj = attack_target
 		machine.transition_by_name("Carrying")
-	else:
-		bird.global_position = bird.global_position.move_toward(destination, bird.fly_speed * delta)
-	

@@ -33,7 +33,7 @@ shape = SubResource("RectangleShape2D_wqvjq")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=842565659]
 texture = SubResource("GradientTexture2D_34n21")
 
-[node name="GrabBox" parent="." unique_id=1410287907 instance=ExtResource("2_wqvjq")]
+[node name="GrabBox" parent="." unique_id=1410287907 groups=["bird_targets"] instance=ExtResource("2_wqvjq")]
 script = ExtResource("2_xndk2")
 hold_offset = Vector2(0, -40)
 hold_degrees = -30.0

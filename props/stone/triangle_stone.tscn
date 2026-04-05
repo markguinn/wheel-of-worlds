@@ -33,7 +33,7 @@ color = Color(0.04755766, 0.047557645, 0.047557645, 1)
 polygon = PackedVector2Array(-36, 32, 0, -32, 36, 32)
 uv = PackedVector2Array(-43.5, 39.5, 5, -35, 59, 29.5)
 
-[node name="GrabBox" parent="." unique_id=1410287907 instance=ExtResource("2_owgpg")]
+[node name="GrabBox" parent="." unique_id=1410287907 groups=["bird_targets"] instance=ExtResource("2_owgpg")]
 script = ExtResource("2_34n21")
 hold_offset = Vector2(0, -40)
 hold_degrees = -30.0

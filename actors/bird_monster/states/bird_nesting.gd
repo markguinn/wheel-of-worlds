@@ -1,15 +1,4 @@
-extends StateNode
-
-
-var bird: BirdMonster
-
-
-func init_state(_machine: StateMachine, _target: Node2D) -> void:
-	super.init_state(_machine, _target)
-	if _target is BirdMonster:
-		bird = _target
-	else:
-		Log.error(self, "this state needs a BirdMonster as the target to work")
+extends BirdBaseState
 
 
 func _entered(_from_state: StateNode) -> void:
@@ -21,3 +10,7 @@ func _entered(_from_state: StateNode) -> void:
 
 func _on_timer_complete() -> void:
 	machine.transition_by_name("Flying")
+
+
+func _process(_delta: float) -> void:
+	pass

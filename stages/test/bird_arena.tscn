@@ -52,19 +52,19 @@ update_scale = false
 [node name="Orb" parent="." unique_id=1391753086 instance=ExtResource("5_f7ag6")]
 position = Vector2(3934, 995)
 
-[node name="Plank" parent="." unique_id=691076463 groups=["bird_targets"] instance=ExtResource("7_0fojf")]
+[node name="Plank" parent="." unique_id=691076463 instance=ExtResource("7_0fojf")]
 position = Vector2(4986, 677)
 
-[node name="Plank2" parent="." unique_id=1965888217 groups=["bird_targets"] instance=ExtResource("7_0fojf")]
+[node name="Plank2" parent="." unique_id=1965888217 instance=ExtResource("7_0fojf")]
 position = Vector2(4260, 1037)
 
-[node name="Plank3" parent="." unique_id=1581944235 groups=["bird_targets"] instance=ExtResource("7_0fojf")]
+[node name="Plank3" parent="." unique_id=1581944235 instance=ExtResource("7_0fojf")]
 position = Vector2(5110, 576)
 
-[node name="Stone2" parent="." unique_id=586878421 groups=["bird_targets"] instance=ExtResource("8_2xscn")]
+[node name="Stone2" parent="." unique_id=586878421 instance=ExtResource("8_2xscn")]
 position = Vector2(3338, 979)
 
-[node name="Stone" parent="." unique_id=838538367 groups=["bird_targets"] instance=ExtResource("9_1bqqv")]
+[node name="Stone" parent="." unique_id=838538367 instance=ExtResource("9_1bqqv")]
 position = Vector2(4937, 820)
 
 [node name="BirdMonster" parent="." unique_id=1506347994 node_paths=PackedStringArray("nests") instance=ExtResource("9_js4yt")]

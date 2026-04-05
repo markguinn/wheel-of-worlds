@@ -1,20 +1,10 @@
-extends StateNode
+extends BirdBaseState
 
 const HORIZ_RANGE = 1000.0
 const VERT_RANGE = 400.0
 const DEST_THRESHOLD = 50.0
 
-var bird: BirdMonster
-var destination: Vector2 = Vector2.INF
 var starting_pos: Vector2
-
-
-func init_state(_machine: StateMachine, _target: Node2D) -> void:
-	super.init_state(_machine, _target)
-	if _target is BirdMonster:
-		bird = _target
-	else:
-		Log.error(self, "this state needs a BirdMonster as the target to work")
 
 
 func _entered(_from_state: StateNode) -> void:
@@ -40,11 +30,6 @@ func _get_random_point() -> Vector2:
 	)
 
 
-func _get_random_nest() -> Node2D:
-	var i := randi_range(0, bird.nests.size() - 1)
-	return bird.nests.get(i)
-
-
 func _choose_destination() -> void:
 	var roll := randf()
 	Log.debug(bird, "rolled for next move", roll)
@@ -58,12 +43,9 @@ func _choose_destination() -> void:
 	Log.debug(bird, "new destination", destination)
 
 
-func _process(delta: float) -> void:
-	if bird.global_position.is_equal_approx(destination):
-		for n in bird.nests:
-			if n.global_position == destination:
-				machine.transition_by_name("Nesting")
-				return
-		_choose_destination()
-	else:
-		bird.global_position = bird.global_position.move_toward(destination, bird.fly_speed * delta)
+func _reached_destination() -> void:
+	for n in bird.nests:
+		if n.global_position == destination:
+			machine.transition_by_name("Nesting")
+			return
+	_choose_destination()

@@ -52,14 +52,14 @@ offset_bottom = 8.0
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_0vqwi")
 
-[node name="GrabBoxL" parent="Sprite" unique_id=1410287907 node_paths=PackedStringArray("target_node") instance=ExtResource("3_eqyr0")]
+[node name="GrabBoxL" parent="Sprite" unique_id=1410287907 node_paths=PackedStringArray("target_node") groups=["bird_targets"] instance=ExtResource("3_eqyr0")]
 script = ExtResource("2_w4302")
 target_node = NodePath("../..")
 hold_offset = Vector2(0, 0)
 hold_degrees = inf
 label_text = "Press X to pick up!"
 
-[node name="GrabBoxR" parent="Sprite" unique_id=518770626 node_paths=PackedStringArray("target_node") instance=ExtResource("3_eqyr0")]
+[node name="GrabBoxR" parent="Sprite" unique_id=518770626 node_paths=PackedStringArray("target_node") groups=["bird_targets"] instance=ExtResource("3_eqyr0")]
 position = Vector2(256, 0)
 script = ExtResource("2_w4302")
 target_node = NodePath("../..")

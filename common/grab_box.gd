@@ -17,7 +17,7 @@ signal put_down
 @export var hold_offset := Vector2.ZERO
 @export var hold_degrees := INF
 
-var is_holding := false
+var is_player_holding := false
 var target_node_collision_layer: int
 var holding_point: Node2D = null
 
@@ -34,14 +34,14 @@ func _ready() -> void:
 
 func _on_activated(_source: Activator) -> void:
 	if GameManager.get_player().pick_up_prop(target_node, self):
-		is_holding = true
+		is_player_holding = true
 		label.hide()
 		target_node.freeze = true
 		target_node.collision_layer = 0
 
 
 func _on_picked_up(_holding_point: Node2D) -> void:
-	Log.debug(self, "player picked me up!", _holding_point)
+	Log.debug(self, "was picked up", _holding_point)
 	holding_point = _holding_point
 	target_node.z_index += 1
 	if not is_inf(hold_degrees):
@@ -49,15 +49,17 @@ func _on_picked_up(_holding_point: Node2D) -> void:
 
 
 func _on_put_down() -> void:
-	Log.debug(self, "player put me down")
-	is_holding = false
+	Log.debug(self, "was put down")
 	holding_point = null
 	target_node.z_index -= 1
 	if not is_inf(hold_degrees):
 		target_node.global_rotation = 0.0
 	target_node.set_deferred("freeze", false)
 	target_node.set_deferred("collision_layer", target_node_collision_layer)
-	Activator.set_active_candidate(self)
+
+	if is_player_holding:
+		is_player_holding = false
+		Activator.set_active_candidate(self)
 
 
 func _process(_delta: float) -> void:
