@@ -29,7 +29,7 @@ func _init_states() -> void:
 			states.append(state)
 	if not initial_state and states.size() > 0:
 		initial_state = states[0]
-	Log.info(self, "found states", get_state_names(), "for", target.name)
+	Log.info(target, "found states", get_state_names())
 	if initial_state:
 		transition(initial_state)
 
@@ -51,7 +51,7 @@ func transition_by_name(next_state_name: String) -> bool:
 	if next_state_node:
 		return await transition(next_state_node)
 	else:
-		Log.warn(self, "invalid state name:", next_state_name)
+		Log.warn(target, "invalid state name:", next_state_name)
 		return false
 
 
@@ -59,7 +59,7 @@ func transition(immediate_next_state: StateNode) -> bool:
 	var cur_name := get_active()
 	next_state = immediate_next_state
 	if active_state and active_state.transitioning_out:
-		Log.debug(self, "queueing state change to", next_state.name, "during transition")
+		Log.debug(target, "queueing state change to", next_state.name, "during transition")
 		return true
 	if can_transition(active_state, next_state):
 		var prev_state := active_state
@@ -74,14 +74,14 @@ func transition(immediate_next_state: StateNode) -> bool:
 		next_state.before_enter.emit(prev_state)
 		next_state.transitioning_out = false
 		active_state = next_state
-		Log.debug(self, "transitioning", target.name, "from", cur_name, "to", next_state.name)
+		Log.debug(target, "transitioning from", cur_name, "to", next_state.name)
 		_enable_state_node(next_state)
 		active_state.entered.emit(prev_state)
 
 		state_changed.emit(prev_state, next_state)
 		return true
 	else:
-		Log.warn(self, "invalid transition: " + cur_name + " to " + next_state.name)
+		Log.warn(target, "invalid state transition: " + cur_name + " to " + next_state.name)
 		return false
 
 
