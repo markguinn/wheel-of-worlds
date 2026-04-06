@@ -18,4 +18,7 @@ func _before_exit(_to: StateNode) -> void:
 
 
 func _reached_destination() -> void:
-	machine.transition_by_name("Nesting")
+	if _is_at_nest():
+		machine.transition_by_name("Nesting")
+	else:
+		machine.transition_by_name("Flying")

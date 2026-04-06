@@ -44,8 +44,7 @@ func _choose_destination() -> void:
 
 
 func _reached_destination() -> void:
-	for n in bird.nests:
-		if n.global_position == destination:
-			machine.transition_by_name("Nesting")
-			return
-	_choose_destination()
+	if _is_at_nest():
+		machine.transition_by_name("Nesting")
+	else:
+		_choose_destination()

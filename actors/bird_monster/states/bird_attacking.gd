@@ -5,10 +5,10 @@ const MAX_DISTANCE = 1_000_000.0
 const GRAB_DISTANCE = 100.0
 
 var attack_target: Node2D
-
+var entered_at: int
 
 func _entered(_from: StateNode) -> void:
-	# TODO: this might get tedious - can we automate it?
+	entered_at = GameManager.now_ms()
 	var min_dist := MAX_DISTANCE
 	attack_target = null
 	for node in get_tree().get_nodes_in_group("bird_targets"):
@@ -31,9 +31,19 @@ func _entered(_from: StateNode) -> void:
 
 # TODO: if it hits the orb or player it should yeet them I think?
 
+func _process(delta: float) -> void:
+	super._process(delta)
+	if GameManager.now_ms() > entered_at + bird.attack_max_seconds * 1000:
+		# TODO: squawk sound
+		Log.debug(bird, "giving up on attack")
+		machine.transition_by_name("Flying")
+
 
 func _reached_destination() -> void:
 	if bird.global_position.distance_to(attack_target.global_position) < GRAB_DISTANCE:
 		Log.debug(bird, "gotcha")
 		bird.carried_obj = attack_target
 		machine.transition_by_name("Carrying")
+	else:
+		Log.debug(bird, "retargeting")
+		destination = attack_target.global_position
