@@ -6,7 +6,7 @@ const RAGDOLL_SECONDS = 0.2
 
 
 @export var jump_strength := 900.0
-@export var carrying_jump_string := 600.0
+@export var carrying_jump_strength := 600.0
 
 
 func _entered(from_state: StateNode) -> void:
@@ -25,9 +25,9 @@ func _entered(from_state: StateNode) -> void:
 	horizontal_speed = old_horizontal_speed
 	
 	if player.is_holding_prop:
-		player.velocity += -GRAVITY_DIRECTION * carrying_jump_string
+		player.velocity += -GRAVITY_DIRECTION * carrying_jump_strength * player.jump_multiplier
 	else:
-		player.velocity += -GRAVITY_DIRECTION * jump_strength
+		player.velocity += -GRAVITY_DIRECTION * jump_strength * player.jump_multiplier
 
 
 func _process(delta: float) -> void:

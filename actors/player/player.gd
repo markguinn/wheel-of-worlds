@@ -10,10 +10,9 @@ const COYOTE_TIME_MS = 100
 @export var holding_hand: Node2D
 @export var resting_point: Node2D
 
-## may not use this but the idea was that we could try to animate the motion a little bit
-## to line up motion with the feet on the ground. it didn't pan out  very well but i didn't
-## rip it out yet. the animation is disabled
-@export var walk_multiplier := 1.0
+@export var tough_mode := false
+@export var jump_multiplier := 1.0
+@export var speed_multiplier := 1.0
 
 var last_floor_touch: int
 var is_holding_prop: Node2D = null
@@ -64,7 +63,6 @@ func puff_right_dust(dust_scale = 10.0) -> void:
 		dust_particles_r.emitting = true
 
 
-var _dev_walk_speeds := {}
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump") and can_jump():
 		state_machine.transition_by_name("Jump")
@@ -78,25 +76,6 @@ func _input(event: InputEvent) -> void:
 		elif state_machine.get_active() != "Ragdoll":
 			state_machine.transition_by_name.call_deferred("Ragdoll")
 			get_viewport().set_input_as_handled()
-
-	if GameManager.DEV_MODE and event is InputEventKey and event.pressed and not event.is_echo():
-		match event.physical_keycode:
-			KEY_F:
-				for s in state_machine.get_states():
-					if is_zero_approx(_dev_walk_speeds.get(s.name, 0.0)):
-						_dev_walk_speeds[s.name] = s.horizontal_speed
-						s.horizontal_speed = 1000.0
-					else:
-						s.horizontal_speed = _dev_walk_speeds.get(s.name, 0.0)
-						_dev_walk_speeds[s.name] = 0.0
-				var jump := state_machine.get_state("Jump")
-				for k in ["jump_strength", "carrying_jump_strength"]:
-					if is_zero_approx(_dev_walk_speeds.get(k, 0.0)):
-						_dev_walk_speeds[k] = jump.get(k)
-						jump.set(k, 1800.0)
-					else:
-						jump.set(k, _dev_walk_speeds[k])
-						_dev_walk_speeds[k] = 0.0
 
 
 func _process(delta: float) -> void:

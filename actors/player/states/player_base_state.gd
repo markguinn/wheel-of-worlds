@@ -49,7 +49,7 @@ func _get_input_vector() -> Vector2:
 
 
 func _update_horizontal_movement(dir: Vector2, delta: float) -> void:
-	var target_vx: float = dir.x * horizontal_speed * player.walk_multiplier
+	var target_vx: float = dir.x * horizontal_speed * player.speed_multiplier
 	# feels annoying to have too much delay when changing directions
 	# this is imperfect though because it flips when you get to zero anyway. we can iterate more another time
 	var accel_val : float = TURNING_ACCEL if player.velocity.x and signf(target_vx) != signf(player.velocity.x) else WALK_ACCEL

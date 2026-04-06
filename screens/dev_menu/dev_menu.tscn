@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bmcqlphjm2pkh"]
+
+[ext_resource type="Script" uid="uid://ddtfmk4g0pqpe" path="res://screens/dev_menu/dev_menu.gd" id="1_i5xme"]
+
+[node name="DevMenu" type="CanvasLayer" unique_id=846982366]
+process_mode = 3
+script = ExtResource("1_i5xme")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1314668150]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=2122863065]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1399386264]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1770837509]
+layout_mode = 2
+text = "Welcome to the fabulous developer menu! Let's make your life a little easier..."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1352136898]
+layout_mode = 2
+
+[node name="ToughMode" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=481173209]
+layout_mode = 2
+text = "Tough mode"
+
+[node name="FastMode" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=872686641]
+layout_mode = 2
+text = "Fast Mode"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=193324177]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1467379618]
+layout_mode = 2
+text = "Drop a "
+
+[node name="DropPlank" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1045201395]
+layout_mode = 2
+text = "Plank"
+
+[node name="DropStone1" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1780186343]
+layout_mode = 2
+text = "Stone 1
+"
+
+[node name="DropStone2" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=23056377]
+layout_mode = 2
+text = "Stone 2"
+
+[node name="DropOrb" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1609090595]
+layout_mode = 2
+text = "Orb"
+
+[connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ToughMode" to="." method="_on_tough_mode_toggled"]
+[connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/FastMode" to="." method="_on_fast_mode_toggled"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/DropPlank" to="." method="_on_drop_plank_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/DropStone1" to="." method="_on_drop_stone_1_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/DropStone2" to="." method="_on_drop_stone_2_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/DropOrb" to="." method="_on_drop_orb_pressed"]

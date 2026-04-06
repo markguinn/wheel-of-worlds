@@ -61,7 +61,13 @@ func init_state(_machine: StateMachine, _target: Node2D) -> void:
 	super.init_state(_machine, _target)
 	_init_ragdoll_elements.call_deferred()
 	ragdoll_bodies[0].entered_kill_zone.connect(_on_entered_kill_zone)
-	
+
+
+func can_enter(from_state: StateNode) -> bool:
+	if player.tough_mode:
+		return false
+	return super.can_enter(from_state)
+
 
 func _entered(_prev_state: StateNode) -> void:
 	last_ragdoll_movement = GameManager.now_ms()

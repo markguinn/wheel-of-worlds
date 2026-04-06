@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bflttih4i7ucd" path="res://_temp_replace_me_please/temp-layer3b.mp3" id="4_7mycd"]
 [ext_resource type="AudioStream" uid="uid://b50w8ka84lngi" path="res://_temp_replace_me_please/temp-wheel.mp3" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dxykffs3v4670" path="res://screens/pause_menu/pause_menu.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bmcqlphjm2pkh" path="res://screens/dev_menu/dev_menu.tscn" id="7_272bh"]
 
 [sub_resource type="Environment" id="Environment_lquwl"]
 background_mode = 3
@@ -188,15 +189,18 @@ Vector2i(3, 3): {
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=725012286 groups=["world_environment"]]
 environment = SubResource("Environment_lquwl")
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1500950709 groups=["background_music"]]
+stream = SubResource("AudioStreamInteractive_272bh")
+autoplay = true
+bus = &"Music"
+
 [node name="Container" type="Node2D" parent="." unique_id=1880419414 groups=["scene_container"]]
 
 [node name="TitleScreen" parent="Container" unique_id=162755854 instance=ExtResource("1_ig7tw")]
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=61485945]
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1500950709 groups=["background_music"]]
-stream = SubResource("AudioStreamInteractive_272bh")
-autoplay = true
-bus = &"Music"
-
 [node name="PauseMenu" parent="." unique_id=1472950510 instance=ExtResource("6_7mycd")]
+visible = false
+
+[node name="DevMenu" parent="." unique_id=1159089293 instance=ExtResource("7_272bh")]
