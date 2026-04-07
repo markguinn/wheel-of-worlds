@@ -5,6 +5,7 @@ extends Node
 # outside of a single stage or screen
 ########################################################
 
+signal scene_changed
 
 # we can use this to enable/disable logging, cheats, debug visuals, etc
 const DEV_MODE = true
@@ -59,6 +60,7 @@ func change_scene(new_scene_path: String, params = {}, fade = false) -> void:
 	container.remove_child(cur_scene)
 	cur_scene.queue_free()
 	StateManager.manage_scene.call_deferred(new_instance, new_scene_path, params)
+	scene_changed.emit.call_deferred()
 
 	if fade:
 		VFX.fade_in()

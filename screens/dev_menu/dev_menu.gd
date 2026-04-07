@@ -5,10 +5,15 @@ extends CanvasLayer
 
 func _ready() -> void:
 	hide()
+	GameManager.scene_changed.connect(_on_new_scene)
+
+
+func _on_new_scene() -> void:
+	$PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ToughMode.button_pressed = false
+	$PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/FastMode.button_pressed = false
 
 
 func _input(event: InputEvent) -> void:
-	Log.info(self, "wtf", event)
 	if GameManager.DEV_MODE and event.is_action_pressed("dev_menu"):
 		if visible:
 			hide()
