@@ -94,7 +94,7 @@ func _update_avg_recent_velocity(delta: float) -> void:
 	avg_recent_velocity.x = (avg_recent_velocity.x * idelta_ms + velocity.x * delta_ms) / AVG_WINDOW_MS
 	avg_recent_velocity.y = (avg_recent_velocity.y * idelta_ms + velocity.y * delta_ms) / AVG_WINDOW_MS
 
-# TODO: trigger a pickup animation?
+
 func pick_up_prop(target_node: Node2D, grab_box: GrabBox) -> bool:
 	if ground_detector.is_colliding() and ground_detector.get_collider() == target_node:
 		return false
@@ -105,8 +105,11 @@ func pick_up_prop(target_node: Node2D, grab_box: GrabBox) -> bool:
 	if GameManager.rate_limit(500, "player_pick_up"):
 		return false
 	Log.info(self, "picking up:", target_node.name, grab_box.name)
-	#target_node.z_index += 1
-	anim_player.play("pickup")
+	if grab_box.global_position.y > holding_hand.global_position.y:
+		anim_player.play("pickup")
+	else:
+		# TODO: should we have an animation where he reaches his arms up?
+		finish_pickup.call_deferred()
 	active_grab_box = grab_box
 	return true
 

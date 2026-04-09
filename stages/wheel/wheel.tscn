@@ -28,7 +28,7 @@ music_type = "wheel"
 scroll_scale = Vector2(0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=1481990103]
-custom_minimum_size = Vector2(512, 256)
+custom_minimum_size = Vector2(1920, 1080)
 offset_left = -1179.0
 offset_top = -625.0
 offset_right = -22.0

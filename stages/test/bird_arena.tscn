@@ -24,7 +24,7 @@ script = ExtResource("1_e76tc")
 scroll_scale = Vector2(0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=43248688]
-custom_minimum_size = Vector2(512, 256)
+custom_minimum_size = Vector2(1920, 1080)
 offset_right = 1157.0
 offset_bottom = 658.0
 texture = SubResource("GradientTexture2D_tsxbn")
@@ -38,7 +38,6 @@ tile_set = ExtResource("2_f0s67")
 [node name="Camera2D" parent="." unique_id=552340171 instance=ExtResource("3_g5osv")]
 position = Vector2(3627, 946)
 offset = Vector2(0, -200)
-zoom = Vector2(0.5, 0.5)
 
 [node name="Player" parent="." unique_id=42652117 instance=ExtResource("4_n7xfn")]
 position = Vector2(3627, 946)

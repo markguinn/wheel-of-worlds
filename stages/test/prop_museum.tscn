@@ -28,7 +28,7 @@ script = ExtResource("1_yhlic")
 scroll_scale = Vector2(0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=43248688]
-custom_minimum_size = Vector2(512, 256)
+custom_minimum_size = Vector2(1920, 1080)
 offset_right = 1157.0
 offset_bottom = 658.0
 texture = SubResource("GradientTexture2D_tsxbn")
@@ -40,10 +40,10 @@ tile_map_data = PackedByteArray("AAABAAcAAAADAAAAAAACAAcAAAADAAAAAAADAAcAAAADAAA
 tile_set = ExtResource("3_a6rqu")
 
 [node name="Camera2D" parent="." unique_id=552340171 instance=ExtResource("4_pcmnq")]
-position = Vector2(-2258, 655)
+position = Vector2(-629, 676)
 
 [node name="Player" parent="." unique_id=42652117 instance=ExtResource("5_yaa46")]
-position = Vector2(-2258, 655)
+position = Vector2(-629, 676)
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1198040456]
@@ -57,6 +57,12 @@ position = Vector2(-2130, 661)
 [node name="Plank" parent="." unique_id=691076463 instance=ExtResource("8_10i41")]
 position = Vector2(-1826, 693)
 
+[node name="Plank2" parent="." unique_id=368331343 instance=ExtResource("8_10i41")]
+position = Vector2(-479, 561)
+
+[node name="Plank3" parent="." unique_id=1965888217 instance=ExtResource("8_10i41")]
+position = Vector2(-1019, 746)
+
 [node name="TriangleStone" parent="." unique_id=586878421 instance=ExtResource("9_xekb5")]
 position = Vector2(-1689, 736)
 
@@ -67,24 +73,6 @@ offset_right = 50.0
 offset_bottom = 79.0
 text = "teeter totter"
 
-[node name="TriangleStone2" parent="." unique_id=838538367 instance=ExtResource("9_xekb5")]
-position = Vector2(-623, 673)
-
-[node name="TriangleStone6" parent="." unique_id=1586110341 instance=ExtResource("9_xekb5")]
-position = Vector2(-547, 672)
-
-[node name="TriangleStone7" parent="." unique_id=1782654871 instance=ExtResource("9_xekb5")]
-position = Vector2(-586, 611)
-
-[node name="TriangleStone3" parent="." unique_id=1897313111 instance=ExtResource("9_xekb5")]
-position = Vector2(-657, 736)
-
-[node name="TriangleStone4" parent="." unique_id=1638820179 instance=ExtResource("9_xekb5")]
-position = Vector2(-514, 736)
-
-[node name="TriangleStone5" parent="." unique_id=1256581446 instance=ExtResource("9_xekb5")]
-position = Vector2(-585, 735)
-
 [node name="SquareStone" parent="." unique_id=2134840908 instance=ExtResource("10_s8nx2")]
 position = Vector2(-1335, 736)
 
@@ -94,24 +82,6 @@ offset_top = 61.0
 offset_right = 53.0
 offset_bottom = 84.0
 text = "square stone"
-
-[node name="SquareStone2" parent="." unique_id=492602851 instance=ExtResource("10_s8nx2")]
-position = Vector2(-1067, 737)
-
-[node name="SquareStone3" parent="." unique_id=41531860 instance=ExtResource("10_s8nx2")]
-position = Vector2(-1031, 673)
-
-[node name="SquareStone6" parent="." unique_id=62353881 instance=ExtResource("10_s8nx2")]
-position = Vector2(-949, 672)
-
-[node name="SquareStone7" parent="." unique_id=1880036052 instance=ExtResource("10_s8nx2")]
-position = Vector2(-989, 609)
-
-[node name="SquareStone4" parent="." unique_id=1785058197 instance=ExtResource("10_s8nx2")]
-position = Vector2(-913, 735)
-
-[node name="SquareStone5" parent="." unique_id=1190103290 instance=ExtResource("10_s8nx2")]
-position = Vector2(-990, 736)
 
 [node name="KillZone" type="Area2D" parent="." unique_id=1067631529]
 position = Vector2(1777, 755)

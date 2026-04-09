@@ -1,7 +1,7 @@
 class_name PlayerState
 extends StateNode
 
-const CAMERA_HORIZONTAL_OFFSET = 1.2
+const CAMERA_HORIZONTAL_OFFSET = 1.0
 const TRIP_ROLL_DC = 0.1 # when you hit a low ledge, this is the probability you'll trip into ragdoll
 const TRIP_ROLL_DEBOUNCE = 2000
 
@@ -64,10 +64,12 @@ func _update_facing_direction(dir: Vector2) -> void:
 		player.sprite.scale.x = 1.0
 
 
-func _update_camera_offset(dir: Vector2) -> void:
+func _update_camera_offset(dir: Vector2, _delta: float) -> void:
 	var cam := get_viewport().get_camera_2d()
-	if cam and dir.x:
-		cam.drag_horizontal_offset = CAMERA_HORIZONTAL_OFFSET * signf(dir.x)
+	if cam:
+		if dir.x:
+			cam.drag_horizontal_offset = CAMERA_HORIZONTAL_OFFSET * signf(dir.x)
+		cam.position_smoothing_speed = 5.0 if absf(player.velocity.y) < 100.0 else 20.0
 
 
 func _apply_gravity(delta: float) -> void:
@@ -93,6 +95,13 @@ func _bounce_off_walls() -> void:
 
 
 func _move_and_slide(delta: float) -> void:
+	if player.is_holding_prop is Plank and not is_zero_approx(player.velocity.x):
+		var plank: Plank = player.is_holding_prop
+		var plank_dir := 1.0 if plank.wall_detector.global_position.x > player.global_position.x else -1.0
+		if plank.wall_detector.is_colliding() and plank_dir == signf(player.velocity.x):
+			Log.debug(player, "plank meets wall")
+			player.velocity.x = 0
+
 	var v := player.velocity
 	if player.move_and_slide():
 		# bump up a little bit if you just hit a low ledge, but add a slight risk of tripping
@@ -135,7 +144,7 @@ func _process(delta: float) -> void:
 	var dir := _get_input_vector()
 	_update_horizontal_movement(dir, delta)
 	_update_facing_direction(dir)
-	_update_camera_offset(dir)
+	_update_camera_offset(dir, delta)
 	_apply_gravity(delta)
 	_move_and_slide(delta)
 	_bounce_off_walls()

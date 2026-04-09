@@ -21,30 +21,17 @@ color_ramp = SubResource("Gradient_8fmrw")
 position = Vector2(1101, 599)
 territory = NodePath("../Area2D")
 
-[node name="Bone2D" parent="FishMonster/Sprite2D/Skeleton2D" parent_id_path=PackedInt32Array(1857891672, 2112981615) index="0" unique_id=564159811]
-position = Vector2(-136.99994, -16)
-rotation = 0.22840849
-scale = Vector2(0.9999994, 0.9999994)
-
-[node name="Bone2D" parent="FishMonster/Sprite2D/Skeleton2D/Bone2D" index="0" unique_id=790891990]
-position = Vector2(90.99982, -18.99997)
-rotation = -0.29649478
-
-[node name="Bone2D" parent="FishMonster/Sprite2D/Skeleton2D/Bone2D/Bone2D" index="0" unique_id=18012786]
-position = Vector2(154.00024, 14.000183)
-rotation = -0.2823248
-
-[node name="Bone2D" parent="FishMonster/Sprite2D/Skeleton2D/Bone2D/Bone2D/Bone2D" index="0" unique_id=114724586]
-position = Vector2(160.99988, 62.999695)
-rotation = -0.19759718
-scale = Vector2(0.9999998, 0.9999998)
-
-[node name="StateMachine" parent="FishMonster" index="3" unique_id=336115411 node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" parent="FishMonster" index="0" unique_id=336115411 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("ControlWithKeyboard")
 
 [node name="ControlWithKeyboard" type="Node" parent="FishMonster/StateMachine" index="2" unique_id=1389888252]
 script = ExtResource("2_8fmrw")
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
+
+[node name="Bone2D" parent="FishMonster/SpriteContainer/Skeleton2D" parent_id_path=PackedInt32Array(1857891672, 2112981615) index="0" unique_id=564159811]
+position = Vector2(-136.99994, -16)
+rotation = 0.22840849
+scale = Vector2(0.9999994, 0.9999994)
 
 [node name="Camera2D" type="Camera2D" parent="FishMonster" unique_id=1123040775]
 position = Vector2(1, 0)

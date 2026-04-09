@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ndxq88baykfk" path="res://common/shadow_probe.gd" id="3_gfmxe"]
 [ext_resource type="Script" uid="uid://pqhkda8683a4" path="res://common/music_zone.gd" id="4_hg843"]
 [ext_resource type="TileSet" uid="uid://bql6g47of7osy" path="res://stages/world1/art/test_tiles.tres" id="5_eamve"]
+[ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="5_pvy53"]
 [ext_resource type="PackedScene" uid="uid://b85khgplioksi" path="res://actors/player/player.tscn" id="6_vt3f2"]
 [ext_resource type="PackedScene" uid="uid://cq30ppa4eh5d3" path="res://props/orb/orb.tscn" id="7_hek2x"]
 [ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="8_et16p"]
@@ -66,7 +67,7 @@ color = Color(0.17400001, 0.18353334, 0.2, 1)
 scroll_scale = Vector2(0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=43248688]
-custom_minimum_size = Vector2(512, 256)
+custom_minimum_size = Vector2(1920, 1080)
 offset_right = 1157.0
 offset_bottom = 658.0
 texture = SubResource("GradientTexture2D_tsxbn")
@@ -108,10 +109,10 @@ texture = SubResource("GradientTexture2D_gcinv")
 [node name="Player" parent="." unique_id=42652117 instance=ExtResource("6_vt3f2")]
 position = Vector2(-74, 484)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=255349596]
-
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Player" unique_id=331681684]
 occluder = SubResource("OccluderPolygon2D_cokg4")
+
+[node name="StandardCamera" parent="Player" unique_id=552340171 instance=ExtResource("5_pvy53")]
 
 [node name="Orb" parent="." unique_id=1391753086 instance=ExtResource("7_hek2x")]
 position = Vector2(-1201, 503)

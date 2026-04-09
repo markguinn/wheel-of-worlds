@@ -33,11 +33,9 @@ func _on_fast_mode_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		p.speed_multiplier = 4.0
 		p.jump_multiplier = 2.0
-		get_viewport().get_camera_2d().position_smoothing_speed = 10.0
 	else:
 		p.speed_multiplier = 1.0
 		p.jump_multiplier = 1.0
-		get_viewport().get_camera_2d().position_smoothing_speed = 5.0
 
 
 func _drop(prop: Node2D) -> void:

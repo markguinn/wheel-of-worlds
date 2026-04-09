@@ -13,7 +13,7 @@ signal put_down
 
 ## The object that's getting grabbed. If not set manually, we'll use the parent node of the grab box
 @export var target_node: RigidBody2D
-
+@export var manage_position := true
 @export var hold_offset := Vector2.ZERO
 @export var hold_degrees := INF
 
@@ -63,5 +63,5 @@ func _on_put_down() -> void:
 
 
 func _process(_delta: float) -> void:
-	if holding_point:
+	if holding_point and manage_position:
 		target_node.global_position = holding_point.global_position + hold_offset

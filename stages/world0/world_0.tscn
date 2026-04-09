@@ -41,7 +41,7 @@ script = ExtResource("1_5t46c")
 scroll_scale = Vector2(0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=43248688]
-custom_minimum_size = Vector2(512, 256)
+custom_minimum_size = Vector2(1920, 1080)
 offset_right = 1157.0
 offset_bottom = 658.0
 texture = SubResource("GradientTexture2D_tsxbn")

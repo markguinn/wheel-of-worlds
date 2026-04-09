@@ -6,7 +6,7 @@ const RAGDOLL_SECONDS = 0.2
 
 
 @export var jump_strength := 900.0
-@export var carrying_jump_strength := 600.0
+@export var carrying_jump_strength := 700.0
 
 
 func _entered(from_state: StateNode) -> void:
