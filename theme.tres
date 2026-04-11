@@ -1,18 +1,34 @@
 [gd_resource type="Theme" format=3 uid="uid://oh3aeoiln57v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvktn"]
-bg_color = Color(0.056291588, 0.05629161, 0.05629155, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.105882354, 0.105882354, 0.105882354, 0.9098039)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1x85"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.105882354, 0.105882354, 0.105882354, 0.5529412)
 
 [resource]
+Button/constants/h_separation = 20
+Button/font_sizes/font_size = 30
 Button/styles/focus = SubResource("StyleBoxFlat_wvktn")
+Button/styles/normal = SubResource("StyleBoxFlat_e1x85")
+HBoxContainer/constants/separation = 20
+HeaderLarge/font_sizes/font_size = 60
+HeaderSmall/font_sizes/font_size = 25
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/colors/font_outline_color = Color(0.57700837, 0.5770084, 0.57700837, 1)
+Label/constants/line_spacing = 4
 Label/constants/outline_size = 2
-MarginContainer/constants/margin_bottom = 16
-MarginContainer/constants/margin_left = 16
-MarginContainer/constants/margin_right = 16
-MarginContainer/constants/margin_top = 16
+Label/font_sizes/font_size = 32
+MarginContainer/constants/margin_bottom = 32
+MarginContainer/constants/margin_left = 32
+MarginContainer/constants/margin_right = 32
+MarginContainer/constants/margin_top = 32
+VBoxContainer/constants/separation = 10
