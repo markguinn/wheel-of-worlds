@@ -126,10 +126,15 @@ func finish_pickup() -> void:
 func put_down_prop() -> void:
 	if is_holding_prop:
 		Log.info(self, "putting down:", is_holding_prop.name, active_grab_box.name)
-		#is_holding_prop.rotation_degrees = 0.0 if sprite.scale.x > 0 else 180.0
-		#is_holding_prop.z_index -= 1
 		active_grab_box.put_down.emit()
 		did_put_down.emit(active_grab_box.target_node)
+		
+		if is_holding_prop and absf(velocity.x) > 50.0:
+			var velocity_deg := wrapf(rad_to_deg(velocity.angle()), -270.0, 90.0)
+			var impulse_angle := deg_to_rad(clampf(velocity_deg, -150.0, -30.0))
+			var impulse := Vector2.from_angle(impulse_angle) * 140.0
+			is_holding_prop.apply_impulse(impulse, active_grab_box.global_position - is_holding_prop.global_position)
+
 		is_holding_prop = null
 		active_grab_box = null
 

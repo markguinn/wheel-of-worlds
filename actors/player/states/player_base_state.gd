@@ -17,6 +17,7 @@ const PUSH_FORCE = 2.5 # Applied to the orb
 const PLANK_FORCE = Vector2(0.2, 0.6) # Applied to the plank
 
 @export var horizontal_speed := 250.0
+@export var carrying_speed := 160.0
 @export var wall_bounce_amount := 0.0
 @export var wall_bounce_ms := 250
 
@@ -49,7 +50,8 @@ func _get_input_vector() -> Vector2:
 
 
 func _update_horizontal_movement(dir: Vector2, delta: float) -> void:
-	var target_vx: float = dir.x * horizontal_speed * player.speed_multiplier
+	var speed := carrying_speed if player.is_holding_prop else horizontal_speed
+	var target_vx: float = dir.x * speed * player.speed_multiplier
 	# feels annoying to have too much delay when changing directions
 	# this is imperfect though because it flips when you get to zero anyway. we can iterate more another time
 	var accel_val : float = TURNING_ACCEL if player.velocity.x and signf(target_vx) != signf(player.velocity.x) else WALK_ACCEL
@@ -95,11 +97,10 @@ func _bounce_off_walls() -> void:
 
 
 func _move_and_slide(delta: float) -> void:
-	if player.is_holding_prop is Plank and not is_zero_approx(player.velocity.x):
+	if player.is_holding_prop is Plank:
 		var plank: Plank = player.is_holding_prop
 		var plank_dir := 1.0 if plank.wall_detector.global_position.x > player.global_position.x else -1.0
 		if plank.wall_detector.is_colliding() and plank_dir == signf(player.velocity.x):
-			Log.debug(player, "plank meets wall")
 			player.velocity.x = 0
 
 	var v := player.velocity
@@ -134,7 +135,7 @@ func _move_and_slide(delta: float) -> void:
 					#obj.apply_force(force, col.get_position() - obj.global_position)
 					#obj.apply_force(force)
 			if obj is Plank:
-				if v.y > 1.0:
+				if v.y > 1.0 and not obj.is_uprightish():
 					var force := col.get_normal().abs() * v * PLANK_FORCE
 					#print("force:", [force, col.get_normal().x, v.x])
 					obj.apply_impulse(force, col.get_position() - obj.global_position)

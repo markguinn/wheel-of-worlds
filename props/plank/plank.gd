@@ -22,6 +22,7 @@ var holding_point: Node2D = null
 @onready var sfx_impact: AudioStreamPlayer2D = $ImpactSFX
 @onready var vfx_dust: CPUParticles2D = $DustParticles
 @onready var wall_detector: RayCast2D = $WallDetector
+@onready var floor_detector: RayCast2D = $FloorDetector
 
 func _ready() -> void:
 	super._ready()
@@ -45,6 +46,15 @@ func reset_after_fall() -> void:
 	set_next_global_rotation(start_rot)
 	set_next_angular_velocity(0.0)
 	set_next_linear_velocity(Vector2.ZERO)
+
+
+func is_uprightish() -> bool:
+	Log.debug(self, "is_uprightish", floor_detector.is_colliding())
+	return floor_detector.is_colliding()
+	#var deg := absf(wrapf(rotation_degrees, -180.0, 180.0))
+	#if deg >= 120.0 and deg <= 60.0:
+		#return true
+	#return false
 
 
 func _on_impact(pos: Vector2, _vel: Vector2, _obj: Node, _part) -> void:

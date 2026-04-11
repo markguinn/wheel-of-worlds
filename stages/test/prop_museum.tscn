@@ -63,25 +63,25 @@ position = Vector2(-479, 561)
 [node name="Plank3" parent="." unique_id=1965888217 instance=ExtResource("8_10i41")]
 position = Vector2(-1019, 746)
 
+[node name="Label" type="Label" parent="." unique_id=85210853]
+offset_left = -1736.0
+offset_top = 792.0
+offset_right = -1544.0
+offset_bottom = 837.0
+text = "teeter totter"
+
+[node name="Label2" type="Label" parent="." unique_id=1519859646]
+offset_left = -1383.0
+offset_top = 797.0
+offset_right = -1181.0
+offset_bottom = 842.0
+text = "square stone"
+
 [node name="TriangleStone" parent="." unique_id=586878421 instance=ExtResource("9_xekb5")]
 position = Vector2(-1689, 736)
 
-[node name="Label" type="Label" parent="TriangleStone" unique_id=85210853]
-offset_left = -47.0
-offset_top = 56.0
-offset_right = 50.0
-offset_bottom = 79.0
-text = "teeter totter"
-
 [node name="SquareStone" parent="." unique_id=2134840908 instance=ExtResource("10_s8nx2")]
 position = Vector2(-1335, 736)
-
-[node name="Label" type="Label" parent="SquareStone" unique_id=1519859646]
-offset_left = -48.0
-offset_top = 61.0
-offset_right = 53.0
-offset_bottom = 84.0
-text = "square stone"
 
 [node name="KillZone" type="Area2D" parent="." unique_id=1067631529]
 position = Vector2(1777, 755)

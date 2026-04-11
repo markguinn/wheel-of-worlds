@@ -29,7 +29,7 @@ const levels = {
 	#"GrabBox": DEBUG,
 	#"Plank": DEBUG,
 	#"Player": DEBUG,
-	#"Portal": INFO,
+	#"Portal": DEBUG,
 	#"StateMachine": DEBUG,
 	#"StateManager": DEBUG,
 }

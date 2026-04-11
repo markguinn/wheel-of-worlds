@@ -1527,14 +1527,14 @@ remote_path = NodePath("../../../../../VFX/DizzyParticles")
 
 [node name="ArmR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1756135333]
 position = Vector2(-33, -31)
-rotation = 0.08732078
+rotation = 0.0873208
 rest = Transform2D(0.999362, -0.0357162, 0.0357162, 0.999362, -33, -31)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="HandR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ArmR" unique_id=88591762]
 position = Vector2(0, 32)
-rotation = -0.2565951
-scale = Vector2(0.99999917, 0.99999917)
+rotation = -0.25659513
+scale = Vector2(0.99999905, 0.99999905)
 rest = Transform2D(0.99928516, -0.03780409, 0.03780409, 0.99928516, 0, 32)
 auto_calculate_length_and_angle = false
 length = 32.0
@@ -1543,15 +1543,15 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ArmL" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1793998611]
 position = Vector2(28, -36)
-rotation = -0.16663718
+rotation = -0.16663721
 scale = Vector2(0.99999917, 0.99999917)
 rest = Transform2D(0.9953148, -0.09668779, 0.09668779, 0.9953148, 28, -36)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="HandL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ArmL" unique_id=1933907137]
 position = Vector2(1.399125, 37.310078)
-rotation = 0.13705112
-scale = Vector2(0.99999917, 0.99999917)
+rotation = 0.13705114
+scale = Vector2(0.99999905, 0.99999905)
 rest = Transform2D(0.998, 0.064, -0.064, 0.998, 4, 36)
 auto_calculate_length_and_angle = false
 length = 21.0
@@ -1933,7 +1933,7 @@ collision_mask = 21
 
 [node name="ShinWallRay" type="RayCast2D" parent="Sprite/Rays" unique_id=453500696]
 unique_name_in_owner = true
-position = Vector2(0, 30)
+position = Vector2(0, 15)
 target_position = Vector2(30, 0)
 collision_mask = 21
 
@@ -1947,11 +1947,13 @@ metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="Walk" type="Node" parent="StateMachine" unique_id=1602864386]
 script = ExtResource("9_lsln6")
+horizontal_speed = 320.0
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="Jump" type="Node" parent="StateMachine" unique_id=1167554938]
 script = ExtResource("10_hiosj")
-horizontal_speed = 400.0
+horizontal_speed = 450.0
+carrying_speed = 300.0
 wall_bounce_amount = 1.0
 wall_bounce_ms = 500
 metadata/_custom_type_script = "uid://dljix40x8qlm1"

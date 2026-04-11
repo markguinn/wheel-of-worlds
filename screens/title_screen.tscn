@@ -103,6 +103,7 @@ offset_bottom = 23.0
 grow_horizontal = 2
 theme_type_variation = &"HeaderLarge"
 text = "Bert and the Wheel of Worlds"
+horizontal_alignment = 1
 
 [node name="VersionLabel" type="Label" parent="." unique_id=2059173511]
 anchors_preset = 7
@@ -141,6 +142,7 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/Arenas" unique_id=1451895255]
 layout_mode = 2
+theme_type_variation = &"HeaderSmall"
 text = "Test Arenas"
 horizontal_alignment = 1
 
@@ -172,6 +174,7 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/PrototypeWorlds" unique_id=2144878820]
 layout_mode = 2
+theme_type_variation = &"HeaderSmall"
 text = "Prototype Worlds"
 horizontal_alignment = 1
 
@@ -203,6 +206,7 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/Museums" unique_id=1990653838]
 layout_mode = 2
+theme_type_variation = &"HeaderSmall"
 text = "Museums etc."
 horizontal_alignment = 1
 
