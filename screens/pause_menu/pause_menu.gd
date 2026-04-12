@@ -5,6 +5,17 @@ extends CanvasLayer
 func _ready() -> void:
 	visible = false
 	get_tree().paused = false
+	visibility_changed.connect(func():
+		if !visible:
+			$OptionsMenu.visible = false)
+	$OptionsMenu.visibility_changed.connect(func():
+		for i in get_children():
+			if i != $OptionsMenu:
+				if !$OptionsMenu.visible:
+					i.visible = true
+				else:
+					i.visible = false
+	)
 
 
 func _input(event: InputEvent) -> void: 
@@ -20,3 +31,8 @@ func _input(event: InputEvent) -> void:
 func _on_resume_button_pressed() -> void:
 	visible = false
 	get_tree().paused = false
+
+
+func _on_options_button_pressed() -> void:
+	$OptionsMenu.visible = true
+
