@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://t6s3wyv0jdh6"]
+
+[ext_resource type="Shader" uid="uid://dhfftxe7iqdld" path="res://props/trees/tree-shader.gdshader" id="1_udmsn"]
+
+[resource]
+shader = ExtResource("1_udmsn")
+shader_parameter/amplitude = 3.0000001425
+shader_parameter/frequency = 16.000003800000002
+shader_parameter/speed = 0.250000011875
+shader_parameter/fixed_edge_range = 0.250000011875

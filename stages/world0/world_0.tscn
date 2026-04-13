@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://cunorerlmyhey" path="res://props/water/water.tscn" id="12_nmsql"]
 [ext_resource type="PackedScene" uid="uid://ca6l7rdg7ytm5" path="res://props/debris/pile_of_boxes.tscn" id="14_nmsql"]
 [ext_resource type="Texture2D" uid="uid://pui7upyox7vw" path="res://stages/world0/art/trees.png" id="17_8bmoi"]
+[ext_resource type="PackedScene" uid="uid://dddhops2w46wl" path="res://props/trees/tree_1.tscn" id="18_3bs7n"]
+[ext_resource type="PackedScene" uid="uid://d053lad6gupme" path="res://props/trees/tree_2.tscn" id="19_hjxan"]
 
 [sub_resource type="Gradient" id="Gradient_83wlx"]
 colors = PackedColorArray(0.24015418, 0.25599292, 0.21379125, 1, 0.16078432, 0.17254902, 0.14117648, 1)
@@ -852,19 +854,11 @@ position = Vector2(-190, 571)
 [node name="pile-of-boxes2" parent="." unique_id=457957057 instance=ExtResource("14_nmsql")]
 position = Vector2(928, 203)
 
-[node name="Tree1" type="Sprite2D" parent="." unique_id=1193119921]
+[node name="Tree1" parent="." unique_id=1514080959 instance=ExtResource("18_3bs7n")]
 position = Vector2(9.536743e-07, 411)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("17_8bmoi")
-region_enabled = true
-region_rect = Rect2(172, 63, 621, 908)
 
-[node name="Tree2" type="Sprite2D" parent="." unique_id=351934374]
+[node name="Tree2" parent="." unique_id=1861183849 instance=ExtResource("19_hjxan")]
 position = Vector2(1016, 31.000004)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("17_8bmoi")
-region_enabled = true
-region_rect = Rect2(1012, 7, 928, 856)
 
 [node name="Bush1" type="Sprite2D" parent="." unique_id=895857026]
 position = Vector2(-54.000008, 517)
