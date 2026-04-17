@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://pui7upyox7vw" path="res://stages/world0/art/trees.png" id="17_8bmoi"]
 [ext_resource type="PackedScene" uid="uid://dddhops2w46wl" path="res://props/trees/tree_1.tscn" id="18_3bs7n"]
 [ext_resource type="PackedScene" uid="uid://d053lad6gupme" path="res://props/trees/tree_2.tscn" id="19_hjxan"]
+[ext_resource type="PackedScene" uid="uid://cs57yefkh1f4s" path="res://props/lantern/lantern.tscn" id="21_hjxan"]
 
 [sub_resource type="Gradient" id="Gradient_83wlx"]
 colors = PackedColorArray(0.24015418, 0.25599292, 0.21379125, 1, 0.16078432, 0.17254902, 0.14117648, 1)
@@ -881,3 +882,6 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("17_8bmoi")
 region_enabled = true
 region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Lantern" parent="." unique_id=194691666 instance=ExtResource("21_hjxan")]
+position = Vector2(60, 537)
