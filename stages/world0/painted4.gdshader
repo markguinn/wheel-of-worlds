@@ -95,6 +95,7 @@ vec4 add_layer(vec4 c, sampler2D tex, float offset, float scale, float opacity) 
 
 
 float get_edge_x_for_dir(vec2 dir) {
+	return 0.0;
 	//const float rot_rad = -0.7854;
 	//const mat2 rotation = mat2(
 		//vec2(sin(rot_rad), -cos(rot_rad)),
