@@ -36,11 +36,24 @@ func _ready() -> void:
 		light_measurements.push_back({"pos": test_probes[i].global_position, "light": test_probes[i].lit_value})
 	if debug_image: _init_debug_image()
 
-@export var can_be_in_light_for_sec: float = 0.3
 @export var shadow_value_threshold: float = -0.4
+@export var target: Node2D
+@export var target_warning_distance: float = 50.
+@export var target_attack_distance: float = 10.
+@export_range(0.1, 1.0) var attack_speed: float = 0.9
 var loop_count_in_probe_state: int = 0
-var in_light_since: float = 0.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	# Handle arm animation
+	var to_target: Vector2 = (target.global_position - global_position)
+	if target and to_target.length() < target_attack_distance:
+		#$Arm.arm_global_position = lerp($Arm.arm_global_position, target.global_position, attack_speed)
+		$Arm.arm_global_position = target.global_position
+	elif target and to_target.length() < target_warning_distance:
+		#$Arm.arm_global_position = lerp($Arm.arm_global_position, $Arm.arm_global_position + to_target.normalized() * target_attack_distance / 2., attack_speed)
+		$Arm.arm_global_position = $Arm.arm_global_position + to_target.normalized() * target_attack_distance / 2.
+	$debugRect.global_position = $Arm.arm_global_position
+
+	# Handle light sensor based movement
 	if loop_count_in_probe_state < loops_to_wait_for_probes:
 		loop_count_in_probe_state += 1
 		return
@@ -79,16 +92,10 @@ func _process(delta: float) -> void:
 		line.points[i] = point_probes[i].global_position
 		center_position += point_probes[i].global_position
 
-	if shadow_value_threshold < $CenterProbe.lit_value:
-		in_light_since += delta
-		modulate.a = 1. - in_light_since / can_be_in_light_for_sec
-		$skin.color.a = modulate.a
-		if in_light_since >= can_be_in_light_for_sec: queue_free()
-	else: in_light_since = 0.
-
 	center_position /= float(point_probes.size())
 	global_position = lerp(global_position, center_position, hover_speed)
 	if debug_image: _update_debug_image()  # repaint after every compare cycle
+
 
 #region debug image
 @export var debug_image: bool = false

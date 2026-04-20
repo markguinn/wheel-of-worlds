@@ -5,6 +5,10 @@
 [ext_resource type="Shader" uid="uid://ce1puydn2x8rp" path="res://stages/test/shadow_monster.gdshader" id="3_ajmar"]
 [ext_resource type="Script" uid="uid://cc00tb1m3epjv" path="res://stages/test/shadow_skin.gd" id="4_5vmcy"]
 [ext_resource type="Texture2D" uid="uid://bts53sg7ym5vn" path="res://_temp_replace_me_please/dark_boi.png" id="4_nh4xe"]
+[ext_resource type="Script" uid="uid://k47xh1fgxbx0" path="res://stages/test/shadow_monster_arm.gd" id="6_0kgm3"]
+[ext_resource type="Texture2D" uid="uid://bmof6pqpby63a" path="res://_source_assets/art/Shadow_arm_arm_only.png" id="6_2hcqo"]
+[ext_resource type="Texture2D" uid="uid://csq87sl63icol" path="res://_source_assets/art/Shadow arm.png" id="8_1yxxb"]
+[ext_resource type="Script" uid="uid://dtrmgwn5s43vp" path="res://stages/test/shadow_monster_hand.gd" id="8_r46ke"]
 
 [sub_resource type="Gradient" id="Gradient_sf7u1"]
 offsets = PackedFloat32Array(1)
@@ -52,13 +56,26 @@ shader_parameter/monster_radius = 0.4350000206625
 shader_parameter/i_dont_even_know = 1.34000006365
 shader_parameter/noise_offset = Vector2(-0.060722757, 0.0794528)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1yxxb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2hcqo"]
+radius = 2.0
+height = 50.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0kgm3"]
+radius = 2.0
+height = 50.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1yxxb"]
+radius = 2.0
+height = 50.0
+
 [node name="ShadowBlob" type="Node2D" unique_id=1434955370 node_paths=PackedStringArray("point_probes", "test_probes", "line")]
 z_index = 10
 script = ExtResource("1_sf7u1")
 point_probes = [NodePath("ShadowProbe"), NodePath("ShadowProbe2"), NodePath("ShadowProbe3"), NodePath("ShadowProbe4"), NodePath("ShadowProbe5")]
 test_probes = [NodePath("ShadowProbe6"), NodePath("ShadowProbe7"), NodePath("ShadowProbe8"), NodePath("ShadowProbe9"), NodePath("ShadowProbe10")]
 line = NodePath("DebugLine")
-can_be_in_light_for_sec = 0.54
 debug_image_clear = 0.005
 
 [node name="ShadowProbe" type="Sprite2D" parent="." unique_id=1465923522]
@@ -169,6 +186,7 @@ position = Vector2(512, 0)
 scale = Vector2(-0.595, -0.595)
 
 [node name="skin" type="ColorRect" parent="." unique_id=1071322173]
+z_index = 100
 material = SubResource("ShaderMaterial_5m8j7")
 anchors_preset = 8
 anchor_left = 0.5
@@ -187,7 +205,114 @@ phase_noise_offset_change_edge_threshold = 0.205
 phase_angle_rotation_speed_inverse = 2.82
 
 [node name="DarkBoi" type="Sprite2D" parent="skin" unique_id=843229311]
-visible = false
 position = Vector2(64, 64)
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_nh4xe")
+
+[node name="Arm" type="Node2D" parent="." unique_id=686859859]
+script = ExtResource("6_0kgm3")
+
+[node name="Skin" type="Line2D" parent="Arm" unique_id=1090266444]
+self_modulate = Color(0.18039216, 0.043137256, 0.25882354, 1)
+points = PackedVector2Array(0, 0, 131, 1)
+width = 25.0
+texture = ExtResource("6_2hcqo")
+texture_mode = 2
+
+[node name="Palm" type="RigidBody2D" parent="Arm" unique_id=901396295 node_paths=PackedStringArray("hand_attached_to")]
+position = Vector2(124, 0)
+collision_layer = 0
+script = ExtResource("8_r46ke")
+hand_attached_to = NodePath("..")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Arm/Palm" unique_id=1363533321]
+position = Vector2(5, -7)
+node_a = NodePath("..")
+node_b = NodePath("../../TopFinger")
+disable_collision = false
+softness = 5.0
+angular_limit_enabled = true
+angular_limit_upper = 0.7853982
+motor_target_velocity = -3.1648057
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="Arm/Palm" unique_id=1657987266]
+position = Vector2(7, -1)
+node_a = NodePath("..")
+node_b = NodePath("../../MiddleFinger")
+disable_collision = false
+softness = 5.0
+angular_limit_enabled = true
+angular_limit_upper = 0.7853982
+motor_target_velocity = -3.1648057
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="Arm/Palm" unique_id=51170992]
+position = Vector2(3, 5)
+node_a = NodePath("..")
+node_b = NodePath("../../BottomFinger")
+disable_collision = false
+softness = 5.0
+angular_limit_enabled = true
+angular_limit_upper = 0.7853982
+motor_target_velocity = -3.1648057
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/Palm" unique_id=2136365448]
+rotation = 0.15707964
+shape = SubResource("CircleShape2D_1yxxb")
+
+[node name="TopFinger" type="RigidBody2D" parent="Arm" unique_id=1037081550]
+position = Vector2(147, -18)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/TopFinger" unique_id=101350688]
+position = Vector2(-1, 6)
+rotation = 1.282817
+shape = SubResource("CapsuleShape2D_2hcqo")
+
+[node name="ShadowArm" type="Sprite2D" parent="Arm/TopFinger" unique_id=1177166882]
+self_modulate = Color(0.18039216, 0.043137256, 0.25882354, 1)
+position = Vector2(-0.44499207, 7.8025)
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("8_1yxxb")
+region_enabled = true
+region_rect = Rect2(1396.6796, 610.3897, 579.9817, 327.96582)
+
+[node name="MiddleFinger" type="RigidBody2D" parent="Arm" unique_id=878075442]
+position = Vector2(156, 0)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/MiddleFinger" unique_id=1463402595]
+position = Vector2(-5, 3)
+rotation = 1.7976891
+shape = SubResource("CapsuleShape2D_0kgm3")
+
+[node name="ShadowArm" type="Sprite2D" parent="Arm/MiddleFinger" unique_id=1072549245]
+self_modulate = Color(0.18039216, 0.043137256, 0.25882354, 1)
+position = Vector2(-5.444992, 1.8024979)
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("8_1yxxb")
+region_enabled = true
+region_rect = Rect2(716.58167, 675.98285, 555.8159, 176.06592)
+
+[node name="BottomFinger" type="RigidBody2D" parent="Arm" unique_id=442227264]
+position = Vector2(142, 16)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/BottomFinger" unique_id=1150600100]
+position = Vector2(-8.34465e-07, -4.7683716e-07)
+rotation = 2.1991148
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_1yxxb")
+
+[node name="ShadowArm" type="Sprite2D" parent="Arm/BottomFinger" unique_id=877076512]
+self_modulate = Color(0.18039216, 0.043137256, 0.25882354, 1)
+position = Vector2(0.55500793, -5.197502)
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("8_1yxxb")
+region_enabled = true
+region_rect = Rect2(98.62488, 606.93744, 514.3887, 314.15674)
+
+[node name="debugRect" type="ColorRect" parent="." unique_id=1855911018]
+z_index = 100
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)

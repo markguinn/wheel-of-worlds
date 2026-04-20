@@ -17,5 +17,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		var global_mouse_pos = xform(get_viewport().get_canvas_transform().affine_inverse(), get_viewport().get_mouse_position())
 		var blob: ShadowBlob = shadow_blob_template.instantiate()
 		#blob.debug_image = true
+		blob.target = $Player
 		blob.global_position = global_mouse_pos
 		add_child(blob)
