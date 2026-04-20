@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dak8454hwqaj5"
-path="res://.godot/imported/pattern2.png-168b5275520568ba123e0a232dd17517.ctex"
+uid="uid://b3wdc36ysewoa"
+path="res://.godot/imported/Level0_Tiles-9.png-2132c55f5361649ed7dbce97e8f5163b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stages/world0/art/pattern2.png"
-dest_files=["res://.godot/imported/pattern2.png-168b5275520568ba123e0a232dd17517.ctex"]
+source_file="res://stages/world0/art/Level0_Tiles-9.png"
+dest_files=["res://.godot/imported/Level0_Tiles-9.png-2132c55f5361649ed7dbce97e8f5163b.ctex"]
 
 [params]
 

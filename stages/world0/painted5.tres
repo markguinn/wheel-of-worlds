@@ -2,11 +2,9 @@
 
 [ext_resource type="Shader" uid="uid://v32bc3ggrbtb" path="res://stages/world0/painted4.gdshader" id="1_r111g"]
 [ext_resource type="Texture2D" uid="uid://b5blfuqio1hiu" path="res://stages/world0/art/Level0_Tiles-1.png" id="2_7lid4"]
-[ext_resource type="Texture2D" uid="uid://pe6jgw270wmi" path="res://stages/world0/art/ground_bottom.png" id="2_r111g"]
 [ext_resource type="Texture2D" uid="uid://dfoa7mgbo14sn" path="res://stages/world0/art/Level0_Tiles-2.png" id="3_1i240"]
-[ext_resource type="Texture2D" uid="uid://d1gcvmnjgtm1b" path="res://stages/world0/art/ground_left.png" id="3_7lid4"]
-[ext_resource type="Texture2D" uid="uid://c6pqv3ovy5xtw" path="res://stages/world0/art/ground_right.png" id="8_1i240"]
-[ext_resource type="Texture2D" uid="uid://d3y6dda8bs7kq" path="res://stages/world0/art/ground_top.png" id="9_hnoee"]
+[ext_resource type="Texture2D" uid="uid://w2wwxqm76u4u" path="res://stages/world0/art/level0-edges_0002_Layer-2.png" id="4_r111g"]
+[ext_resource type="Texture2D" uid="uid://tbvumppwgfl4" path="res://stages/world0/art/level0-edges_0003_Layer-1.png" id="5_7lid4"]
 
 [resource]
 shader = ExtResource("1_r111g")
@@ -16,9 +14,9 @@ shader_parameter/patterns = Array[Texture2D]([ExtResource("2_7lid4"), ExtResourc
 shader_parameter/offsets = PackedFloat32Array(0, 100, 300, 500, 900, 1200, 1400, 600, 0, 0)
 shader_parameter/scales = PackedFloat32Array(1, 1, 4.7, 1.5, 1.2, 1.5, 2.5, 3.6)
 shader_parameter/opacities = PackedFloat32Array(1, 0.6, 0.6, 0.8, 1, 1, 0.3, 0.9)
-shader_parameter/margin = 420.0
-shader_parameter/pattern_size = 2048.0
-shader_parameter/overall_scale = 0.65
-shader_parameter/edge_size = 16.0
-shader_parameter/edges = Array[Texture2D]([ExtResource("9_hnoee"), ExtResource("2_r111g"), ExtResource("3_7lid4"), ExtResource("8_1i240")])
-shader_parameter/dirs = PackedVector2Array(0, -1, 0, 1, -1, 0, 1, 0)
+shader_parameter/margin = 96.0
+shader_parameter/pattern_size = 512.0
+shader_parameter/overall_scale = 1.5
+shader_parameter/edge_size = Vector2(834, 85)
+shader_parameter/real_screen_size = Vector2(975.61566, 211.37619)
+shader_parameter/edges = Array[Texture2D]([ExtResource("5_7lid4"), ExtResource("4_r111g")])

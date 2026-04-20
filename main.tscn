@@ -194,7 +194,7 @@ stream = SubResource("AudioStreamInteractive_272bh")
 autoplay = true
 bus = &"Music"
 
-[node name="Container" type="Node2D" parent="." unique_id=1880419414 groups=["scene_container"]]
+[node name="Container" type="Node2D" parent="." unique_id=575935762 groups=["scene_container"]]
 
 [node name="TitleScreen" parent="Container" unique_id=162755854 instance=ExtResource("1_ig7tw")]
 

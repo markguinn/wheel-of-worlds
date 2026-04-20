@@ -35,4 +35,3 @@ func _on_resume_button_pressed() -> void:
 
 func _on_options_button_pressed() -> void:
 	$OptionsMenu.visible = true
-
