@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cq30ppa4eh5d3" path="res://props/orb/orb.tscn" id="3_31a7b"]
 [ext_resource type="Material" uid="uid://w6s6k7r66ghw" path="res://stages/world0/painted5.tres" id="3_gmxw7"]
 [ext_resource type="Texture2D" uid="uid://c6c0djqiwgyps" path="res://stages/world0/art/ground1.png" id="4_2layw"]
-[ext_resource type="Script" uid="uid://b0waw70vdi075" path="res://stages/world0/shader_helper.gd" id="4_eprsv"]
+[ext_resource type="Script" path="res://stages/world0/shader_helper.gd" id="4_eprsv"]
 [ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="4_gcinv"]
 [ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="4_tmikp"]
 [ext_resource type="TileSet" uid="uid://dg4yxlibps56a" path="res://stages/world0/painted_tiles.tres" id="5_3bs7n"]

@@ -95,53 +95,14 @@ vec4 add_layer(vec4 c, sampler2D tex, float offset, float scale, float opacity) 
 
 
 float get_edge_x_for_dir(vec2 dir) {
-	//const float rot_rad = -0.7854;
-	//const mat2 rotation = mat2(
-		//vec2(sin(rot_rad), -cos(rot_rad)),
-		//vec2(cos(rot_rad), sin(rot_rad))
-	//);
-	//// NOTE: this works because we're using 45 deg if we add others we'll need to be more careful
-	//// we'd have to find the intersection with an axis, translate back to origin
-	//// and also alter the direction based on the quadrant
-	//vec2 wpd = world_pos * dir;
-	//float max_dim = max(abs(wpd.x), abs(wpd.y));
-	//vec2 uv = vec2(max_dim, max_dim) * rotation;
-	//return uv.x;
-	//vec2 perendicular = world_pos * vec2(dir.y, dir.x);
-	//return 
-	//const float TARGET_ANGLE = -PI / 2.0;
-	//float dir_angle = dir.x == 0.0 ? TARGET_ANGLE : atan(dir.y / real_screen_size.y, dir.x / real_screen_size.x);
-	//float rot_angle = dir_angle - TARGET_ANGLE;
-	//mat2 rotation = mat2(
-		//vec2(sin(dir_angle), -cos(dir_angle)),
-		//vec2(cos(dir_angle), sin(dir_angle))
-	//);
-	//vec2 uv = world_pos * rot_angle;
-	//return uv.x + uv.y;
-	//float inv = real_screen_size.y / real_screen_size.x;
-	//vec2 uv = world_pos * vec2(
-		//dir.y, // / real_screen_size.y * real_screen_size.x,
-		//dir.x //  / real_screen_size.x * real_screen_size.y
-	//);
-	//vec2 uv = vec2(
-		//world_pos.y * dir.x, /// real_screen_size.y * real_screen_size.x,
-		//world_pos.x * dir.y  // / real_screen_size.x * real_screen_size.y
-	//);
 	if (dir.x == 0.0) {
 		return world_pos.x;
 	}
 	if (dir.y == 0.0) {
 		return world_pos.y;
 	}
-	const float TARGET_ANGLE = -PI / 2.0;
-	float xb = world_pos.x;
-	float h = world_pos.y;
-	float a2 = dir.x == 0.0 ? TARGET_ANGLE : atan(dir.y, dir.x);
-	float a3 = PI/2.0 - a2;
-	float xa = sin(a3) * h / cos(a3);
-	//vec2 translated = vec2();
-	//return 0.0;// length(uv);
-	return xa + abs(xb);
+    vec2 tangent = normalize(vec2(-dir.y, dir.x));
+    return dot(world_pos, tangent);
 }
 
 EdgeCalc add_edge(vec2 screen_uv, sampler2D edge_tex, vec2 dir) {
@@ -177,6 +138,8 @@ EdgeCalc add_edge(vec2 screen_uv, sampler2D edge_tex, vec2 dir) {
 	
 	return output;
 }
+
+uniform float edge_smoothness: hint_range(0.0, 10.0) = 0.01;
 
 // if the given point is near the edge, add the edge texture on top of the fill texture
 vec4 add_edges(vec4 c, vec2 screen_uv) {
@@ -221,22 +184,27 @@ vec4 add_edges(vec4 c, vec2 screen_uv) {
 			min_diff2_idx = i;
 		}
 	}
-	if (min_diff_idx >= 0) {
-		if (outputs[min_diff_idx].mix_alpha) {
-			vec4 c2 = outputs[min_diff_idx].color;
-			//if (min_diff2_idx >= 0) {
-				//float diff2_strength = min_diff2 / min_diff;
-				//const float thresh = 0.9;
-				//if (diff2_strength > thresh) {
-					//diff2_strength = (diff2_strength - thresh) / (1.0 - thresh);
-					//c2 = mix(c2, outputs[min_diff2_idx].color, diff2_strength * 0.5);
-				//}
-			//}
-			c = mix(c, vec4(c2.rgb, 1.0), c2.a);
-		} else {
-			c = outputs[min_diff_idx].color;
-		}
+	if (min_diff_idx >= 0 && min_diff2_idx >= 0) {
+		float h = clamp(0.5 + 0.5*(min_diff2 - min_diff) / edge_smoothness, 0.0, 1.0);
+		vec4 c2 = mix(outputs[min_diff2_idx].color, outputs[min_diff_idx].color, h);
+		c = mix(c, vec4(c2.rgb, 1.0), c2.a);
 	}
+	//if (min_diff_idx >= 0) {
+		//if (outputs[min_diff_idx].mix_alpha) {
+			//vec4 c2 = outputs[min_diff_idx].color;
+			////if (min_diff2_idx >= 0) {
+				////float diff2_strength = min_diff2 / min_diff;
+				////const float thresh = 0.9;
+				////if (diff2_strength > thresh) {
+					////diff2_strength = (diff2_strength - thresh) / (1.0 - thresh);
+					////c2 = mix(c2, outputs[min_diff2_idx].color, diff2_strength * 0.5);
+				////}
+			////}
+			//c = mix(c, vec4(c2.rgb, 1.0), c2.a);
+		//} else {
+			//c = outputs[min_diff_idx].color;
+		//}
+	//}
 	//if (total_diff > 0.0) {
 		//vec4 c2 = vec4(1.0, 1.0, 1.0, 0.0);
 		//for (int i = 0; i < 8; i++) {
