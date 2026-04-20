@@ -27,6 +27,7 @@ buses/default_bus_layout="uid://bxeygrg1rwug6"
 
 GameManager="*res://globals/game_manager.gd"
 StateManager="*uid://1wumj61m8a4e"
+GrabBoxManager="*uid://clgun121kw42n"
 AudioManager="*uid://dl6qiwmawjdvr"
 VFX="*uid://jmlethaw3ljf"
 Log="*uid://dchokurr8lg8t"

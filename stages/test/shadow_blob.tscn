@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://bbq81ngylpi8h"]
 
-[ext_resource type="Script" uid="uid://bx63s05emcisp" path="res://common/shadow_blob.gd" id="1_sf7u1"]
-[ext_resource type="Script" uid="uid://ndxq88baykfk" path="res://common/shadow_probe.gd" id="2_ajmar"]
+[ext_resource type="Script" uid="uid://bx63s05emcisp" path="res://stages/test/shadow_blob.gd" id="1_sf7u1"]
+[ext_resource type="Script" uid="uid://ndxq88baykfk" path="res://stages/test/shadow_probe.gd" id="2_ajmar"]
+[ext_resource type="Shader" uid="uid://ce1puydn2x8rp" path="res://stages/test/shadow_monster.gdshader" id="3_ajmar"]
+[ext_resource type="Script" uid="uid://cc00tb1m3epjv" path="res://stages/test/shadow_skin.gd" id="4_5vmcy"]
+[ext_resource type="Texture2D" uid="uid://bts53sg7ym5vn" path="res://_temp_replace_me_please/dark_boi.png" id="4_nh4xe"]
 
 [sub_resource type="Gradient" id="Gradient_sf7u1"]
 offsets = PackedFloat32Array(1)
@@ -16,16 +19,51 @@ fill = 1
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sf7u1"]
 light_mode = 1
 
+[sub_resource type="Gradient" id="Gradient_nh4xe"]
+offsets = PackedFloat32Array(0, 0.17148362, 0.4026975, 0.89980733)
+colors = PackedColorArray(0, 0, 0, 1, 0.18039216, 0.043137256, 0.25882354, 1, 0.043137256, 0.043137256, 1, 1, 0.01528747, 0.0036556995, 0.021934196, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5vmcy"]
+gradient = SubResource("Gradient_nh4xe")
+
+[sub_resource type="Gradient" id="Gradient_kqja0"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nh4xe"]
+noise_type = 0
+fractal_type = 3
+fractal_octaves = 3
+fractal_lacunarity = 1.27
+fractal_gain = 1.365
+fractal_weighted_strength = 0.5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5vmcy"]
+noise = SubResource("FastNoiseLite_nh4xe")
+color_ramp = SubResource("Gradient_kqja0")
+in_3d_space = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5m8j7"]
+shader = ExtResource("3_ajmar")
+shader_parameter/noise = SubResource("NoiseTexture2D_5vmcy")
+shader_parameter/monster_color = SubResource("GradientTexture1D_5vmcy")
+shader_parameter/monster_body = PackedVector2Array(0.475, 0.51)
+shader_parameter/noise_middle_range = 0.4050000192375
+shader_parameter/monster_thickness = 0.8570000407075
+shader_parameter/monster_radius = 0.4350000206625
+shader_parameter/i_dont_even_know = 1.34000006365
+shader_parameter/noise_offset = Vector2(-0.060722757, 0.0794528)
+
 [node name="ShadowBlob" type="Node2D" unique_id=1434955370 node_paths=PackedStringArray("point_probes", "test_probes", "line")]
 z_index = 10
 script = ExtResource("1_sf7u1")
 point_probes = [NodePath("ShadowProbe"), NodePath("ShadowProbe2"), NodePath("ShadowProbe3"), NodePath("ShadowProbe4"), NodePath("ShadowProbe5")]
 test_probes = [NodePath("ShadowProbe6"), NodePath("ShadowProbe7"), NodePath("ShadowProbe8"), NodePath("ShadowProbe9"), NodePath("ShadowProbe10")]
 line = NodePath("DebugLine")
+can_be_in_light_for_sec = 0.54
 debug_image_clear = 0.005
 
 [node name="ShadowProbe" type="Sprite2D" parent="." unique_id=1465923522]
 top_level = true
+z_index = 1024
 scale = Vector2(0.99999994, 0.99999994)
 texture = SubResource("GradientTexture2D_mx6et")
 script = ExtResource("2_ajmar")
@@ -33,6 +71,7 @@ lit_value = nan
 
 [node name="ShadowProbe2" type="Sprite2D" parent="." unique_id=1438009755]
 top_level = true
+z_index = 1024
 scale = Vector2(0.99999994, 0.99999994)
 texture = SubResource("GradientTexture2D_mx6et")
 script = ExtResource("2_ajmar")
@@ -40,6 +79,7 @@ lit_value = nan
 
 [node name="ShadowProbe3" type="Sprite2D" parent="." unique_id=1095487151]
 top_level = true
+z_index = 1024
 scale = Vector2(0.99999994, 0.99999994)
 texture = SubResource("GradientTexture2D_mx6et")
 script = ExtResource("2_ajmar")
@@ -47,6 +87,7 @@ lit_value = nan
 
 [node name="ShadowProbe4" type="Sprite2D" parent="." unique_id=1687954975]
 top_level = true
+z_index = 1024
 scale = Vector2(0.99999994, 0.99999994)
 texture = SubResource("GradientTexture2D_mx6et")
 script = ExtResource("2_ajmar")
@@ -54,6 +95,7 @@ lit_value = nan
 
 [node name="ShadowProbe5" type="Sprite2D" parent="." unique_id=123484342]
 top_level = true
+z_index = 1024
 scale = Vector2(0.99999994, 0.99999994)
 texture = SubResource("GradientTexture2D_mx6et")
 script = ExtResource("2_ajmar")
@@ -61,6 +103,7 @@ lit_value = nan
 
 [node name="ShadowProbe6" type="Sprite2D" parent="." unique_id=1897191302]
 top_level = true
+z_index = 1024
 scale = Vector2(0.99999994, 0.99999994)
 texture = SubResource("GradientTexture2D_mx6et")
 script = ExtResource("2_ajmar")
@@ -68,6 +111,7 @@ lit_value = nan
 
 [node name="ShadowProbe7" type="Sprite2D" parent="." unique_id=1729622268]
 top_level = true
+z_index = 1024
 scale = Vector2(0.99999994, 0.99999994)
 texture = SubResource("GradientTexture2D_mx6et")
 script = ExtResource("2_ajmar")
@@ -75,6 +119,7 @@ lit_value = nan
 
 [node name="ShadowProbe8" type="Sprite2D" parent="." unique_id=1649470297]
 top_level = true
+z_index = 1024
 scale = Vector2(0.99999994, 0.99999994)
 texture = SubResource("GradientTexture2D_mx6et")
 script = ExtResource("2_ajmar")
@@ -82,6 +127,7 @@ lit_value = nan
 
 [node name="ShadowProbe9" type="Sprite2D" parent="." unique_id=1409680951]
 top_level = true
+z_index = 1024
 scale = Vector2(0.99999994, 0.99999994)
 texture = SubResource("GradientTexture2D_mx6et")
 script = ExtResource("2_ajmar")
@@ -89,12 +135,14 @@ lit_value = nan
 
 [node name="ShadowProbe10" type="Sprite2D" parent="." unique_id=95868239]
 top_level = true
+z_index = 1024
 scale = Vector2(0.99999994, 0.99999994)
 texture = SubResource("GradientTexture2D_mx6et")
 script = ExtResource("2_ajmar")
 lit_value = nan
 
 [node name="CenterProbe" type="Sprite2D" parent="." unique_id=1392079960]
+z_index = 1024
 scale = Vector2(0.99999994, 0.99999994)
 texture = SubResource("GradientTexture2D_mx6et")
 script = ExtResource("2_ajmar")
@@ -120,6 +168,26 @@ material = SubResource("CanvasItemMaterial_sf7u1")
 position = Vector2(512, 0)
 scale = Vector2(-0.595, -0.595)
 
-[node name="DebugLabel" type="Label" parent="." unique_id=1459679890]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="skin" type="ColorRect" parent="." unique_id=1071322173]
+material = SubResource("ShaderMaterial_5m8j7")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_5vmcy")
+phase_speed = 0.472
+phase_noise_offset_change_edge_threshold = 0.205
+phase_angle_rotation_speed_inverse = 2.82
+
+[node name="DarkBoi" type="Sprite2D" parent="skin" unique_id=843229311]
+visible = false
+position = Vector2(64, 64)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("4_nh4xe")

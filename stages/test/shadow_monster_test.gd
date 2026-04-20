@@ -11,10 +11,11 @@ static func tdoty(mat, vec):
 static func xform(mat, vec) -> Vector2:
 	return Vector2(tdotx(mat, vec), tdoty(mat, vec)) + mat.get_origin()
 
-const shadow_blob_template: PackedScene = preload("res://common/shadow_blob.tscn")
+const shadow_blob_template: PackedScene = preload("res://stages/test/shadow_blob.tscn")
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		var global_mouse_pos = xform(get_viewport().get_canvas_transform().affine_inverse(), get_viewport().get_mouse_position())
 		var blob: ShadowBlob = shadow_blob_template.instantiate()
+		#blob.debug_image = true
 		blob.global_position = global_mouse_pos
 		add_child(blob)

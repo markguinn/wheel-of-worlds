@@ -6,6 +6,7 @@ extends Node2D
 @export var probe_radius_px: float = 100.
 @export var loops_to_wait_for_probes: int = 5
 @export var line: Line2D
+@export_range(0., 1.) var hover_speed: float = 0.3
 
 ## Measurements for light at position: {"pos": Vector2, "light": float}
 var light_measurements: Array[Dictionary] = []
@@ -35,12 +36,11 @@ func _ready() -> void:
 		light_measurements.push_back({"pos": test_probes[i].global_position, "light": test_probes[i].lit_value})
 	if debug_image: _init_debug_image()
 
-@export var can_be_in_light_for_sec: float = 1.
+@export var can_be_in_light_for_sec: float = 0.3
 @export var shadow_value_threshold: float = -0.4
 var loop_count_in_probe_state: int = 0
 var in_light_since: float = 0.
 func _process(delta: float) -> void:
-	if has_node("DebugLabel"):$DebugLabel.set_text(str($CenterProbe.lit_value))
 	if loop_count_in_probe_state < loops_to_wait_for_probes:
 		loop_count_in_probe_state += 1
 		return
@@ -81,14 +81,14 @@ func _process(delta: float) -> void:
 
 	if shadow_value_threshold < $CenterProbe.lit_value:
 		in_light_since += delta
+		modulate.a = 1. - in_light_since / can_be_in_light_for_sec
+		$skin.color.a = modulate.a
 		if in_light_since >= can_be_in_light_for_sec: queue_free()
 	else: in_light_since = 0.
 
 	center_position /= float(point_probes.size())
-	global_position = center_position
+	global_position = lerp(global_position, center_position, hover_speed)
 	if debug_image: _update_debug_image()  # repaint after every compare cycle
-	
-	
 
 #region debug image
 @export var debug_image: bool = false
