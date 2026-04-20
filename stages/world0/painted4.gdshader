@@ -12,7 +12,9 @@ uniform vec4 base_color : source_color;
 // these are the layers of the fill texture. we need to be careful with the number and size
 // of this because the GPU has limited space for uniform inputs. so the textures need to be
 // small. if you overrun this you'll start getting all white or nothing rendered at all.
-uniform sampler2D patterns[2] : source_color;
+uniform sampler2D patterns[3] : source_color;
+// Noise functions to distort pattern layers
+uniform sampler2D pattern_distortions[3];
 // offset per layer. this just lets us adjust a little bit to minimize obvious tiling points
 uniform float offsets[8];
 // scale each layer individually (again, to minimize repitition
@@ -34,6 +36,10 @@ uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_n
 
 uniform sampler2D[2] edges : source_color;
 
+// A value in world space coordinate for smoothing edge texture
+uniform float edge_smoothness: hint_range(0.0, 10.0) = 0.01;
+
+
 struct EdgeTexture {
 	int idx;
 	vec2 dir;
@@ -50,9 +56,13 @@ void vertex() {
 	world_pos = VERTEX;
 }
 
+const float PI_DOUBLE = PI * 2.;
+uniform float distortion_strength: hint_range(0.0, 0.25) = 1.;
+uniform float distortion_size: hint_range(0.0, 100.0) = 4.;
+
 // given a point that matched the target color, find the point in the
 // given texture that corresponds to world_pos, and return it. 
-vec4 get_sample(sampler2D tex, float offset, float layer_scale) {
+vec4 get_sample(sampler2D tex, sampler2D distortion_offset, float offset, float layer_scale) {
 	float scale = layer_scale * overall_scale;
 	float size = pattern_size;
 	float margin_px = margin;
@@ -65,9 +75,13 @@ vec4 get_sample(sampler2D tex, float offset, float layer_scale) {
 	// against that inner width, then bump back out to the middle of the texture and 
 	// convert to uv
 	float inner_size = size - margin_px * 2.0;
-	vec2 tex_uv = vec2(
-		(mod((world_pos.x + offset) / scale, inner_size) + margin_px) / size,
-		(mod((world_pos.y + offset) / scale, inner_size) + margin_px) / size
+	float distortion_angle = texture(distortion_offset, mod(world_pos, pattern_size * distortion_size ) / (pattern_size * distortion_size)).r * PI_DOUBLE;
+	vec2 tex_uv = clamp(
+		vec2(
+			(mod((world_pos.x + offset) / scale, inner_size) + margin_px) / size,
+			(mod((world_pos.y + offset) / scale, inner_size) + margin_px) / size
+		) + vec2(cos(distortion_angle), sin(distortion_angle)) * distortion_strength,
+		0.1, 0.9
 	);
 	// first we load up the primary point within the texture
 	vec4 c = textureLod(tex, tex_uv, 0.0);
@@ -88,8 +102,8 @@ vec4 get_sample(sampler2D tex, float offset, float layer_scale) {
 }
 
 // mix a new layer on top of the existing color
-vec4 add_layer(vec4 c, sampler2D tex, float offset, float scale, float opacity) {
-	vec4 c2 = get_sample(tex, offset, scale);
+vec4 add_layer(vec4 c, sampler2D tex, sampler2D distortion, float offset, float scale, float opacity) {
+	vec4 c2 = get_sample(tex, distortion, offset, scale);
 	return mix(c, vec4(c2.rgb, 1.0), c2.a * opacity);
 }
 
@@ -138,8 +152,6 @@ EdgeCalc add_edge(vec2 screen_uv, sampler2D edge_tex, vec2 dir) {
 	
 	return output;
 }
-
-uniform float edge_smoothness: hint_range(0.0, 10.0) = 0.01;
 
 // if the given point is near the edge, add the edge texture on top of the fill texture
 vec4 add_edges(vec4 c, vec2 screen_uv) {
@@ -233,8 +245,9 @@ void fragment() {
 		COLOR = base_color;
 		// TODO: fix the other case. web export won't let us use for loops with images
 		//for (int i = 0; i < 2; i++) {
-		COLOR = add_layer(COLOR, patterns[0], offsets[0], scales[0], opacities[0]);
-		COLOR = add_layer(COLOR, patterns[1], offsets[1], scales[1], opacities[1]);
+		COLOR = add_layer(COLOR, patterns[0], pattern_distortions[0], offsets[0], scales[0], opacities[0]);
+		COLOR = add_layer(COLOR, patterns[1], pattern_distortions[1], offsets[1], scales[1], opacities[1]);
+		//COLOR = add_layer(COLOR, patterns[2], pattern_distortions[2], offsets[2], scales[2], opacities[2]);
 		//}
 		COLOR = add_edges(COLOR, SCREEN_UV);
 	}
