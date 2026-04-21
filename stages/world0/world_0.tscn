@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://djpsb4jyc0afj" path="res://stages/world0/art/mountains.png" id="2_nmsql"]
 [ext_resource type="PackedScene" uid="uid://b85khgplioksi" path="res://actors/player/player.tscn" id="2_tsxbn"]
 [ext_resource type="PackedScene" uid="uid://cq30ppa4eh5d3" path="res://props/orb/orb.tscn" id="3_31a7b"]
+[ext_resource type="Script" uid="uid://ch0wv8cuoudkc" path="res://stages/world0/mist.gd" id="3_eprsv"]
 [ext_resource type="Material" uid="uid://w6s6k7r66ghw" path="res://stages/world0/painted5.tres" id="3_gmxw7"]
 [ext_resource type="Script" uid="uid://b0waw70vdi075" path="res://stages/world0/shader_helper.gd" id="4_eprsv"]
 [ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="4_gcinv"]
@@ -32,7 +33,7 @@ fill_to = Vector2(0, 0)
 
 [sub_resource type="Gradient" id="Gradient_2layw"]
 offsets = PackedFloat32Array(0.17605634, 0.7793427)
-colors = PackedColorArray(0.163977, 0.1771501, 0.14420447, 0.5254902, 0.22246751, 0.24016911, 0.1976687, 0.6)
+colors = PackedColorArray(0.16470589, 0.1764706, 0.14509805, 0.79607844, 0.22246751, 0.24016911, 0.1976687, 0.6)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gmxw7"]
 noise_type = 3
@@ -42,6 +43,8 @@ fractal_octaves = 4
 fractal_lacunarity = 0.8
 fractal_gain = 0.7
 fractal_weighted_strength = 0.86
+domain_warp_enabled = true
+domain_warp_type = 1
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8bmoi"]
 noise = SubResource("FastNoiseLite_gmxw7")
@@ -49,20 +52,53 @@ color_ramp = SubResource("Gradient_2layw")
 seamless = true
 seamless_blend_skirt = 0.377
 
+[sub_resource type="Gradient" id="Gradient_8bmoi"]
+offsets = PackedFloat32Array(0.43983403, 0.78215766)
+colors = PackedColorArray(0.8117647, 0.83137256, 0.78431374, 0.1764706, 0.56078434, 0.5882353, 0.5176471, 0.3137255)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8bmoi"]
+noise_type = 3
+seed = 3
+frequency = 0.005
+fractal_octaves = 4
+fractal_lacunarity = 1.2
+fractal_gain = 0.3
+fractal_weighted_strength = 0.59
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_fractal_octaves = 2
+domain_warp_fractal_gain = 0.6
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eprsv"]
+noise = SubResource("FastNoiseLite_8bmoi")
+color_ramp = SubResource("Gradient_8bmoi")
+seamless = true
+seamless_blend_skirt = 0.377
+
 [sub_resource type="Gradient" id="Gradient_nmsql"]
-offsets = PackedFloat32Array(0.22535211, 0.9084507)
-colors = PackedColorArray(0.8127479, 0.8303803, 0.7848041, 0.34117648, 0.5600245, 0.58814365, 0.5185344, 0.62352943)
+offsets = PackedFloat32Array(0.38589212, 1)
+colors = PackedColorArray(0.8117647, 0.83137256, 0.78431374, 0, 0.56078434, 0.5882353, 0.5176471, 0.3137255)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_2layw"]
-noise_type = 3
-seed = 2
-frequency = 0.005
-fractal_octaves = 2
-fractal_lacunarity = 0.8
+noise_type = 4
+seed = 3
+frequency = 0.001
+fractal_type = 2
+fractal_octaves = 3
+fractal_lacunarity = 0.9
 fractal_gain = 0.7
-fractal_weighted_strength = 1.0
+fractal_weighted_strength = 0.39
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 25.0
+domain_warp_frequency = 0.03
+domain_warp_fractal_octaves = 2
+domain_warp_fractal_lacunarity = 5.6
+domain_warp_fractal_gain = 0.6
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gmxw7"]
+width = 1024
+height = 1024
 noise = SubResource("FastNoiseLite_2layw")
 color_ramp = SubResource("Gradient_nmsql")
 seamless = true
@@ -140,7 +176,21 @@ repeat_times = 6
 
 [node name="Mist" type="Sprite2D" parent="MiddleMist" unique_id=888440830]
 scale = Vector2(2, 2)
+texture = SubResource("NoiseTexture2D_eprsv")
+
+[node name="NearMist" type="Parallax2D" parent="." unique_id=1803075772]
+z_index = 50
+scale = Vector2(3, 3)
+scroll_scale = Vector2(1.1, 1.1)
+repeat_size = Vector2(1024, 1024)
+autoscroll = Vector2(5, -4)
+repeat_times = 6
+
+[node name="Mist" type="Sprite2D" parent="NearMist" unique_id=1957947685]
+z_index = 50
+z_as_relative = false
 texture = SubResource("NoiseTexture2D_gmxw7")
+script = ExtResource("3_eprsv")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=317622971]
 material = ExtResource("3_gmxw7")
