@@ -76,8 +76,8 @@ seamless = true
 seamless_blend_skirt = 0.377
 
 [sub_resource type="Gradient" id="Gradient_nmsql"]
-offsets = PackedFloat32Array(0.38589212, 1)
-colors = PackedColorArray(0.8117647, 0.83137256, 0.78431374, 0, 0.56078434, 0.5882353, 0.5176471, 0.3137255)
+offsets = PackedFloat32Array(0.68049794, 1)
+colors = PackedColorArray(0.8117647, 0.83137256, 0.78431374, 0, 0.56078434, 0.5882353, 0.5176471, 0.47843137)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_2layw"]
 noise_type = 4
@@ -149,7 +149,7 @@ region_rect = Rect2(177, 0, 4096, 2048)
 [node name="FarMist" type="Parallax2D" parent="." unique_id=180983151]
 scroll_scale = Vector2(0.3, 0.3)
 repeat_size = Vector2(1024, 1024)
-autoscroll = Vector2(30, 10)
+autoscroll = Vector2(30, 14)
 repeat_times = 6
 
 [node name="Mist" type="Sprite2D" parent="FarMist" unique_id=939087428]
@@ -171,7 +171,7 @@ region_rect = Rect2(177, 0, 4096, 2048)
 [node name="MiddleMist" type="Parallax2D" parent="." unique_id=584069698]
 scroll_scale = Vector2(0.5, 0.5)
 repeat_size = Vector2(1024, 1024)
-autoscroll = Vector2(-50, -10)
+autoscroll = Vector2(-20, -10)
 repeat_times = 6
 
 [node name="Mist" type="Sprite2D" parent="MiddleMist" unique_id=888440830]
@@ -180,10 +180,11 @@ texture = SubResource("NoiseTexture2D_eprsv")
 
 [node name="NearMist" type="Parallax2D" parent="." unique_id=1803075772]
 z_index = 50
+rotation = 0.045378562
 scale = Vector2(3, 3)
 scroll_scale = Vector2(1.1, 1.1)
 repeat_size = Vector2(1024, 1024)
-autoscroll = Vector2(5, -4)
+autoscroll = Vector2(6, -3)
 repeat_times = 6
 
 [node name="Mist" type="Sprite2D" parent="NearMist" unique_id=1957947685]

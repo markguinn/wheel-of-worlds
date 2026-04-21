@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@export var min_lacunity := 3.0
+@export var min_lacunity := 4.0
 @export var max_lacunity := 6.0
 @export var tick_delta := 0.001
 @export var ms_per_frame := 60
