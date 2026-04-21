@@ -180,16 +180,15 @@ texture = SubResource("NoiseTexture2D_eprsv")
 
 [node name="NearMist" type="Parallax2D" parent="." unique_id=1803075772]
 z_index = 50
-rotation = 0.045378562
-scale = Vector2(3, 3)
 scroll_scale = Vector2(1.1, 1.1)
-repeat_size = Vector2(1024, 1024)
+repeat_size = Vector2(4096, 2048)
 autoscroll = Vector2(6, -3)
-repeat_times = 6
+repeat_times = 10
 
 [node name="Mist" type="Sprite2D" parent="NearMist" unique_id=1957947685]
 z_index = 50
 z_as_relative = false
+scale = Vector2(4, 2)
 texture = SubResource("NoiseTexture2D_gmxw7")
 script = ExtResource("3_eprsv")
 
