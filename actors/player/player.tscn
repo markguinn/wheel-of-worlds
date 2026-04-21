@@ -1452,6 +1452,7 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Sprite" unique_id=1146146976]
 unique_name_in_owner = true
+visible = false
 modification_stack = SubResource("SkeletonModificationStack2D_ax26v")
 metadata/_edit_lock_ = true
 
@@ -1527,7 +1528,7 @@ remote_path = NodePath("../../../../../VFX/DizzyParticles")
 
 [node name="ArmR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1756135333]
 position = Vector2(-33, -31)
-rotation = 0.0873208
+rotation = 0.087320805
 rest = Transform2D(0.999362, -0.0357162, 0.0357162, 0.999362, -33, -31)
 metadata/_local_pose_override_enabled_ = true
 
@@ -1543,7 +1544,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ArmL" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1793998611]
 position = Vector2(28, -36)
-rotation = -0.16663721
+rotation = -0.16663723
 scale = Vector2(0.99999917, 0.99999917)
 rest = Transform2D(0.9953148, -0.09668779, 0.09668779, 0.9953148, 28, -36)
 metadata/_local_pose_override_enabled_ = true
@@ -1551,7 +1552,7 @@ metadata/_local_pose_override_enabled_ = true
 [node name="HandL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ArmL" unique_id=1933907137]
 position = Vector2(1.399125, 37.310078)
 rotation = 0.13705114
-scale = Vector2(0.99999905, 0.99999905)
+scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.998, 0.064, -0.064, 0.998, 4, 36)
 auto_calculate_length_and_angle = false
 length = 21.0
@@ -1568,12 +1569,12 @@ color = Color(0, 0, 0, 1)
 offset = Vector2(31.5, 53)
 antialiased = true
 skeleton = NodePath("../../Skeleton2D")
-polygon = PackedVector2Array(-35, -52, -30.5, -17, -29.5, -17, -34, -54)
+polygon = PackedVector2Array(-36, -52, -31, -17, -29, -17, -34, -54)
 bones = ["Hips", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0), "Hips/Torso", PackedFloat32Array(0, 0, 0, 0), "Hips/Torso/Head", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0.54, 0.54, 0.54, 0.54), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0)]
 
 [node name="HandL" type="Polygon2D" parent="Sprite/Parts" unique_id=328159552]
 position = Vector2(35, -19)
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.3, 0.2)
 offset = Vector2(-29, -26)
 antialiased = true
 texture = ExtResource("6_a744p")
@@ -1588,7 +1589,7 @@ color = Color(0, 0, 0, 1)
 offset = Vector2(25, 49)
 antialiased = true
 skeleton = NodePath("../../Skeleton2D")
-polygon = PackedVector2Array(-30, -50, -23, -17, -22, -17, -28, -50)
+polygon = PackedVector2Array(-30, -50, -25, -17, -22, -17, -27, -50)
 uv = PackedVector2Array(-30, -50, -23, -18, -22, -18, -28, -50)
 bones = ["Hips", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0.54, 0.54, 0.54, 0.54), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0), "Hips/Head", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0)]
 
@@ -1597,7 +1598,7 @@ color = Color(0, 0, 0, 1)
 offset = Vector2(25, 48)
 antialiased = true
 skeleton = NodePath("../../Skeleton2D")
-polygon = PackedVector2Array(-33, -22, -43.76766, 15.897978, -42.76766, 16.897978, -32, -21)
+polygon = PackedVector2Array(-35, -22, -43.768, 15.898, -42.068, 16.898, -32, -21)
 uv = PackedVector2Array(-33, -22, -43.76766, 15.897978, -42.76766, 16.897978, -32, -21)
 bones = ["Hips", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0.54, 0.54, 0.54, 0.54), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0), "Hips/Head", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0)]
 
@@ -1607,8 +1608,8 @@ color = Color(0, 0, 0, 1)
 offset = Vector2(26, 48)
 antialiased = true
 skeleton = NodePath("../../Skeleton2D")
-polygon = PackedVector2Array(-27, -50, -23.5, -19, -23, -18, -22.5, -19, -25, -51, -26, -52)
-uv = PackedVector2Array(-27, -50, -23.5, -19, -23, -18, -22.5, -19, -25, -51, -26, -52)
+polygon = PackedVector2Array(-28.5, -50, -24.5, -19, -23, -18, -22.5, -19, -25, -51, -26, -52)
+uv = PackedVector2Array(-26, -50, -23.5, -19, -23, -18, -22.5, -19, -25, -51, -26, -52)
 bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/Torso/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0, 0, 0)]
 
 [node name="ShinL" type="Polygon2D" parent="Sprite/Parts" unique_id=2046178348]
@@ -1617,7 +1618,7 @@ color = Color(0, 0, 0, 1)
 offset = Vector2(26, 47)
 antialiased = true
 skeleton = NodePath("../../Skeleton2D")
-polygon = PackedVector2Array(-26.5, -49, -27, -13, -26.5, -12.5, -26, -13, -25.5, -49, -26, -49.5)
+polygon = PackedVector2Array(-27.5, -49, -27.5, -13, -26.5, -12.5, -25.5, -13, -25.5, -49, -26, -49.5)
 uv = PackedVector2Array(-30, -50, -34, -15, -33, -15, -25, -49)
 bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/Torso/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0, 0, 0)]
 
@@ -1638,13 +1639,13 @@ color = Color(0, 0, 0, 1)
 offset = Vector2(27, 49)
 antialiased = true
 skeleton = NodePath("../../Skeleton2D")
-polygon = PackedVector2Array(-30.5, -50, -30.5, -18, -29.5, -18, -29, -49)
+polygon = PackedVector2Array(-31, -50, -31.3, -18, -29, -18, -29, -47)
 bones = ["Hips", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0), "Hips/Head", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0.54, 0.54, 0.54, 0.54), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0)]
 
 [node name="HandR" type="Polygon2D" parent="Sprite/Parts" unique_id=773485820]
 z_index = 1
 position = Vector2(-30, -18)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.4, 0.3)
 offset = Vector2(-38, -16.667)
 antialiased = true
 texture = ExtResource("6_a744p")
