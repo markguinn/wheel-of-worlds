@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cs57yefkh1f4s"]
 
-[ext_resource type="Script" uid="uid://dy8eeto3iw88" path="res://props/plank/plank.gd" id="1_8kivu"]
+[ext_resource type="Script" uid="uid://cbx6wlfmu87ux" path="res://props/stone/stone.gd" id="1_5pot1"]
 [ext_resource type="PackedScene" uid="uid://y7c5vk1033l6" path="res://common/vfx/dust_particles.tscn" id="2_5pot1"]
 [ext_resource type="PackedScene" uid="uid://bw7ujmd6681ln" path="res://common/activator.tscn" id="3_vhwrs"]
 [ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://common/grab_box.gd" id="4_kml0u"]
@@ -9,12 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pot1"]
 size = Vector2(60, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhwrs"]
-size = Vector2(10, 10)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_jou1n"]
-
-[node name="Lantern" type="RigidBody2D" unique_id=1965888217 groups=["persisted"]]
+[node name="Lantern" type="RigidBody2D" unique_id=1315439554 groups=["persisted"]]
 collision_layer = 4
 collision_mask = 31
 collision_priority = 10.0
@@ -22,21 +17,14 @@ mass = 0.1
 continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 1
-script = ExtResource("1_8kivu")
-debounce_impact_ms = 250
+script = ExtResource("1_5pot1")
+metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=561600905]
 z_index = 1
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_5pot1")
 debug_color = Color(0.78596556, 0.4325814, 0.027261449, 0.41960785)
-
-[node name="CollisionShapeHeld" type="CollisionShape2D" parent="." unique_id=1866512949]
-z_index = 1
-position = Vector2(100, 0)
-rotation = 1.5707964
-shape = SubResource("RectangleShape2D_vhwrs")
-debug_color = Color(0.52310497, 0.5726899, 0.09726577, 0.41960785)
 
 [node name="ImpactSFX" type="AudioStreamPlayer2D" parent="." unique_id=1966220360]
 position = Vector2(127, -1)
@@ -45,51 +33,15 @@ position = Vector2(127, -1)
 scale_amount_min = 10.0
 scale_amount_max = 20.0
 
-[node name="WallDetector" type="RayCast2D" parent="." unique_id=935210780]
-visible = false
-position = Vector2(250, 1)
-enabled = false
-target_position = Vector2(8, 0)
-
-[node name="FloorDetector" type="RayCast2D" parent="." unique_id=377001898]
-position = Vector2(250, 1)
-enabled = false
-target_position = Vector2(8, 0)
-
-[node name="Handle" type="StaticBody2D" parent="." unique_id=1003861790]
-position = Vector2(0, -30)
-collision_layer = 0
-collision_mask = 0
-
-[node name="PinJoint2D" type="PinJoint2D" parent="Handle" unique_id=1997464387]
-rotation = 1.5707964
-bias = 0.9
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Handle" unique_id=114015373]
-shape = SubResource("CircleShape2D_jou1n")
-disabled = true
-debug_color = Color(0.9137255, 0.14117648, 0.6313726, 1)
-
-[node name="Sprite" type="Node2D" parent="." unique_id=970484183]
-
-[node name="GrabBoxR" parent="Sprite" unique_id=1410287907 node_paths=PackedStringArray("target_node") groups=["bird_targets"] instance=ExtResource("3_vhwrs")]
-position = Vector2(100, 0)
-script = ExtResource("4_kml0u")
-target_node = NodePath("../..")
-manage_position = false
-hold_offset = Vector2(0, 0)
-hold_degrees = inf
-label_text = "Press X to pick up!"
-
-[node name="GrabBoxL" parent="Sprite" unique_id=140712427 node_paths=PackedStringArray("target_node") groups=["bird_targets"] instance=ExtResource("3_vhwrs")]
-position = Vector2(-100, 0)
-script = ExtResource("4_kml0u")
-target_node = NodePath("../..")
-manage_position = false
-hold_offset = Vector2(0, 0)
-hold_degrees = inf
-label_text = "Press X to pick up!"
-
-[node name="Sprite2D" type="Sprite2D" parent="Sprite" unique_id=1904787679]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1904787679]
+z_index = 1
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("5_5pot1")
+
+[node name="GrabBox" parent="." unique_id=140712427 node_paths=PackedStringArray("target_node") groups=["bird_targets"] instance=ExtResource("3_vhwrs")]
+script = ExtResource("4_kml0u")
+target_node = NodePath("")
+manage_position = true
+hold_offset = Vector2(0, 24)
+hold_degrees = 0.0
+label_text = "Press X to pick up!"

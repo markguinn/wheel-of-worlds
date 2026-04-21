@@ -2,38 +2,37 @@
 
 [ext_resource type="Shader" uid="uid://v32bc3ggrbtb" path="res://stages/world0/painted4.gdshader" id="1_r111g"]
 [ext_resource type="Texture2D" uid="uid://b5blfuqio1hiu" path="res://stages/world0/art/Level0_Tiles-1.png" id="2_7lid4"]
-[ext_resource type="Texture2D" uid="uid://dfoa7mgbo14sn" path="res://stages/world0/art/Level0_Tiles-2.png" id="3_1i240"]
 [ext_resource type="Texture2D" uid="uid://w2wwxqm76u4u" path="res://stages/world0/art/level0-edges_0002_Layer-2.png" id="4_r111g"]
 [ext_resource type="Texture2D" uid="uid://tbvumppwgfl4" path="res://stages/world0/art/level0-edges_0003_Layer-1.png" id="5_7lid4"]
+[ext_resource type="Texture2D" uid="uid://dadqpldoek2ct" path="res://stages/world0/art/Level0_Tiles-8.png" id="5_ef5sk"]
 [ext_resource type="Texture2D" uid="uid://b3wdc36ysewoa" path="res://stages/world0/art/Level0_Tiles-9.png" id="6_ecdue"]
+[ext_resource type="Texture2D" uid="uid://bao66wm4oa3v7" path="res://stages/world0/art/Level0_Tiles-4.png" id="7_ef5sk"]
 
-[sub_resource type="Gradient" id="Gradient_ecdue"]
+[sub_resource type="Gradient" id="Gradient_ef5sk"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ef5sk"]
-noise_type = 2
-frequency = 0.0091
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4djxb"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4djxb"]
-noise = SubResource("FastNoiseLite_ef5sk")
-color_ramp = SubResource("Gradient_ecdue")
-seamless = true
-seamless_blend_skirt = 0.621
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r111g"]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_4djxb")
+color_ramp = SubResource("Gradient_ef5sk")
 
 [resource]
 shader = ExtResource("1_r111g")
 shader_parameter/target = Color(0.99215686, 0.9882353, 0.9882353, 1)
 shader_parameter/base_color = Color(0.27058825, 0.30980393, 0.21960784, 1)
-shader_parameter/patterns = Array[Texture2D]([ExtResource("2_7lid4"), ExtResource("3_1i240"), ExtResource("6_ecdue")])
-shader_parameter/pattern_distortions = Array[Texture2D]([SubResource("NoiseTexture2D_4djxb"), SubResource("NoiseTexture2D_4djxb"), SubResource("NoiseTexture2D_4djxb")])
-shader_parameter/offsets = PackedFloat32Array(0, 100, 300, 500, 900, 1200, 1400, 600, 0, 0)
-shader_parameter/scales = PackedFloat32Array(1, 1.54, 4.7, 1.5, 1.2, 1.5, 2.5, 3.6)
-shader_parameter/opacities = PackedFloat32Array(1, 0.6, 0.6, 0.8, 1, 1, 0.3, 0.9)
+shader_parameter/patterns = Array[Texture2D]([ExtResource("2_7lid4"), ExtResource("5_ef5sk"), ExtResource("7_ef5sk"), ExtResource("6_ecdue")])
+shader_parameter/pattern_distortions = Array[Texture2D]([SubResource("NoiseTexture2D_r111g")])
+shader_parameter/offsets = PackedFloat32Array(0, 100, 250, 400)
+shader_parameter/scales = PackedFloat32Array(1.8, 3.84, 4, 3.9)
+shader_parameter/opacities = PackedFloat32Array(1, 0.4, 0.4, 0.5)
 shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
-shader_parameter/edge_size = Vector2(834, 85)
-shader_parameter/real_screen_size = Vector2(5554.706, 1626.0201)
+shader_parameter/edge_size = Vector2(834, 50)
+shader_parameter/real_screen_size = Vector2(4383.4067, 3004.5078)
 shader_parameter/edges = Array[Texture2D]([ExtResource("5_7lid4"), ExtResource("4_r111g")])
-shader_parameter/edge_smoothness = 2.438000115805
-shader_parameter/distortion_strength = 0.05200000247
+shader_parameter/edge_smoothness = 2.9050001379875
+shader_parameter/distortion_strength = 0.0050000002375
 shader_parameter/distortion_size = 7.606000361285
