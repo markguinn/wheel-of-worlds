@@ -28,11 +28,15 @@ layout_mode = 2
 
 [node name="ToughMode" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=481173209]
 layout_mode = 2
+focus_neighbor_right = NodePath("../FastMode")
 text = "Tough mode"
+flat = true
 
 [node name="FastMode" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=872686641]
 layout_mode = 2
+focus_neighbor_left = NodePath("../ToughMode")
 text = "Fast Mode"
+flat = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=193324177]
 layout_mode = 2
@@ -43,20 +47,33 @@ text = "Drop a "
 
 [node name="DropPlank" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1045201395]
 layout_mode = 2
+focus_neighbor_right = NodePath("../DropStone1")
 text = "Plank"
 
 [node name="DropStone1" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1780186343]
 layout_mode = 2
+focus_neighbor_left = NodePath("../DropPlank")
+focus_neighbor_right = NodePath("../DropStone2")
 text = "Stone 1
 "
 
 [node name="DropStone2" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=23056377]
 layout_mode = 2
+focus_neighbor_left = NodePath("../DropStone1")
+focus_neighbor_right = NodePath("../DropOrb")
 text = "Stone 2"
 
 [node name="DropOrb" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1609090595]
 layout_mode = 2
+focus_neighbor_left = NodePath("../DropStone2")
+focus_neighbor_right = NodePath("../DropLantern")
 text = "Orb"
+
+[node name="DropLantern" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=174969999]
+layout_mode = 2
+focus_neighbor_left = NodePath("../DropOrb")
+text = "Lantern
+"
 
 [connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ToughMode" to="." method="_on_tough_mode_toggled"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/FastMode" to="." method="_on_fast_mode_toggled"]
@@ -64,3 +81,4 @@ text = "Orb"
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/DropStone1" to="." method="_on_drop_stone_1_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/DropStone2" to="." method="_on_drop_stone_2_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/DropOrb" to="." method="_on_drop_orb_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/DropLantern" to="." method="_on_drop_lantern_pressed"]

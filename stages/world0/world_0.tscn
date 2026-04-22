@@ -304,10 +304,10 @@ position = Vector2(2571, -145)
 jump_y_max = 1790.0
 
 [node name="Tutorial - movement" type="Label" parent="." unique_id=664178008]
-offset_left = -195.0
-offset_top = 915.0
-offset_right = 193.0
-offset_bottom = 1009.0
+offset_left = -257.0
+offset_top = 841.0
+offset_right = 131.0
+offset_bottom = 935.0
 text = "Arrows or WASD to move
 SPACEBAR to jump"
 
@@ -319,31 +319,31 @@ offset_bottom = 930.0
 text = "Push me..."
 
 [node name="Tutorial - hint 1" type="Label" parent="." unique_id=1155930642]
-offset_left = 956.0
-offset_top = 215.0
-offset_right = 1150.0
-offset_bottom = 264.0
+offset_left = 1136.0
+offset_top = 342.0
+offset_right = 1455.0
+offset_bottom = 391.0
 text = "Hint: bring a friend..."
 
 [node name="Tutorial - jump" type="Label" parent="." unique_id=634532999]
-offset_left = 1550.0
-offset_top = 295.0
-offset_right = 1744.0
-offset_bottom = 344.0
+offset_left = 2626.0
+offset_top = 441.0
+offset_right = 2820.0
+offset_bottom = 490.0
 text = "Danger! "
 
 [node name="Tutorial - hint 2" type="Label" parent="." unique_id=1377871802]
-offset_left = 4852.0
-offset_top = 916.0
-offset_right = 5046.0
-offset_bottom = 965.0
+offset_left = 6523.0
+offset_top = 1241.0
+offset_right = 6717.0
+offset_bottom = 1290.0
 text = "Up here!"
 
 [node name="Tutorial - goal" type="Label" parent="." unique_id=60848654]
-offset_left = 5579.0
-offset_top = 496.0
-offset_right = 5773.0
-offset_bottom = 545.0
+offset_left = 7390.0
+offset_top = 738.0
+offset_right = 7584.0
+offset_bottom = 787.0
 text = "You made it!"
 
 [node name="Tree1" type="Sprite2D" parent="." unique_id=1193119921]

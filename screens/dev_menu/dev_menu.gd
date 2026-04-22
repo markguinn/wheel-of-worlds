@@ -63,3 +63,8 @@ func _on_drop_stone_2_pressed() -> void:
 func _on_drop_orb_pressed() -> void:
 	var prop: Node2D = load("res://props/orb/orb.tscn").instantiate()
 	_drop(prop)
+
+
+func _on_drop_lantern_pressed() -> void:
+	var prop: Node2D = load("res://props/lantern/lantern.tscn").instantiate()
+	_drop(prop)
