@@ -42,10 +42,12 @@ func _process(_delta: float) -> void:
 		if not activator.enabled:
 			Log.debug(self, 'enabling activator')
 		activator.enabled = true
+		Activator.update_active_candidate()
 	else:
 		if activator.enabled:
 			Log.debug(self, 'disabling activator')
 		activator.enabled = false
+		Activator.update_active_candidate()
 
 
 func _on_activated(_source: Activator) -> void:

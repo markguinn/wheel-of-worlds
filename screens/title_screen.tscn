@@ -217,6 +217,14 @@ script = ExtResource("2_gxoam")
 target_scene = "uid://c71noy568icli"
 is_primary = null
 
+[node name="PortalTest" type="Button" parent="HBoxContainer/Museums" unique_id=1325434459]
+layout_mode = 2
+text = "Portal Test
+"
+script = ExtResource("2_gxoam")
+target_scene = "uid://b080kave2n6fp"
+is_primary = null
+
 [node name="FishMovementTest" type="Button" parent="HBoxContainer/Museums" unique_id=75856200]
 layout_mode = 2
 text = "Fish Movement Test"
