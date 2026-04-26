@@ -1,7 +1,7 @@
 class_name MoveableRigidBody2D
 extends RigidBody2D
 
-signal impact(collision_point: Vector2, collision_velocity: Vector2, colliding_body: Node, body_part: PlayerRagdollBody)
+signal impact(collision_point: Vector2, collision_velocity: Vector2, colliding_body: Node, body_part: MoveableRigidBody2D)
 
 @export var debounce_impact_scope := ""
 @export var debounce_impact_ms := 1000

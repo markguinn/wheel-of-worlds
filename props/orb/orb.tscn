@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cq30ppa4eh5d3"]
 
 [ext_resource type="Script" uid="uid://ju74l0h2oc0a" path="res://props/orb/orb.gd" id="1_kl2ba"]
+[ext_resource type="Texture2D" uid="uid://dyfjydb0sbb64" path="res://actors/portal/art/irises.png" id="2_2fjae"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8ksbi"]
 friction = 0.59
@@ -10,11 +11,34 @@ bounce = 0.35
 radius = 60.0
 
 [sub_resource type="Gradient" id="Gradient_y7mx5"]
-offsets = PackedFloat32Array(0.12, 0.34336677, 0.53065777, 0.6532887, 0.6722408, 0.69)
-colors = PackedColorArray(1, 1, 1, 1, 0.9619132, 0.9619132, 0.9619132, 1, 0.8931719, 0.8931719, 0.8931719, 1, 0.7873515, 0.7873514, 0.7873514, 1, 0, 0, 0, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0.12, 0.34336677, 0.57, 0.64, 0.69, 0.71)
+colors = PackedColorArray(1, 1, 1, 1, 0.9428227, 0.9428227, 0.94282234, 1, 0.8931719, 0.8931719, 0.8931719, 1, 0.62763536, 0.62763536, 0.62763536, 1, 0, 0, 0, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8tufr"]
 gradient = SubResource("Gradient_y7mx5")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_2fjae"]
+offsets = PackedFloat32Array(0.69, 0.71)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e02gj"]
+gradient = SubResource("Gradient_2fjae")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_e02gj"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.54, 0.63, 0.67, 0.69, 0.71)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.23921569, 0, 0, 0, 0.6117647, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0nb2d"]
+gradient = SubResource("Gradient_e02gj")
 width = 128
 height = 128
 fill = 1
@@ -27,12 +51,15 @@ collision_priority = 10.0
 mass = 0.01
 physics_material_override = SubResource("PhysicsMaterial_8ksbi")
 continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_kl2ba")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2124204990]
 shape = SubResource("CircleShape2D_kl2ba")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1805394481]
+[node name="WhiteSphereOld" type="TextureRect" parent="." unique_id=1805394481]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -45,3 +72,19 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_8tufr")
+
+[node name="SquishContainer" type="Node2D" parent="." unique_id=1177252127]
+
+[node name="WhiteSphere" type="Sprite2D" parent="SquishContainer" unique_id=1567054001]
+clip_children = 2
+texture = SubResource("GradientTexture2D_e02gj")
+
+[node name="Iris" type="Sprite2D" parent="SquishContainer/WhiteSphere" unique_id=2116573146]
+position = Vector2(-2, -1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_2fjae")
+region_enabled = true
+region_rect = Rect2(1011, 1684, 260, 253)
+
+[node name="EdgeShading" type="Sprite2D" parent="SquishContainer/WhiteSphere" unique_id=509281602]
+texture = SubResource("GradientTexture2D_0nb2d")
