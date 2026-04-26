@@ -16,10 +16,16 @@ var orb_entered_at := 0
 
 @onready var activator: Activator = $Activator
 @onready var orb_detector: Area2D = $OrbDetector
+@onready var anim_tree: AnimationTree = $AnimationTree
+@onready var sparkles: Node2D = $Sprites/Sparkles
 
 
 func _ready() -> void:
+	anim_tree.active = true
+	sparkles.hide()
 	activator.activated.connect(_on_activated)
+	activator.become_candidate.connect(_become_active_candidate)
+	activator.resign_candidate.connect(_resign_active_candidate)
 	activator.enabled = false
 	orb_detector.body_entered.connect(_on_body_entered)
 	orb_detector.body_exited.connect(_on_body_exited)
@@ -37,17 +43,33 @@ func _on_body_exited(_body: Node2D) -> void:
 	orb_entered_at = 0
 
 
+func _become_active_candidate(_prev: Activator) -> void:
+	pass
+	#sparkles.show()
+
+
+func _resign_active_candidate(_next: Activator) -> void:
+	pass
+	#sparkles.hide()
+
+
 func _process(_delta: float) -> void:
-	if orb_entered_at > 0 and GameManager.now_ms() > orb_entered_at + ORB_WAIT_MS:
+	if not is_active:
+		orb_detector.gravity_space_override = Area2D.SPACE_OVERRIDE_DISABLED
+		return
+
+	if is_active and orb_entered_at > 0 and GameManager.now_ms() > orb_entered_at + ORB_WAIT_MS:
 		if not activator.enabled:
 			Log.debug(self, 'enabling activator')
-		activator.enabled = true
-		Activator.update_active_candidate()
+			activator.enabled = true
+			sparkles.show()
+			Activator.update_active_candidate()
 	else:
 		if activator.enabled:
 			Log.debug(self, 'disabling activator')
-		activator.enabled = false
-		Activator.update_active_candidate()
+			activator.enabled = false
+			sparkles.hide()
+			Activator.update_active_candidate()
 
 
 func _on_activated(_source: Activator) -> void:
