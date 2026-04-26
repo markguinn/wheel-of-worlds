@@ -11,7 +11,7 @@ const SPEED_SNAP = 20.0
 const POS_SNAP = 256.0
 const SKEW_STRENGTH = 1.0
 
-const IMPACT_STRETCH = 0.75
+const IMPACT_STRETCH = 0.25
 const IMPACT_MIN_VEL = 200.0
 const IMPACT_MAX_VEL = 1000.0
 
@@ -24,6 +24,7 @@ var iris_base_scale: Vector2
 @onready var iris: Sprite2D = $SquishContainer/WhiteSphere/Iris
 @onready var sprite: Sprite2D = $SquishContainer/WhiteSphere
 @onready var squisher: Node2D = $SquishContainer
+
 
 func _ready() -> void:
 	super._ready()
@@ -81,11 +82,14 @@ func _process(delta: float) -> void:
 	sprite.rotation = rotation
 
 
+# TODO: this still looks kind of janky. I think we'll do better if we can base it on
+# the actual acceleration (i.e. quick slowdown squishes and maybe quick speedup stretches)
 func _on_impact(_collision_point: Vector2, vel: Vector2, _colliding_body: Node, _part: MoveableRigidBody2D) -> void:
-	var impact_amt := lerpf(1.0, IMPACT_STRETCH, clampf(inverse_lerp(IMPACT_MIN_VEL, IMPACT_MAX_VEL, vel.length()), 0.0, 1.0))
+	var impact_amt := IMPACT_STRETCH * clampf(inverse_lerp(IMPACT_MIN_VEL, IMPACT_MAX_VEL, vel.length()), 0.0, 1.0)
 	if vel.length() > IMPACT_MIN_VEL:
 		if absf(vel.y) > absf(vel.x):
-			# TODO: the x needs to scale up a little bit too
-			squisher.scale.y = impact_amt
+			squisher.scale.y = 1.0 - impact_amt
+			squisher.scale.x = 1.0 + impact_amt * 0.5
 		else:
-			squisher.scale.x = impact_amt
+			squisher.scale.x = 1.0 - impact_amt
+			squisher.scale.y = 1.0 + impact_amt * 0.5
