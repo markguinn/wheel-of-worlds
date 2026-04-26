@@ -101,7 +101,7 @@ tile_map_data = PackedByteArray("AAABAAcAAAADAAAAAAACAAcAAAADAAAAAAADAAcAAAADAAA
 tile_set = ExtResource("5_eamve")
 
 [node name="Player" parent="." unique_id=42652117 instance=ExtResource("6_vt3f2")]
-position = Vector2(-35, 2119)
+position = Vector2(-40, 394)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Player" unique_id=331681684]
 occluder = SubResource("OccluderPolygon2D_cokg4")
@@ -109,7 +109,7 @@ occluder = SubResource("OccluderPolygon2D_cokg4")
 [node name="StandardCamera" parent="Player" unique_id=552340171 instance=ExtResource("5_pvy53")]
 
 [node name="Orb" parent="." unique_id=1391753086 instance=ExtResource("7_hek2x")]
-position = Vector2(-728, 2177)
+position = Vector2(90, 433)
 
 [node name="light" type="PointLight2D" parent="Orb" unique_id=1407864051]
 color = Color(1, 0.961, 0.61, 1)
@@ -117,7 +117,7 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_gcinv")
 
 [node name="Orb2" parent="." unique_id=1425831707 instance=ExtResource("7_hek2x")]
-position = Vector2(-2015, -816)
+position = Vector2(-1202, 460)
 
 [node name="Portal" parent="." unique_id=820677622 instance=ExtResource("8_et16p")]
 position = Vector2(5633, 364)
@@ -126,7 +126,7 @@ linked_stage = "uid://b32q0e34faaed"
 target_portal = "ww0"
 
 [node name="Plank" parent="." unique_id=691076463 instance=ExtResource("9_d4yso")]
-position = Vector2(-561, 2176)
+position = Vector2(-724, 712)
 
 [node name="Plank2" parent="." unique_id=1965888217 instance=ExtResource("9_d4yso")]
 position = Vector2(1185, 306)
