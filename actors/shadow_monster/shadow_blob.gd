@@ -38,20 +38,18 @@ func _ready() -> void:
 
 @export var shadow_value_threshold: float = -0.4
 @export var target: Node2D
-@export var target_warning_distance: float = 50.
-@export var target_attack_distance: float = 10.
-@export_range(0.1, 1.0) var attack_speed: float = 0.9
+@export var target_warning_distance: float = 800.
+@export var target_attack_distance: float = 400.
+@export_range(0.1, 5.0) var arm_speed: float = 0.9
 var loop_count_in_probe_state: int = 0
 func _process(_delta: float) -> void:
-	# Handle arm animation
-	var to_target: Vector2 = (target.global_position - global_position)
-	if target and to_target.length() < target_attack_distance:
-		#$Arm.arm_global_position = lerp($Arm.arm_global_position, target.global_position, attack_speed)
-		$Arm.arm_global_position = target.global_position
-	elif target and to_target.length() < target_warning_distance:
-		#$Arm.arm_global_position = lerp($Arm.arm_global_position, $Arm.arm_global_position + to_target.normalized() * target_attack_distance / 2., attack_speed)
-		$Arm.arm_global_position = $Arm.arm_global_position + to_target.normalized() * target_attack_distance / 2.
-	$debugRect.global_position = $Arm.arm_global_position
+	if target: # Handle arm animation
+		var to_target: Vector2 = (target.global_position - global_position)
+		if to_target.length() < target_attack_distance:
+			$Arm.arm_global_position = target.global_position
+		elif to_target.length() < target_warning_distance:
+			$Arm.arm_global_position = lerp($Arm.arm_global_position, lerp(global_position, target.global_position, 0.25), arm_speed)
+		else: $Arm.arm_global_position = global_position
 
 	# Handle light sensor based movement
 	if loop_count_in_probe_state < loops_to_wait_for_probes:
@@ -96,6 +94,15 @@ func _process(_delta: float) -> void:
 	global_position = lerp(global_position, center_position, hover_speed)
 	if debug_image: _update_debug_image()  # repaint after every compare cycle
 
+@export var impact_strength: float = 500.
+func _on_palm_body_entered(body: Node) -> void:
+	Log.debug(self, "contact with ", body.name)
+	if body is Player and body.state_machine.get_active() != "Ragdoll":
+		$Arm/Palm/HitSound.play()
+		VFX.shake(VFX.MID, VFX.QUAKE)
+		var linear_velocity: Vector2 = (body.global_position - $Arm/Palm.global_position).normalized() * impact_strength
+		body.velocity = linear_velocity * 2
+		body.state_machine.transition_by_name.call_deferred("Ragdoll")
 
 #region debug image
 @export var debug_image: bool = false

@@ -1,14 +1,20 @@
 [gd_scene format=3 uid="uid://bbq81ngylpi8h"]
 
-[ext_resource type="Script" uid="uid://bx63s05emcisp" path="res://stages/test/shadow_blob.gd" id="1_sf7u1"]
-[ext_resource type="Script" uid="uid://ndxq88baykfk" path="res://stages/test/shadow_probe.gd" id="2_ajmar"]
-[ext_resource type="Shader" uid="uid://ce1puydn2x8rp" path="res://stages/test/shadow_monster.gdshader" id="3_ajmar"]
-[ext_resource type="Script" uid="uid://cc00tb1m3epjv" path="res://stages/test/shadow_skin.gd" id="4_5vmcy"]
+[ext_resource type="Script" uid="uid://bx63s05emcisp" path="res://actors/shadow_monster/shadow_blob.gd" id="1_sf7u1"]
+[ext_resource type="Script" uid="uid://ndxq88baykfk" path="res://actors/shadow_monster/shadow_probe.gd" id="2_ajmar"]
+[ext_resource type="Shader" uid="uid://ce1puydn2x8rp" path="res://actors/shadow_monster/shadow_monster.gdshader" id="3_ajmar"]
+[ext_resource type="Script" uid="uid://cc00tb1m3epjv" path="res://actors/shadow_monster/shadow_skin.gd" id="4_5vmcy"]
 [ext_resource type="Texture2D" uid="uid://bts53sg7ym5vn" path="res://_temp_replace_me_please/dark_boi.png" id="4_nh4xe"]
-[ext_resource type="Script" uid="uid://k47xh1fgxbx0" path="res://stages/test/shadow_monster_arm.gd" id="6_0kgm3"]
+[ext_resource type="Script" uid="uid://k47xh1fgxbx0" path="res://actors/shadow_monster/shadow_monster_arm.gd" id="6_0kgm3"]
 [ext_resource type="Texture2D" uid="uid://bmof6pqpby63a" path="res://_source_assets/art/Shadow_arm_arm_only.png" id="6_2hcqo"]
 [ext_resource type="Texture2D" uid="uid://csq87sl63icol" path="res://_source_assets/art/Shadow arm.png" id="8_1yxxb"]
-[ext_resource type="Script" uid="uid://dtrmgwn5s43vp" path="res://stages/test/shadow_monster_hand.gd" id="8_r46ke"]
+[ext_resource type="Script" uid="uid://dtrmgwn5s43vp" path="res://actors/shadow_monster/shadow_monster_hand.gd" id="8_r46ke"]
+[ext_resource type="AudioStream" uid="uid://crlpw51lvkn0e" path="res://actors/shadow_monster/shadow_hit_-01.wav" id="9_ldjtf"]
+[ext_resource type="AudioStream" uid="uid://6xf5od4a16fn" path="res://actors/shadow_monster/shadow_hit_-02.wav" id="10_ybom7"]
+[ext_resource type="AudioStream" uid="uid://cpl3fbqljsdpl" path="res://actors/shadow_monster/shadow_hit_-03.wav" id="11_05m43"]
+[ext_resource type="AudioStream" uid="uid://dy42ilx0asptb" path="res://actors/shadow_monster/shadow_hit_-04.wav" id="12_hcp8r"]
+[ext_resource type="AudioStream" uid="uid://lgfwqf88krpf" path="res://actors/shadow_monster/shadow_hit_-05.wav" id="13_76ot6"]
+[ext_resource type="AudioStream" uid="uid://bvbhqloknqcga" path="res://actors/shadow_monster/shadow_hit_-06.wav" id="14_ldjtf"]
 
 [sub_resource type="Gradient" id="Gradient_sf7u1"]
 offsets = PackedFloat32Array(1)
@@ -57,6 +63,16 @@ shader_parameter/i_dont_even_know = 1.34000006365
 shader_parameter/noise_offset = Vector2(-0.060722757, 0.0794528)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1yxxb"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jlxop"]
+random_pitch = 1.0198333
+streams_count = 6
+stream_0/stream = ExtResource("9_ldjtf")
+stream_1/stream = ExtResource("10_ybom7")
+stream_2/stream = ExtResource("11_05m43")
+stream_3/stream = ExtResource("12_hcp8r")
+stream_4/stream = ExtResource("13_76ot6")
+stream_5/stream = ExtResource("14_ldjtf")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2hcqo"]
 radius = 2.0
@@ -221,7 +237,10 @@ texture_mode = 2
 
 [node name="Palm" type="RigidBody2D" parent="Arm" unique_id=901396295 node_paths=PackedStringArray("hand_attached_to")]
 position = Vector2(124, 0)
-collision_layer = 0
+collision_layer = 8
+collision_mask = 0
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("8_r46ke")
 hand_attached_to = NodePath("..")
 
@@ -258,6 +277,9 @@ motor_target_velocity = -3.1648057
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/Palm" unique_id=2136365448]
 rotation = 0.15707964
 shape = SubResource("CircleShape2D_1yxxb")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="Arm/Palm" unique_id=578546637]
+stream = SubResource("AudioStreamRandomizer_jlxop")
 
 [node name="TopFinger" type="RigidBody2D" parent="Arm" unique_id=1037081550]
 position = Vector2(147, -18)
@@ -311,8 +333,4 @@ texture = ExtResource("8_1yxxb")
 region_enabled = true
 region_rect = Rect2(98.62488, 606.93744, 514.3887, 314.15674)
 
-[node name="debugRect" type="ColorRect" parent="." unique_id=1855911018]
-z_index = 100
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(1, 0, 0, 1)
+[connection signal="body_entered" from="Arm/Palm" to="." method="_on_palm_body_entered"]

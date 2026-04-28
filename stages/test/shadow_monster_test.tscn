@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://obcnvoariac4"]
 
 [ext_resource type="Script" uid="uid://dd6w67arj1okg" path="res://stages/test/shadow_monster_test.gd" id="1_pvy53"]
-[ext_resource type="Script" uid="uid://ndxq88baykfk" path="res://stages/test/shadow_probe.gd" id="3_gfmxe"]
 [ext_resource type="Script" uid="uid://pqhkda8683a4" path="res://common/music_zone.gd" id="4_hg843"]
 [ext_resource type="TileSet" uid="uid://bql6g47of7osy" path="res://stages/world1/art/test_tiles.tres" id="5_eamve"]
 [ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="5_pvy53"]
@@ -46,16 +45,6 @@ size = Vector2(451, 1373)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xakyt"]
 size = Vector2(8214, 656)
-
-[sub_resource type="Gradient" id="Gradient_sf7u1"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.5, 0.5, 0.5, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_kfob1"]
-gradient = SubResource("Gradient_sf7u1")
-width = 1
-height = 1
-fill = 1
 
 [node name="ShadowMonsterTest" type="Node2D" unique_id=831090977]
 script = ExtResource("1_pvy53")
@@ -173,16 +162,3 @@ shape = SubResource("RectangleShape2D_xakyt")
 [node name="FishMonster" parent="FishTerritory" unique_id=599123084 instance=ExtResource("13_rqqa7")]
 position = Vector2(1192, -970)
 jump_y_max = 1790.0
-
-[node name="ShadowProbe" type="Sprite2D" parent="." unique_id=453747552]
-visible = false
-top_level = true
-position = Vector2(-1053.61, 363.775)
-scale = Vector2(0.99999994, 0.99999994)
-texture = SubResource("GradientTexture2D_kfob1")
-script = ExtResource("3_gfmxe")
-lit_value = nan
-
-[node name="DebugLabel" type="Label" parent="ShadowProbe" unique_id=330473097]
-offset_right = 40.0
-offset_bottom = 23.0
