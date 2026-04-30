@@ -309,7 +309,7 @@ tracks/5/path = NodePath("Sprites/EyeBackground:polygon")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.25, 1.1666666),
+"times": PackedFloat32Array(0.25, 1.3333334),
 "transitions": PackedFloat32Array(0.5, 5),
 "update": 0,
 "values": [PackedVector2Array(-119, 1, -38.888893, -56.000004, 17.111113, -49.000004, 56, -21, 85, 9, 64, 21, 24, 37, -13, 45, -45, 26), PackedVector2Array(-119, 1, -68.44445, 15.555557, -10.111112, 35.000004, 52, 24, 85, 9, 66.88889, 23.333336, 32.666668, 39.66667, -13, 45, -48.222225, 31.888891)]
@@ -321,7 +321,7 @@ tracks/6/path = NodePath("Sprites/EyeTop2:polygon")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.25, 1.1666666),
+"times": PackedFloat32Array(0.25, 1.3333334),
 "transitions": PackedFloat32Array(0.5, 4),
 "update": 0,
 "values": [PackedVector2Array(-188.8889, 5.555556, -172.22223, -16.666668, -70, -87.77778, -1.1111112, -91.111115, 44.444447, -75.55556, 154.44446, 13.333334, 152.22223, 32.222225, 117.77779, 31.111113, 60.000004, -32.222225, -16.666668, -66.66667, -98.88889, -34.444447, -166.66667, 20), PackedVector2Array(-188.8889, 5.555556, -172.22223, -16.666668, -77.77778, 22.222223, -16.666668, 42.222225, 72.22223, 23.333334, 154.44446, 13.333334, 152.22223, 32.222225, 117.77779, 31.111113, 73.333336, 53.333332, -18.88889, 71.111115, -101.111115, 44.444447, -166.66667, 20)]
@@ -333,7 +333,7 @@ tracks/7/path = NodePath("Sprites/YellowFlames:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(1.1666666, 2),
+"times": PackedFloat32Array(1.3333334, 2),
 "transitions": PackedFloat32Array(1, 5),
 "update": 0,
 "values": [Vector2(-10, -146.857), Vector2(-10, -112.85715)]
@@ -369,7 +369,7 @@ tracks/10/path = NodePath("Sprites:scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.25, 1.1666666),
+"times": PackedFloat32Array(0, 0.25, 1.3333334),
 "transitions": PackedFloat32Array(1, 1, 4),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(0.9, 0.9)]
@@ -381,7 +381,7 @@ tracks/11/path = NodePath(".")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0.25, 1.1666666),
+"times": PackedFloat32Array(0.25, 1.3333334),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -422,7 +422,7 @@ tracks/14/path = NodePath("OrbDetector:gravity")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 1.1666666),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 1,
 "values": [2000.0, 0.0]
@@ -434,7 +434,7 @@ tracks/15/path = NodePath("OrbDetector:gravity_point_center")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 1.1666666),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -60)]
@@ -1053,7 +1053,7 @@ frame_progress = 0.12609944
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Sprites/YellowFlames" unique_id=969163047]
 position = Vector2(12.857141, 12.857147)
 scale = Vector2(0.9999998, 0.9999998)
-amount = 12
+amount = 18
 texture = SubResource("GradientTexture2D_esg1e")
 randomness = 0.48
 lifetime_randomness = 0.39

@@ -89,4 +89,5 @@ func take_player_and_orb() -> void:
 
 
 func drop_orb() -> void:
-	VFX.hit(VFX.SHORT, VFX.QUAKE, VFX.Flash.DARK)
+	VFX.shake(VFX.MID, VFX.FREAK_OUT)
+	VFX.flash(VFX.SHORT, VFX.QUAKE, VFX.Flash.LIGHT)

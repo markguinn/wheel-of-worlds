@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b3vikmg8i8dr3" path="res://actors/player/player.gd" id="1_8afob"]
 [ext_resource type="AudioStream" uid="uid://dgwypw6n6lgja" path="res://actors/player/sfx/jump.tres" id="2_dqf5y"]
-[ext_resource type="AudioStream" uid="uid://qg5hsh1q7do1" path="res://actors/player/sfx/footsteps.tres" id="2_qrxv1"]
 [ext_resource type="Texture2D" uid="uid://d0xsp47hu4mpe" path="res://actors/player/art/bert-torso2.png" id="4_15y17"]
 [ext_resource type="Texture2D" uid="uid://c2np0625cal20" path="res://actors/player/art/bert-head.png" id="5_bop6h"]
 [ext_resource type="PhysicsMaterial" uid="uid://cnt2e34s48efd" path="res://actors/player/ragdoll_physics_material.tres" id="6_15y17"]
@@ -22,8 +21,6 @@
 [ext_resource type="Script" uid="uid://d0dmoudghrdys" path="res://actors/player/states/player_ragdoll.gd" id="12_ssdk0"]
 [ext_resource type="Script" uid="uid://bxy3hd0npr4vn" path="res://actors/player/player_sfx.gd" id="18_otn2r"]
 [ext_resource type="AudioStream" uid="uid://7sdkehy4wjof" path="res://_temp_replace_me_please/sfx-low-short.wav" id="21_ctwkf"]
-[ext_resource type="AudioStream" uid="uid://dvs04bomaqwne" path="res://_temp_replace_me_please/sfx-noise-short.wav" id="22_yeioo"]
-[ext_resource type="AudioStream" uid="uid://ds2wv0wraqr8b" path="res://_temp_replace_me_please/sfx-noise-mid.wav" id="23_qct7d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nsxbo"]
 radius = 28.0
@@ -1399,11 +1396,6 @@ height = 12.0
 radius = 32.0
 height = 68.0
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2vokq"]
-streams_count = 2
-stream_0/stream = ExtResource("22_yeioo")
-stream_1/stream = ExtResource("23_qct7d")
-
 [node name="Player" type="CharacterBody2D" unique_id=317056800 node_paths=PackedStringArray("holding_hand", "resting_point") groups=["player"]]
 z_index = 1
 collision_layer = 2
@@ -1528,7 +1520,7 @@ remote_path = NodePath("../../../../../VFX/DizzyParticles")
 
 [node name="ArmR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1756135333]
 position = Vector2(-33, -31)
-rotation = 0.087320805
+rotation = 0.08732081
 rest = Transform2D(0.999362, -0.0357162, 0.0357162, 0.999362, -33, -31)
 metadata/_local_pose_override_enabled_ = true
 
@@ -1544,15 +1536,15 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ArmL" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1793998611]
 position = Vector2(28, -36)
-rotation = -0.16663723
+rotation = -0.16663724
 scale = Vector2(0.99999917, 0.99999917)
 rest = Transform2D(0.9953148, -0.09668779, 0.09668779, 0.9953148, 28, -36)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="HandL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ArmL" unique_id=1933907137]
 position = Vector2(1.399125, 37.310078)
-rotation = 0.13705114
-scale = Vector2(0.999999, 0.999999)
+rotation = 0.13705115
+scale = Vector2(0.9999989, 0.9999989)
 rest = Transform2D(0.998, 0.064, -0.064, 0.998, 4, 36)
 auto_calculate_length_and_angle = false
 length = 21.0
@@ -1977,7 +1969,6 @@ script = ExtResource("18_otn2r")
 [node name="AudioListener2D" type="AudioListener2D" parent="SFX" unique_id=128494251]
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="SFX" unique_id=1342045896]
-stream = ExtResource("2_qrxv1")
 volume_db = -12.0
 bus = &"Atmosphere"
 
@@ -1994,7 +1985,6 @@ stream = ExtResource("21_ctwkf")
 bus = &"SFX"
 
 [node name="Ouch" type="AudioStreamPlayer2D" parent="SFX" unique_id=1678676952]
-stream = SubResource("AudioStreamRandomizer_2vokq")
 volume_db = -12.0
 pitch_scale = 0.57
 bus = &"SFX"

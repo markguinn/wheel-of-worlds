@@ -5,10 +5,11 @@ extends Node
 # Common utility methods are also welcome here.
 #################################################################
 
-const SHAKE_SPEED = 1.0
-const STRENGTH_MULTIPLIER = 16.0 # convert 1.0 strength to pixels
+const SHAKE_SPEED = 2.0
+const STRENGTH_MULTIPLIER = 24.0 # convert 1.0 strength to pixels
 
 # Intensity constants
+const FREAK_OUT = 1.5
 const QUAKE = 1.0
 const TREMOR = 0.5
 
