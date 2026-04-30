@@ -90,3 +90,11 @@ func info(source: Variant, ...args) -> void:
 func debug(source: Variant, ...args) -> void:
 	if GameManager.DEV_MODE:
 		_log(source, DEBUG, args)
+
+
+var debounced_log_ms := 500
+var debounced_log_level := DEBUG
+func debounced(source: Variant, ...args) -> void:
+	if GameManager.DEV_MODE and not GameManager.rate_limit(debounced_log_ms, str(source)):
+		_log(source, debounced_log_level, args)
+	

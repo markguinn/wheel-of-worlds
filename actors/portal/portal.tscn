@@ -201,6 +201,42 @@ tracks/13/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("OrbDetector:gravity")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("OrbDetector:gravity_space_override")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("OrbDetector:gravity_point_center")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_eb6dy"]
 resource_name = "activated"
@@ -273,7 +309,7 @@ tracks/5/path = NodePath("Sprites/EyeBackground:polygon")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.25, 2),
+"times": PackedFloat32Array(0.25, 1.1666666),
 "transitions": PackedFloat32Array(0.5, 5),
 "update": 0,
 "values": [PackedVector2Array(-119, 1, -38.888893, -56.000004, 17.111113, -49.000004, 56, -21, 85, 9, 64, 21, 24, 37, -13, 45, -45, 26), PackedVector2Array(-119, 1, -68.44445, 15.555557, -10.111112, 35.000004, 52, 24, 85, 9, 66.88889, 23.333336, 32.666668, 39.66667, -13, 45, -48.222225, 31.888891)]
@@ -285,7 +321,7 @@ tracks/6/path = NodePath("Sprites/EyeTop2:polygon")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.25, 2),
+"times": PackedFloat32Array(0.25, 1.1666666),
 "transitions": PackedFloat32Array(0.5, 4),
 "update": 0,
 "values": [PackedVector2Array(-188.8889, 5.555556, -172.22223, -16.666668, -70, -87.77778, -1.1111112, -91.111115, 44.444447, -75.55556, 154.44446, 13.333334, 152.22223, 32.222225, 117.77779, 31.111113, 60.000004, -32.222225, -16.666668, -66.66667, -98.88889, -34.444447, -166.66667, 20), PackedVector2Array(-188.8889, 5.555556, -172.22223, -16.666668, -77.77778, 22.222223, -16.666668, 42.222225, 72.22223, 23.333334, 154.44446, 13.333334, 152.22223, 32.222225, 117.77779, 31.111113, 73.333336, 53.333332, -18.88889, 71.111115, -101.111115, 44.444447, -166.66667, 20)]
@@ -297,7 +333,7 @@ tracks/7/path = NodePath("Sprites/YellowFlames:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(1.1666666, 2),
 "transitions": PackedFloat32Array(1, 5),
 "update": 0,
 "values": [Vector2(-10, -146.857), Vector2(-10, -112.85715)]
@@ -333,7 +369,7 @@ tracks/10/path = NodePath("Sprites:scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.25, 2),
+"times": PackedFloat32Array(0, 0.25, 1.1666666),
 "transitions": PackedFloat32Array(1, 1, 4),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(0.9, 0.9)]
@@ -345,11 +381,14 @@ tracks/11/path = NodePath(".")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0.25),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.25, 1.1666666),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"take_player_and_orb"
+}, {
+"args": [],
+"method": &"drop_orb"
 }]
 }
 tracks/12/type = "value"
@@ -375,6 +414,30 @@ tracks/13/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("OrbDetector:gravity")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 1,
+"values": [2000.0, 0.0]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("OrbDetector:gravity_point_center")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -60)]
 }
 
 [sub_resource type="Animation" id="Animation_fuw3p"]
@@ -556,6 +619,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.02, 1.02)]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("OrbDetector:gravity")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1500.0]
+}
 
 [sub_resource type="Animation" id="Animation_kgc7x"]
 resource_name = "opening"
@@ -691,6 +766,30 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(4, 1),
 "update": 0,
 "values": [Vector2(0.9, 0.9), Vector2(1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("OrbDetector:gravity")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 2000.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("OrbDetector:gravity_space_override")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8j420"]
@@ -853,11 +952,13 @@ shape = SubResource("CircleShape2D_eb6dy")
 [node name="OrbDetector" type="Area2D" parent="." unique_id=70133150]
 collision_layer = 0
 collision_mask = 16
-gravity_space_override = 3
+gravity_space_override = 1
 gravity_point = true
 gravity_point_center = Vector2(0, 0)
 gravity_direction = Vector2(0, 0)
-gravity = 500.0
+gravity = 0.0
+linear_damp_space_override = 1
+linear_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OrbDetector" unique_id=469327766]
 shape = SubResource("CircleShape2D_m1v58")
@@ -990,7 +1091,6 @@ flip_h = true
 
 [node name="BlackIris" type="Sprite2D" parent="Sprites" unique_id=706849294]
 visible = false
-position = Vector2(-7, 46)
 texture = ExtResource("4_kgc7x")
 offset = Vector2(0, -50)
 region_enabled = true

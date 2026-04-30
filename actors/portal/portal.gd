@@ -3,7 +3,8 @@ extends Node2D
 
 
 const ORB_WAIT_MS = 1000
-
+const FOLLOW_ORB_LEN = 256.0
+const EYE_MOVEMENT_RADIUS = 50.0
 
 @export var portal_name: String
 @export var is_active := true
@@ -14,6 +15,7 @@ var player_is_present := false
 var orb_is_present := false
 var orb_entered_at := 0
 var orbs: Array[Orb] = []
+var iris_start_pos: Vector2
 var anim_state_machine: AnimationNodeStateMachinePlayback
 
 @onready var activator: Activator = $Activator
@@ -21,6 +23,8 @@ var anim_state_machine: AnimationNodeStateMachinePlayback
 @onready var anim_tree: AnimationTree = $AnimationTree
 @onready var sparkles: Node2D = $Sprites/Sparkles
 @onready var eye_bg: Node2D = $Sprites/EyeBackground
+@onready var iris: Sprite2D = $Sprites/BlackIris
+
 
 func _ready() -> void:
 	anim_tree.active = true
@@ -29,6 +33,7 @@ func _ready() -> void:
 	activator.enabled = false
 	orb_detector.body_entered.connect(_on_body_entered)
 	orb_detector.body_exited.connect(_on_body_exited)
+	iris_start_pos = iris.position
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -61,7 +66,13 @@ func _process(_delta: float) -> void:
 			Log.debug(self, 'disabling activator')
 			activator.enabled = false
 			Activator.update_active_candidate()
-
+	
+	if orbs.size() > 0:
+		var orb_pos := to_local(orbs[0].global_position)
+		var orb_dir := orb_pos.normalized()
+		var orb_dist := clampf(orb_pos.length(), 0.0, FOLLOW_ORB_LEN)
+		var eye_dist := EYE_MOVEMENT_RADIUS * orb_dist / FOLLOW_ORB_LEN
+		iris.position = iris_start_pos - iris.offset + orb_dir * eye_dist
 
 func _on_activated(_source: Activator) -> void:
 	Log.info(self, 'portal activated', self.name)
@@ -74,5 +85,8 @@ func take_player_and_orb() -> void:
 	var p := GameManager.get_player()
 	p.reparent(eye_bg)
 	p.z_index = 0
-	#for o in orbs:
-		#o.reparent(eye_bg)
+	VFX.shake(VFX.SHORT, VFX.TREMOR)
+
+
+func drop_orb() -> void:
+	VFX.hit(VFX.SHORT, VFX.QUAKE, VFX.Flash.DARK)
