@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ca6l7rdg7ytm5"]
+
+[ext_resource type="PackedScene" uid="uid://cef70aw2g8uqh" path="res://props/debris/small_box.tscn" id="1_wm1qe"]
+
+[node name="pile-of-boxes" type="Node2D" unique_id=1432650709]
+
+[node name="small-box" parent="." unique_id=1304767674 instance=ExtResource("1_wm1qe")]
+position = Vector2(14, -15)
+
+[node name="small-box2" parent="." unique_id=2106266242 instance=ExtResource("1_wm1qe")]
+position = Vector2(13, -39)
+
+[node name="small-box3" parent="." unique_id=1924811303 instance=ExtResource("1_wm1qe")]
+position = Vector2(-13, -14)
+
+[node name="small-box4" parent="." unique_id=762518529 instance=ExtResource("1_wm1qe")]
+position = Vector2(-10, -38)
+
+[node name="small-box5" parent="." unique_id=2117119048 instance=ExtResource("1_wm1qe")]
+position = Vector2(-38, -23)
+
+[node name="small-box6" parent="." unique_id=556898035 instance=ExtResource("1_wm1qe")]
+position = Vector2(3, -64)
+
+[node name="small-box8" parent="." unique_id=1046814864 instance=ExtResource("1_wm1qe")]
+position = Vector2(6, -90)
+
+[node name="small-box9" parent="." unique_id=110480589 instance=ExtResource("1_wm1qe")]
+position = Vector2(11, -119)

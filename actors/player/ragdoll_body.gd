@@ -1,0 +1,12 @@
+class_name PlayerRagdollBody
+extends MoveableRigidBody2D
+
+
+@warning_ignore("unused_signal")
+signal entered_kill_zone
+
+
+func _ready() -> void:
+	if not debounce_impact_scope:
+		debounce_impact_scope = "player"
+	super._ready()

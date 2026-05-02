@@ -2,3 +2,4 @@
 
 [node name="StandardCamera" type="Camera2D" unique_id=552340171]
 position_smoothing_enabled = true
+drag_horizontal_enabled = true

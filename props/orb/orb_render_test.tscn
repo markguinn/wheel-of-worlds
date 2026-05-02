@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://50xk4h6eob5x"]
+
+[ext_resource type="PackedScene" uid="uid://cq30ppa4eh5d3" path="res://props/orb/orb.tscn" id="1_aib7v"]
+[ext_resource type="Script" uid="uid://bewpy8opi7gth" path="res://props/orb/orb_render_test.gd" id="1_yv547"]
+
+[node name="OrbRenderTest" type="Node2D" unique_id=771426023]
+script = ExtResource("1_yv547")
+
+[node name="HSlider" type="HSlider" parent="." unique_id=1913725508]
+offset_left = -67.0
+offset_top = 90.0
+offset_right = 83.0
+offset_bottom = 122.0
+min_value = -100.0
+
+[node name="HSlider2" type="HSlider" parent="." unique_id=927098517]
+offset_left = -68.0
+offset_top = 140.0
+offset_right = 82.0
+offset_bottom = 172.0
+max_value = 360.0
+
+[node name="VSlider" type="VSlider" parent="." unique_id=1729855094]
+offset_left = 108.0
+offset_top = -58.0
+offset_right = 124.0
+offset_bottom = 70.0
+min_value = -100.0
+
+[node name="Orb" parent="." unique_id=1425831707 instance=ExtResource("1_aib7v")]
+freeze = true
+
+[node name="Camera2D" type="Camera2D" parent="Orb" unique_id=1374444073]
+zoom = Vector2(3, 3)

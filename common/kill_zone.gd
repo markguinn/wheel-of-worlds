@@ -15,5 +15,5 @@ func _ready() -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.has_method("reset_after_fall"):
 		body.reset_after_fall.call_deferred()
-	else:
-		body.queue_free()
+	if body.get_script() and body.get_script().has_script_signal("entered_kill_zone"):
+		body.emit_signal("entered_kill_zone")

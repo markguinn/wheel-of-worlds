@@ -28,7 +28,7 @@ music_type = "wheel"
 scroll_scale = Vector2(0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=1481990103]
-custom_minimum_size = Vector2(512, 256)
+custom_minimum_size = Vector2(1920, 1080)
 offset_left = -1179.0
 offset_top = -625.0
 offset_right = -22.0
@@ -79,4 +79,3 @@ position = Vector2(-81, 603)
 
 [node name="Orb" parent="." unique_id=1425831707 groups=["free_movers"] instance=ExtResource("3_qmu1q")]
 position = Vector2(101, 608)
-mass = 0.01

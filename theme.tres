@@ -1,6 +1,64 @@
 [gd_resource type="Theme" format=3 uid="uid://oh3aeoiln57v"]
 
+[ext_resource type="Texture2D" uid="uid://cr5rhgt1cjruk" path="res://_source_assets/art/tick_bar.png" id="1_e1x85"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvktn"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.105882354, 0.105882354, 0.105882354, 0.9098039)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1x85"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.105882354, 0.105882354, 0.105882354, 0.5529412)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjfk0"]
+bg_color = Color(0.6, 0.79607844, 0.49019608, 0.85490197)
+border_width_left = 4
+border_width_top = 4
+border_width_bottom = 1
+border_color = Color(0.21568628, 0.99607843, 0.8, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vj6dk"]
+bg_color = Color(0.23319998, 0.53, 0.23814665, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_bottom = 1
+border_color = Color(0.65882355, 0.70980394, 0.09803922, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_110ce"]
+texture = ExtResource("1_e1x85")
+texture_margin_top = 16.0
+texture_margin_bottom = 16.0
+
 [resource]
+Button/constants/h_separation = 20
+Button/font_sizes/font_size = 30
+Button/styles/focus = SubResource("StyleBoxFlat_wvktn")
+Button/styles/normal = SubResource("StyleBoxFlat_e1x85")
+HBoxContainer/constants/separation = 20
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_cjfk0")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_vj6dk")
+HSlider/styles/slider = SubResource("StyleBoxTexture_110ce")
+HeaderLarge/font_sizes/font_size = 60
+HeaderSmall/font_sizes/font_size = 25
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/colors/font_outline_color = Color(0.57700837, 0.5770084, 0.57700837, 1)
+Label/constants/line_spacing = 4
 Label/constants/outline_size = 2
+Label/font_sizes/font_size = 32
+MarginContainer/constants/margin_bottom = 32
+MarginContainer/constants/margin_left = 32
+MarginContainer/constants/margin_right = 32
+MarginContainer/constants/margin_top = 32
+VBoxContainer/constants/separation = 10

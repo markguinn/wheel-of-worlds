@@ -103,48 +103,7 @@ offset_bottom = 23.0
 grow_horizontal = 2
 theme_type_variation = &"HeaderLarge"
 text = "Bert and the Wheel of Worlds"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1226117384]
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.7
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-
-[node name="Level0Button" type="Button" parent="VBoxContainer" unique_id=595956985]
-layout_mode = 2
-text = "Tutorial Level"
-script = ExtResource("2_gxoam")
-target_scene = "uid://obcnvoariac3"
-is_primary = true
-
-[node name="Level1Button" type="Button" parent="VBoxContainer" unique_id=404563212]
-layout_mode = 2
-text = "Level 1"
-script = ExtResource("2_gxoam")
-target_scene = "uid://nujivjavdosd"
-is_primary = null
-
-[node name="WheelButton" type="Button" parent="VBoxContainer" unique_id=500953345]
-layout_mode = 2
-text = "The Wheel"
-script = ExtResource("2_gxoam")
-target_scene = "uid://b32q0e34faaed"
-is_primary = null
-
-[node name="ShadowMonsterTest" type="Button" parent="VBoxContainer" unique_id=464317488]
-layout_mode = 2
-text = "Shadow Monster Test"
-script = ExtResource("2_gxoam")
-target_scene = "uid://obcnvoariac4"
-is_primary = null
+horizontal_alignment = 1
 
 [node name="VersionLabel" type="Label" parent="." unique_id=2059173511]
 anchors_preset = 7
@@ -161,3 +120,114 @@ grow_vertical = 0
 text = "dev build"
 script = ExtResource("2_81buc")
 file_path = "res://version.txt"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=634282532]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.5
+offset_top = -64.0
+offset_right = 240.5
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Arenas" type="VBoxContainer" parent="HBoxContainer" unique_id=1723145764]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/Arenas" unique_id=1451895255]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Test Arenas"
+horizontal_alignment = 1
+
+[node name="ShadowMonsterTest" type="Button" parent="HBoxContainer/Arenas" unique_id=1610772892]
+layout_mode = 2
+text = "Shadow Monster Test"
+script = ExtResource("2_gxoam")
+target_scene = "uid://obcnvoariac4"
+is_primary = null
+
+[node name="FishArena" type="Button" parent="HBoxContainer/Arenas" unique_id=976171538]
+layout_mode = 2
+text = "Fish Test Arena"
+script = ExtResource("2_gxoam")
+target_scene = "uid://kp1emqrppuje"
+is_primary = null
+
+[node name="BirdArena" type="Button" parent="HBoxContainer/Arenas" unique_id=1172115935]
+layout_mode = 2
+text = "Bird Test Arena"
+script = ExtResource("2_gxoam")
+target_scene = "uid://bx5liwka2cee0"
+is_primary = null
+
+[node name="PrototypeWorlds" type="VBoxContainer" parent="HBoxContainer" unique_id=1226117384]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/PrototypeWorlds" unique_id=2144878820]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Prototype Worlds"
+horizontal_alignment = 1
+
+[node name="Level0Button" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=595956985]
+layout_mode = 2
+text = "Tutorial Level"
+script = ExtResource("2_gxoam")
+target_scene = "uid://obcnvoariac3"
+is_primary = true
+
+[node name="Level1Button" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=404563212]
+layout_mode = 2
+text = "Level 1"
+script = ExtResource("2_gxoam")
+target_scene = "uid://nujivjavdosd"
+is_primary = null
+
+[node name="WheelButton" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=500953345]
+layout_mode = 2
+text = "The Wheel"
+script = ExtResource("2_gxoam")
+target_scene = "uid://b32q0e34faaed"
+is_primary = null
+
+[node name="Museums" type="VBoxContainer" parent="HBoxContainer" unique_id=1287239522]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/Museums" unique_id=1990653838]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Museums etc."
+horizontal_alignment = 1
+
+[node name="PropMuseum" type="Button" parent="HBoxContainer/Museums" unique_id=1773347547]
+layout_mode = 2
+text = "Prop Museum"
+script = ExtResource("2_gxoam")
+target_scene = "uid://c71noy568icli"
+is_primary = null
+
+[node name="PortalTest" type="Button" parent="HBoxContainer/Museums" unique_id=1325434459]
+layout_mode = 2
+text = "Portal Test
+"
+script = ExtResource("2_gxoam")
+target_scene = "uid://b080kave2n6fp"
+is_primary = null
+
+[node name="FishMovementTest" type="Button" parent="HBoxContainer/Museums" unique_id=75856200]
+layout_mode = 2
+text = "Fish Movement Test"
+script = ExtResource("2_gxoam")
+target_scene = "uid://bdj8pam5dyb26"
+is_primary = null

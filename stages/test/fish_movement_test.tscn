@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bdj8pam5dyb26"]
+
+[ext_resource type="PackedScene" uid="uid://n0yb8g02gr8b" path="res://actors/fish_monster/fish_monster.tscn" id="1_ov75k"]
+[ext_resource type="Script" uid="uid://kigbu67to7uk" path="res://stages/test/fish_movement_test_state.gd" id="2_8fmrw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fmrw"]
+size = Vector2(3011, 1745)
+
+[sub_resource type="Gradient" id="Gradient_8fmrw"]
+colors = PackedColorArray(0.60856986, 0.48314577, 0.415, 1, 0.62946534, 0.8187881, 0.9635344, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_en0vi"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qxw10"]
+noise = SubResource("FastNoiseLite_en0vi")
+color_ramp = SubResource("Gradient_8fmrw")
+
+[node name="FishMovementTest" type="Node2D" unique_id=1619882050]
+
+[node name="FishMonster" parent="." unique_id=1857891672 node_paths=PackedStringArray("territory") instance=ExtResource("1_ov75k")]
+position = Vector2(1101, 599)
+territory = NodePath("../Area2D")
+
+[node name="StateMachine" parent="FishMonster" index="0" unique_id=336115411 node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("ControlWithKeyboard")
+
+[node name="ControlWithKeyboard" type="Node" parent="FishMonster/StateMachine" index="2" unique_id=1389888252]
+script = ExtResource("2_8fmrw")
+metadata/_custom_type_script = "uid://dljix40x8qlm1"
+
+[node name="Bone2D" parent="FishMonster/SpriteContainer/Skeleton2D" parent_id_path=PackedInt32Array(1857891672, 2112981615) index="0" unique_id=564159811]
+position = Vector2(-136.99994, -16)
+rotation = 0.22840849
+scale = Vector2(0.9999994, 0.9999994)
+
+[node name="Camera2D" type="Camera2D" parent="FishMonster" unique_id=1123040775]
+position = Vector2(1, 0)
+zoom = Vector2(0.4, 0.4)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=784051618]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1196668518]
+position = Vector2(1423, 787)
+shape = SubResource("RectangleShape2D_8fmrw")
+
+[node name="MockPlayer" type="Marker2D" parent="." unique_id=343078089 groups=["player"]]
+position = Vector2(1101, 599)
+
+[node name="ColorRect" type="TextureRect" parent="." unique_id=226032411]
+offset_left = -60.0
+offset_top = -76.0
+offset_right = 2934.0
+offset_bottom = 1662.0
+texture = SubResource("NoiseTexture2D_qxw10")
+
+[editable path="FishMonster"]

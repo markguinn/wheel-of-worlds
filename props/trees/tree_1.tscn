@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dddhops2w46wl"]
+
+[ext_resource type="Material" uid="uid://t6s3wyv0jdh6" path="res://props/trees/tree-movement-material.tres" id="1_6b8m7"]
+[ext_resource type="Texture2D" uid="uid://pui7upyox7vw" path="res://stages/world0/art/trees.png" id="1_rwhx2"]
+
+[node name="Tree1" type="Sprite2D" unique_id=1514080959]
+material = ExtResource("1_6b8m7")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_rwhx2")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)

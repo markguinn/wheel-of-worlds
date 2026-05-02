@@ -13,7 +13,7 @@ signal state_changed(from_state: StateNode, to_state: StateNode)
 
 var states: Array[StateNode] = []
 var active_state: StateNode
-
+var next_state: StateNode
 
 func _ready() -> void:
 	if not target:
@@ -29,7 +29,7 @@ func _init_states() -> void:
 			states.append(state)
 	if not initial_state and states.size() > 0:
 		initial_state = states[0]
-	prints("[StateMachine] found states", get_state_names(), "for", target.name)
+	Log.info(target, "found states", get_state_names())
 	if initial_state:
 		transition(initial_state)
 
@@ -47,40 +47,52 @@ func _disable_state_node(state: StateNode) -> void:
 
 
 func transition_by_name(next_state_name: String) -> bool:
-	var next_state := get_state(next_state_name)
-	if next_state:
-		return transition(next_state)
+	var next_state_node := get_state(next_state_name)
+	if next_state_node:
+		return await transition(next_state_node)
 	else:
-		push_warning("[StateMachine] invalid state name: " + next_state_name)
+		Log.warn(target, "invalid state name:", next_state_name)
 		return false
 
 
-func transition(next_state: StateNode) -> bool:
+func transition(immediate_next_state: StateNode) -> bool:
 	var cur_name := get_active()
+	next_state = immediate_next_state
+	if active_state and active_state.transitioning_out:
+		Log.debug(target, "queueing state change to", next_state.name, "during transition")
+		return true
 	if can_transition(active_state, next_state):
 		var prev_state := active_state
 		if prev_state:
+			prev_state.transitioning_out = true
+			@warning_ignore("redundant_await")
+			await prev_state.transition_before_exit(next_state)
 			prev_state.before_exit.emit(next_state)
 			_disable_state_node(prev_state)
+			prev_state.transitioning_out = false
 
 		next_state.before_enter.emit(prev_state)
+		next_state.transitioning_out = false
 		active_state = next_state
-		prints("[StateMachine] transitioning", target.name, "from", cur_name, "to", next_state.name)
+		Log.debug(target, "transitioning from", cur_name, "to", next_state.name)
 		_enable_state_node(next_state)
 		active_state.entered.emit(prev_state)
 
 		state_changed.emit(prev_state, next_state)
 		return true
 	else:
-		push_warning("[StateMachine] invalid transition: " + cur_name + " to " + next_state.name)
+		Log.warn(target, "invalid state transition: " + cur_name + " to " + next_state.name)
 		return false
 
 
 func can_transition(from_state: StateNode, to_state: StateNode) -> bool:
+	if from_state == to_state:
+		return false
 	if not to_state:
 		return false
-	if from_state and not from_state.can_transition_to(to_state):
-		return false
+	if from_state:
+		if not from_state.can_transition_to(to_state):
+			return false
 	return to_state.can_enter(from_state)
 
 

@@ -1,0 +1,336 @@
+[gd_scene format=3 uid="uid://bbq81ngylpi8h"]
+
+[ext_resource type="Script" uid="uid://bx63s05emcisp" path="res://actors/shadow_monster/shadow_blob.gd" id="1_sf7u1"]
+[ext_resource type="Script" uid="uid://ndxq88baykfk" path="res://actors/shadow_monster/shadow_probe.gd" id="2_ajmar"]
+[ext_resource type="Shader" uid="uid://ce1puydn2x8rp" path="res://actors/shadow_monster/shadow_monster.gdshader" id="3_ajmar"]
+[ext_resource type="Script" uid="uid://cc00tb1m3epjv" path="res://actors/shadow_monster/shadow_skin.gd" id="4_5vmcy"]
+[ext_resource type="Texture2D" uid="uid://bts53sg7ym5vn" path="res://_temp_replace_me_please/dark_boi.png" id="4_nh4xe"]
+[ext_resource type="Script" uid="uid://k47xh1fgxbx0" path="res://actors/shadow_monster/shadow_monster_arm.gd" id="6_0kgm3"]
+[ext_resource type="Texture2D" uid="uid://bmof6pqpby63a" path="res://_source_assets/art/Shadow_arm_arm_only.png" id="6_2hcqo"]
+[ext_resource type="Texture2D" uid="uid://csq87sl63icol" path="res://_source_assets/art/Shadow arm.png" id="8_1yxxb"]
+[ext_resource type="Script" uid="uid://dtrmgwn5s43vp" path="res://actors/shadow_monster/shadow_monster_hand.gd" id="8_r46ke"]
+[ext_resource type="AudioStream" uid="uid://crlpw51lvkn0e" path="res://actors/shadow_monster/shadow_hit_-01.wav" id="9_ldjtf"]
+[ext_resource type="AudioStream" uid="uid://6xf5od4a16fn" path="res://actors/shadow_monster/shadow_hit_-02.wav" id="10_ybom7"]
+[ext_resource type="AudioStream" uid="uid://cpl3fbqljsdpl" path="res://actors/shadow_monster/shadow_hit_-03.wav" id="11_05m43"]
+[ext_resource type="AudioStream" uid="uid://dy42ilx0asptb" path="res://actors/shadow_monster/shadow_hit_-04.wav" id="12_hcp8r"]
+[ext_resource type="AudioStream" uid="uid://lgfwqf88krpf" path="res://actors/shadow_monster/shadow_hit_-05.wav" id="13_76ot6"]
+[ext_resource type="AudioStream" uid="uid://bvbhqloknqcga" path="res://actors/shadow_monster/shadow_hit_-06.wav" id="14_ldjtf"]
+
+[sub_resource type="Gradient" id="Gradient_sf7u1"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mx6et"]
+gradient = SubResource("Gradient_sf7u1")
+width = 1
+height = 1
+fill = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sf7u1"]
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_nh4xe"]
+offsets = PackedFloat32Array(0, 0.17148362, 0.4026975, 0.89980733)
+colors = PackedColorArray(0, 0, 0, 1, 0.18039216, 0.043137256, 0.25882354, 1, 0.043137256, 0.043137256, 1, 1, 0.01528747, 0.0036556995, 0.021934196, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5vmcy"]
+gradient = SubResource("Gradient_nh4xe")
+
+[sub_resource type="Gradient" id="Gradient_kqja0"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nh4xe"]
+noise_type = 0
+fractal_type = 3
+fractal_octaves = 3
+fractal_lacunarity = 1.27
+fractal_gain = 1.365
+fractal_weighted_strength = 0.5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5vmcy"]
+noise = SubResource("FastNoiseLite_nh4xe")
+color_ramp = SubResource("Gradient_kqja0")
+in_3d_space = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5m8j7"]
+shader = ExtResource("3_ajmar")
+shader_parameter/noise = SubResource("NoiseTexture2D_5vmcy")
+shader_parameter/monster_color = SubResource("GradientTexture1D_5vmcy")
+shader_parameter/monster_body = PackedVector2Array(0.475, 0.51)
+shader_parameter/noise_middle_range = 0.4050000192375
+shader_parameter/monster_thickness = 0.8570000407075
+shader_parameter/monster_radius = 0.4350000206625
+shader_parameter/i_dont_even_know = 1.34000006365
+shader_parameter/noise_offset = Vector2(-0.060722757, 0.0794528)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1yxxb"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jlxop"]
+random_pitch = 1.0198333
+streams_count = 6
+stream_0/stream = ExtResource("9_ldjtf")
+stream_1/stream = ExtResource("10_ybom7")
+stream_2/stream = ExtResource("11_05m43")
+stream_3/stream = ExtResource("12_hcp8r")
+stream_4/stream = ExtResource("13_76ot6")
+stream_5/stream = ExtResource("14_ldjtf")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2hcqo"]
+radius = 2.0
+height = 50.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0kgm3"]
+radius = 2.0
+height = 50.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1yxxb"]
+radius = 2.0
+height = 50.0
+
+[node name="ShadowBlob" type="Node2D" unique_id=1434955370 node_paths=PackedStringArray("point_probes", "test_probes", "line")]
+z_index = 10
+script = ExtResource("1_sf7u1")
+point_probes = [NodePath("ShadowProbe"), NodePath("ShadowProbe2"), NodePath("ShadowProbe3"), NodePath("ShadowProbe4"), NodePath("ShadowProbe5")]
+test_probes = [NodePath("ShadowProbe6"), NodePath("ShadowProbe7"), NodePath("ShadowProbe8"), NodePath("ShadowProbe9"), NodePath("ShadowProbe10")]
+line = NodePath("DebugLine")
+debug_image_clear = 0.005
+
+[node name="ShadowProbe" type="Sprite2D" parent="." unique_id=1465923522]
+top_level = true
+z_index = 1024
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="ShadowProbe2" type="Sprite2D" parent="." unique_id=1438009755]
+top_level = true
+z_index = 1024
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="ShadowProbe3" type="Sprite2D" parent="." unique_id=1095487151]
+top_level = true
+z_index = 1024
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="ShadowProbe4" type="Sprite2D" parent="." unique_id=1687954975]
+top_level = true
+z_index = 1024
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="ShadowProbe5" type="Sprite2D" parent="." unique_id=123484342]
+top_level = true
+z_index = 1024
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="ShadowProbe6" type="Sprite2D" parent="." unique_id=1897191302]
+top_level = true
+z_index = 1024
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="ShadowProbe7" type="Sprite2D" parent="." unique_id=1729622268]
+top_level = true
+z_index = 1024
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="ShadowProbe8" type="Sprite2D" parent="." unique_id=1649470297]
+top_level = true
+z_index = 1024
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="ShadowProbe9" type="Sprite2D" parent="." unique_id=1409680951]
+top_level = true
+z_index = 1024
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="ShadowProbe10" type="Sprite2D" parent="." unique_id=95868239]
+top_level = true
+z_index = 1024
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="CenterProbe" type="Sprite2D" parent="." unique_id=1392079960]
+z_index = 1024
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_mx6et")
+script = ExtResource("2_ajmar")
+lit_value = nan
+
+[node name="DebugLine" type="Line2D" parent="." unique_id=33639866]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+closed = true
+default_color = Color(0.31, 0.31, 0.31, 0.39215687)
+
+[node name="DebugLine2" type="Line2D" parent="." unique_id=96756594]
+visible = false
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+closed = true
+default_color = Color(0.9655, 1, 0.77, 0.39215687)
+
+[node name="DebugSprite" type="Sprite2D" parent="." unique_id=861191880]
+modulate = Color(1, 1, 1, 0.50980395)
+z_index = 100
+material = SubResource("CanvasItemMaterial_sf7u1")
+position = Vector2(512, 0)
+scale = Vector2(-0.595, -0.595)
+
+[node name="skin" type="ColorRect" parent="." unique_id=1071322173]
+z_index = 100
+material = SubResource("ShaderMaterial_5m8j7")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_5vmcy")
+phase_speed = 0.472
+phase_noise_offset_change_edge_threshold = 0.205
+phase_angle_rotation_speed_inverse = 2.82
+
+[node name="DarkBoi" type="Sprite2D" parent="skin" unique_id=843229311]
+position = Vector2(64, 64)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_nh4xe")
+
+[node name="Arm" type="Node2D" parent="." unique_id=686859859]
+script = ExtResource("6_0kgm3")
+
+[node name="Skin" type="Line2D" parent="Arm" unique_id=1090266444]
+self_modulate = Color(0.18039216, 0.043137256, 0.25882354, 1)
+points = PackedVector2Array(0, 0, 131, 1)
+width = 25.0
+texture = ExtResource("6_2hcqo")
+texture_mode = 2
+
+[node name="Palm" type="RigidBody2D" parent="Arm" unique_id=901396295 node_paths=PackedStringArray("hand_attached_to")]
+position = Vector2(124, 0)
+collision_layer = 8
+collision_mask = 0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("8_r46ke")
+hand_attached_to = NodePath("..")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Arm/Palm" unique_id=1363533321]
+position = Vector2(5, -7)
+node_a = NodePath("..")
+node_b = NodePath("../../TopFinger")
+disable_collision = false
+softness = 5.0
+angular_limit_enabled = true
+angular_limit_upper = 0.7853982
+motor_target_velocity = -3.1648057
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="Arm/Palm" unique_id=1657987266]
+position = Vector2(7, -1)
+node_a = NodePath("..")
+node_b = NodePath("../../MiddleFinger")
+disable_collision = false
+softness = 5.0
+angular_limit_enabled = true
+angular_limit_upper = 0.7853982
+motor_target_velocity = -3.1648057
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="Arm/Palm" unique_id=51170992]
+position = Vector2(3, 5)
+node_a = NodePath("..")
+node_b = NodePath("../../BottomFinger")
+disable_collision = false
+softness = 5.0
+angular_limit_enabled = true
+angular_limit_upper = 0.7853982
+motor_target_velocity = -3.1648057
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/Palm" unique_id=2136365448]
+rotation = 0.15707964
+shape = SubResource("CircleShape2D_1yxxb")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="Arm/Palm" unique_id=578546637]
+stream = SubResource("AudioStreamRandomizer_jlxop")
+
+[node name="TopFinger" type="RigidBody2D" parent="Arm" unique_id=1037081550]
+position = Vector2(147, -18)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/TopFinger" unique_id=101350688]
+position = Vector2(-1, 6)
+rotation = 1.282817
+shape = SubResource("CapsuleShape2D_2hcqo")
+
+[node name="ShadowArm" type="Sprite2D" parent="Arm/TopFinger" unique_id=1177166882]
+self_modulate = Color(0.18039216, 0.043137256, 0.25882354, 1)
+position = Vector2(-0.44499207, 7.8025)
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("8_1yxxb")
+region_enabled = true
+region_rect = Rect2(1396.6796, 610.3897, 579.9817, 327.96582)
+
+[node name="MiddleFinger" type="RigidBody2D" parent="Arm" unique_id=878075442]
+position = Vector2(156, 0)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/MiddleFinger" unique_id=1463402595]
+position = Vector2(-5, 3)
+rotation = 1.7976891
+shape = SubResource("CapsuleShape2D_0kgm3")
+
+[node name="ShadowArm" type="Sprite2D" parent="Arm/MiddleFinger" unique_id=1072549245]
+self_modulate = Color(0.18039216, 0.043137256, 0.25882354, 1)
+position = Vector2(-5.444992, 1.8024979)
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("8_1yxxb")
+region_enabled = true
+region_rect = Rect2(716.58167, 675.98285, 555.8159, 176.06592)
+
+[node name="BottomFinger" type="RigidBody2D" parent="Arm" unique_id=442227264]
+position = Vector2(142, 16)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/BottomFinger" unique_id=1150600100]
+position = Vector2(-8.34465e-07, -4.7683716e-07)
+rotation = 2.1991148
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_1yxxb")
+
+[node name="ShadowArm" type="Sprite2D" parent="Arm/BottomFinger" unique_id=877076512]
+self_modulate = Color(0.18039216, 0.043137256, 0.25882354, 1)
+position = Vector2(0.55500793, -5.197502)
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("8_1yxxb")
+region_enabled = true
+region_rect = Rect2(98.62488, 606.93744, 514.3887, 314.15674)
+
+[connection signal="body_entered" from="Arm/Palm" to="." method="_on_palm_body_entered"]

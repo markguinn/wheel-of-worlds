@@ -9,3 +9,4 @@ export.cfg
 /export/*
 !/export/.gitkeep
 .DS_Store
+_ignored_assets

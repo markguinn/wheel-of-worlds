@@ -3,7 +3,8 @@ extends Node2D
 
 
 const ORB_WAIT_MS = 1000
-
+const FOLLOW_ORB_LEN = 256.0
+const EYE_MOVEMENT_RADIUS = 50.0
 
 @export var portal_name: String
 @export var is_active := true
@@ -13,44 +14,80 @@ const ORB_WAIT_MS = 1000
 var player_is_present := false
 var orb_is_present := false
 var orb_entered_at := 0
+var orbs: Array[Orb] = []
+var iris_start_pos: Vector2
+var anim_state_machine: AnimationNodeStateMachinePlayback
 
-@onready var target: Area2D = $TargetArea
-@onready var label: Label = $Label
+@onready var activator: Activator = $Activator
+@onready var orb_detector: Area2D = $OrbDetector
+@onready var anim_tree: AnimationTree = $AnimationTree
+@onready var sparkles: Node2D = $Sprites/Sparkles
+@onready var eye_bg: Node2D = $Sprites/EyeBackground
+@onready var iris: Sprite2D = $Sprites/BlackIris
 
 
 func _ready() -> void:
-	target.body_entered.connect(_on_body_entered)
-	target.body_exited.connect(_on_body_exited)
+	anim_tree.active = true
+	anim_state_machine = anim_tree["parameters/playback"]
+	activator.activated.connect(_on_activated)
+	activator.enabled = false
+	orb_detector.body_entered.connect(_on_body_entered)
+	orb_detector.body_exited.connect(_on_body_exited)
+	iris_start_pos = iris.position
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Orb:
-		orb_is_present = true
-		orb_entered_at = Time.get_ticks_msec()
-	if body is Player:
-		player_is_present = true
+	Log.debug(self, 'orb entered', body)
+	orb_is_present = true
+	orb_entered_at = GameManager.now_ms()
+	orbs.append(body)
 
 
 func _on_body_exited(body: Node2D) -> void:
-	if body is Orb:
+	Log.debug(self, 'orb exited', body)
+	orbs.erase(body)
+	if orbs.is_empty():
 		orb_is_present = false
 		orb_entered_at = 0
-	if body is Player:
-		player_is_present = false
-
-
-func _can_enter() -> bool:
-	return player_is_present and orb_entered_at > 0 and Time.get_ticks_msec() > orb_entered_at + ORB_WAIT_MS
 
 
 func _process(_delta: float) -> void:
-	if _can_enter():
-		label.show()
+	if not is_active:
+		orb_detector.gravity_space_override = Area2D.SPACE_OVERRIDE_DISABLED
+		return
+
+	if is_active and orb_entered_at > 0 and GameManager.now_ms() > orb_entered_at + ORB_WAIT_MS:
+		if not activator.enabled:
+			Log.debug(self, 'enabling activator')
+			activator.enabled = true
+			Activator.update_active_candidate()
 	else:
-		label.hide()
+		if activator.enabled:
+			Log.debug(self, 'disabling activator')
+			activator.enabled = false
+			Activator.update_active_candidate()
+	
+	if orbs.size() > 0:
+		var orb_pos := to_local(orbs[0].global_position)
+		var orb_dir := orb_pos.normalized()
+		var orb_dist := clampf(orb_pos.length(), 0.0, FOLLOW_ORB_LEN)
+		var eye_dist := EYE_MOVEMENT_RADIUS * orb_dist / FOLLOW_ORB_LEN
+		iris.position = iris_start_pos - iris.offset + orb_dir * eye_dist
+
+func _on_activated(_source: Activator) -> void:
+	Log.info(self, 'portal activated', self.name)
+	anim_state_machine.travel("activated")
+	await anim_tree.animation_finished
+	GameManager.change_scene.call_deferred(linked_stage, {"target_portal": target_portal})
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and _can_enter():
-		get_viewport().set_input_as_handled()
-		GameManager.change_scene.call_deferred(linked_stage, {"target_portal": target_portal})
+func take_player_and_orb() -> void:
+	var p := GameManager.get_player()
+	p.reparent(eye_bg)
+	p.z_index = 0
+	VFX.shake(VFX.SHORT, VFX.TREMOR)
+
+
+func drop_orb() -> void:
+	VFX.shake(VFX.MID, VFX.FREAK_OUT)
+	VFX.flash(VFX.SHORT, VFX.QUAKE, VFX.Flash.LIGHT)

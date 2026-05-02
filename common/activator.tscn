@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bw7ujmd6681ln"]
+
+[ext_resource type="Script" uid="uid://carejsh7txaft" path="res://common/steady_label.gd" id="1_kcsbt"]
+[ext_resource type="Script" uid="uid://by4jy0sw4cj2c" path="res://common/activator.gd" id="1_yxe85"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vt1vu"]
+radius = 100.0
+
+[node name="Activator" type="Area2D" unique_id=1410287907]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_yxe85")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=109296125]
+shape = SubResource("CircleShape2D_vt1vu")
+
+[node name="Label" type="Label" parent="." unique_id=1100468939]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -150.0
+offset_right = 100.0
+offset_bottom = -127.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Press X..."
+horizontal_alignment = 1
+script = ExtResource("1_kcsbt")
+metadata/_custom_type_script = "uid://carejsh7txaft"

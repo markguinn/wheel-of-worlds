@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b2c4465p08yf4"]
+
+[ext_resource type="Script" uid="uid://cpplt3nug7jk2" path="res://props/lift/lift.gd" id="1_bhsea"]
+[ext_resource type="PackedScene" uid="uid://bw7ujmd6681ln" path="res://common/activator.tscn" id="1_craks"]
+
+[node name="Lift" type="Node2D" unique_id=927319953]
+script = ExtResource("1_bhsea")
+
+[node name="Base" type="StaticBody2D" parent="." unique_id=1711520863]
+collision_layer = 4
+
+[node name="Polygon2D" type="Polygon2D" parent="Base" unique_id=1143860453]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-200, 0, -150, -50, 0, -25, 150, -50, 200, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Base" unique_id=1929314528]
+polygon = PackedVector2Array(-200, 0, -150, -50, 0, -25, 150, -50, 200, 0)
+
+[node name="Platform" type="StaticBody2D" parent="." unique_id=859494839]
+collision_layer = 4
+collision_mask = 27
+
+[node name="Activator" parent="Platform" unique_id=1410287907 instance=ExtResource("1_craks")]
+
+[node name="Polygon2D" type="Polygon2D" parent="Platform" unique_id=531429209]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-100, 0, -150, -50, 0, -25, 150, -50, 100, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform" unique_id=324174884]
+polygon = PackedVector2Array(-100, 0, -150, -50, 0, -25, 150, -50, 100, 0)

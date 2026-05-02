@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://th5bmfwxjhlq"]
+
+[ext_resource type="Script" uid="uid://g56bt1sevl68" path="res://actors/bird_monster/bird_monster.gd" id="1_jvu33"]
+[ext_resource type="Script" uid="uid://vmdvty45rk5y" path="res://common/state_machine/state_machine.gd" id="2_7ijfr"]
+[ext_resource type="Script" uid="uid://h70knql40gan" path="res://actors/bird_monster/states/bird_flying.gd" id="3_hqiho"]
+[ext_resource type="Script" uid="uid://dkhjwjril7w2q" path="res://actors/bird_monster/states/bird_nesting.gd" id="4_hqiho"]
+[ext_resource type="Script" uid="uid://4qx1krqfcsim" path="res://actors/bird_monster/states/bird_attacking.gd" id="5_e210h"]
+[ext_resource type="Script" uid="uid://pr6facki45p8" path="res://actors/bird_monster/states/bird_carrying.gd" id="6_e210h"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jvu33"]
+size = Vector2(334, 132)
+
+[node name="BirdMonster" type="Node2D" unique_id=1506347994]
+script = ExtResource("1_jvu33")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1602817327]
+texture = SubResource("PlaceholderTexture2D_jvu33")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1535680804 node_paths=PackedStringArray("target", "initial_state")]
+script = ExtResource("2_7ijfr")
+target = NodePath("..")
+initial_state = NodePath("Flying")
+metadata/_custom_type_script = "uid://vmdvty45rk5y"
+
+[node name="Flying" type="Node" parent="StateMachine" unique_id=1827134758]
+script = ExtResource("3_hqiho")
+metadata/_custom_type_script = "uid://dljix40x8qlm1"
+
+[node name="Nesting" type="Node" parent="StateMachine" unique_id=1733518277]
+script = ExtResource("4_hqiho")
+metadata/_custom_type_script = "uid://dljix40x8qlm1"
+
+[node name="Attacking" type="Node" parent="StateMachine" unique_id=1097049095]
+script = ExtResource("5_e210h")
+metadata/_custom_type_script = "uid://dljix40x8qlm1"
+
+[node name="Carrying" type="Node" parent="StateMachine" unique_id=801669833]
+script = ExtResource("6_e210h")
+metadata/_custom_type_script = "uid://dljix40x8qlm1"

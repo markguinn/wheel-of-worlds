@@ -20,6 +20,7 @@ var cur_intensity := 1
 # to do the intensity levels. Lots of freedom to adjust here based on the music
 # people are willing and abel to write.
 func set_music(music_type: String, intensity = 1) -> void:
+	Log.info(self, "changing music", music_type, "at level", intensity)
 	var player: AudioStreamPlayer = get_tree().get_first_node_in_group("background_music")
 	#var stream: AudioStreamInteractive = player.stream if player else null
 	var playback = player.get_stream_playback() if player else null

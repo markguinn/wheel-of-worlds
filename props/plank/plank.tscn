@@ -2,7 +2,17 @@
 
 [ext_resource type="Script" uid="uid://dy8eeto3iw88" path="res://props/plank/plank.gd" id="1_vpluj"]
 [ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://common/grab_box.gd" id="2_w4302"]
-[ext_resource type="Script" uid="uid://carejsh7txaft" path="res://common/steady_label.gd" id="3_w4302"]
+[ext_resource type="PackedScene" uid="uid://bw7ujmd6681ln" path="res://common/activator.tscn" id="3_eqyr0"]
+[ext_resource type="PackedScene" uid="uid://y7c5vk1033l6" path="res://common/vfx/dust_particles.tscn" id="4_jou1n"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jou1n"]
+height = 250.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eqyr0"]
+height = 140.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_w4302"]
+polygon = PackedVector2Array(0, 10, 0, -10, 250, -10, 250, 10)
 
 [sub_resource type="Gradient" id="Gradient_br3cc"]
 offsets = PackedFloat32Array(0.3375959, 0.4398977)
@@ -10,59 +20,96 @@ colors = PackedColorArray(0.15667456, 0.15667456, 0.15667456, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0vqwi"]
 gradient = SubResource("Gradient_br3cc")
-width = 256
-height = 16
+width = 250
+height = 20
 fill_to = Vector2(0, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_br3cc"]
-size = Vector2(256, 16)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_br3cc"]
-radius = 96.0
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_w4302"]
-polygon = PackedVector2Array(0, 8, -1, -8, 256, -8, 256, 10)
+[sub_resource type="CircleShape2D" id="CircleShape2D_jou1n"]
 
 [node name="Plank" type="RigidBody2D" unique_id=1965888217 groups=["persisted"]]
 collision_layer = 4
 collision_mask = 31
+collision_priority = 10.0
+continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_vpluj")
+debounce_impact_ms = 250
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=698020548]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=561600905]
+z_index = 1
+position = Vector2(125, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jou1n")
+debug_color = Color(0.78596556, 0.4325814, 0.027261449, 0.41960785)
+
+[node name="CollisionShapeHeld" type="CollisionShape2D" parent="." unique_id=1866512949]
+z_index = 1
+position = Vector2(180, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_eqyr0")
+disabled = true
+debug_color = Color(0.52310497, 0.5726899, 0.09726577, 0.41960785)
+
+[node name="ImpactSFX" type="AudioStreamPlayer2D" parent="." unique_id=1966220360]
+position = Vector2(127, -1)
+
+[node name="DustParticles" parent="." unique_id=996804833 instance=ExtResource("4_jou1n")]
+scale_amount_min = 10.0
+scale_amount_max = 20.0
+
+[node name="WallDetector" type="RayCast2D" parent="." unique_id=935210780]
+position = Vector2(250, 1)
+target_position = Vector2(8, 0)
+
+[node name="FloorDetector" type="RayCast2D" parent="." unique_id=377001898]
+position = Vector2(250, 1)
+target_position = Vector2(8, 0)
+
+[node name="Sprite" type="Node2D" parent="." unique_id=606360389]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite" unique_id=1914264648]
+occluder = SubResource("OccluderPolygon2D_w4302")
+
+[node name="TextureRect" type="TextureRect" parent="Sprite" unique_id=698020548]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -8.0
-offset_right = 256.0
-offset_bottom = 8.0
+offset_top = -10.0
+offset_right = 250.0
+offset_bottom = 10.0
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_0vqwi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=561600905]
-position = Vector2(128, 0)
-shape = SubResource("RectangleShape2D_br3cc")
-
-[node name="GrabBox" type="Area2D" parent="." unique_id=756793434]
-collision_layer = 0
-collision_mask = 2
+[node name="GrabBoxL" parent="Sprite" unique_id=1410287907 node_paths=PackedStringArray("target_node") groups=["bird_targets"] instance=ExtResource("3_eqyr0")]
 script = ExtResource("2_w4302")
+target_node = NodePath("../..")
+manage_position = false
+hold_offset = Vector2(0, 0)
+hold_degrees = inf
+label_text = "Press X to pick up!"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabBox" unique_id=1417858198]
-shape = SubResource("CircleShape2D_br3cc")
-debug_color = Color(0.21497008, 0.6323015, 0.2888236, 0.41960785)
+[node name="GrabBoxR" parent="Sprite" unique_id=518770626 node_paths=PackedStringArray("target_node") groups=["bird_targets"] instance=ExtResource("3_eqyr0")]
+position = Vector2(250, 0)
+script = ExtResource("2_w4302")
+target_node = NodePath("../..")
+manage_position = false
+hold_offset = Vector2(0, 0)
+hold_degrees = inf
+label_text = "Press X to pick up!"
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="GrabBox" unique_id=1781992657]
-position = Vector2(256, 0)
-shape = SubResource("CircleShape2D_br3cc")
-debug_color = Color(0.2608034, 0.63057584, 0.20227572, 0.41960785)
+[node name="CollisionShape2D" parent="Sprite/GrabBoxR" index="0" unique_id=109296125]
+debug_color = Color(0.036586303, 0.5603609, 0.8827755, 0.41960785)
 
-[node name="Label" type="Label" parent="GrabBox" unique_id=1305336113]
-offset_top = -128.0
-offset_right = 77.0
-offset_bottom = -105.0
-text = "Press [X] to pick up!"
-script = ExtResource("3_w4302")
-metadata/_custom_type_script = "uid://carejsh7txaft"
+[node name="Handle" type="StaticBody2D" parent="." unique_id=1003861790]
+collision_layer = 0
+collision_mask = 0
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1914264648]
-occluder = SubResource("OccluderPolygon2D_w4302")
+[node name="PinJoint2D" type="PinJoint2D" parent="Handle" unique_id=1997464387]
+rotation = 1.5707964
+bias = 0.9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Handle" unique_id=114015373]
+shape = SubResource("CircleShape2D_jou1n")
+
+[editable path="Sprite/GrabBoxR"]

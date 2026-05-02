@@ -5,10 +5,11 @@ extends Node
 # Common utility methods are also welcome here.
 #################################################################
 
-const SHAKE_SPEED = 1.0
-const STRENGTH_MULTIPLIER = 16.0 # convert 1.0 strength to pixels
+const SHAKE_SPEED = 2.0
+const STRENGTH_MULTIPLIER = 24.0 # convert 1.0 strength to pixels
 
 # Intensity constants
+const FREAK_OUT = 1.5
 const QUAKE = 1.0
 const TREMOR = 0.5
 
@@ -116,7 +117,7 @@ func _process(delta: float) -> void:
 	if not cam: return
 	if shake_strength > 0.0:
 		shake_strength = move_toward(shake_strength, 0.0, shake_decay * delta)
-		var noise_idx := Time.get_ticks_msec() * SHAKE_SPEED
+		var noise_idx := GameManager.now_ms() * SHAKE_SPEED
 		var shake_offset := Vector2(
 			noise.get_noise_2d(1, noise_idx),
 			noise.get_noise_2d(100, noise_idx),

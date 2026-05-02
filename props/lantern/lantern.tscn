@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cs57yefkh1f4s"]
+
+[ext_resource type="Script" uid="uid://cbx6wlfmu87ux" path="res://props/stone/stone.gd" id="1_5pot1"]
+[ext_resource type="PackedScene" uid="uid://y7c5vk1033l6" path="res://common/vfx/dust_particles.tscn" id="2_5pot1"]
+[ext_resource type="PackedScene" uid="uid://bw7ujmd6681ln" path="res://common/activator.tscn" id="3_vhwrs"]
+[ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://common/grab_box.gd" id="4_kml0u"]
+[ext_resource type="Texture2D" uid="uid://nsve366mbp7i" path="res://props/lantern/lantern-sprite.png" id="5_5pot1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pot1"]
+size = Vector2(60, 20)
+
+[node name="Lantern" type="RigidBody2D" unique_id=1315439554 groups=["persisted"]]
+collision_layer = 4
+collision_mask = 31
+collision_priority = 10.0
+mass = 0.1
+continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_5pot1")
+metadata/_custom_type_script = "uid://d1d8irkuomsw0"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=561600905]
+z_index = 1
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_5pot1")
+debug_color = Color(0.78596556, 0.4325814, 0.027261449, 0.41960785)
+
+[node name="ImpactSFX" type="AudioStreamPlayer2D" parent="." unique_id=1966220360]
+position = Vector2(127, -1)
+
+[node name="DustParticles" parent="." unique_id=996804833 instance=ExtResource("2_5pot1")]
+scale_amount_min = 10.0
+scale_amount_max = 20.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1904787679]
+z_index = 1
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("5_5pot1")
+
+[node name="GrabBox" parent="." unique_id=140712427 node_paths=PackedStringArray("target_node") groups=["bird_targets"] instance=ExtResource("3_vhwrs")]
+script = ExtResource("4_kml0u")
+target_node = NodePath("")
+manage_position = true
+hold_offset = Vector2(0, 24)
+hold_degrees = 0.0
+label_text = "Press X to pick up!"
