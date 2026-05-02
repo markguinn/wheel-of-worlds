@@ -1,4 +1,4 @@
-## Begining fable
+## Beginning fable
 For too long the old monster tribe of self declared Gods reigned supreme. 
 Their great cruelty echoed unchallenged through the verses.
 They possessed the seeing stone to all worlds buttressed by the pillar of paths.
