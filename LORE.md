@@ -25,5 +25,5 @@ Guardian of the sky, admonishing dwellers beneath, eyes scope for a particular p
 
 ## Cave Shadow Monster  
 Deep within a cave, cold blackened silence is disrupted by the flicker of Bert's torch. 
-It's dragon's breath momentarily burns through inky clouds, allowing Bert to see what wishes to hide. 
+Its dragon's breath momentarily burns through inky clouds, allowing Bert to see what wishes to hide. 
 Lord of darkness, wallows in the belly of eternal night, shadow tendrils claw and weave, fervently inspecting for a rarity, touching each surface of every rock.  
