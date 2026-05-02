@@ -35,6 +35,10 @@ func _ready() -> void:
 	start_pos = position
 
 
+func set_checkpoint() -> void:
+	start_pos = position
+
+
 func reset_after_fall() -> void:
 	position = start_pos
 

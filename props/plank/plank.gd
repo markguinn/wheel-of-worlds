@@ -40,6 +40,10 @@ func _ready() -> void:
 	joint.node_b = ""
 
 
+func set_checkpoint() -> void:
+	start_pos = global_position
+
+
 func reset_after_fall() -> void:
 	# TODO: make a fun animation
 	set_next_global_position(start_pos)
