@@ -35,5 +35,6 @@ uv = PackedVector2Array(-43.5, 39.5, 5, -35, 59, 29.5)
 
 [node name="GrabBox" parent="." unique_id=1410287907 groups=["bird_targets"] instance=ExtResource("2_owgpg")]
 script = ExtResource("2_34n21")
+manage_position = true
 hold_offset = Vector2(0, -40)
 hold_degrees = -30.0

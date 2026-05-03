@@ -4,6 +4,9 @@ extends RigidBody2D
 signal persisted_state_changed(node: Node)
 
 
+## If set, the stone can't be picked up or pushed
+@export var fixed := false
+
 var last_pos: Vector2
 var last_rot: float
 var start_pos: Vector2
@@ -13,6 +16,9 @@ var start_rot: float
 func _ready() -> void:
 	start_pos = position
 	start_rot = rotation
+	if fixed:
+		$GrabBox.enabled = false
+		freeze = true
 
 
 func set_checkpoint() -> void:

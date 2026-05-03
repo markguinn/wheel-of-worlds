@@ -29,6 +29,11 @@ func _ready() -> void:
 		Log.warn(self, self.get_path(), "will not detect the player. you should check the collision mask")
 
 
+func _exit_tree() -> void:
+	if self in candidates:
+		candidates.erase(self)
+
+
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		candidates.append(self)

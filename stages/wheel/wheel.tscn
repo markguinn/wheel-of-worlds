@@ -59,23 +59,37 @@ tile_map_data = PackedByteArray("AAD//wwAAAADAAAAAAD//w0AAAADAAAAAAD//w4AAAADAAA
 tile_set = ExtResource("1_hpkw7")
 
 [node name="Portal" parent="WheelTiles" unique_id=567549234 instance=ExtResource("4_fjyco")]
-position = Vector2(-308.33334, 3.333334)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-310, 0)
+rotation = 1.5707964
+scale = Vector2(0.4, 0.4)
 portal_name = "ww0"
 linked_stage = "uid://obcnvoariac3"
 target_portal = "w0p1"
 
+[node name="Orb" parent="WheelTiles/Portal" unique_id=1425831707 groups=["free_movers"] instance=ExtResource("3_qmu1q")]
+position = Vector2(0, -30)
+rotation = -1.5707964
+collision_mask = 0
+freeze = true
+
 [node name="Portal2" parent="WheelTiles" unique_id=1555329021 instance=ExtResource("4_fjyco")]
-position = Vector2(304.33334, 2.3333333)
-scale = Vector2(0.5, 0.5)
+position = Vector2(310, 0)
+rotation = -1.5707964
+scale = Vector2(0.4, 0.4)
 portal_name = "ww1"
 linked_stage = "uid://nujivjavdosd"
 target_portal = "w1p1"
 
+[node name="Orb" parent="WheelTiles/Portal2" unique_id=1810830352 groups=["free_movers"] instance=ExtResource("3_qmu1q")]
+position = Vector2(0, -30)
+rotation = -1.5707964
+freeze = true
+
+[node name="Camera" parent="." unique_id=552340171 instance=ExtResource("5_slp1w")]
+position = Vector2(-81, 603)
+
 [node name="Player" parent="." unique_id=317056800 groups=["free_movers"] instance=ExtResource("2_slp1w")]
 position = Vector2(-81, 603)
 
-[node name="StandardCamera" parent="Player" unique_id=552340171 instance=ExtResource("5_slp1w")]
-
-[node name="Orb" parent="." unique_id=1425831707 groups=["free_movers"] instance=ExtResource("3_qmu1q")]
-position = Vector2(101, 608)
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1352340644]
+remote_path = NodePath("../../Camera")

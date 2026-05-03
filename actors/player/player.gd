@@ -41,6 +41,8 @@ func set_checkpoint() -> void:
 
 func reset_after_fall() -> void:
 	position = start_pos
+	velocity = Vector2.ZERO
+	state_machine.transition_by_name("Ragdoll")
 
 
 func in_coyote_window() -> bool:
