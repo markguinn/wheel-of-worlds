@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bds24227voos8"
-path="res://.godot/imported/forestBackground.png-cb82a5cdcc3f0d4dbc3ea4013aa094bb.ctex"
+uid="uid://dgl0mphwmq5p1"
+path="res://.godot/imported/single tile grass centre.png-2943acf27803f7f7902e1c0f1f00267f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_source_assets/art/ForestWorld/forestBackground.png"
-dest_files=["res://.godot/imported/forestBackground.png-cb82a5cdcc3f0d4dbc3ea4013aa094bb.ctex"]
+source_file="res://stages/forest/art/single tile grass centre.png"
+dest_files=["res://.godot/imported/single tile grass centre.png-2943acf27803f7f7902e1c0f1f00267f.ctex"]
 
 [params]
 

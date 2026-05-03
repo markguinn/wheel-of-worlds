@@ -180,16 +180,17 @@ horizontal_alignment = 1
 
 [node name="Level0Button" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=595956985]
 layout_mode = 2
-text = "Tutorial Level"
+text = "Tutorial Area"
 script = ExtResource("2_gxoam")
 target_scene = "uid://obcnvoariac3"
 is_primary = true
 
 [node name="Level1Button" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=404563212]
 layout_mode = 2
-text = "Level 1"
+text = "Forest World
+"
 script = ExtResource("2_gxoam")
-target_scene = "uid://nujivjavdosd"
+target_scene = "uid://djnwseb73emx0"
 is_primary = null
 
 [node name="WheelButton" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=500953345]

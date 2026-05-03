@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://defroob8flbqg"
-path="res://.godot/imported/treeTrunkMid.png-a6b81ab3f7e22664fe3aabe524e5db21.ctex"
+uid="uid://cbvc5xaxe110v"
+path="res://.godot/imported/deepdirt.png-2b755fccc354a2e5566b6bce5999e1f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_source_assets/art/ForestWorld/treeTrunkMid.png"
-dest_files=["res://.godot/imported/treeTrunkMid.png-a6b81ab3f7e22664fe3aabe524e5db21.ctex"]
+source_file="res://stages/forest/art/deepdirt.png"
+dest_files=["res://.godot/imported/deepdirt.png-2b755fccc354a2e5566b6bce5999e1f1.ctex"]
 
 [params]
 

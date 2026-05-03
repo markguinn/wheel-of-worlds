@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fh1rhsnqxlhy"
-path="res://.godot/imported/grassCover.png-33a8cfcc6c2cd67584c3573704fe9de3.ctex"
+uid="uid://dmr5lkc8hsyex"
+path="res://.godot/imported/yshape_tree.png-22e84705b3848efbf9848f2df4d31fb9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_source_assets/art/ForestWorld/grassCover.png"
-dest_files=["res://.godot/imported/grassCover.png-33a8cfcc6c2cd67584c3573704fe9de3.ctex"]
+source_file="res://stages/forest/art/yshape_tree.png"
+dest_files=["res://.godot/imported/yshape_tree.png-22e84705b3848efbf9848f2df4d31fb9.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbvc5xaxe110v"
-path="res://.godot/imported/deepdirt.png-98286cc95f50c27e0681a8d961694e9b.ctex"
+uid="uid://dxidjfstenw0"
+path="res://.godot/imported/mound_seamless.png-ea4cc7ba6fc5d9cb15d387eea051b1e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_source_assets/art/ForestWorld/deepdirt.png"
-dest_files=["res://.godot/imported/deepdirt.png-98286cc95f50c27e0681a8d961694e9b.ctex"]
+source_file="res://stages/forest/art/mound_seamless.png"
+dest_files=["res://.godot/imported/mound_seamless.png-ea4cc7ba6fc5d9cb15d387eea051b1e0.ctex"]
 
 [params]
 

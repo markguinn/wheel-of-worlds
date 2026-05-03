@@ -1,0 +1,29 @@
+[gd_resource type="NoiseTexture2D" format=3 uid="uid://bohu00to04x8j"]
+
+[sub_resource type="Gradient" id="Gradient_nmsql"]
+offsets = PackedFloat32Array(0.3713693, 0.76556015, 1)
+colors = PackedColorArray(0.8117647, 0.83137256, 0.78431374, 0, 0.6402614, 0.6652288, 0.6020915, 0.23313728, 0.56078434, 0.5882353, 0.5176471, 0.34117648)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_83gmt"]
+noise_type = 2
+seed = 6
+frequency = 0.001
+fractal_type = 2
+fractal_lacunarity = 1.3
+fractal_gain = 0.4
+fractal_weighted_strength = 0.39
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 24.0
+domain_warp_frequency = 0.13
+domain_warp_fractal_octaves = 3
+domain_warp_fractal_lacunarity = 14.7
+domain_warp_fractal_gain = 0.6
+
+[resource]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_83gmt")
+color_ramp = SubResource("Gradient_nmsql")
+seamless = true
+seamless_blend_skirt = 0.377

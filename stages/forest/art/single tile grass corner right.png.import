@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddsnmuhqutn80"
-path="res://.godot/imported/mound2x1.png-5d5ea5493f53fe6358e793a0845f5226.ctex"
+uid="uid://b4dy5j4dvsomj"
+path="res://.godot/imported/single tile grass corner right.png-cf4d0e4fa0a6651a0654371a36226678.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_source_assets/art/ForestWorld/mound2x1.png"
-dest_files=["res://.godot/imported/mound2x1.png-5d5ea5493f53fe6358e793a0845f5226.ctex"]
+source_file="res://stages/forest/art/single tile grass corner right.png"
+dest_files=["res://.godot/imported/single tile grass corner right.png-cf4d0e4fa0a6651a0654371a36226678.ctex"]
 
 [params]
 

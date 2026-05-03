@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cumuti7epn70h"
-path="res://.godot/imported/mushroom.png-37237c19d612cc87cfc5fa2aab2e286d.ctex"
+uid="uid://co732w5oqpofy"
+path="res://.godot/imported/single tile rocks.png-9704dedd2adc9613f7bcb1e1ccaa9f77.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_source_assets/art/ForestWorld/mushroom.png"
-dest_files=["res://.godot/imported/mushroom.png-37237c19d612cc87cfc5fa2aab2e286d.ctex"]
+source_file="res://stages/forest/art/single tile rocks.png"
+dest_files=["res://.godot/imported/single tile rocks.png-9704dedd2adc9613f7bcb1e1ccaa9f77.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8vg6rtoqch2i"
-path="res://.godot/imported/smallClusterA.png-a257b950a48baa099710c2dba0748732.ctex"
+uid="uid://csops22rtioj7"
+path="res://.godot/imported/single tile grass corner left.png-6954e8c4da706ad2e1c5252649772af2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_source_assets/art/ForestWorld/smallClusterA.png"
-dest_files=["res://.godot/imported/smallClusterA.png-a257b950a48baa099710c2dba0748732.ctex"]
+source_file="res://stages/forest/art/single tile grass corner left.png"
+dest_files=["res://.godot/imported/single tile grass corner left.png-6954e8c4da706ad2e1c5252649772af2.ctex"]
 
 [params]
 

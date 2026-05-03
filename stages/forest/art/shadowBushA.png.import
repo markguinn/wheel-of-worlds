@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2d04n7tv1el0"
-path="res://.godot/imported/bigBushB.png-3f767b55dcad411743cca34f272a1a0a.ctex"
+uid="uid://bbaem6aqy880r"
+path="res://.godot/imported/shadowBushA.png-ce4ee8a1189b36ba48b13f5e5fe6a2c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_source_assets/art/ForestWorld/bigBushB.png"
-dest_files=["res://.godot/imported/bigBushB.png-3f767b55dcad411743cca34f272a1a0a.ctex"]
+source_file="res://stages/forest/art/shadowBushA.png"
+dest_files=["res://.godot/imported/shadowBushA.png-ce4ee8a1189b36ba48b13f5e5fe6a2c4.ctex"]
 
 [params]
 

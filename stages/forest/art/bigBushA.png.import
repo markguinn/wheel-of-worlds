@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxidjfstenw0"
-path="res://.godot/imported/mound_seamless.png-701bb2307155fbb5572710c88e801557.ctex"
+uid="uid://dkob8glnlv1th"
+path="res://.godot/imported/bigBushA.png-32bc8dfbd8ceadbeab697a288601da12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_source_assets/art/ForestWorld/mound_seamless.png"
-dest_files=["res://.godot/imported/mound_seamless.png-701bb2307155fbb5572710c88e801557.ctex"]
+source_file="res://stages/forest/art/bigBushA.png"
+dest_files=["res://.godot/imported/bigBushA.png-32bc8dfbd8ceadbeab697a288601da12.ctex"]
 
 [params]
 

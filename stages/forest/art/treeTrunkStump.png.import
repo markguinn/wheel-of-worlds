@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oqnp7saij4ae"
-path="res://.godot/imported/shadowBushC.png-fb718e6c7fc96ee941d572b25a73a7f7.ctex"
+uid="uid://clv0xqs7l4kgr"
+path="res://.godot/imported/treeTrunkStump.png-bfd18ce16df626d95ca3358f1ea127ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_source_assets/art/ForestWorld/shadowBushC.png"
-dest_files=["res://.godot/imported/shadowBushC.png-fb718e6c7fc96ee941d572b25a73a7f7.ctex"]
+source_file="res://stages/forest/art/treeTrunkStump.png"
+dest_files=["res://.godot/imported/treeTrunkStump.png-bfd18ce16df626d95ca3358f1ea127ef.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch61rpi4rk5mw"
-path="res://.godot/imported/smallBushB.png-4bdc99810a69c231c030eee8e7a44786.ctex"
+uid="uid://cumuti7epn70h"
+path="res://.godot/imported/mushroom.png-09cee96d0307f5de32aa0644ae524d7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_source_assets/art/ForestWorld/smallBushB.png"
-dest_files=["res://.godot/imported/smallBushB.png-4bdc99810a69c231c030eee8e7a44786.ctex"]
+source_file="res://stages/forest/art/mushroom.png"
+dest_files=["res://.godot/imported/mushroom.png-09cee96d0307f5de32aa0644ae524d7c.ctex"]
 
 [params]
 

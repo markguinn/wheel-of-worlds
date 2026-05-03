@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmr5lkc8hsyex"
-path="res://.godot/imported/yshape_tree.png-3154f61fa403941865894769f4b69862.ctex"
+uid="uid://dgs2k8aikfp0n"
+path="res://.godot/imported/tiles.png-497876630d3738e705c76255f7730181.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_source_assets/art/ForestWorld/yshape_tree.png"
-dest_files=["res://.godot/imported/yshape_tree.png-3154f61fa403941865894769f4b69862.ctex"]
+source_file="res://stages/forest/art/tiles.png"
+dest_files=["res://.godot/imported/tiles.png-497876630d3738e705c76255f7730181.ctex"]
 
 [params]
 

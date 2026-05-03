@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clv0xqs7l4kgr"
-path="res://.godot/imported/treeTrunkStump.png-e88ff30d2af0cd19ffc5f1ac8eda50d6.ctex"
+uid="uid://defroob8flbqg"
+path="res://.godot/imported/treeTrunkMid.png-4ef5b9e9fe3cde599ecab25bb4471155.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_source_assets/art/ForestWorld/treeTrunkStump.png"
-dest_files=["res://.godot/imported/treeTrunkStump.png-e88ff30d2af0cd19ffc5f1ac8eda50d6.ctex"]
+source_file="res://stages/forest/art/treeTrunkMid.png"
+dest_files=["res://.godot/imported/treeTrunkMid.png-4ef5b9e9fe3cde599ecab25bb4471155.ctex"]
 
 [params]
 

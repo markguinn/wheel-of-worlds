@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn68idqqjxkm6"
-path="res://.godot/imported/smallClusterB.png-b398646ebeb640bc6ee27e59fa141878.ctex"
+uid="uid://ddsnmuhqutn80"
+path="res://.godot/imported/mound2x1.png-31c18d6815c1a6ac3fc4b3b4bbd69e9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_source_assets/art/ForestWorld/smallClusterB.png"
-dest_files=["res://.godot/imported/smallClusterB.png-b398646ebeb640bc6ee27e59fa141878.ctex"]
+source_file="res://stages/forest/art/mound2x1.png"
+dest_files=["res://.godot/imported/mound2x1.png-31c18d6815c1a6ac3fc4b3b4bbd69e9c.ctex"]
 
 [params]
 
