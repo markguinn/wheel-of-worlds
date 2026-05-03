@@ -34,6 +34,12 @@ func _ready() -> void:
 	orb_detector.body_entered.connect(_on_body_entered)
 	orb_detector.body_exited.connect(_on_body_exited)
 	iris_start_pos = iris.position
+	
+	for n in get_children():
+		if n is Orb:
+			orb_is_present = true
+			orb_entered_at = 1
+			orbs.append(n)
 
 
 func _on_body_entered(body: Node2D) -> void:

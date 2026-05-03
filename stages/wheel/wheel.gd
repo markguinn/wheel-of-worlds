@@ -16,7 +16,6 @@ const MAX_ZOOM = 1.0
 var spin_velocity := 0.0
 var in_gravity := 0.0
 
-@onready var orb: Orb = $Orb
 @onready var wheel_body: Node2D = $WheelTiles
 # We're sort of forcing the physics here with two area2d's.
 # If you enter one, it starts rotating the wheel and moving you until you're back in the middle.
@@ -37,7 +36,6 @@ func init_player_at_portal(portal: Node2D) -> void:
 	var rot := player.position.normalized().angle() + PI / 2.0
 	wheel_body.rotation = rot
 	player.global_position = portal.global_position
-	orb.global_position = player.global_position + Vector2(128, 0)
 
 
 func _process(delta: float) -> void:

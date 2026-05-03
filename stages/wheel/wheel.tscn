@@ -66,9 +66,11 @@ portal_name = "ww0"
 linked_stage = "uid://obcnvoariac3"
 target_portal = "w0p1"
 
-[node name="Orb" parent="WheelTiles/Portal" unique_id=1425831707 groups=["free_movers"] instance=ExtResource("3_qmu1q")]
+[node name="Orb" parent="WheelTiles/Portal" unique_id=1425831707 instance=ExtResource("3_qmu1q")]
+visible = false
 position = Vector2(0, -30)
 rotation = -1.5707964
+collision_layer = 0
 collision_mask = 0
 freeze = true
 
@@ -80,9 +82,12 @@ portal_name = "ww1"
 linked_stage = "uid://nujivjavdosd"
 target_portal = "w1p1"
 
-[node name="Orb" parent="WheelTiles/Portal2" unique_id=1810830352 groups=["free_movers"] instance=ExtResource("3_qmu1q")]
+[node name="Orb" parent="WheelTiles/Portal2" unique_id=1810830352 instance=ExtResource("3_qmu1q")]
+visible = false
 position = Vector2(0, -30)
 rotation = -1.5707964
+collision_layer = 0
+collision_mask = 0
 freeze = true
 
 [node name="Camera" parent="." unique_id=552340171 instance=ExtResource("5_slp1w")]
