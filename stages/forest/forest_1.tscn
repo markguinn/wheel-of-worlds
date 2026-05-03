@@ -25,6 +25,42 @@ gradient = SubResource("Gradient_mdxgh")
 height = 128
 fill_to = Vector2(0, 1)
 
+[sub_resource type="Curve" id="Curve_8gxyf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.234375, 0.4023837), 0.0, 0.0, 0, 0, Vector2(0.82142866, 0.56223994), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_35axu"]
+curve = SubResource("Curve_8gxyf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_25mch"]
+lifetime_randomness = 0.57
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2640, 1080, 1)
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -24.390001
+linear_accel_max = -2.2351742e-06
+tangential_accel_min = -20.000002
+tangential_accel_max = 19.999998
+damping_min = 9.7560005
+damping_max = 21.463001
+scale_min = 2.0
+scale_max = 4.0
+color = Color(0.48960003, 0.56575996, 0.68, 1)
+alpha_curve = SubResource("CurveTexture_35axu")
+hue_variation_min = -0.010000022
+hue_variation_max = 0.009999977
+turbulence_noise_strength = 1.63
+turbulence_noise_scale = 2.658
+turbulence_noise_speed = Vector3(100, 0, 0)
+turbulence_influence_min = 0.17500001
+turbulence_influence_max = 0.32700002
+
 [sub_resource type="Gradient" id="Gradient_2layw"]
 offsets = PackedFloat32Array(0.17605634, 0.7793427)
 colors = PackedColorArray(0.16470589, 0.1764706, 0.14509805, 0.79607844, 0.22246751, 0.24016911, 0.1976687, 0.6)
@@ -65,6 +101,38 @@ load_path = "res://.godot/imported/treeTrunkMid.png-4ef5b9e9fe3cde599ecab25bb447
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wshv8"]
 load_path = "res://.godot/imported/treeTrunkMid.png-4ef5b9e9fe3cde599ecab25bb4471155.ctex"
+
+[sub_resource type="CurveTexture" id="CurveTexture_eho2t"]
+curve = SubResource("Curve_8gxyf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_35axu"]
+lifetime_randomness = 0.57
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2970, 840, 1)
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -24.390001
+linear_accel_max = -2.2351742e-06
+tangential_accel_min = -20.000002
+tangential_accel_max = 19.999998
+damping_min = 9.7560005
+damping_max = 21.463001
+scale_min = 2.0
+scale_max = 4.0
+color = Color(0.6901961, 0.6117647, 0.70980394, 1)
+alpha_curve = SubResource("CurveTexture_eho2t")
+hue_variation_min = -0.010000022
+hue_variation_max = 0.009999977
+turbulence_noise_strength = 1.63
+turbulence_noise_scale = 2.658
+turbulence_noise_speed = Vector3(100, 0, 0)
+turbulence_influence_min = 0.17500001
+turbulence_influence_max = 0.32700002
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_776cr"]
 texture = ExtResource("1_5fnqw")
@@ -120,6 +188,62 @@ noise = SubResource("FastNoiseLite_8bmoi")
 color_ramp = SubResource("Gradient_8bmoi")
 seamless = true
 seamless_blend_skirt = 0.377
+
+[sub_resource type="Gradient" id="Gradient_8gxyf"]
+colors = PackedColorArray(0.94748217, 0.7446691, 0.35115287, 1, 0.9490196, 0.74509805, 0.3529412, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eho2t"]
+gradient = SubResource("Gradient_8gxyf")
+width = 15
+height = 15
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Curve" id="Curve_35axu"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25223216, 0.7122588), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_8gxyf"]
+curve = SubResource("Curve_35axu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c48qr"]
+lifetime_randomness = 0.57
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(4096, 2048, 1)
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -24.390001
+linear_accel_max = -2.2351742e-06
+tangential_accel_min = -20.000002
+tangential_accel_max = 19.999998
+damping_min = 9.7560005
+damping_max = 21.463001
+scale_min = 0.19999999
+alpha_curve = SubResource("CurveTexture_8gxyf")
+hue_variation_min = -0.010000022
+hue_variation_max = 0.009999977
+turbulence_noise_strength = 1.63
+turbulence_noise_scale = 2.658
+turbulence_noise_speed = Vector3(100, 0, 0)
+turbulence_influence_min = 0.17500001
+turbulence_influence_max = 0.32700002
+
+[sub_resource type="Gradient" id="Gradient_35axu"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8gxyf"]
+gradient = SubResource("Gradient_35axu")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [node name="Forest1" type="Node2D" unique_id=1313295670]
 
@@ -249,6 +373,13 @@ position = Vector2(1320.5, 1104)
 scale = Vector2(41.265625, 6.390625)
 texture = SubResource("GradientTexture2D_l2c6s")
 
+[node name="DustParticles" type="GPUParticles2D" parent="LeavesBG2" unique_id=1741122931]
+amount = 200
+lifetime = 10.0
+preprocess = 10.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_25mch")
+
 [node name="FarMist" type="Parallax2D" parent="." unique_id=462904100]
 scroll_scale = Vector2(0.3, 0.3)
 repeat_size = Vector2(1024, 1024)
@@ -267,28 +398,28 @@ repeat_size = Vector2(2770, 0)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="TreesBG1" unique_id=889299704]
-position = Vector2(195.99998, 422.00003)
-scale = Vector2(1, 13.34375)
+position = Vector2(195.99998, 622)
+scale = Vector2(1, 20)
 texture = SubResource("GradientTexture2D_wshv8")
 
 [node name="Sprite2D5" type="Sprite2D" parent="TreesBG1" unique_id=853977844]
-position = Vector2(2104, 424)
-scale = Vector2(1.0156254, 13.34375)
+position = Vector2(2104, 622)
+scale = Vector2(1, 20)
 texture = SubResource("GradientTexture2D_wshv8")
 
 [node name="Sprite2D6" type="Sprite2D" parent="TreesBG1" unique_id=1098319594]
-position = Vector2(1611, 424.00003)
-scale = Vector2(0.3828141, 13.34375)
+position = Vector2(1611, 622)
+scale = Vector2(1, 20)
 texture = SubResource("GradientTexture2D_wshv8")
 
 [node name="Sprite2D4" type="Sprite2D" parent="TreesBG1" unique_id=513315182]
-position = Vector2(1720, 417)
-scale = Vector2(0.71875, 13.34375)
+position = Vector2(1720, 622)
+scale = Vector2(1, 20)
 texture = SubResource("GradientTexture2D_wshv8")
 
 [node name="Sprite2D3" type="Sprite2D" parent="TreesBG1" unique_id=493268712]
-position = Vector2(519.75006, 422.00003)
-scale = Vector2(0.6796891, 13.34375)
+position = Vector2(519.75006, 622)
+scale = Vector2(1, 20)
 texture = SubResource("GradientTexture2D_wshv8")
 
 [node name="TreesBG2" type="Parallax2D" parent="." unique_id=759883917]
@@ -318,6 +449,13 @@ modulate = Color(0.36862746, 0.5019608, 0.32941177, 1)
 position = Vector2(393, 422.5)
 scale = Vector2(1, 3.3554688)
 texture = ExtResource("4_l2c6s")
+
+[node name="DustParticles" type="GPUParticles2D" parent="TreesBG2" unique_id=1011722077]
+amount = 200
+lifetime = 10.0
+preprocess = 10.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_35axu")
 
 [node name="Background" type="TileMapLayer" parent="." unique_id=649489315]
 scale = Vector2(0.5, 0.5)
@@ -354,6 +492,14 @@ scale = Vector2(4, 2)
 texture = ExtResource("6_35axu")
 script = ExtResource("6_wpkus")
 
+[node name="Fireflies" type="GPUParticles2D" parent="NearMist" unique_id=64193870]
+amount = 100
+texture = SubResource("GradientTexture2D_eho2t")
+lifetime = 10.0
+preprocess = 10.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_c48qr")
+
 [node name="Foreground" type="TileMapLayer" parent="." unique_id=1881646694]
 scale = Vector2(0.5, 0.5)
 tile_set = SubResource("TileSet_h68eo")
@@ -367,6 +513,12 @@ position = Vector2(201, 301)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1858114605]
 remote_path = NodePath("../../StandardCamera")
 
+[node name="PointLight2D3" type="PointLight2D" parent="Player" unique_id=925400616]
+color = Color(0.9792946, 0.8219286, 0.8130152, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_8gxyf")
+texture_scale = 6.0
+
 [node name="Tree1" type="Sprite2D" parent="." unique_id=1857920757]
 texture = ExtResource("8_wshv8")
 
@@ -375,5 +527,20 @@ position = Vector2(-1021, 125)
 texture = ExtResource("9_fivbl")
 
 [node name="Tree3" type="Sprite2D" parent="." unique_id=486866574]
-position = Vector2(1229, -252)
+position = Vector2(1297, -254)
 texture = ExtResource("9_ljcsy")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1146283215]
+position = Vector2(-172, 96)
+color = Color(0.9792946, 0.8219286, 0.8130152, 1)
+texture = SubResource("GradientTexture2D_8gxyf")
+texture_scale = 5.67
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=709813443]
+position = Vector2(862, -122)
+color = Color(0.9792946, 0.8219286, 0.8130152, 1)
+texture = SubResource("GradientTexture2D_8gxyf")
+texture_scale = 8.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=760527295]
+color = Color(0.16470589, 0.20392157, 0.14901961, 1)
