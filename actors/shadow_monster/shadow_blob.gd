@@ -42,14 +42,20 @@ func _ready() -> void:
 @export var target_attack_distance: float = 400.
 @export_range(0.1, 5.0) var arm_speed: float = 0.9
 var loop_count_in_probe_state: int = 0
+var gave_warning: bool = false
 func _process(_delta: float) -> void:
 	if target: # Handle arm animation
 		var to_target: Vector2 = (target.global_position - global_position)
 		if to_target.length() < target_attack_distance:
 			$Arm.arm_global_position = target.global_position
 		elif to_target.length() < target_warning_distance:
+			if not gave_warning:
+				$Scream.play()
+				gave_warning = true
 			$Arm.arm_global_position = lerp($Arm.arm_global_position, lerp(global_position, target.global_position, 0.25), arm_speed)
-		else: $Arm.arm_global_position = global_position
+		else:
+			$Arm.arm_global_position = global_position
+			if gave_warning: get_tree().create_timer(0.5).timeout.connect(func(): gave_warning = false)
 
 	# Handle light sensor based movement
 	if loop_count_in_probe_state < loops_to_wait_for_probes:

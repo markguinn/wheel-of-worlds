@@ -15,6 +15,9 @@
 [ext_resource type="AudioStream" uid="uid://dy42ilx0asptb" path="res://actors/shadow_monster/shadow_hit_-04.wav" id="12_hcp8r"]
 [ext_resource type="AudioStream" uid="uid://lgfwqf88krpf" path="res://actors/shadow_monster/shadow_hit_-05.wav" id="13_76ot6"]
 [ext_resource type="AudioStream" uid="uid://bvbhqloknqcga" path="res://actors/shadow_monster/shadow_hit_-06.wav" id="14_ldjtf"]
+[ext_resource type="AudioStream" uid="uid://daxp75a3745qq" path="res://actors/shadow_monster/screech-01.wav" id="16_hcp8r"]
+[ext_resource type="AudioStream" uid="uid://ceuhmnrxbicdp" path="res://actors/shadow_monster/screech-02.wav" id="17_76ot6"]
+[ext_resource type="AudioStream" uid="uid://4p54tvqvakqt" path="res://actors/shadow_monster/screech-03.wav" id="18_q7aid"]
 
 [sub_resource type="Gradient" id="Gradient_sf7u1"]
 offsets = PackedFloat32Array(1)
@@ -85,6 +88,12 @@ height = 50.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1yxxb"]
 radius = 2.0
 height = 50.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w3688"]
+streams_count = 3
+stream_0/stream = ExtResource("16_hcp8r")
+stream_1/stream = ExtResource("17_76ot6")
+stream_2/stream = ExtResource("18_q7aid")
 
 [node name="ShadowBlob" type="Node2D" unique_id=1434955370 node_paths=PackedStringArray("point_probes", "test_probes", "line")]
 z_index = 10
@@ -332,5 +341,8 @@ scale = Vector2(0.115, 0.115)
 texture = ExtResource("8_1yxxb")
 region_enabled = true
 region_rect = Rect2(98.62488, 606.93744, 514.3887, 314.15674)
+
+[node name="Scream" type="AudioStreamPlayer2D" parent="." unique_id=1296899979]
+stream = SubResource("AudioStreamRandomizer_w3688")
 
 [connection signal="body_entered" from="Arm/Palm" to="." method="_on_palm_body_entered"]
