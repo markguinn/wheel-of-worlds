@@ -5,8 +5,9 @@
 [ext_resource type="Script" uid="uid://cqn2pmvgavl2o" path="res://common/position_history_buffer.gd" id="2_e02gj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8ksbi"]
-friction = 0.59
-bounce = 0.35
+friction = 0.72
+rough = true
+bounce = 0.4
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kl2ba"]
 radius = 60.0

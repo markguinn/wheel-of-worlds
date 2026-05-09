@@ -23,6 +23,13 @@ func _process(delta: float) -> void:
 		return
 	elif player.ground_detector.is_colliding() and player.ground_detector.get_collider() is Orb:
 		_land_on_orb(player.ground_detector.get_collider(), player.ground_detector.get_collision_point(), player.ground_detector.get_collision_normal())
+	# these are a little too long. if we want to do this, we'd need to dial in the lenght (which might affect
+	# other things like foot placement) or check how far down the collision point is on the ray and filter out
+	# longer values
+	#elif ground_detector_l.is_colliding() and ground_detector_l.get_collider() is Orb:
+		#_land_on_orb(ground_detector_l.get_collider(), ground_detector_l.get_collision_point(), player.ground_detector.get_collision_normal())
+	#elif ground_detector_r.is_colliding() and ground_detector_r.get_collider() is Orb:
+		#_land_on_orb(ground_detector_r.get_collider(), ground_detector_r.get_collision_point(), player.ground_detector.get_collision_normal())
 	elif player.is_on_floor():
 		machine.transition_by_name("Idle")
 	elif GameManager.now_ms() > started_falling_at + RAGDOLL_AFTER_MS:
@@ -31,13 +38,28 @@ func _process(delta: float) -> void:
 
 func _land_on_orb(orb: Orb, collision_point: Vector2, collision_normal: Vector2) -> void:
 	#machine.transition_by_name("Ragdoll")
-	Log.info(self, "boing", collision_normal, collision_point)
+	Log.debug(player, "bouncing on orb", collision_normal, collision_point)
+
+	# squish the orb and give it a little push to the side if you hit off center
 	orb.squisher.scale.y = 1.0 - smoothstep(0.0, 800.0, player.velocity.length()) * 0.5
+	# this version causes the orb to spin too much
 	#orb.apply_impulse(player.velocity.normalized(), collision_point - orb.global_position)
-	orb.apply_central_impulse(player.velocity.normalized())
+	# this version almost never moves horizontally
+	#orb.apply_central_impulse(player.velocity.normalized())
+	# this is a nice mix of horizontal and vertical movement
+	# might be nice to scale this with the player's velocity a little bit but this works fine
+	orb.apply_impulse(-collision_normal, collision_point - orb.global_position)
+	
+	# launch the player. we don't move back to jump because it
+	# retriggers the animation and wants to set the velocity itself
+	# it'd be nice to add a quicker jump animation or something we could trigger
+	# here, and it'd be cool if you moved down just a little bit more as the orb
+	# squishes - so room for folks to tweak this if they want
 	player.velocity = collision_normal * 800.0
 	player.puff_left_dust(3.0)
 	player.puff_right_dust(3.0)
+	
+	# without this you end up ragdolling almost every time
 	started_falling_at = GameManager.now_ms()
 	
 

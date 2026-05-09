@@ -1856,7 +1856,7 @@ position = Vector2(-15, -71)
 position = Vector2(2, -45)
 
 [node name="PushPoint" type="Marker2D" parent="Sprite/GuidePoints" unique_id=1725184814]
-position = Vector2(65, 4)
+position = Vector2(54, 0)
 
 [node name="VFX" type="Node2D" parent="Sprite" unique_id=1603292766]
 
