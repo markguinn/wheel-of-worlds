@@ -13,13 +13,15 @@ const GRAVITY_MULTIPLIER = 1.8
 const GRAVITY_DIRECTION = Vector2.DOWN
 
 const ROT_TWEEN = 0.2
-const PUSH_FORCE = 2.5 # Applied to the orb
+const PUSH_FORCE = 1.0 # Applied to the orb
 const PLANK_FORCE = Vector2(0.2, 0.6) # Applied to the plank
 
 @export var horizontal_speed := 250.0
 @export var carrying_speed := 160.0
 @export var wall_bounce_amount := 0.0
 @export var wall_bounce_ms := 250
+@export var can_jump := true
+@export var trip_roll_dc := 0.05
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -111,7 +113,7 @@ func _move_and_slide(delta: float) -> void:
 			if not GameManager.rate_limit(TRIP_ROLL_DEBOUNCE, "player_trip_roll"):
 				var trip_roll := randf()
 				Log.debug(self, "rolled trip save", trip_roll)
-				if trip_roll <= TRIP_ROLL_DC:
+				if trip_roll <= trip_roll_dc:
 					Log.info(self, "failed trip save", trip_roll)
 					%SFX.play_tripped()
 					machine.transition_by_name("Ragdoll")
@@ -127,8 +129,12 @@ func _move_and_slide(delta: float) -> void:
 		for i in range(player.get_slide_collision_count()):
 			var col = player.get_slide_collision(i)
 			var obj = col.get_collider()
-			if obj is Orb:
-				obj.apply_impulse(col.get_normal() * -PUSH_FORCE)
+			if obj is Orb and player.is_on_floor():
+				if machine.get_active() != "Push":
+					#obj.set_next_linear_velocity(v / 2.0)
+					machine.get_state("Push").start_pushing_orb(obj)
+				#player.velocity = v / 2.0
+				#obj.apply_impulse(col.get_normal() * -PUSH_FORCE)
 				#if ground_detector.get_collider() != obj and sign(col.get_normal().x) != sign(v.x):
 					#var force := col.get_normal().abs() * v * PUSH_FORCE * delta
 					#print("force:", [force, col.get_normal().x, v.x])

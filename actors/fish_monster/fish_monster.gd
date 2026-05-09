@@ -1,6 +1,7 @@
 class_name FishMonster
 extends MoveableRigidBody2D
 
+
 # moderates the horizontal linear velocity when jumping from the bottom
 const JUMP_X_FACTOR = 0.8
 
@@ -68,7 +69,7 @@ func _ready() -> void:
 			territory_rect.position = node.to_global(territory_rect.position)
 	if not territory_rect:
 		Log.warn(self, self.get_path(), "no territory rect found. This node should be the child of an Area2d")
-	
+
 	hit_box.body_entered.connect(_on_body_entered)
 	splash_particles.emitting = false
 	swim_particles.emitting = false

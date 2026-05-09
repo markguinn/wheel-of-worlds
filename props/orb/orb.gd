@@ -24,6 +24,7 @@ var iris_base_scale: Vector2
 @onready var iris: Sprite2D = $SquishContainer/WhiteSphere/Iris
 @onready var sprite: Sprite2D = $SquishContainer/WhiteSphere
 @onready var squisher: Node2D = $SquishContainer
+@onready var pos_history: PositionHistoryBuffer = $PositionHistoryBuffer
 
 
 func _ready() -> void:

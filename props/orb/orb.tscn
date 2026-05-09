@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ju74l0h2oc0a" path="res://props/orb/orb.gd" id="1_kl2ba"]
 [ext_resource type="Texture2D" uid="uid://dyfjydb0sbb64" path="res://actors/portal/art/irises.png" id="2_2fjae"]
+[ext_resource type="Script" uid="uid://cqn2pmvgavl2o" path="res://common/position_history_buffer.gd" id="2_e02gj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8ksbi"]
 friction = 0.59
@@ -48,12 +49,17 @@ fill_from = Vector2(0.5, 0.5)
 collision_layer = 16
 collision_mask = 29
 collision_priority = 10.0
-mass = 0.01
+mass = 0.005
 physics_material_override = SubResource("PhysicsMaterial_8ksbi")
 continuous_cd = 2
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_kl2ba")
+
+[node name="PositionHistoryBuffer" type="Node2D" parent="." unique_id=1546484489]
+script = ExtResource("2_e02gj")
+seconds_of_history = 0.2
+metadata/_custom_type_script = "uid://cqn2pmvgavl2o"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2124204990]
 shape = SubResource("CircleShape2D_kl2ba")

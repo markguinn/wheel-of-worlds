@@ -50,7 +50,7 @@ func in_coyote_window() -> bool:
 
 
 func can_jump() -> bool:
-	if state_machine.get_active() == "Ragdoll":
+	if not state_machine.active_state.can_jump:
 		return false
 	return is_on_floor() or in_coyote_window()
 

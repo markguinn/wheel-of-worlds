@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://74a5mhali56n" path="res://actors/player/states/player_fall.gd" id="11_ssdk0"]
 [ext_resource type="Script" uid="uid://c3rmeunxh7l15" path="res://actors/player/ragdoll_body.gd" id="12_nsxbo"]
 [ext_resource type="Script" uid="uid://d0dmoudghrdys" path="res://actors/player/states/player_ragdoll.gd" id="12_ssdk0"]
+[ext_resource type="Script" uid="uid://ycwa72sl620p" path="res://actors/player/states/player_push.gd" id="16_icg72"]
 [ext_resource type="Script" uid="uid://bxy3hd0npr4vn" path="res://actors/player/player_sfx.gd" id="18_otn2r"]
 [ext_resource type="AudioStream" uid="uid://7sdkehy4wjof" path="res://_temp_replace_me_please/sfx-low-short.wav" id="21_ctwkf"]
 
@@ -1002,6 +1003,142 @@ tracks/9/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_lj3dd"]
+resource_name = "pushing"
+length = 2.0000167
+loop_mode = 1
+step = 0.16666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/GuidePoints/ArmR:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(37, -45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/GuidePoints/AnimatedLegR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-34, 57), Vector2(-7, 39), Vector2(-5, 53), Vector2(-23, 55)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/GuidePoints/AnimatedLegL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(7, 56), Vector2(-14, 56), Vector2(-13.000002, 35)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/GuidePoints/ArmL:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, -28)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite/GuidePoints/Head:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(49, -55), Vector2(49, -45)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite/Skeleton2D/Hips:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, -19)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"puff_right_dust"
+}, {
+"args": [],
+"method": &"puff_left_dust"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite/Skeleton2D/Hips:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.20943951023931956, 0.32114058236695625]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite/GuidePoints:is_left_arm_over_body")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SFX")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1, 2.0000167),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_footstep"
+}, {
+"args": [],
+"method": &"play_footstep"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_p47bc"]
 resource_name = "walk"
 length = 2.0000167
@@ -1286,6 +1423,7 @@ _data = {
 &"land_after_fall": SubResource("Animation_ctwkf"),
 &"land_while_carrying": SubResource("Animation_icg72"),
 &"pickup": SubResource("Animation_12xki"),
+&"pushing": SubResource("Animation_lj3dd"),
 &"walk": SubResource("Animation_p47bc"),
 &"walk_carry": SubResource("Animation_0wchr")
 }
@@ -1450,7 +1588,7 @@ metadata/_edit_lock_ = true
 
 [node name="Hips" type="Bone2D" parent="Sprite/Skeleton2D" unique_id=598144107]
 position = Vector2(3, -19)
-scale = Vector2(0.99982685, 0.99982685)
+scale = Vector2(0.99984026, 0.99984026)
 rest = Transform2D(1, 0, 0, 1, 0, -20)
 
 [node name="ThighR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=25801670]
@@ -1520,7 +1658,7 @@ remote_path = NodePath("../../../../../VFX/DizzyParticles")
 
 [node name="ArmR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1756135333]
 position = Vector2(-33, -31)
-rotation = 0.08732083
+rotation = 0.08732086
 rest = Transform2D(0.999362, -0.0357162, 0.0357162, 0.999362, -33, -31)
 metadata/_local_pose_override_enabled_ = true
 
@@ -1536,7 +1674,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ArmL" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1793998611]
 position = Vector2(28, -36)
-rotation = -0.16663727
+rotation = -0.16663733
 scale = Vector2(0.99999917, 0.99999917)
 rest = Transform2D(0.9953148, -0.09668779, 0.09668779, 0.9953148, 28, -36)
 metadata/_local_pose_override_enabled_ = true
@@ -1669,9 +1807,9 @@ uv = PackedVector2Array(27.999695, 7.2499847, 51.999695, 12.249985, 49.499695, 5
 bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR/ShinR/FootR", PackedFloat32Array(0.54, 0.54, 0.54, 0.54, 0.54, 0.54), "Hips/ThighL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighL/ShinL/FootL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0, 0, 0)]
 
 [node name="Head" type="Sprite2D" parent="Sprite/Parts" unique_id=857872474]
-position = Vector2(9.998785, -62.99238)
-rotation = -0.051273502
-scale = Vector2(0.2998488, 0.2998488)
+position = Vector2(9.9988785, -62.992966)
+rotation = -0.051258318
+scale = Vector2(0.29986158, 0.29986158)
 texture = ExtResource("5_bop6h")
 
 [node name="BlinkingEyelids" type="Node2D" parent="Sprite/Parts/Head" unique_id=1197610821]
@@ -1717,6 +1855,9 @@ position = Vector2(-15, -71)
 [node name="Torso" type="Marker2D" parent="Sprite/GuidePoints" unique_id=1991809634]
 position = Vector2(2, -45)
 
+[node name="PushPoint" type="Marker2D" parent="Sprite/GuidePoints" unique_id=1725184814]
+position = Vector2(65, 4)
+
 [node name="VFX" type="Node2D" parent="Sprite" unique_id=1603292766]
 
 [node name="DustParticlesL" type="CPUParticles2D" parent="Sprite/VFX" unique_id=439452128]
@@ -1750,9 +1891,9 @@ position = Vector2(48, 60)
 
 [node name="DizzyParticles" type="GPUParticles2D" parent="Sprite/VFX" unique_id=806147118]
 unique_name_in_owner = true
-position = Vector2(9.998785, -62.99238)
-rotation = -1.4998968
-scale = Vector2(0.99973387, 0.99973387)
+position = Vector2(9.9988785, -62.992966)
+rotation = -1.4998816
+scale = Vector2(0.9997471, 0.9997471)
 emitting = false
 amount = 6
 texture = ExtResource("7_7aotz")
@@ -1944,12 +2085,21 @@ script = ExtResource("9_lsln6")
 horizontal_speed = 320.0
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
+[node name="Push" type="Node" parent="StateMachine" unique_id=791453019]
+script = ExtResource("16_icg72")
+carrying_speed = 250.0
+wall_bounce_ms = 0
+can_jump = false
+trip_roll_dc = 0.0
+metadata/_custom_type_script = "uid://dljix40x8qlm1"
+
 [node name="Jump" type="Node" parent="StateMachine" unique_id=1167554938]
 script = ExtResource("10_hiosj")
 horizontal_speed = 450.0
 carrying_speed = 300.0
 wall_bounce_amount = 1.0
 wall_bounce_ms = 500
+can_jump = false
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="Fall" type="Node" parent="StateMachine" unique_id=1791540762]
@@ -1961,6 +2111,7 @@ metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="Ragdoll" type="Node" parent="StateMachine" unique_id=1205713261]
 script = ExtResource("12_ssdk0")
+can_jump = false
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="SFX" type="Node2D" parent="." unique_id=2054879864]
