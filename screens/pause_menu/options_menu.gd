@@ -14,7 +14,7 @@ func _ready()->void:
 	
 
 
-func _on_screen_shake_volume_slider_value_changed(value: float) -> void:
+func _on_screen_shake_volume_slider_value_changed(_value: float) -> void:
 	pass # Replace with function body.
 
 
