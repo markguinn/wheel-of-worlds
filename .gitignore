@@ -10,3 +10,4 @@ export.cfg
 !/export/.gitkeep
 .DS_Store
 _ignored_assets
+.vscode
