@@ -84,17 +84,30 @@ func _process(delta: float) -> void:
 	# to initiate the squish and this move_toward will reset it back to even
 	squisher.scale = squisher.scale.move_toward(Vector2.ONE, delta)
 	squisher.rotation = -rotation
+	squisher.position.y = lerpf(50.0, 0.0, squisher.scale.y)
 	sprite.rotation = rotation
 
+
+func squish(vel: Vector2) -> void:
+	if vel.length() < IMPACT_MIN_VEL:
+		return
+	var impact_amt := IMPACT_STRETCH * smoothstep(IMPACT_MIN_VEL, IMPACT_MAX_VEL, vel.length())
+	if absf(vel.y) > absf(vel.x):
+		squisher.scale.y = 1.0 - impact_amt
+		squisher.scale.x = 1.0 + impact_amt * 0.5
+	else:
+		squisher.scale.x = 1.0 - impact_amt
+		squisher.scale.y = 1.0 + impact_amt * 0.5
 
 # TODO: this still looks kind of janky. I think we'll do better if we can base it on
 # the actual acceleration (i.e. quick slowdown squishes and maybe quick speedup stretches)
 func _on_impact(_collision_point: Vector2, vel: Vector2, _colliding_body: Node, _part: MoveableRigidBody2D) -> void:
-	var impact_amt := IMPACT_STRETCH * clampf(inverse_lerp(IMPACT_MIN_VEL, IMPACT_MAX_VEL, vel.length()), 0.0, 1.0)
-	if vel.length() > IMPACT_MIN_VEL:
-		if absf(vel.y) > absf(vel.x):
-			squisher.scale.y = 1.0 - impact_amt
-			squisher.scale.x = 1.0 + impact_amt * 0.5
-		else:
-			squisher.scale.x = 1.0 - impact_amt
-			squisher.scale.y = 1.0 + impact_amt * 0.5
+	squish(vel)
+	#var impact_amt := IMPACT_STRETCH * clampf(inverse_lerp(IMPACT_MIN_VEL, IMPACT_MAX_VEL, vel.length()), 0.0, 1.0)
+	#if vel.length() > IMPACT_MIN_VEL:
+		#if absf(vel.y) > absf(vel.x):
+			#squisher.scale.y = 1.0 - impact_amt
+			#squisher.scale.x = 1.0 + impact_amt * 0.5
+		#else:
+			#squisher.scale.x = 1.0 - impact_amt
+			#squisher.scale.y = 1.0 + impact_amt * 0.5

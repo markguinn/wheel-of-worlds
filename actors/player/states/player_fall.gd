@@ -2,7 +2,7 @@ class_name PlayerFallState
 extends PlayerState
 
 
-const RAGDOLL_AFTER_MS = 1000
+const RAGDOLL_AFTER_MS = 2000
 const LANDING_DUST_SCALE = 20.0
 
 var started_falling_at: int
@@ -41,13 +41,12 @@ func _land_on_orb(orb: Orb, collision_point: Vector2, collision_normal: Vector2)
 	Log.debug(player, "bouncing on orb", collision_normal, collision_point)
 
 	# squish the orb and give it a little push to the side if you hit off center
-	orb.squisher.scale.y = 1.0 - smoothstep(0.0, 800.0, player.velocity.length()) * 0.5
+	orb.squish(player.velocity)
 	# this version causes the orb to spin too much
 	#orb.apply_impulse(player.velocity.normalized(), collision_point - orb.global_position)
 	# this version almost never moves horizontally
 	#orb.apply_central_impulse(player.velocity.normalized())
 	# this is a nice mix of horizontal and vertical movement
-	# might be nice to scale this with the player's velocity a little bit but this works fine
 	orb.apply_impulse(-collision_normal, collision_point - orb.global_position)
 	
 	# launch the player. we don't move back to jump because it
@@ -56,8 +55,8 @@ func _land_on_orb(orb: Orb, collision_point: Vector2, collision_normal: Vector2)
 	# here, and it'd be cool if you moved down just a little bit more as the orb
 	# squishes - so room for folks to tweak this if they want
 	player.velocity = collision_normal * 800.0
-	player.puff_left_dust(3.0)
-	player.puff_right_dust(3.0)
+	player.puff_left_dust(LANDING_DUST_SCALE)
+	player.puff_right_dust(LANDING_DUST_SCALE)
 	
 	# without this you end up ragdolling almost every time
 	started_falling_at = GameManager.now_ms()
