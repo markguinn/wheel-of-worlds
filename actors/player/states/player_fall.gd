@@ -22,12 +22,24 @@ func _process(delta: float) -> void:
 	if transitioning_out:
 		return
 	elif player.ground_detector.is_colliding() and player.ground_detector.get_collider() is Orb:
-		machine.transition_by_name("Ragdoll")
+		_land_on_orb(player.ground_detector.get_collider(), player.ground_detector.get_collision_point(), player.ground_detector.get_collision_normal())
 	elif player.is_on_floor():
 		machine.transition_by_name("Idle")
 	elif GameManager.now_ms() > started_falling_at + RAGDOLL_AFTER_MS:
 		machine.transition_by_name("Ragdoll")
 
+
+func _land_on_orb(orb: Orb, collision_point: Vector2, collision_normal: Vector2) -> void:
+	#machine.transition_by_name("Ragdoll")
+	Log.info(self, "boing", collision_normal, collision_point)
+	orb.squisher.scale.y = 1.0 - smoothstep(0.0, 800.0, player.velocity.length()) * 0.5
+	#orb.apply_impulse(player.velocity.normalized(), collision_point - orb.global_position)
+	orb.apply_central_impulse(player.velocity.normalized())
+	player.velocity = collision_normal * 800.0
+	player.puff_left_dust(3.0)
+	player.puff_right_dust(3.0)
+	started_falling_at = GameManager.now_ms()
+	
 
 func transition_before_exit(to_state: StateNode) -> void:
 	if player.ground_detector.is_colliding():

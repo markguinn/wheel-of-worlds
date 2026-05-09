@@ -147,7 +147,7 @@ func _disable_ragdoll_elements() -> void:
 		player.anim_player.active = true
 		guidepoints_container.sync_legs_to_animated = true
 	if player.shape:
-		player.shape.disabled = false
+		player.shape.set_deferred('disabled', false)
 		
 	
 	# disable the ragdoll bodies so they don't get in the way

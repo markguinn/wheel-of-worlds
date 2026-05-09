@@ -12,7 +12,6 @@ const RAGDOLL_SECONDS = 0.2
 func _entered(from_state: StateNode) -> void:
 	if from_state.name == "Ragdoll":
 		return
-
 	if player.is_holding_prop:
 		player.anim_player.play("jump_carry", 0.1)
 	else:

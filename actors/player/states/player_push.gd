@@ -9,7 +9,7 @@ const VERTICAL_OOMPH_SCALE = 1.0
 # the y component of the push direction is scaled by this value
 # before actually applying it to the orb. Closer to 1.0 will give
 # more lift on slopes. Too far will cause it to pop up off the ground
-const VERTICAL_PUSH_DIRECTION_SCALE = 0.2
+const VERTICAL_PUSH_DIRECTION_SCALE = 0.4
 # if the orb gets stuck on a slope, we give it a little extra thump
 # thie controls how hard that is
 const AUTO_KICK_STRENGTH = 1.2
@@ -64,7 +64,7 @@ func start_pushing_orb(_orb: Orb, handle_txn = true) -> void:
 # the default implementation has some acceleration but that makes it
 # look really jerky when you're bumping against the orb all the time
 # so we just even out the velocity (this is called by super._process)
-func _update_horizontal_movement(dir: Vector2, delta: float) -> void:
+func _update_horizontal_movement(dir: Vector2, _delta: float) -> void:
 	player.velocity.x = dir.x * horizontal_speed * player.speed_multiplier
 
 
