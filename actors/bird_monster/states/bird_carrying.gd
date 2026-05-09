@@ -3,7 +3,7 @@ extends BirdBaseState
 
 func _entered(_from: StateNode) -> void:
 	if not bird.carried_obj:
-		Log.error(self, "no object to carry!")
+		Log.error(bird, "no object to carry!")
 		machine.transition_by_name("Flying")
 		return
 	bird.carried_obj.picked_up.emit(bird)
@@ -14,6 +14,9 @@ func _entered(_from: StateNode) -> void:
 
 func _before_exit(_to: StateNode) -> void:
 	bird.carried_obj.put_down.emit()
+	if bird.carried_obj.target_node is BirdFood:
+		Log.debug(bird, "eating the food", bird.carried_obj.target_node)
+		bird.carried_obj.target_node.queue_free()
 	bird.carried_obj = null
 
 

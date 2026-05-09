@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://rdlq677coghs" path="res://props/stone/triangle_stone.tscn" id="8_2xscn"]
 [ext_resource type="PackedScene" uid="uid://dn6gswqjkyx14" path="res://props/stone/square_stone.tscn" id="9_1bqqv"]
 [ext_resource type="PackedScene" uid="uid://th5bmfwxjhlq" path="res://actors/bird_monster/bird_monster.tscn" id="9_js4yt"]
+[ext_resource type="Script" uid="uid://bb35kovwb32q7" path="res://props/bird_food/bird_food_spawn_point.gd" id="10_hbo1l"]
+[ext_resource type="PackedScene" uid="uid://v5fvcv8b3fkw" path="res://props/bird_food/bird_food.tscn" id="11_e76tc"]
 
 [sub_resource type="Gradient" id="Gradient_83wlx"]
 colors = PackedColorArray(0.7919991, 0.79199916, 0.7919991, 1, 0.5951543, 0.5951542, 0.5951543, 1)
@@ -78,3 +80,10 @@ position = Vector2(5318, 54)
 
 [node name="Nest3" type="Marker2D" parent="." unique_id=1788353485]
 position = Vector2(4058, 439)
+
+[node name="BirdFoodSpawner" type="Marker2D" parent="." unique_id=1392181296]
+position = Vector2(4086, 962)
+script = ExtResource("10_hbo1l")
+metadata/_custom_type_script = "uid://bb35kovwb32q7"
+
+[node name="BirdFood" parent="BirdFoodSpawner" unique_id=2030426815 instance=ExtResource("11_e76tc")]

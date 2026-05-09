@@ -1,6 +1,7 @@
 extends BirdBaseState
 
 
+# TODO: dial this in when we have more than one bird on a map
 const MAX_DISTANCE = 1_000_000.0
 const GRAB_DISTANCE = 100.0
 
@@ -13,10 +14,18 @@ func _entered(_from: StateNode) -> void:
 	attack_target = null
 	for node in get_tree().get_nodes_in_group("bird_targets"):
 		if node in bird.recently_carried:
-			Log.debug(bird, "skipping", node)
+			Log.debug(bird, "skipping", node.target_node)
 			continue
+		
 		var d := bird.global_position.distance_to(node.global_position)
-		if d < min_dist:
+		
+		if node.target_node is BirdFood and d < MAX_DISTANCE:
+			if node.target_node.freeze:
+				Log.debug(bird, "skipping frozen food", node.target_node)
+				continue
+			Log.debug(bird, "found food!", node.target_node)
+			attack_target = node
+		elif d < min_dist:
 			attack_target = node
 			min_dist = d
 
@@ -28,8 +37,6 @@ func _entered(_from: StateNode) -> void:
 		# TODO: should we fix the position here? or track towards the prop even if it moves?
 		destination = attack_target.global_position
 
-
-# TODO: if it hits the orb or player it should yeet them I think?
 
 func _process(delta: float) -> void:
 	super._process(delta)
