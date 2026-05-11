@@ -27,3 +27,8 @@ Guardian of the sky, admonishing dwellers beneath, eyes scope for a particular p
 Deep within a cave, cold blackened silence is disrupted by the flicker of Bert's torch. 
 Its dragon's breath momentarily burns through inky clouds, allowing Bert to see what wishes to hide. 
 Lord of darkness, wallows in the belly of eternal night, shadow tendrils claw and weave, fervently inspecting for a rarity, touching each surface of every rock.  
+##
+
+## Fable Ending 
+From the densest forests to the widest deserts, valiant members of each world gather in peace, cheer around the great seeing orb, buttressed by the pillar of paths.
+At the center of this new jubilant tribe stands Bert, empty of words, yet knows his heart has been heard. 
