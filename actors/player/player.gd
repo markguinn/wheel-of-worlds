@@ -20,7 +20,7 @@ var active_grab_box: GrabBox = null
 var start_pos: Vector2
 var avg_recent_velocity := Vector2.ZERO
 
-
+@onready var history_buffer: PositionHistoryBuffer = $PositionHistoryBuffer
 @onready var state_machine: StateMachine = $StateMachine
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Node2D = $Sprite
@@ -29,6 +29,7 @@ var avg_recent_velocity := Vector2.ZERO
 
 @onready var dust_particles_l: CPUParticles2D = %DustParticlesL
 @onready var dust_particles_r: CPUParticles2D = %DustParticlesR
+
 
 func _ready() -> void:
 	anim_player.play("idle")

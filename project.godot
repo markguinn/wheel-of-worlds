@@ -150,6 +150,7 @@ dev_menu={
 2d_physics/layer_3="Props"
 2d_physics/layer_4="Monsters"
 2d_physics/layer_5="Orbs"
+2d_physics/layer_6="Platforms"
 
 [rendering]
 

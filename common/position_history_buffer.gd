@@ -47,10 +47,13 @@ func _physics_process(delta: float) -> void:
 
 
 func get_start() -> Vector2:
-	return position_history[(buffer_idx + buffer_points - 1) % buffer_points]
+	return position_history[(buffer_idx + 1) % buffer_points]
 
 func get_end() -> Vector2:
 	return position_history[buffer_idx]
 
 func get_position_diff() -> Vector2:
 	return get_end() - get_start()
+
+func get_average_velocity() -> Vector2:
+	return get_position_diff() / seconds_of_history
