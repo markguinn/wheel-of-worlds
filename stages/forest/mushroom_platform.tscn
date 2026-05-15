@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://f5i18mx2blyi"]
+
+[ext_resource type="Texture2D" uid="uid://cumuti7epn70h" path="res://stages/forest/art/mushroom.png" id="1_7jqyc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eho2t"]
+size = Vector2(233, 20)
+
+[node name="MushroomPlatform" type="StaticBody2D" unique_id=1534789953]
+collision_layer = 32
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1351550256]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_7jqyc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=521741304]
+position = Vector2(-1, 19)
+shape = SubResource("RectangleShape2D_eho2t")
+one_way_collision = true

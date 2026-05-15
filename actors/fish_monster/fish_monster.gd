@@ -201,4 +201,4 @@ func _physics_process(delta: float) -> void:
 		else:
 			splash_particles.direction = -linear_velocity.normalized()
 		splash_particles.global_position = Vector2(last_pos.x, territory_rect.position.y + splash_offset)
-		splash_particles.set_deferred("emitting", true)
+		splash_particles.call_deferred("restart")

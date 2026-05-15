@@ -50,7 +50,7 @@ func _entered(_from_state: StateNode) -> void:
 
 
 func _before_exit(_to_state: StateNode) -> void:
-	orb.apply_impulse(Vector2.RIGHT if orb.position.x > player.position.x else Vector2.LEFT)
+	orb.apply_impulse((Vector2.RIGHT if orb.position.x > player.position.x else Vector2.LEFT) * 0.01)
 	orb = null
 
 
