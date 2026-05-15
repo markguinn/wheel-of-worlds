@@ -1,0 +1,301 @@
+[gd_scene format=3 uid="uid://it4o2hor8od2"]
+
+[ext_resource type="Script" uid="uid://bxxbctnq2ubio" path="res://stages/stage.gd" id="1_ppnep"]
+[ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="2_gaopf"]
+[ext_resource type="Texture2D" uid="uid://djpsb4jyc0afj" path="res://stages/world0/art/mountains.png" id="3_4j82r"]
+[ext_resource type="Script" uid="uid://ch0wv8cuoudkc" path="res://stages/world0/mist.gd" id="4_4xh1g"]
+[ext_resource type="Material" uid="uid://w6s6k7r66ghw" path="res://stages/world0/painted5.tres" id="5_hjns6"]
+[ext_resource type="Script" uid="uid://b0waw70vdi075" path="res://stages/world0/shader_helper.gd" id="6_lynbo"]
+[ext_resource type="Texture2D" uid="uid://taheih3duphw" path="res://stages/easy_levels/toothy_grin.png" id="7_ppnep"]
+[ext_resource type="Texture2D" uid="uid://dgj7y78b0yk11" path="res://stages/world0/art/extras1.png" id="8_ewblo"]
+[ext_resource type="Material" uid="uid://t6s3wyv0jdh6" path="res://props/trees/tree-movement-material.tres" id="9_qtk5d"]
+[ext_resource type="Texture2D" uid="uid://pui7upyox7vw" path="res://stages/world0/art/trees.png" id="10_m7y1c"]
+[ext_resource type="PackedScene" uid="uid://b85khgplioksi" path="res://actors/player/player.tscn" id="11_yowo5"]
+[ext_resource type="PackedScene" uid="uid://cq30ppa4eh5d3" path="res://props/orb/orb.tscn" id="12_xpduk"]
+[ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="13_ksg0i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3bs7n"]
+
+[sub_resource type="Gradient" id="Gradient_83wlx"]
+colors = PackedColorArray(0.24015418, 0.25599292, 0.21379125, 1, 0.16078432, 0.17254902, 0.14117648, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tsxbn"]
+gradient = SubResource("Gradient_83wlx")
+width = 500
+height = 500
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_3bs7n"]
+offsets = PackedFloat32Array(0.19917013, 0.46887967, 1)
+colors = PackedColorArray(0.078431375, 0.08235294, 0.0627451, 1, 0.085258566, 0.08747333, 0.06829219, 0.8911917, 0.14117648, 0.12941177, 0.11372549, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1cdy3"]
+gradient = SubResource("Gradient_3bs7n")
+width = 60
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_2layw"]
+offsets = PackedFloat32Array(0.17605634, 0.7793427)
+colors = PackedColorArray(0.16470589, 0.1764706, 0.14509805, 0.79607844, 0.22246751, 0.24016911, 0.1976687, 0.6)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gmxw7"]
+noise_type = 3
+seed = 5
+frequency = 0.007
+fractal_octaves = 4
+fractal_lacunarity = 0.8
+fractal_gain = 0.7
+fractal_weighted_strength = 0.86
+domain_warp_enabled = true
+domain_warp_type = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8bmoi"]
+noise = SubResource("FastNoiseLite_gmxw7")
+color_ramp = SubResource("Gradient_2layw")
+seamless = true
+seamless_blend_skirt = 0.377
+
+[sub_resource type="Gradient" id="Gradient_eprsv"]
+offsets = PackedFloat32Array(0.114107884, 0.28630707, 0.6016598, 1)
+colors = PackedColorArray(0.16470589, 0.17254902, 0.14117648, 1, 0.16398953, 0.17123571, 0.14034073, 0.969555, 0.15821995, 0.16065815, 0.13360955, 0.7243478, 0.14117648, 0.12941177, 0.11372549, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eprsv"]
+gradient = SubResource("Gradient_eprsv")
+width = 160
+height = 128
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_v0ifn"]
+offsets = PackedFloat32Array(0.43983403, 0.78215766)
+colors = PackedColorArray(0.8117647, 0.83137256, 0.78431374, 0.1764706, 0.56078434, 0.5882353, 0.5176471, 0.3137255)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_eksvm"]
+noise_type = 3
+seed = 3
+frequency = 0.005
+fractal_octaves = 4
+fractal_lacunarity = 1.2
+fractal_gain = 0.3
+fractal_weighted_strength = 0.59
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_fractal_octaves = 2
+domain_warp_fractal_gain = 0.6
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eprsv"]
+noise = SubResource("FastNoiseLite_eksvm")
+color_ramp = SubResource("Gradient_v0ifn")
+seamless = true
+seamless_blend_skirt = 0.377
+
+[sub_resource type="Gradient" id="Gradient_k5h24"]
+offsets = PackedFloat32Array(0.68049794, 1)
+colors = PackedColorArray(0.8117647, 0.83137256, 0.78431374, 0, 0.56078434, 0.5882353, 0.5176471, 0.47843137)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_87lg0"]
+noise_type = 4
+seed = 3
+frequency = 0.001
+fractal_type = 2
+fractal_octaves = 3
+fractal_lacunarity = 0.9
+fractal_gain = 0.7
+fractal_weighted_strength = 0.39
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 25.0
+domain_warp_frequency = 0.03
+domain_warp_fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gmxw7"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_87lg0")
+color_ramp = SubResource("Gradient_k5h24")
+seamless = true
+seamless_blend_skirt = 0.377
+
+[node name="Rolling Hills Map" type="Node2D" unique_id=831090977]
+material = SubResource("ShaderMaterial_3bs7n")
+script = ExtResource("1_ppnep")
+
+[node name="Camera2D" parent="." unique_id=552340171 instance=ExtResource("2_gaopf")]
+position = Vector2(-3608, 150)
+
+[node name="BackgroundLayers" type="Node2D" parent="." unique_id=1154204795]
+
+[node name="FixedBackground" type="Parallax2D" parent="BackgroundLayers" unique_id=856755979]
+scroll_scale = Vector2(0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayers/FixedBackground" unique_id=43248688]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("GradientTexture2D_tsxbn")
+metadata/_edit_use_anchors_ = true
+
+[node name="FarMountains" type="Parallax2D" parent="BackgroundLayers" unique_id=1374407963]
+scroll_scale = Vector2(0.2, 0.1)
+repeat_size = Vector2(995, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundLayers/FarMountains" unique_id=622575544]
+modulate = Color(0.47983426, 0.47983432, 0.4798342, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_4j82r")
+offset = Vector2(0, 1110)
+flip_h = true
+region_rect = Rect2(177, 0, 4096, 2048)
+
+[node name="FadeOut" type="Sprite2D" parent="BackgroundLayers/FarMountains" unique_id=784784239]
+position = Vector2(0, 895)
+scale = Vector2(16.584, 8)
+texture = SubResource("GradientTexture2D_1cdy3")
+
+[node name="FarMist" type="Parallax2D" parent="BackgroundLayers" unique_id=180983151]
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(1024, 1024)
+autoscroll = Vector2(30, 14)
+repeat_times = 6
+
+[node name="Mist" type="Sprite2D" parent="BackgroundLayers/FarMist" unique_id=939087428]
+position = Vector2(254, 237)
+scale = Vector2(2, 2)
+texture = SubResource("NoiseTexture2D_8bmoi")
+
+[node name="Mountains" type="Parallax2D" parent="BackgroundLayers" unique_id=2037387024]
+scroll_scale = Vector2(0.4, 0.2)
+repeat_size = Vector2(2653, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundLayers/Mountains" unique_id=913695051]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_4j82r")
+offset = Vector2(0, 520)
+region_rect = Rect2(177, 0, 4096, 2048)
+
+[node name="FadeOut" type="Sprite2D" parent="BackgroundLayers/Mountains" unique_id=698875044]
+position = Vector2(0, 1738)
+scale = Vector2(16.583, 8)
+texture = SubResource("GradientTexture2D_eprsv")
+
+[node name="MiddleMist" type="Parallax2D" parent="BackgroundLayers" unique_id=584069698]
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(1024, 1024)
+autoscroll = Vector2(-20, -10)
+repeat_times = 6
+
+[node name="Mist" type="Sprite2D" parent="BackgroundLayers/MiddleMist" unique_id=888440830]
+scale = Vector2(2, 2)
+texture = SubResource("NoiseTexture2D_eprsv")
+
+[node name="NearMist" type="Parallax2D" parent="BackgroundLayers" unique_id=1803075772]
+z_index = 50
+scroll_scale = Vector2(1.1, 1.1)
+repeat_size = Vector2(4096, 2048)
+autoscroll = Vector2(7, -4)
+repeat_times = 10
+
+[node name="Mist" type="Sprite2D" parent="BackgroundLayers/NearMist" unique_id=1957947685]
+z_index = 50
+z_as_relative = false
+scale = Vector2(4, 2)
+texture = SubResource("NoiseTexture2D_gmxw7")
+script = ExtResource("4_4xh1g")
+
+[node name="Terrain" type="Node2D" parent="." unique_id=590424257]
+z_index = 1
+
+[node name="PaintedGround" type="CanvasGroup" parent="Terrain" unique_id=317622971]
+material = ExtResource("5_hjns6")
+fit_margin = 200.0
+clear_margin = 200.0
+script = ExtResource("6_lynbo")
+
+[node name="level_data" type="Sprite2D" parent="Terrain/PaintedGround" unique_id=1725807640]
+position = Vector2(0, 283.79)
+scale = Vector2(2, 2)
+texture = ExtResource("7_ppnep")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Terrain/PaintedGround/level_data" unique_id=961365353]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/PaintedGround/level_data/StaticBody2D" unique_id=1415574989]
+polygon = PackedVector2Array(2000, 500, 2000, -311.2, 1993.3999, -314, 1991, -314, 1986, -320.7, 1986, -322.2, 1973, -329.3, 1973, -330.7, 1946.3, -334.9, 1950, -360.9, 1950, -364.4, 1955, -371, 1956.3, -371, 1967.3, -395, 1969.1001, -395, 1968, -424.1, 1968, -427.1, 1939.8999, -426, 1932.1001, -426, 1914, -404.7, 1883, -386.2, 1878, -386, 1878, -384.9, 1841.8999, -383, 1817.3, -383, 1808.3, -386, 1804.8, -386, 1797.1001, -393.7, 1797.8999, -401.6, 1818.6001, -410, 1821.5, -410, 1850.6001, -426, 1853, -426, 1861, -437, 1862.7, -437, 1865, -452.9, 1865, -458, 1800, -459, 1789.8, -459, 1744.6001, -450, 1730.7, -450, 1683, -436.5, 1656.8999, -435, 1653.2, -435, 1601, -381.8, 1601, -381.2, 1555.3999, -351, 1553.1001, -351, 1547, -343.7, 1547, -342.3, 1534.7, -337, 1531.3, -337, 1522, -330, 1522, -329.3, 1507.7, -323, 1505.3, -323, 1485.3, -308, 1483.1001, -308, 1421, -242.79999, 1421, -242, 1397, -223, 1397, -222.29999, 1376, -213.29999, 1376, -212.70001, 1295.6001, -196, 1291.5, -196, 1262.5, -179, 1260.3, -179, 1219.3, -144, 1217.1001, -144, 1206.1001, -131, 1204, -131, 1195, -118, 1192.7, -118, 1179, -89.5, 1179, -87.79999, 1156, -63.799988, 1156, -62.100006, 1125, -41.100006, 1089, -32.600006, 1089, -32, 1048.8999, -30, 1040.7, -30, 988.69995, -13, 984.3999, -13, 953.30005, 8, 951.19995, 8, 934, 25.200012, 934, 25.900024, 922, 33.900024, 913, 36.400024, 892.1001, 35, 888.5, 35, 880, 30.700012, 880, 29.5, 849.30005, 21, 845.5, 21, 805, 1.7000122, 805, 0.2999878, 792.19995, -2, 782.80005, -2, 768.6001, 1, 765.80005, 1, 761.8999, 8, 760.1001, 8, 759, 45, 759, 72, 755, 85.70001, 755, 92.400024, 734, 123, 732.5, 123, 728.5, 137, 727, 137, 727, 168.59998, 733, 178.5, 733, 180.90002, 744, 190.79999, 744, 192.5, 772.69995, 201, 775.6001, 201, 802, 213.20001, 802, 215, 847, 216, 849, 216, 858, 228, 862, 269.2, 862, 272.3, 864.5, 273.40002, 903.80005, 233, 943.5, 233, 947, 246, 947, 249.59998, 959.8999, 270, 960, 277, 967.6001, 277, 982.6001, 267, 985.30005, 267, 1001, 232.40002, 1001, 230.59998, 1080, 215.70001, 1086.8999, 216, 1091.6001, 216, 1120.7, 226, 1121.8999, 226, 1136, 248.59998, 1136, 251.79999, 1145.2, 261, 1151.3, 261, 1158.3, 245, 1159.6001, 245, 1167, 213.20001, 1167, 209.5, 1173, 197.5, 1173, 195.79999, 1180.2, 195, 1186.3999, 195, 1213.3999, 185, 1218.1001, 185, 1220.8999, 180.29999, 1225, 188.5, 1225, 190.09998, 1238, 198, 1238, 199.40002, 1253.7, 205, 1256.2, 205, 1261.2, 210, 1266.2, 210, 1264, 182.79999, 1264, 148.20001, 1278.5, 141, 1280.7, 141, 1329, 105, 1336.3, 105, 1343.3, 111, 1345, 111, 1357, 126.599976, 1357, 128.90002, 1378.2, 148, 1383.8, 148, 1386, 131.09998, 1386, 128.59998, 1390.1001, 122, 1391.5, 122, 1395, 110.29999, 1395, 106.5, 1406, 85.5, 1406, 81.20001, 1418.3, 76, 1421.6001, 76, 1444.6001, 61, 1447.8, 61, 1468, 40.799988, 1468, 39.900024, 1500, 15, 1501.8, 15, 1504, 19.5, 1504, 22.700012, 1529, 55.599976, 1529, 58.099976, 1548.1001, 57, 1551.8, 57, 1559, -2.899994, 1559, -14.899994, 1573, -22.799988, 1573, -23.600006, 1592.3, -30, 1596.7, -30, 1604, -36.100006, 1604, -36.799988, 1625.5, -47, 1627.8, -47, 1638.8, -57, 1641, -57, 1671, -95, 1672.1001, -95, 1689, -121.399994, 1689, -124.20001, 1696, -131.20001, 1696, -133, 1710.8, -145, 1714, -145, 1727, -163.4, 1727, -164.9, 1734.7, -170, 1737, -170, 1745, -180, 1762.3, -180, 1776, -169.29999, 1776, -66, 1774.2, -54, 1773, -54, 1772, 22, 1772, 31.5, 1767.6001, 44, 1766.2, 44, 1759, 100.900024, 1759, 106.5, 1754.8999, 114, 1753.3999, 114, 1750, 129.79999, 1750, 133, 1706, 168, 1695.7, 172, 1622.3999, 172, 1591.2, 166, 1566.1001, 166, 1536, 201.29999, 1536, 201.90002, 1490.3, 233, 1488.2, 233, 1430, 292.2, 1430, 292.8, 1414, 301.8, 1414, 302.40002, 1335.8999, 323, 1332.3999, 323, 1281, 353.90002, 1281, 354.59998, 1256.6001, 364, 1253.5, 364, 1230, 377.90002, 1219.8999, 381, 1216.5, 381, 1203, 388.90002, 1187.8999, 393, 1183.3999, 393, 1160, 407.90002, 1094, 409, 1071.6001, 409, 1038, 422.7, 970.19995, 423, 944.1001, 420, 927.19995, 420, 919.19995, 404, 918, 387.90002, 918, 381.40002, 911.1001, 370, 900, 370, 900, 382.7, 895, 398.7, 895, 403.40002, 889, 413.40002, 889, 416.59998, 875.80005, 405, 875.1001, 405, 866.19995, 389, 857.30005, 389, 856, 397.90002, 856, 400.59998, 846, 422.59998, 846, 423.5, 843.19995, 423, 835.19995, 407, 828.3999, 407, 824, 426.8, 824, 428, 823.1001, 428, 818.1001, 420, 813.6001, 420, 810.19995, 429, 774.8999, 429, 747.69995, 433, 735.6001, 433, 699.6001, 447, 693.19995, 447, 679.30005, 443, 677.8999, 443, 652, 415.09998, 652, 412.8, 619, 393.8, 619, 392.09998, 520.1001, 386, 511.1001, 386, 503, 373.3, 503, 370.8, 499, 368.7, 499, 366.59998, 486.6001, 369, 437.30005, 369, 427.30005, 366, 401.3999, 366, 343.3999, 339, 340.5, 339, 316, 324.8, 316, 323.3, 275.19995, 316, 270.30005, 316, 221.30005, 301, 216.6001, 301, 186, 281.8, 186, 280.40002, 178, 278.40002, 178, 276.40002, 171.8999, 278, 168, 278, 154, 298, 152.69995, 298, 131, 343.5, 131, 344.8, 123, 349.90002, 111, 353.40002, 98.1001, 352, 79.5, 352, 65.5, 359, 62.19995, 359, 57.19995, 364, 55.69995, 364, 43, 390.5, 43, 392.5, 34, 395.59998, -10, 397, -15.300049, 397, -48, 374.90002, -48, 372.59998, -75, 377.3, -75, 377.90002, -214, 374, -222.30005, 374, -226.30005, 371, -228, 371, -249, 341, -258, 313.7, -258, 310.5, -268, 290.5, -268, 288.09998, -274, 283, -274, 281.7, -276.5, 280.59998, -281.80005, 286, -283.19995, 286, -296.30005, 311.90002, -301, 307.2, -301, 304.59998, -309.30005, 306, -313.90002, 306, -320.90002, 314, -322.40002, 314, -325, 321.7, -325, 324.3, -332.30005, 334.3, -345.59998, 329, -353.5, 329, -369.5, 337, -374, 337, -377.69995, 341.8, -401.90002, 340, -407.59998, 340, -423.5, 351, -445.5, 351, -478.5, 334, -480.09998, 334, -490.09998, 323, -495.40002, 303, -496.19995, 303, -499, 277.8, -499, 273.5, -508, 257.5, -508, 254.20001, -513.30005, 256, -515.5, 256, -520, 272.7, -520, 275.59998, -535, 307.59998, -535, 310.09998, -552.9, 326, -554.80005, 326, -560, 315.5, -560, 312.40002, -566.80005, 311, -572.19995, 311, -590.69995, 344.8, -603.9, 344, -605.80005, 344, -606, 343.5, -606, 340.90002, -617.4, 334, -626.4, 334, -631, 346.59998, -631, 348.2, -635.30005, 349, -641.5, 349, -664, 361.8, -696, 365.2, -696, 366, -749.69995, 366, -768.80005, 363, -779, 363, -790, 349.3, -790, 347.90002, -830.4, 322, -832, 322, -842, 309.3, -842, 306.3, -851.19995, 309, -853.9, 309, -873, 329.2, -873, 331.09998, -884.19995, 332, -888.9, 332, -900, 344.2, -911, 349.7, -911, 350.3, -914.4, 351, -974.5, 351, -982.5, 347, -986.5, 347, -990, 335, -990, 329.5, -995.8, 319, -1008.5, 319, -1014.5, 322, -1017.9, 322, -1045, 352.2, -1045, 353.5, -1053, 356.59998, -1116.3, 357, -1138.3, 339, -1148, 318.59998, -1148, 316.2, -1157, 306.2, -1157, 303.8, -1168.2, 305, -1170.9, 305, -1181.9, 317, -1183.2, 317, -1187, 324.5, -1187, 326.2, -1194.8, 334, -1196.1, 334, -1207, 351.40002, -1207, 352.5, -1224, 357.5, -1247, 359.09998, -1247, 359.7, -1290.9, 354, -1360.5, 354, -1374, 348.59998, -1374, 347.09998, -1388.9, 346, -1395.6, 346, -1422, 335.59998, -1422, 334.40002, -1467.8, 325, -1471.3, 325, -1479, 319.90002, -1479, 318.59998, -1498.7, 312, -1501.5, 312, -1535.5, 293, -1541.9, 293, -1551.9, 276, -1552, 266.5, -1564.8, 243, -1565.6, 243, -1581.5, 194, -1582.5, 194, -1584, 188, -1584, 184, -1582.5, 179, -1581.1, 179, -1579, 139.09998, -1579, 135.59998, -1571, 123.599976, -1571, 117.20001, -1556.7, 111, -1554.7, 111, -1540.7, 78, -1538.9, 78, -1541, 21.900024, -1541, 17.299988, -1560, -8.700012, -1560, -11, -1567, -16.100006, -1567, -18, -1591.8, -18, -1602.9, -8, -1824.3, -8, -1828.3, -11, -1854.7, -11, -1876.7, -18, -1880.5, -18, -1896.5, -26, -1898.3, -26, -1909, -34, -1909, -35.299988, -1924.6, -42, -1927, -49.299988, -1927, -54.700012, -1931, -59.700012, -1931, -61.799988, -1950.9, -64, -1951.5, -64, -1954, -73, -1954, -77, -1959, -81, -1959, -105, -1955, -118.70001, -1955, -121.399994, -1946, -134, -1944.4, -134, -1941, -149.79999, -1941, -152.20001, -1944, -170.29999, -1944, -174.5, -1954, -191.5, -1954, -193.1, -1943.1, -203, -1940, -203, -1932, -214, -1928.5, -214, -1926, -222.70001, -1926, -225.29999, -1931, -244, -1931, -250.5, -1920, -268.4, -1920, -269.8, -1917.5, -271, -1915.1, -271, -1896.1, -292, -1894.9, -292, -1886.9, -305, -1885, -305, -1885, -312.4, -1881.6, -313, -1873.6, -313, -1860, -318.7, -1860, -319.4, -1829.6, -326, -1825.6, -326, -1813, -331.7, -1813, -332.3, -1779.8, -336, -1771.7, -336, -1747, -343.5, -1747, -344.4, -1686, -356.4, -1686, -357.3, -1644, -362.2, -1644, -363, -1600.4, -363, -1574, -357.4, -1574, -356.1, -1544.1, -354, -1515.3, -354, -1484.3, -344, -1480.6, -344, -1458.5, -332, -1457.7, -332, -1456.6, -327, -1455.8, -327, -1453, -301.8, -1453, -294.7, -1445, -270.7, -1445, -266.6, -1423.3, -219, -1420, -189.79999, -1420, -178.6, -1415.4, -167, -1411, -167, -1411, -180.5, -1407.8, -187, -1406.3, -187, -1404.3, -199, -1403.3, -199, -1397, -237.79999, -1397, -244.4, -1391.7, -254, -1390.5, -254, -1381, -289.7, -1381, -293.4, -1371, -308.4, -1371, -311.1, -1364, -317.1, -1364, -317.8, -1363.5, -318, -1354.3, -318, -1343.3, -326, -1340.1, -326, -1332, -335.2, -1308, -345.7, -1308, -346.6, -1279, -354.5, -1170.6, -355, -1162.6, -350, -1161, -350, -1152, -338, -1151.2, -338, -1135, -306.5, -1135, -304, -1121, -294, -1121, -292.5, -1099, -285.6, -1099, -284.3, -1018.2, -271, -1013.6, -252, -1012.9, -252, -1010, -214.79999, -1010, -172.9, -1006, -142.70001, -1006, -135.70001, -988.4, -85, -987.7, -85, -981, -44.700012, -981, -38.600006, -966, 1.3999939, -966, 6.5, -957, 22.400024, -957, 25.700012, -953.6, 26.200012, -943.6, -4, -942.30005, -4, -939.30005, -22, -938.19995, -22, -937, -33.899994, -937, -114.70001, -933.6, -125, -932.19995, -125, -924, -197.9, -924, -203.6, -914, -224.5, -914, -225.20001, -856.9, -229, -816.69995, -229, -800.69995, -234, -797.80005, -234, -794.80005, -208, -794, -208, -794, -10.799988, -789, 11.399994, -789, 17.400024, -781.4, 37, -780.69995, 37, -777, 54.400024, -777, 60.400024, -765, 93.400024, -765, 98, -759.69995, 102, -755.19995, 102, -754, 92.099976, -754, -1.8999939, -749, -75.899994, -749, -85.70001, -745.6, -96, -744.19995, -96, -742, -113.899994, -742, -127, -734, -160.79999, -734, -164.70001, -728.80005, -176, -727.4, -176, -722, -199.79999, -722, -203.79999, -718, -205.79999, -711.80005, -207, -682.4, -207, -681.4, -204, -680.80005, -204, -677, -171.79999, -677, -126.5, -667, -108.600006, -667, -106.29999, -642, -77.29999, -642, -75.600006, -639.30005, -74.600006, -630, -87, -628.30005, -87, -621, -138.9, -621, -143.70001, -603, -184.6, -603, -185.29999, -582, -188.29999, -582, -189, -557.69995, -189, -556, -177.70001, -556, -144.29999, -565.69995, -89, -566.80005, -89, -572, -33.100006, -572, -28.700012, -567, -11.799988, -567, -7.5, -558, 9.5, -558, 12.599976, -522.1, 70, -521.30005, 70, -515.30005, 84, -512.30005, 84, -507.30005, 80, -505.59998, 80, -502.59998, 72, -501.5, 72, -495.5, 51, -494.19995, 51, -482, -40.899994, -482, -44.799988, -457, -126.70001, -457, -132.6, -433, -192.20001, -428.80005, -188, -428.19995, -188, -421.19995, -174, -420.30005, -174, -397, -117.70001, -397, -114.5, -373.19995, -69, -366.19995, -69, -332.09998, -101, -330.90002, -101, -310.19995, -133.70001, -296.69995, -122, -293.19995, -122, -290, -154.9, -290, -156.1, -255.09998, -188, -253, -188, -234.09998, -212.20001, -226.80005, -213, -195.5, -213, -166.5, -227, -164.40002, -227, -140, -242.9, -119.69995, -246, -69.599976, -246, -61.599976, -241, -59.69995, -241, -11, -199.20001, -11, -196.9, 11.099976, -198, 18.400024, -198, 51.399902, -210, 71.1001, -210, 77.1001, -203, 80.5, -193, 81.5, -193, 107, -100, 107, -95.600006, 128.6001, -37, 134.30005, -37, 142.30005, -54, 143.6001, -54, 152, -95.79999, 152, -100.70001, 189, -211.70001, 189, -214.4, 204, -237.4, 204, -240.20001, 215, -252.2, 215, -253.1, 232.1001, -254, 239.6001, -254, 273, -241.6, 273, -240, 308.30005, -240, 319.1001, -243, 340.3999, -243, 395.3999, -263, 398.6001, -263, 432, -284.9, 432, -285.8, 452.3999, -295, 456.80005, -295, 463, -301.2, 490.30005, -305, 494.3999, -305, 520.30005, -316, 523.69995, -316, 533, -323, 533, -323.8, 558, -334.7, 568.19995, -336, 577.3999, -336, 623, -353.6, 623, -354.3, 640, -356.2, 640, -357, 654.6001, -357, 667.6001, -352, 670.5, -352, 716.5, -328, 718.3999, -328, 759, -301.9, 759, -299.5, 785.69995, -292, 810.5, -292, 824.5, -299, 826.80005, -299, 891.80005, -365.1, 1031, -367, 1038.3999, -367, 1046.3999, -370, 1048.7, -370, 1061.7, -380, 1063.7, -380, 1087, -400.1, 1087, -400.9, 1106, -412.9, 1116.2, -414, 1198.6001, -414, 1200, -409.7, 1200, -364.7, 1209.6001, -338, 1213.6001, -338, 1220.6001, -343, 1223.2, -343, 1236, -366.5, 1236, -368.4, 1257, -395, 1258.3999, -395, 1266.8, -416.2, 1316.2, -420, 1327.2, -420, 1373.3999, -430, 1377.3999, -430, 1397.3999, -438, 1401.5, -438, 1407.5, -435, 1409.2, -435, 1418.2, -426, 1418.8999, -426, 1425.8999, -414, 1426.5, -414, 1427, -412, 1427, -402.3, 1432, -396, 1435.8999, -396, 1455, -419.3, 1455, -421.2, 1478, -441.1, 1478, -442.3, 1504.3999, -447, 1538.1001, -447, 1545, -457.4, 1552.3999, -461, 1558.8999, -461, 1579.8999, -485, 1581.1001, -485, 1589, -498.5, 1589, -500, -2000, -500, -2000, 500)
+
+[node name="Foliage" type="Node2D" parent="." unique_id=1218368961]
+visible = false
+
+[node name="Envrionment" type="Node2D" parent="Foliage" unique_id=1091488412]
+
+[node name="BGBigArch2" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1841399262]
+position = Vector2(-4300, 882)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_ewblo")
+region_enabled = true
+region_rect = Rect2(1114, 840, 588, 311)
+
+[node name="BGLittleArch2" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1671855888]
+position = Vector2(-3484, 944.99994)
+rotation = -0.34177393
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_ewblo")
+region_enabled = true
+region_rect = Rect2(1765, 913, 283, 376)
+
+[node name="Tree1" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1874496579]
+material = ExtResource("9_qtk5d")
+position = Vector2(18, 453)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_m7y1c")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="Tree2" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1031993569]
+material = ExtResource("9_qtk5d")
+position = Vector2(1097, 273)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_m7y1c")
+region_enabled = true
+region_rect = Rect2(784, 117, 1152, 1010)
+
+[node name="Grass1" type="Sprite2D" parent="Foliage/Envrionment" unique_id=89919555]
+position = Vector2(-1046, 907)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_m7y1c")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass2" type="Sprite2D" parent="Foliage/Envrionment" unique_id=314392674]
+position = Vector2(-673.99994, 998)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_m7y1c")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Bush1" type="Sprite2D" parent="Foliage/Envrionment" unique_id=2127315738]
+z_index = 2
+position = Vector2(-125.99999, 564)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_m7y1c")
+region_enabled = true
+region_rect = Rect2(109, 1083, 428, 369)
+
+[node name="Player" parent="." unique_id=42652117 instance=ExtResource("11_yowo5")]
+position = Vector2(-3608, 150)
+speed_multiplier = 1.5
+metadata/_edit_group_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1411017242]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Orb" parent="." unique_id=1391753086 instance=ExtResource("12_xpduk")]
+z_index = 1
+position = Vector2(-3416, 111)
+
+[node name="Portal" parent="." unique_id=820677622 instance=ExtResource("13_ksg0i")]
+position = Vector2(3298, 442)
+portal_name = "w0p1"
+linked_stage = "res://stages/easy_levels_rolling_hills.tscn"
+target_portal = "ww0"

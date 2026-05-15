@@ -1,0 +1,300 @@
+[gd_scene format=3 uid="uid://b3y8g2vlw0hm1"]
+
+[ext_resource type="Script" uid="uid://bxxbctnq2ubio" path="res://stages/stage.gd" id="1_1jxvl"]
+[ext_resource type="Texture2D" uid="uid://djpsb4jyc0afj" path="res://stages/world0/art/mountains.png" id="2_114ru"]
+[ext_resource type="Script" uid="uid://ch0wv8cuoudkc" path="res://stages/world0/mist.gd" id="3_3mrdo"]
+[ext_resource type="Texture2D" uid="uid://dgj7y78b0yk11" path="res://stages/world0/art/extras1.png" id="4_522tc"]
+[ext_resource type="Material" uid="uid://t6s3wyv0jdh6" path="res://props/trees/tree-movement-material.tres" id="5_10nno"]
+[ext_resource type="Texture2D" uid="uid://pui7upyox7vw" path="res://stages/world0/art/trees.png" id="6_waj7y"]
+[ext_resource type="Texture2D" uid="uid://cfc4giseit1q7" path="res://stages/easy_levels/rolling_hills.png" id="7_2r1c6"]
+[ext_resource type="Material" uid="uid://w6s6k7r66ghw" path="res://stages/world0/painted5.tres" id="7_tpt1k"]
+[ext_resource type="Script" uid="uid://b0waw70vdi075" path="res://stages/world0/shader_helper.gd" id="8_x7l8j"]
+[ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="14_efjrf"]
+[ext_resource type="PackedScene" uid="uid://b85khgplioksi" path="res://actors/player/player.tscn" id="15_3xxle"]
+[ext_resource type="PackedScene" uid="uid://cq30ppa4eh5d3" path="res://props/orb/orb.tscn" id="16_sjc11"]
+[ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="17_ymhis"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3bs7n"]
+
+[sub_resource type="Gradient" id="Gradient_83wlx"]
+colors = PackedColorArray(0.24015418, 0.25599292, 0.21379125, 1, 0.16078432, 0.17254902, 0.14117648, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tsxbn"]
+gradient = SubResource("Gradient_83wlx")
+width = 500
+height = 500
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_3bs7n"]
+offsets = PackedFloat32Array(0.19917013, 0.46887967, 1)
+colors = PackedColorArray(0.078431375, 0.08235294, 0.0627451, 1, 0.085258566, 0.08747333, 0.06829219, 0.8911917, 0.14117648, 0.12941177, 0.11372549, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1cdy3"]
+gradient = SubResource("Gradient_3bs7n")
+width = 60
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_2layw"]
+offsets = PackedFloat32Array(0.17605634, 0.7793427)
+colors = PackedColorArray(0.16470589, 0.1764706, 0.14509805, 0.79607844, 0.22246751, 0.24016911, 0.1976687, 0.6)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gmxw7"]
+noise_type = 3
+seed = 5
+frequency = 0.007
+fractal_octaves = 4
+fractal_lacunarity = 0.8
+fractal_gain = 0.7
+fractal_weighted_strength = 0.86
+domain_warp_enabled = true
+domain_warp_type = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8bmoi"]
+noise = SubResource("FastNoiseLite_gmxw7")
+color_ramp = SubResource("Gradient_2layw")
+seamless = true
+seamless_blend_skirt = 0.377
+
+[sub_resource type="Gradient" id="Gradient_eprsv"]
+offsets = PackedFloat32Array(0.114107884, 0.28630707, 0.6016598, 1)
+colors = PackedColorArray(0.16470589, 0.17254902, 0.14117648, 1, 0.16398953, 0.17123571, 0.14034073, 0.969555, 0.15821995, 0.16065815, 0.13360955, 0.7243478, 0.14117648, 0.12941177, 0.11372549, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eprsv"]
+gradient = SubResource("Gradient_eprsv")
+width = 160
+height = 128
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_v0ifn"]
+offsets = PackedFloat32Array(0.43983403, 0.78215766)
+colors = PackedColorArray(0.8117647, 0.83137256, 0.78431374, 0.1764706, 0.56078434, 0.5882353, 0.5176471, 0.3137255)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_eksvm"]
+noise_type = 3
+seed = 3
+frequency = 0.005
+fractal_octaves = 4
+fractal_lacunarity = 1.2
+fractal_gain = 0.3
+fractal_weighted_strength = 0.59
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_fractal_octaves = 2
+domain_warp_fractal_gain = 0.6
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eprsv"]
+noise = SubResource("FastNoiseLite_eksvm")
+color_ramp = SubResource("Gradient_v0ifn")
+seamless = true
+seamless_blend_skirt = 0.377
+
+[sub_resource type="Gradient" id="Gradient_k5h24"]
+offsets = PackedFloat32Array(0.68049794, 1)
+colors = PackedColorArray(0.8117647, 0.83137256, 0.78431374, 0, 0.56078434, 0.5882353, 0.5176471, 0.47843137)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_87lg0"]
+noise_type = 4
+seed = 3
+frequency = 0.001
+fractal_type = 2
+fractal_octaves = 3
+fractal_lacunarity = 0.9
+fractal_gain = 0.7
+fractal_weighted_strength = 0.39
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 25.0
+domain_warp_frequency = 0.03
+domain_warp_fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gmxw7"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_87lg0")
+color_ramp = SubResource("Gradient_k5h24")
+seamless = true
+seamless_blend_skirt = 0.377
+
+[node name="Rolling Hills Map" type="Node2D" unique_id=831090977]
+material = SubResource("ShaderMaterial_3bs7n")
+script = ExtResource("1_1jxvl")
+
+[node name="Camera2D" parent="." unique_id=552340171 instance=ExtResource("14_efjrf")]
+position = Vector2(-1650, 780)
+
+[node name="BackgroundLayers" type="Node2D" parent="." unique_id=1154204795]
+
+[node name="FixedBackground" type="Parallax2D" parent="BackgroundLayers" unique_id=856755979]
+scroll_scale = Vector2(0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayers/FixedBackground" unique_id=43248688]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("GradientTexture2D_tsxbn")
+metadata/_edit_use_anchors_ = true
+
+[node name="FarMountains" type="Parallax2D" parent="BackgroundLayers" unique_id=1374407963]
+scroll_scale = Vector2(0.2, 0.1)
+repeat_size = Vector2(995, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundLayers/FarMountains" unique_id=622575544]
+modulate = Color(0.47983426, 0.47983432, 0.4798342, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_114ru")
+offset = Vector2(0, 1110)
+flip_h = true
+region_rect = Rect2(177, 0, 4096, 2048)
+
+[node name="FadeOut" type="Sprite2D" parent="BackgroundLayers/FarMountains" unique_id=784784239]
+position = Vector2(0, 895)
+scale = Vector2(16.584, 8)
+texture = SubResource("GradientTexture2D_1cdy3")
+
+[node name="FarMist" type="Parallax2D" parent="BackgroundLayers" unique_id=180983151]
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(1024, 1024)
+autoscroll = Vector2(30, 14)
+repeat_times = 6
+
+[node name="Mist" type="Sprite2D" parent="BackgroundLayers/FarMist" unique_id=939087428]
+position = Vector2(254, 237)
+scale = Vector2(2, 2)
+texture = SubResource("NoiseTexture2D_8bmoi")
+
+[node name="Mountains" type="Parallax2D" parent="BackgroundLayers" unique_id=2037387024]
+scroll_scale = Vector2(0.4, 0.2)
+repeat_size = Vector2(2653, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundLayers/Mountains" unique_id=913695051]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_114ru")
+offset = Vector2(0, 520)
+region_rect = Rect2(177, 0, 4096, 2048)
+
+[node name="FadeOut" type="Sprite2D" parent="BackgroundLayers/Mountains" unique_id=698875044]
+position = Vector2(0, 1738)
+scale = Vector2(16.583, 8)
+texture = SubResource("GradientTexture2D_eprsv")
+
+[node name="MiddleMist" type="Parallax2D" parent="BackgroundLayers" unique_id=584069698]
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(1024, 1024)
+autoscroll = Vector2(-20, -10)
+repeat_times = 6
+
+[node name="Mist" type="Sprite2D" parent="BackgroundLayers/MiddleMist" unique_id=888440830]
+scale = Vector2(2, 2)
+texture = SubResource("NoiseTexture2D_eprsv")
+
+[node name="NearMist" type="Parallax2D" parent="BackgroundLayers" unique_id=1803075772]
+z_index = 50
+scroll_scale = Vector2(1.1, 1.1)
+repeat_size = Vector2(4096, 2048)
+autoscroll = Vector2(7, -4)
+repeat_times = 10
+
+[node name="Mist" type="Sprite2D" parent="BackgroundLayers/NearMist" unique_id=1957947685]
+z_index = 50
+z_as_relative = false
+scale = Vector2(4, 2)
+texture = SubResource("NoiseTexture2D_gmxw7")
+script = ExtResource("3_3mrdo")
+
+[node name="Terrain" type="Node2D" parent="." unique_id=590424257]
+z_index = 1
+
+[node name="PaintedGround" type="CanvasGroup" parent="Terrain" unique_id=317622971]
+material = ExtResource("7_tpt1k")
+fit_margin = 200.0
+clear_margin = 200.0
+script = ExtResource("8_x7l8j")
+
+[node name="level_data" type="Sprite2D" parent="Terrain/PaintedGround" unique_id=1725807640]
+position = Vector2(0, 600)
+texture = ExtResource("7_2r1c6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Terrain/PaintedGround/level_data" unique_id=961365353]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/PaintedGround/level_data/StaticBody2D" unique_id=870708283]
+polygon = PackedVector2Array(2000, 500, 2000, 96, 1997, 96, 1997, 98.29999, 1984, 117.400024, 1984, 119.099976, 1969.3, 132, 1967.8999, 132, 1920.8999, 208, 1919.3, 208, 1916.3, 228, 1914.8, 228, 1917, 255.20001, 1917, 256.59998, 1914, 263.59998, 1914, 266.5, 1902, 290.5, 1902, 292, 1878.3, 311, 1876.8, 311, 1862, 340.5, 1862, 343.59998, 1806.5, 366, 1804.3, 366, 1779, 387.09998, 1731.6001, 397, 1726.3999, 397, 1713, 405.90002, 1713, 406.5, 1699, 411.59998, 1642.3, 412, 1607.1001, 407, 1599.3, 407, 1587.3, 403, 1575.8999, 403, 1551.8, 405, 1538.6001, 405, 1521, 412.7, 1501, 414.09998, 1501, 415, 1092.8999, 415, 1058.8, 418, 1031.2, 418, 1005.1001, 415, 999, 415, 947.19995, 403, 916.8999, 403, 861.69995, 411, 857.30005, 411, 841.19995, 424, 794.3999, 424, 736.19995, 413, 729.30005, 413, 701, 404.5, 701, 403.3, 677.1001, 400, 620.8999, 400, 595.80005, 402, 588.69995, 402, 561, 411.59998, 389.19995, 412, 348, 407.2, 348, 406, 233, 407, 196.8999, 407, 138, 414.2, 138, 415, 84.8999, 417, 68.80005, 417, 7, 428.3, 7, 429.09998, -76, 435.09998, -76, 435.90002, -145, 434, -153.59998, 434, -185, 422.5, -185, 421.2, -237, 416.09998, -237, 414.90002, -270.09998, 417, -278.30005, 417, -315, 426.40002, -338, 426, -353.59998, 426, -373, 422.3, -373, 421.09998, -410.90002, 419, -416.90002, 419, -452, 409.5, -452, 408.2, -502, 404.09998, -502, 402.90002, -565.1, 405, -575.30005, 405, -597, 412.59998, -671.19995, 421, -859.6, 421, -884.80005, 416, -889.69995, 416, -916, 407.5, -916, 406.2, -962.9, 402, -973.69995, 402, -993, 395.5, -993, 394.09998, -1023, 392.09998, -1023, 391, -1147, 392, -1171.2, 392, -1201.3, 397, -1206.4, 397, -1221, 403.7, -1230, 405.2, -1230, 406, -1252.1, 407, -1278.1, 407, -1312.3, 412, -1373.6, 412, -1458.8, 395, -1463.5, 395, -1483, 384.7, -1483, 383, -1488, 383, -1488, 381.8, -1540, 387.2, -1540, 388, -1624.6, 388, -1648.8, 383, -1652.6, 383, -1661.6, 379, -1665.5, 379, -1694.5, 362, -1705, 348, -1706, 335.90002, -1706, 325.3, -1710, 320.3, -1710, 318.59998, -1738.6, 308, -1741.5, 308, -1764, 294.8, -1764, 292.90002, -1781.1, 294, -1789.6, 294, -1798, 300, -1798, 301.5, -1821, 309.59998, -1867.9, 307, -1870.5, 307, -1908.6, 289, -1910.2, 289, -1926, 273.2, -1926, 272, -1954.3, 250, -1955.9, 250, -1997.9, 183, -2000, 183, -2000, 500)
+
+[node name="Foliage" type="Node2D" parent="." unique_id=1218368961]
+visible = false
+
+[node name="Envrionment" type="Node2D" parent="Foliage" unique_id=1091488412]
+
+[node name="BGBigArch2" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1841399262]
+position = Vector2(-4300, 882)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_522tc")
+region_enabled = true
+region_rect = Rect2(1114, 840, 588, 311)
+
+[node name="BGLittleArch2" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1671855888]
+position = Vector2(-3484, 944.99994)
+rotation = -0.34177393
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_522tc")
+region_enabled = true
+region_rect = Rect2(1765, 913, 283, 376)
+
+[node name="Tree1" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1874496579]
+material = ExtResource("5_10nno")
+position = Vector2(18, 453)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_waj7y")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="Tree2" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1031993569]
+material = ExtResource("5_10nno")
+position = Vector2(1097, 273)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_waj7y")
+region_enabled = true
+region_rect = Rect2(784, 117, 1152, 1010)
+
+[node name="Grass1" type="Sprite2D" parent="Foliage/Envrionment" unique_id=89919555]
+position = Vector2(-1046, 907)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_waj7y")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass2" type="Sprite2D" parent="Foliage/Envrionment" unique_id=314392674]
+position = Vector2(-673.99994, 998)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_waj7y")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Bush1" type="Sprite2D" parent="Foliage/Envrionment" unique_id=2127315738]
+z_index = 2
+position = Vector2(-125.99999, 564)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_waj7y")
+region_enabled = true
+region_rect = Rect2(109, 1083, 428, 369)
+
+[node name="Player" parent="." unique_id=42652117 instance=ExtResource("15_3xxle")]
+position = Vector2(-1650, 780)
+speed_multiplier = 1.5
+metadata/_edit_group_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1411017242]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Orb" parent="." unique_id=1391753086 instance=ExtResource("16_sjc11")]
+z_index = 1
+position = Vector2(-1400, 800)
+
+[node name="Portal" parent="." unique_id=820677622 instance=ExtResource("17_ymhis")]
+position = Vector2(1500, 800)
+portal_name = "w0p1"
+linked_stage = "res://stages/easy_levels_rolling_hills.tscn"
+target_portal = "ww0"
