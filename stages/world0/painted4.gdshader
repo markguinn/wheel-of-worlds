@@ -1,5 +1,5 @@
 shader_type canvas_item;
-render_mode world_vertex_coords;
+render_mode world_vertex_coords, unshaded;
 varying vec2 world_pos; 
 
 const float edge_scale = 1.0;
@@ -245,7 +245,7 @@ vec4 add_edges(vec4 c, vec2 screen_uv) {
 
 void fragment() {
 	vec4 c = textureLod(screen_texture, SCREEN_UV, 0.0);
-	if (distance(c.rgb, target.rgb) < 0.8) {
+	if (c.a > 0.001 && distance(c.rgb, target.rgb) < 2.0) {
 		COLOR = base_color;
 		// TODO: fix the other case. web export won't let us use for loops with images
 		//for (int i = 0; i < 2; i++) {
@@ -255,9 +255,10 @@ void fragment() {
 		COLOR = add_layer(COLOR, patterns[3], pattern_distortions[0], offsets[3], scales[3], opacities[3]);
 		//}
 		COLOR = add_edges(COLOR, SCREEN_UV);
-	}
-	if (c.a > 0.0001) {
 		c.rgb /= c.a;
+		COLOR *= c;
+	} else {
+		COLOR = c;
 	}
-	COLOR *= c;
 }
+
