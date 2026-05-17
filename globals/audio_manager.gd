@@ -8,14 +8,24 @@ const BUS_MUSIC = 0
 const BUS_SFX = 1
 const BUS_ATMOSPHERE = 2
 
-var cur_type: String = ""
+var cur_type: String = "wheel"
 var cur_intensity := 1
+var bus_music: int
+var bus_sfx: int
+var bus_atmosphere: int
 
 # NOTE: it's not clear to me whether we should have a single AudioStreamPlayer for
 # all music (in the main scene) or one per world. I _think_ we want the former and
 # that's where we're starting.
 
 # TODO: add push/pop by name
+# TODO: persist the volume settings
+
+func _ready() -> void:
+	bus_music = AudioServer.get_bus_index("Music")
+	bus_sfx = AudioServer.get_bus_index("SFX")
+	bus_atmosphere = AudioServer.get_bus_index("Atmosphere")
+	Log.info(self, "music", bus_music, AudioServer.get_bus_volume_db(bus_music), AudioServer.get_bus_volume_linear(bus_music))
 
 func get_stream_player() -> AudioStreamPlayer:
 	var stream_player: AudioStreamPlayer = get_tree().get_first_node_in_group("background_music")
@@ -53,11 +63,13 @@ func set_music(music_type: String, intensity = 1) -> void:
 
 
 func pause_music() -> void:
-	get_stream_player().stop()
+	Log.info(self, "music paused")
+	get_stream_player().stream_paused = true
 
 
 func resume_music() -> void:
-	get_stream_player().play()
+	Log.info(self, "music resumed")
+	get_stream_player().stream_paused = false
 
 
 func _get_clip_name(music_type: String, intensity: int) -> String:
@@ -95,6 +107,7 @@ func get_music_balance() -> float:
 
 
 func set_music_balance(v: float) -> void:
+	Log.info(self, "setting music balance", v)
 	AudioServer.set_bus_volume_linear(BUS_MUSIC, v)
 
 	
@@ -103,5 +116,6 @@ func get_sfx_balance() -> float:
 
 
 func set_sfx_balance(v: float) -> void:
+	Log.info(self, "setting sfx balance", v)
 	AudioServer.set_bus_volume_linear(BUS_SFX, v)
 	AudioServer.set_bus_volume_linear(BUS_ATMOSPHERE, v)

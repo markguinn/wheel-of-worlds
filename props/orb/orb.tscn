@@ -48,7 +48,7 @@ fill_from = Vector2(0.5, 0.5)
 
 [node name="Orb" type="RigidBody2D" unique_id=1425831707 groups=["music_box_targets", "persisted"]]
 collision_layer = 16
-collision_mask = 29
+collision_mask = 61
 collision_priority = 10.0
 mass = 0.005
 physics_material_override = SubResource("PhysicsMaterial_8ksbi")

@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://djnwseb73emx0"]
 
 [ext_resource type="Texture2D" uid="uid://dgs2k8aikfp0n" path="res://stages/forest/art/tiles.png" id="1_5fnqw"]
+[ext_resource type="Script" uid="uid://bxxbctnq2ubio" path="res://stages/stage.gd" id="1_fednj"]
 [ext_resource type="Texture2D" uid="uid://bds24227voos8" path="res://stages/forest/art/forestBackground.png" id="1_k5fkf"]
 [ext_resource type="PackedScene" uid="uid://b85khgplioksi" path="res://actors/player/player.tscn" id="2_776cr"]
 [ext_resource type="Texture2D" uid="uid://oqnp7saij4ae" path="res://stages/forest/art/shadowBushC.png" id="3_l2c6s"]
@@ -255,7 +256,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(128, 128)
-shader_parameter/real_screen_size = Vector2(3415.3018, 1637.1718)
+shader_parameter/real_screen_size = Vector2(3807.5073, 2615.4763)
 shader_parameter/edges = Array[Texture2D]([ExtResource("7_amikt"), ExtResource("7_amikt")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/distortion_strength = 0.0050000002375
@@ -321,6 +322,7 @@ fill_to = Vector2(1, 0.5)
 size = Vector2(1310, 1216)
 
 [node name="Forest1" type="Node2D" unique_id=1313295670]
+script = ExtResource("1_fednj")
 
 [node name="GradientBG" type="Parallax2D" parent="." unique_id=296454046]
 scroll_scale = Vector2(0.2, 0)
