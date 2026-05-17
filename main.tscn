@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://bc68mn1gvtyxw" path="res://_temp_replace_me_please/temp-layer1.mp3" id="2_1bvp3"]
 [ext_resource type="AudioStream" uid="uid://1qa8bxx13qs2" path="res://_temp_replace_me_please/temp-layer2.mp3" id="3_lquwl"]
 [ext_resource type="AudioStream" uid="uid://bflttih4i7ucd" path="res://_temp_replace_me_please/temp-layer3b.mp3" id="4_7mycd"]
+[ext_resource type="AudioStream" uid="uid://hwy71vtpelu1" path="res://music/Bert Theme Sketch 3.ogg" id="5_5vw27"]
 [ext_resource type="AudioStream" uid="uid://b50w8ka84lngi" path="res://_temp_replace_me_please/temp-wheel.mp3" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dxykffs3v4670" path="res://screens/pause_menu/pause_menu.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bmcqlphjm2pkh" path="res://screens/dev_menu/dev_menu.tscn" id="7_272bh"]
@@ -17,7 +18,7 @@ glow_intensity = 0.5
 adjustment_enabled = true
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_272bh"]
-clip_count = 4
+clip_count = 5
 clip_0/name = &"exploring-1"
 clip_0/stream = ExtResource("2_1bvp3")
 clip_0/auto_advance = 0
@@ -30,6 +31,9 @@ clip_2/auto_advance = 0
 clip_3/name = &"wheel-1"
 clip_3/stream = ExtResource("5_lquwl")
 clip_3/auto_advance = 0
+clip_4/name = &"musicbox-1"
+clip_4/stream = ExtResource("5_5vw27")
+clip_4/auto_advance = 0
 initial_clip = 3
 _transitions = {
 Vector2i(-1, -1): {
@@ -181,6 +185,48 @@ Vector2i(3, 3): {
 "fade_mode": 4,
 "from_time": 2,
 "to_time": 0
+},
+Vector2i(4, -1): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 0,
+"hold_previous": true,
+"to_time": 1
+},
+Vector2i(4, 0): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 0,
+"hold_previous": true,
+"to_time": 1
+},
+Vector2i(4, 1): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 0,
+"hold_previous": true,
+"to_time": 1
+},
+Vector2i(4, 2): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 0,
+"hold_previous": true,
+"to_time": 1
+},
+Vector2i(4, 3): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 0,
+"hold_previous": true,
+"to_time": 1
+},
+Vector2i(4, 4): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 0,
+"hold_previous": true,
+"to_time": 1
 }
 }
 
@@ -204,3 +250,4 @@ bus = &"Music"
 visible = false
 
 [node name="DevMenu" parent="." unique_id=1159089293 instance=ExtResource("7_272bh")]
+visible = false

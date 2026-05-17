@@ -42,10 +42,10 @@ tile_set = ExtResource("3_a6rqu")
 position = Vector2(328, 331)
 
 [node name="Camera2D" parent="." unique_id=552340171 instance=ExtResource("4_pcmnq")]
-position = Vector2(3332, 118)
+position = Vector2(-1195, 567)
 
 [node name="Player" parent="." unique_id=42652117 instance=ExtResource("5_yaa46")]
-position = Vector2(3332, 118)
+position = Vector2(-1195, 567)
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1198040456]
@@ -58,7 +58,7 @@ z_index = 1
 position = Vector2(3436, 112)
 
 [node name="Plank" parent="." unique_id=691076463 instance=ExtResource("8_10i41")]
-position = Vector2(-1826, 693)
+position = Vector2(-1826, 688)
 
 [node name="Plank2" parent="." unique_id=368331343 instance=ExtResource("8_10i41")]
 position = Vector2(-479, 561)

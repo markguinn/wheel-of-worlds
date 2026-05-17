@@ -22,6 +22,7 @@
 [ext_resource type="Material" uid="uid://t6s3wyv0jdh6" path="res://props/trees/tree-movement-material.tres" id="18_3bs7n"]
 [ext_resource type="Texture2D" uid="uid://dgj7y78b0yk11" path="res://stages/world0/art/extras1.png" id="19_1cdy3"]
 [ext_resource type="Script" uid="uid://b4pqw6kubesjc" path="res://common/checkpoint.gd" id="22_v0ifn"]
+[ext_resource type="PackedScene" uid="uid://yvxjjw3xw1wh" path="res://props/music_box/music_box.tscn" id="23_eksvm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3bs7n"]
 
@@ -510,6 +511,7 @@ position = Vector2(-3213, 535)
 
 [node name="Player" parent="." unique_id=42652117 instance=ExtResource("2_tsxbn")]
 position = Vector2(-3213, 535)
+has_music_box = false
 speed_multiplier = 1.5
 metadata/_edit_group_ = true
 
@@ -520,7 +522,7 @@ remote_path = NodePath("../../Camera2D")
 
 [node name="Orb" parent="." unique_id=1391753086 instance=ExtResource("3_31a7b")]
 z_index = 1
-position = Vector2(-3048, 853)
+position = Vector2(-1392, 752)
 
 [node name="Portal" parent="." unique_id=820677622 instance=ExtResource("4_tmikp")]
 position = Vector2(5927, 600)
@@ -590,3 +592,7 @@ script = ExtResource("22_v0ifn")
 position = Vector2(-123, -125.5)
 shape = SubResource("RectangleShape2D_v0ifn")
 debug_color = Color(0, 0.6, 0, 0.41960785)
+
+[node name="MusicBox" parent="." unique_id=631358649 instance=ExtResource("23_eksvm")]
+z_index = 1
+position = Vector2(-3006, 916)

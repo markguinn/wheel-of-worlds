@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://yvxjjw3xw1wh"]
+
+[ext_resource type="PackedScene" uid="uid://bw7ujmd6681ln" path="res://common/activator.tscn" id="1_47h7p"]
+[ext_resource type="PackedScene" uid="uid://cilrbdws8h45c" path="res://props/music_box/music_box_sprite.tscn" id="1_l6wei"]
+[ext_resource type="Script" uid="uid://dy0edrpcf3u5b" path="res://props/music_box/music_box.gd" id="1_o0o4k"]
+
+[node name="MusicBox" type="Node2D" unique_id=631358649]
+script = ExtResource("1_o0o4k")
+
+[node name="Sprite2D" parent="." unique_id=1032438263 instance=ExtResource("1_l6wei")]
+
+[node name="Activator" parent="." unique_id=1410287907 instance=ExtResource("1_47h7p")]
+label_text = "Press X to collect..."
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1157296578]
+
+[node name="AcceptDialog" type="AcceptDialog" parent="CanvasLayer" unique_id=1190817345]
+oversampling_override = 1.0
+title = "Bert's Old Music Box"
+initial_position = 1
+size = Vector2i(724, 227)
+visible = true
+dialog_text = "You can now press Z to play the music box.
+This will reset items to their starting position.
+TODO: replace this with something whimsical."
+
+[connection signal="activated" from="Activator" to="." method="_on_activator_activated"]
+[connection signal="confirmed" from="CanvasLayer/AcceptDialog" to="." method="_on_accept_dialog_confirmed"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bfbeh8y8bhsl5"
+path="res://.godot/imported/Exploration level layer ideas.ogg-c45355b5e71adc2ad30fa66f2ad58f7c.oggvorbisstr"
+
+[deps]
+
+source_file="res://music/Exploration level layer ideas.ogg"
+dest_files=["res://.godot/imported/Exploration level layer ideas.ogg-c45355b5e71adc2ad30fa66f2ad58f7c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

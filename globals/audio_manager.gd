@@ -8,26 +8,74 @@ const BUS_MUSIC = 0
 const BUS_SFX = 1
 const BUS_ATMOSPHERE = 2
 
-var cur_type: String = "wheel"
+var cur_type: String = ""
 var cur_intensity := 1
 
 # NOTE: it's not clear to me whether we should have a single AudioStreamPlayer for
 # all music (in the main scene) or one per world. I _think_ we want the former and
 # that's where we're starting.
 
+# TODO: add push/pop by name
+
+func get_stream_player() -> AudioStreamPlayer:
+	var stream_player: AudioStreamPlayer = get_tree().get_first_node_in_group("background_music")
+	if not stream_player:
+		Log.warn(self, "no audio stream player found")
+	return stream_player
+
+
 # TODO: it'd be nice to validate that a given combination actually exists first
 # We could also use an outer AudioStreamInteractive and an inner AudioStreamSynchronized
 # to do the intensity levels. Lots of freedom to adjust here based on the music
 # people are willing and abel to write.
 func set_music(music_type: String, intensity = 1) -> void:
+	var stream_player := get_stream_player()
+	if not stream_player:
+		return
+
+	if music_type == "" or intensity < 1:
+		Log.info(self, "stopping music")
+		stream_player.stop()
+		return
+
+	if not is_valid_music(music_type, intensity):
+		Log.warn(self, "invalid music requested", music_type, intensity)
+		return
+
 	Log.info(self, "changing music", music_type, "at level", intensity)
-	var player: AudioStreamPlayer = get_tree().get_first_node_in_group("background_music")
-	#var stream: AudioStreamInteractive = player.stream if player else null
-	var playback = player.get_stream_playback() if player else null
+	stream_player.play()
+	var playback: AudioStreamPlaybackInteractive = stream_player.get_stream_playback() if stream_player else null
 	if playback and playback is AudioStreamPlaybackInteractive:
-		playback.switch_to_clip_by_name(music_type + "-" + str(intensity))
+		playback.switch_to_clip_by_name(_get_clip_name(music_type, intensity))
+
 	cur_type = music_type
 	cur_intensity = intensity
+
+
+func pause_music() -> void:
+	get_stream_player().stop()
+
+
+func resume_music() -> void:
+	get_stream_player().play()
+
+
+func _get_clip_name(music_type: String, intensity: int) -> String:
+	return music_type + "-" + str(intensity)
+
+
+func is_valid_music(music_type: String, intensity = 1) -> bool:
+	var stream_player := get_stream_player()
+	if not stream_player:
+		return false
+	var stream: AudioStreamInteractive = stream_player.stream
+	if not stream:
+		return false
+	var clip_name := _get_clip_name(music_type, intensity)
+	for i in range(stream.clip_count):
+		if stream.get_clip_name(i) == clip_name:
+			return true
+	return false
 
 
 # if we want to do responsive music we can define

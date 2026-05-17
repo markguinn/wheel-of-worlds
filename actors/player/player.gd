@@ -10,6 +10,7 @@ const COYOTE_TIME_MS = 100
 @export var holding_hand: Node2D
 @export var resting_point: Node2D
 
+@export var has_music_box := true
 @export var tough_mode := false
 @export var jump_multiplier := 1.0
 @export var speed_multiplier := 1.0
@@ -83,6 +84,8 @@ func _input(event: InputEvent) -> void:
 		elif state_machine.get_active() != "Ragdoll":
 			state_machine.transition_by_name.call_deferred("Ragdoll")
 			get_viewport().set_input_as_handled()
+	if event.is_action_pressed("music_box"):
+		state_machine.transition_by_name("UseMusicBox")
 
 
 func _process(delta: float) -> void:
