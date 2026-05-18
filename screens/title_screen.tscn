@@ -200,6 +200,27 @@ script = ExtResource("2_gxoam")
 target_scene = "uid://b32q0e34faaed"
 is_primary = null
 
+[node name="Easy1" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=431453243]
+layout_mode = 2
+text = "Bumpy Ride"
+script = ExtResource("2_gxoam")
+target_scene = "uid://b3nakjnxtdeqc"
+is_primary = null
+
+[node name="Easy2" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=1817541671]
+layout_mode = 2
+text = "Rolling Hills"
+script = ExtResource("2_gxoam")
+target_scene = "uid://b3y8g2vlw0hm1"
+is_primary = null
+
+[node name="East3" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=1809788232]
+layout_mode = 2
+text = "Toothy Grin"
+script = ExtResource("2_gxoam")
+target_scene = "uid://it4o2hor8od2"
+is_primary = null
+
 [node name="Museums" type="VBoxContainer" parent="HBoxContainer" unique_id=1287239522]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -210,6 +231,14 @@ layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Museums etc."
 horizontal_alignment = 1
+
+[node name="Puzzle Museum" type="Button" parent="HBoxContainer/Museums" unique_id=1817950069]
+layout_mode = 2
+text = "Puzzle Museum
+"
+script = ExtResource("2_gxoam")
+target_scene = "uid://duod8hfxbeiwr"
+is_primary = null
 
 [node name="PropMuseum" type="Button" parent="HBoxContainer/Museums" unique_id=1773347547]
 layout_mode = 2
@@ -231,25 +260,4 @@ layout_mode = 2
 text = "Fish Movement Test"
 script = ExtResource("2_gxoam")
 target_scene = "uid://bdj8pam5dyb26"
-is_primary = null
-
-[node name="Easy1" type="Button" parent="HBoxContainer/Museums" unique_id=431453243]
-layout_mode = 2
-text = "Bumpy Ride"
-script = ExtResource("2_gxoam")
-target_scene = "uid://b3nakjnxtdeqc"
-is_primary = null
-
-[node name="Easy2" type="Button" parent="HBoxContainer/Museums" unique_id=1817541671]
-layout_mode = 2
-text = "Rolling Hills"
-script = ExtResource("2_gxoam")
-target_scene = "uid://b3y8g2vlw0hm1"
-is_primary = null
-
-[node name="East3" type="Button" parent="HBoxContainer/Museums" unique_id=1809788232]
-layout_mode = 2
-text = "Toothy Grin"
-script = ExtResource("2_gxoam")
-target_scene = "uid://it4o2hor8od2"
 is_primary = null
