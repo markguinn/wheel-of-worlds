@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://uwy0oy2080q4" path="res://stages/world0/art/Level0_Tiles-5.png" id="6_voh72"]
 [ext_resource type="Texture2D" uid="uid://dtdl0mfbdown" path="res://stages/world0/art/Level0_Tiles-6.png" id="7_v3d56"]
 [ext_resource type="Texture2D" uid="uid://dd6wnucf048o1" path="res://stages/world0/art/Level0_Tiles-7.png" id="8_dadtk"]
-[ext_resource type="Texture2D" uid="uid://dak8454hwqaj5" path="res://stages/world0/art/pattern2.png" id="9_uvuww"]
 
 [resource]
 shader = ExtResource("1_dkmi7")
