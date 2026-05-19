@@ -14,8 +14,8 @@ var start_rot: float
 
 
 func _ready() -> void:
-	start_pos = position
-	start_rot = rotation
+	start_pos = global_position
+	start_rot = global_rotation
 	if fixed:
 		$GrabBox.enabled = false
 		freeze = true
@@ -27,26 +27,26 @@ func set_checkpoint() -> void:
 
 func reset_after_fall() -> void:
 	# TODO: make a fun animation
-	position = start_pos
-	rotation = start_rot
+	global_position = start_pos
+	global_rotation = start_rot
 
 
 func get_persisted_state() -> Dictionary:
 	return { 
-		"position": position,
-		"rotation": rotation,
+		"position": global_position,
+		"rotation": global_rotation,
 	}
 
 
 func restore_persisted_state(data: Dictionary) -> void:
 	if "position" in data:
-		position = data.get("position")
+		global_position = data.get("position")
 	if "rotation" in data:
-		rotation = data.get("rotation")
+		global_rotation = data.get("rotation")
 
 
 func _physics_process(_delta: float) -> void:
-	if position != last_pos or rotation != last_rot:
+	if global_position != last_pos or global_rotation != last_rot:
 		persisted_state_changed.emit(self)
-		last_pos = position
-		last_rot = rotation
+		last_pos = global_position
+		last_rot = global_rotation
