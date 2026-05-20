@@ -11,6 +11,7 @@ var start_pos: Vector2
 var start_rot: float
 
 var holding_point: Node2D = null
+var resting_point: Node2D = null
 
 @onready var sprite: Node2D = $Sprite
 @onready var shape: CollisionShape2D = $CollisionShape2D
@@ -53,12 +54,14 @@ func reset_after_fall() -> void:
 
 
 func is_uprightish() -> bool:
-	Log.debug(self, "is_uprightish", floor_detector.is_colliding())
-	return floor_detector.is_colliding()
-	#var deg := absf(wrapf(rotation_degrees, -180.0, 180.0))
-	#if deg >= 120.0 and deg <= 60.0:
-		#return true
-	#return false
+	return Flags.plank_struggle_mode and floor_detector.is_colliding()
+
+
+func before_put_down() -> void:
+	if not Flags.plank_struggle_mode:
+		var target_rot := 0.0 if GameManager.get_player().sprite.scale.x > 0.0 else -PI
+		Log.debug(self, "target_rot", target_rot)
+		set_next_global_rotation(target_rot)
 
 
 func _on_impact(pos: Vector2, _vel: Vector2, _obj: Node, _part) -> void:
@@ -70,14 +73,18 @@ func _on_impact(pos: Vector2, _vel: Vector2, _obj: Node, _part) -> void:
 func _on_any_pickup(_holding_point: Node2D) -> void:
 	holding_point = _holding_point
 	global_position = _holding_point.global_position
-	handle.reparent(get_parent())
-	handle.global_position = holding_point.global_position
-	joint.node_b = get_path()
-	joint.node_a = handle.get_path()
-	set_deferred("freeze", false)
-	set_deferred("collision_layer", grab_box_l.target_node_collision_layer)
-	shape.disabled = true
-	shape2.disabled = false
+	if Flags.plank_struggle_mode:
+		handle.reparent(get_parent())
+		handle.global_position = holding_point.global_position
+		joint.node_b = get_path()
+		joint.node_a = handle.get_path()
+		set_deferred("freeze", false)
+		set_deferred("collision_layer", grab_box_l.target_node_collision_layer)
+		shape.disabled = true
+		shape2.disabled = false
+	else:
+		# this is an awkward, leaky abstraction but the alternatives are hacky too and don't improve anything
+		resting_point = GameManager.get_player().resting_point
 
 
 func _on_left_pickup(_holding_point: Node2D) -> void:
@@ -128,4 +135,9 @@ func _physics_process(_delta: float) -> void:
 		last_pos = position
 		last_rot = rotation
 	if holding_point:
-		handle.global_position = holding_point.global_position
+		if Flags.plank_struggle_mode:
+			handle.global_position = holding_point.global_position
+		else:
+			var ang := holding_point.global_position.angle_to_point(resting_point.global_position)
+			set_next_global_position(holding_point.global_position)
+			set_next_global_rotation(ang)

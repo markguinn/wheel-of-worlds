@@ -81,7 +81,8 @@ func transition(immediate_next_state: StateNode) -> bool:
 		state_changed.emit(prev_state, next_state)
 		return true
 	else:
-		Log.warn(target, "invalid state transition: " + cur_name + " to " + next_state.name)
+		if cur_name != next_state.name:
+			Log.warn(target, "invalid state transition: " + cur_name + " to " + next_state.name)
 		return false
 
 

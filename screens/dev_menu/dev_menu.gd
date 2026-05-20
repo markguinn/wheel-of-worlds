@@ -6,6 +6,9 @@ extends CanvasLayer
 func _ready() -> void:
 	hide()
 	GameManager.scene_changed.connect(_on_new_scene)
+	$PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/walk_acceleration.button_pressed = Flags.walk_acceleration
+	$PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/wall_bounce.button_pressed = Flags.wall_bounce
+	$PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/plank_struggle_mode.button_pressed = Flags.plank_struggle_mode
 
 
 func _on_new_scene() -> void:
@@ -68,3 +71,7 @@ func _on_drop_orb_pressed() -> void:
 func _on_drop_lantern_pressed() -> void:
 	var prop: Node2D = load("res://props/lantern/lantern.tscn").instantiate()
 	_drop(prop)
+
+
+func _on_flag_toggled(toggled_on: bool, source: Node) -> void:
+	Flags.set(source.name, toggled_on)

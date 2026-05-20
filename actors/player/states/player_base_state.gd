@@ -54,10 +54,13 @@ func _get_input_vector() -> Vector2:
 func _update_horizontal_movement(dir: Vector2, delta: float) -> void:
 	var speed := carrying_speed if player.is_holding_prop else horizontal_speed
 	var target_vx: float = dir.x * speed * player.speed_multiplier
-	# feels annoying to have too much delay when changing directions
-	# this is imperfect though because it flips when you get to zero anyway. we can iterate more another time
-	var accel_val : float = TURNING_ACCEL if player.velocity.x and signf(target_vx) != signf(player.velocity.x) else WALK_ACCEL
-	player.velocity.x = move_toward(player.velocity.x, target_vx, delta * horizontal_speed / accel_val)
+	if Flags.walk_acceleration:
+		# feels annoying to have too much delay when changing directions
+		# this is imperfect though because it flips when you get to zero anyway. we can iterate more another time
+		var accel_val : float = TURNING_ACCEL if player.velocity.x and signf(target_vx) != signf(player.velocity.x) else WALK_ACCEL
+		player.velocity.x = move_toward(player.velocity.x, target_vx, delta * horizontal_speed / accel_val)
+	else:
+		player.velocity.x = target_vx
 
 
 func _update_facing_direction(dir: Vector2) -> void:
@@ -89,7 +92,7 @@ func _apply_gravity(delta: float) -> void:
 
 var last_wall_bounce_ms := 0
 func _bounce_off_walls() -> void:
-	if is_zero_approx(player.velocity.x) or is_zero_approx(wall_bounce_amount):
+	if is_zero_approx(player.velocity.x) or is_zero_approx(wall_bounce_amount) or not Flags.wall_bounce:
 		return
 	if wall_detector.is_colliding() and not GameManager.rate_limit(WALL_BOUNCE_COOLDOWN_MS, "wall_bounce"):
 		#player.velocity.x = wall_detector.get_collision_normal().x * absf(player.velocity.x) * wall_bounce_amount
@@ -99,7 +102,7 @@ func _bounce_off_walls() -> void:
 
 
 func _move_and_slide(delta: float) -> void:
-	if player.is_holding_prop is Plank:
+	if player.is_holding_prop is Plank and Flags.plank_struggle_mode:
 		var plank: Plank = player.is_holding_prop
 		var plank_dir := 1.0 if plank.wall_detector.global_position.x > player.global_position.x else -1.0
 		if plank.wall_detector.is_colliding() and plank_dir == signf(player.velocity.x):

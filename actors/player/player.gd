@@ -92,8 +92,6 @@ func _process(delta: float) -> void:
 	_update_avg_recent_velocity(delta)
 	if is_on_floor():
 		last_floor_touch = GameManager.now_ms()
-	if is_holding_prop:
-		_update_prop(delta)
 	elif velocity != Vector2.ZERO:
 		Activator.update_active_candidate()
 		
@@ -135,15 +133,19 @@ func finish_pickup() -> void:
 
 func put_down_prop() -> void:
 	if is_holding_prop:
+		if is_holding_prop.has_method("before_put_down"):
+			await is_holding_prop.before_put_down()
 		Log.info(self, "putting down:", is_holding_prop.name, active_grab_box.name)
+		if is_holding_prop is MoveableRigidBody2D:
+			is_holding_prop.set_next_linear_velocity(velocity)
 		active_grab_box.put_down.emit()
 		did_put_down.emit(active_grab_box.target_node)
 		
-		if is_holding_prop and absf(velocity.x) > 50.0:
-			var velocity_deg := wrapf(rad_to_deg(velocity.angle()), -270.0, 90.0)
-			var impulse_angle := deg_to_rad(clampf(velocity_deg, -150.0, -30.0))
-			var impulse := Vector2.from_angle(impulse_angle) * 140.0
-			is_holding_prop.apply_impulse(impulse, active_grab_box.global_position - is_holding_prop.global_position)
+		#if is_holding_prop and absf(velocity.x) > 50.0:
+			#var velocity_deg := wrapf(rad_to_deg(velocity.angle()), -270.0, 90.0)
+			#var impulse_angle := deg_to_rad(clampf(velocity_deg, -150.0, -30.0))
+			#var impulse := Vector2.from_angle(impulse_angle) * 140.0
+			#is_holding_prop.apply_impulse(impulse, active_grab_box.global_position - is_holding_prop.global_position)
 
 		is_holding_prop = null
 		active_grab_box = null

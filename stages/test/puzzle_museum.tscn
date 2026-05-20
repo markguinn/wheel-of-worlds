@@ -225,14 +225,14 @@ tile_map_data = PackedByteArray("AAA2/xwAAAABAAAAAAA2/x0AAAABAAAAAAA2/x4AAAABAAA
 tile_set = ExtResource("9_iyuqm")
 
 [node name="Camera2D" parent="." unique_id=552340171 instance=ExtResource("14_5crlc")]
-position = Vector2(-10643, -2772)
+position = Vector2(-2789, -2754)
 limit_left = -12245
 limit_top = -3300
 limit_right = 9880
 limit_bottom = 1800
 
 [node name="Player" parent="." unique_id=42652117 instance=ExtResource("15_3dpil")]
-position = Vector2(-10643, -2772)
+position = Vector2(-2789, -2754)
 speed_multiplier = 1.5
 metadata/_edit_group_ = true
 

@@ -21,7 +21,9 @@ const LABELS = {
 # from during development. What's listed here will be the minimum level that gets through
 const levels = {
 	#"AudioManager": DEBUG,
+	#"BirdFood": DEBUG,
 	#"BirdMonster": DEBUG,
+	#"ClimbableTree": DEBUG,
 	#"Activator": DEBUG,
 	#"FishMonster": DEBUG,
 	#"FishPatrollingState": DEBUG,

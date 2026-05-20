@@ -1828,7 +1828,7 @@ remote_path = NodePath("../../../../../VFX/DizzyParticles")
 
 [node name="ArmR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1756135333]
 position = Vector2(-33, -31)
-rotation = 0.08732088
+rotation = 0.08732089
 rest = Transform2D(0.999362, -0.0357162, 0.0357162, 0.999362, -33, -31)
 metadata/_local_pose_override_enabled_ = true
 
@@ -1844,7 +1844,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ArmL" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1793998611]
 position = Vector2(28, -36)
-rotation = -0.16663738
+rotation = -0.16663739
 scale = Vector2(0.99999917, 0.99999917)
 rest = Transform2D(0.9953148, -0.09668779, 0.09668779, 0.9953148, 28, -36)
 metadata/_local_pose_override_enabled_ = true

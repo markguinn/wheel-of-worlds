@@ -1,5 +1,5 @@
 class_name Stone
-extends RigidBody2D
+extends MoveableRigidBody2D
 
 signal persisted_state_changed(node: Node)
 
@@ -27,8 +27,10 @@ func set_checkpoint() -> void:
 
 func reset_after_fall() -> void:
 	# TODO: make a fun animation
-	global_position = start_pos
-	global_rotation = start_rot
+	set_next_global_position(start_pos)
+	set_next_global_rotation(start_rot)
+	set_next_angular_velocity(0.0)
+	set_next_linear_velocity(Vector2.ZERO)
 
 
 func get_persisted_state() -> Dictionary:
