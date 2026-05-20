@@ -11,3 +11,4 @@ export.cfg
 .DS_Store
 _ignored_assets
 .vscode
+.idea/

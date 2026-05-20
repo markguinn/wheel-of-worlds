@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://7y6rxl1elcec"]
+
+[ext_resource type="Script" uid="uid://bhfuckw6xuhfe" path="res://actors/creatures/woodpecker.gd" id="1_cdgcu"]
+[ext_resource type="Texture2D" uid="uid://c1sscn5rshkli" path="res://actors/creatures/art/woodpecker_spritesheet.png" id="1_n4hu7"]
+[ext_resource type="Texture2D" uid="uid://fdnyd42wxemt" path="res://actors/creatures/art/woodpecker_flee.png" id="2_rlb8o"]
+[ext_resource type="Script" uid="uid://vmdvty45rk5y" path="res://common/state_machine/state_machine.gd" id="2_wb8ow"]
+[ext_resource type="Script" uid="uid://bh6nbpsr7pcq2" path="res://actors/creatures/states/woodpecker_idle_state.gd" id="5_tv531"]
+[ext_resource type="Script" uid="uid://dko27ynbfyutk" path="res://actors/creatures/states/woodpecker_flee_state.gd" id="6_7730e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tv531"]
+atlas = ExtResource("2_rlb8o")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7730e"]
+atlas = ExtResource("2_rlb8o")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdgcu"]
+atlas = ExtResource("1_n4hu7")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlb8o"]
+atlas = ExtResource("1_n4hu7")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tv531"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tv531")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7730e")
+}],
+"loop": true,
+"name": &"flee",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdgcu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlb8o")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cdgcu"]
+
+[node name="Woodpecker" type="Node2D" unique_id=406525009]
+script = ExtResource("1_cdgcu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=800254182]
+sprite_frames = SubResource("SpriteFrames_tv531")
+animation = &"idle"
+
+[node name="StateMachine" type="Node" parent="." unique_id=357366613 node_paths=PackedStringArray("target", "initial_state")]
+script = ExtResource("2_wb8ow")
+target = NodePath("..")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://vmdvty45rk5y"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=956297247]
+script = ExtResource("5_tv531")
+metadata/_custom_type_script = "uid://bh6nbpsr7pcq2"
+
+[node name="Flee" type="Node" parent="StateMachine" unique_id=231807360]
+script = ExtResource("6_7730e")
+metadata/_custom_type_script = "uid://dko27ynbfyutk"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1730406761]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=896396856]
+scale = Vector2(33, 33)
+shape = SubResource("CircleShape2D_cdgcu")
