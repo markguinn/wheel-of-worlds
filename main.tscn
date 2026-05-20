@@ -77,7 +77,7 @@ Vector2i(1, 1): {
 "fade_mode": 4,
 "from_time": 2,
 "to_time": 0
-},
+}
 }
 
 [node name="Main" type="Node2D" unique_id=1319895979]
