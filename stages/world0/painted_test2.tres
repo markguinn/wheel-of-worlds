@@ -13,7 +13,7 @@
 shader = ExtResource("1_dkmi7")
 shader_parameter/target = Color(0.99215686, 0.9882353, 0.9882353, 1)
 shader_parameter/base_color = Color(0.27058825, 0.30980393, 0.21960784, 1)
-shader_parameter/patterns = Array[Texture2D]([ExtResource("2_dxkdd"), ExtResource("3_ej8y5"), ExtResource("4_bn53y"), ExtResource("5_m4fgw"), ExtResource("6_voh72"), ExtResource("7_v3d56"), ExtResource("8_dadtk"), ExtResource("9_uvuww")])
+shader_parameter/patterns = Array[Texture2D]([ExtResource("2_dxkdd"), ExtResource("3_ej8y5"), ExtResource("4_bn53y"), ExtResource("5_m4fgw"), ExtResource("6_voh72"), ExtResource("7_v3d56"), ExtResource("8_dadtk")])
 shader_parameter/offsets = PackedFloat32Array(0, 100, 300, 500, 900, 1200, 1400, 600, 0, 0)
 shader_parameter/scales = PackedFloat32Array(1, 1, 1.2, 1.5, 1.2, 1.5, 2.5, 3.6)
 shader_parameter/opacities = PackedFloat32Array(1, 1, 1, 1, 1, 1, 0.3, 0.9)
