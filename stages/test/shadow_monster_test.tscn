@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://rdlq677coghs" path="res://props/stone/triangle_stone.tscn" id="10_m4xq1"]
 [ext_resource type="PackedScene" uid="uid://dn6gswqjkyx14" path="res://props/stone/square_stone.tscn" id="11_oaxvq"]
 [ext_resource type="Script" uid="uid://bbb2phdibbqcc" path="res://common/kill_zone.gd" id="12_5rwlj"]
+[ext_resource type="PackedScene" uid="uid://cs57yefkh1f4s" path="res://props/lantern/lantern.tscn" id="13_pvy53"]
 [ext_resource type="PackedScene" uid="uid://n0yb8g02gr8b" path="res://actors/fish_monster/fish_monster.tscn" id="13_rqqa7"]
 
 [sub_resource type="Gradient" id="Gradient_83wlx"]
@@ -29,17 +30,6 @@ radius = 1210.0
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cokg4"]
 polygon = PackedVector2Array(-2.3999996, -2, -20, -19, -32, -51, -22, -71, 10, -78, 30, -64, 30, -33, 19, -4)
 
-[sub_resource type="Gradient" id="Gradient_cokg4"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gcinv"]
-gradient = SubResource("Gradient_cokg4")
-width = 1024
-height = 1024
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.6, 0)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_boxlk"]
 size = Vector2(451, 1373)
 
@@ -48,9 +38,6 @@ size = Vector2(8214, 656)
 
 [node name="ShadowMonsterTest" type="Node2D" unique_id=831090977]
 script = ExtResource("1_pvy53")
-
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=157870837]
-color = Color(0.17400001, 0.18353334, 0.2, 1)
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=856755979]
 scroll_scale = Vector2(0, 0)
@@ -98,12 +85,7 @@ occluder = SubResource("OccluderPolygon2D_cokg4")
 [node name="StandardCamera" parent="Player" unique_id=552340171 instance=ExtResource("5_pvy53")]
 
 [node name="Orb" parent="." unique_id=1391753086 instance=ExtResource("7_hek2x")]
-position = Vector2(90, 433)
-
-[node name="light" type="PointLight2D" parent="Orb" unique_id=1407864051]
-color = Color(1, 0.961, 0.61, 1)
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_gcinv")
+position = Vector2(-401, 502)
 
 [node name="Orb2" parent="." unique_id=1425831707 instance=ExtResource("7_hek2x")]
 position = Vector2(-1202, 460)
@@ -162,3 +144,6 @@ shape = SubResource("RectangleShape2D_xakyt")
 [node name="FishMonster" parent="FishTerritory" unique_id=599123084 instance=ExtResource("13_rqqa7")]
 position = Vector2(1192, -970)
 jump_y_max = 1790.0
+
+[node name="Lantern" parent="." unique_id=1315439554 instance=ExtResource("13_pvy53")]
+position = Vector2(-140, 533)

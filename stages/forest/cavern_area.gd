@@ -22,9 +22,12 @@ func _on_body_enter(_node: Node2D) -> void:
 	light_tween = create_tween()
 	light_tween.tween_property(canvas_modulate, "color", light_color, tween_time)
 
-
 func _on_body_exit(_node: Node2D) -> void:
 	if light_tween and light_tween.is_running():
 		light_tween.stop()
 	light_tween = create_tween()
 	light_tween.tween_property(canvas_modulate, "color", original_light_color, tween_time)
+
+
+func _on_area_exited(area: Area2D) -> void:
+	if area.get_parent() is ShadowBlob: area.get_parent().byebye()

@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pot1"]
 size = Vector2(60, 20)
 
-[node name="Lantern" type="RigidBody2D" unique_id=1315439554 groups=["music_box_targets", "persisted"]]
+[node name="Lantern" type="RigidBody2D" unique_id=1315439554 groups=["light_sources", "music_box_targets", "persisted"]]
 collision_layer = 4
 collision_mask = 31
 collision_priority = 10.0

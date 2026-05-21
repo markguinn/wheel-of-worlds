@@ -29,6 +29,8 @@
 [ext_resource type="PackedScene" uid="uid://dn6gswqjkyx14" path="res://props/stone/square_stone.tscn" id="26_isjrt"]
 [ext_resource type="PackedScene" uid="uid://bacx53cmt8t6y" path="res://props/plank/big_plank.tscn" id="27_novlh"]
 [ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="28_c7sho"]
+[ext_resource type="PackedScene" uid="uid://bbq81ngylpi8h" path="res://actors/shadow_monster/shadow_monster.tscn" id="30_vf71y"]
+[ext_resource type="PackedScene" uid="uid://cs57yefkh1f4s" path="res://props/lantern/lantern.tscn" id="31_p444m"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l2c6s"]
 load_path = "res://.godot/imported/shadowBushA.png-ce4ee8a1189b36ba48b13f5e5fe6a2c4.ctex"
@@ -256,7 +258,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(128, 128)
-shader_parameter/real_screen_size = Vector2(12701.27, 8724.833)
+shader_parameter/real_screen_size = Vector2(5209.7925, 2801.7612)
 shader_parameter/edges = Array[Texture2D]([ExtResource("7_amikt"), ExtResource("7_amikt")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/distortion_strength = 0.0050000002375
@@ -593,10 +595,10 @@ scale = Vector2(0.5, 0.5)
 tile_set = SubResource("TileSet_h68eo")
 
 [node name="StandardCamera" parent="." unique_id=552340171 instance=ExtResource("3_t70ix")]
-position = Vector2(-712, 355)
+position = Vector2(-626, 391)
 
 [node name="Player" parent="." unique_id=317056800 instance=ExtResource("2_776cr")]
-position = Vector2(-712, 355)
+position = Vector2(-626, 391)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1858114605]
 remote_path = NodePath("../../StandardCamera")
@@ -626,7 +628,7 @@ position = Vector2(-1097, -458)
 position = Vector2(259, -802)
 
 [node name="MushroomPlatform4" parent="." unique_id=516615899 instance=ExtResource("13_25mch")]
-position = Vector2(225, -87)
+position = Vector2(225, -9)
 
 [node name="ClimbableTree4" parent="." unique_id=1109684937 instance=ExtResource("13_c48qr")]
 position = Vector2(841, 520)
@@ -639,7 +641,7 @@ texture = SubResource("GradientTexture2D_8gxyf")
 texture_scale = 5.67
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=709813443]
-position = Vector2(860, -105)
+position = Vector2(862, -91)
 color = Color(0.9792946, 0.8219286, 0.8130152, 1)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_8gxyf")
@@ -668,6 +670,9 @@ position = Vector2(-30.490112, -10.314728)
 shape = SubResource("RectangleShape2D_eho2t")
 debug_color = Color(0, 0, 0, 0.5686275)
 
+[node name="Lantern" parent="CavernArea" unique_id=1315439554 instance=ExtResource("31_p444m")]
+position = Vector2(3274.5098, -76.31473)
+
 [node name="Plank" parent="." unique_id=1965888217 instance=ExtResource("25_6ligt")]
 position = Vector2(-3205.455, 428.7887)
 
@@ -683,3 +688,13 @@ position = Vector2(-3396, 0)
 
 [node name="Portal" parent="." unique_id=567549234 instance=ExtResource("28_c7sho")]
 position = Vector2(-3872, 305)
+
+[node name="ShadowBlob" parent="." unique_id=1434955370 node_paths=PackedStringArray("target") instance=ExtResource("30_vf71y")]
+position = Vector2(-1387, 450)
+target = NodePath("../Player")
+lightsource_distance_tolerated = 500.0
+
+[node name="Lantern" parent="." unique_id=1226786123 instance=ExtResource("31_p444m")]
+position = Vector2(-2503, -814)
+
+[connection signal="area_exited" from="CavernArea" to="CavernArea" method="_on_area_exited"]

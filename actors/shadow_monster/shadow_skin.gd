@@ -1,5 +1,6 @@
 extends ColorRect
 
+@export_range(0., 1.) var skin_thickness: float = 0.857
 @export_range(0., 1.) var phase_speed: float = 0.455
 @export_range(0., 1.) var phase_noise_offset_change_edge_threshold: float = 0.15
 @export_range(0., 1.) var phase_noise_offset_radius: float = 0.1
@@ -28,3 +29,11 @@ func _process(delta: float) -> void:
 	if 0. < current_angle_phase_direction_delta:
 		phase_angle += current_angle_phase_direction_delta * phase_angle_speed
 		get_material().set_shader_parameter("noise_offset", Vector2(cos(phase_angle), sin(phase_angle)) * phase_noise_offset_radius)
+
+func byebye(duration_sec: float = 1.) -> Tween:
+	var tween: Tween = create_tween()
+	tween.tween_method(
+		func(w: float): get_material().set_shader_parameter("noise_offset", w),
+		skin_thickness, 0., duration_sec
+	)
+	return tween
