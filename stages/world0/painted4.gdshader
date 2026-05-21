@@ -138,7 +138,7 @@ EdgeCalc add_edge(vec2 screen_uv, sampler2D edge_tex, vec2 dir) {
 	// we can probably add an offset if needed to get away from the origin
 	//vec2 world_pos_perpendicular = (max(abs(world_pos.x), abs(world_pos.y)) * vec2(dir.y, dir.x)); //world_pos * vec2(dir.y, dir.x);
 	edge_uv.x = mod(get_edge_x_for_dir(dir) * edge_scale, edge_size.x) / edge_size.x;
-	for (float y = edge_size.y; y >= 0.0; y--) {
+	for (float y = edge_size.y - 1.; y >= 0.0; y--) {
 		vec4 test_point = textureLod(screen_texture, screen_uv + dir * y * global_unit_size_in_uv, 0.0);
 		if (test_point.a > 0.001) {
 			if (y < edge_size.y) {
