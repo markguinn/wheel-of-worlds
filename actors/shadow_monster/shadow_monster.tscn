@@ -118,14 +118,15 @@ script = ExtResource("5_6g4ub")
 
 [node name="Skin" type="Line2D" parent="Arm" unique_id=1090266444]
 self_modulate = Color(0.18039216, 0.043137256, 0.25882354, 1)
-points = PackedVector2Array(0, 0, 131, 1)
+position = Vector2(5, 2)
+points = PackedVector2Array(0, 0, 13, 2)
 width = 25.0
 texture = ExtResource("6_ysnfm")
 texture_mode = 2
 
 [node name="Palm" type="RigidBody2D" parent="Arm" unique_id=901396295 node_paths=PackedStringArray("hand_attached_to")]
-position = Vector2(124, 0)
-collision_layer = 8
+position = Vector2(2, 0)
+collision_layer = 64
 collision_mask = 0
 contact_monitor = true
 max_contacts_reported = 1
@@ -170,8 +171,8 @@ shape = SubResource("CircleShape2D_1yxxb")
 stream = SubResource("AudioStreamRandomizer_jlxop")
 
 [node name="TopFinger" type="RigidBody2D" parent="Arm" unique_id=1037081550]
-position = Vector2(147, -18)
-collision_layer = 0
+position = Vector2(25, -18)
+collision_layer = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/TopFinger" unique_id=101350688]
 position = Vector2(-1, 6)
@@ -187,8 +188,8 @@ region_enabled = true
 region_rect = Rect2(1396.6796, 610.3897, 579.9817, 327.96582)
 
 [node name="MiddleFinger" type="RigidBody2D" parent="Arm" unique_id=878075442]
-position = Vector2(156, 0)
-collision_layer = 0
+position = Vector2(34, 0)
+collision_layer = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/MiddleFinger" unique_id=1463402595]
 position = Vector2(-5, 3)
@@ -204,8 +205,8 @@ region_enabled = true
 region_rect = Rect2(716.58167, 675.98285, 555.8159, 176.06592)
 
 [node name="BottomFinger" type="RigidBody2D" parent="Arm" unique_id=442227264]
-position = Vector2(142, 16)
-collision_layer = 0
+position = Vector2(20, 16)
+collision_layer = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/BottomFinger" unique_id=1150600100]
 position = Vector2(-8.34465e-07, -4.7683716e-07)

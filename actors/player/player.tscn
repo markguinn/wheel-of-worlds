@@ -1844,8 +1844,8 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ArmL" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=1793998611]
 position = Vector2(28, -36)
-rotation = -0.1666374
-scale = Vector2(0.9999991, 0.9999991)
+rotation = -0.16663742
+scale = Vector2(0.99999905, 0.99999905)
 rest = Transform2D(0.9953148, -0.09668779, 0.09668779, 0.9953148, 28, -36)
 metadata/_local_pose_override_enabled_ = true
 
@@ -1978,7 +1978,7 @@ bones = ["Hips", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Hips/ThighR", PackedFloa
 
 [node name="Head" type="Sprite2D" parent="Sprite/Parts" unique_id=857872474]
 position = Vector2(9.998846, -62.99276)
-rotation = -0.051263727
+rotation = -0.05126369
 scale = Vector2(0.29986188, 0.29986188)
 texture = ExtResource("5_bop6h")
 
@@ -2069,7 +2069,7 @@ position = Vector2(48, 60)
 unique_name_in_owner = true
 position = Vector2(9.998846, -62.99276)
 rotation = -1.499887
-scale = Vector2(0.9997422, 0.9997422)
+scale = Vector2(0.99974155, 0.99974155)
 emitting = false
 amount = 6
 texture = ExtResource("7_7aotz")
