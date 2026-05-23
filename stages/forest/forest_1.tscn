@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bxxbctnq2ubio" path="res://stages/stage.gd" id="1_fednj"]
 [ext_resource type="Texture2D" uid="uid://bds24227voos8" path="res://stages/forest/art/forestBackground.png" id="1_k5fkf"]
 [ext_resource type="PackedScene" uid="uid://b85khgplioksi" path="res://actors/player/player.tscn" id="2_776cr"]
+[ext_resource type="Script" uid="uid://ck52hm002hppc" path="res://common/swaying_background.gd" id="3_buyvx"]
 [ext_resource type="Texture2D" uid="uid://oqnp7saij4ae" path="res://stages/forest/art/shadowBushC.png" id="3_l2c6s"]
 [ext_resource type="Texture2D" uid="uid://bwl7qio6w8mu4" path="res://stages/forest/art/shadowBushB.png" id="3_mdxgh"]
 [ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="3_t70ix"]
@@ -258,7 +259,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(128, 128)
-shader_parameter/real_screen_size = Vector2(5209.7925, 2801.7612)
+shader_parameter/real_screen_size = Vector2(143.90123, 98.806305)
 shader_parameter/edges = Array[Texture2D]([ExtResource("7_amikt"), ExtResource("7_amikt")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/distortion_strength = 0.0050000002375
@@ -341,6 +342,9 @@ scroll_scale = Vector2(0.3, 0.3)
 scroll_offset = Vector2(0, -70)
 repeat_size = Vector2(2190, 0)
 repeat_times = 3
+script = ExtResource("3_buyvx")
+sway_vector = Vector2(8, 0)
+cycle_seconds = 20.0
 
 [node name="Sprite2D" type="Sprite2D" parent="LeavesBG1" unique_id=2122361270]
 position = Vector2(205, 529)
@@ -416,6 +420,9 @@ texture = ExtResource("3_l2c6s")
 scroll_scale = Vector2(0.5, 0.5)
 repeat_size = Vector2(2640, 0)
 repeat_times = 3
+script = ExtResource("3_buyvx")
+sway_vector = Vector2(-14, 2)
+cycle_seconds = 16.0
 
 [node name="Sprite2D" type="Sprite2D" parent="LeavesBG2" unique_id=1638984993]
 position = Vector2(861, 565)
@@ -595,10 +602,10 @@ scale = Vector2(0.5, 0.5)
 tile_set = SubResource("TileSet_h68eo")
 
 [node name="StandardCamera" parent="." unique_id=552340171 instance=ExtResource("3_t70ix")]
-position = Vector2(-626, 391)
+position = Vector2(89, 38)
 
 [node name="Player" parent="." unique_id=317056800 instance=ExtResource("2_776cr")]
-position = Vector2(-626, 391)
+position = Vector2(89, 38)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1858114605]
 remote_path = NodePath("../../StandardCamera")
@@ -634,23 +641,32 @@ position = Vector2(225, -9)
 position = Vector2(841, 520)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1146283215]
+light_mask = 3
 position = Vector2(-172, 96)
 color = Color(0.9792946, 0.8219286, 0.8130152, 1)
+range_item_cull_mask = 3
 shadow_enabled = true
+shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_8gxyf")
 texture_scale = 5.67
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=709813443]
+light_mask = 3
 position = Vector2(862, -91)
 color = Color(0.9792946, 0.8219286, 0.8130152, 1)
+range_item_cull_mask = 3
 shadow_enabled = true
+shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_8gxyf")
 texture_scale = 8.0
 
 [node name="PointLight2D3" type="PointLight2D" parent="." unique_id=1819373971]
+light_mask = 3
 position = Vector2(-2697, -275)
 color = Color(0.9792946, 0.8219286, 0.8130152, 1)
+range_item_cull_mask = 3
 shadow_enabled = true
+shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_8gxyf")
 texture_scale = 8.0
 

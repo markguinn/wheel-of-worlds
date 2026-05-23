@@ -27,13 +27,10 @@ func _process(delta: float) -> void:
 		return
 	if player.ground_detector.is_colliding() and _is_squishable(player.ground_detector.get_collider()):
 		_land_on_squishable(player.ground_detector.get_collider(), player.ground_detector.get_collision_point(), player.ground_detector.get_collision_normal())
-	# these are a little too long. if we want to do this, we'd need to dial in the lenght (which might affect
-	# other things like foot placement) or check how far down the collision point is on the ray and filter out
-	# longer values
-	#elif ground_detector_l.is_colliding() and ground_detector_l.get_collider() is Orb:
-		#_land_on_orb(ground_detector_l.get_collider(), ground_detector_l.get_collision_point(), player.ground_detector.get_collision_normal())
-	#elif ground_detector_r.is_colliding() and ground_detector_r.get_collider() is Orb:
-		#_land_on_orb(ground_detector_r.get_collider(), ground_detector_r.get_collision_point(), player.ground_detector.get_collision_normal())
+	elif ground_detector_l.is_colliding() and ground_detector_l.get_collider() is Orb:
+		_land_on_squishable(ground_detector_l.get_collider(), ground_detector_l.get_collision_point(), ground_detector_l.get_collision_normal())
+	elif ground_detector_r.is_colliding() and ground_detector_r.get_collider() is Orb:
+		_land_on_squishable(ground_detector_r.get_collider(), ground_detector_r.get_collision_point(), ground_detector_r.get_collision_normal())
 	if player.is_on_floor():
 		machine.transition_by_name("Idle")
 	elif GameManager.now_ms() > started_falling_at + RAGDOLL_AFTER_MS:
@@ -63,7 +60,7 @@ func _land_on_squishable(obj: Node2D, collision_point: Vector2, collision_normal
 	#orb.apply_central_impulse(player.velocity.normalized())
 	# this is a nice mix of horizontal and vertical movement
 	if obj.has_method("apply_impulse"):
-		obj.apply_impulse(-collision_normal * 10.0, collision_point - obj.global_position)
+		obj.apply_impulse(-collision_normal * 3.0, collision_point - obj.global_position)
 
 	# launch the player. we don't move back to jump because it
 	# retriggers the animation and wants to set the velocity itself

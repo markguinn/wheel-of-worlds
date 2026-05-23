@@ -1,0 +1,9 @@
+[gd_resource type="CanvasTexture" format=3 uid="uid://cg128mp6k24xi"]
+
+[ext_resource type="Texture2D" uid="uid://cvc5h7vm3qpl7" path="res://actors/player/art/body-pencil.png" id="1_gxkx4"]
+[ext_resource type="Texture2D" uid="uid://dd360lpmd3tyc" path="res://actors/player/art/body-normal.png" id="2_idtvm"]
+
+[resource]
+diffuse_texture = ExtResource("1_gxkx4")
+normal_texture = ExtResource("2_idtvm")
+specular_shininess = 0.0

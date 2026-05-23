@@ -25,8 +25,9 @@ var avg_recent_velocity := Vector2.ZERO
 @onready var state_machine: StateMachine = $StateMachine
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Node2D = $Sprite
+@onready var skeleton: Skeleton2D = $Sprite/Skeleton2D
 @onready var shape: CollisionShape2D = $NormalCollision
-@onready var ground_detector: RayCast2D = $GroundDetector
+@onready var ground_detector: RayCast2D = $Sprite/Rays/GroundDetector
 
 @onready var dust_particles_l: CPUParticles2D = %DustParticlesL
 @onready var dust_particles_r: CPUParticles2D = %DustParticlesR
@@ -35,6 +36,7 @@ var avg_recent_velocity := Vector2.ZERO
 func _ready() -> void:
 	anim_player.play("idle")
 	start_pos = position
+	skeleton.get_modification_stack().enabled = true
 
 
 func set_checkpoint() -> void:

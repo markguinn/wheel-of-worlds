@@ -1,4 +1,4 @@
-extends Sprite2D
+extends AnimatedSprite2D
 
 @export var openTimeMin = 0.75
 @export var openTimeMax = 3.5
@@ -10,9 +10,12 @@ var delay = 0.0
 func _process(delta):
 	delay -= delta
 	if delay <= 0:
-		if !visible: # eyes are open - time to blink
-			visible = true # close your eyes very briefly
+		if animation == "default":
+			play("blink")
 			delay = randf_range(blinkTimeMin, blinkTimeMax)
-		else:	# eyes are closed - time to reopen
-			visible = false # open your eyes for a long time
+		elif animation == "blink":
+			play("default")
 			delay = randf_range(openTimeMin, openTimeMax)
+		else:
+			# another emotion was already in flight
+			pass

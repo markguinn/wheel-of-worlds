@@ -26,7 +26,7 @@ const FOOT_MARKER_GROUND_OFFSET = 10
 @onready var dust_particles_r: CPUParticles2D = %DustParticlesR
 
 @onready var skeleton: Skeleton2D = %Skeleton2D
-@onready var hand_l_poly: Polygon2D = %Parts/HandL
+@onready var hand_l_poly: Polygon2D = %Parts/ArmL
 
 # We animate one marker, but the skeleton2D solves from a second one
 # This gives us freedom to place the feet realistically on slopes.
