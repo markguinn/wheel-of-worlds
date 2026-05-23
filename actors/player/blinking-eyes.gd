@@ -3,7 +3,7 @@ extends AnimatedSprite2D
 
 const anim_for_state: Dictionary[Player.EmotionalState, String] = {
 	Player.EmotionalState.SCARED: "scared",
-	Player.EmotionalState.KNOCKED_OUT: "x",
+	Player.EmotionalState.STUNNED: "stunned",
 }
 
 @export var openTimeMin = 0.75

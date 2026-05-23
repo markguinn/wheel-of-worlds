@@ -74,7 +74,7 @@ func _entered(_prev_state: StateNode) -> void:
 	_enable_ragdoll_elements()
 	if player.is_holding_prop:
 		player.put_down_prop()
-	player.emotional_state = Player.EmotionalState.KNOCKED_OUT
+	player.emotional_state = Player.EmotionalState.STUNNED
 
 
 func _before_exit(_next_state: StateNode) -> void:

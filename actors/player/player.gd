@@ -7,7 +7,7 @@ signal did_put_down(prop: Node2D)
 enum EmotionalState {
 	NEUTRAL,
 	SCARED,
-	KNOCKED_OUT,
+	STUNNED,
 }
 
 const AVG_WINDOW_MS = 50.0 # NOTE: this isn't _really_ milliseconds.

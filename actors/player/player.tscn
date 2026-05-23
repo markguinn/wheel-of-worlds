@@ -1674,7 +1674,7 @@ animations = [{
 "texture": ExtResource("9_2vokq")
 }],
 "loop": true,
-"name": &"x",
+"name": &"stunned",
 "speed": 5.0
 }]
 
@@ -1929,6 +1929,7 @@ region_rect = Rect2(204, 68, 311, 233)
 
 [node name="Eyes" type="AnimatedSprite2D" parent="Sprite/Parts/Head" unique_id=1167826662]
 sprite_frames = SubResource("SpriteFrames_yeioo")
+animation = &"stunned"
 offset = Vector2(-35, 387)
 script = ExtResource("7_0wchr")
 
