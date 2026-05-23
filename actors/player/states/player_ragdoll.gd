@@ -74,12 +74,14 @@ func _entered(_prev_state: StateNode) -> void:
 	_enable_ragdoll_elements()
 	if player.is_holding_prop:
 		player.put_down_prop()
+	player.emotional_state = Player.EmotionalState.KNOCKED_OUT
 
 
 func _before_exit(_next_state: StateNode) -> void:
 	dizzy_particles.emitting = false
 	_disable_ragdoll_elements()
 	player.velocity = ragdoll_bodies[0].linear_velocity
+	player.emotional_state = Player.EmotionalState.NEUTRAL
 	temp_return_at = 0
 	temp_return_to = null
 	temp_torso_velocity = Vector2.INF

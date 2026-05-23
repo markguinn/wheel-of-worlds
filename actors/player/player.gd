@@ -4,6 +4,12 @@ extends CharacterBody2D
 signal did_pick_up(prop: Node2D, holding_point: Node2D)
 signal did_put_down(prop: Node2D)
 
+enum EmotionalState {
+	NEUTRAL,
+	SCARED,
+	KNOCKED_OUT,
+}
+
 const AVG_WINDOW_MS = 50.0 # NOTE: this isn't _really_ milliseconds.
 const COYOTE_TIME_MS = 100
 
@@ -14,6 +20,7 @@ const COYOTE_TIME_MS = 100
 @export var tough_mode := false
 @export var jump_multiplier := 1.0
 @export var speed_multiplier := 1.0
+@export var emotional_state := EmotionalState.NEUTRAL
 
 var last_floor_touch: int
 var is_holding_prop: Node2D = null
