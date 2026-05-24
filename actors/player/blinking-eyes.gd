@@ -1,9 +1,15 @@
+@tool
 extends AnimatedSprite2D
 
 
 const anim_for_state: Dictionary[Player.EmotionalState, String] = {
 	Player.EmotionalState.SCARED: "scared",
 	Player.EmotionalState.STUNNED: "stunned",
+}
+
+const color_for_state: Dictionary[Player.EmotionalState, Color] = {
+	Player.EmotionalState.SCARED: Color.ALICE_BLUE,
+	#Player.EmotionalState.STUNNED: Color.AZURE,
 }
 
 @export var openTimeMin = 0.75
@@ -39,3 +45,6 @@ func _process(delta):
 		var expected_anim = anim_for_state.get(emotional_state, "default")
 		if animation != expected_anim:
 			play(expected_anim)
+	var expected_color = color_for_state.get(emotional_state, Color.WHITE)
+	if parent_player and parent_player.modulate != expected_color:
+		parent_player.modulate = expected_color
