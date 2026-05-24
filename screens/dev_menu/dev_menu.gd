@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var first_button = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ToughMode
-
+@onready var portal_select: OptionButton = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/PortalSelect
 
 func _ready() -> void:
 	hide()
@@ -14,6 +14,10 @@ func _ready() -> void:
 func _on_new_scene() -> void:
 	$PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ToughMode.button_pressed = false
 	$PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/FastMode.button_pressed = false
+	portal_select.clear()
+	portal_select.add_item("")
+	for portal in get_tree().get_nodes_in_group("portals"):
+		portal_select.add_item(portal.portal_name)
 
 
 func _input(event: InputEvent) -> void:
@@ -75,3 +79,12 @@ func _on_drop_lantern_pressed() -> void:
 
 func _on_flag_toggled(toggled_on: bool, source: Node) -> void:
 	Flags.set(source.name, toggled_on)
+
+
+func _on_option_button_item_selected(index: int) -> void:
+	var target := portal_select.get_item_text(index)
+	var player := GameManager.get_player()
+	for portal in get_tree().get_nodes_in_group("portals"):
+		if portal.portal_name == target and player:
+			player.global_position = portal.global_position
+			break

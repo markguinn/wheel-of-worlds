@@ -96,6 +96,16 @@ focus_neighbor_left = NodePath("../DropOrb")
 text = "Lantern
 "
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=894685108]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=267614692]
+layout_mode = 2
+text = "Go to portal"
+
+[node name="PortalSelect" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=484016853]
+layout_mode = 2
+
 [connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ToughMode" to="." method="_on_tough_mode_toggled"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/FastMode" to="." method="_on_fast_mode_toggled"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/walk_acceleration" to="." method="_on_flag_toggled" flags=18]
@@ -106,3 +116,4 @@ text = "Lantern
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/DropStone2" to="." method="_on_drop_stone_2_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/DropOrb" to="." method="_on_drop_orb_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/DropLantern" to="." method="_on_drop_lantern_pressed"]
+[connection signal="item_selected" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/PortalSelect" to="." method="_on_option_button_item_selected"]
