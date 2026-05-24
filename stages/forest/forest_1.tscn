@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://f5i18mx2blyi" path="res://stages/forest/mushroom_platform.tscn" id="13_25mch"]
 [ext_resource type="PackedScene" uid="uid://beyqs3nx07wae" path="res://stages/forest/climbable_tree_5.tscn" id="13_c48qr"]
 [ext_resource type="PackedScene" uid="uid://cu4l0skawwtuf" path="res://stages/forest/climbable_tree_3.tscn" id="13_eho2t"]
+[ext_resource type="Texture2D" uid="uid://bb38a7h3w0k2g" path="res://common/vfx/basic_light.tres" id="20_u1hea"]
 [ext_resource type="Script" uid="uid://dj363jf40q41h" path="res://stages/forest/cavern_area.gd" id="23_8vxte"]
 [ext_resource type="PackedScene" uid="uid://cq30ppa4eh5d3" path="res://props/orb/orb.tscn" id="24_rrrxt"]
 [ext_resource type="PackedScene" uid="uid://cpmxxndn8n308" path="res://props/plank/plank.tscn" id="25_6ligt"]
@@ -259,7 +260,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(128, 128)
-shader_parameter/real_screen_size = Vector2(143.90123, 98.806305)
+shader_parameter/real_screen_size = Vector2(1308.5706, 418.07913)
 shader_parameter/edges = Array[Texture2D]([ExtResource("7_amikt"), ExtResource("7_amikt")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/distortion_strength = 0.0050000002375
@@ -309,17 +310,6 @@ turbulence_noise_scale = 2.658
 turbulence_noise_speed = Vector3(100, 0, 0)
 turbulence_influence_min = 0.17500001
 turbulence_influence_max = 0.32700002
-
-[sub_resource type="Gradient" id="Gradient_35axu"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8gxyf"]
-gradient = SubResource("Gradient_35axu")
-width = 256
-height = 256
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eho2t"]
 size = Vector2(1310, 1216)
@@ -602,10 +592,10 @@ scale = Vector2(0.5, 0.5)
 tile_set = SubResource("TileSet_h68eo")
 
 [node name="StandardCamera" parent="." unique_id=552340171 instance=ExtResource("3_t70ix")]
-position = Vector2(89, 38)
+position = Vector2(-372, 363)
 
 [node name="Player" parent="." unique_id=317056800 instance=ExtResource("2_776cr")]
-position = Vector2(89, 38)
+position = Vector2(-372, 363)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1858114605]
 remote_path = NodePath("../../StandardCamera")
@@ -613,7 +603,7 @@ remote_path = NodePath("../../StandardCamera")
 [node name="PointLight2D3" type="PointLight2D" parent="Player" unique_id=925400616]
 color = Color(0.9792946, 0.8219286, 0.8130152, 1)
 energy = 0.5
-texture = SubResource("GradientTexture2D_8gxyf")
+texture = ExtResource("20_u1hea")
 texture_scale = 6.0
 
 [node name="ClimbableTree" parent="." unique_id=610288396 instance=ExtResource("11_8gxyf")]
@@ -647,8 +637,9 @@ color = Color(0.9792946, 0.8219286, 0.8130152, 1)
 range_item_cull_mask = 3
 shadow_enabled = true
 shadow_item_cull_mask = 3
-texture = SubResource("GradientTexture2D_8gxyf")
+texture = ExtResource("20_u1hea")
 texture_scale = 5.67
+height = 232.0
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=709813443]
 light_mask = 3
@@ -657,8 +648,9 @@ color = Color(0.9792946, 0.8219286, 0.8130152, 1)
 range_item_cull_mask = 3
 shadow_enabled = true
 shadow_item_cull_mask = 3
-texture = SubResource("GradientTexture2D_8gxyf")
+texture = ExtResource("20_u1hea")
 texture_scale = 8.0
+height = 250.0
 
 [node name="PointLight2D3" type="PointLight2D" parent="." unique_id=1819373971]
 light_mask = 3
@@ -667,8 +659,9 @@ color = Color(0.9792946, 0.8219286, 0.8130152, 1)
 range_item_cull_mask = 3
 shadow_enabled = true
 shadow_item_cull_mask = 3
-texture = SubResource("GradientTexture2D_8gxyf")
+texture = ExtResource("20_u1hea")
 texture_scale = 8.0
+height = 250.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=760527295]
 unique_name_in_owner = true

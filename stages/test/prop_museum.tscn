@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="4_pcmnq"]
 [ext_resource type="PackedScene" uid="uid://b85khgplioksi" path="res://actors/player/player.tscn" id="5_yaa46"]
 [ext_resource type="PackedScene" uid="uid://cq30ppa4eh5d3" path="res://props/orb/orb.tscn" id="6_5u3k2"]
+[ext_resource type="PackedScene" uid="uid://bk4kt0s8ldtcc" path="res://props/teleplate/teleplate.tscn" id="7_tgbn4"]
 [ext_resource type="PackedScene" uid="uid://cpmxxndn8n308" path="res://props/plank/plank.tscn" id="8_10i41"]
 [ext_resource type="PackedScene" uid="uid://rdlq677coghs" path="res://props/stone/triangle_stone.tscn" id="9_xekb5"]
 [ext_resource type="PackedScene" uid="uid://dn6gswqjkyx14" path="res://props/stone/square_stone.tscn" id="10_s8nx2"]
@@ -56,6 +57,14 @@ update_scale = false
 [node name="Orb" parent="." unique_id=1391753086 instance=ExtResource("6_5u3k2")]
 z_index = 1
 position = Vector2(3436, 112)
+
+[node name="Teleplate" parent="." unique_id=1403177829 node_paths=PackedStringArray("linked_plates") instance=ExtResource("7_tgbn4")]
+position = Vector2(-575, 750)
+linked_plates = [NodePath("../Teleplate2")]
+
+[node name="Teleplate2" parent="." unique_id=1126501777 node_paths=PackedStringArray("linked_plates") instance=ExtResource("7_tgbn4")]
+position = Vector2(12, 565)
+linked_plates = [NodePath("../Teleplate")]
 
 [node name="Plank" parent="." unique_id=691076463 instance=ExtResource("8_10i41")]
 position = Vector2(-1826, 688)
