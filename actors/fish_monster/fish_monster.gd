@@ -30,6 +30,8 @@ signal jumping
 @export var jump_y_max := 1800.0
 @export var jump_x_min := 200.0
 @export var jump_x_max := 1000.0
+@export var attack_impact := 2.0
+@export var bone_speed_scale := 1.0
 
 var territory_rect: Rect2
 
@@ -90,7 +92,7 @@ func _ready() -> void:
 		position_history.append(global_position)
 		delta_history.append(0.0)
 	for b in bones:
-		bone_len.append(b.get_length())
+		bone_len.append(b.get_length() * b.global_scale.x)
 
 
 func _on_body_entered(body: Node) -> void:
@@ -100,14 +102,14 @@ func _on_body_entered(body: Node) -> void:
 		apply_impulse(-linear_velocity * 2)
 	elif body is Player and body.state_machine.get_active() != "Ragdoll":
 		VFX.shake(VFX.MID, VFX.QUAKE)
-		body.velocity = linear_velocity * 2
+		body.velocity = linear_velocity * attack_impact
 		body.state_machine.transition_by_name.call_deferred("Ragdoll")
 		apply_impulse(-linear_velocity * 1.5)
 	elif body is Plank:
-		body.apply_impulse(linear_velocity * 0.8)
+		body.apply_impulse(linear_velocity * attack_impact * 0.4)
 		apply_impulse(-linear_velocity * 1.5)
 	elif body is Orb:
-		body.apply_impulse(linear_velocity * 0.01)
+		body.apply_impulse(linear_velocity * attack_impact * 0.005)
 		apply_impulse(-linear_velocity * 1.5)
 
 
@@ -160,7 +162,7 @@ func _physics_process(delta: float) -> void:
 	# fill in the ring buffer and update the bone positions
 	# we use the delta here and interpolate between the current position and the last position
 	# in order to keep the behavior consistent if the time scale slows
-	var delta_idx := ceili(delta / BUFFER_STEP_S)
+	var delta_idx := ceili(delta * bone_speed_scale / BUFFER_STEP_S)
 	var start_pos := position_history[bone_idx[0]]
 	var last_pos := start_pos
 	var last_idx := bone_idx[0]

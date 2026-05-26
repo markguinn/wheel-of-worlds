@@ -1,68 +1,22 @@
-[gd_scene format=3 uid="uid://n0yb8g02gr8b"]
+[gd_scene format=3 uid="uid://3bml3wbyjvgg"]
 
-[ext_resource type="Script" uid="uid://c5n8o372gfmft" path="res://actors/fish_monster/fish_monster.gd" id="1_7b7uw"]
-[ext_resource type="Texture2D" uid="uid://ddh3of4qnwhyn" path="res://actors/fish_monster/art/blue-monster-test.png" id="1_8t8ag"]
-[ext_resource type="Script" uid="uid://vmdvty45rk5y" path="res://common/state_machine/state_machine.gd" id="3_htvvn"]
-[ext_resource type="Texture2D" uid="uid://c08vcn3ytcg2n" path="res://actors/fish_monster/art/blue-monster-test copy 2.png" id="3_ymvi3"]
-[ext_resource type="Script" uid="uid://dxam5420ufq2c" path="res://actors/fish_monster/states/fish_patrolling.gd" id="4_ymvi3"]
-[ext_resource type="Script" uid="uid://chlioeglswitp" path="res://actors/fish_monster/states/fish_attacking.gd" id="5_tienk"]
+[ext_resource type="Script" uid="uid://c5n8o372gfmft" path="res://actors/fish_monster/fish_monster.gd" id="1_73atn"]
+[ext_resource type="Script" uid="uid://vmdvty45rk5y" path="res://common/state_machine/state_machine.gd" id="2_2rclf"]
+[ext_resource type="Script" uid="uid://dxam5420ufq2c" path="res://actors/fish_monster/states/fish_patrolling.gd" id="3_uput1"]
+[ext_resource type="Script" uid="uid://chlioeglswitp" path="res://actors/fish_monster/states/fish_attacking.gd" id="4_u5c48"]
+[ext_resource type="Texture2D" uid="uid://ddh3of4qnwhyn" path="res://actors/fish_monster/art/blue-monster-test.png" id="5_rf1r0"]
+[ext_resource type="Texture2D" uid="uid://c08vcn3ytcg2n" path="res://actors/fish_monster/art/blue-monster-test copy 2.png" id="6_nhomp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8t8ag"]
-radius = 92.43
-height = 197.65
+radius = 38.43
+height = 89.65
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7b7uw"]
-radius = 98.4
-height = 196.8
-
-[sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_tienk"]
-fabrik_data_chain_length = 4
-joint_data/0/bone_index = 0
-joint_data/0/bone2d_node = NodePath("Bone2D")
-joint_data/1/bone_index = 1
-joint_data/1/bone2d_node = NodePath("Bone2D/Bone2D")
-joint_data/1/magnet_position = Vector2(0, 0)
-joint_data/2/bone_index = 2
-joint_data/2/bone2d_node = NodePath("Bone2D/Bone2D/Bone2D")
-joint_data/2/magnet_position = Vector2(0, 0)
-joint_data/3/bone_index = 3
-joint_data/3/bone2d_node = NodePath("Bone2D/Bone2D/Bone2D/Bone2D")
-joint_data/3/magnet_position = Vector2(0, 0)
-joint_data/3/use_target_rotation = false
+radius = 35.4
+height = 70.8
 
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_tienk"]
 modification_count = 1
-modifications/0 = SubResource("SkeletonModification2DFABRIK_tienk")
-
-[sub_resource type="Curve" id="Curve_7s80s"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.823389, 0.6182665), -1.2764184, -1.2764184, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_nsxo1"]
-curve = SubResource("Curve_7s80s")
-
-[sub_resource type="Gradient" id="Gradient_suopm"]
-offsets = PackedFloat32Array(0, 0.53150684, 1)
-colors = PackedColorArray(0.06666667, 0.23921569, 0.3882353, 1, 0.15814123, 0.38190466, 0.6289363, 1, 0.08235294, 0.20392157, 0.37254903, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_jjchx"]
-gradient = SubResource("Gradient_suopm")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7s80s"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(100, 1, 1)
-angle_min = -179.99998
-angle_max = 180.00002
-direction = Vector3(0, -1, 0)
-spread = 60.0
-initial_velocity_min = 194.73
-initial_velocity_max = 440.47998
-gravity = Vector3(0, 450, 0)
-scale_min = 8.0
-scale_max = 16.0
-color_initial_ramp = SubResource("GradientTexture1D_jjchx")
-alpha_curve = SubResource("CurveTexture_nsxo1")
 
 [sub_resource type="Curve" id="Curve_ymvi3"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.66228074, 0.7584541), -1.5186641, -1.5186641, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -84,26 +38,33 @@ colors = PackedColorArray(1, 1, 1, 1, 0.9714662, 0.9814652, 0.9960979, 0.9378109
 offsets = PackedFloat32Array(0, 0.53150684, 1)
 colors = PackedColorArray(0.06666667, 0.23921569, 0.3882353, 1, 0.15814123, 0.38190466, 0.6289363, 1, 0.08235294, 0.20392157, 0.37254903, 1)
 
-[node name="FishMonster" type="RigidBody2D" unique_id=1857891672]
+[node name="SmallFish" type="RigidBody2D" unique_id=1857891672]
 z_index = 5
 collision_layer = 8
 collision_mask = 0
 contact_monitor = true
 max_contacts_reported = 1
-script = ExtResource("1_7b7uw")
+script = ExtResource("1_73atn")
+patrol_offset = 25.0
+jump_y_max = 1600.0
+attack_impact = 1.2
 
 [node name="StateMachine" type="Node" parent="." unique_id=336115411 node_paths=PackedStringArray("target", "initial_state")]
-script = ExtResource("3_htvvn")
+script = ExtResource("2_2rclf")
 target = NodePath("..")
 initial_state = NodePath("Patrolling")
 metadata/_custom_type_script = "uid://vmdvty45rk5y"
 
 [node name="Patrolling" type="Node" parent="StateMachine" unique_id=1086534189]
-script = ExtResource("4_ymvi3")
+script = ExtResource("3_uput1")
+move_speed = 350.0
+min_patrolling_ms = 15000
+vertical_range = 20.0
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="Attacking" type="Node" parent="StateMachine" unique_id=1891119915]
-script = ExtResource("5_tienk")
+script = ExtResource("4_u5c48")
+attack_ms = 15000
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2050835415]
@@ -122,13 +83,14 @@ shape = SubResource("CapsuleShape2D_7b7uw")
 debug_color = Color(0.95767456, 0.20083219, 0.13908029, 0.41960785)
 
 [node name="SpriteContainer" type="Node2D" parent="." unique_id=306526739]
-position = Vector2(186, 62)
-scale = Vector2(0.8, 0.8)
+position = Vector2(69, 25)
+scale = Vector2(0.3, 0.3)
 
 [node name="PolygonL" type="Polygon2D" parent="SpriteContainer" unique_id=1737773539]
-offset = Vector2(-450, -450)
+position = Vector2(-232.49998, -78.74999)
+offset = Vector2(-217.50002, -371.25)
 antialiased = true
-texture = ExtResource("1_8t8ag")
+texture = ExtResource("5_rf1r0")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(837.3738, 521.81995, 816.61426, 378.32452, 757.2672, 314.96954, 720.3059, 280.86124, 657.6632, 259.73755, 604.85394, 242.98427, 553.5015, 232.78662, 501.363, 222.48608, 451.1032, 215.56624, 395.01614, 213.01683, 297.77432, 213.74524, 200.53249, 217.75146, 186.07945, 270.53027, 83.374596, 280.7279, 54.60267, 338.636, 89.55232, 430.46182, 142.72577, 498.56754, 211.46362, 504.70142, 261.72345, 526.18933, 364.79248, 523.6399, 462.76273, 526.18933, 566.9244, 528.3745, 663.3684, 527.6615, 765.34485, 527.6615, 299.30396, 287.178, 420.344, 303.49802, 523.704, 308.93802, 625.704, 326.618, 693.704, 361.97803, 758.984, 412.298, 637.944, 465.338, 424.42395, 449.018, 250.344, 438.13803)
 uv = PackedVector2Array(837.3738, 521.81995, 816.61426, 378.32452, 757.2672, 314.96954, 720.3059, 280.86124, 657.6632, 259.73755, 604.85394, 242.98427, 553.5015, 232.78662, 501.363, 222.48608, 451.1032, 215.56624, 395.01614, 213.01683, 297.77432, 213.74524, 200.53249, 217.75146, 186.07945, 270.53027, 83.374596, 280.7279, 54.60267, 338.636, 89.55232, 430.46182, 142.72577, 498.56754, 211.46362, 504.70142, 261.72345, 526.18933, 364.79248, 523.6399, 462.76273, 526.18933, 566.9244, 528.3745, 663.3684, 527.6615, 765.34485, 527.6615, 299.30396, 287.178, 420.344, 303.49802, 523.704, 308.93802, 625.704, 326.618, 693.704, 361.97803, 758.984, 412.298, 637.944, 465.338, 424.42395, 449.018, 250.344, 438.13803)
@@ -138,9 +100,10 @@ internal_vertex_count = 9
 
 [node name="PolygonR" type="Polygon2D" parent="SpriteContainer" unique_id=2034574222]
 visible = false
-offset = Vector2(-450, -450)
+position = Vector2(-236.24998, -77.49999)
+offset = Vector2(-213.75002, -372.5)
 antialiased = true
-texture = ExtResource("3_ymvi3")
+texture = ExtResource("6_nhomp")
 texture_offset = Vector2(0, 173)
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(837.3738, 521.81995, 816.61426, 378.32452, 757.2672, 314.96954, 720.3059, 280.86124, 657.6632, 259.73755, 604.85394, 242.98427, 553.5015, 232.78662, 501.363, 222.48608, 451.1032, 215.56624, 395.01614, 213.01683, 297.77432, 213.74524, 200.53249, 217.75146, 186.07945, 270.53027, 83.374596, 280.7279, 54.60267, 338.636, 89.55232, 430.46182, 142.72577, 498.56754, 211.46362, 504.70142, 261.72345, 526.18933, 364.79248, 523.6399, 462.76273, 526.18933, 566.9244, 528.3745, 663.3684, 527.6615, 765.34485, 527.6615, 299.30396, 287.178, 420.344, 303.49802, 523.704, 308.93802, 625.704, 326.618, 693.704, 361.97803, 758.984, 412.298, 637.944, 465.338, 424.42395, 449.018, 250.344, 438.13803)
@@ -150,7 +113,7 @@ bones = ["Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1
 internal_vertex_count = 9
 
 [node name="Skeleton2D" type="Skeleton2D" parent="SpriteContainer" unique_id=2112981615]
-position = Vector2(-63.749992, -66.24999)
+position = Vector2(-63.000023, -67.00001)
 scale = Vector2(1.25, 1.25)
 modification_stack = SubResource("SkeletonModificationStack2D_tienk")
 
@@ -173,15 +136,6 @@ rest = Transform2D(1, 0, 0, 1, 161.00003, 63.000008)
 auto_calculate_length_and_angle = false
 length = 103.669
 bone_angle = 32.69199
-
-[node name="SplashParticlesOLD" type="GPUParticles2D" parent="." unique_id=529386056]
-visible = false
-emitting = false
-amount = 50
-one_shot = true
-explosiveness = 1.0
-randomness = 0.49
-process_material = SubResource("ParticleProcessMaterial_7s80s")
 
 [node name="SplashParticles" type="CPUParticles2D" parent="." unique_id=1983388862]
 z_index = 10

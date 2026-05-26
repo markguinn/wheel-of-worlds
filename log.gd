@@ -34,6 +34,7 @@ const levels = {
 	#"Portal": DEBUG,
 	#"StateMachine": DEBUG,
 	#"StateManager": DEBUG,
+	#"Teleplate": DEBUG,
 }
 
 
