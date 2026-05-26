@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bxxbctnq2ubio" path="res://stages/stage.gd" id="1_fednj"]
 [ext_resource type="Texture2D" uid="uid://bds24227voos8" path="res://stages/forest/art/forestBackground.png" id="1_k5fkf"]
 [ext_resource type="PackedScene" uid="uid://b85khgplioksi" path="res://actors/player/player.tscn" id="2_776cr"]
-[ext_resource type="Script" uid="uid://ck52hm002hppc" path="res://common/swaying_background.gd" id="3_buyvx"]
+[ext_resource type="Script" path="res://common/swaying_background.gd" id="3_buyvx"]
 [ext_resource type="Texture2D" uid="uid://oqnp7saij4ae" path="res://stages/forest/art/shadowBushC.png" id="3_l2c6s"]
 [ext_resource type="Texture2D" uid="uid://bwl7qio6w8mu4" path="res://stages/forest/art/shadowBushB.png" id="3_mdxgh"]
 [ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="3_t70ix"]
@@ -261,7 +261,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(128, 128)
-shader_parameter/real_screen_size = Vector2(1308.5706, 418.07913)
+shader_parameter/real_screen_size = Vector2(4305.6133, 2315.5051)
 shader_parameter/edges = Array[Texture2D]([ExtResource("7_amikt"), ExtResource("7_amikt")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/distortion_strength = 0.0050000002375
@@ -716,13 +716,6 @@ debug_color = Color(0, 0, 0, 0.5686275)
 
 [node name="Lantern" parent="CavernArea" unique_id=1315439554 instance=ExtResource("31_p444m")]
 position = Vector2(3274.5098, -76.31473)
-
-[node name="PointLight2D" type="PointLight2D" parent="CavernArea/Lantern" unique_id=1385185457]
-position = Vector2(-172, 96)
-color = Color(0.9792946, 0.8219286, 0.8130152, 1)
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_8gxyf")
-texture_scale = 5.67
 
 [node name="Plank" parent="." unique_id=1965888217 instance=ExtResource("25_6ligt")]
 position = Vector2(-3205.455, 428.7887)
