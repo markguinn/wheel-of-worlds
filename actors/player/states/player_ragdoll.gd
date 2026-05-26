@@ -87,9 +87,12 @@ func _before_exit(_next_state: StateNode) -> void:
 	temp_torso_velocity = Vector2.INF
 
 
+# this is called when the ragdoll bodies enter the water
 func _on_entered_kill_zone() -> void:
-	machine.transition_by_name("Idle")
 	player.reset_after_fall()
+	for n in ragdoll_bodies:
+		n.set_next_global_position(player.start_pos)
+		n.set_next_linear_velocity(Vector2.ZERO)
 
 
 func _init_ragdoll_elements() -> void:
@@ -180,10 +183,10 @@ func transition_before_exit(to_state: StateNode) -> void:
 	player.ground_detector.force_raycast_update()
 	
 	var body := ragdoll_bodies[0]
-	body.freeze = true
+	body.set_deferred("freeze", true)
 	var tween := create_tween()
 	tween.tween_property(body, "rotation", 0.0, STANDUP_TIME)
-	if player.ground_detector.is_colliding():	
+	if player.ground_detector.is_colliding():
 		tween.parallel().tween_property(body, "position", body.position + Vector2(0, -STANDUP_DIST), STANDUP_TIME)
 	await tween.finished
 	player.ground_detector.rotation = -player.rotation
