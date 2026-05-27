@@ -1,0 +1,722 @@
+[gd_scene format=3 uid="uid://ykg4lp4fd6ee"]
+
+[ext_resource type="Script" uid="uid://bxxbctnq2ubio" path="res://stages/stage.gd" id="1_owr3d"]
+[ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="2_w8nne"]
+[ext_resource type="Texture2D" uid="uid://djpsb4jyc0afj" path="res://stages/world0/art/mountains.png" id="3_1s8ma"]
+[ext_resource type="Script" uid="uid://ch0wv8cuoudkc" path="res://stages/world0/mist.gd" id="4_rqwkl"]
+[ext_resource type="Material" uid="uid://w6s6k7r66ghw" path="res://stages/world0/painted5.tres" id="5_qli1v"]
+[ext_resource type="Script" uid="uid://b0waw70vdi075" path="res://stages/world0/shader_helper.gd" id="6_vce6c"]
+[ext_resource type="Texture2D" uid="uid://ddlcjo0hxknqw" path="res://stages/hard_levels/the-ascent.png" id="7_owr3d"]
+[ext_resource type="Texture2D" uid="uid://dgj7y78b0yk11" path="res://stages/world0/art/extras1.png" id="8_1b8q2"]
+[ext_resource type="Material" uid="uid://t6s3wyv0jdh6" path="res://props/trees/tree-movement-material.tres" id="9_c0787"]
+[ext_resource type="Texture2D" uid="uid://pui7upyox7vw" path="res://stages/world0/art/trees.png" id="10_l6htq"]
+[ext_resource type="PackedScene" uid="uid://b85khgplioksi" path="res://actors/player/player.tscn" id="11_lcpf4"]
+[ext_resource type="PackedScene" uid="uid://cq30ppa4eh5d3" path="res://props/orb/orb.tscn" id="12_i0lcx"]
+[ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="13_mi4gu"]
+[ext_resource type="PackedScene" uid="uid://d053lad6gupme" path="res://props/trees/tree_2.tscn" id="14_mbdyk"]
+[ext_resource type="PackedScene" uid="uid://dddhops2w46wl" path="res://props/trees/tree_1.tscn" id="15_lwdy0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3bs7n"]
+
+[sub_resource type="Gradient" id="Gradient_83wlx"]
+colors = PackedColorArray(0.24015418, 0.25599292, 0.21379125, 1, 0.16078432, 0.17254902, 0.14117648, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tsxbn"]
+gradient = SubResource("Gradient_83wlx")
+width = 500
+height = 500
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_3bs7n"]
+offsets = PackedFloat32Array(0.19917013, 0.46887967, 1)
+colors = PackedColorArray(0.078431375, 0.08235294, 0.0627451, 1, 0.085258566, 0.08747333, 0.06829219, 0.8911917, 0.14117648, 0.12941177, 0.11372549, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1cdy3"]
+gradient = SubResource("Gradient_3bs7n")
+width = 60
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_2layw"]
+offsets = PackedFloat32Array(0.17605634, 0.7793427)
+colors = PackedColorArray(0.16470589, 0.1764706, 0.14509805, 0.79607844, 0.22246751, 0.24016911, 0.1976687, 0.6)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gmxw7"]
+noise_type = 3
+seed = 5
+frequency = 0.007
+fractal_octaves = 4
+fractal_lacunarity = 0.8
+fractal_gain = 0.7
+fractal_weighted_strength = 0.86
+domain_warp_enabled = true
+domain_warp_type = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8bmoi"]
+noise = SubResource("FastNoiseLite_gmxw7")
+color_ramp = SubResource("Gradient_2layw")
+seamless = true
+seamless_blend_skirt = 0.377
+
+[sub_resource type="Gradient" id="Gradient_eprsv"]
+offsets = PackedFloat32Array(0.114107884, 0.28630707, 0.6016598, 1)
+colors = PackedColorArray(0.16470589, 0.17254902, 0.14117648, 1, 0.16398953, 0.17123571, 0.14034073, 0.969555, 0.15821995, 0.16065815, 0.13360955, 0.7243478, 0.14117648, 0.12941177, 0.11372549, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eprsv"]
+gradient = SubResource("Gradient_eprsv")
+width = 160
+height = 128
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_v0ifn"]
+offsets = PackedFloat32Array(0.43983403, 0.78215766)
+colors = PackedColorArray(0.8117647, 0.83137256, 0.78431374, 0.1764706, 0.56078434, 0.5882353, 0.5176471, 0.3137255)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_eksvm"]
+noise_type = 3
+seed = 3
+frequency = 0.005
+fractal_octaves = 4
+fractal_lacunarity = 1.2
+fractal_gain = 0.3
+fractal_weighted_strength = 0.59
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_fractal_octaves = 2
+domain_warp_fractal_gain = 0.6
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eprsv"]
+noise = SubResource("FastNoiseLite_eksvm")
+color_ramp = SubResource("Gradient_v0ifn")
+seamless = true
+seamless_blend_skirt = 0.377
+
+[sub_resource type="Gradient" id="Gradient_k5h24"]
+offsets = PackedFloat32Array(0.68049794, 1)
+colors = PackedColorArray(0.8117647, 0.83137256, 0.78431374, 0, 0.56078434, 0.5882353, 0.5176471, 0.47843137)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_87lg0"]
+noise_type = 4
+seed = 3
+frequency = 0.001
+fractal_type = 2
+fractal_octaves = 3
+fractal_lacunarity = 0.9
+fractal_gain = 0.7
+fractal_weighted_strength = 0.39
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 25.0
+domain_warp_frequency = 0.03
+domain_warp_fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gmxw7"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_87lg0")
+color_ramp = SubResource("Gradient_k5h24")
+seamless = true
+seamless_blend_skirt = 0.377
+
+[node name="The Ascent" type="Node2D" unique_id=831090977]
+material = SubResource("ShaderMaterial_3bs7n")
+script = ExtResource("1_owr3d")
+
+[node name="Camera2D" parent="." unique_id=552340171 instance=ExtResource("2_w8nne")]
+position = Vector2(-746, 831)
+
+[node name="BackgroundLayers" type="Node2D" parent="." unique_id=1154204795]
+
+[node name="FixedBackground" type="Parallax2D" parent="BackgroundLayers" unique_id=856755979]
+scroll_scale = Vector2(0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayers/FixedBackground" unique_id=43248688]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("GradientTexture2D_tsxbn")
+metadata/_edit_use_anchors_ = true
+
+[node name="FarMountains" type="Parallax2D" parent="BackgroundLayers" unique_id=1374407963]
+scroll_scale = Vector2(0.2, 0.1)
+repeat_size = Vector2(995, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundLayers/FarMountains" unique_id=622575544]
+modulate = Color(0.47983426, 0.47983432, 0.4798342, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_1s8ma")
+offset = Vector2(0, 1110)
+flip_h = true
+region_rect = Rect2(177, 0, 4096, 2048)
+
+[node name="FadeOut" type="Sprite2D" parent="BackgroundLayers/FarMountains" unique_id=784784239]
+position = Vector2(0, 895)
+scale = Vector2(16.584, 8)
+texture = SubResource("GradientTexture2D_1cdy3")
+
+[node name="FarMist" type="Parallax2D" parent="BackgroundLayers" unique_id=180983151]
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(1024, 1024)
+autoscroll = Vector2(30, 14)
+repeat_times = 6
+
+[node name="Mist" type="Sprite2D" parent="BackgroundLayers/FarMist" unique_id=939087428]
+position = Vector2(254, 237)
+scale = Vector2(2, 2)
+texture = SubResource("NoiseTexture2D_8bmoi")
+
+[node name="Mountains" type="Parallax2D" parent="BackgroundLayers" unique_id=2037387024]
+scroll_scale = Vector2(0.4, 0.2)
+repeat_size = Vector2(2653, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundLayers/Mountains" unique_id=913695051]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_1s8ma")
+offset = Vector2(0, 520)
+region_rect = Rect2(177, 0, 4096, 2048)
+
+[node name="FadeOut" type="Sprite2D" parent="BackgroundLayers/Mountains" unique_id=698875044]
+position = Vector2(0, 1738)
+scale = Vector2(16.583, 8)
+texture = SubResource("GradientTexture2D_eprsv")
+
+[node name="MiddleMist" type="Parallax2D" parent="BackgroundLayers" unique_id=584069698]
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(1024, 1024)
+autoscroll = Vector2(-20, -10)
+repeat_times = 6
+
+[node name="Mist" type="Sprite2D" parent="BackgroundLayers/MiddleMist" unique_id=888440830]
+scale = Vector2(2, 2)
+texture = SubResource("NoiseTexture2D_eprsv")
+
+[node name="NearMist" type="Parallax2D" parent="BackgroundLayers" unique_id=1803075772]
+z_index = 50
+scroll_scale = Vector2(1.1, 1.1)
+repeat_size = Vector2(4096, 2048)
+autoscroll = Vector2(7, -4)
+repeat_times = 10
+
+[node name="Mist" type="Sprite2D" parent="BackgroundLayers/NearMist" unique_id=1957947685]
+z_index = 50
+z_as_relative = false
+scale = Vector2(4, 2)
+texture = SubResource("NoiseTexture2D_gmxw7")
+script = ExtResource("4_rqwkl")
+
+[node name="Terrain" type="Node2D" parent="." unique_id=590424257]
+z_index = 1
+
+[node name="PaintedGround" type="CanvasGroup" parent="Terrain" unique_id=317622971]
+material = ExtResource("5_qli1v")
+fit_margin = 200.0
+clear_margin = 200.0
+script = ExtResource("6_vce6c")
+
+[node name="level_data" type="Sprite2D" parent="Terrain/PaintedGround" unique_id=1725807640]
+position = Vector2(-2436, -6265)
+scale = Vector2(2, 2)
+texture = ExtResource("7_owr3d")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Terrain/PaintedGround/level_data" unique_id=961365353]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/PaintedGround/level_data/StaticBody2D" unique_id=882977641]
+polygon = PackedVector2Array(437, 2613, 437, 2614, 409.59998, 2614, 389.59998, 2622, 385.30005, 2622, 379.30005, 2627, 376.40002, 2627, 375.5, 2631, 374, 2631, 374, 2647.5, 368, 2659.5, 368, 2673.2998, 381.59998, 2713, 382.30005, 2713, 386.30005, 2736, 387, 2736, 387, 2757.6, 378.69995, 2776, 377.09998, 2776, 375, 2812.9, 375, 2823.7002, 384.19995, 2821, 386.90002, 2821, 403, 2802.7998, 403, 2802.2002, 423, 2792.2002, 423, 2791.6, 446.40002, 2787, 472.69995, 2787, 520.80005, 2795, 524.30005, 2795, 540.30005, 2807, 542.1, 2807, 554, 2819.7998, 554, 2821.2002, 577, 2834.1, 577, 2835.7002, 624.80005, 2843, 642.4, 2843, 651.4, 2839, 655.80005, 2839, 660.80005, 2834, 664, 2834, 664, 2816, 667.5, 2803, 669.69995, 2803, 664, 2784.7002, 664, 2780.2998, 647, 2757, 646.30005, 2757, 639.30005, 2740, 638.6, 2740, 634.6, 2722, 633.80005, 2722, 631, 2689.7998, 631, 2687.4, 607.19995, 2682, 603.5, 2682, 593.5, 2677, 590.69995, 2677, 572.69995, 2662, 571, 2662, 559, 2646.2998, 559, 2644.4, 531.19995, 2638, 528.5, 2638, 490, 2615.7998, 490, 2614)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Terrain/PaintedGround/level_data/StaticBody2D" unique_id=744045742]
+polygon = PackedVector2Array(1000, 4000, 1000, 2660, 997, 2660, 997, 2661.7998, 990.4, 2666, 988.19995, 2666, 975.19995, 2679, 973.69995, 2679, 956, 2719.6, 956, 2722.2998, 948, 2734.4, 948, 2736.2002, 895.1, 2799, 893.80005, 2799, 878.9, 2825, 877.6, 2825, 870.6, 2844, 869.6, 2844, 868, 2848.7002, 868, 2853.5, 886, 2885.4, 886, 2893.5, 877.80005, 2910, 876.5, 2910, 871.5, 2928, 870, 2928, 870, 2938.4, 877.69995, 2955, 877, 2996, 877, 3000.5, 863, 3036.4, 837, 3043.5, 770.80005, 3044, 743, 3048.2998, 733.1, 3048, 719.5, 3048, 688.5, 3032, 680, 3004.7002, 680, 3001.4, 674, 2991.4, 674, 2983.1, 664, 2974.1, 664, 2972.7998, 661.80005, 2971.7002, 657.30005, 2975, 655.69995, 2975, 652.69995, 2982, 651.4, 2982, 645.5, 3008, 644, 3008, 644, 3017.9, 661.19995, 3033, 663, 3037.2998, 663, 3042, 668.30005, 3046, 669.5, 3046, 673, 3058, 673, 3061.6, 678.80005, 3063, 680.5, 3063, 682, 3069, 682, 3072.4, 686.69995, 3074, 703.5, 3074, 726.5, 3086, 727.9, 3086, 733, 3093.6, 733, 3096, 740.9, 3096, 752.9, 3081.9, 756.4, 3084, 758.19995, 3084, 775.19995, 3101, 777.5, 3101, 798.1, 3090.6, 803.6, 3093, 809.80005, 3093, 817.6, 3086.1, 829.30005, 3096, 835.19995, 3096, 845.4, 3094, 847.80005, 3094, 861, 3080.7998, 866, 3081.6, 866, 3083.6, 885.9, 3078.6, 889, 3079.4, 889, 3081.2002, 902.80005, 3080.1, 902, 3090.9, 902, 3099.4, 899, 3104.4, 899, 3121.6, 907, 3134.5, 907, 3136.7998, 919, 3149.7998, 919, 3172.2002, 905, 3188.2002, 905, 3192.6, 923, 3217.6, 923, 3219.7998, 954.1, 3254, 959, 3265.4, 959, 3267.7998, 971, 3280.7998, 971, 3286, 964, 3315.7998, 964, 3318.5, 946.9, 3348, 945, 3348, 945, 3356.5, 938.80005, 3369, 937.19995, 3369, 935.19995, 3384, 933.9, 3384, 935, 3407.1, 935, 3417.5, 943.80005, 3435, 949.30005, 3471, 949.9, 3471, 949, 3502, 949, 3509.2002, 908, 3551.2002, 908, 3551.9, 894.30005, 3562, 892.4, 3562, 891, 3567.7998, 891, 3574.2998, 888, 3578, 886.6, 3578, 881, 3593.7002, 881, 3595.2002, 846.1, 3600.2002, 839.30005, 3598, 822.69995, 3598, 800, 3604.5, 761.1, 3600, 749.69995, 3600, 728.80005, 3606, 725, 3606, 725, 3605, 709.30005, 3605, 678, 3594.5, 678, 3592.7998, 662.80005, 3594, 660.6, 3594, 652.6, 3589, 644.80005, 3589, 649, 3597.4, 649, 3600, 659, 3606.9, 659, 3621.7002, 651, 3645.7002, 651, 3647.2002, 638, 3662.2998, 638, 3663.5, 607.6, 3675, 604.9, 3675, 591, 3697.4, 557.5, 3717, 555.1, 3717, 544, 3730.2998, 523.6, 3740, 520.4, 3740, 492, 3758.9, 484.80005, 3760, 472.09998, 3760, 456, 3755.5, 456, 3753.7002, 445.80005, 3755, 426.40002, 3755, 409, 3748.5, 409, 3747, 390.69995, 3747, 377.69995, 3751, 359.40002, 3751, 346.40002, 3746, 344, 3746, 339, 3739.2998, 339, 3737.5, 330.30005, 3735, 312.30005, 3735, 296.30005, 3730, 293.5, 3730, 232, 3699.7002, 232, 3697.7998, 203.80005, 3701, 172.30005, 3701, 104.099976, 3691, 96.5, 3691, 80.5, 3699, 78, 3699, 68, 3712, 66.69995, 3712, 57, 3734.6, 57, 3748.2998, 39.099976, 3770, 37.80005, 3770, 35, 3775.5, 35, 3780.2998, 23.900024, 3797, 22, 3797, 22, 3809.2998, 18, 3815.4, 18, 3816.9, -14, 3843, -14, 3843.7998, -38.599976, 3860, -41.099976, 3860, -45.099976, 3866, -46.299988, 3866, -58, 3893.6, -58, 3896.5, -70.099976, 3918, -72, 3918, -72, 3932, -133.09998, 3934, -150.29999, 3934, -177, 3941.5, -177, 3942.1, -213.09998, 3944, -232.29999, 3944, -264.7, 3952.4, -272.7, 3950, -416.59998, 3950, -427.59998, 3946, -430.3, 3946, -441, 3938.9, -441, 3937.2002, -457, 3935.2002, -457, 3934, -521, 3933, -529.3, 3933, -562, 3908, -562, 3906, -609.1, 3906, -631.3, 3909, -640.4, 3909, -660.5, 3898, -661.6, 3898, -667, 3884.5, -667, 3882, -676.3, 3875, -678.1, 3875, -688, 3863.2002, -688, 3861.9, -709.4, 3849, -711.1, 3849, -723, 3838, -723, 3836.6, -735.6, 3832, -737, 3832, -742, 3825.2998, -742, 3823, -762.3, 3807, -764.1, 3807, -786, 3781.1, -786, 3747.7998, -797, 3698.6, -797, 3696, -818, 3680.9, -818, 3679.6, -843.5, 3671, -849.4, 3646, -850.1, 3646, -852, 3574.9, -852, 3570.5, -886.8, 3503, -887.5, 3503, -893.4, 3478, -894.1, 3478, -895, 3459.9, -895, 3449.4, -903, 3437.2998, -903, 3429.2998, -927, 3397, -931, 3385.7002, -931, 3377.5, -937.8, 3365, -939, 3296, -939, 3285.4, -941, 3282.2998, -941, 3280.1, -961.3, 3263, -973.8, 3239, -974, 3202.7002, -979, 3188.5, -979, 3180.6, -988, 3158.4, -988, 3154.1, -998.2, 3145, -1000, 3145, -1000, 4000)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Terrain/PaintedGround/level_data/StaticBody2D" unique_id=1135769190]
+polygon = PackedVector2Array(-940, 2672.7002, -940, 2674.7998, -945.5, 2678, -947.4, 2678, -952.4, 2691, -953.8, 2691, -957, 2727.9, -957, 2734.5, -975.4, 2781, -977.2, 2781, -974, 2816.2002, -974, 2820.6, -959.1, 2845, -958.5, 2845, -951, 2869.2002, -951, 2871.9, -945, 2876.9, -945, 2878.7998, -933.1, 2880, -924.5, 2880, -917.5, 2884, -914.7, 2884, -878.7, 2911, -876.4, 2916, -875, 2932.1, -875, 2934.7998, -864, 2946.7998, -864, 2948.1, -851.8, 2955.9, -849, 2971.2998, -849, 2992.4, -844, 3003.2998, -844, 3009.1, -825.7, 3001, -823, 3001, -806, 2976.6, -806, 2975.1, -800.5, 2972, -784.5, 2972, -760, 2987, -760, 2988.5, -735.3, 2995, -725.9, 2995, -713.8, 3006, -697.1, 3006, -684, 3026.6, -684, 3028.6, -652.2, 3036, -647.5, 3036, -637.6, 3043, -636.4, 3043, -626, 3069.4, -626, 3072.7002, -615, 3087.6, -615, 3091.1, -603.6, 3086, -601.6, 3086, -595, 3069.4, -595, 3067.9, -588, 3061.9, -588, 3060.2002, -573.7, 3054, -566.6, 3054, -550, 3066, -550, 3068, -545, 3068, -545, 3069, -528.5, 3069, -513, 3060.2002, -508, 3060, -506.2, 3060, -501.5, 3060, -476, 3073.2002, -476, 3075, -471, 3075, -471, 3076.9, -456, 3071.4, -456, 3070.7002, -440.8, 3069, -413.8, 3069, -402, 3080.7998, -402, 3082.5, -395, 3084.4, -395, 3086, -383.3, 3086, -369, 3073.9, -369, 3073.2998, -355.5, 3068, -350, 3068, -341, 3080, -327.2, 3080, -326, 3082.5, -326, 3093.7998, -319.8, 3100, -316, 3100, -312, 3095, -310, 3095, -310, 3061, -308.8, 3061, -310, 3049.7998, -310, 3047.4, -316.8, 3046, -318.59998, 3046, -326.59998, 3051, -378.7, 3051, -428.7, 3036, -431.5, 3036, -477, 3009.7998, -477, 3008.2998, -519.9, 3002, -528.6, 3002, -586.8, 2990, -593.1, 2990, -643, 2944, -643, 2942.7002, -660.6, 2935, -662.1, 2935, -673, 2925, -673, 2923.7998, -690.5, 2915, -692, 2915, -697, 2908.2998, -697, 2906.1, -712, 2892, -712, 2890.7998, -726.5, 2883, -728, 2883, -756, 2845.2998, -756, 2839.9, -761, 2836.9, -761, 2834.6, -768.4, 2836, -773.7, 2836, -790, 2848, -815, 2856.5, -815, 2857.1, -831.1, 2858, -836.4, 2858, -858.6, 2849, -860.1, 2849, -868.1, 2840, -869, 2838, -869, 2812.4, -873.9, 2805, -874.5, 2805, -886.5, 2765, -887, 2729.4, -877, 2703.4, -877, 2697.7998, -912, 2677.7998, -912, 2676.2002)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Terrain/PaintedGround/level_data/StaticBody2D" unique_id=728518258]
+polygon = PackedVector2Array(-130, 2721, -130, 2723, -143, 2732, -158.09998, 2736, -167.40002, 2736, -184, 2743.7002, -184, 2744.4, -214, 2751.4, -214, 2752.2002, -221.20001, 2753, -231.59998, 2753, -253.79999, 2749, -256.5, 2749, -278, 2759.7998, -278, 2760.5, -304, 2769.6, -304, 2770.4, -319.09998, 2774, -342.5, 2774, -361, 2783.7998, -365.3, 2785, -397.3, 2785, -401.3, 2782, -431.59998, 2782, -448, 2792.9, -469, 2797.2998, -469, 2798, -519.1, 2800, -531.4, 2800, -554, 2809.7002, -554, 2810.2998, -574, 2814.4, -598.9, 2812, -609.5, 2812, -631, 2823.7998, -640, 2825.2002, -640, 2826, -661.4, 2826, -664.4, 2824, -671.3, 2824, -679, 2818.9, -679, 2816.2998, -688.2, 2819, -690.2, 2819, -691.3, 2821.2002, -684, 2831.5, -684, 2834, -671.7, 2843, -665, 2854.5, -665, 2857.2002, -643.8, 2855, -640, 2855, -633, 2863.7002, -633, 2866.4, -627, 2868.4, -627, 2870, -610.4, 2870, -604.4, 2866, -595.1, 2866, -576.3, 2871, -559.7, 2871, -543.7, 2866, -508.8, 2866, -472.90002, 2857, -455.3, 2857, -441.2, 2846, -419, 2847, -400.8, 2847, -381.59998, 2843, -369.2, 2843, -362.7, 2836.4, -338, 2843.4, -338, 2845, -327, 2845, -327, 2846.2002, -315.8, 2845, -310.59998, 2845, -296, 2839.4, -296, 2838.7002, -280.7, 2836, -228.40002, 2836, -213, 2826.1, -213, 2825.5, -190.20001, 2819.5, -173.29999, 2824, -170.20001, 2824, -161.20001, 2815, -159.70001, 2815, -145, 2779.4, -145, 2777.7002, -138, 2769.7998, -138, 2769.2002, -129.5, 2765, -127.20001, 2765, -126, 2755.1, -126, 2752.7002, -108.099976, 2732, -104.79999, 2732, -109, 2723.5, -109, 2721)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Terrain/PaintedGround/level_data/StaticBody2D" unique_id=114928162]
+polygon = PackedVector2Array(-79.70001, 2828.6, -82, 2829.7002, -86, 2830, -89, 2834, -90.400024, 2834, -93.400024, 2843, -95.70001, 2843, -93, 2852, -93, 2869.4, -99, 2879.4, -99, 2885.2998, -88.400024, 2890, -87.20001, 2890, -85.20001, 2894, -84.29999, 2894, -77.29999, 2911, -76, 2924.1, -76, 2929.7998, -73, 2932.7998, -73, 2934.7002, -64.29999, 2935.9, -53, 2958.5, -53, 2960.7002, -45, 2970.7002, -45, 2973.1, -38.599976, 2977, -30.400024, 2977, -12.400024, 2964, -10.799988, 2964, -2, 2972.7998, -2, 2975.2002, 26.199951, 2972, 32.30005, 2972, 43, 2979.1, 43, 2981.5, 59.400024, 2978, 60.099976, 2978, 72.099976, 2992, 78, 2992, 83.19995, 2984.6, 88.599976, 2987, 90.900024, 2987, 102.69995, 2973.1, 123, 2984.2002, 123, 2986.5, 141, 2982.6, 153.80005, 2985, 154.69995, 2985, 158, 2992.2998, 158, 2994.7998, 169, 3006.7998, 169, 3008.2002, 171, 3009.2998, 176.5, 3006, 178.19995, 3006, 193.59998, 2979.1, 228.90002, 2983, 234.5, 2983, 253.5, 2973, 255.59998, 2973, 265, 2977.2002, 265, 2978.6, 302.80005, 2986, 331.40002, 2986, 365, 2971.2998, 365, 2970.4, 391.09998, 2963, 395.5, 2963, 408.30005, 2956.5, 428, 2962.4, 428, 2963.7002, 451.90002, 2967, 455.59998, 2967, 499, 2986.2002, 499, 2987.9, 513.9, 2989, 521.30005, 2989, 566.1, 2977, 570.69995, 2977, 601, 2953, 601, 2952.2998, 630.4, 2941, 633.69995, 2941, 647.69995, 2930, 648.19995, 2929.6, 648, 2928, 647.69995, 2926, 631, 2928.2002, 631, 2929, 611.30005, 2929, 601.30005, 2926, 591.6, 2926, 554, 2910.5, 554, 2909.4, 526.19995, 2903, 520.5, 2903, 492, 2888.7002, 492, 2887.1, 423, 2884, 395.80005, 2884, 371.90002, 2890, 364.59998, 2890, 333.69995, 2903, 284.5, 2903, 251, 2921.7998, 251, 2922.5, 235, 2927.5, 219.09998, 2926, 216.90002, 2926, 170.80005, 2931, 150.30005, 2931, 143.09998, 2937, 123.400024, 2937, 112, 2932.6, 112, 2931, 98, 2931, 98, 2930, 64.599976, 2930, 56.599976, 2933, 28.5, 2933, 20, 2929.6, 20, 2928.2002, -2.9000244, 2926, -6.299988, 2926, -17.299988, 2917, -19.900024, 2917, -25, 2909.2998, -25, 2907.1, -53.200012, 2881, -53.799988, 2881, -54, 2880.5, -54, 2873.2002, -63, 2863.1, -63, 2857.5, -71, 2842.4, -71, 2836.1)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Terrain/PaintedGround/level_data/StaticBody2D" unique_id=1440294715]
+polygon = PackedVector2Array(-270, 3025.7998, -270, 3027.5, -279, 3030.6, -279, 3040, -262.7, 3052, -261, 3052, -254, 3061, -253.40002, 3061, -253, 3062.2998, -253, 3067.5, -256.09998, 3073, -258.5, 3073, -256, 3084.4, -256, 3086.7998, -248, 3094.7998, -248, 3096.1, -221.59998, 3113, -220.40002, 3113, -220, 3114.2998, -220, 3133.4, -211.40002, 3157, -210.79999, 3157, -208, 3178.2998, -208, 3180.6, -205, 3181.2998, -186, 3146.5, -186, 3145, -174, 3137.6, -144, 3151.2002, -144, 3152.7998, -134.09998, 3154, -126.099976, 3154, -120.599976, 3147.5, -114, 3155.7002, -114, 3157, -96.70001, 3170, -90.29999, 3170, -64, 3150, -51.599976, 3150, -40.599976, 3157, -37.299988, 3157, -24, 3145.9, 5.0999756, 3144, 13.700012, 3144, 20.099976, 3138.6, 25.599976, 3141, 26.599976, 3141, 27, 3142.2998, 27, 3151.7998, 33.19995, 3158, 38.80005, 3158, 37, 3152.6, 37, 3142.2998, 43.30005, 3128, 45.400024, 3128, 43, 3115.6, 43, 3112, 34, 3112, 34, 3111, 22.5, 3111, 9, 3117.7998, -4.299988, 3118, -9, 3114.9, -9, 3112.7002, -41.299988, 3117, -45.700012, 3117, -58.700012, 3113, -60.900024, 3113, -62, 3111.2998, -62, 3108, -78, 3114.7002, -93.599976, 3115, -104.599976, 3111, -108.5, 3111, -144.5, 3093, -146.29999, 3093, -175, 3071, -175, 3069.4, -192.79999, 3065, -197.09998, 3065, -210, 3053, -210, 3052, -222.29999, 3043, -226.09998, 3043, -239, 3031, -239, 3029.2002)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Terrain/PaintedGround/level_data/StaticBody2D" unique_id=131690774]
+polygon = PackedVector2Array(87, 3064.7998, 87, 3066.9, 85.30005, 3068, 82.69995, 3068, 84, 3078.2002, 84, 3082, 96, 3091, 96, 3101, 104.400024, 3107, 117.80005, 3107, 128, 3127.5, 128, 3129.4, 130.5, 3130.4, 143.30005, 3116.5, 151, 3125.7002, 151, 3128, 174.40002, 3128, 184.40002, 3124, 185.30005, 3124, 193.30005, 3130, 195, 3130, 199, 3135.6, 199, 3138, 207.40002, 3144, 208, 3144.5, 208, 3165.7998, 213, 3170.7998, 213, 3172.2002, 215.19995, 3173.2998, 234.30005, 3159.4, 254, 3165.4, 254, 3167, 297, 3168, 297.59998, 3168, 310, 3205.2998, 310, 3208.7998, 313.5, 3209.2002, 317, 3194.2002, 317, 3193.1, 325.80005, 3187.2002, 340, 3188.7998, 340, 3190.2998, 365.30005, 3187, 368.40002, 3187, 374, 3191, 374, 3192.4, 388, 3197.4, 388, 3199.2002, 408.19995, 3197, 415, 3197, 426, 3212, 432.90002, 3212, 447.80005, 3196, 475.40002, 3196, 482, 3193.4, 482, 3192.7998, 516, 3190.9, 516, 3196, 519.69995, 3196, 532.69995, 3185, 535.19995, 3185, 539.1, 3178, 542, 3178, 538.4, 3169, 534.6, 3169, 515.5, 3178, 484.30005, 3178, 426.19995, 3168, 402.59998, 3168, 388, 3158.7998, 388, 3157.2002, 371.09998, 3155, 363.40002, 3155, 305, 3127.7002, 305, 3126.2002, 282.09998, 3124, 279.5, 3124, 249, 3106.7998, 249, 3105.5, 228.30005, 3099, 225.69995, 3099, 209, 3085, 209, 3083.4, 176.19995, 3076, 119.5, 3076, 102, 3067.7002, 102, 3066.2002)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Terrain/PaintedGround/level_data/StaticBody2D" unique_id=1935772869]
+polygon = PackedVector2Array(779, 3164.5, 779, 3166.7998, 756, 3179.7998, 725.1, 3178, 686.4, 3178, 663.30005, 3170, 656.6, 3170, 653, 3180.7002, 653, 3182.4, 650.9, 3183, 648.19995, 3183, 626.19995, 3204, 624.1, 3204, 611, 3218.2002, 611, 3222.9, 599.5, 3230, 597.1, 3230, 584.1, 3244, 582.80005, 3244, 571, 3265.5, 571, 3266.7998, 564.4, 3271, 562.9, 3271, 550, 3290.4, 541.69995, 3293, 538.4, 3293, 523.5, 3302, 521.19995, 3302, 507, 3315.1, 480.90002, 3322, 477.5, 3322, 451, 3335.7998, 443.59998, 3338, 439.19995, 3338, 422, 3355.2002, 414, 3359.7998, 414, 3360.5, 374, 3374.6, 374, 3375.4, 354.90002, 3380, 338.5, 3380, 328.5, 3385, 324.19995, 3385, 321.19995, 3388, 318, 3388, 309, 3400.2998, 295.59998, 3403, 279.5, 3403, 263, 3394.7002, 263, 3393, 254, 3393, 254, 3392, 244.90002, 3392, 241.90002, 3397, 239.40002, 3397, 242, 3407, 242, 3411.7998, 246, 3415.7998, 246, 3425.7998, 248.19995, 3428, 254.90002, 3428, 259.5, 3422.4, 272.09998, 3437, 277, 3448.4, 277, 3452, 285.5, 3452, 288, 3443.2998, 288, 3440.7002, 300, 3426.7002, 302.5, 3428, 305.5, 3428, 313, 3424.2002, 325, 3422.7998, 325, 3422, 330.30005, 3422, 358.30005, 3444, 365.90002, 3444, 390.40002, 3414.2998, 409.80005, 3418, 431.59998, 3418, 504, 3372.1, 516.1, 3371, 519.30005, 3371, 522.4, 3363.7002, 540, 3371.2002, 540, 3373, 558.5, 3373, 568.5, 3368, 571.80005, 3368, 577.80005, 3362, 579.19995, 3362, 588, 3345.5, 588, 3344, 601.69995, 3334, 603.19995, 3334, 605, 3330.5, 605, 3319.7998, 608, 3316.7998, 608, 3316.2002, 612.4, 3314, 623.4, 3321, 637.9, 3321, 676.9, 3274, 678.4, 3274, 681, 3266.2998, 692.80005, 3266, 709.30005, 3251.4, 721.69995, 3255, 729.1, 3255, 741.1, 3237, 742.4, 3237, 747.80005, 3221.7998, 765.19995, 3220, 768.69995, 3220, 794.69995, 3201, 796.9, 3201, 805.9, 3191, 809.1, 3191, 802, 3175.6, 802, 3169.4)
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Terrain/PaintedGround/level_data/StaticBody2D" unique_id=745040270]
+polygon = PackedVector2Array(222, 3240, 222, 3241.9, 220.30005, 3243, 201.59998, 3243, 193, 3246.7002, 186.80005, 3248, 176.59998, 3248, 165, 3252.6, 141, 3250.1, 141, 3248.9, 113.900024, 3250, 103.400024, 3250, 79, 3267, 62, 3273.6, 62, 3274.2998, 32.599976, 3281, 17.700012, 3281, -18, 3291.5, -18, 3292.2002, -38, 3295.2998, -38, 3296.2002, -74, 3300.2002, -74, 3301, -186, 3302, -228.70001, 3302, -254, 3293.5, -254, 3291, -261.5, 3294, -266.40002, 3294, -267.40002, 3296.6, -257, 3305.7998, -257, 3309.2002, -253.5, 3311, -245.90002, 3311, -242, 3315.7002, -242, 3318.6, -231.90002, 3316, -226.70001, 3316, -221, 3320.9, -221, 3323, -203.59998, 3323, -193.59998, 3319, -185.59998, 3319, -180, 3323, -180, 3324.2002, -177.90002, 3325.2998, -169.40002, 3320, -167.40002, 3320, -145.40002, 3330, -143.79999, 3330, -135, 3338.7998, -135, 3341.6, -124.900024, 3339, -121.400024, 3339, -111.5, 3333, -109.599976, 3333, -100, 3340, -100, 3341.9, -59, 3343, -53.400024, 3343, -7, 3359.4, -7, 3361.6, -0.9000244, 3360, 1.9000244, 3360, 21, 3339.7998, 24.900024, 3338.7998, 70, 3363.2002, 70, 3365.2002, 81.19995, 3364, 85, 3364, 95, 3351, 104.400024, 3357, 110.80005, 3369, 115, 3387.4, 115, 3390.7002, 123, 3401, 128.40002, 3401, 132, 3390.2998, 132, 3386.7002, 139, 3378, 140.90002, 3378, 144, 3324.1, 144, 3323.4, 164.40002, 3316, 166.80005, 3316, 184, 3299.9, 184, 3298.1, 200.69995, 3287, 203.90002, 3287, 217.90002, 3271, 219.30005, 3271, 224.30005, 3260, 226, 3260, 226, 3240)
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Terrain/PaintedGround/level_data/StaticBody2D" unique_id=907662292]
+polygon = PackedVector2Array(-719, 3255, -719, 3256.7002, -736.5, 3266, -738.2, 3266, -747.2, 3283, -749.4, 3283, -748, 3290.4, -748, 3292.7002, -738, 3304.7002, -738, 3306.1, -723.6, 3315, -721, 3320.2998, -721, 3322.7998, -705.9, 3339, -696, 3362.4, -696, 3364.7002, -680, 3384.7002, -680, 3386.4, -653.4, 3397, -651.8, 3397, -648, 3400.7998, -648, 3402.2002, -623.5, 3415, -621.6, 3415, -596.6, 3433, -594.9, 3433, -587.9, 3441, -587.3, 3441, -581.3, 3455, -579, 3467.2998, -579, 3471.4, -569.4, 3497, -568.7, 3497, -568, 3500.4, -568, 3507.7002, -571, 3517.7002, -571, 3522.6, -567, 3523.5, -567, 3524.7002, -553.2, 3527, -529.1, 3527, -518, 3514.7998, -518, 3514.1, -500.4, 3503, -497.9, 3503, -495, 3498.6, -495, 3494.9, -476.3, 3480, -473.09998, 3480, -460.09998, 3499, -459.40002, 3499, -454, 3515.2002, -454, 3519.1, -448, 3523.1, -448, 3524.2998, -419, 3536.2998, -419, 3537.6, -405, 3540.6, -405, 3541.7998, -342.09998, 3549, -341.40002, 3549, -331, 3575.4, -331, 3578.6, -324, 3589.6, -324, 3592.2002, -320, 3594.2002, -320, 3595.7998, -308.09998, 3597, -282.40002, 3597, -262.2, 3601, -247.79999, 3601, -204.59998, 3592, -201.40002, 3592, -195.40002, 3588, -192, 3588, -184, 3578, -179.20001, 3578, -176.20001, 3584, -174, 3605.2002, -174, 3607.9, -148, 3631.9, -148, 3635, -125, 3625.2998, -116, 3623.7998, -116, 3623, -42, 3625, 31, 3625, 41, 3638.6, 41, 3640.1, 53, 3648.1, 53, 3649.5, 65.69995, 3653, 68.19995, 3653, 109.400024, 3645, 122.400024, 3645, 150, 3634.4, 150, 3633.6, 183.40002, 3627, 190.30005, 3627, 201, 3635, 201, 3636.6, 209, 3638.5, 209, 3639.7002, 234, 3643.7002, 234, 3645.2002, 253.19995, 3643, 293.90002, 3643, 301, 3655.4, 301, 3657.2002, 319.5, 3667, 349.30005, 3667, 365.30005, 3662, 371.40002, 3662, 400, 3650.2998, 404.69995, 3650, 425.59998, 3659, 440.5, 3659, 464.5, 3647, 477.80005, 3647, 486.90002, 3639, 496.40002, 3639, 505.40002, 3635, 542.4, 3635, 552.4, 3631, 558.19995, 3631, 560.19995, 3627, 562, 3627, 562, 3617, 552.5, 3617, 545, 3620.7998, 531, 3622.1, 531, 3623.1, 478.90002, 3627, 445.40002, 3627, 431.19995, 3624, 427.5, 3624, 413.5, 3617, 376.30005, 3617, 326, 3602.5, 326, 3601.2998, 304.09998, 3598, 298.30005, 3598, 270.30005, 3589, 229.40002, 3589, 195.30005, 3577, 188.40002, 3577, 163, 3565.7002, 163, 3564.4, 137.19995, 3559, 122.400024, 3559, 103, 3551.5, 103, 3550.2998, 54.19995, 3542, 50.80005, 3542, 26, 3518.1, 26, 3516.4, 20.200012, 3515, 2.4000244, 3515, -6.5999756, 3511, -27.299988, 3511, -31.299988, 3508, -35.5, 3508, -57, 3496.7002, -57, 3495.6, -101.599976, 3478, -103.5, 3478, -132, 3458, -132, 3456.7998, -180, 3430.7002, -180, 3429.7002, -255.59998, 3398, -257.3, 3398, -274, 3385, -274, 3383.7002, -298.5, 3372, -300.2, 3372, -321, 3350.2002, -321, 3348.7998, -332.5, 3343, -334.3, 3343, -345, 3334, -345, 3332.9, -390.40002, 3304, -392, 3304, -406, 3285.2998, -406, 3282.9, -421, 3272.9, -421, 3271, -436.40002, 3271, -445.40002, 3275, -461.5, 3275, -470.8, 3279.6, -516, 3272.2002, -516, 3271, -582.7, 3271, -588, 3268.7002, -588, 3267, -616.3, 3267, -631.1, 3271, -664.9, 3271, -675.7, 3268, -679.6, 3268, -705, 3256.7002, -705, 3255)
+
+[node name="Foliage" type="Node2D" parent="." unique_id=1218368961]
+visible = false
+
+[node name="Envrionment" type="Node2D" parent="Foliage" unique_id=1091488412]
+
+[node name="BGBigArch2" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1841399262]
+position = Vector2(-4300, 882)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_1b8q2")
+region_enabled = true
+region_rect = Rect2(1114, 840, 588, 311)
+
+[node name="BGLittleArch2" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1671855888]
+position = Vector2(-3484, 944.99994)
+rotation = -0.34177393
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_1b8q2")
+region_enabled = true
+region_rect = Rect2(1765, 913, 283, 376)
+
+[node name="Tree1" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1874496579]
+material = ExtResource("9_c0787")
+position = Vector2(18, 453)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="Tree2" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1031993569]
+material = ExtResource("9_c0787")
+position = Vector2(1097, 273)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(784, 117, 1152, 1010)
+
+[node name="Grass1" type="Sprite2D" parent="Foliage/Envrionment" unique_id=89919555]
+position = Vector2(-1046, 907)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_l6htq")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass2" type="Sprite2D" parent="Foliage/Envrionment" unique_id=314392674]
+position = Vector2(-673.99994, 998)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Bush1" type="Sprite2D" parent="Foliage/Envrionment" unique_id=2127315738]
+z_index = 2
+position = Vector2(-125.99999, 564)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(109, 1083, 428, 369)
+
+[node name="Tree2" parent="Foliage" unique_id=1861183849 instance=ExtResource("14_mbdyk")]
+position = Vector2(-3957, 964)
+
+[node name="Tree1" parent="Foliage" unique_id=1514080959 instance=ExtResource("15_lwdy0")]
+position = Vector2(-3042, 904)
+
+[node name="Tree3" parent="Foliage" unique_id=1217829296 instance=ExtResource("15_lwdy0")]
+position = Vector2(-1425, 597)
+
+[node name="Tree4" parent="Foliage" unique_id=1754456076 instance=ExtResource("14_mbdyk")]
+position = Vector2(-2275, 789)
+
+[node name="Tree5" parent="Foliage" unique_id=1005465460 instance=ExtResource("15_lwdy0")]
+position = Vector2(-745, 292.355)
+
+[node name="Tree6" parent="Foliage" unique_id=2003143247 instance=ExtResource("14_mbdyk")]
+position = Vector2(-708, 293)
+
+[node name="Tree7" parent="Foliage" unique_id=837069840 instance=ExtResource("14_mbdyk")]
+position = Vector2(2152, -987)
+
+[node name="Tree8" parent="Foliage" unique_id=2118003667 instance=ExtResource("14_mbdyk")]
+position = Vector2(2406, -985)
+
+[node name="Tree9" parent="Foliage" unique_id=1213941174 instance=ExtResource("15_lwdy0")]
+position = Vector2(2436, -971)
+
+[node name="Tree10" parent="Foliage" unique_id=471396645 instance=ExtResource("15_lwdy0")]
+position = Vector2(7735, -2903)
+
+[node name="Tree11" parent="Foliage" unique_id=1134637807 instance=ExtResource("15_lwdy0")]
+position = Vector2(-3974, 960)
+
+[node name="Tree12" parent="Foliage" unique_id=1190185960 instance=ExtResource("14_mbdyk")]
+position = Vector2(5567, -1776)
+
+[node name="Grass1" type="Sprite2D" parent="Foliage" unique_id=418119488]
+position = Vector2(-3914, 680)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_l6htq")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass19" type="Sprite2D" parent="Foliage" unique_id=1688793880]
+position = Vector2(-2872, 1000)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_l6htq")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass20" type="Sprite2D" parent="Foliage" unique_id=1196875220]
+position = Vector2(-1846, 810)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_l6htq")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass21" type="Sprite2D" parent="Foliage" unique_id=1331871324]
+position = Vector2(-955, 446)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_l6htq")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass22" type="Sprite2D" parent="Foliage" unique_id=1583669196]
+position = Vector2(-304.00006, 243.00002)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_l6htq")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass23" type="Sprite2D" parent="Foliage" unique_id=282833234]
+position = Vector2(275.99997, 25.000008)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_l6htq")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass24" type="Sprite2D" parent="Foliage" unique_id=352097781]
+position = Vector2(752, -248.99998)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_l6htq")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass25" type="Sprite2D" parent="Foliage" unique_id=779906604]
+position = Vector2(2024.9999, -833)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_l6htq")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass26" type="Sprite2D" parent="Foliage" unique_id=1106875027]
+position = Vector2(2807.9998, -862)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_l6htq")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass27" type="Sprite2D" parent="Foliage" unique_id=1642608253]
+position = Vector2(3107, -951)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_l6htq")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass28" type="Sprite2D" parent="Foliage" unique_id=1717603281]
+position = Vector2(3752, -1056)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_l6htq")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass29" type="Sprite2D" parent="Foliage" unique_id=1963704518]
+position = Vector2(5457, -1618)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_l6htq")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass30" type="Sprite2D" parent="Foliage" unique_id=944526452]
+position = Vector2(5591, -1625)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_l6htq")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass31" type="Sprite2D" parent="Foliage" unique_id=1677762010]
+position = Vector2(5834, -1778)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_l6htq")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass32" type="Sprite2D" parent="Foliage" unique_id=658020057]
+position = Vector2(6745, -2217)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_l6htq")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass33" type="Sprite2D" parent="Foliage" unique_id=1583071885]
+position = Vector2(7248, -2502)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_l6htq")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass34" type="Sprite2D" parent="Foliage" unique_id=409499153]
+position = Vector2(7696, -2727)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_l6htq")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass2" type="Sprite2D" parent="Foliage" unique_id=1794672502]
+position = Vector2(-3073.9998, 1041)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass3" type="Sprite2D" parent="Foliage" unique_id=649247037]
+position = Vector2(-2543, 928)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass4" type="Sprite2D" parent="Foliage" unique_id=767705284]
+position = Vector2(-1905, 791)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass5" type="Sprite2D" parent="Foliage" unique_id=1522147762]
+position = Vector2(-801.0001, 421.00003)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass6" type="Sprite2D" parent="Foliage" unique_id=1054315038]
+position = Vector2(149.99994, 41.00003)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass7" type="Sprite2D" parent="Foliage" unique_id=471981889]
+position = Vector2(218, 33)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass8" type="Sprite2D" parent="Foliage" unique_id=41624728]
+position = Vector2(954.99994, -458.99997)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass9" type="Sprite2D" parent="Foliage" unique_id=249581265]
+position = Vector2(1957.9999, -844.99994)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass10" type="Sprite2D" parent="Foliage" unique_id=1428921615]
+position = Vector2(2194.9998, -859.00006)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass11" type="Sprite2D" parent="Foliage" unique_id=1764912747]
+position = Vector2(3051.0002, -964)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass12" type="Sprite2D" parent="Foliage" unique_id=1544593416]
+position = Vector2(4392, -1246)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass13" type="Sprite2D" parent="Foliage" unique_id=279025290]
+position = Vector2(4951, -1407)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass14" type="Sprite2D" parent="Foliage" unique_id=1807664138]
+position = Vector2(5381, -1618)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass15" type="Sprite2D" parent="Foliage" unique_id=822266185]
+position = Vector2(6173, -1922)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass16" type="Sprite2D" parent="Foliage" unique_id=261297289]
+position = Vector2(6599, -2179)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass17" type="Sprite2D" parent="Foliage" unique_id=1469004600]
+position = Vector2(7613, -2523)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass18" type="Sprite2D" parent="Foliage" unique_id=1273843392]
+position = Vector2(7723, -2755)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Bush1" type="Sprite2D" parent="Foliage" unique_id=1678793800]
+z_index = 2
+position = Vector2(-2478, 891)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(109, 1083, 428, 369)
+
+[node name="Bush2" type="Sprite2D" parent="Foliage" unique_id=1371509056]
+z_index = 2
+position = Vector2(-1592, 699)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(109, 1083, 428, 369)
+
+[node name="Bush3" type="Sprite2D" parent="Foliage" unique_id=1446390285]
+z_index = 2
+position = Vector2(2635, -868.00006)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(109, 1083, 428, 369)
+
+[node name="Bush4" type="Sprite2D" parent="Foliage" unique_id=805031803]
+z_index = 2
+position = Vector2(4281, -1261)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(109, 1083, 428, 369)
+
+[node name="Bush5" type="Sprite2D" parent="Foliage" unique_id=1859507169]
+z_index = 2
+position = Vector2(6470, -2153)
+rotation = -0.41364303
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(109, 1083, 428, 369)
+
+[node name="Bush6" type="Sprite2D" parent="Foliage" unique_id=2042054842]
+z_index = 2
+position = Vector2(6215.9995, -1991.9998)
+rotation = -0.4956735
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_l6htq")
+region_enabled = true
+region_rect = Rect2(109, 1083, 428, 369)
+
+[node name="Player" parent="." unique_id=42652117 instance=ExtResource("11_lcpf4")]
+position = Vector2(-746, 831)
+speed_multiplier = 1.5
+metadata/_edit_group_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1411017242]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Orb" parent="." unique_id=1391753086 instance=ExtResource("12_i0lcx")]
+z_index = 1
+position = Vector2(-991, 823)
+
+[node name="Portal" parent="." unique_id=820677622 instance=ExtResource("13_mi4gu")]
+position = Vector2(-841, -319)
+portal_name = "w0p1"
+linked_stage = "res://stages/easy_levels_rolling_hills.tscn"
+target_portal = "ww0"
+
+[node name="Hints" type="Node2D" parent="." unique_id=654361086]
+visible = false
+
+[node name="Label" type="Label" parent="Hints" unique_id=392195347]
+z_index = 1
+offset_left = -3432.0
+offset_top = 1101.0
+offset_right = -2951.0
+offset_bottom = 1146.0
+text = "Reach the top of the mountain!"
+
+[node name="Label2" type="Label" parent="Hints" unique_id=1977153958]
+z_index = 1
+offset_left = -2395.0
+offset_top = 970.0
+offset_right = -1914.0
+offset_bottom = 1015.0
+text = "If you can..."
+
+[node name="Label3" type="Label" parent="Hints" unique_id=42312393]
+z_index = 1
+offset_left = 5415.0
+offset_top = -1567.0
+offset_right = 5896.0
+offset_bottom = -1522.0
+text = "Almost there!"
+
+[node name="Label4" type="Label" parent="Hints" unique_id=1639029019]
+z_index = 1
+offset_left = -975.0
+offset_top = 494.0
+offset_right = -494.0
+offset_bottom = 539.0
+text = "Don't roll back down!"
+
+[node name="Label5" type="Label" parent="Hints" unique_id=1518877249]
+z_index = 1
+offset_left = 7156.0
+offset_top = -2446.0
+offset_right = 7637.0
+offset_bottom = -2401.0
+text = "You made it!"
+
+[node name="Label6" type="Label" parent="Hints" unique_id=2133820918]
+z_index = 1
+offset_left = 1861.0
+offset_top = -738.0
+offset_right = 2342.0
+offset_bottom = -693.0
+text = "Take a breather here..."
