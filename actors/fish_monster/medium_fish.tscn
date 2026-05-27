@@ -1,19 +1,19 @@
-[gd_scene format=3 uid="uid://3bml3wbyjvgg"]
+[gd_scene format=3 uid="uid://dqynhx6slrims"]
 
-[ext_resource type="Script" uid="uid://c5n8o372gfmft" path="res://actors/fish_monster/fish_monster.gd" id="1_73atn"]
-[ext_resource type="Script" uid="uid://vmdvty45rk5y" path="res://common/state_machine/state_machine.gd" id="2_2rclf"]
-[ext_resource type="Script" uid="uid://dxam5420ufq2c" path="res://actors/fish_monster/states/fish_patrolling.gd" id="3_uput1"]
-[ext_resource type="Script" uid="uid://chlioeglswitp" path="res://actors/fish_monster/states/fish_attacking.gd" id="4_u5c48"]
-[ext_resource type="Texture2D" uid="uid://ddh3of4qnwhyn" path="res://actors/fish_monster/art/blue-monster-test.png" id="5_rf1r0"]
-[ext_resource type="Texture2D" uid="uid://c08vcn3ytcg2n" path="res://actors/fish_monster/art/blue-monster-test copy 2.png" id="6_nhomp"]
+[ext_resource type="Script" uid="uid://c5n8o372gfmft" path="res://actors/fish_monster/fish_monster.gd" id="1_lst6y"]
+[ext_resource type="Script" uid="uid://vmdvty45rk5y" path="res://common/state_machine/state_machine.gd" id="2_pha0u"]
+[ext_resource type="Script" uid="uid://dxam5420ufq2c" path="res://actors/fish_monster/states/fish_patrolling.gd" id="3_qty00"]
+[ext_resource type="Script" uid="uid://chlioeglswitp" path="res://actors/fish_monster/states/fish_attacking.gd" id="4_1r34t"]
+[ext_resource type="Texture2D" uid="uid://ddh3of4qnwhyn" path="res://actors/fish_monster/art/blue-monster-test.png" id="5_bc8oo"]
+[ext_resource type="Texture2D" uid="uid://c08vcn3ytcg2n" path="res://actors/fish_monster/art/blue-monster-test copy 2.png" id="6_1i1lr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8t8ag"]
-radius = 23.43
-height = 48.86
+radius = 38.43
+height = 89.65
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7b7uw"]
-radius = 23.4
-height = 46.8
+radius = 35.4
+height = 70.8
 
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_tienk"]
 modification_count = 1
@@ -38,35 +38,33 @@ colors = PackedColorArray(1, 1, 1, 1, 0.9714662, 0.9814652, 0.9960979, 0.9378109
 offsets = PackedFloat32Array(0, 0.53150684, 1)
 colors = PackedColorArray(0.06666667, 0.23921569, 0.3882353, 1, 0.15814123, 0.38190466, 0.6289363, 1, 0.08235294, 0.20392157, 0.37254903, 1)
 
-[node name="SmallFish" type="RigidBody2D" unique_id=1857891672]
+[node name="MediumFish" type="RigidBody2D" unique_id=1857891672]
 z_index = 5
 collision_layer = 8
 collision_mask = 0
 contact_monitor = true
 max_contacts_reported = 1
-script = ExtResource("1_73atn")
-patrol_offset = 15.0
+script = ExtResource("1_lst6y")
+patrol_offset = 25.0
 jump_y_max = 1600.0
 jump_x_max = 500.0
-attack_impact = 0.8
-ragdoll_player = false
+attack_impact = 1.0
 
 [node name="StateMachine" type="Node" parent="." unique_id=336115411 node_paths=PackedStringArray("target", "initial_state")]
-script = ExtResource("2_2rclf")
+script = ExtResource("2_pha0u")
 target = NodePath("..")
 initial_state = NodePath("Patrolling")
 metadata/_custom_type_script = "uid://vmdvty45rk5y"
 
 [node name="Patrolling" type="Node" parent="StateMachine" unique_id=1086534189]
-script = ExtResource("3_uput1")
-move_after_ms = 3000
+script = ExtResource("3_qty00")
 move_speed = 350.0
 min_patrolling_ms = 25000
-vertical_range = 32.0
+vertical_range = 25.0
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="Attacking" type="Node" parent="StateMachine" unique_id=1891119915]
-script = ExtResource("4_u5c48")
+script = ExtResource("4_1r34t")
 attack_ms = 15000
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
@@ -86,14 +84,14 @@ shape = SubResource("CapsuleShape2D_7b7uw")
 debug_color = Color(0.95767456, 0.20083219, 0.13908029, 0.41960785)
 
 [node name="SpriteContainer" type="Node2D" parent="." unique_id=306526739]
-position = Vector2(47, 17)
-scale = Vector2(0.2, 0.2)
+position = Vector2(69, 25)
+scale = Vector2(0.3, 0.3)
 
 [node name="PolygonL" type="Polygon2D" parent="SpriteContainer" unique_id=1737773539]
 position = Vector2(-232.49998, -78.74999)
 offset = Vector2(-217.50002, -371.25)
 antialiased = true
-texture = ExtResource("5_rf1r0")
+texture = ExtResource("5_bc8oo")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(837.3738, 521.81995, 816.61426, 378.32452, 757.2672, 314.96954, 720.3059, 280.86124, 657.6632, 259.73755, 604.85394, 242.98427, 553.5015, 232.78662, 501.363, 222.48608, 451.1032, 215.56624, 395.01614, 213.01683, 297.77432, 213.74524, 200.53249, 217.75146, 186.07945, 270.53027, 83.374596, 280.7279, 54.60267, 338.636, 89.55232, 430.46182, 142.72577, 498.56754, 211.46362, 504.70142, 261.72345, 526.18933, 364.79248, 523.6399, 462.76273, 526.18933, 566.9244, 528.3745, 663.3684, 527.6615, 765.34485, 527.6615, 299.30396, 287.178, 420.344, 303.49802, 523.704, 308.93802, 625.704, 326.618, 693.704, 361.97803, 758.984, 412.298, 637.944, 465.338, 424.42395, 449.018, 250.344, 438.13803)
 uv = PackedVector2Array(837.3738, 521.81995, 816.61426, 378.32452, 757.2672, 314.96954, 720.3059, 280.86124, 657.6632, 259.73755, 604.85394, 242.98427, 553.5015, 232.78662, 501.363, 222.48608, 451.1032, 215.56624, 395.01614, 213.01683, 297.77432, 213.74524, 200.53249, 217.75146, 186.07945, 270.53027, 83.374596, 280.7279, 54.60267, 338.636, 89.55232, 430.46182, 142.72577, 498.56754, 211.46362, 504.70142, 261.72345, 526.18933, 364.79248, 523.6399, 462.76273, 526.18933, 566.9244, 528.3745, 663.3684, 527.6615, 765.34485, 527.6615, 299.30396, 287.178, 420.344, 303.49802, 523.704, 308.93802, 625.704, 326.618, 693.704, 361.97803, 758.984, 412.298, 637.944, 465.338, 424.42395, 449.018, 250.344, 438.13803)
@@ -106,7 +104,7 @@ visible = false
 position = Vector2(-236.24998, -77.49999)
 offset = Vector2(-213.75002, -372.5)
 antialiased = true
-texture = ExtResource("6_nhomp")
+texture = ExtResource("6_1i1lr")
 texture_offset = Vector2(0, 173)
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(837.3738, 521.81995, 816.61426, 378.32452, 757.2672, 314.96954, 720.3059, 280.86124, 657.6632, 259.73755, 604.85394, 242.98427, 553.5015, 232.78662, 501.363, 222.48608, 451.1032, 215.56624, 395.01614, 213.01683, 297.77432, 213.74524, 200.53249, 217.75146, 186.07945, 270.53027, 83.374596, 280.7279, 54.60267, 338.636, 89.55232, 430.46182, 142.72577, 498.56754, 211.46362, 504.70142, 261.72345, 526.18933, 364.79248, 523.6399, 462.76273, 526.18933, 566.9244, 528.3745, 663.3684, 527.6615, 765.34485, 527.6615, 299.30396, 287.178, 420.344, 303.49802, 523.704, 308.93802, 625.704, 326.618, 693.704, 361.97803, 758.984, 412.298, 637.944, 465.338, 424.42395, 449.018, 250.344, 438.13803)
@@ -155,8 +153,8 @@ initial_velocity_min = 333.62
 initial_velocity_max = 670.23
 angular_velocity_min = -137.43
 angular_velocity_max = 173.28
-scale_amount_min = 4.0
-scale_amount_max = 8.0
+scale_amount_min = 6.0
+scale_amount_max = 12.0
 scale_amount_curve = SubResource("Curve_ymvi3")
 color_ramp = SubResource("Gradient_7s80s")
 color_initial_ramp = SubResource("Gradient_ymvi3")
@@ -165,7 +163,7 @@ color_initial_ramp = SubResource("Gradient_ymvi3")
 z_index = 10
 position = Vector2(-65, 0)
 emitting = false
-amount = 30
+amount = 50
 lifetime = 0.63
 randomness = 0.49
 emission_shape = 3
@@ -176,8 +174,8 @@ initial_velocity_min = 246.48
 initial_velocity_max = 429.57
 angular_velocity_min = -250.9
 angular_velocity_max = 149.38
-scale_amount_min = 3.0
-scale_amount_max = 6.0
+scale_amount_min = 4.0
+scale_amount_max = 8.0
 scale_amount_curve = SubResource("Curve_ymvi3")
 color_ramp = SubResource("Gradient_nsxo1")
 color_initial_ramp = SubResource("Gradient_jjchx")

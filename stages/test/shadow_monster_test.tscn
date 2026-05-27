@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dn6gswqjkyx14" path="res://props/stone/square_stone.tscn" id="11_oaxvq"]
 [ext_resource type="Script" uid="uid://bbb2phdibbqcc" path="res://common/kill_zone.gd" id="12_5rwlj"]
 [ext_resource type="PackedScene" uid="uid://cs57yefkh1f4s" path="res://props/lantern/lantern.tscn" id="13_pvy53"]
-[ext_resource type="PackedScene" uid="uid://n0yb8g02gr8b" path="res://actors/fish_monster/fish_monster.tscn" id="13_rqqa7"]
+[ext_resource type="PackedScene" uid="uid://n0yb8g02gr8b" path="res://actors/fish_monster/big_fish.tscn" id="13_rqqa7"]
 
 [sub_resource type="Gradient" id="Gradient_83wlx"]
 colors = PackedColorArray(0.7919991, 0.79199916, 0.7919991, 1, 0.5951543, 0.5951542, 0.5951543, 1)

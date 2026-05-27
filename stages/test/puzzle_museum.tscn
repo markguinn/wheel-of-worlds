@@ -478,7 +478,7 @@ position = Vector2(-341, 322)
 [node name="FishTerritory" type="Area2D" parent="Puzzle6 - small fishes" unique_id=2125398222]
 position = Vector2(-255, 678)
 collision_layer = 0
-collision_mask = 6
+collision_mask = 22
 script = ExtResource("17_am4y6")
 metadata/_custom_type_script = "uid://bbb2phdibbqcc"
 
@@ -489,5 +489,7 @@ shape = SubResource("RectangleShape2D_rr2tn")
 [node name="SmallFish" parent="Puzzle6 - small fishes/FishTerritory" unique_id=1857891672 instance=ExtResource("17_ym7ew")]
 
 [node name="SmallFish2" parent="Puzzle6 - small fishes/FishTerritory" unique_id=1865791135 instance=ExtResource("17_ym7ew")]
+position = Vector2(749, 195)
 
 [node name="SmallFish3" parent="Puzzle6 - small fishes/FishTerritory" unique_id=67161503 instance=ExtResource("17_ym7ew")]
+position = Vector2(-658, -204)

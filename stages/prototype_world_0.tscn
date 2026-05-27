@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dn6gswqjkyx14" path="res://props/stone/square_stone.tscn" id="10_d5d14"]
 [ext_resource type="Script" uid="uid://bbb2phdibbqcc" path="res://common/kill_zone.gd" id="11_5612k"]
 [ext_resource type="PackedScene" uid="uid://cunorerlmyhey" path="res://props/water/water.tscn" id="12_daqsr"]
-[ext_resource type="PackedScene" uid="uid://n0yb8g02gr8b" path="res://actors/fish_monster/fish_monster.tscn" id="13_js5nx"]
+[ext_resource type="PackedScene" uid="uid://n0yb8g02gr8b" path="res://actors/fish_monster/big_fish.tscn" id="13_js5nx"]
 [ext_resource type="PackedScene" uid="uid://ca6l7rdg7ytm5" path="res://props/debris/pile_of_boxes.tscn" id="14_1rk5k"]
 
 [sub_resource type="Gradient" id="Gradient_83wlx"]

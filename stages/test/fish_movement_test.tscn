@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bdj8pam5dyb26"]
 
-[ext_resource type="PackedScene" uid="uid://n0yb8g02gr8b" path="res://actors/fish_monster/fish_monster.tscn" id="1_ov75k"]
+[ext_resource type="PackedScene" uid="uid://n0yb8g02gr8b" path="res://actors/fish_monster/big_fish.tscn" id="1_ov75k"]
 [ext_resource type="Script" uid="uid://kigbu67to7uk" path="res://stages/test/fish_movement_test_state.gd" id="2_8fmrw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fmrw"]

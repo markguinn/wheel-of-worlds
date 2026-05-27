@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://rdlq677coghs" path="res://props/stone/triangle_stone.tscn" id="6_ru3fy"]
 [ext_resource type="PackedScene" uid="uid://dn6gswqjkyx14" path="res://props/stone/square_stone.tscn" id="7_boxlk"]
 [ext_resource type="Script" uid="uid://bbb2phdibbqcc" path="res://common/kill_zone.gd" id="8_p7lwt"]
-[ext_resource type="PackedScene" uid="uid://n0yb8g02gr8b" path="res://actors/fish_monster/fish_monster.tscn" id="10_xakyt"]
+[ext_resource type="PackedScene" uid="uid://n0yb8g02gr8b" path="res://actors/fish_monster/big_fish.tscn" id="10_xakyt"]
 [ext_resource type="PackedScene" uid="uid://th5bmfwxjhlq" path="res://actors/bird_monster/bird_monster.tscn" id="12_3bs7n"]
 [ext_resource type="PackedScene" uid="uid://b2c4465p08yf4" path="res://props/lift/lift.tscn" id="12_hjxan"]
 [ext_resource type="PackedScene" uid="uid://cunorerlmyhey" path="res://props/water/water.tscn" id="12_nmsql"]
