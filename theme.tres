@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cxwkdqb8wcm86" path="res://common/art/eye-icon.png" id="1_110ce"]
 [ext_resource type="Texture2D" uid="uid://cr5rhgt1cjruk" path="res://_source_assets/art/tick_bar.png" id="1_e1x85"]
 [ext_resource type="FontFile" uid="uid://d3k1r22o6u7uc" path="res://fonts/Lora/Lora-VariableFont_wght.ttf" id="2_vj6dk"]
+[ext_resource type="FontFile" uid="uid://b854s1nv333qu" path="res://fonts/Henny_Penny/HennyPenny-Regular.ttf" id="3_1rmny"]
 [ext_resource type="FontFile" uid="uid://dsxbpt12k0xt3" path="res://fonts/Mountains_of_Christmas/MountainsofChristmas-Bold.ttf" id="3_05tig"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1rmny"]
@@ -110,8 +111,8 @@ HSlider/styles/slider = SubResource("StyleBoxTexture_110ce")
 HeaderLarge/colors/font_color = Color(0, 0, 0, 1)
 HeaderLarge/colors/font_shadow_color = Color(0, 0, 0, 1)
 HeaderLarge/constants/shadow_outline_size = 0
-HeaderLarge/font_sizes/font_size = 89
-HeaderLarge/fonts/font = ExtResource("3_05tig")
+HeaderLarge/font_sizes/font_size = 90
+HeaderLarge/fonts/font = ExtResource("3_1rmny")
 HeaderMedium/colors/font_color = Color(0, 0, 0, 1)
 HeaderMedium/colors/font_shadow_color = Color(0, 0, 0, 0)
 HeaderMedium/fonts/font = ExtResource("3_05tig")

@@ -1,32 +1,14 @@
 [gd_scene format=3 uid="uid://dxykffs3v4670"]
 
 [ext_resource type="Script" uid="uid://cxf8j8ukcaptm" path="res://screens/pause_menu/pause_menu.gd" id="1_ja6ds"]
-[ext_resource type="Shader" uid="uid://gls6w4gbrrhb" path="res://common/blur.gdshader" id="2_jhilx"]
 [ext_resource type="PackedScene" uid="uid://cfbmxx5s8x8bm" path="res://screens/pause_menu/options_menu.tscn" id="2_lq4p1"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j6ukh"]
-shader = ExtResource("2_jhilx")
-shader_parameter/lod = 4.00000019
-
-[sub_resource type="Gradient" id="Gradient_j6ukh"]
-colors = PackedColorArray(0, 0, 0, 0.49803922, 0.043199997, 0.06589333, 0.08, 0.6745098)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_j6ukh"]
-gradient = SubResource("Gradient_j6ukh")
-width = 256
-height = 256
-fill_to = Vector2(1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dq28k"]
-shader = ExtResource("2_jhilx")
-shader_parameter/lod = 3.1130001478675
-
-[sub_resource type="Gradient" id="Gradient_jhilx"]
+[sub_resource type="Gradient" id="Gradient_lq4p1"]
 offsets = PackedFloat32Array(0, 0.10699589, 0.3580247, 0.6646091, 1)
 colors = PackedColorArray(0.77366537, 0.83000183, 0.866059, 0.6745098, 0.749339, 0.80569184, 0.8418168, 0.6582103, 0.6735909, 0.7299947, 0.76633066, 0.60745645, 0.5555485, 0.61203164, 0.6486965, 0.5283639, 0.18253452, 0.23926842, 0.2769724, 0.2784314)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_om5as"]
-gradient = SubResource("Gradient_jhilx")
+gradient = SubResource("Gradient_lq4p1")
 width = 256
 height = 256
 fill_from = Vector2(1, 0)
@@ -36,19 +18,7 @@ fill_to = Vector2(0, 1)
 process_mode = 3
 script = ExtResource("1_ja6ds")
 
-[node name="Background" type="TextureRect" parent="." unique_id=807816422]
-visible = false
-material = SubResource("ShaderMaterial_j6ukh")
-clip_contents = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("GradientTexture2D_j6ukh")
-
 [node name="Background2" type="TextureRect" parent="." unique_id=1758510626]
-material = SubResource("ShaderMaterial_dq28k")
 clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
