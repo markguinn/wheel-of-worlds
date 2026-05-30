@@ -28,6 +28,13 @@ var shake_strength: float = 0.0
 var shake_decay: float = 1.0
 var flash_tween: Tween
 
+# allows the user to turn down shaking
+var shake_volume_setting := 1.0
+
+
+func set_shake_volume(value: float) -> void:
+	shake_volume_setting = value
+
 
 ## Timesaver for shake + flash. Use flash_intensity_ratio if you want a stronger shake than flash.
 func hit(seconds = MID, intensity = QUAKE, flash_type = Flash.NEUTRAL, flash_intensity_ratio = 1.0, controller_shake = true) -> void:
@@ -38,7 +45,7 @@ func hit(seconds = MID, intensity = QUAKE, flash_type = Flash.NEUTRAL, flash_int
 
 ## Screen shake with optional controller shake
 func shake(seconds = MID, intensity = QUAKE, controller_shake = true) -> void:
-	var new_strength = intensity * STRENGTH_MULTIPLIER
+	var new_strength = intensity * STRENGTH_MULTIPLIER * shake_volume_setting
 	if new_strength <= shake_strength or seconds <= 0.0:
 		return
 	shake_strength = new_strength
