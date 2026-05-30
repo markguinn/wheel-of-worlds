@@ -7,9 +7,9 @@ extends Node
 const MIN_ROOM_SIZE = 0.25
 const MAX_ROOM_SIZE = 1.0
 const SFX_REVERB_INDEX = 0
-const MUSIC_HIGH_PASS_INDEX = 0
-const MIN_HP_FREQ = 2000
-const MAX_HP_FREQ = 20500
+const MUSIC_LOW_PASS_INDEX = 0
+const MIN_LP_FREQ = 2000
+const MAX_LP_FREQ = 20500
 
 var cur_type: String = "wheel"
 var cur_intensity := 1
@@ -87,13 +87,12 @@ func reset_room_size() -> void:
 
 
 func set_music_damping(amount: float) -> void:
-	var sfx_hp: AudioEffectLowPassFilter = AudioServer.get_bus_effect(bus_music, MUSIC_HIGH_PASS_INDEX)
-	sfx_hp.cutoff_hz = lerp(MAX_HP_FREQ, MIN_HP_FREQ, amount)
+	var sfx_lp: AudioEffectLowPassFilter = AudioServer.get_bus_effect(bus_music, MUSIC_LOW_PASS_INDEX)
+	sfx_lp.cutoff_hz = lerp(MAX_LP_FREQ, MIN_LP_FREQ, amount)
 
 
 func reset_music_damping() -> void:
 	set_music_damping(0.0)
-
 
 
 func _get_clip_name(music_type: String, intensity: int) -> String:
