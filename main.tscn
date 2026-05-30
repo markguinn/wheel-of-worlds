@@ -86,6 +86,7 @@ Vector2i(1, 1): {
 environment = SubResource("Environment_lquwl")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1500950709 groups=["background_music"]]
+process_mode = 3
 stream = SubResource("AudioStreamInteractive_272bh")
 autoplay = true
 bus = &"Music"

@@ -8,34 +8,64 @@ process_mode = 3
 script = ExtResource("1_ja6ds")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=154907161]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -964.0
-offset_top = -546.0
-offset_right = 956.0
-offset_bottom = 534.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.08235294, 0.1254902, 0.60784316)
 
 [node name="ResumeButton" type="Button" parent="." unique_id=1291042383]
-offset_left = 395.0
-offset_top = 206.0
-offset_right = 701.0
-offset_bottom = 320.0
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.3
+anchor_right = 0.5
+anchor_bottom = 0.3
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+focus_neighbor_top = NodePath("../TitleButton")
+focus_neighbor_bottom = NodePath("../OptionsButton")
+focus_next = NodePath("../OptionsButton")
+focus_previous = NodePath("../TitleButton")
 theme_override_font_sizes/font_size = 77
 text = "Resume"
 
 [node name="OptionsButton" type="Button" parent="." unique_id=1882980833]
-offset_left = 450.0
-offset_top = 380.0
-offset_right = 780.0
-offset_bottom = 502.0
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+focus_neighbor_top = NodePath("../ResumeButton")
+focus_neighbor_bottom = NodePath("../TitleButton")
+focus_next = NodePath("../TitleButton")
+focus_previous = NodePath("../ResumeButton")
 theme_override_font_sizes/font_size = 77
 text = "Options"
+
+[node name="TitleButton" type="Button" parent="." unique_id=1201937933]
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.7
+offset_left = 100.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+focus_neighbor_top = NodePath("../OptionsButton")
+focus_neighbor_bottom = NodePath("../ResumeButton")
+focus_next = NodePath("../ResumeButton")
+focus_previous = NodePath("../OptionsButton")
+theme_override_font_sizes/font_size = 77
+text = "Quit to Title"
 
 [node name="OptionsMenu" parent="." unique_id=171469446 instance=ExtResource("2_lq4p1")]
 visible = false
@@ -43,3 +73,4 @@ visible = false
 [connection signal="pressed" from="ResumeButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="TitleButton" to="." method="_on_title_button_pressed"]

@@ -48,6 +48,7 @@ folder_colors={
 "res://actors/": "green",
 "res://common/": "yellow",
 "res://export/": "gray",
+"res://fonts/": "yellow",
 "res://globals/": "yellow",
 "res://music/": "yellow",
 "res://props/": "green",

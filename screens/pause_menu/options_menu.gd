@@ -8,9 +8,8 @@ extends CanvasLayer
 func _ready()->void:
 	visible = false
 	# TODO: persist these values instead
-	#music_slider.value = AudioManager.get_music_balance()
-	#sfx_slider.value = AudioManager.get_sfx_balance()
-	
+	AudioManager.set_sfx_balance(sfx_slider.value / 100.0)
+	AudioManager.set_music_balance(music_slider.value / 100.0)
 
 
 func _on_screen_shake_volume_slider_value_changed(_value: float) -> void:

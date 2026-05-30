@@ -68,6 +68,10 @@ func change_scene(new_scene_path: String, params = {}, fade = false) -> void:
 	# TODO: show/hide hud - maybe new_instance can have a is_hud_visible()->bool method? or maybe we just always hide the hud when the scene changes and each scene can call GameManager.show_hud()?
 
 
+func quit_to_title() -> void:
+	change_scene("res://screens/title_screen.tscn")
+	
+
 func _physics_process(delta: float) -> void:
 	_now += roundi(delta * 1000.0)
 

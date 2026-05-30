@@ -7,8 +7,16 @@ func _ready() -> void:
 	get_tree().paused = false
 	visibility_changed.connect(func():
 		if !visible:
-			$OptionsMenu.visible = false)
+			$OptionsMenu.visible = false
+			AudioManager.reset_music_damping()
+		else:
+			AudioManager.set_music_damping(1.0)
+	)
 	$OptionsMenu.visibility_changed.connect(func():
+		if $OptionsMenu.visible:
+			$OptionsMenu/ReturnButton.grab_focus()
+		else:
+			$ResumeButton.grab_focus()
 		for i in get_children():
 			if i != $OptionsMenu:
 				if !$OptionsMenu.visible:
@@ -26,6 +34,7 @@ func _input(event: InputEvent) -> void:
 		else:
 			visible = true
 			get_tree().paused = true
+			$ResumeButton.grab_focus()
 
 
 func _on_resume_button_pressed() -> void:
@@ -35,3 +44,9 @@ func _on_resume_button_pressed() -> void:
 
 func _on_options_button_pressed() -> void:
 	$OptionsMenu.visible = true
+
+
+func _on_title_button_pressed() -> void:
+	# TODO: ask first?
+	GameManager.quit_to_title()
+	visible = false
