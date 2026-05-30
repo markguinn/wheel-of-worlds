@@ -118,6 +118,8 @@ expand_margin_left = 8.0
 
 [resource]
 default_font = ExtResource("2_vj6dk")
+BigButton/base_type = &"Button"
+BigButton/font_sizes/font_size = 60
 Button/colors/font_color = Color(0.015686275, 0.023529412, 0.015686275, 1)
 Button/colors/font_outline_color = Color(0.015686275, 0.023529412, 0.015686275, 1)
 Button/constants/h_separation = 20
@@ -126,6 +128,9 @@ Button/styles/focus = SubResource("StyleBoxFlat_110ce")
 Button/styles/hover = SubResource("StyleBoxFlat_mihib")
 Button/styles/normal = SubResource("StyleBoxFlat_05tig")
 Button/styles/pressed = SubResource("StyleBoxFlat_yin2u")
+DarkLabel/base_type = &"Label"
+DarkLabel/colors/font_color = Color(0, 0, 0, 1)
+DarkLabel/colors/font_shadow_color = Color(0, 0, 0, 0)
 FlatButton/styles/normal = null
 HBoxContainer/constants/separation = 20
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_cjfk0")
@@ -138,6 +143,7 @@ HeaderLarge/font_sizes/font_size = 89
 HeaderLarge/fonts/font = ExtResource("3_05tig")
 HeaderMedium/colors/font_color = Color(0, 0, 0, 1)
 HeaderMedium/colors/font_shadow_color = Color(0, 0, 0, 0)
+HeaderMedium/fonts/font = ExtResource("3_05tig")
 HeaderSmall/colors/font_color = Color(0, 0, 0, 1)
 HeaderSmall/colors/font_shadow_color = Color(0, 0, 0, 0)
 HeaderSmall/font_sizes/font_size = 25

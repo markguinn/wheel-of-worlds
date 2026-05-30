@@ -5,6 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://cpqnm6p7baqbx" path="res://_source_assets/art/highlight_slider.png" id="2_hpsuu"]
 [ext_resource type="Texture2D" uid="uid://cr5rhgt1cjruk" path="res://_source_assets/art/tick_bar.png" id="3_cu0nl"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hpsuu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cu0nl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b1ofp"]
+
 [node name="OptionsMenu" type="CanvasLayer" unique_id=1472950510]
 process_mode = 3
 layer = 2
@@ -30,8 +36,9 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_neighbor_bottom = NodePath("../VBoxContainer/MusicPanel/MusicVolumeContainer/MusicVolumeSlider")
 focus_next = NodePath("../VBoxContainer/MusicPanel/MusicVolumeContainer/MusicVolumeSlider")
-theme_override_font_sizes/font_size = 77
+theme_type_variation = &"BigButton"
 text = "Return"
+flat = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1431220801]
 anchors_preset = -1
@@ -49,6 +56,7 @@ size_flags_vertical = 4
 custom_minimum_size = Vector2(800, 100)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hpsuu")
 
 [node name="MusicVolumeContainer" type="HBoxContainer" parent="VBoxContainer/MusicPanel" unique_id=1528791405]
 layout_mode = 1
@@ -67,7 +75,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="VBoxContainer/MusicPanel/MusicVolumeContainer" unique_id=1100583294]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.6901961, 0.6901961, 0.6901961, 1)
+theme_type_variation = &"DarkLabel"
 text = "Music Volume"
 
 [node name="MusicVolumeSlider" type="HSlider" parent="VBoxContainer/MusicPanel/MusicVolumeContainer" unique_id=1099649842]
@@ -87,6 +95,7 @@ value = 50.0
 [node name="SfxPanel" type="Panel" parent="VBoxContainer" unique_id=1657025811]
 custom_minimum_size = Vector2(800, 100)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cu0nl")
 
 [node name="SfxVolumeContainer" type="HBoxContainer" parent="VBoxContainer/SfxPanel" unique_id=1178377752]
 layout_mode = 1
@@ -105,7 +114,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="VBoxContainer/SfxPanel/SfxVolumeContainer" unique_id=1869865893]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.6901961, 0.6901961, 0.6901961, 1)
+theme_type_variation = &"DarkLabel"
 text = "SFX Volume"
 
 [node name="SfxVolumeSlider" type="HSlider" parent="VBoxContainer/SfxPanel/SfxVolumeContainer" unique_id=1603935159]
@@ -125,6 +134,7 @@ value = 100.0
 [node name="ShakePanel" type="Panel" parent="VBoxContainer" unique_id=1384766603]
 custom_minimum_size = Vector2(800, 100)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_b1ofp")
 
 [node name="ScreenShakeVolumeContainer" type="HBoxContainer" parent="VBoxContainer/ShakePanel" unique_id=2012039239]
 layout_mode = 1
@@ -143,7 +153,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="VBoxContainer/ShakePanel/ScreenShakeVolumeContainer" unique_id=787761062]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.69, 0.69, 0.69, 1)
+theme_type_variation = &"DarkLabel"
 text = "Screen Shake"
 
 [node name="ScreenShakeVolumeSlider" type="HSlider" parent="VBoxContainer/ShakePanel/ScreenShakeVolumeContainer" unique_id=2120089841]
@@ -161,8 +171,8 @@ theme_override_icons/tick = ExtResource("3_cu0nl")
 value = 100.0
 
 [connection signal="pressed" from="ReturnButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="drag_ended" from="VBoxContainer/MusicPanel/MusicVolumeContainer/MusicVolumeSlider" to="." method="_on_music_volume_slider_drag_ended"]
 [connection signal="value_changed" from="VBoxContainer/MusicPanel/MusicVolumeContainer/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
 [connection signal="drag_ended" from="VBoxContainer/SfxPanel/SfxVolumeContainer/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_drag_ended"]

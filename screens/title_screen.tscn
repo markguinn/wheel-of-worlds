@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://bbx2kb2li0f5s"]
 
 [ext_resource type="Texture2D" uid="uid://djpsb4jyc0afj" path="res://stages/world0/art/mountains.png" id="1_7jf2m"]
-[ext_resource type="Texture2D" uid="uid://cg1ijisjgp16e" path="res://stages/world1/art/temp-bg-far.png" id="1_cjojn"]
+[ext_resource type="Script" uid="uid://vsxjl48jfuvi" path="res://screens/title_screen.gd" id="1_dsjsu"]
+[ext_resource type="Shader" uid="uid://gls6w4gbrrhb" path="res://common/blur.gdshader" id="1_txg6x"]
 [ext_resource type="Script" uid="uid://c8pi532nmx254" path="res://common/file_label.gd" id="2_81buc"]
 [ext_resource type="Script" uid="uid://ch0wv8cuoudkc" path="res://stages/world0/mist.gd" id="2_dsjsu"]
 [ext_resource type="Script" uid="uid://dwlqg5ma8i6be" path="res://common/scene_change_button.gd" id="2_gxoam"]
-[ext_resource type="Texture2D" uid="uid://g28bty4q48nr" path="res://stages/world1/art/temp-bg-near.png" id="2_txg6x"]
-[ext_resource type="Texture2D" uid="uid://cgsnvvnnwwlo1" path="res://stages/world1/art/temp-foreground.png" id="3_7jf2m"]
+[ext_resource type="FontFile" uid="uid://bdju23loxtc2u" path="res://fonts/Doto/Doto-VariableFont_ROND,wght.ttf" id="4_cjojn"]
+[ext_resource type="PackedScene" uid="uid://cfbmxx5s8x8bm" path="res://screens/pause_menu/options_menu.tscn" id="8_dsjsu"]
 
 [sub_resource type="Gradient" id="Gradient_83wlx"]
 colors = PackedColorArray(0.24015418, 0.25599292, 0.21379125, 1, 0.16078432, 0.17254902, 0.14117648, 1)
@@ -27,9 +28,19 @@ gradient = SubResource("Gradient_3bs7n")
 width = 60
 fill_to = Vector2(0, 1)
 
+[sub_resource type="Gradient" id="Gradient_eprsv"]
+offsets = PackedFloat32Array(0.114107884, 0.28630707, 0.6016598, 1)
+colors = PackedColorArray(0.16470589, 0.17254902, 0.14117648, 1, 0.16398953, 0.17123571, 0.14034073, 0.969555, 0.15821995, 0.16065815, 0.13360955, 0.7243478, 0.14117648, 0.12941177, 0.11372549, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mo0vk"]
+gradient = SubResource("Gradient_eprsv")
+width = 160
+height = 128
+fill_to = Vector2(0, 1)
+
 [sub_resource type="Gradient" id="Gradient_2layw"]
 offsets = PackedFloat32Array(0.17605634, 0.7793427)
-colors = PackedColorArray(0.16470589, 0.1764706, 0.14509805, 0.79607844, 0.22246751, 0.24016911, 0.1976687, 0.6)
+colors = PackedColorArray(0.16758001, 0.18, 0.14760001, 0.627451, 0.222, 0.24, 0.1968, 0.5019608)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gmxw7"]
 noise_type = 3
@@ -47,16 +58,6 @@ noise = SubResource("FastNoiseLite_gmxw7")
 color_ramp = SubResource("Gradient_2layw")
 seamless = true
 seamless_blend_skirt = 0.377
-
-[sub_resource type="Gradient" id="Gradient_eprsv"]
-offsets = PackedFloat32Array(0.114107884, 0.28630707, 0.6016598, 1)
-colors = PackedColorArray(0.16470589, 0.17254902, 0.14117648, 1, 0.16398953, 0.17123571, 0.14034073, 0.969555, 0.15821995, 0.16065815, 0.13360955, 0.7243478, 0.14117648, 0.12941177, 0.11372549, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_mo0vk"]
-gradient = SubResource("Gradient_eprsv")
-width = 160
-height = 128
-fill_to = Vector2(0, 1)
 
 [sub_resource type="Gradient" id="Gradient_fgfhh"]
 offsets = PackedFloat32Array(0.44855967, 0.78215766)
@@ -108,74 +109,28 @@ color_ramp = SubResource("Gradient_bm4e8")
 seamless = true
 seamless_blend_skirt = 0.377
 
-[sub_resource type="Animation" id="Animation_cjojn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect3:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-96, -21)]
-}
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_txg6x"]
+shader = ExtResource("1_txg6x")
+shader_parameter/lod = 1.3950000662625
 
-[sub_resource type="Animation" id="Animation_txg6x"]
-resource_name = "idle"
-length = 10.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect2:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5.0666666),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-7, 5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect3:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(2.1666667, 6.8333335),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-96, -21), Vector2(-35, -11)]
-}
+[sub_resource type="Gradient" id="Gradient_jhilx"]
+offsets = PackedFloat32Array(0, 0.10699589, 0.3580247, 0.6646091, 1)
+colors = PackedColorArray(0.77366537, 0.83000183, 0.866059, 0.6745098, 0.749339, 0.80569184, 0.8418168, 0.6582103, 0.6735909, 0.7299947, 0.76633066, 0.60745645, 0.5555485, 0.61203164, 0.6486965, 0.5283639, 0.18253452, 0.23926842, 0.2769724, 0.2784314)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7jf2m"]
-_data = {
-&"RESET": SubResource("Animation_cjojn"),
-&"idle": SubResource("Animation_txg6x")
-}
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7jf2m"]
+gradient = SubResource("Gradient_jhilx")
+width = 256
+height = 256
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 1)
 
 [node name="TitleScreen" type="CanvasLayer" unique_id=1220633124]
+script = ExtResource("1_dsjsu")
 
 [node name="BackgroundLayers" type="Node2D" parent="." unique_id=1082645956]
+clip_children = 2
 
 [node name="FixedBackground" type="Parallax2D" parent="BackgroundLayers" unique_id=1437802649]
-visible = false
 scroll_scale = Vector2(0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="BackgroundLayers/FixedBackground" unique_id=1832857121]
@@ -208,40 +163,29 @@ texture = SubResource("GradientTexture2D_ghegn")
 [node name="FarMountains2" type="Parallax2D" parent="BackgroundLayers" unique_id=975668210]
 scale = Vector2(1.2, 1.2)
 scroll_scale = Vector2(0.2, 0.1)
-scroll_offset = Vector2(0, 200)
-repeat_size = Vector2(995, 0)
-autoscroll = Vector2(8, 0)
+scroll_offset = Vector2(0, 120)
+repeat_size = Vector2(1323, 0)
+autoscroll = Vector2(9, 0)
 repeat_times = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="BackgroundLayers/FarMountains2" unique_id=1706286509]
 modulate = Color(0.47983426, 0.47983432, 0.4798342, 1)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_7jf2m")
 offset = Vector2(0, 1110)
 flip_h = true
 region_rect = Rect2(177, 0, 4096, 2048)
 
 [node name="FadeOut" type="Sprite2D" parent="BackgroundLayers/FarMountains2" unique_id=1831695825]
-position = Vector2(0, 895)
-scale = Vector2(16.584, 8)
+position = Vector2(0, 1079)
+scale = Vector2(22.584, 8)
 texture = SubResource("GradientTexture2D_ghegn")
-
-[node name="FarMist" type="Parallax2D" parent="BackgroundLayers" unique_id=1623056991]
-scroll_scale = Vector2(0.3, 0.3)
-repeat_size = Vector2(1024, 1024)
-autoscroll = Vector2(30, 14)
-repeat_times = 6
-
-[node name="Mist" type="Sprite2D" parent="BackgroundLayers/FarMist" unique_id=753486441]
-position = Vector2(254, 237)
-scale = Vector2(2, 2)
-texture = SubResource("NoiseTexture2D_mvehq")
 
 [node name="Mountains" type="Parallax2D" parent="BackgroundLayers" unique_id=290106864]
 scroll_scale = Vector2(0.4, 0.2)
-scroll_offset = Vector2(0, 350)
+scroll_offset = Vector2(0, 490)
 repeat_size = Vector2(1993, 0)
-autoscroll = Vector2(10, 0)
+autoscroll = Vector2(12, 0)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="BackgroundLayers/Mountains" unique_id=9462451]
@@ -254,6 +198,17 @@ region_rect = Rect2(177, 0, 4096, 2048)
 position = Vector2(0, 1738)
 scale = Vector2(16.583, 8)
 texture = SubResource("GradientTexture2D_mo0vk")
+
+[node name="FarMist" type="Parallax2D" parent="BackgroundLayers" unique_id=1623056991]
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(1024, 1024)
+autoscroll = Vector2(30, 14)
+repeat_times = 6
+
+[node name="Mist" type="Sprite2D" parent="BackgroundLayers/FarMist" unique_id=753486441]
+position = Vector2(254, 237)
+scale = Vector2(2, 2)
+texture = SubResource("NoiseTexture2D_mvehq")
 
 [node name="MiddleMist" type="Parallax2D" parent="BackgroundLayers" unique_id=1980496567]
 scroll_scale = Vector2(0.5, 0.5)
@@ -279,88 +234,55 @@ scale = Vector2(4, 2)
 texture = SubResource("NoiseTexture2D_t87nc")
 script = ExtResource("2_dsjsu")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=851863605]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_cjojn")
-
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=1016047337]
-visible = false
-offset_right = 2100.0
-offset_bottom = 1500.0
-texture = ExtResource("2_txg6x")
-
-[node name="TextureRect3" type="TextureRect" parent="." unique_id=893808402]
-visible = false
-offset_left = -96.0
-offset_top = -21.0
-offset_right = 2004.0
-offset_bottom = 1479.0
-texture = ExtResource("3_7jf2m")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=852756476]
-libraries/ = SubResource("AnimationLibrary_7jf2m")
-autoplay = &"idle"
-
-[node name="TitleLabel" type="Label" parent="." unique_id=1474112737]
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.15
-anchor_right = 0.5
-anchor_bottom = 0.15
-offset_left = -426.0
-offset_top = -40.0
-offset_right = 424.0
-offset_bottom = 68.0
+[node name="Background" type="TextureRect" parent="." unique_id=1948573745]
+material = SubResource("ShaderMaterial_txg6x")
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_7jf2m")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1356887116 groups=["hidden_for_options"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=807520428]
+layout_mode = 2
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1474112737]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 6
 theme_type_variation = &"HeaderLarge"
 text = "Bert and the Wheel of Worlds"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="VersionLabel" type="Label" parent="." unique_id=2059173511]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -35.5
-offset_top = -23.0
-offset_right = 35.5
-offset_bottom = -30.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_type_variation = &"HeaderMedium"
-text = "dev build"
-script = ExtResource("2_81buc")
-file_path = "res://version.txt"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=634282532]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -240.5
-offset_top = -64.0
-offset_right = 240.5
-offset_bottom = 64.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=634282532]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 alignment = 1
 
-[node name="Arenas" type="VBoxContainer" parent="HBoxContainer" unique_id=1723145764]
+[node name="TestLevels" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1723145764]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="HBoxContainer/Arenas" unique_id=1451895255]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/TestLevels" unique_id=1451895255]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
-text = "Test Arenas"
+text = "Test Areas / Museums
+"
 horizontal_alignment = 1
 
-[node name="ShadowMonsterTest" type="Button" parent="HBoxContainer/Arenas" unique_id=1610772892]
+[node name="ShadowMonsterTest" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TestLevels" unique_id=1610772892]
 layout_mode = 2
 text = "Shadow Monster Test"
 flat = true
@@ -368,7 +290,7 @@ script = ExtResource("2_gxoam")
 target_scene = "uid://obcnvoariac4"
 is_primary = null
 
-[node name="FishArena" type="Button" parent="HBoxContainer/Arenas" unique_id=976171538]
+[node name="FishArena" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TestLevels" unique_id=976171538]
 layout_mode = 2
 text = "Fish Test Arena"
 flat = true
@@ -376,7 +298,7 @@ script = ExtResource("2_gxoam")
 target_scene = "uid://kp1emqrppuje"
 is_primary = null
 
-[node name="BirdArena" type="Button" parent="HBoxContainer/Arenas" unique_id=1172115935]
+[node name="BirdArena" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TestLevels" unique_id=1172115935]
 layout_mode = 2
 text = "Bird Test Arena"
 flat = true
@@ -384,102 +306,7 @@ script = ExtResource("2_gxoam")
 target_scene = "uid://bx5liwka2cee0"
 is_primary = null
 
-[node name="WoodpeckerTest" type="Button" parent="HBoxContainer/Arenas" unique_id=543480515]
-layout_mode = 2
-text = "Woodpecker Test"
-flat = true
-script = ExtResource("2_gxoam")
-target_scene = "uid://b5unimq2ncvg2"
-metadata/_custom_type_script = "uid://dwlqg5ma8i6be"
-
-[node name="PrototypeWorlds" type="VBoxContainer" parent="HBoxContainer" unique_id=1226117384]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="HBoxContainer/PrototypeWorlds" unique_id=2144878820]
-layout_mode = 2
-theme_type_variation = &"HeaderSmall"
-text = "Prototype Worlds"
-horizontal_alignment = 1
-
-[node name="Level0Button" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=595956985]
-layout_mode = 2
-text = "Tutorial Area"
-flat = true
-script = ExtResource("2_gxoam")
-target_scene = "uid://obcnvoariac3"
-is_primary = true
-
-[node name="Level1Button" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=404563212]
-layout_mode = 2
-text = "Forest World
-"
-flat = true
-script = ExtResource("2_gxoam")
-target_scene = "uid://djnwseb73emx0"
-is_primary = null
-
-[node name="WheelButton" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=500953345]
-layout_mode = 2
-text = "The Wheel"
-flat = true
-script = ExtResource("2_gxoam")
-target_scene = "uid://b32q0e34faaed"
-is_primary = null
-
-[node name="Easy1" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=431453243]
-layout_mode = 2
-text = "Bumpy Ride"
-flat = true
-script = ExtResource("2_gxoam")
-target_scene = "uid://b3nakjnxtdeqc"
-is_primary = null
-
-[node name="Easy2" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=1817541671]
-layout_mode = 2
-text = "Rolling Hills"
-flat = true
-script = ExtResource("2_gxoam")
-target_scene = "uid://b3y8g2vlw0hm1"
-is_primary = null
-
-[node name="East3" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=1809788232]
-layout_mode = 2
-text = "Toothy Grin"
-flat = true
-script = ExtResource("2_gxoam")
-target_scene = "uid://it4o2hor8od2"
-is_primary = null
-
-[node name="Giant" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=1047357496]
-layout_mode = 2
-text = "Giant"
-flat = true
-script = ExtResource("2_gxoam")
-target_scene = "uid://d2r42qr585lyj"
-metadata/_custom_type_script = "uid://dwlqg5ma8i6be"
-
-[node name="Hard1" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=1886771547]
-layout_mode = 2
-text = "Sisyphus"
-flat = true
-script = ExtResource("2_gxoam")
-target_scene = "uid://c3esg32fsk27w"
-metadata/_custom_type_script = "uid://dwlqg5ma8i6be"
-
-[node name="Museums" type="VBoxContainer" parent="HBoxContainer" unique_id=1287239522]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="HBoxContainer/Museums" unique_id=1990653838]
-layout_mode = 2
-theme_type_variation = &"HeaderSmall"
-text = "Museums etc."
-horizontal_alignment = 1
-
-[node name="Puzzle Museum" type="Button" parent="HBoxContainer/Museums" unique_id=1817950069]
+[node name="Puzzle Museum" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TestLevels" unique_id=1817950069]
 layout_mode = 2
 text = "Puzzle Museum
 "
@@ -488,7 +315,7 @@ script = ExtResource("2_gxoam")
 target_scene = "uid://duod8hfxbeiwr"
 is_primary = null
 
-[node name="PropMuseum" type="Button" parent="HBoxContainer/Museums" unique_id=1773347547]
+[node name="PropMuseum" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TestLevels" unique_id=1773347547]
 layout_mode = 2
 text = "Prop Museum"
 flat = true
@@ -496,7 +323,7 @@ script = ExtResource("2_gxoam")
 target_scene = "uid://c71noy568icli"
 is_primary = null
 
-[node name="PortalTest" type="Button" parent="HBoxContainer/Museums" unique_id=1325434459]
+[node name="PortalTest" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TestLevels" unique_id=1325434459]
 layout_mode = 2
 text = "Portal Test
 "
@@ -505,10 +332,148 @@ script = ExtResource("2_gxoam")
 target_scene = "uid://b080kave2n6fp"
 is_primary = null
 
-[node name="FishMovementTest" type="Button" parent="HBoxContainer/Museums" unique_id=75856200]
+[node name="FishMovementTest" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TestLevels" unique_id=75856200]
 layout_mode = 2
 text = "Fish Movement Test"
 flat = true
 script = ExtResource("2_gxoam")
 target_scene = "uid://bdj8pam5dyb26"
 is_primary = null
+
+[node name="Giant" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TestLevels" unique_id=1047357496]
+layout_mode = 2
+text = "Giant"
+flat = true
+script = ExtResource("2_gxoam")
+target_scene = "uid://d2r42qr585lyj"
+metadata/_custom_type_script = "uid://dwlqg5ma8i6be"
+
+[node name="WoodpeckerTest" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TestLevels" unique_id=543480515]
+layout_mode = 2
+text = "Woodpecker Test"
+flat = true
+script = ExtResource("2_gxoam")
+target_scene = "uid://b5unimq2ncvg2"
+metadata/_custom_type_script = "uid://dwlqg5ma8i6be"
+
+[node name="RealMenu" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1226117384]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="StartGame" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/RealMenu" unique_id=595956985]
+layout_mode = 2
+theme_type_variation = &"BigButton"
+text = "Start Game"
+flat = true
+script = ExtResource("2_gxoam")
+target_scene = "uid://obcnvoariac3"
+is_primary = true
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/RealMenu" unique_id=1449684481]
+layout_mode = 2
+theme_type_variation = &"BigButton"
+text = "Options"
+flat = true
+
+[node name="QuitGame" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/RealMenu" unique_id=972732389]
+layout_mode = 2
+theme_type_variation = &"BigButton"
+text = "Quit Game"
+flat = true
+
+[node name="BonusLevels" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1287239522]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/BonusLevels" unique_id=1990653838]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "World Candidates
+"
+horizontal_alignment = 1
+
+[node name="Level1Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BonusLevels" unique_id=404563212]
+layout_mode = 2
+text = "Forest World
+"
+flat = true
+script = ExtResource("2_gxoam")
+target_scene = "uid://djnwseb73emx0"
+is_primary = null
+
+[node name="WheelButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BonusLevels" unique_id=500953345]
+layout_mode = 2
+text = "The Wheel"
+flat = true
+script = ExtResource("2_gxoam")
+target_scene = "uid://b32q0e34faaed"
+is_primary = null
+
+[node name="Easy1" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BonusLevels" unique_id=431453243]
+layout_mode = 2
+text = "Bumpy Ride"
+flat = true
+script = ExtResource("2_gxoam")
+target_scene = "uid://b3nakjnxtdeqc"
+is_primary = null
+
+[node name="Easy2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BonusLevels" unique_id=1817541671]
+layout_mode = 2
+text = "Rolling Hills"
+flat = true
+script = ExtResource("2_gxoam")
+target_scene = "uid://b3y8g2vlw0hm1"
+is_primary = null
+
+[node name="East3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BonusLevels" unique_id=1809788232]
+layout_mode = 2
+text = "Toothy Grin"
+flat = true
+script = ExtResource("2_gxoam")
+target_scene = "uid://it4o2hor8od2"
+is_primary = null
+
+[node name="Hard1" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BonusLevels" unique_id=1886771547]
+layout_mode = 2
+text = "Sisyphus"
+flat = true
+script = ExtResource("2_gxoam")
+target_scene = "uid://c3esg32fsk27w"
+metadata/_custom_type_script = "uid://dwlqg5ma8i6be"
+
+[node name="TheAscent" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BonusLevels" unique_id=2067761960]
+layout_mode = 2
+text = "The Ascent"
+flat = true
+script = ExtResource("2_gxoam")
+target_scene = "uid://ykg4lp4fd6ee"
+metadata/_custom_type_script = "uid://dwlqg5ma8i6be"
+
+[node name="MissingPlink" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BonusLevels" unique_id=1067925224]
+layout_mode = 2
+text = "The Missing Plink"
+flat = true
+script = ExtResource("2_gxoam")
+target_scene = "uid://d3fvd1rp5q4hh"
+metadata/_custom_type_script = "uid://dwlqg5ma8i6be"
+
+[node name="VersionLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2059173511]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_cjojn")
+text = "dev build"
+horizontal_alignment = 1
+vertical_alignment = 2
+script = ExtResource("2_81buc")
+file_path = "res://version.txt"
+
+[node name="OptionsMenu" parent="." unique_id=1472950510 instance=ExtResource("8_dsjsu")]
+visible = false
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/RealMenu/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/RealMenu/QuitGame" to="." method="_on_quit_game_pressed"]

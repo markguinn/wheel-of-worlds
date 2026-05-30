@@ -12,6 +12,10 @@ const DEV_MODE = true
 
 var _now := 0
 
+# this will be true when in a stage and false otherwise (title screen, credits, etc)
+# it will remain true when paused though
+var is_in_game := false
+
 
 ## Returns the parent node for the active screen or stage
 func get_container() -> Node2D:

@@ -29,3 +29,4 @@ func init_with_state(_persisted_state: Dictionary, params: Dictionary) -> void:
 	AudioManager.set_music(music_type, base_intensity)
 	AudioManager.reset_music_damping()
 	AudioManager.reset_room_size()
+	GameManager.is_in_game = true

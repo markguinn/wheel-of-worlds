@@ -142,3 +142,8 @@ func set_sfx_balance(v: float) -> void:
 	Log.info(self, "setting sfx balance", v)
 	AudioServer.set_bus_volume_linear(bus_sfx, v)
 	AudioServer.set_bus_volume_linear(bus_atmosphere, v)
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("mute"):
+		AudioServer.set_bus_mute(0, !AudioServer.is_bus_mute(0))
