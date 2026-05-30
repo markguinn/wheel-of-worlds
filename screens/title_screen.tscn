@@ -387,6 +387,7 @@ is_primary = null
 [node name="WoodpeckerTest" type="Button" parent="HBoxContainer/Arenas" unique_id=543480515]
 layout_mode = 2
 text = "Woodpecker Test"
+flat = true
 script = ExtResource("2_gxoam")
 target_scene = "uid://b5unimq2ncvg2"
 metadata/_custom_type_script = "uid://dwlqg5ma8i6be"
