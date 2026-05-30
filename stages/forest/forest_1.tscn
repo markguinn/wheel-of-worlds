@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bxxbctnq2ubio" path="res://stages/stage.gd" id="1_fednj"]
 [ext_resource type="Texture2D" uid="uid://bds24227voos8" path="res://stages/forest/art/forestBackground.png" id="1_k5fkf"]
 [ext_resource type="PackedScene" uid="uid://b85khgplioksi" path="res://actors/player/player.tscn" id="2_776cr"]
-[ext_resource type="Script" path="res://common/swaying_background.gd" id="3_buyvx"]
+[ext_resource type="Script" uid="uid://ck52hm002hppc" path="res://common/swaying_background.gd" id="3_buyvx"]
 [ext_resource type="Texture2D" uid="uid://oqnp7saij4ae" path="res://stages/forest/art/shadowBushC.png" id="3_l2c6s"]
 [ext_resource type="Texture2D" uid="uid://bwl7qio6w8mu4" path="res://stages/forest/art/shadowBushB.png" id="3_mdxgh"]
 [ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="3_t70ix"]
@@ -261,7 +261,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(128, 128)
-shader_parameter/real_screen_size = Vector2(4305.6133, 2315.5051)
+shader_parameter/real_screen_size = Vector2(9116.168, 2552.1746)
 shader_parameter/edges = Array[Texture2D]([ExtResource("7_amikt"), ExtResource("7_amikt")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/distortion_strength = 0.0050000002375
@@ -626,10 +626,10 @@ scale = Vector2(0.5, 0.5)
 tile_set = SubResource("TileSet_h68eo")
 
 [node name="StandardCamera" parent="." unique_id=552340171 instance=ExtResource("3_t70ix")]
-position = Vector2(-372, 363)
+position = Vector2(-2810, 266)
 
 [node name="Player" parent="." unique_id=317056800 instance=ExtResource("2_776cr")]
-position = Vector2(-372, 363)
+position = Vector2(-2810, 266)
 collision_mask = 125
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1858114605]
@@ -708,6 +708,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("23_8vxte")
 light_color = Color(0.10047575, 0.12846932, 0.08927346, 1)
+room_size = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CavernArea" unique_id=1071490762]
 position = Vector2(-30.490112, -10.314728)

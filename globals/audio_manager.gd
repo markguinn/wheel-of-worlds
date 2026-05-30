@@ -4,9 +4,12 @@ extends Node
 # This is the place for global audio things - changing music or volumes
 ##########################################################
 
-const BUS_MUSIC = 0
-const BUS_SFX = 1
-const BUS_ATMOSPHERE = 2
+const MIN_ROOM_SIZE = 0.25
+const MAX_ROOM_SIZE = 1.0
+const SFX_REVERB_INDEX = 0
+const MUSIC_HIGH_PASS_INDEX = 0
+const MIN_HP_FREQ = 2000
+const MAX_HP_FREQ = 20500
 
 var cur_type: String = "wheel"
 var cur_intensity := 1
@@ -25,7 +28,9 @@ func _ready() -> void:
 	bus_music = AudioServer.get_bus_index("Music")
 	bus_sfx = AudioServer.get_bus_index("SFX")
 	bus_atmosphere = AudioServer.get_bus_index("Atmosphere")
-	Log.info(self, "music", bus_music, AudioServer.get_bus_volume_db(bus_music), AudioServer.get_bus_volume_linear(bus_music))
+	reset_music_damping()
+	reset_room_size()
+
 
 func get_stream_player() -> AudioStreamPlayer:
 	var stream_player: AudioStreamPlayer = get_tree().get_first_node_in_group("background_music")
@@ -72,6 +77,25 @@ func resume_music() -> void:
 	get_stream_player().stream_paused = false
 
 
+func set_room_size(size: float) -> void:
+	var sfx_reverb: AudioEffectReverb = AudioServer.get_bus_effect(bus_sfx, SFX_REVERB_INDEX)
+	sfx_reverb.room_size = lerpf(MIN_ROOM_SIZE, MAX_ROOM_SIZE, size)
+
+
+func reset_room_size() -> void:
+	set_room_size(0.0)
+
+
+func set_music_damping(amount: float) -> void:
+	var sfx_hp: AudioEffectLowPassFilter = AudioServer.get_bus_effect(bus_music, MUSIC_HIGH_PASS_INDEX)
+	sfx_hp.cutoff_hz = lerp(MAX_HP_FREQ, MIN_HP_FREQ, amount)
+
+
+func reset_music_damping() -> void:
+	set_music_damping(0.0)
+
+
+
 func _get_clip_name(music_type: String, intensity: int) -> String:
 	return music_type + "-" + str(intensity)
 
@@ -103,19 +127,19 @@ func set_music_intensity(v: int) -> void:
 
 
 func get_music_balance() -> float:
-	return AudioServer.get_bus_volume_linear(BUS_MUSIC)
+	return AudioServer.get_bus_volume_linear(bus_music)
 
 
 func set_music_balance(v: float) -> void:
 	Log.info(self, "setting music balance", v)
-	AudioServer.set_bus_volume_linear(BUS_MUSIC, v)
+	AudioServer.set_bus_volume_linear(bus_music, v)
 
 	
 func get_sfx_balance() -> float:
-	return AudioServer.get_bus_volume_linear(BUS_SFX)
+	return AudioServer.get_bus_volume_linear(bus_sfx)
 
 
 func set_sfx_balance(v: float) -> void:
 	Log.info(self, "setting sfx balance", v)
-	AudioServer.set_bus_volume_linear(BUS_SFX, v)
-	AudioServer.set_bus_volume_linear(BUS_ATMOSPHERE, v)
+	AudioServer.set_bus_volume_linear(bus_sfx, v)
+	AudioServer.set_bus_volume_linear(bus_atmosphere, v)

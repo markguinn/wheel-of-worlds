@@ -169,6 +169,7 @@ shape = SubResource("CircleShape2D_1yxxb")
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="Arm/Palm" unique_id=578546637]
 stream = SubResource("AudioStreamRandomizer_jlxop")
+bus = &"SFX"
 
 [node name="TopFinger" type="RigidBody2D" parent="Arm" unique_id=1037081550]
 position = Vector2(25, -18)
@@ -224,6 +225,7 @@ region_rect = Rect2(98.62488, 606.93744, 514.3887, 314.15674)
 
 [node name="Scream" type="AudioStreamPlayer2D" parent="." unique_id=1296899979]
 stream = SubResource("AudioStreamRandomizer_w3688")
+bus = &"SFX"
 
 [node name="BodyArea" type="Area2D" parent="." unique_id=532611218]
 collision_layer = 3

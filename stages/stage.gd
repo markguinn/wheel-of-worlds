@@ -27,3 +27,5 @@ func init_with_state(_persisted_state: Dictionary, params: Dictionary) -> void:
 				if self.has_method("init_player_at_portal"):
 					self.call("init_player_at_portal", portal)
 	AudioManager.set_music(music_type, base_intensity)
+	AudioManager.reset_music_damping()
+	AudioManager.reset_room_size()
