@@ -1,11 +1,6 @@
 [gd_scene format=3 uid="uid://bmcqlphjm2pkh"]
 
 [ext_resource type="Script" uid="uid://ddtfmk4g0pqpe" path="res://screens/dev_menu/dev_menu.gd" id="1_i5xme"]
-[ext_resource type="Shader" uid="uid://gls6w4gbrrhb" path="res://common/blur.gdshader" id="2_l2o4h"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8utmn"]
-shader = ExtResource("2_l2o4h")
-shader_parameter/lod = 3.1130001478675
 
 [sub_resource type="Gradient" id="Gradient_jhilx"]
 offsets = PackedFloat32Array(0, 0.10699589, 0.3580247, 0.6646091, 1)
@@ -28,7 +23,6 @@ offset_bottom = 27.0
 grow_horizontal = 2
 
 [node name="Background2" type="TextureRect" parent="PanelContainer" unique_id=2032706337]
-material = SubResource("ShaderMaterial_8utmn")
 clip_contents = true
 layout_mode = 2
 texture = SubResource("GradientTexture2D_aw7yl")
