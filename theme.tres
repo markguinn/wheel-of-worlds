@@ -1,6 +1,5 @@
 [gd_resource type="Theme" format=3 uid="uid://oh3aeoiln57v"]
 
-[ext_resource type="FontFile" uid="uid://ch2w6grpgoapd" path="res://fonts/Gentium_Book_Plus/GentiumBookPlus-BoldItalic.ttf" id="1_110ce"]
 [ext_resource type="Texture2D" uid="uid://cr5rhgt1cjruk" path="res://_source_assets/art/tick_bar.png" id="1_e1x85"]
 [ext_resource type="FontFile" uid="uid://d3k1r22o6u7uc" path="res://fonts/Lora/Lora-VariableFont_wght.ttf" id="2_vj6dk"]
 [ext_resource type="FontFile" uid="uid://dsxbpt12k0xt3" path="res://fonts/Mountains_of_Christmas/MountainsofChristmas-Bold.ttf" id="3_05tig"]
@@ -119,13 +118,15 @@ expand_margin_left = 8.0
 
 [resource]
 default_font = ExtResource("2_vj6dk")
+Button/colors/font_color = Color(0.015686275, 0.023529412, 0.015686275, 1)
+Button/colors/font_outline_color = Color(0.015686275, 0.023529412, 0.015686275, 1)
 Button/constants/h_separation = 20
 Button/font_sizes/font_size = 30
-Button/fonts/font = ExtResource("1_110ce")
 Button/styles/focus = SubResource("StyleBoxFlat_110ce")
 Button/styles/hover = SubResource("StyleBoxFlat_mihib")
 Button/styles/normal = SubResource("StyleBoxFlat_05tig")
 Button/styles/pressed = SubResource("StyleBoxFlat_yin2u")
+FlatButton/styles/normal = null
 HBoxContainer/constants/separation = 20
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_cjfk0")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_vj6dk")

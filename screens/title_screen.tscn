@@ -1,10 +1,112 @@
 [gd_scene format=3 uid="uid://bbx2kb2li0f5s"]
 
+[ext_resource type="Texture2D" uid="uid://djpsb4jyc0afj" path="res://stages/world0/art/mountains.png" id="1_7jf2m"]
 [ext_resource type="Texture2D" uid="uid://cg1ijisjgp16e" path="res://stages/world1/art/temp-bg-far.png" id="1_cjojn"]
 [ext_resource type="Script" uid="uid://c8pi532nmx254" path="res://common/file_label.gd" id="2_81buc"]
+[ext_resource type="Script" uid="uid://ch0wv8cuoudkc" path="res://stages/world0/mist.gd" id="2_dsjsu"]
 [ext_resource type="Script" uid="uid://dwlqg5ma8i6be" path="res://common/scene_change_button.gd" id="2_gxoam"]
 [ext_resource type="Texture2D" uid="uid://g28bty4q48nr" path="res://stages/world1/art/temp-bg-near.png" id="2_txg6x"]
 [ext_resource type="Texture2D" uid="uid://cgsnvvnnwwlo1" path="res://stages/world1/art/temp-foreground.png" id="3_7jf2m"]
+
+[sub_resource type="Gradient" id="Gradient_83wlx"]
+colors = PackedColorArray(0.24015418, 0.25599292, 0.21379125, 1, 0.16078432, 0.17254902, 0.14117648, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p1edy"]
+gradient = SubResource("Gradient_83wlx")
+width = 500
+height = 500
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_3bs7n"]
+offsets = PackedFloat32Array(0.19917013, 0.46887967, 1)
+colors = PackedColorArray(0.078431375, 0.08235294, 0.0627451, 1, 0.085258566, 0.08747333, 0.06829219, 0.8911917, 0.14117648, 0.12941177, 0.11372549, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ghegn"]
+gradient = SubResource("Gradient_3bs7n")
+width = 60
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_2layw"]
+offsets = PackedFloat32Array(0.17605634, 0.7793427)
+colors = PackedColorArray(0.16470589, 0.1764706, 0.14509805, 0.79607844, 0.22246751, 0.24016911, 0.1976687, 0.6)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gmxw7"]
+noise_type = 3
+seed = 5
+frequency = 0.007
+fractal_octaves = 4
+fractal_lacunarity = 0.8
+fractal_gain = 0.7
+fractal_weighted_strength = 0.86
+domain_warp_enabled = true
+domain_warp_type = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mvehq"]
+noise = SubResource("FastNoiseLite_gmxw7")
+color_ramp = SubResource("Gradient_2layw")
+seamless = true
+seamless_blend_skirt = 0.377
+
+[sub_resource type="Gradient" id="Gradient_eprsv"]
+offsets = PackedFloat32Array(0.114107884, 0.28630707, 0.6016598, 1)
+colors = PackedColorArray(0.16470589, 0.17254902, 0.14117648, 1, 0.16398953, 0.17123571, 0.14034073, 0.969555, 0.15821995, 0.16065815, 0.13360955, 0.7243478, 0.14117648, 0.12941177, 0.11372549, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mo0vk"]
+gradient = SubResource("Gradient_eprsv")
+width = 160
+height = 128
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_fgfhh"]
+offsets = PackedFloat32Array(0.44855967, 0.78215766)
+colors = PackedColorArray(0.80925, 0.83, 0.7802, 0.3137255, 0.56285995, 0.59, 0.51919997, 0.5019608)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_eksvm"]
+noise_type = 3
+seed = 3
+frequency = 0.005
+fractal_octaves = 4
+fractal_lacunarity = 1.2
+fractal_gain = 0.3
+fractal_weighted_strength = 0.59
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_fractal_octaves = 2
+domain_warp_fractal_gain = 0.6
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tsbkc"]
+noise = SubResource("FastNoiseLite_eksvm")
+color_ramp = SubResource("Gradient_fgfhh")
+seamless = true
+seamless_blend_skirt = 0.377
+
+[sub_resource type="Gradient" id="Gradient_bm4e8"]
+offsets = PackedFloat32Array(0.5308642, 1)
+colors = PackedColorArray(0.80925, 0.83, 0.7802, 0.2, 0.56285995, 0.59, 0.51919997, 0.5529412)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_87lg0"]
+noise_type = 4
+seed = 3
+frequency = 0.001
+fractal_type = 2
+fractal_octaves = 3
+fractal_lacunarity = 0.9
+fractal_gain = 0.7
+fractal_weighted_strength = 0.39
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 25.0
+domain_warp_frequency = 0.03
+domain_warp_fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t87nc"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_87lg0")
+color_ramp = SubResource("Gradient_bm4e8")
+seamless = true
+seamless_blend_skirt = 0.377
 
 [sub_resource type="Animation" id="Animation_cjojn"]
 length = 0.001
@@ -70,17 +172,127 @@ _data = {
 
 [node name="TitleScreen" type="CanvasLayer" unique_id=1220633124]
 
+[node name="BackgroundLayers" type="Node2D" parent="." unique_id=1082645956]
+
+[node name="FixedBackground" type="Parallax2D" parent="BackgroundLayers" unique_id=1437802649]
+visible = false
+scroll_scale = Vector2(0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayers/FixedBackground" unique_id=1832857121]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("GradientTexture2D_p1edy")
+metadata/_edit_use_anchors_ = true
+
+[node name="FarMountains" type="Parallax2D" parent="BackgroundLayers" unique_id=1480169883]
+scroll_scale = Vector2(0.2, 0.1)
+scroll_offset = Vector2(0, 90)
+repeat_size = Vector2(995, 0)
+autoscroll = Vector2(6, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundLayers/FarMountains" unique_id=630876277]
+modulate = Color(0.47983426, 0.47983432, 0.4798342, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_7jf2m")
+offset = Vector2(0, 1110)
+flip_h = true
+region_rect = Rect2(177, 0, 4096, 2048)
+
+[node name="FadeOut" type="Sprite2D" parent="BackgroundLayers/FarMountains" unique_id=1969055894]
+position = Vector2(0, 895)
+scale = Vector2(16.584, 8)
+texture = SubResource("GradientTexture2D_ghegn")
+
+[node name="FarMountains2" type="Parallax2D" parent="BackgroundLayers" unique_id=975668210]
+scale = Vector2(1.2, 1.2)
+scroll_scale = Vector2(0.2, 0.1)
+scroll_offset = Vector2(0, 200)
+repeat_size = Vector2(995, 0)
+autoscroll = Vector2(8, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundLayers/FarMountains2" unique_id=1706286509]
+modulate = Color(0.47983426, 0.47983432, 0.4798342, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_7jf2m")
+offset = Vector2(0, 1110)
+flip_h = true
+region_rect = Rect2(177, 0, 4096, 2048)
+
+[node name="FadeOut" type="Sprite2D" parent="BackgroundLayers/FarMountains2" unique_id=1831695825]
+position = Vector2(0, 895)
+scale = Vector2(16.584, 8)
+texture = SubResource("GradientTexture2D_ghegn")
+
+[node name="FarMist" type="Parallax2D" parent="BackgroundLayers" unique_id=1623056991]
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(1024, 1024)
+autoscroll = Vector2(30, 14)
+repeat_times = 6
+
+[node name="Mist" type="Sprite2D" parent="BackgroundLayers/FarMist" unique_id=753486441]
+position = Vector2(254, 237)
+scale = Vector2(2, 2)
+texture = SubResource("NoiseTexture2D_mvehq")
+
+[node name="Mountains" type="Parallax2D" parent="BackgroundLayers" unique_id=290106864]
+scroll_scale = Vector2(0.4, 0.2)
+scroll_offset = Vector2(0, 350)
+repeat_size = Vector2(1993, 0)
+autoscroll = Vector2(10, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundLayers/Mountains" unique_id=9462451]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_7jf2m")
+offset = Vector2(0, 520)
+region_rect = Rect2(177, 0, 4096, 2048)
+
+[node name="FadeOut" type="Sprite2D" parent="BackgroundLayers/Mountains" unique_id=555096546]
+position = Vector2(0, 1738)
+scale = Vector2(16.583, 8)
+texture = SubResource("GradientTexture2D_mo0vk")
+
+[node name="MiddleMist" type="Parallax2D" parent="BackgroundLayers" unique_id=1980496567]
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(1024, 1024)
+autoscroll = Vector2(-20, -10)
+repeat_times = 6
+
+[node name="Mist" type="Sprite2D" parent="BackgroundLayers/MiddleMist" unique_id=1711575947]
+scale = Vector2(2, 2)
+texture = SubResource("NoiseTexture2D_tsbkc")
+
+[node name="NearMist" type="Parallax2D" parent="BackgroundLayers" unique_id=1348524175]
+z_index = 50
+scroll_scale = Vector2(1.1, 1.1)
+repeat_size = Vector2(4096, 2048)
+autoscroll = Vector2(7, -4)
+repeat_times = 10
+
+[node name="Mist" type="Sprite2D" parent="BackgroundLayers/NearMist" unique_id=914657287]
+z_index = 50
+z_as_relative = false
+scale = Vector2(4, 2)
+texture = SubResource("NoiseTexture2D_t87nc")
+script = ExtResource("2_dsjsu")
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=851863605]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_cjojn")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1016047337]
+visible = false
 offset_right = 2100.0
 offset_bottom = 1500.0
 texture = ExtResource("2_txg6x")
 
 [node name="TextureRect3" type="TextureRect" parent="." unique_id=893808402]
+visible = false
 offset_left = -96.0
 offset_top = -21.0
 offset_right = 2004.0
@@ -118,6 +330,7 @@ offset_right = 35.5
 offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_type_variation = &"HeaderMedium"
 text = "dev build"
 script = ExtResource("2_81buc")
 file_path = "res://version.txt"
@@ -150,6 +363,7 @@ horizontal_alignment = 1
 [node name="ShadowMonsterTest" type="Button" parent="HBoxContainer/Arenas" unique_id=1610772892]
 layout_mode = 2
 text = "Shadow Monster Test"
+flat = true
 script = ExtResource("2_gxoam")
 target_scene = "uid://obcnvoariac4"
 is_primary = null
@@ -157,6 +371,7 @@ is_primary = null
 [node name="FishArena" type="Button" parent="HBoxContainer/Arenas" unique_id=976171538]
 layout_mode = 2
 text = "Fish Test Arena"
+flat = true
 script = ExtResource("2_gxoam")
 target_scene = "uid://kp1emqrppuje"
 is_primary = null
@@ -164,6 +379,7 @@ is_primary = null
 [node name="BirdArena" type="Button" parent="HBoxContainer/Arenas" unique_id=1172115935]
 layout_mode = 2
 text = "Bird Test Arena"
+flat = true
 script = ExtResource("2_gxoam")
 target_scene = "uid://bx5liwka2cee0"
 is_primary = null
@@ -182,6 +398,7 @@ horizontal_alignment = 1
 [node name="Level0Button" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=595956985]
 layout_mode = 2
 text = "Tutorial Area"
+flat = true
 script = ExtResource("2_gxoam")
 target_scene = "uid://obcnvoariac3"
 is_primary = true
@@ -190,6 +407,7 @@ is_primary = true
 layout_mode = 2
 text = "Forest World
 "
+flat = true
 script = ExtResource("2_gxoam")
 target_scene = "uid://djnwseb73emx0"
 is_primary = null
@@ -197,6 +415,7 @@ is_primary = null
 [node name="WheelButton" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=500953345]
 layout_mode = 2
 text = "The Wheel"
+flat = true
 script = ExtResource("2_gxoam")
 target_scene = "uid://b32q0e34faaed"
 is_primary = null
@@ -204,6 +423,7 @@ is_primary = null
 [node name="Easy1" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=431453243]
 layout_mode = 2
 text = "Bumpy Ride"
+flat = true
 script = ExtResource("2_gxoam")
 target_scene = "uid://b3nakjnxtdeqc"
 is_primary = null
@@ -211,6 +431,7 @@ is_primary = null
 [node name="Easy2" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=1817541671]
 layout_mode = 2
 text = "Rolling Hills"
+flat = true
 script = ExtResource("2_gxoam")
 target_scene = "uid://b3y8g2vlw0hm1"
 is_primary = null
@@ -218,6 +439,7 @@ is_primary = null
 [node name="East3" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=1809788232]
 layout_mode = 2
 text = "Toothy Grin"
+flat = true
 script = ExtResource("2_gxoam")
 target_scene = "uid://it4o2hor8od2"
 is_primary = null
@@ -225,6 +447,7 @@ is_primary = null
 [node name="Giant" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=1047357496]
 layout_mode = 2
 text = "Giant"
+flat = true
 script = ExtResource("2_gxoam")
 target_scene = "uid://d2r42qr585lyj"
 metadata/_custom_type_script = "uid://dwlqg5ma8i6be"
@@ -232,6 +455,7 @@ metadata/_custom_type_script = "uid://dwlqg5ma8i6be"
 [node name="Hard1" type="Button" parent="HBoxContainer/PrototypeWorlds" unique_id=1886771547]
 layout_mode = 2
 text = "Sisyphus"
+flat = true
 script = ExtResource("2_gxoam")
 target_scene = "uid://c3esg32fsk27w"
 metadata/_custom_type_script = "uid://dwlqg5ma8i6be"
@@ -251,6 +475,7 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Puzzle Museum
 "
+flat = true
 script = ExtResource("2_gxoam")
 target_scene = "uid://duod8hfxbeiwr"
 is_primary = null
@@ -258,6 +483,7 @@ is_primary = null
 [node name="PropMuseum" type="Button" parent="HBoxContainer/Museums" unique_id=1773347547]
 layout_mode = 2
 text = "Prop Museum"
+flat = true
 script = ExtResource("2_gxoam")
 target_scene = "uid://c71noy568icli"
 is_primary = null
@@ -266,6 +492,7 @@ is_primary = null
 layout_mode = 2
 text = "Portal Test
 "
+flat = true
 script = ExtResource("2_gxoam")
 target_scene = "uid://b080kave2n6fp"
 is_primary = null
@@ -273,6 +500,7 @@ is_primary = null
 [node name="FishMovementTest" type="Button" parent="HBoxContainer/Museums" unique_id=75856200]
 layout_mode = 2
 text = "Fish Movement Test"
+flat = true
 script = ExtResource("2_gxoam")
 target_scene = "uid://bdj8pam5dyb26"
 is_primary = null
