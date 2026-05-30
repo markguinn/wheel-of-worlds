@@ -1,6 +1,21 @@
 [gd_scene format=3 uid="uid://bmcqlphjm2pkh"]
 
 [ext_resource type="Script" uid="uid://ddtfmk4g0pqpe" path="res://screens/dev_menu/dev_menu.gd" id="1_i5xme"]
+[ext_resource type="Shader" uid="uid://gls6w4gbrrhb" path="res://common/blur.gdshader" id="2_l2o4h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8utmn"]
+shader = ExtResource("2_l2o4h")
+shader_parameter/lod = 3.1130001478675
+
+[sub_resource type="Gradient" id="Gradient_jhilx"]
+offsets = PackedFloat32Array(0, 0.10699589, 0.3580247, 0.6646091, 1)
+colors = PackedColorArray(0.77366537, 0.83000183, 0.866059, 0.6745098, 0.749339, 0.80569184, 0.8418168, 0.6582103, 0.6735909, 0.7299947, 0.76633066, 0.60745645, 0.5555485, 0.61203164, 0.6486965, 0.5283639, 0.18253452, 0.23926842, 0.2769724, 0.2784314)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aw7yl"]
+gradient = SubResource("Gradient_jhilx")
+width = 256
+height = 256
+fill_to = Vector2(0, 1)
 
 [node name="DevMenu" type="CanvasLayer" unique_id=846982366]
 process_mode = 3
@@ -12,6 +27,12 @@ anchor_right = 1.0
 offset_bottom = 27.0
 grow_horizontal = 2
 
+[node name="Background2" type="TextureRect" parent="PanelContainer" unique_id=2032706337]
+material = SubResource("ShaderMaterial_8utmn")
+clip_contents = true
+layout_mode = 2
+texture = SubResource("GradientTexture2D_aw7yl")
+
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=2122863065]
 layout_mode = 2
 
@@ -21,6 +42,7 @@ theme_override_constants/separation = 16
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1770837509]
 layout_mode = 2
+theme_type_variation = &"DarkLabel"
 text = "Welcome to the fabulous developer menu! Let's make your life a little easier..."
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1352136898]
@@ -64,6 +86,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1467379618]
 layout_mode = 2
+theme_type_variation = &"DarkLabel"
 text = "Drop a "
 
 [node name="DropPlank" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1045201395]
@@ -101,6 +124,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=267614692]
 layout_mode = 2
+theme_type_variation = &"DarkLabel"
 text = "Go to portal"
 
 [node name="PortalSelect" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=484016853]

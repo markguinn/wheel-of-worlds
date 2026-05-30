@@ -55,6 +55,8 @@ func change_scene(new_scene_path: String, params = {}, fade = false) -> void:
 	var container := get_container()
 	var cur_scene := get_active_scene()
 	var new_scene: Resource = load(new_scene_path)
+	if not new_scene:
+		new_scene = load("res://screens/title_screen.tscn")
 	var new_instance: Node = new_scene.instantiate()
 	
 	if fade:
