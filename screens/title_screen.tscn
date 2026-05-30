@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://djpsb4jyc0afj" path="res://stages/world0/art/mountains.png" id="1_7jf2m"]
 [ext_resource type="Script" uid="uid://vsxjl48jfuvi" path="res://screens/title_screen.gd" id="1_dsjsu"]
-[ext_resource type="Shader" uid="uid://gls6w4gbrrhb" path="res://common/blur.gdshader" id="1_txg6x"]
 [ext_resource type="Script" uid="uid://c8pi532nmx254" path="res://common/file_label.gd" id="2_81buc"]
 [ext_resource type="Script" uid="uid://ch0wv8cuoudkc" path="res://stages/world0/mist.gd" id="2_dsjsu"]
 [ext_resource type="Script" uid="uid://dwlqg5ma8i6be" path="res://common/scene_change_button.gd" id="2_gxoam"]
@@ -108,10 +107,6 @@ noise = SubResource("FastNoiseLite_87lg0")
 color_ramp = SubResource("Gradient_bm4e8")
 seamless = true
 seamless_blend_skirt = 0.377
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_txg6x"]
-shader = ExtResource("1_txg6x")
-shader_parameter/lod = 1.3950000662625
 
 [sub_resource type="Gradient" id="Gradient_jhilx"]
 offsets = PackedFloat32Array(0, 0.10699589, 0.3580247, 0.6646091, 1)
@@ -235,7 +230,6 @@ texture = SubResource("NoiseTexture2D_t87nc")
 script = ExtResource("2_dsjsu")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1948573745]
-material = SubResource("ShaderMaterial_txg6x")
 clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
