@@ -177,45 +177,45 @@ scale = Vector2(0.9, 0.9)
 script = ExtResource("2_1xf4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sparkles" unique_id=972055032]
-modulate = Color(1, 1, 1, 0.27231833)
-rotation = -545.6445
-scale = Vector2(0.8148789, 0.8148789)
+modulate = Color(1, 1, 1, 0.33644179)
+rotation = -523.42584
+scale = Vector2(0.85762787, 0.85762787)
 texture = ExtResource("3_i36ib")
 
 [node name="Mist" type="Sprite2D" parent="Sparkles" unique_id=753486441]
-modulate = Color(1, 1, 1, 0.2679647)
-rotation = -129.84433
-scale = Vector2(0.8119765, 0.8119765)
+modulate = Color(1, 1, 1, 0.33999488)
+rotation = -23.389618
+scale = Vector2(0.85999656, 0.85999656)
 texture = SubResource("NoiseTexture2D_mvehq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sparkles" unique_id=1758360778]
-modulate = Color(1, 1, 1, 0.30340979)
-rotation = 294.80588
-scale = Vector2(0.8356065, 0.8356065)
+modulate = Color(1, 1, 1, 0.11449442)
+rotation = 208.99393
+scale = Vector2(0.709663, 0.709663)
 texture = ExtResource("4_wsvuw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sparkles" unique_id=845584023]
-modulate = Color(1, 1, 1, 0.15202342)
-rotation = 585.7175
-scale = Vector2(0.73468226, 0.73468226)
+modulate = Color(1, 1, 1, 0.3993163)
+rotation = 538.5528
+scale = Vector2(0.89954424, 0.89954424)
 texture = ExtResource("5_p7yao")
 
 [node name="Mist2" type="Sprite2D" parent="Sparkles" unique_id=1711575947]
-modulate = Color(1, 1, 1, 0.311487)
-rotation = -193.97621
-scale = Vector2(0.8409913, 0.8409913)
+modulate = Color(1, 1, 1, 0.30018595)
+rotation = -260.01425
+scale = Vector2(0.8334573, 0.8334573)
 texture = SubResource("NoiseTexture2D_tsbkc")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sparkles" unique_id=1435232981]
-modulate = Color(1, 1, 1, 0.26428074)
-rotation = 191.403
-scale = Vector2(0.8095205, 0.8095205)
+modulate = Color(1, 1, 1, 0.13643521)
+rotation = 289.39786
+scale = Vector2(0.72429013, 0.72429013)
 texture = ExtResource("6_mi1m4")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sparkles" unique_id=2086365118]
-modulate = Color(1, 1, 1, 0.19486612)
-rotation = -83.23752
-scale = Vector2(0.7632441, 0.7632441)
+modulate = Color(1, 1, 1, 0.19337042)
+rotation = -204.40323
+scale = Vector2(0.76224697, 0.76224697)
 texture = ExtResource("7_v8lo7")
 
 [node name="WheelTiles" type="TileMapLayer" parent="." unique_id=2085374435]
@@ -597,7 +597,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("5_4p7k8")
 text = "dev build"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 2
 script = ExtResource("6_3tw6p")
 file_path = "res://version.txt"
