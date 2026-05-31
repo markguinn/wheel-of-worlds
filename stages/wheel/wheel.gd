@@ -22,6 +22,7 @@ var in_gravity := 0.0
 # I think that will be less glitchy than using a rigidbody and force/impule.
 @onready var left_gravity: Area2D = $LeftGravity
 @onready var right_gravity: Area2D = $RightGravity
+@onready var wheel_sfx: AudioStreamPlayer = $WheelSFX
 
 
 func _ready() -> void:
@@ -44,8 +45,12 @@ func _process(delta: float) -> void:
 	else:
 		spin_velocity = move_toward(spin_velocity, 0.0, delta)
 
-	if spin_velocity:
+	if not is_zero_approx(spin_velocity):
 		wheel_body.rotation_degrees += spin_velocity * ROTATION_FACTOR * delta
+		wheel_sfx.pitch_scale = smoothstep(-20.0, 10.0, absf(spin_velocity))
+		wheel_sfx.volume_linear = smoothstep(0.0, 20.0, absf(spin_velocity))
+		if not wheel_sfx.playing:
+			wheel_sfx.play()
 
 		for node in get_tree().get_nodes_in_group("free_movers"):
 			node.position.x -= spin_velocity * OBJECT_FACTOR * delta
@@ -53,7 +58,8 @@ func _process(delta: float) -> void:
 		var zoom := clampf(1.0 - absf(spin_velocity) * CAMERA_FACTOR, MIN_ZOOM, MAX_ZOOM)
 		var cam := get_viewport().get_camera_2d()
 		cam.zoom = cam.zoom.move_toward(Vector2(zoom, zoom), delta)
-
+	elif wheel_sfx.playing:
+		wheel_sfx.stop()
 
 func _on_enter_gravity(body: Node2D, direction: float) -> void:
 	if body is Player:

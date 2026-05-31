@@ -6,7 +6,7 @@ extends CanvasLayer
 @onready var start_btn: Button = %StartGame
 @onready var quit_btn: Button = %QuitGame
 @onready var wheel: Node2D = $WheelTiles
-
+@onready var wheel_sfx: AudioStreamPlayer = $WheelTurn
 
 var rotate_tween: Tween
 
@@ -43,6 +43,7 @@ func _rotate_wheel(deg: float) -> void:
 	if rotate_tween and rotate_tween.is_running():
 		rotate_tween.stop()
 	if wheel:
+		wheel_sfx.play()
 		rotate_tween = create_tween()
 		rotate_tween.set_ease(Tween.EASE_IN_OUT)
 		rotate_tween.set_trans(Tween.TRANS_BOUNCE)

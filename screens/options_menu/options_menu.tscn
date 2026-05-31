@@ -90,7 +90,6 @@ theme_override_icons/grabber = ExtResource("1_n2ask")
 theme_override_icons/grabber_highlight = ExtResource("2_hpsuu")
 theme_override_icons/grabber_disabled = ExtResource("1_n2ask")
 theme_override_icons/tick = ExtResource("3_cu0nl")
-value = 50.0
 
 [node name="SfxPanel" type="Panel" parent="VBoxContainer" unique_id=1657025811]
 custom_minimum_size = Vector2(800, 100)
@@ -171,8 +170,8 @@ theme_override_icons/tick = ExtResource("3_cu0nl")
 value = 100.0
 
 [connection signal="pressed" from="ReturnButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="ReturnButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="ReturnButton" to="." method="_on_resume_button_pressed"]
 [connection signal="drag_ended" from="VBoxContainer/MusicPanel/MusicVolumeContainer/MusicVolumeSlider" to="." method="_on_music_volume_slider_drag_ended"]
 [connection signal="value_changed" from="VBoxContainer/MusicPanel/MusicVolumeContainer/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
 [connection signal="drag_ended" from="VBoxContainer/SfxPanel/SfxVolumeContainer/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_drag_ended"]
