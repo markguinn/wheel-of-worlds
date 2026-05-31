@@ -9,6 +9,7 @@ signal scene_changed
 
 # we can use this to enable/disable logging, cheats, debug visuals, etc
 const DEV_MODE = true
+const TITLE_SCREEN = "res://screens/title_screen/title_screen.tscn"
 
 var _now := 0
 
@@ -56,7 +57,7 @@ func change_scene(new_scene_path: String, params = {}, fade = false) -> void:
 	var cur_scene := get_active_scene()
 	var new_scene: Resource = load(new_scene_path)
 	if not new_scene:
-		new_scene = load("res://screens/title_screen.tscn")
+		new_scene = load(TITLE_SCREEN)
 	var new_instance: Node = new_scene.instantiate()
 	
 	if fade:
@@ -75,7 +76,7 @@ func change_scene(new_scene_path: String, params = {}, fade = false) -> void:
 
 
 func quit_to_title() -> void:
-	change_scene("res://screens/title_screen.tscn")
+	change_scene(TITLE_SCREEN)
 	
 
 func _physics_process(delta: float) -> void:

@@ -1,3 +1,4 @@
+@tool
 extends Node2D
 
 @export var min_speed: float = -0.2
