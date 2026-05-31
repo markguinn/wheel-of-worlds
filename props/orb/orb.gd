@@ -25,6 +25,7 @@ var iris_base_scale: Vector2
 @onready var sprite: Sprite2D = $SquishContainer/WhiteSphere
 @onready var squisher: Node2D = $SquishContainer
 @onready var pos_history: PositionHistoryBuffer = $PositionHistoryBuffer
+@onready var sfx: OrbSFX = $SFX
 
 
 func _ready() -> void:
@@ -92,6 +93,7 @@ func squish(vel: Vector2, _collision_point: Vector2, collision_normal: Vector2) 
 	if vel.length() < IMPACT_MIN_VEL:
 		return Vector2.ZERO
 	var impact_amt := IMPACT_STRETCH * smoothstep(IMPACT_MIN_VEL, IMPACT_MAX_VEL, vel.length())
+	sfx.play_bounce(smoothstep(IMPACT_MIN_VEL, IMPACT_MAX_VEL, vel.length()))
 	if absf(vel.y) > absf(vel.x):
 		squisher.scale.y = 1.0 - impact_amt
 		squisher.scale.x = 1.0 + impact_amt * 0.5

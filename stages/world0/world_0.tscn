@@ -512,7 +512,6 @@ position = Vector2(-3213, 535)
 [node name="Player" parent="." unique_id=42652117 instance=ExtResource("2_tsxbn")]
 position = Vector2(-3213, 535)
 has_music_box = false
-speed_multiplier = 1.5
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1411017242]

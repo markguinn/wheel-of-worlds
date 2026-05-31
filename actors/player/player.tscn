@@ -1873,7 +1873,7 @@ metadata/_local_pose_override_enabled_ = true
 [node name="ThighL" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=226334277]
 position = Vector2(23, 14)
 rotation = 0.25686535
-scale = Vector2(0.99980265, 0.99980265)
+scale = Vector2(0.9998027, 0.9998027)
 rest = Transform2D(0.967, 0.254, -0.254, 0.967, 23, 14)
 metadata/_local_pose_override_enabled_ = true
 
@@ -1918,8 +1918,8 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="HandL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/Torso/ArmL" unique_id=1933907137]
 position = Vector2(-26.651686, 5.448637)
-rotation = 0.0640406
-scale = Vector2(1.0000489, 1.0000489)
+rotation = 0.06404061
+scale = Vector2(1.0000488, 1.0000488)
 rest = Transform2D(0.9979998, 0.06399999, -0.06399999, 0.9979998, -26.651686, 5.448637)
 auto_calculate_length_and_angle = false
 length = 28.031
@@ -2001,7 +2001,7 @@ region_rect = Rect2(204, 68, 311, 233)
 
 [node name="Eyes" type="AnimatedSprite2D" parent="Sprite/Parts/Head" unique_id=1167826662]
 sprite_frames = SubResource("SpriteFrames_yeioo")
-frame_progress = 0.09862242
+frame_progress = 0.9531693
 offset = Vector2(-35, 387)
 script = ExtResource("7_0wchr")
 
@@ -2366,11 +2366,11 @@ metadata/_custom_type_script = "uid://dljix40x8qlm1"
 script = ExtResource("21_nsxbo")
 metadata/_custom_type_script = "uid://cumk0apwxqg52"
 
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=128494251]
+
 [node name="SFX" type="Node2D" parent="." unique_id=2054879864]
 unique_name_in_owner = true
 script = ExtResource("18_otn2r")
-
-[node name="AudioListener2D" type="AudioListener2D" parent="SFX" unique_id=128494251]
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="SFX" unique_id=1342045896]
 stream = SubResource("AudioStreamRandomizer_s7w8x")
