@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://y7c5vk1033l6" path="res://common/vfx/dust_particles.tscn" id="4_jou1n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jou1n"]
+radius = 11.0
 height = 250.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eqyr0"]

@@ -44,6 +44,7 @@ func _ready() -> void:
 	anim_player.play("idle")
 	start_pos = position
 	skeleton.get_modification_stack().enabled = true
+	$AudioListener2D.make_current()
 
 
 func set_checkpoint() -> void:
