@@ -11,15 +11,22 @@ func play_landing() -> void:
 
 
 func play_jump() -> void:
-	$Jump.play()
+	#$Effort.play()
+	pass
+
+
+func play_push() -> void:
+	$Effort.play()
 
 
 func play_pick_up() -> void:
-	$PickUp.play()
+	$Effort.play()
 
 
 func play_stand_up() -> void:
-	$StandUp.play()
+	#$Effort.play()
+	$Footsteps.play()
+	pass
 
 
 func play_ragdoll_impact() -> void:
@@ -27,4 +34,4 @@ func play_ragdoll_impact() -> void:
 
 
 func play_tripped() -> void:
-	pass
+	$Ouch.play()

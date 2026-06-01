@@ -178,45 +178,45 @@ scale = Vector2(0.9, 0.9)
 script = ExtResource("2_1xf4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sparkles" unique_id=972055032]
-modulate = Color(1, 1, 1, 0.1516245)
-rotation = -677.0062
-scale = Vector2(0.73441637, 0.73441637)
+modulate = Color(1, 1, 1, 0.12347478)
+rotation = -854.39886
+scale = Vector2(0.71564984, 0.71564984)
 texture = ExtResource("3_i36ib")
 
 [node name="Mist" type="Sprite2D" parent="Sparkles" unique_id=753486441]
-modulate = Color(1, 1, 1, 0.12383575)
-rotation = -46.243362
-scale = Vector2(0.7158905, 0.7158905)
+modulate = Color(1, 1, 1, 0.24916263)
+rotation = -320.63477
+scale = Vector2(0.79944175, 0.79944175)
 texture = SubResource("NoiseTexture2D_mvehq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sparkles" unique_id=1758360778]
-modulate = Color(1, 1, 1, 0.1928879)
-rotation = 345.94128
-scale = Vector2(0.7619253, 0.7619253)
+modulate = Color(1, 1, 1, 0.39759108)
+rotation = -71.66937
+scale = Vector2(0.89839405, 0.89839405)
 texture = ExtResource("4_wsvuw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sparkles" unique_id=845584023]
-modulate = Color(1, 1, 1, 0.16682455)
-rotation = 237.99828
-scale = Vector2(0.7445497, 0.7445497)
+modulate = Color(1, 1, 1, 0.36801994)
+rotation = 632.018
+scale = Vector2(0.87868, 0.87868)
 texture = ExtResource("5_p7yao")
 
 [node name="Mist2" type="Sprite2D" parent="Sparkles" unique_id=1711575947]
-modulate = Color(1, 1, 1, 0.356298)
-rotation = -242.77664
-scale = Vector2(0.87086535, 0.87086535)
+modulate = Color(1, 1, 1, 0.1959338)
+rotation = -6.3080935
+scale = Vector2(0.7639559, 0.7639559)
 texture = SubResource("NoiseTexture2D_tsbkc")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sparkles" unique_id=1435232981]
-modulate = Color(1, 1, 1, 0.3762986)
-rotation = 616.0331
-scale = Vector2(0.8841991, 0.8841991)
+modulate = Color(1, 1, 1, 0.16344222)
+rotation = 468.1257
+scale = Vector2(0.7422948, 0.7422948)
 texture = ExtResource("6_mi1m4")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sparkles" unique_id=2086365118]
-modulate = Color(1, 1, 1, 0.35508206)
-rotation = -307.51318
-scale = Vector2(0.8700547, 0.8700547)
+modulate = Color(1, 1, 1, 0.21306963)
+rotation = -57.253128
+scale = Vector2(0.7753798, 0.7753798)
 texture = ExtResource("7_v8lo7")
 
 [node name="WheelTiles" type="TileMapLayer" parent="." unique_id=2085374435]
@@ -624,6 +624,7 @@ visible = false
 [node name="WheelTurn" type="AudioStreamPlayer" parent="." unique_id=1740168787]
 stream = ExtResource("15_yvje3")
 volume_db = -6.0
+pitch_scale = 0.75
 bus = &"SFX"
 
 [connection signal="focus_entered" from="WheelTiles/StartGame" to="." method="_on_start_game_focus_entered"]

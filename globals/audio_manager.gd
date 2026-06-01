@@ -4,7 +4,7 @@ extends Node
 # This is the place for global audio things - changing music or volumes
 ##########################################################
 
-const MIN_ROOM_SIZE = 0.25
+const MIN_ROOM_SIZE = 0.1
 const MAX_ROOM_SIZE = 1.0
 const SFX_REVERB_INDEX = 0
 const MUSIC_LOW_PASS_INDEX = 0

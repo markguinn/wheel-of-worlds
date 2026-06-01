@@ -90,6 +90,7 @@ theme_override_icons/grabber = ExtResource("1_n2ask")
 theme_override_icons/grabber_highlight = ExtResource("2_hpsuu")
 theme_override_icons/grabber_disabled = ExtResource("1_n2ask")
 theme_override_icons/tick = ExtResource("3_cu0nl")
+value = 50.0
 
 [node name="SfxPanel" type="Panel" parent="VBoxContainer" unique_id=1657025811]
 custom_minimum_size = Vector2(800, 100)

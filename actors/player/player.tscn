@@ -34,6 +34,14 @@
 [ext_resource type="AudioStream" uid="uid://mk6ch4aq344f" path="res://actors/player/sfx/footstep6.ogg" id="31_ivjma"]
 [ext_resource type="AudioStream" uid="uid://bn3g1lqfye2i3" path="res://actors/player/sfx/footstep7.ogg" id="32_igrto"]
 [ext_resource type="AudioStream" uid="uid://bu5ltbf12ooya" path="res://actors/player/sfx/footstep8.ogg" id="33_c1klp"]
+[ext_resource type="AudioStream" uid="uid://cxm24aupx4m2f" path="res://actors/player/sfx/ouch1.ogg" id="34_ivjma"]
+[ext_resource type="AudioStream" uid="uid://bfdhr477thag0" path="res://actors/player/sfx/lift1.ogg" id="34_s7w8x"]
+[ext_resource type="AudioStream" uid="uid://kepondu0s8e1" path="res://actors/player/sfx/lift2.ogg" id="35_i0btr"]
+[ext_resource type="AudioStream" uid="uid://cpijebwxs8m30" path="res://actors/player/sfx/ouch2.ogg" id="35_igrto"]
+[ext_resource type="AudioStream" uid="uid://g2ge60035y5o" path="res://actors/player/sfx/ouch3.ogg" id="36_c1klp"]
+[ext_resource type="AudioStream" uid="uid://5y02f2636kwl" path="res://actors/player/sfx/lift3.ogg" id="36_rfvym"]
+[ext_resource type="AudioStream" uid="uid://ceicjkmb1162q" path="res://actors/player/sfx/ouch4.ogg" id="37_s7w8x"]
+[ext_resource type="AudioStream" uid="uid://qhhbkg3rsccg" path="res://actors/player/sfx/ouch5.ogg" id="38_i0btr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
 radius = 18.0
@@ -1810,6 +1818,20 @@ stream_5/stream = ExtResource("31_ivjma")
 stream_6/stream = ExtResource("32_igrto")
 stream_7/stream = ExtResource("33_c1klp")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ifggu"]
+streams_count = 3
+stream_0/stream = ExtResource("34_s7w8x")
+stream_1/stream = ExtResource("35_i0btr")
+stream_2/stream = ExtResource("36_rfvym")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rfvym"]
+streams_count = 5
+stream_0/stream = ExtResource("34_ivjma")
+stream_1/stream = ExtResource("35_igrto")
+stream_2/stream = ExtResource("36_c1klp")
+stream_3/stream = ExtResource("37_s7w8x")
+stream_4/stream = ExtResource("38_i0btr")
+
 [node name="Player" type="CharacterBody2D" unique_id=317056800 node_paths=PackedStringArray("holding_hand", "resting_point") groups=["player"]]
 z_index = 1
 collision_layer = 2
@@ -2001,7 +2023,7 @@ region_rect = Rect2(204, 68, 311, 233)
 
 [node name="Eyes" type="AnimatedSprite2D" parent="Sprite/Parts/Head" unique_id=1167826662]
 sprite_frames = SubResource("SpriteFrames_yeioo")
-frame_progress = 0.9531693
+frame_progress = 0.25751963
 offset = Vector2(-35, 387)
 script = ExtResource("7_0wchr")
 
@@ -2377,18 +2399,12 @@ stream = SubResource("AudioStreamRandomizer_s7w8x")
 volume_db = -12.0
 bus = &"Atmosphere"
 
-[node name="Jump" type="AudioStreamPlayer2D" parent="SFX" unique_id=1591825923]
-bus = &"SFX"
-
-[node name="PickUp" type="AudioStreamPlayer2D" parent="SFX" unique_id=1424104023]
-bus = &"SFX"
-
-[node name="StandUp" type="AudioStreamPlayer2D" parent="SFX" unique_id=1743924838]
+[node name="Effort" type="AudioStreamPlayer2D" parent="SFX" unique_id=1424104023]
+stream = SubResource("AudioStreamRandomizer_ifggu")
 bus = &"SFX"
 
 [node name="Ouch" type="AudioStreamPlayer2D" parent="SFX" unique_id=1678676952]
-volume_db = -12.0
-pitch_scale = 0.57
+stream = SubResource("AudioStreamRandomizer_rfvym")
 bus = &"SFX"
 
 [node name="MusicBox" type="AudioStreamPlayer2D" parent="SFX" unique_id=479519000]

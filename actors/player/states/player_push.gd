@@ -46,6 +46,7 @@ func _entered(_from_state: StateNode) -> void:
 		machine.transition_by_name("Idle")
 		return
 	player.anim_player.play("pushing")
+	%SFX.play_push()
 	last_kick = GameManager.now_ms()
 
 

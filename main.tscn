@@ -88,6 +88,7 @@ environment = SubResource("Environment_lquwl")
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1500950709 groups=["background_music"]]
 process_mode = 3
 stream = SubResource("AudioStreamInteractive_272bh")
+volume_db = -12.0
 autoplay = true
 bus = &"Music"
 
