@@ -2,6 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://c3o0udsehlyxh" path="res://screens/title_screen/title_screen.tscn" id="1_ig7tw"]
 [ext_resource type="AudioStream" uid="uid://bfbeh8y8bhsl5" path="res://music/Exploration level layer ideas.ogg" id="1_lquwl"]
+[ext_resource type="AudioStream" uid="uid://bc68mn1gvtyxw" path="res://_temp_replace_me_please/temp-layer1.mp3" id="3_5vw27"]
+[ext_resource type="AudioStream" uid="uid://1qa8bxx13qs2" path="res://_temp_replace_me_please/temp-layer2.mp3" id="4_kek77"]
+[ext_resource type="AudioStream" uid="uid://cldwemkovsbvw" path="res://_temp_replace_me_please/temp-layer3.mp3" id="5_4c57u"]
 [ext_resource type="AudioStream" uid="uid://hwy71vtpelu1" path="res://music/Bert Theme Sketch 3.ogg" id="5_5vw27"]
 [ext_resource type="PackedScene" uid="uid://dxykffs3v4670" path="res://screens/pause_menu/pause_menu.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bmcqlphjm2pkh" path="res://screens/dev_menu/dev_menu.tscn" id="7_272bh"]
@@ -15,13 +18,22 @@ glow_intensity = 0.5
 adjustment_enabled = true
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_272bh"]
-clip_count = 2
+clip_count = 5
 clip_0/name = &"exploring-1"
 clip_0/stream = ExtResource("1_lquwl")
 clip_0/auto_advance = 0
 clip_1/name = &"wheel-1"
 clip_1/stream = ExtResource("5_5vw27")
 clip_1/auto_advance = 0
+clip_2/name = &"test-1"
+clip_2/stream = ExtResource("3_5vw27")
+clip_2/auto_advance = 0
+clip_3/name = &"test-2"
+clip_3/stream = ExtResource("4_kek77")
+clip_3/auto_advance = 0
+clip_4/name = &"test-3"
+clip_4/stream = ExtResource("5_4c57u")
+clip_4/auto_advance = 0
 initial_clip = 1
 _transitions = {
 Vector2i(-1, -1): {
@@ -76,6 +88,60 @@ Vector2i(1, 1): {
 "fade_beats": 0.0,
 "fade_mode": 4,
 "from_time": 2,
+"to_time": 0
+},
+Vector2i(2, 2): {
+"fade_beats": 2.0,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 0
+},
+Vector2i(2, 3): {
+"fade_beats": 2.0,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 0
+},
+Vector2i(2, 4): {
+"fade_beats": 2.0,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 0
+},
+Vector2i(3, 2): {
+"fade_beats": 2.0,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 0
+},
+Vector2i(3, 3): {
+"fade_beats": 2.0,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 0
+},
+Vector2i(3, 4): {
+"fade_beats": 2.0,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 0
+},
+Vector2i(4, 2): {
+"fade_beats": 2.0,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 0
+},
+Vector2i(4, 3): {
+"fade_beats": 2.0,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 0
+},
+Vector2i(4, 4): {
+"fade_beats": 2.0,
+"fade_mode": 3,
+"from_time": 1,
 "to_time": 0
 }
 }

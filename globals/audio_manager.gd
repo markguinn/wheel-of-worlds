@@ -58,7 +58,8 @@ func set_music(music_type: String, intensity = 1) -> void:
 		return
 
 	Log.info(self, "changing music", music_type, "at level", intensity)
-	stream_player.play()
+	if not stream_player.playing:
+		stream_player.play()
 	var playback: AudioStreamPlaybackInteractive = stream_player.get_stream_playback() if stream_player else null
 	if playback and playback is AudioStreamPlaybackInteractive:
 		playback.switch_to_clip_by_name(_get_clip_name(music_type, intensity))
