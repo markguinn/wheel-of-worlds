@@ -10,13 +10,13 @@ func _entered(_from_state: StateNode) -> void:
 		Log.error(self, "this state needs a Woodpecker target to work")
 	woodpecker = target
 	_animate.call_deferred()
-
-
-func _process(delta: float) -> void:
-	woodpecker.position.x -= speed
-	woodpecker.position.y -= speed
 	var timer := get_tree().create_timer(flee_seconds)
 	timer.timeout.connect(_on_timer_complete)
+
+
+func _process(_delta: float) -> void:
+	woodpecker.position.x -= speed
+	woodpecker.position.y -= speed
 
 
 func _animate() -> void:

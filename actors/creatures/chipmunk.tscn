@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://bnmvx5vogw7h7"]
+
+[ext_resource type="Texture2D" uid="uid://b80ehkl82kox" path="res://actors/creatures/art/chipmunk.png" id="1_fb0x5"]
+[ext_resource type="Script" uid="uid://cphtolnockq2v" path="res://actors/creatures/chipmunk.gd" id="1_m5wq1"]
+[ext_resource type="Script" uid="uid://vmdvty45rk5y" path="res://common/state_machine/state_machine.gd" id="2_qj3hx"]
+[ext_resource type="Script" uid="uid://b7yqic1af17gt" path="res://actors/creatures/states/chipmunk_idle_state.gd" id="4_efa0o"]
+[ext_resource type="Script" uid="uid://hi0m7yv7wtxd" path="res://actors/creatures/states/chipmunk_alert_state.gd" id="5_p4mt2"]
+[ext_resource type="Script" uid="uid://bkkegyhtjpum5" path="res://actors/creatures/states/chipmunk_flee_state.gd" id="6_thr80"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj3hx"]
+atlas = ExtResource("1_fb0x5")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efa0o"]
+atlas = ExtResource("1_fb0x5")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4mt2"]
+atlas = ExtResource("1_fb0x5")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5wq1"]
+atlas = ExtResource("1_fb0x5")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ix1h7"]
+atlas = ExtResource("1_fb0x5")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efa0o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj3hx")
+}],
+"loop": true,
+"name": &"alert",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efa0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4mt2")
+}],
+"loop": true,
+"name": &"flee",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5wq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ix1h7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m5wq1"]
+radius = 400.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ix1h7"]
+radius = 250.0
+
+[node name="Chipmunk" type="Node2D" unique_id=761097383]
+script = ExtResource("1_m5wq1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1446101809]
+sprite_frames = SubResource("SpriteFrames_efa0o")
+animation = &"flee"
+frame_progress = 0.7615287
+
+[node name="AlertArea2D" type="Area2D" parent="." unique_id=2078600408]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlertArea2D" unique_id=237221229]
+shape = SubResource("CircleShape2D_m5wq1")
+
+[node name="FleeArea2D" type="Area2D" parent="." unique_id=1318950239]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FleeArea2D" unique_id=1518530451]
+shape = SubResource("CircleShape2D_ix1h7")
+
+[node name="StateMachine" type="Node" parent="." unique_id=460999416 node_paths=PackedStringArray("target", "initial_state")]
+script = ExtResource("2_qj3hx")
+target = NodePath("..")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://vmdvty45rk5y"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1950118054]
+script = ExtResource("4_efa0o")
+metadata/_custom_type_script = "uid://b7yqic1af17gt"
+
+[node name="Alert" type="Node" parent="StateMachine" unique_id=2012009243]
+script = ExtResource("5_p4mt2")
+
+[node name="Flee" type="Node" parent="StateMachine" unique_id=2069327737]
+script = ExtResource("6_thr80")
