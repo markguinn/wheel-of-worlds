@@ -4,7 +4,9 @@
 [ext_resource type="Script" uid="uid://0y0hoei7t43g" path="res://actors/portal/sparkles.gd" id="2_1xf4e"]
 [ext_resource type="Texture2D" uid="uid://djpsb4jyc0afj" path="res://stages/world0/art/mountains.png" id="2_jjnxc"]
 [ext_resource type="TileSet" uid="uid://bql6g47of7osy" path="res://stages/world1/art/test_tiles.tres" id="2_ongoj"]
+[ext_resource type="Texture2D" uid="uid://dyfjydb0sbb64" path="res://actors/portal/art/irises.png" id="2_y13wa"]
 [ext_resource type="Texture2D" uid="uid://dnsvtw1em67il" path="res://actors/portal/art/Sparkles-1.png" id="3_i36ib"]
+[ext_resource type="Script" uid="uid://ciffa100fusex" path="res://screens/title_screen/iris_nebula.gd" id="3_mhrfk"]
 [ext_resource type="Script" uid="uid://dwlqg5ma8i6be" path="res://common/scene_change_button.gd" id="4_p4pbn"]
 [ext_resource type="Texture2D" uid="uid://d21ymgljnp5wl" path="res://actors/portal/art/Sparkles-2.png" id="4_wsvuw"]
 [ext_resource type="FontFile" uid="uid://bdju23loxtc2u" path="res://fonts/Doto/Doto-VariableFont_ROND,wght.ttf" id="5_4p7k8"]
@@ -15,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bsnpkosxnrpuj" path="res://actors/portal/art/Sparkles-5.png" id="7_v8lo7"]
 [ext_resource type="Texture2D" uid="uid://dfmfykdvwqa5g" path="res://screens/title_screen/art/white_logo_square.png" id="14_1xf4e"]
 [ext_resource type="AudioStream" uid="uid://jxabdr6and2l" path="res://common/sfx/wheel_short.ogg" id="15_yvje3"]
+[ext_resource type="PackedScene" uid="uid://b85khgplioksi" path="res://actors/player/player.tscn" id="16_e6237"]
 
 [sub_resource type="Gradient" id="Gradient_i36ib"]
 offsets = PackedFloat32Array(0.17901234, 1)
@@ -171,6 +174,24 @@ lifetime = 30.0
 preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_1xf4e")
 
+[node name="IrisNebula" type="Sprite2D" parent="." unique_id=127912379]
+modulate = Color(1, 1, 1, 0.33901745)
+position = Vector2(960, 540)
+rotation = 4.5680876
+scale = Vector2(2.2, 2.2)
+skew = 0.2204782
+texture = ExtResource("2_y13wa")
+region_enabled = true
+region_rect = Rect2(988, 1671, 314, 294)
+script = ExtResource("3_mhrfk")
+skew_min = -0.3
+skew_max = 0.3
+skew_speed = 0.5
+alpha_min = 0.1
+alpha_max = 0.4
+alpha_speed = 0.4
+speed_factor = 0.1
+
 [node name="Sparkles" type="Node2D" parent="." unique_id=763382222]
 modulate = Color(1, 1, 1, 0.61960787)
 position = Vector2(960, 540)
@@ -178,45 +199,45 @@ scale = Vector2(0.9, 0.9)
 script = ExtResource("2_1xf4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sparkles" unique_id=972055032]
-modulate = Color(1, 1, 1, 0.32798687)
-rotation = -859.6955
-scale = Vector2(0.85199124, 0.85199124)
+modulate = Color(1, 1, 1, 0.14074677)
+rotation = -1062.22
+scale = Vector2(0.7271645, 0.7271645)
 texture = ExtResource("3_i36ib")
 
 [node name="Mist" type="Sprite2D" parent="Sparkles" unique_id=753486441]
-modulate = Color(1, 1, 1, 0.33704615)
-rotation = -314.60748
-scale = Vector2(0.85803074, 0.85803074)
+modulate = Color(1, 1, 1, 0.3983965)
+rotation = -427.0235
+scale = Vector2(0.898931, 0.898931)
 texture = SubResource("NoiseTexture2D_mvehq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sparkles" unique_id=1758360778]
-modulate = Color(1, 1, 1, 0.2233018)
-rotation = -64.48419
-scale = Vector2(0.78220123, 0.78220123)
+modulate = Color(1, 1, 1, 0.3368574)
+rotation = -172.5704
+scale = Vector2(0.8579049, 0.8579049)
 texture = ExtResource("4_wsvuw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sparkles" unique_id=845584023]
-modulate = Color(1, 1, 1, 0.35105413)
-rotation = 632.835
-scale = Vector2(0.8673694, 0.8673694)
+modulate = Color(1, 1, 1, 0.16873528)
+rotation = 642.8683
+scale = Vector2(0.7458235, 0.7458235)
 texture = ExtResource("5_p7yao")
 
 [node name="Mist2" type="Sprite2D" parent="Sparkles" unique_id=1711575947]
-modulate = Color(1, 1, 1, 0.35655317)
-rotation = 1.1202645
-scale = Vector2(0.87103546, 0.87103546)
+modulate = Color(1, 1, 1, 0.15610099)
+rotation = 55.48903
+scale = Vector2(0.73740065, 0.73740065)
 texture = SubResource("NoiseTexture2D_tsbkc")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sparkles" unique_id=1435232981]
-modulate = Color(1, 1, 1, 0.118146524)
-rotation = 461.05338
-scale = Vector2(0.7120977, 0.7120977)
+modulate = Color(1, 1, 1, 0.13562767)
+rotation = 343.80835
+scale = Vector2(0.7237518, 0.7237518)
 texture = ExtResource("6_mi1m4")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sparkles" unique_id=2086365118]
-modulate = Color(1, 1, 1, 0.37609503)
-rotation = -63.549072
-scale = Vector2(0.88406336, 0.88406336)
+modulate = Color(1, 1, 1, 0.39910832)
+rotation = -94.81578
+scale = Vector2(0.89940554, 0.89940554)
 texture = ExtResource("7_v8lo7")
 
 [node name="WheelTiles" type="TileMapLayer" parent="." unique_id=2085374435]
@@ -281,6 +302,12 @@ theme_type_variation = &"BigButton"
 text = "Quit Game"
 flat = true
 alignment = 0
+
+[node name="Player" parent="WheelTiles" unique_id=317056800 instance=ExtResource("16_e6237")]
+position = Vector2(2.5, 10)
+scale = Vector2(0.8333333, 0.8333333)
+ignore_inputs = true
+perma_ragdoll = true
 
 [node name="BackgroundLayers" type="Node2D" parent="." unique_id=1082645956]
 visible = false
@@ -614,7 +641,8 @@ vertical_alignment = 2
 script = ExtResource("6_3tw6p")
 file_path = "res://version.txt"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1107410125]
+[node name="TitleLogo" type="Sprite2D" parent="." unique_id=1107410125]
+z_index = 1
 position = Vector2(972, 585)
 texture = ExtResource("14_1xf4e")
 

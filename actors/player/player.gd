@@ -21,6 +21,8 @@ const COYOTE_TIME_MS = 100
 @export var jump_multiplier := 1.0
 @export var speed_multiplier := 1.0
 @export var emotional_state := EmotionalState.NEUTRAL
+@export var ignore_inputs := false
+@export var perma_ragdoll := false
 
 var last_floor_touch: int
 var is_holding_prop: Node2D = null
@@ -82,6 +84,8 @@ func puff_right_dust(dust_scale = 10.0) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if ignore_inputs:
+		return
 	if event.is_action_pressed("jump") and can_jump():
 		state_machine.transition_by_name("Jump")
 		get_viewport().set_input_as_handled()
@@ -104,8 +108,10 @@ func _process(delta: float) -> void:
 		last_floor_touch = GameManager.now_ms()
 	elif velocity != Vector2.ZERO:
 		Activator.update_active_candidate()
-		
-		
+	if perma_ragdoll and state_machine.get_active() != "Ragdoll":
+		state_machine.call_deferred("transition_by_name", "Ragdoll")
+
+
 func _update_avg_recent_velocity(delta: float) -> void:
 	var delta_ms := delta * 1000.0
 	var idelta_ms := AVG_WINDOW_MS - delta_ms

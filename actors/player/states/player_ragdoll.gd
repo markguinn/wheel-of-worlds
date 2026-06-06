@@ -201,6 +201,8 @@ func temporary_ragdoll(return_after_ms = 500, torso_velocity = Vector2.INF) -> v
 
 
 func _input(event: InputEvent) -> void:
+	if player.ignore_inputs:
+		return
 	if event.is_action_pressed("interact") and not transitioning_out:
 		machine.transition_by_name("Idle")
 		get_viewport().set_input_as_handled()
@@ -218,7 +220,7 @@ func _physics_process(delta: float) -> void:
 		player.global_rotation = ragdoll_bodies[0].global_rotation
 
 	# when the player has stopped moving for a short time, switch back to idle
-	if diff.length() / delta < STILLNESS_THRESHOLD:
+	if diff.length() / delta < STILLNESS_THRESHOLD and not player.perma_ragdoll:
 		if not transitioning_out and now_ms > last_ragdoll_movement + STILLNESS_WINDOW_MS:
 			machine.transition_by_name("Idle")
 	else:

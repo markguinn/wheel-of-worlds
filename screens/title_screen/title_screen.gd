@@ -26,6 +26,7 @@ func _on_quit_game_pressed() -> void:
 func _on_options_pressed() -> void:
 	options_menu.show()
 
+
 func _on_options_menu_vis() -> void:
 	options_bg.visible = options_menu.visible
 	
@@ -33,11 +34,14 @@ func _on_options_menu_vis() -> void:
 func _on_start_game_focus_entered() -> void:
 	_rotate_wheel(0.0)
 
+
 func _on_options_focus_entered() -> void:
 	_rotate_wheel(-90.0)
 
+
 func _on_quit_game_focus_entered() -> void:
 	_rotate_wheel(90.0)
+
 
 func _rotate_wheel(deg: float) -> void:
 	if rotate_tween and rotate_tween.is_running():

@@ -48,6 +48,8 @@ func init_state(_machine: StateMachine, _target: Node2D) -> void:
 
 
 func _get_input_vector() -> Vector2:
+	if player.ignore_inputs:
+		return Vector2.ZERO
 	return Input.get_vector("left", "right", "up", "down")
 
 
