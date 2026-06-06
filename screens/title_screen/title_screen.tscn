@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://vsxjl48jfuvi" path="res://screens/title_screen/title_screen.gd" id="1_phvg6"]
 [ext_resource type="Script" uid="uid://0y0hoei7t43g" path="res://actors/portal/sparkles.gd" id="2_1xf4e"]
-[ext_resource type="Texture2D" uid="uid://djpsb4jyc0afj" path="res://stages/world0/art/mountains.png" id="2_jjnxc"]
 [ext_resource type="TileSet" uid="uid://bql6g47of7osy" path="res://stages/world1/art/test_tiles.tres" id="2_ongoj"]
 [ext_resource type="Texture2D" uid="uid://dyfjydb0sbb64" path="res://actors/portal/art/irises.png" id="2_y13wa"]
 [ext_resource type="Texture2D" uid="uid://dnsvtw1em67il" path="res://actors/portal/art/Sparkles-1.png" id="3_i36ib"]
@@ -116,35 +115,6 @@ color_ramp = SubResource("Gradient_fgfhh")
 seamless = true
 seamless_blend_skirt = 0.377
 
-[sub_resource type="Gradient" id="Gradient_83wlx"]
-colors = PackedColorArray(0.24015418, 0.25599292, 0.21379125, 1, 0.16078432, 0.17254902, 0.14117648, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_p1edy"]
-gradient = SubResource("Gradient_83wlx")
-width = 500
-height = 500
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
-
-[sub_resource type="Gradient" id="Gradient_3bs7n"]
-offsets = PackedFloat32Array(0.19917013, 0.46887967, 1)
-colors = PackedColorArray(0.078431375, 0.08235294, 0.0627451, 1, 0.085258566, 0.08747333, 0.06829219, 0.8911917, 0.14117648, 0.12941177, 0.11372549, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ghegn"]
-gradient = SubResource("Gradient_3bs7n")
-width = 60
-fill_to = Vector2(0, 1)
-
-[sub_resource type="Gradient" id="Gradient_eprsv"]
-offsets = PackedFloat32Array(0.114107884, 0.28630707, 0.6016598, 1)
-colors = PackedColorArray(0.16470589, 0.17254902, 0.14117648, 1, 0.16398953, 0.17123571, 0.14034073, 0.969555, 0.15821995, 0.16065815, 0.13360955, 0.7243478, 0.14117648, 0.12941177, 0.11372549, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_mo0vk"]
-gradient = SubResource("Gradient_eprsv")
-width = 160
-height = 128
-fill_to = Vector2(0, 1)
-
 [sub_resource type="Gradient" id="Gradient_jhilx"]
 colors = PackedColorArray(0.7743, 0.83331496, 0.87, 1, 0.9384941, 0.9545868, 0.9657499, 1)
 
@@ -175,11 +145,11 @@ preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_1xf4e")
 
 [node name="IrisNebula" type="Sprite2D" parent="." unique_id=127912379]
-modulate = Color(1, 1, 1, 0.2788124)
+modulate = Color(1, 1, 1, 0.17763901)
 position = Vector2(960, 540)
-rotation = 3.8476448
-scale = Vector2(2.2, 2.2)
-skew = -0.24154715
+rotation = 2.622867
+scale = Vector2(2, 2)
+skew = 0.18856353
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -188,7 +158,25 @@ skew_min = -0.3
 skew_max = 0.3
 skew_speed = 0.5
 alpha_min = 0.1
-alpha_max = 0.4
+alpha_max = 0.3
+alpha_speed = 0.4
+speed_factor = 0.1
+
+[node name="IrisNebula2" type="Sprite2D" parent="." unique_id=1740825736]
+modulate = Color(1, 1, 1, 0.17187202)
+position = Vector2(960, 540)
+rotation = 2.9720752
+scale = Vector2(3, 3)
+skew = -0.22742592
+texture = ExtResource("2_y13wa")
+region_enabled = true
+region_rect = Rect2(988, 1671, 314, 294)
+script = ExtResource("3_mhrfk")
+skew_min = -0.5
+skew_max = 0.5
+skew_speed = 0.5
+alpha_min = 0.05
+alpha_max = 0.2
 alpha_speed = 0.4
 speed_factor = 0.1
 
@@ -199,45 +187,45 @@ scale = Vector2(0.9, 0.9)
 script = ExtResource("2_1xf4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sparkles" unique_id=972055032]
-modulate = Color(1, 1, 1, 0.39617983)
-rotation = -1073.3411
-scale = Vector2(0.8974532, 0.8974532)
+modulate = Color(1, 1, 1, 0.14369021)
+rotation = -984.0756
+scale = Vector2(0.7291268, 0.7291268)
 texture = ExtResource("3_i36ib")
 
 [node name="Mist" type="Sprite2D" parent="Sparkles" unique_id=753486441]
-modulate = Color(1, 1, 1, 0.11083187)
-rotation = -429.52734
-scale = Vector2(0.70722127, 0.70722127)
+modulate = Color(1, 1, 1, 0.109861374)
+rotation = -425.7691
+scale = Vector2(0.70657426, 0.70657426)
 texture = SubResource("NoiseTexture2D_mvehq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sparkles" unique_id=1758360778]
-modulate = Color(1, 1, 1, 0.11331496)
-rotation = -165.52846
-scale = Vector2(0.7088766, 0.7088766)
+modulate = Color(1, 1, 1, 0.15254492)
+rotation = -195.30107
+scale = Vector2(0.73502994, 0.73502994)
 texture = ExtResource("4_wsvuw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sparkles" unique_id=845584023]
-modulate = Color(1, 1, 1, 0.25657213)
-rotation = 627.91
-scale = Vector2(0.80438143, 0.80438143)
+modulate = Color(1, 1, 1, 0.20309547)
+rotation = 694.40424
+scale = Vector2(0.7687303, 0.7687303)
 texture = ExtResource("5_p7yao")
 
 [node name="Mist2" type="Sprite2D" parent="Sparkles" unique_id=1711575947]
-modulate = Color(1, 1, 1, 0.2720742)
-rotation = 49.50842
-scale = Vector2(0.8147161, 0.8147161)
+modulate = Color(1, 1, 1, 0.3681871)
+rotation = 105.80137
+scale = Vector2(0.8787914, 0.8787914)
 texture = SubResource("NoiseTexture2D_tsbkc")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sparkles" unique_id=1435232981]
-modulate = Color(1, 1, 1, 0.29980153)
-rotation = 337.9023
-scale = Vector2(0.833201, 0.833201)
+modulate = Color(1, 1, 1, 0.14818)
+rotation = 409.56683
+scale = Vector2(0.73212, 0.73212)
 texture = ExtResource("6_mi1m4")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sparkles" unique_id=2086365118]
-modulate = Color(1, 1, 1, 0.11301315)
-rotation = -80.58943
-scale = Vector2(0.70867544, 0.70867544)
+modulate = Color(1, 1, 1, 0.15709893)
+rotation = -115.570885
+scale = Vector2(0.73806596, 0.73806596)
 texture = ExtResource("7_v8lo7")
 
 [node name="WheelTiles" type="TileMapLayer" parent="." unique_id=2085374435]
@@ -308,98 +296,6 @@ position = Vector2(2.5, 10)
 scale = Vector2(0.8333333, 0.8333333)
 ignore_inputs = true
 perma_ragdoll = true
-
-[node name="BackgroundLayers" type="Node2D" parent="." unique_id=1082645956]
-visible = false
-clip_children = 2
-
-[node name="FixedBackground" type="Parallax2D" parent="BackgroundLayers" unique_id=1437802649]
-scroll_scale = Vector2(0, 0)
-
-[node name="TextureRect" type="TextureRect" parent="BackgroundLayers/FixedBackground" unique_id=1832857121]
-custom_minimum_size = Vector2(1920, 1080)
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = SubResource("GradientTexture2D_p1edy")
-metadata/_edit_use_anchors_ = true
-
-[node name="FarMountains" type="Parallax2D" parent="BackgroundLayers" unique_id=1480169883]
-scroll_scale = Vector2(0.2, 0.1)
-scroll_offset = Vector2(0, 90)
-repeat_size = Vector2(995, 0)
-autoscroll = Vector2(6, 0)
-repeat_times = 5
-
-[node name="Sprite2D" type="Sprite2D" parent="BackgroundLayers/FarMountains" unique_id=630876277]
-modulate = Color(0.47983426, 0.47983432, 0.4798342, 1)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_jjnxc")
-offset = Vector2(0, 1110)
-flip_h = true
-region_rect = Rect2(177, 0, 4096, 2048)
-
-[node name="FadeOut" type="Sprite2D" parent="BackgroundLayers/FarMountains" unique_id=1969055894]
-position = Vector2(0, 895)
-scale = Vector2(16.584, 8)
-texture = SubResource("GradientTexture2D_ghegn")
-
-[node name="FarMountains2" type="Parallax2D" parent="BackgroundLayers" unique_id=975668210]
-scale = Vector2(1.2, 1.2)
-scroll_scale = Vector2(0.2, 0.1)
-scroll_offset = Vector2(0, 120)
-repeat_size = Vector2(1323, 0)
-autoscroll = Vector2(9, 0)
-repeat_times = 5
-
-[node name="Sprite2D" type="Sprite2D" parent="BackgroundLayers/FarMountains2" unique_id=1706286509]
-modulate = Color(0.47983426, 0.47983432, 0.4798342, 1)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_jjnxc")
-offset = Vector2(0, 1110)
-flip_h = true
-region_rect = Rect2(177, 0, 4096, 2048)
-
-[node name="FadeOut" type="Sprite2D" parent="BackgroundLayers/FarMountains2" unique_id=1831695825]
-position = Vector2(0, 1079)
-scale = Vector2(22.584, 8)
-texture = SubResource("GradientTexture2D_ghegn")
-
-[node name="Mountains" type="Parallax2D" parent="BackgroundLayers" unique_id=290106864]
-scroll_scale = Vector2(0.4, 0.2)
-scroll_offset = Vector2(0, 490)
-repeat_size = Vector2(1993, 0)
-autoscroll = Vector2(12, 0)
-repeat_times = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="BackgroundLayers/Mountains" unique_id=9462451]
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_jjnxc")
-offset = Vector2(0, 520)
-region_rect = Rect2(177, 0, 4096, 2048)
-
-[node name="FadeOut" type="Sprite2D" parent="BackgroundLayers/Mountains" unique_id=555096546]
-position = Vector2(0, 1738)
-scale = Vector2(16.583, 8)
-texture = SubResource("GradientTexture2D_mo0vk")
-
-[node name="FarMist" type="Parallax2D" parent="BackgroundLayers" unique_id=1623056991]
-scroll_scale = Vector2(0.3, 0.3)
-repeat_size = Vector2(1024, 1024)
-autoscroll = Vector2(30, 14)
-repeat_times = 6
-
-[node name="MiddleMist" type="Parallax2D" parent="BackgroundLayers" unique_id=1980496567]
-scroll_scale = Vector2(0.5, 0.5)
-repeat_size = Vector2(1024, 1024)
-autoscroll = Vector2(-20, -10)
-repeat_times = 6
-
-[node name="NearMist" type="Parallax2D" parent="BackgroundLayers" unique_id=1348524175]
-z_index = 50
-scroll_scale = Vector2(1.1, 1.1)
-repeat_size = Vector2(4096, 2048)
-autoscroll = Vector2(7, -4)
-repeat_times = 10
 
 [node name="TestLevels" type="VBoxContainer" parent="." unique_id=1723145764]
 anchors_preset = 9

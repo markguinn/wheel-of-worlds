@@ -1,3 +1,4 @@
+class_name CavernArea
 extends Area2D
 
 

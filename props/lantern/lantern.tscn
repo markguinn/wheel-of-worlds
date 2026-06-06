@@ -40,7 +40,6 @@ shape = SubResource("RectangleShape2D_5pot1")
 debug_color = Color(0.78596556, 0.4325814, 0.027261449, 0.41960785)
 
 [node name="GrabBox" parent="." unique_id=140712427 groups=["bird_targets"] instance=ExtResource("3_vhwrs")]
-visible = false
 script = ExtResource("4_kml0u")
 manage_position = true
 hold_offset = Vector2(0, 24)
