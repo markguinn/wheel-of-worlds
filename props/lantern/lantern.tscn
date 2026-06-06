@@ -9,6 +9,18 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pot1"]
 size = Vector2(60, 20)
 
+[sub_resource type="Gradient" id="Gradient_35axu"]
+offsets = PackedFloat32Array(0, 0.39661655, 0.7199248, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.32563776, 0.32563776, 0.32563776, 1, 0.193609, 0.193609, 0.193609, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5pot1"]
+gradient = SubResource("Gradient_35axu")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [node name="Lantern" type="RigidBody2D" unique_id=1315439554 groups=["light_sources", "music_box_targets", "persisted"]]
 collision_layer = 4
 collision_mask = 31
@@ -26,6 +38,14 @@ rotation = 1.5707964
 shape = SubResource("RectangleShape2D_5pot1")
 debug_color = Color(0.78596556, 0.4325814, 0.027261449, 0.41960785)
 
+[node name="GrabBox" parent="." unique_id=140712427 groups=["bird_targets"] instance=ExtResource("3_vhwrs")]
+visible = false
+script = ExtResource("4_kml0u")
+manage_position = true
+hold_offset = Vector2(0, 24)
+hold_degrees = 0.0
+label_text = "Press X to pick up!"
+
 [node name="ImpactSFX" type="AudioStreamPlayer2D" parent="." unique_id=1966220360]
 position = Vector2(127, -1)
 
@@ -34,13 +54,17 @@ scale_amount_min = 10.0
 scale_amount_max = 20.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1904787679]
+modulate = Color(0.69965345, 0.69965345, 0.69965345, 1)
 z_index = 1
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("5_5pot1")
 
-[node name="GrabBox" parent="." unique_id=140712427 groups=["bird_targets"] instance=ExtResource("3_vhwrs")]
-script = ExtResource("4_kml0u")
-manage_position = true
-hold_offset = Vector2(0, 24)
-hold_degrees = 0.0
-label_text = "Press X to pick up!"
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=133246274]
+light_mask = 0
+color = Color(1, 1, 0.84313726, 1)
+energy = 1.76
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_5pot1")
+texture_scale = 1.4
