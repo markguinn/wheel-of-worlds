@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://chlioeglswitp" path="res://actors/fish_monster/states/fish_attacking.gd" id="4_1r34t"]
 [ext_resource type="Texture2D" uid="uid://ddh3of4qnwhyn" path="res://actors/fish_monster/art/blue-monster-test.png" id="5_bc8oo"]
 [ext_resource type="Texture2D" uid="uid://c08vcn3ytcg2n" path="res://actors/fish_monster/art/blue-monster-test copy 2.png" id="6_1i1lr"]
+[ext_resource type="Gradient" uid="uid://de6ku2qkkuqj8" path="res://stages/world0/water_gradient.tres" id="7_pha0u"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8t8ag"]
 radius = 38.43
@@ -18,25 +19,17 @@ height = 70.8
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_tienk"]
 modification_count = 1
 
-[sub_resource type="Curve" id="Curve_ymvi3"]
+[sub_resource type="Curve" id="Curve_qty00"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.66228074, 0.7584541), -1.5186641, -1.5186641, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Gradient" id="Gradient_7s80s"]
+[sub_resource type="Gradient" id="Gradient_1r34t"]
 offsets = PackedFloat32Array(0, 0.5522388, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.9714662, 0.9814652, 0.9960979, 0.93781096, 0.5411765, 0.7019608, 0.9372549, 0)
 
-[sub_resource type="Gradient" id="Gradient_ymvi3"]
-offsets = PackedFloat32Array(0, 0.53150684, 1)
-colors = PackedColorArray(0.06666667, 0.23921569, 0.3882353, 1, 0.15814123, 0.38190466, 0.6289363, 1, 0.08235294, 0.20392157, 0.37254903, 1)
-
-[sub_resource type="Gradient" id="Gradient_nsxo1"]
+[sub_resource type="Gradient" id="Gradient_bc8oo"]
 offsets = PackedFloat32Array(0, 0.5522388, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.9714662, 0.9814652, 0.9960979, 0.93781096, 0.5411765, 0.7019608, 0.9372549, 0)
-
-[sub_resource type="Gradient" id="Gradient_jjchx"]
-offsets = PackedFloat32Array(0, 0.53150684, 1)
-colors = PackedColorArray(0.06666667, 0.23921569, 0.3882353, 1, 0.15814123, 0.38190466, 0.6289363, 1, 0.08235294, 0.20392157, 0.37254903, 1)
 
 [node name="MediumFish" type="RigidBody2D" unique_id=1857891672]
 z_index = 5
@@ -138,7 +131,7 @@ auto_calculate_length_and_angle = false
 length = 103.669
 bone_angle = 32.69199
 
-[node name="SplashParticles" type="CPUParticles2D" parent="." unique_id=1983388862]
+[node name="SplashParticles" type="CPUParticles2D" parent="." unique_id=920989674]
 z_index = 10
 emitting = false
 amount = 100
@@ -155,11 +148,11 @@ angular_velocity_min = -137.43
 angular_velocity_max = 173.28
 scale_amount_min = 6.0
 scale_amount_max = 12.0
-scale_amount_curve = SubResource("Curve_ymvi3")
-color_ramp = SubResource("Gradient_7s80s")
-color_initial_ramp = SubResource("Gradient_ymvi3")
+scale_amount_curve = SubResource("Curve_qty00")
+color_ramp = SubResource("Gradient_1r34t")
+color_initial_ramp = ExtResource("7_pha0u")
 
-[node name="SwimParticles" type="CPUParticles2D" parent="." unique_id=875777099]
+[node name="SwimParticles" type="CPUParticles2D" parent="." unique_id=1184028626]
 z_index = 10
 position = Vector2(-65, 0)
 emitting = false
@@ -176,6 +169,6 @@ angular_velocity_min = -250.9
 angular_velocity_max = 149.38
 scale_amount_min = 4.0
 scale_amount_max = 8.0
-scale_amount_curve = SubResource("Curve_ymvi3")
-color_ramp = SubResource("Gradient_nsxo1")
-color_initial_ramp = SubResource("Gradient_jjchx")
+scale_amount_curve = SubResource("Curve_qty00")
+color_ramp = SubResource("Gradient_bc8oo")
+color_initial_ramp = ExtResource("7_pha0u")

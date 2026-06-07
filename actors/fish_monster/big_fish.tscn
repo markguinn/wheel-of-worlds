@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c08vcn3ytcg2n" path="res://actors/fish_monster/art/blue-monster-test copy 2.png" id="3_ymvi3"]
 [ext_resource type="Script" uid="uid://dxam5420ufq2c" path="res://actors/fish_monster/states/fish_patrolling.gd" id="4_ymvi3"]
 [ext_resource type="Script" uid="uid://chlioeglswitp" path="res://actors/fish_monster/states/fish_attacking.gd" id="5_tienk"]
+[ext_resource type="Gradient" uid="uid://de6ku2qkkuqj8" path="res://stages/world0/water_gradient.tres" id="7_rgb24"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8t8ag"]
 radius = 92.43
@@ -72,17 +73,9 @@ point_count = 3
 offsets = PackedFloat32Array(0, 0.5522388, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.9714662, 0.9814652, 0.9960979, 0.93781096, 0.5411765, 0.7019608, 0.9372549, 0)
 
-[sub_resource type="Gradient" id="Gradient_ymvi3"]
-offsets = PackedFloat32Array(0, 0.53150684, 1)
-colors = PackedColorArray(0.06666667, 0.23921569, 0.3882353, 1, 0.15814123, 0.38190466, 0.6289363, 1, 0.08235294, 0.20392157, 0.37254903, 1)
-
 [sub_resource type="Gradient" id="Gradient_nsxo1"]
 offsets = PackedFloat32Array(0, 0.5522388, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.9714662, 0.9814652, 0.9960979, 0.93781096, 0.5411765, 0.7019608, 0.9372549, 0)
-
-[sub_resource type="Gradient" id="Gradient_jjchx"]
-offsets = PackedFloat32Array(0, 0.53150684, 1)
-colors = PackedColorArray(0.06666667, 0.23921569, 0.3882353, 1, 0.15814123, 0.38190466, 0.6289363, 1, 0.08235294, 0.20392157, 0.37254903, 1)
 
 [node name="FishMonster" type="RigidBody2D" unique_id=1857891672]
 z_index = 5
@@ -202,7 +195,7 @@ scale_amount_min = 6.0
 scale_amount_max = 12.0
 scale_amount_curve = SubResource("Curve_ymvi3")
 color_ramp = SubResource("Gradient_7s80s")
-color_initial_ramp = SubResource("Gradient_ymvi3")
+color_initial_ramp = ExtResource("7_rgb24")
 
 [node name="SwimParticles" type="CPUParticles2D" parent="." unique_id=875777099]
 z_index = 10
@@ -223,4 +216,4 @@ scale_amount_min = 4.0
 scale_amount_max = 8.0
 scale_amount_curve = SubResource("Curve_ymvi3")
 color_ramp = SubResource("Gradient_nsxo1")
-color_initial_ramp = SubResource("Gradient_jjchx")
+color_initial_ramp = ExtResource("7_rgb24")
