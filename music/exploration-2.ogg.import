@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/exploration-2.ogg-a1b8549c194939e713ff797ec4d
 
 [params]
 
-loop=true
+loop=false
 loop_offset=8.0
 bpm=105.0
 beat_count=224
