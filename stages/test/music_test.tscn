@@ -111,11 +111,10 @@ seamless = true
 seamless_blend_skirt = 0.377
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3382"]
-size = Vector2(915, 658)
+size = Vector2(1277, 658)
 
 [node name="MusicTest" type="Node2D" unique_id=603755158]
 script = ExtResource("1_cp1s7")
-music_type = "test"
 
 [node name="BackgroundLayers" type="Node2D" parent="." unique_id=725099698]
 
@@ -255,7 +254,7 @@ script = ExtResource("9_43jgb")
 metadata/_custom_type_script = "uid://pqhkda8683a4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicZone2" unique_id=911181774]
-position = Vector2(3.5, 10)
+position = Vector2(184.5, 10)
 shape = SubResource("RectangleShape2D_b3382")
 
 [node name="MusicZone3" type="Area2D" parent="." unique_id=1711605821]

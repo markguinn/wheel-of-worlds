@@ -17,11 +17,9 @@ func _ready() -> void:
 
 func _on_body_enter(body: Node2D) -> void:
 	if body is Player:
-		AudioManager.set_music_intensity(intensity)
+		AudioManager.push_music_intensity(intensity)
 
 
 func _on_body_exit(body: Node2D) -> void:
 	if body is Player:
-		# TODO: we'll need to keep them separate this way. you could imagine
-		# a stack or a keeping track of all the active ones in audio manager
-		AudioManager.set_music_intensity(1)
+		AudioManager.pop_music_intensity(intensity)

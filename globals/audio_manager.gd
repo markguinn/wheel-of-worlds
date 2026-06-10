@@ -17,6 +17,14 @@ var bus_music: int
 var bus_sfx: int
 var bus_atmosphere: int
 
+const STREAMS = [
+	"exploring-1",
+	"exploring-2",
+	"exploring-3",
+	"wheel-1",
+]
+var active_streams: Dictionary[String, int] = {}
+
 # NOTE: it's not clear to me whether we should have a single AudioStreamPlayer for
 # all music (in the main scene) or one per world. I _think_ we want the former and
 # that's where we're starting.
@@ -58,14 +66,22 @@ func set_music(music_type: String, intensity = 1) -> void:
 		return
 
 	Log.info(self, "changing music", music_type, "at level", intensity)
-	if not stream_player.playing:
-		stream_player.play()
-	var playback: AudioStreamPlaybackInteractive = stream_player.get_stream_playback() if stream_player else null
-	if playback and playback is AudioStreamPlaybackInteractive:
-		playback.switch_to_clip_by_name(_get_clip_name(music_type, intensity))
-
 	cur_type = music_type
 	cur_intensity = intensity
+	
+	var sync: AudioStreamSynchronized = stream_player.stream
+	if sync and sync is AudioStreamSynchronized:
+		for i in range(STREAMS.size()):
+			sync.set_sync_stream_volume(i, linear_to_db(0.0))
+		active_streams = {}
+		push_music_intensity(intensity)
+
+	if not stream_player.playing:
+		stream_player.play()
+
+	#var playback: AudioStreamPlaybackInteractive = stream_player.get_stream_playback() if stream_player else null
+	#if playback and playback is AudioStreamPlaybackInteractive:
+		#playback.switch_to_clip_by_name(_get_clip_name(music_type, intensity))
 
 
 func pause_music() -> void:
@@ -101,17 +117,18 @@ func _get_clip_name(music_type: String, intensity: int) -> String:
 
 
 func is_valid_music(music_type: String, intensity = 1) -> bool:
-	var stream_player := get_stream_player()
-	if not stream_player:
-		return false
-	var stream: AudioStreamInteractive = stream_player.stream
-	if not stream:
-		return false
-	var clip_name := _get_clip_name(music_type, intensity)
-	for i in range(stream.clip_count):
-		if stream.get_clip_name(i) == clip_name:
-			return true
-	return false
+	return _get_clip_name(music_type, intensity) in STREAMS
+	#var stream_player := get_stream_player()
+	#if not stream_player:
+		#return false
+	#var stream: AudioStreamInteractive = stream_player.stream
+	#if not stream:
+		#return false
+	#var clip_name := _get_clip_name(music_type, intensity)
+	#for i in range(stream.clip_count):
+		#if stream.get_clip_name(i) == clip_name:
+			#return true
+	#return false
 
 
 # if we want to do responsive music we can define
@@ -123,6 +140,31 @@ func set_music_intensity(v: int) -> void:
 	set_music(cur_type, v)
 
  
+func push_music_intensity(v: int) -> void:
+	var clip = _get_clip_name(cur_type, v)
+	var idx = STREAMS.find(clip)
+	if idx >= 0:
+		active_streams.set(clip, active_streams.get(clip, 0) + 1)
+		_set_stream_level(idx, 1.0)
+
+func pop_music_intensity(v: int) -> void:
+	var clip = _get_clip_name(cur_type, v)
+	var idx = STREAMS.find(clip)
+	if idx >= 0 and clip in active_streams:
+		var new_val: int = max(active_streams.get(clip) - 1, 0)
+		active_streams.set(clip, new_val)
+		if new_val == 0:
+			_set_stream_level(idx, 0.0)
+
+func _set_stream_level(idx: int, linear_volume: float) -> void:
+	var stream_player := get_stream_player()
+	if not stream_player:
+		return
+	var sync: AudioStreamSynchronized = stream_player.stream
+	if sync and sync is AudioStreamSynchronized:
+		sync.set_sync_stream_volume(idx, linear_to_db(linear_volume))
+
+
 # all of these can be values between 0.0 and 1.0
 
 
