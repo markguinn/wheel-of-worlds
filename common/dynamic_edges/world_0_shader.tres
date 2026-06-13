@@ -1,0 +1,52 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dej13b0et5yjt"]
+
+[ext_resource type="Shader" uid="uid://cdne4tlbiqua3" path="res://common/dynamic_edges/edge_and_fill_shader.gdshader" id="1_4ul7f"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qw55a"]
+load_path = "res://.godot/imported/level0-edges_0003_Layer-1.png-610f9f59e2435051340d54bfd846f34f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r6h17"]
+load_path = "res://.godot/imported/level0-edges_0002_Layer-2.png-1240848e5519222e36584116375114ae.ctex"
+
+[sub_resource type="Gradient" id="Gradient_ruemm"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5raij"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_byorn"]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_5raij")
+color_ramp = SubResource("Gradient_ruemm")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1g53a"]
+load_path = "res://.godot/imported/Level0_Tiles-1.png-5d92f8171504f702efcfbc831488955f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7h5cp"]
+load_path = "res://.godot/imported/Level0_Tiles-8.png-6ce521950d862dc1c36756528aa5835e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rqeuv"]
+load_path = "res://.godot/imported/Level0_Tiles-4.png-f0d78fa469fa5e78c5714f7787b9548d.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i07gp"]
+load_path = "res://.godot/imported/Level0_Tiles-9.png-2132c55f5361649ed7dbce97e8f5163b.ctex"
+
+[resource]
+shader = ExtResource("1_4ul7f")
+shader_parameter/target = Color(0.99215686, 0.9882353, 0.9882353, 1)
+shader_parameter/base_color = Color(0.27058825, 0.30980393, 0.21960784, 1)
+shader_parameter/patterns = Array[Texture2D]([SubResource("CompressedTexture2D_1g53a"), SubResource("CompressedTexture2D_7h5cp"), SubResource("CompressedTexture2D_rqeuv"), SubResource("CompressedTexture2D_i07gp")])
+shader_parameter/pattern_distortions = Array[Texture2D]([SubResource("NoiseTexture2D_byorn")])
+shader_parameter/offsets = PackedFloat32Array(0, 100, 250, 400)
+shader_parameter/scales = PackedFloat32Array(1.8, 3.84, 4, 3.9)
+shader_parameter/opacities = PackedFloat32Array(1, 0.4, 0.4, 0.5)
+shader_parameter/margin = 96.0
+shader_parameter/pattern_size = 512.0
+shader_parameter/overall_scale = 1.5
+shader_parameter/edge_size = Vector2(834, 50)
+shader_parameter/real_screen_size = Vector2(5633.823, 3848.1462)
+shader_parameter/edges = Array[Texture2D]([SubResource("CompressedTexture2D_qw55a"), SubResource("CompressedTexture2D_r6h17")])
+shader_parameter/edge_smoothness = 2.9050001379875
+shader_parameter/fill_enabled = true
+shader_parameter/edge_enabled = true
+shader_parameter/distortion_strength = 0.0050000002375
+shader_parameter/distortion_size = 7.606000361285

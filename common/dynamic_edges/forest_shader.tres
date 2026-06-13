@@ -1,0 +1,39 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://gxe27neadqbk"]
+
+[ext_resource type="Shader" uid="uid://cdne4tlbiqua3" path="res://common/dynamic_edges/edge_and_fill_shader.gdshader" id="1_8kgp5"]
+[ext_resource type="Texture2D" uid="uid://dgl0mphwmq5p1" path="res://stages/forest/art/single tile grass centre.png" id="1_poft7"]
+[ext_resource type="Texture2D" uid="uid://cbvc5xaxe110v" path="res://stages/forest/art/deepdirt.png" id="2_8kgp5"]
+[ext_resource type="Texture2D" uid="uid://co732w5oqpofy" path="res://stages/forest/art/single tile rocks.png" id="3_dnfnv"]
+[ext_resource type="Texture2D" uid="uid://bao66wm4oa3v7" path="res://stages/world0/art/Level0_Tiles-4.png" id="4_vwetw"]
+[ext_resource type="Texture2D" uid="uid://b3wdc36ysewoa" path="res://stages/world0/art/Level0_Tiles-9.png" id="5_w2siq"]
+
+[sub_resource type="Gradient" id="Gradient_ef5sk"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4djxb"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r111g"]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_4djxb")
+color_ramp = SubResource("Gradient_ef5sk")
+
+[resource]
+shader = ExtResource("1_8kgp5")
+shader_parameter/target = Color(1, 1, 1, 1)
+shader_parameter/base_color = Color(0.13725491, 0.09411765, 0.05490196, 1)
+shader_parameter/patterns = Array[Texture2D]([ExtResource("2_8kgp5"), ExtResource("3_dnfnv"), ExtResource("4_vwetw"), ExtResource("5_w2siq")])
+shader_parameter/pattern_distortions = Array[Texture2D]([SubResource("NoiseTexture2D_r111g")])
+shader_parameter/offsets = PackedFloat32Array(0, 100, 250, 400)
+shader_parameter/scales = PackedFloat32Array(0.3, 2.04, 3.5, 2)
+shader_parameter/opacities = PackedFloat32Array(0.5, 0.1, 0.05, 0.05)
+shader_parameter/margin = 96.0
+shader_parameter/pattern_size = 512.0
+shader_parameter/overall_scale = 1.5
+shader_parameter/edge_size = Vector2(128, 128)
+shader_parameter/real_screen_size = Vector2(926.59174, 466.92166)
+shader_parameter/edges = Array[Texture2D]([ExtResource("1_poft7"), ExtResource("1_poft7")])
+shader_parameter/edge_smoothness = 2.9050001379875
+shader_parameter/fill_enabled = true
+shader_parameter/edge_enabled = true
+shader_parameter/distortion_strength = 0.0050000002375
+shader_parameter/distortion_size = 7.606000361285

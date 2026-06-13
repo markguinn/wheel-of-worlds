@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bkbnodg0b2hkl"]
+
+[ext_resource type="Script" uid="uid://cl628pbgqy7ls" path="res://common/dynamic_edges/baking_progress_dialog.gd" id="1_ta458"]
+
+[sub_resource type="Theme" id="Theme_8fje4"]
+
+[sub_resource type="Theme" id="Theme_ta458"]
+
+[sub_resource type="Theme" id="Theme_4ljg8"]
+
+[sub_resource type="Theme" id="Theme_s1l2e"]
+
+[node name="BakingProgressDialog" type="Window" unique_id=1088217697]
+oversampling_override = 1.0
+title = "Bake edges"
+initial_position = 1
+size = Vector2i(450, 250)
+popup_window = true
+theme = SubResource("Theme_8fje4")
+script = ExtResource("1_ta458")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=100398301]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=38606951]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=410615103]
+layout_mode = 2
+theme = SubResource("Theme_ta458")
+theme_type_variation = &"DarkLabel"
+text = "Rendering..."
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=1122334382]
+layout_mode = 2
+theme = SubResource("Theme_4ljg8")
+
+[node name="Cancel" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1848180802]
+layout_mode = 2
+theme = SubResource("Theme_s1l2e")
+text = "Cancel"

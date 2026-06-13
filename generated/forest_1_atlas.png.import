@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7ty203qvntud"
-path="res://.godot/imported/edge_test_atlas.png-51c1e2ed44febd8cb3ad08d5fe469da3.ctex"
+uid="uid://6lt1jgngwcb3"
+path="res://.godot/imported/forest_1_atlas.png-589b57d2500d67d7d6987ebfff72611f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://generated/edge_test_atlas.png"
-dest_files=["res://.godot/imported/edge_test_atlas.png-51c1e2ed44febd8cb3ad08d5fe469da3.ctex"]
+source_file="res://generated/forest_1_atlas.png"
+dest_files=["res://.godot/imported/forest_1_atlas.png-589b57d2500d67d7d6987ebfff72611f.ctex"]
 
 [params]
 
