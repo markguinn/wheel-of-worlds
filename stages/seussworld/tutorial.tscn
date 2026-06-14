@@ -25,6 +25,7 @@
 [ext_resource type="Script" uid="uid://b4pqw6kubesjc" path="res://common/checkpoint.gd" id="23_kjcn1"]
 [ext_resource type="PackedScene" uid="uid://yvxjjw3xw1wh" path="res://props/music_box/music_box.tscn" id="24_pj5sl"]
 [ext_resource type="PackedScene" uid="uid://tyaekwp4wxwa" path="res://stages/seussworld/prefabs/world0_water.tscn" id="25_mpqe7"]
+[ext_resource type="PackedScene" uid="uid://c8oclbuhrdst6" path="res://music/exploring_music.tscn" id="26_03fdn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3bs7n"]
 
@@ -995,3 +996,5 @@ position = Vector2(396, 721)
 shape = SubResource("RectangleShape2D_1cdy3")
 
 [node name="Water" parent="." unique_id=14946250 instance=ExtResource("25_mpqe7")]
+
+[node name="ExploringMusic" parent="." unique_id=645564139 instance=ExtResource("26_03fdn")]

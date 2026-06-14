@@ -10,6 +10,7 @@ const SFX_REVERB_INDEX = 0
 const MUSIC_LOW_PASS_INDEX = 0
 const MIN_LP_FREQ = 2000
 const MAX_LP_FREQ = 20500
+const LAYER_TWEEN_TIME = 2.0
 
 var cur_type: String = "wheel"
 var cur_intensity := 1
@@ -24,6 +25,11 @@ const STREAMS = [
 	"wheel-1",
 ]
 var active_streams: Dictionary[String, int] = {}
+
+var base_layers: Array[float] = []
+var layer_stack: Array[Array] = []
+var cur_layers: Array[float] = []
+var layer_tween: Tween
 
 # NOTE: it's not clear to me whether we should have a single AudioStreamPlayer for
 # all music (in the main scene) or one per world. I _think_ we want the former and
@@ -45,6 +51,13 @@ func get_stream_player() -> AudioStreamPlayer:
 	if not stream_player:
 		Log.warn(self, "no audio stream player found")
 	return stream_player
+
+
+func get_sync_player() -> AudioStreamSynchronized:
+	var stream_player := get_stream_player()
+	if stream_player and stream_player.stream is AudioStreamSynchronized:
+		return stream_player.stream
+	return null
 
 
 # TODO: it'd be nice to validate that a given combination actually exists first
@@ -82,6 +95,89 @@ func set_music(music_type: String, intensity = 1) -> void:
 	#var playback: AudioStreamPlaybackInteractive = stream_player.get_stream_playback() if stream_player else null
 	#if playback and playback is AudioStreamPlaybackInteractive:
 		#playback.switch_to_clip_by_name(_get_clip_name(music_type, intensity))
+
+
+func reset_music() -> void:
+	reset_music_damping()
+	reset_room_size()
+	base_layers = get_music_layers().duplicate()
+	Log.info(self, "base music layers", cur_layers)
+	var p := get_stream_player()
+	if p:
+		p.play()
+
+
+func get_music_layers() -> Array[float]:
+	var sync: AudioStreamSynchronized = get_sync_player()
+	if not sync:
+		return []
+	cur_layers = []
+	for i in range(sync.stream_count):
+		cur_layers.append(db_to_linear(sync.get_sync_stream_volume(i)))
+	return cur_layers
+
+
+func set_music_layers(layers: Array[float]) -> void:
+	var sync: AudioStreamSynchronized = get_sync_player()
+	if not sync:
+		return
+	for i in range(sync.stream_count):
+		if i < layers.size():
+			sync.set_sync_stream_volume(i, linear_to_db(layers[i]))
+			if i < cur_layers.size():
+				cur_layers[i] = layers[i]
+	Log.debug(self, "set music layers", layers)
+
+
+func set_music_layer(linear_vol: float, i: int) -> void:
+	var sync: AudioStreamSynchronized = get_sync_player()
+	if not sync:
+		return
+	sync.set_sync_stream_volume(i, linear_to_db(linear_vol))
+	if i < cur_layers.size():
+		cur_layers[i] = linear_vol
+
+
+func push_music_layers(layers: Array[float]) -> void:
+	Log.info(self, "push layers", layers, layer_stack)
+	if layers.size() <= 0:
+		return
+	tween_music_layers(layers)
+	layer_stack.append(layers)
+
+
+func tween_music_layers(layers: Array[float]) -> void:
+	if layer_tween and layer_tween.is_running():
+		layer_tween.stop()
+	layer_tween = create_tween()
+	cur_layers = get_music_layers()
+	layer_tween.tween_method(set_music_layer.bind(0), cur_layers[0], layers[0], LAYER_TWEEN_TIME)
+	for i in range(1, layers.size()):
+		layer_tween.parallel().tween_method(set_music_layer.bind(i), cur_layers[i], layers[i], LAYER_TWEEN_TIME)
+
+
+func _same_layers(l1: Array[float], l2: Array[float]) -> bool:
+	if l1.size() != l2.size():
+		return false
+	for i in range(l1.size()):
+		if l1[i] != l2[i]:
+			return false
+	return true
+
+
+func pop_music_layers(layers: Array[float]) -> void:
+	Log.info(self, "pop layers", layers, layer_stack)
+	if layers.size() <= 0:
+		return
+	for i in range(layer_stack.size()):
+		var j = layer_stack.size() - 1 - i
+		if _same_layers(layers, layer_stack[j]):
+			layer_stack.remove_at(j)
+			Log.debug(self, "popped layer", j, layer_stack)
+			break
+	var next_layer = layer_stack.back() if layer_stack.size() > 0 else base_layers
+	Log.info(self, next_layer, base_layers, layer_stack)
+	tween_music_layers(next_layer)
 
 
 func pause_music() -> void:

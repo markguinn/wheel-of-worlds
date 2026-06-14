@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="4_fjyco"]
 [ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="5_slp1w"]
 [ext_resource type="AudioStream" uid="uid://tl65aogokijy" path="res://common/sfx/wheel turning.ogg" id="7_qmu1q"]
+[ext_resource type="PackedScene" uid="uid://b7dpqa8b75pvp" path="res://music/theme_music.tscn" id="8_fjyco"]
 
 [sub_resource type="Gradient" id="Gradient_4eaw5"]
 offsets = PackedFloat32Array(0.0076923077, 1)
@@ -106,3 +107,5 @@ remote_path = NodePath("../../Camera")
 [node name="WheelSFX" type="AudioStreamPlayer" parent="." unique_id=1414495510]
 stream = ExtResource("7_qmu1q")
 bus = &"Atmosphere"
+
+[node name="BackgroundMusic" parent="." unique_id=1022284647 instance=ExtResource("8_fjyco")]

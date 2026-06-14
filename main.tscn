@@ -1,11 +1,6 @@
 [gd_scene format=3 uid="uid://cmb0mj478j8hq"]
 
 [ext_resource type="PackedScene" uid="uid://c3o0udsehlyxh" path="res://screens/title_screen/title_screen.tscn" id="1_ig7tw"]
-[ext_resource type="AudioStream" uid="uid://ckaaen4es0qks" path="res://music/exploration-0.ogg" id="2_5vw27"]
-[ext_resource type="AudioStream" uid="uid://bnmkn471sn5hx" path="res://music/exploration-1.ogg" id="3_kek77"]
-[ext_resource type="AudioStream" uid="uid://mfk74m24uaou" path="res://music/exploration-2.ogg" id="4_4c57u"]
-[ext_resource type="AudioStream" uid="uid://hwy71vtpelu1" path="res://music/Bert Theme Sketch 3.ogg" id="5_5vw27"]
-[ext_resource type="AudioStream" uid="uid://cg7y7pgculiom" path="res://music/exploration-3.ogg" id="5_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dxykffs3v4670" path="res://screens/pause_menu/pause_menu.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bmcqlphjm2pkh" path="res://screens/dev_menu/dev_menu.tscn" id="7_272bh"]
 
@@ -17,94 +12,10 @@ glow_enabled = true
 glow_intensity = 0.5
 adjustment_enabled = true
 
-[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_272bh"]
-clip_count = 5
-clip_0/name = &"wheel-1"
-clip_0/stream = ExtResource("5_5vw27")
-clip_0/auto_advance = 0
-clip_1/name = &"exploring-0"
-clip_1/stream = ExtResource("2_5vw27")
-clip_1/auto_advance = 0
-clip_2/name = &"exploring-1"
-clip_2/stream = ExtResource("3_kek77")
-clip_2/auto_advance = 0
-clip_3/name = &"exploring-2"
-clip_3/stream = ExtResource("4_4c57u")
-clip_3/auto_advance = 0
-clip_4/name = &"exploring-3"
-clip_4/stream = ExtResource("5_efxa6")
-clip_4/auto_advance = 0
-_transitions = {
-Vector2i(-1, -1): {
-"fade_beats": 1.0,
-"fade_mode": 4,
-"from_time": 1,
-"to_time": 0
-},
-Vector2i(-1, 0): {
-"fade_beats": 2.0,
-"fade_mode": 2,
-"from_time": 0,
-"to_time": 1
-},
-Vector2i(-1, 1): {
-"fade_beats": 2.0,
-"fade_mode": 2,
-"from_time": 0,
-"to_time": 1
-},
-Vector2i(0, -1): {
-"fade_beats": 2.0,
-"fade_mode": 2,
-"from_time": 1,
-"to_time": 1
-},
-Vector2i(1, -1): {
-"fade_beats": 0.0,
-"fade_mode": 4,
-"from_time": 2,
-"to_time": 0
-},
-Vector2i(1, 0): {
-"fade_beats": 1.0,
-"fade_mode": 2,
-"from_time": 0,
-"to_time": 1
-},
-Vector2i(1, 2): {
-"fade_beats": 0.0,
-"fade_mode": 0,
-"from_time": 3,
-"to_time": 1
-}
-}
-
-[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_5vw27"]
-stream_count = 3
-stream_0/stream = ExtResource("3_kek77")
-stream_0/volume = 0.0
-stream_1/stream = ExtResource("4_4c57u")
-stream_1/volume = 0.0
-stream_2/stream = ExtResource("5_efxa6")
-stream_2/volume = 0.0
-
 [node name="Main" type="Node2D" unique_id=1319895979]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=725012286 groups=["world_environment"]]
 environment = SubResource("Environment_lquwl")
-
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1500950709]
-process_mode = 3
-stream = SubResource("AudioStreamInteractive_272bh")
-volume_db = -12.0
-bus = &"Music"
-
-[node name="BackgroundMusic2" type="AudioStreamPlayer" parent="." unique_id=683986333 groups=["background_music"]]
-process_mode = 3
-stream = SubResource("AudioStreamSynchronized_5vw27")
-volume_db = -12.0
-autoplay = true
-bus = &"Music"
 
 [node name="Container" type="Node2D" parent="." unique_id=575935762 groups=["scene_container"]]
 
