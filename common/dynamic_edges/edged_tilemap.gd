@@ -29,7 +29,6 @@ func _ready() -> void:
 	shader_material.set_shader_parameter("edge_enabled", Engine.is_editor_hint())
 	target_layer.visible = !Engine.is_editor_hint()
 
-
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint() and not baking:
 		var vpr := get_viewport_rect().size / get_viewport_transform().get_scale()
@@ -37,7 +36,6 @@ func _process(_delta: float) -> void:
 
 
 func _cancel_bake() -> void:
-	#EditorInterface.get_editor_toaster().push_toast("Bake canceled", EditorToaster.SEVERITY_WARNING)
 	_cleanup_bake()
 	_cancel = true
 	
@@ -65,7 +63,6 @@ func _bake_edges() -> void:
 		target_layer.tile_set.remove_source(target_layer.tile_set.get_source_id(0))
 	var src := TileSetAtlasSource.new()
 	target_layer.tile_set.add_source(src)
-	EditorInterface.get_editor_toaster().push_toast("Baking edge layer. This can take a while.", EditorToaster.SEVERITY_INFO)
 	
 	var atlas_fn = _get_atlas_path()
 	DirAccess.remove_absolute(atlas_fn)
@@ -87,7 +84,9 @@ func _bake_edges() -> void:
 	self.scale = Vector2.ONE
 	
 	popup = popup_scene.instantiate()
-	EditorInterface.popup_dialog(popup)
+	if Engine.is_editor_hint():
+		var editor = Engine.get_singleton("EditorInterface")	
+		editor.popup_dialog(popup)
 	var popup_label:Label = popup.get_node("MarginContainer/VBoxContainer/Label")
 	var popup_bar:ProgressBar = popup.get_node("MarginContainer/VBoxContainer/ProgressBar")
 	var btn = popup.get_node("MarginContainer/VBoxContainer/Cancel")
@@ -154,13 +153,11 @@ func _bake_edges() -> void:
 	
 	popup_label.text = "Waiting for re-import..."
 	popup_bar.value = 99.0
-	EditorInterface.get_editor_toaster().push_toast("Waiting for file to be imported", EditorToaster.SEVERITY_INFO)
 	while not FileAccess.file_exists(atlas_fn + ".import"):
 		RenderingServer.force_draw()
 		await RenderingServer.frame_post_draw
 		if _cancel:
 			return
-	EditorInterface.get_editor_toaster().push_toast("Found import file. proceeding", EditorToaster.SEVERITY_INFO)
 	var atlas_tex = ResourceLoader.load(atlas_fn, "", ResourceLoader.CACHE_MODE_REPLACE_DEEP)
 	popup_label.text = "Finishing..."
 	src.texture = atlas_tex
@@ -193,7 +190,6 @@ func _bake_edges() -> void:
 	_cleanup_bake()
 	clone.queue_free()
 	subviewport.queue_free()
-	EditorInterface.get_editor_toaster().push_toast("Bake complete.", EditorToaster.SEVERITY_INFO)
 
 
 func _get_folder() -> String:

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bxxbctnq2ubio" path="res://stages/stage.gd" id="1_orl6v"]
 [ext_resource type="Texture2D" uid="uid://djpsb4jyc0afj" path="res://stages/world0/art/mountains.png" id="2_3rmqd"]
 [ext_resource type="Script" uid="uid://ch0wv8cuoudkc" path="res://stages/world0/mist.gd" id="3_4avw7"]
-[ext_resource type="Material" uid="uid://w6s6k7r66ghw" path="res://stages/world0/painted5.tres" id="7_m6f72"]
+[ext_resource type="Material" uid="uid://dej13b0et5yjt" path="res://common/dynamic_edges/world_0_shader.tres" id="4_y0ayx"]
 [ext_resource type="PackedScene" uid="uid://cs57yefkh1f4s" path="res://props/lantern/lantern.tscn" id="8_jm8si"]
 [ext_resource type="Script" uid="uid://b0waw70vdi075" path="res://stages/world0/shader_helper.gd" id="8_qralu"]
 [ext_resource type="TileSet" uid="uid://dg4yxlibps56a" path="res://stages/world0/painted_tiles.tres" id="9_iyuqm"]
@@ -226,7 +226,7 @@ script = ExtResource("3_4avw7")
 z_index = 1
 
 [node name="PaintedGround" type="CanvasGroup" parent="Terrain" unique_id=317622971]
-material = ExtResource("7_m6f72")
+material = ExtResource("4_y0ayx")
 fit_margin = 200.0
 clear_margin = 200.0
 script = ExtResource("8_qralu")
