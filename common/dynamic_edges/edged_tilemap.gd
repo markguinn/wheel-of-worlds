@@ -18,6 +18,7 @@ var baking := false
 var original_shader_bg: Color
 var shader_material: ShaderMaterial
 var original_scale: Vector2
+var use_baked := false
 
 var popup_scene = preload("res://common/dynamic_edges/baking_progress_dialog.tscn")
 var popup: BakingProgressDialog
@@ -26,11 +27,13 @@ func _ready() -> void:
 	shader_material = material
 	original_shader_bg = shader_material.get_shader_parameter("base_color")
 	shader_material.set_shader_parameter("fill_enabled", true)
-	shader_material.set_shader_parameter("edge_enabled", Engine.is_editor_hint())
-	target_layer.visible = !Engine.is_editor_hint()
+	use_baked = !Engine.is_editor_hint() and target_layer
+	shader_material.set_shader_parameter("edge_enabled", !use_baked)
+	if target_layer:
+		target_layer.visible = use_baked
 
 func _process(_delta: float) -> void:
-	if Engine.is_editor_hint() and not baking:
+	if not use_baked and not baking:
 		var vpr := get_viewport_rect().size / get_viewport_transform().get_scale()
 		shader_material.set_shader_parameter("real_screen_size", vpr)
 
