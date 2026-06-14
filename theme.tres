@@ -18,22 +18,14 @@ content_margin_bottom = 10.0
 content_margin_top = 5.0
 content_margin_bottom = 5.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yin2u"]
-content_margin_left = 16.0
-content_margin_top = 8.0
-content_margin_right = 16.0
-content_margin_bottom = 8.0
-bg_color = Color(0, 0.08627451, 0.12941177, 0.84705883)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0.08627451, 0.12941177, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05tig"]
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0.08627451, 0.12941177, 0.21176471)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
-corner_detail = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjfk0"]
 bg_color = Color(0.6, 0.79607844, 0.49019608, 0.85490197)
@@ -102,7 +94,7 @@ Button/icons/icon = ExtResource("1_110ce")
 Button/styles/focus = SubResource("StyleBoxEmpty_110ce")
 Button/styles/hover = SubResource("StyleBoxEmpty_05tig")
 Button/styles/normal = SubResource("StyleBoxEmpty_vj6dk")
-Button/styles/pressed = SubResource("StyleBoxFlat_yin2u")
+Button/styles/pressed = SubResource("StyleBoxFlat_05tig")
 DarkLabel/base_type = &"Label"
 DarkLabel/colors/font_color = Color(0, 0, 0, 1)
 DarkLabel/colors/font_shadow_color = Color(0, 0, 0, 0)

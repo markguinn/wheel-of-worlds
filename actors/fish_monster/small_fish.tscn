@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://chlioeglswitp" path="res://actors/fish_monster/states/fish_attacking.gd" id="4_u5c48"]
 [ext_resource type="Texture2D" uid="uid://ddh3of4qnwhyn" path="res://actors/fish_monster/art/blue-monster-test.png" id="5_rf1r0"]
 [ext_resource type="Texture2D" uid="uid://c08vcn3ytcg2n" path="res://actors/fish_monster/art/blue-monster-test copy 2.png" id="6_nhomp"]
-[ext_resource type="Gradient" uid="uid://de6ku2qkkuqj8" path="res://stages/world0/water_gradient.tres" id="7_2rclf"]
+[ext_resource type="Gradient" uid="uid://de6ku2qkkuqj8" path="res://stages/seussworld/prefabs/water_gradient.tres" id="7_2rclf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8t8ag"]
 radius = 23.43

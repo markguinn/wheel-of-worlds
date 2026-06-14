@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://tyaekwp4wxwa"]
+
+[ext_resource type="Script" uid="uid://c14bdtvnsmnpn" path="res://common/water_children.gd" id="1_2p6dl"]
+[ext_resource type="Shader" uid="uid://dnoijk00iirir" path="res://common/waves.gdshader" id="2_58l0g"]
+[ext_resource type="Texture2D" uid="uid://b1rlrnsbf2w4f" path="res://stages/seussworld/art/Level0-water-1.png" id="3_w2ohg"]
+[ext_resource type="Texture2D" uid="uid://b8ynfqwpoefgv" path="res://stages/seussworld/art/Level0-water-3.png" id="4_in4cw"]
+[ext_resource type="Texture2D" uid="uid://wshhhnqmy14q" path="res://stages/seussworld/art/Level0-water-5.png" id="5_rdwoq"]
+[ext_resource type="Texture2D" uid="uid://bhvoxbyyi3mos" path="res://stages/seussworld/art/Level0-water-2.png" id="6_u3pn3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k4dac"]
+shader = ExtResource("2_58l0g")
+shader_parameter/speed = 1.4
+shader_parameter/width = 20.0
+shader_parameter/depth = 0.08
+shader_parameter/revs = 2
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_k5h24"]
+frames = 3
+frame_0/texture = ExtResource("3_w2ohg")
+frame_0/duration = 0.3
+frame_1/texture = ExtResource("4_in4cw")
+frame_1/duration = 0.3
+frame_2/texture = ExtResource("5_rdwoq")
+frame_2/duration = 0.3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qj5ca"]
+shader = ExtResource("2_58l0g")
+shader_parameter/speed = 1.5
+shader_parameter/width = 30.0
+shader_parameter/depth = 0.1
+shader_parameter/revs = 2
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_qj5ca"]
+frames = 3
+frame_0/texture = ExtResource("3_w2ohg")
+frame_0/duration = 0.4
+frame_1/texture = ExtResource("4_in4cw")
+frame_1/duration = 0.4
+frame_2/texture = ExtResource("5_rdwoq")
+frame_2/duration = 0.4
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_tt41u"]
+frame_0/texture = ExtResource("6_u3pn3")
+frame_0/duration = 0.3
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_colx8"]
+frame_0/texture = ExtResource("6_u3pn3")
+frame_0/duration = 0.4
+
+[node name="Water" type="Control" unique_id=14946250 node_paths=PackedStringArray("wave_layers")]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = -8878.0
+offset_top = 1229.0
+offset_right = 7560.0
+offset_bottom = 1889.0
+script = ExtResource("1_2p6dl")
+speed = 2.0
+amount = 8.0
+wave_layers = [NodePath("BG1"), NodePath("BG2"), NodePath("Water1"), NodePath("Water2")]
+wave_offset = Vector2(0, -150)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=127477503]
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8352941, 0.9372549, 0.91764706, 1)
+
+[node name="BG1" type="TextureRect" parent="." unique_id=1370769884]
+material = SubResource("ShaderMaterial_k4dac")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 27.595879
+offset_top = -151.50862
+offset_right = 27.595703
+offset_bottom = 171.49138
+grow_horizontal = 2
+texture = SubResource("AnimatedTexture_k5h24")
+stretch_mode = 1
+
+[node name="BG2" type="TextureRect" parent="." unique_id=504008343]
+z_index = 5
+material = SubResource("ShaderMaterial_qj5ca")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -27.234125
+offset_top = -149.64523
+offset_right = -27.234375
+offset_bottom = 173.35477
+grow_horizontal = 2
+texture = SubResource("AnimatedTexture_qj5ca")
+stretch_mode = 1
+
+[node name="Water1" type="TextureRect" parent="." unique_id=739047094]
+z_index = 5
+material = SubResource("ShaderMaterial_k4dac")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -160.36829
+offset_top = -148.05807
+offset_right = -160.36816
+offset_bottom = 174.94193
+grow_horizontal = 2
+texture = SubResource("AnimatedTexture_tt41u")
+stretch_mode = 1
+
+[node name="Water2" type="TextureRect" parent="." unique_id=488215949]
+z_index = 5
+material = SubResource("ShaderMaterial_qj5ca")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 99.54361
+offset_top = -146.85056
+offset_right = 99.54297
+offset_bottom = 176.14944
+grow_horizontal = 2
+texture = SubResource("AnimatedTexture_colx8")
+stretch_mode = 1
+flip_h = true
