@@ -16,7 +16,7 @@ func _ready() -> void:
 	options_menu.hide()
 	options_bg.hide()
 	GameManager.is_in_game = false
-	AudioManager.set_music("wheel")
+	AudioManager.reset_music()
 
 
 func _on_quit_game_pressed() -> void:

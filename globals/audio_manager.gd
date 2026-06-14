@@ -18,25 +18,14 @@ var bus_music: int
 var bus_sfx: int
 var bus_atmosphere: int
 
-const STREAMS = [
-	"exploring-1",
-	"exploring-2",
-	"exploring-3",
-	"wheel-1",
-]
-var active_streams: Dictionary[String, int] = {}
-
 var base_layers: Array[float] = []
 var layer_stack: Array[Array] = []
 var cur_layers: Array[float] = []
 var layer_tween: Tween
 
-# NOTE: it's not clear to me whether we should have a single AudioStreamPlayer for
-# all music (in the main scene) or one per world. I _think_ we want the former and
-# that's where we're starting.
 
-# TODO: add push/pop by name
 # TODO: persist the volume settings
+
 
 func _ready() -> void:
 	bus_music = AudioServer.get_bus_index("Music")
@@ -58,43 +47,6 @@ func get_sync_player() -> AudioStreamSynchronized:
 	if stream_player and stream_player.stream is AudioStreamSynchronized:
 		return stream_player.stream
 	return null
-
-
-# TODO: it'd be nice to validate that a given combination actually exists first
-# We could also use an outer AudioStreamInteractive and an inner AudioStreamSynchronized
-# to do the intensity levels. Lots of freedom to adjust here based on the music
-# people are willing and abel to write.
-func set_music(music_type: String, intensity = 1) -> void:
-	var stream_player := get_stream_player()
-	if not stream_player:
-		return
-
-	if music_type == "" or intensity < 1:
-		Log.info(self, "stopping music")
-		stream_player.stop()
-		return
-
-	if not is_valid_music(music_type, intensity):
-		Log.warn(self, "invalid music requested", music_type, intensity)
-		return
-
-	Log.info(self, "changing music", music_type, "at level", intensity)
-	cur_type = music_type
-	cur_intensity = intensity
-	
-	var sync: AudioStreamSynchronized = stream_player.stream
-	if sync and sync is AudioStreamSynchronized:
-		for i in range(STREAMS.size()):
-			sync.set_sync_stream_volume(i, linear_to_db(0.0))
-		active_streams = {}
-		push_music_intensity(intensity)
-
-	if not stream_player.playing:
-		stream_player.play()
-
-	#var playback: AudioStreamPlaybackInteractive = stream_player.get_stream_playback() if stream_player else null
-	#if playback and playback is AudioStreamPlaybackInteractive:
-		#playback.switch_to_clip_by_name(_get_clip_name(music_type, intensity))
 
 
 func reset_music() -> void:
@@ -207,50 +159,6 @@ func set_music_damping(amount: float) -> void:
 func reset_music_damping() -> void:
 	set_music_damping(0.0)
 
-
-func _get_clip_name(music_type: String, intensity: int) -> String:
-	return music_type + "-" + str(intensity)
-
-
-func is_valid_music(music_type: String, intensity = 1) -> bool:
-	return _get_clip_name(music_type, intensity) in STREAMS
-	#var stream_player := get_stream_player()
-	#if not stream_player:
-		#return false
-	#var stream: AudioStreamInteractive = stream_player.stream
-	#if not stream:
-		#return false
-	#var clip_name := _get_clip_name(music_type, intensity)
-	#for i in range(stream.clip_count):
-		#if stream.get_clip_name(i) == clip_name:
-			#return true
-	#return false
-
-
-# if we want to do responsive music we can define
-# a few intensity levels and map or mix between them here,
-# a given music stream resource might define all 3 or only
-# 1 of these (e.g. the title music wouldn't have multiple levels)
-# e.g. 1=light exploring, 2=mid exploring, 3=enemy encounter
-func set_music_intensity(v: int) -> void:
-	set_music(cur_type, v)
-
- 
-func push_music_intensity(v: int) -> void:
-	var clip = _get_clip_name(cur_type, v)
-	var idx = STREAMS.find(clip)
-	if idx >= 0:
-		active_streams.set(clip, active_streams.get(clip, 0) + 1)
-		_set_stream_level(idx, 1.0)
-
-func pop_music_intensity(v: int) -> void:
-	var clip = _get_clip_name(cur_type, v)
-	var idx = STREAMS.find(clip)
-	if idx >= 0 and clip in active_streams:
-		var new_val: int = max(active_streams.get(clip) - 1, 0)
-		active_streams.set(clip, new_val)
-		if new_val == 0:
-			_set_stream_level(idx, 0.0)
 
 func _set_stream_level(idx: int, linear_volume: float) -> void:
 	var stream_player := get_stream_player()

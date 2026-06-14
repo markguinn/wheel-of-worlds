@@ -537,7 +537,11 @@ size = Vector2(1472, 1526)
 material = SubResource("ShaderMaterial_3bs7n")
 script = ExtResource("1_ys5li")
 
+[node name="ExploringMusic" parent="." unique_id=645564139 instance=ExtResource("26_03fdn")]
+
 [node name="BackgroundLayers" type="Node2D" parent="." unique_id=1154204795]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="FixedBackground" type="Parallax2D" parent="BackgroundLayers" unique_id=856755979]
 scroll_scale = Vector2(0, 0)
@@ -996,5 +1000,3 @@ position = Vector2(396, 721)
 shape = SubResource("RectangleShape2D_1cdy3")
 
 [node name="Water" parent="." unique_id=14946250 instance=ExtResource("25_mpqe7")]
-
-[node name="ExploringMusic" parent="." unique_id=645564139 instance=ExtResource("26_03fdn")]

@@ -1,8 +1,13 @@
 [gd_scene format=4 uid="uid://cdmiqqhm4hsph"]
 
 [ext_resource type="Script" uid="uid://bxxbctnq2ubio" path="res://stages/stage.gd" id="1_rl0jl"]
+[ext_resource type="PackedScene" uid="uid://c8oclbuhrdst6" path="res://music/exploring_music.tscn" id="2_1x6mq"]
 [ext_resource type="Texture2D" uid="uid://djpsb4jyc0afj" path="res://stages/seussworld/art/mountains.png" id="2_uebtd"]
 [ext_resource type="Script" uid="uid://ch0wv8cuoudkc" path="res://stages/seussworld/mist.gd" id="3_1x6mq"]
+[ext_resource type="AudioStream" uid="uid://ddfjp8egsedu1" path="res://music/exploration-1.ogg" id="3_05olj"]
+[ext_resource type="AudioStream" uid="uid://b22ufmhvxubg2" path="res://music/exploration-2.ogg" id="4_4dedj"]
+[ext_resource type="AudioStream" uid="uid://b4ba61bt1506h" path="res://music/exploration-3.ogg" id="5_874j8"]
+[ext_resource type="AudioStream" uid="uid://ydx7pn58o638" path="res://music/exploration-4.ogg" id="6_7h7o5"]
 [ext_resource type="Material" uid="uid://dej13b0et5yjt" path="res://common/dynamic_edges/world_0_shader.tres" id="7_7h7o5"]
 [ext_resource type="Script" uid="uid://buvl2i0vdqsau" path="res://common/dynamic_edges/edged_tilemap.gd" id="8_fawr4"]
 [ext_resource type="TileSet" uid="uid://dg4yxlibps56a" path="res://stages/seussworld/chopping_block/painted_tiles.tres" id="9_02s6m"]
@@ -23,6 +28,17 @@
 [ext_resource type="PackedScene" uid="uid://tyaekwp4wxwa" path="res://stages/seussworld/prefabs/world0_water.tscn" id="25_vx4ou"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3bs7n"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_fawr4"]
+stream_count = 4
+stream_0/stream = ExtResource("3_05olj")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("4_4dedj")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("5_874j8")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("6_7h7o5")
+stream_3/volume = 0.0
 
 [sub_resource type="Gradient" id="Gradient_83wlx"]
 colors = PackedColorArray(0.24015418, 0.25599292, 0.21379125, 1, 0.16078432, 0.17254902, 0.14117648, 1)
@@ -528,9 +544,12 @@ size = Vector2(2410, 890)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqt6e"]
 size = Vector2(2410, 1480)
 
-[node name="World0" type="Node2D" unique_id=831090977]
+[node name="FishBossWorld" type="Node2D" unique_id=831090977]
 material = SubResource("ShaderMaterial_3bs7n")
 script = ExtResource("1_rl0jl")
+
+[node name="BossMusic" parent="." unique_id=645564139 instance=ExtResource("2_1x6mq")]
+stream = SubResource("AudioStreamSynchronized_fawr4")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1955128943]
 unique_name_in_owner = true

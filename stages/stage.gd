@@ -10,10 +10,6 @@ extends Node2D
 const OFFSET_FROM_PORTAL = Vector2(-128, 0)
 
 
-@export var music_type := "exploring"
-@export var base_intensity := 1
-
-
 func _ready() -> void:
 	AudioManager.reset_music()
 	GameManager.is_in_game = true
@@ -30,4 +26,3 @@ func init_with_state(_persisted_state: Dictionary, params: Dictionary) -> void:
 				# this may only be needed in the wheel (which adjusts its rotation to the players position)
 				if self.has_method("init_player_at_portal"):
 					self.call("init_player_at_portal", portal)
-	#AudioManager.set_music(music_type, base_intensity)

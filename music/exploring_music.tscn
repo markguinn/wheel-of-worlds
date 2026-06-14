@@ -18,5 +18,6 @@ stream_3/volume = -60.0
 
 [node name="ExploringMusic" type="AudioStreamPlayer" unique_id=645564139 groups=["background_music"]]
 stream = SubResource("AudioStreamSynchronized_fcw4a")
+volume_db = -12.0
 autoplay = true
 bus = &"Music"
