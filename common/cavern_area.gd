@@ -18,6 +18,9 @@ func _ready() -> void:
 	original_light_color = canvas_modulate.color
 
 
+# TODO: move towards the values in process rather than using a tween
+# OR share a global target + tween + stack
+
 func _on_body_enter(_node: Node2D) -> void:
 	if light_tween and light_tween.is_running():
 		light_tween.stop()
