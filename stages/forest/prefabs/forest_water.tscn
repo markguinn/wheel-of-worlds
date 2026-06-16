@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://bk140x3miwcrc"]
+
+[ext_resource type="Script" uid="uid://c14bdtvnsmnpn" path="res://common/water_children.gd" id="1_4gux7"]
+[ext_resource type="Material" uid="uid://dtsgjv1uwqkom" path="res://props/water/water-material.tres" id="2_et1wm"]
+[ext_resource type="Texture2D" uid="uid://rweu8spv4nfd" path="res://props/water/water-sprite.png" id="3_4sh11"]
+[ext_resource type="Shader" uid="uid://dnoijk00iirir" path="res://common/waves.gdshader" id="4_waj33"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s3o82"]
+shader = ExtResource("4_waj33")
+shader_parameter/speed = -1.2
+shader_parameter/width = 20.0
+shader_parameter/depth = 0.015
+shader_parameter/revs = 2
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/fade_start = 0.1
+shader_parameter/fade_end = 0.7
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_15rpk"]
+shader = ExtResource("4_waj33")
+shader_parameter/speed = 1.1
+shader_parameter/width = 30.0
+shader_parameter/depth = 0.02
+shader_parameter/revs = 2
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/fade_start = 0.1
+shader_parameter/fade_end = 0.35
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a54wb"]
+load_path = "res://.godot/imported/water-sprite.png-1d5180c27ce7c8faff3adc9e78e8dadd.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o8v3q"]
+shader = ExtResource("4_waj33")
+shader_parameter/speed = -1.3
+shader_parameter/width = 22.0
+shader_parameter/depth = 0.02
+shader_parameter/revs = 2
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/fade_start = 0.0
+shader_parameter/fade_end = 0.25
+
+[node name="Water" type="Control" unique_id=1060541789 node_paths=PackedStringArray("wave_layers")]
+light_mask = 0
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = 4053.0
+offset_top = 432.0
+offset_right = 6158.0
+offset_bottom = 1545.0
+script = ExtResource("1_4gux7")
+speed = 2.0
+amount = 4.0
+wave_layers = [NodePath("BG1"), NodePath("BG2"), NodePath("BG3")]
+wave_layer_extra_y = Array[float]([68.0, 71.0, 76.0])
+wave_offset = Vector2(0, -100)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1888884334]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.10980392, 0.16862746, 0.29411766, 1)
+
+[node name="water-sprite" type="TextureRect" parent="." unique_id=2087456986]
+light_mask = 0
+z_index = 5
+material = ExtResource("2_et1wm")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -60.5
+offset_right = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4sh11")
+expand_mode = 3
+
+[node name="BG1" type="TextureRect" parent="." unique_id=1786315982]
+light_mask = 0
+material = SubResource("ShaderMaterial_s3o82")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 58.025204
+offset_top = -34.63739
+offset_right = 63.357178
+offset_bottom = 817.3626
+grow_horizontal = 2
+texture = ExtResource("3_4sh11")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BG2" type="TextureRect" parent="." unique_id=1147121301]
+light_mask = 0
+z_index = 5
+material = SubResource("ShaderMaterial_15rpk")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -30.032661
+offset_top = -27.30413
+offset_right = 175.7041
+offset_bottom = 1024.5643
+grow_horizontal = 2
+texture = SubResource("CompressedTexture2D_a54wb")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BG3" type="TextureRect" parent="." unique_id=539485018]
+light_mask = 0
+z_index = 6
+material = SubResource("ShaderMaterial_o8v3q")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -84.61557
+offset_top = -25.135712
+offset_right = -85.878784
+offset_bottom = 1026.7327
+grow_horizontal = 2
+texture = SubResource("CompressedTexture2D_a54wb")
+expand_mode = 3
+stretch_mode = 5
