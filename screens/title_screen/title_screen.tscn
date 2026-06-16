@@ -146,11 +146,11 @@ preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_1xf4e")
 
 [node name="IrisNebula" type="Sprite2D" parent="." unique_id=127912379]
-modulate = Color(1, 1, 1, 0.21368797)
+modulate = Color(1, 1, 1, 0.2878266)
 position = Vector2(960, 540)
-rotation = 1.8811967
+rotation = 1.788525
 scale = Vector2(2, 2)
-skew = 0.1681052
+skew = 0.07543278
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -164,11 +164,11 @@ alpha_speed = 0.4
 speed_factor = 0.1
 
 [node name="IrisNebula2" type="Sprite2D" parent="." unique_id=1740825736]
-modulate = Color(1, 1, 1, 0.13898626)
+modulate = Color(1, 1, 1, 0.21312454)
 position = Vector2(960, 540)
-rotation = 4.7986546
+rotation = 4.705973
 scale = Vector2(3, 3)
-skew = -0.022679944
+skew = -0.06990302
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -188,45 +188,45 @@ scale = Vector2(0.9, 0.9)
 script = ExtResource("2_1xf4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sparkles" unique_id=972055032]
-modulate = Color(1, 1, 1, 0.12929606)
-rotation = -245.07568
-scale = Vector2(0.7195307, 0.7195307)
+modulate = Color(1, 1, 1, 0.31663096)
+rotation = -245.23526
+scale = Vector2(0.8444206, 0.8444206)
 texture = ExtResource("3_i36ib")
 
 [node name="Mist" type="Sprite2D" parent="Sparkles" unique_id=753486441]
-modulate = Color(1, 1, 1, 0.37196)
-rotation = 1012.76044
-scale = Vector2(0.88130665, 0.88130665)
+modulate = Color(1, 1, 1, 0.11474603)
+rotation = 1012.8969
+scale = Vector2(0.7098307, 0.7098307)
 texture = SubResource("NoiseTexture2D_mvehq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sparkles" unique_id=1758360778]
-modulate = Color(1, 1, 1, 0.38497043)
-rotation = -132.72601
-scale = Vector2(0.88998026, 0.88998026)
+modulate = Color(1, 1, 1, 0.18578044)
+rotation = -132.94041
+scale = Vector2(0.75718695, 0.75718695)
 texture = ExtResource("4_wsvuw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sparkles" unique_id=845584023]
-modulate = Color(1, 1, 1, 0.10004369)
-rotation = 2002.5372
-scale = Vector2(0.70002913, 0.70002913)
+modulate = Color(1, 1, 1, 0.1433108)
+rotation = 2002.2634
+scale = Vector2(0.72887385, 0.72887385)
 texture = ExtResource("5_p7yao")
 
 [node name="Mist2" type="Sprite2D" parent="Sparkles" unique_id=1711575947]
-modulate = Color(1, 1, 1, 0.25377852)
-rotation = 1272.4727
-scale = Vector2(0.802519, 0.802519)
+modulate = Color(1, 1, 1, 0.3164521)
+rotation = 1272.4452
+scale = Vector2(0.8443014, 0.8443014)
 texture = SubResource("NoiseTexture2D_tsbkc")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sparkles" unique_id=1435232981]
-modulate = Color(1, 1, 1, 0.2756681)
-rotation = 1652.8219
-scale = Vector2(0.8171121, 0.8171121)
+modulate = Color(1, 1, 1, 0.24892959)
+rotation = 1652.6547
+scale = Vector2(0.7992864, 0.7992864)
 texture = ExtResource("6_mi1m4")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sparkles" unique_id=2086365118]
-modulate = Color(1, 1, 1, 0.30092835)
-rotation = 696.9379
-scale = Vector2(0.83395225, 0.83395225)
+modulate = Color(1, 1, 1, 0.29783767)
+rotation = 696.6506
+scale = Vector2(0.8318918, 0.8318918)
 texture = ExtResource("7_v8lo7")
 
 [node name="WheelTiles" type="TileMapLayer" parent="." unique_id=2085374435]
@@ -302,7 +302,7 @@ perma_ragdoll = true
 scale = Vector2(0.9998029, 0.9998029)
 
 [node name="HandL" parent="WheelTiles/Player/Sprite/Skeleton2D/Hips/Torso/ArmL" parent_id_path=PackedInt32Array(317056800, 1793998611) index="0" unique_id=1933907137]
-scale = Vector2(1.0000484, 1.0000484)
+scale = Vector2(1.0000483, 1.0000483)
 
 [node name="Head" parent="WheelTiles/Player/Sprite/Parts" parent_id_path=PackedInt32Array(317056800, 1880770915) index="3" unique_id=857872474]
 position = Vector2(11.08728, -62.294434)
@@ -311,7 +311,7 @@ scale = Vector2(0.17002498, 0.17001219)
 skew = -5.888939e-05
 
 [node name="Eyes" parent="WheelTiles/Player/Sprite/Parts/Head" index="0" unique_id=1167826662]
-frame_progress = 0.99614906
+frame_progress = 0.69467586
 
 [node name="LegR" parent="WheelTiles/Player/Sprite/GuidePoints" parent_id_path=PackedInt32Array(317056800, 1022049703) index="1" unique_id=460055182]
 position = Vector2(-7, 62)

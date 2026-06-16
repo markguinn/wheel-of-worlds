@@ -35,7 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://rweu8spv4nfd" path="res://props/water/water-sprite.png" id="33_a54wb"]
 [ext_resource type="Shader" uid="uid://dnoijk00iirir" path="res://common/waves.gdshader" id="33_hlg1b"]
 [ext_resource type="Texture2D" uid="uid://bhvoxbyyi3mos" path="res://stages/seussworld/art/Level0-water-2.png" id="33_ilr3d"]
-[ext_resource type="PackedScene" uid="uid://cunorerlmyhey" path="res://props/water/water.tscn" id="33_u1hea"]
+[ext_resource type="Material" uid="uid://dtsgjv1uwqkom" path="res://props/water/water-material.tres" id="36_a54wb"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l2c6s"]
 load_path = "res://.godot/imported/shadowBushA.png-ce4ee8a1189b36ba48b13f5e5fe6a2c4.ctex"
@@ -409,6 +409,8 @@ shader_parameter/width = 20.0
 shader_parameter/depth = 0.015
 shader_parameter/revs = 2
 shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/fade_start = 0.1
+shader_parameter/fade_end = 0.4
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_15rpk"]
 shader = ExtResource("33_hlg1b")
@@ -417,9 +419,21 @@ shader_parameter/width = 30.0
 shader_parameter/depth = 0.02
 shader_parameter/revs = 2
 shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/fade_start = 0.1
+shader_parameter/fade_end = 0.3
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a54wb"]
 load_path = "res://.godot/imported/water-sprite.png-1d5180c27ce7c8faff3adc9e78e8dadd.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o8v3q"]
+shader = ExtResource("33_hlg1b")
+shader_parameter/speed = -1.3
+shader_parameter/width = 22.0
+shader_parameter/depth = 0.025
+shader_parameter/revs = 2
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/fade_start = 0.0
+shader_parameter/fade_end = 0.25
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a54wb"]
 shader = ExtResource("33_hlg1b")
@@ -428,6 +442,8 @@ shader_parameter/width = 10.0
 shader_parameter/depth = 0.05
 shader_parameter/revs = 2
 shader_parameter/tint = Color(0.23137255, 0.32156864, 0.47058824, 0.8392157)
+shader_parameter/fade_start = 1.0
+shader_parameter/fade_end = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ds54q"]
 shader = ExtResource("33_hlg1b")
@@ -436,6 +452,8 @@ shader_parameter/width = 7.0
 shader_parameter/depth = -0.04
 shader_parameter/revs = 2
 shader_parameter/tint = Color(0.31764707, 0.36078432, 0.56078434, 0.84705883)
+shader_parameter/fade_start = 1.0
+shader_parameter/fade_end = 1.0
 
 [node name="Forest1" type="Node2D" unique_id=1313295670]
 script = ExtResource("1_fednj")
@@ -858,61 +876,96 @@ material = SubResource("ShaderMaterial_ilr3d")
 [node name="Lantern" parent="." unique_id=1226786123 instance=ExtResource("31_p444m")]
 position = Vector2(-2503, -814)
 
-[node name="Water" parent="." unique_id=14946250 instance=ExtResource("32_u1hea")]
-offset_left = 4067.0
+[node name="Water" parent="." unique_id=14946250 node_paths=PackedStringArray("wave_layers") instance=ExtResource("32_u1hea")]
+light_mask = 0
+offset_left = 4053.0
 offset_top = 432.0
-offset_right = 6318.0
-offset_bottom = 1092.0
+offset_right = 6158.0
+offset_bottom = 1545.0
 amount = 4.0
-wave_layer_extra_y = Array[float]([68.0, 71.0])
+wave_layers = [NodePath("BG1"), NodePath("BG2"), NodePath("BG3")]
+wave_layer_extra_y = Array[float]([68.0, 71.0, 76.0])
 wave_offset = Vector2(0, -100)
 
 [node name="ColorRect" parent="Water" index="0" unique_id=127477503]
-visible = false
+light_mask = 0
+z_index = 0
 color = Color(0.10980392, 0.16862746, 0.29411766, 1)
 
-[node name="BG1" parent="Water" index="1" unique_id=1370769884]
+[node name="water-sprite" type="TextureRect" parent="Water" unique_id=1926498885]
+light_mask = 0
+z_index = 5
+material = ExtResource("36_a54wb")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -60.5
+offset_right = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("33_a54wb")
+expand_mode = 3
+
+[node name="BG1" parent="Water" index="2" unique_id=1370769884]
+light_mask = 0
 material = SubResource("ShaderMaterial_s3o82")
-offset_left = -146.36203
-offset_top = -34.82982
-offset_right = -141.03003
-offset_bottom = 817.17017
+offset_left = 128.39066
+offset_top = -27.508354
+offset_right = 133.72266
+offset_bottom = 824.49164
 texture = ExtResource("33_a54wb")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="BG2" parent="Water" index="2" unique_id=504008343]
+[node name="BG2" parent="Water" index="3" unique_id=504008343]
+light_mask = 0
 material = SubResource("ShaderMaterial_15rpk")
-offset_left = 72.53017
-offset_top = -24.715263
-offset_right = -74.73291
-offset_bottom = 1027.1532
+offset_left = -17.062506
+offset_top = -32.51396
+offset_right = 188.67432
+offset_bottom = 1019.35443
 texture = SubResource("CompressedTexture2D_a54wb")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Water1" parent="Water" index="3" unique_id=739047094]
+[node name="BG3" type="TextureRect" parent="Water" unique_id=892657973]
+light_mask = 0
+z_index = 6
+material = SubResource("ShaderMaterial_o8v3q")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 137.28395
+offset_top = -19.464027
+offset_right = 136.02075
+offset_bottom = 1032.4044
+grow_horizontal = 2
+texture = SubResource("CompressedTexture2D_a54wb")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Water1" parent="Water" index="5" unique_id=739047094]
+visible = false
+light_mask = 0
 z_index = 6
 material = SubResource("ShaderMaterial_a54wb")
-offset_left = -152.69986
-offset_top = -102.77848
-offset_right = 811.30005
-offset_bottom = 220.22153
+offset_left = 136.06291
+offset_top = -21.540703
+offset_right = 1100.0615
+offset_bottom = 301.4593
 texture = ExtResource("33_ilr3d")
 
-[node name="Water2" parent="Water" index="4" unique_id=488215949]
+[node name="Water2" parent="Water" index="6" unique_id=488215949]
+visible = false
+light_mask = 0
 z_index = 6
 material = SubResource("ShaderMaterial_ds54q")
-offset_left = -192.02663
-offset_top = -97.54461
-offset_right = 771.9734
-offset_bottom = 225.45538
+offset_left = -149.40724
+offset_top = -96.87273
+offset_right = 814.5928
+offset_bottom = 226.12727
 texture = ExtResource("33_ilr3d")
-
-[node name="water" parent="Water" unique_id=1133434219 instance=ExtResource("33_u1hea")]
-z_index = 5
-position = Vector2(1228, 23)
-scale = Vector2(2, 2)
 
 [connection signal="area_exited" from="CavernArea" to="CavernArea" method="_on_area_exited"]
 
