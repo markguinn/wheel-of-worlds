@@ -40,7 +40,7 @@ func _on_body_enter(body: Node2D) -> void:
 	light_tween = create_tween()
 	light_tween.tween_property(canvas_modulate, "color", light_color, tween_time)
 	light_tween.parallel().tween_method(AudioManager.set_room_size, AudioManager.get_room_size(), room_size, tween_time)
-	light_tween.parallel().tween_method(AudioManager.set_music_damping, AudioManager.get_music_damping(), 1.0, tween_time)
+	light_tween.parallel().tween_method(AudioManager.set_music_damping, AudioManager.get_music_damping(), room_size, tween_time)
 
 
 func _on_body_exit(body: Node2D) -> void:

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b85khgplioksi"]
 
 [ext_resource type="Script" uid="uid://b3vikmg8i8dr3" path="res://actors/player/player.gd" id="1_8afob"]
+[ext_resource type="Texture2D" uid="uid://bb38a7h3w0k2g" path="res://common/vfx/basic_light.tres" id="3_i0btr"]
 [ext_resource type="Texture2D" uid="uid://cg128mp6k24xi" path="res://actors/player/body_canvas_tex.tres" id="4_qct7d"]
 [ext_resource type="PhysicsMaterial" uid="uid://cnt2e34s48efd" path="res://actors/player/ragdoll_physics_material.tres" id="6_15y17"]
 [ext_resource type="Script" uid="uid://cn4cp7mcr2aj8" path="res://actors/player/guidepoints_syncing.gd" id="6_k67x5"]
@@ -1835,7 +1836,7 @@ stream_4/stream = ExtResource("38_i0btr")
 [node name="Player" type="CharacterBody2D" unique_id=317056800 node_paths=PackedStringArray("holding_hand", "resting_point") groups=["player"]]
 z_index = 1
 collision_layer = 2
-collision_mask = 61
+collision_mask = 125
 floor_max_angle = 1.0471976
 floor_snap_length = 10.0
 platform_floor_layers = 4294901797
@@ -1864,6 +1865,12 @@ speed_scale = 1.7
 active = false
 tree_root = SubResource("AnimationNodeStateMachine_12xki")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="SubtleGlowLight" type="PointLight2D" parent="." unique_id=680694923]
+color = Color(0.9792946, 0.8219286, 0.8130152, 1)
+energy = 0.5
+texture = ExtResource("3_i0btr")
+texture_scale = 6.0
 
 [node name="Sprite" type="Node2D" parent="." unique_id=2112411734]
 
@@ -1896,7 +1903,7 @@ metadata/_local_pose_override_enabled_ = true
 [node name="ThighL" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=226334277]
 position = Vector2(23, 14)
 rotation = 0.25686535
-scale = Vector2(0.9998027, 0.9998027)
+scale = Vector2(0.99980277, 0.99980277)
 rest = Transform2D(0.967, 0.254, -0.254, 0.967, 23, 14)
 metadata/_local_pose_override_enabled_ = true
 
@@ -1941,8 +1948,8 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="HandL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/Torso/ArmL" unique_id=1933907137]
 position = Vector2(-26.651686, 5.448637)
-rotation = 0.06404061
-scale = Vector2(1.0000488, 1.0000488)
+rotation = 0.064040616
+scale = Vector2(1.0000486, 1.0000486)
 rest = Transform2D(0.9979998, 0.06399999, -0.06399999, 0.9979998, -26.651686, 5.448637)
 auto_calculate_length_and_angle = false
 length = 28.031
@@ -2013,10 +2020,10 @@ bones = ["Hips", PackedFloat32Array(1, 1, 1, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0,
 [node name="Head" type="Sprite2D" parent="Sprite/Parts" unique_id=857872474]
 light_mask = 2
 visibility_layer = 3
-position = Vector2(8.79407, -62.557068)
-rotation = -0.060517583
-scale = Vector2(0.17002372, 0.17001218)
-skew = 0.0025105476
+position = Vector2(11.087276, -62.294453)
+rotation = -0.0710845
+scale = Vector2(0.17002374, 0.17001218)
+skew = -5.888939e-05
 texture = SubResource("CanvasTexture_2vokq")
 offset = Vector2(7, 18)
 region_enabled = true
@@ -2024,7 +2031,7 @@ region_rect = Rect2(204, 68, 311, 233)
 
 [node name="Eyes" type="AnimatedSprite2D" parent="Sprite/Parts/Head" unique_id=1167826662]
 sprite_frames = SubResource("SpriteFrames_yeioo")
-frame_progress = 0.71323043
+frame_progress = 0.697427
 offset = Vector2(-35, 387)
 script = ExtResource("7_0wchr")
 
@@ -2073,7 +2080,7 @@ position = Vector2(-7, 62)
 
 [node name="LegR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=460055182]
 visible = false
-position = Vector2(-7, 58)
+position = Vector2(-7, 62)
 
 [node name="AnimatedLegL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=467743092]
 position = Vector2(21, 61)
@@ -2081,7 +2088,7 @@ scale = Vector2(1.0000001, 1.0000001)
 
 [node name="LegL" type="Marker2D" parent="Sprite/GuidePoints" unique_id=1184928012]
 visible = false
-position = Vector2(40, 53)
+position = Vector2(21, 61)
 scale = Vector2(1.0000001, 1.0000001)
 
 [node name="ArmR" type="Marker2D" parent="Sprite/GuidePoints" unique_id=792042139]
@@ -2136,10 +2143,10 @@ position = Vector2(48, 60)
 
 [node name="DizzyParticles" type="GPUParticles2D" parent="Sprite/VFX" unique_id=806147118]
 unique_name_in_owner = true
-position = Vector2(8.79407, -62.557068)
-rotation = -1.514675
-scale = Vector2(0.9989626, 0.93419605)
-skew = 0.01413846
+position = Vector2(11.087276, -62.294453)
+rotation = -1.5197668
+scale = Vector2(0.9999446, 0.9999507)
+skew = 5.9127808e-05
 emitting = false
 amount = 6
 texture = ExtResource("7_7aotz")
@@ -2298,7 +2305,7 @@ collision_mask = 53
 
 [node name="GroundDetectorL" type="RayCast2D" parent="Sprite/Rays" unique_id=529607088]
 unique_name_in_owner = true
-position = Vector2(40, 32)
+position = Vector2(21, 32)
 collision_mask = 53
 
 [node name="GroundDetector" type="RayCast2D" parent="Sprite/Rays" unique_id=1984008968]

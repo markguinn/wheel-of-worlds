@@ -698,12 +698,6 @@ collision_mask = 125
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1858114605]
 remote_path = NodePath("../../StandardCamera")
 
-[node name="PointLight2D3" type="PointLight2D" parent="Player" unique_id=925400616]
-color = Color(0.9792946, 0.8219286, 0.8130152, 1)
-energy = 0.5
-texture = ExtResource("20_u1hea")
-texture_scale = 6.0
-
 [node name="ClimbableTree" parent="." unique_id=610288396 instance=ExtResource("11_8gxyf")]
 position = Vector2(3886, -641)
 
@@ -785,7 +779,6 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("23_8vxte")
 light_color = Color(0.10047575, 0.12846932, 0.08927346, 1)
-room_size = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CavernArea" unique_id=1071490762]
 position = Vector2(-30.490112, -10.314728)
