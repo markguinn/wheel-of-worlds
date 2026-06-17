@@ -83,7 +83,7 @@ func transition_before_exit(to_state: StateNode) -> void:
 	if player.ground_detector.is_colliding():
 		player.puff_left_dust(LANDING_DUST_SCALE)
 		player.puff_right_dust(LANDING_DUST_SCALE)
-	if to_state.name != "Ragdoll" and absf(player.avg_recent_velocity.y) > 150.0:
+	if to_state.name != "Ragdoll" and absf(player.history_buffer.get_average_velocity().y) > 150.0:
 		if player.is_holding_prop:
 			player.anim_player.play("land_while_carrying", 0.1)
 		else:

@@ -28,7 +28,6 @@ var last_floor_touch: int
 var is_holding_prop: Node2D = null
 var active_grab_box: GrabBox = null
 var start_pos: Vector2
-var avg_recent_velocity := Vector2.ZERO
 
 @onready var history_buffer: PositionHistoryBuffer = $PositionHistoryBuffer
 @onready var state_machine: StateMachine = $StateMachine
@@ -102,21 +101,13 @@ func _input(event: InputEvent) -> void:
 		state_machine.transition_by_name("UseMusicBox")
 
 
-func _process(delta: float) -> void:
-	_update_avg_recent_velocity(delta)
+func _process(_delta: float) -> void:
 	if is_on_floor():
 		last_floor_touch = GameManager.now_ms()
 	elif velocity != Vector2.ZERO:
 		Activator.update_active_candidate()
 	if perma_ragdoll and state_machine.get_active() != "Ragdoll":
 		state_machine.call_deferred("transition_by_name", "Ragdoll")
-
-
-func _update_avg_recent_velocity(delta: float) -> void:
-	var delta_ms := delta * 1000.0
-	var idelta_ms := AVG_WINDOW_MS - delta_ms
-	avg_recent_velocity.x = (avg_recent_velocity.x * idelta_ms + velocity.x * delta_ms) / AVG_WINDOW_MS
-	avg_recent_velocity.y = (avg_recent_velocity.y * idelta_ms + velocity.y * delta_ms) / AVG_WINDOW_MS
 
 
 func pick_up_prop(target_node: Node2D, grab_box: GrabBox) -> bool:
@@ -165,30 +156,3 @@ func put_down_prop() -> void:
 
 		is_holding_prop = null
 		active_grab_box = null
-
-
-# TODO: I think this is hacky and physically wrong.
-# I think it's needed because I'm using a negative scale on 
-# the sprite to change direction. We're going to have to change 
-# that but I want to get the animations right first.
-func _normalize_prop_angle(a: float) -> float:
-	var target_rot := a
-	while target_rot > 90.0:
-		target_rot -= 360.0
-	while target_rot < -270.0:
-		target_rot += 360.0
-	return target_rot
-
-
-# FIXME: depending on the angle you come at the plank
-# it may look right-ish or totally wrong if you picked
-# it up from the other side previously. It should be
-# possible to normalize that at pickup or put down.
-# TODO: add some easing? it looks suuuuuper fake at linear
-func _update_prop(_delta: float) -> void:
-	pass
-	#var prop: Node2D = is_holding_prop
-	#var target_deg := _normalize_prop_angle(rad_to_deg(holding_hand.global_position.angle_to_point(resting_point.global_position)))
-	#prop.rotation_degrees = _normalize_prop_angle(prop.rotation_degrees)
-	#prop.rotation_degrees = move_toward(prop.rotation_degrees, target_deg, delta * 360.0)
-	#prop.global_position = holding_hand.global_position # lerp(holding_hand.global_position, resting_point.global_position, 0.5)
