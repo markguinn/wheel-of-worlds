@@ -32,6 +32,7 @@ func _ready() -> void:
 	if target_layer:
 		target_layer.visible = use_baked
 
+
 func _process(_delta: float) -> void:
 	if not use_baked and not baking:
 		var vpr := get_viewport_rect().size / get_viewport_transform().get_scale()
@@ -95,7 +96,7 @@ func _bake_edges() -> void:
 	var btn = popup.get_node("MarginContainer/VBoxContainer/Cancel")
 	btn.pressed.connect(_cancel_bake)
 	
-	var start_pos: Vector2 = snapped(bake_region.position - bake_region.size / 2.0, tile_size)
+	var start_pos: Vector2 = snapped(to_local(bake_region.position) - bake_region.size / 2.0, tile_size)
 	var tiles: Dictionary[String, Image] = {}
 	var tile_idx: Dictionary[String, int] = {}
 	var tile_atlas_coords: Dictionary[String, Vector2i] = {}
@@ -123,7 +124,8 @@ func _bake_edges() -> void:
 				tiles[sha] = img
 				tile_idx[sha] = idx
 				idx += 1
-			target_writes.append([x, y, sha])
+			var global_pos = to_global(Vector2(x, y))
+			target_writes.append([global_pos, sha])
 		popup_bar.value = 100.0 * (y - start_pos.y) / bake_region.size.y
 		prints("baking", 100.0 * (y - start_pos.y) / bake_region.size.y)
 
@@ -154,7 +156,7 @@ func _bake_edges() -> void:
 	
 	atlas_img.save_png(atlas_fn)
 	
-	popup_label.text = "Waiting for re-import..."
+	popup_label.text = "Waiting for re-import (you may need to trigger it manually)..."
 	popup_bar.value = 99.0
 	while not FileAccess.file_exists(atlas_fn + ".import"):
 		RenderingServer.force_draw()
@@ -184,8 +186,9 @@ func _bake_edges() -> void:
 		tile_atlas_coords[sha] = tile_pos # TODO: write this above
 	
 	for w in target_writes:
-		var map_coords := target_layer.local_to_map(Vector2(w[0], w[1]))
-		var atlas_coords := tile_atlas_coords[w[2]]
+		var target_local = target_layer.to_local(w[0])
+		var map_coords := target_layer.local_to_map(target_local)
+		var atlas_coords := tile_atlas_coords[w[1]]
 		prints("writing atlas coords", atlas_coords, "to map at", map_coords)
 		target_layer.set_cell(map_coords, target_layer.tile_set.get_source_id(0), atlas_coords)
 

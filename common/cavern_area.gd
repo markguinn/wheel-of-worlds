@@ -4,10 +4,13 @@ extends Area2D
 
 @export var light_color := Color("#2a3426")
 @export var tween_time := 0.5
-@export var room_size := 2.0
+@export var room_size := 1.0
 
 var original_light_color: Color
-var light_tween: Tween
+static var light_tween: Tween
+var is_active := false
+
+static var total_active := 0
 
 @onready var canvas_modulate: CanvasModulate = %CanvasModulate
 
@@ -15,13 +18,22 @@ var light_tween: Tween
 func _ready() -> void:
 	body_entered.connect(_on_body_enter)
 	body_exited.connect(_on_body_exit)
+	if not canvas_modulate:
+		push_warning("Level doesn't have CanvasModulate node")
+		canvas_modulate = CanvasModulate.new()
+		add_sibling.call_deferred(canvas_modulate)
 	original_light_color = canvas_modulate.color
+	#collision_layer = 0
+	#collision_mask = 0
+	set_collision_mask_value(2, true)
 
 
-# TODO: move towards the values in process rather than using a tween
-# OR share a global target + tween + stack
-
-func _on_body_enter(_node: Node2D) -> void:
+func _on_body_enter(body: Node2D) -> void:
+	Log.info(self,"enter",body,total_active)
+	if not body is Player and not body is PlayerRagdollBody:
+		return
+	is_active = true
+	total_active += 1
 	if light_tween and light_tween.is_running():
 		light_tween.stop()
 	light_tween = create_tween()
@@ -30,7 +42,15 @@ func _on_body_enter(_node: Node2D) -> void:
 	light_tween.parallel().tween_method(AudioManager.set_music_damping, 0.0, 1.0, tween_time)
 
 
-func _on_body_exit(_node: Node2D) -> void:
+func _on_body_exit(body: Node2D) -> void:
+	Log.info(self,"exit",body,total_active)
+	if not body is Player and not body is PlayerRagdollBody:
+		return
+	is_active = false
+	if total_active > 0:
+		total_active -= 1
+	if total_active > 0:
+		return
 	if light_tween and light_tween.is_running():
 		light_tween.stop()
 	light_tween = create_tween()

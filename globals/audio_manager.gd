@@ -6,23 +6,29 @@ extends Node
 
 const MIN_ROOM_SIZE = 0.1
 const MAX_ROOM_SIZE = 1.0
+const MIN_REVERB_DAMPING = 0.8
+const MAX_REVERB_DAMPING = 0.2
+const MIN_REVERB_WET = 0.1
+const MAX_REVERB_WET = 0.2
+const MIN_REVERB_SPREAD = 0.4
+const MAX_REVERB_SPREAD = 1.0
 const SFX_REVERB_INDEX = 0
 const MUSIC_LOW_PASS_INDEX = 0
 const MIN_LP_FREQ = 2000
 const MAX_LP_FREQ = 20500
 const LAYER_TWEEN_TIME = 2.0
 
-var cur_type: String = "wheel"
-var cur_intensity := 1
 var bus_music: int
 var bus_sfx: int
 var bus_atmosphere: int
+
+var cur_damping := 0.0
+var cur_room_size := MIN_ROOM_SIZE
 
 var base_layers: Array[float] = []
 var layer_stack: Array[Array] = []
 var cur_layers: Array[float] = []
 var layer_tween: Tween
-
 
 # TODO: persist the volume settings
 
@@ -53,7 +59,7 @@ func reset_music() -> void:
 	reset_music_damping()
 	reset_room_size()
 	base_layers = get_music_layers().duplicate()
-	Log.info(self, "base music layers", cur_layers)
+	Log.info(self, "base music layers", base_layers)
 	var p := get_stream_player()
 	if p:
 		p.play()
@@ -92,6 +98,8 @@ func set_music_layer(linear_vol: float, i: int) -> void:
 
 func push_music_layers(layers: Array[float]) -> void:
 	Log.info(self, "push layers", layers, layer_stack)
+	if not base_layers or base_layers.size() == 0:
+		base_layers = get_music_layers()
 	if layers.size() <= 0:
 		return
 	tween_music_layers(layers)
@@ -129,6 +137,8 @@ func pop_music_layers(layers: Array[float]) -> void:
 			break
 	var next_layer = layer_stack.back() if layer_stack.size() > 0 else base_layers
 	Log.info(self, next_layer, base_layers, layer_stack)
+	if not next_layer or next_layer.size() == 0:
+		next_layer = [1.0, 0.0, 0.0, 0.0]
 	tween_music_layers(next_layer)
 
 
@@ -142,18 +152,30 @@ func resume_music() -> void:
 	get_stream_player().stream_paused = false
 
 
+func get_room_size() -> float:
+	return cur_room_size
+
+
 func set_room_size(size: float) -> void:
 	var sfx_reverb: AudioEffectReverb = AudioServer.get_bus_effect(bus_sfx, SFX_REVERB_INDEX)
 	sfx_reverb.room_size = lerpf(MIN_ROOM_SIZE, MAX_ROOM_SIZE, size)
+	sfx_reverb.damping = lerpf(MIN_REVERB_DAMPING, MAX_REVERB_DAMPING, size)
+	sfx_reverb.spread = lerpf(MIN_REVERB_SPREAD, MAX_REVERB_SPREAD, size)
+	sfx_reverb.wet = lerpf(MIN_REVERB_WET, MAX_REVERB_WET, size)
+	cur_room_size = size
 
 
 func reset_room_size() -> void:
 	set_room_size(0.0)
 
 
+func get_music_damping() -> float:
+	return cur_damping
+	
 func set_music_damping(amount: float) -> void:
 	var sfx_lp: AudioEffectLowPassFilter = AudioServer.get_bus_effect(bus_music, MUSIC_LOW_PASS_INDEX)
 	sfx_lp.cutoff_hz = lerp(MAX_LP_FREQ, MIN_LP_FREQ, amount)
+	cur_damping = amount
 
 
 func reset_music_damping() -> void:
