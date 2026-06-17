@@ -23,7 +23,7 @@ var bus_sfx: int
 var bus_atmosphere: int
 
 var cur_damping := 0.0
-var cur_room_size := MIN_ROOM_SIZE
+var cur_room_size := 0.0
 
 var base_layers: Array[float] = []
 var layer_stack: Array[Array] = []

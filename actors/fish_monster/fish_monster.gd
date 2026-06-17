@@ -106,8 +106,11 @@ func _on_body_entered(body: Node) -> void:
 		if ragdoll_player:
 			body.state_machine.transition_by_name.call_deferred("Ragdoll")
 		apply_impulse(-linear_velocity * 1.5)
-	elif body is Plank:
+	elif body is Plank or body is Teleplate:
 		body.apply_impulse(linear_velocity * attack_impact * 0.4)
+		apply_impulse(-linear_velocity * 1.5)
+	elif body is Teleplate:
+		body.apply_impulse(linear_velocity * attack_impact)
 		apply_impulse(-linear_velocity * 1.5)
 	elif body is Orb:
 		body.apply_impulse(linear_velocity * attack_impact * 0.005)

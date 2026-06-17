@@ -29,21 +29,22 @@ func _ready() -> void:
 
 
 func _on_body_enter(body: Node2D) -> void:
-	Log.info(self,"enter",body,total_active)
+	Log.debug(self, "enter", body, total_active)
 	if not body is Player and not body is PlayerRagdollBody:
 		return
 	is_active = true
 	total_active += 1
 	if light_tween and light_tween.is_running():
+		Log.debug(self, "stopping previous tween")
 		light_tween.stop()
 	light_tween = create_tween()
 	light_tween.tween_property(canvas_modulate, "color", light_color, tween_time)
-	light_tween.parallel().tween_method(AudioManager.set_room_size, 0.0, room_size, tween_time)
-	light_tween.parallel().tween_method(AudioManager.set_music_damping, 0.0, 1.0, tween_time)
+	light_tween.parallel().tween_method(AudioManager.set_room_size, AudioManager.get_room_size(), room_size, tween_time)
+	light_tween.parallel().tween_method(AudioManager.set_music_damping, AudioManager.get_music_damping(), 1.0, tween_time)
 
 
 func _on_body_exit(body: Node2D) -> void:
-	Log.info(self,"exit",body,total_active)
+	Log.debug(self, "exit", body, total_active)
 	if not body is Player and not body is PlayerRagdollBody:
 		return
 	is_active = false
@@ -52,11 +53,12 @@ func _on_body_exit(body: Node2D) -> void:
 	if total_active > 0:
 		return
 	if light_tween and light_tween.is_running():
+		Log.debug(self, "stopping previous tween")
 		light_tween.stop()
 	light_tween = create_tween()
 	light_tween.tween_property(canvas_modulate, "color", original_light_color, tween_time)
-	light_tween.parallel().tween_method(AudioManager.set_room_size, room_size, 0.0, tween_time)
-	light_tween.parallel().tween_method(AudioManager.set_music_damping, 1.0, 0.0, tween_time)
+	light_tween.parallel().tween_method(AudioManager.set_room_size, AudioManager.get_room_size(), 0.0, tween_time)
+	light_tween.parallel().tween_method(AudioManager.set_music_damping, AudioManager.get_music_damping(), 0.0, tween_time)
 
 
 func _on_area_exited(area: Area2D) -> void:
