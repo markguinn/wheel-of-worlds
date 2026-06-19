@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="2_a7oia"]
 [ext_resource type="Texture2D" uid="uid://djpsb4jyc0afj" path="res://stages/seussworld/art/mountains.png" id="3_i11rt"]
 [ext_resource type="Script" uid="uid://ch0wv8cuoudkc" path="res://stages/seussworld/mist.gd" id="4_5wllk"]
-[ext_resource type="Material" uid="uid://w6s6k7r66ghw" path="res://stages/seussworld/chopping_block/painted5.tres" id="5_evyhn"]
+[ext_resource type="Material" uid="uid://dej13b0et5yjt" path="res://common/dynamic_edges/world_0_shader.tres" id="5_jlctm"]
 [ext_resource type="Script" uid="uid://b0waw70vdi075" path="res://common/dynamic_edges/shader_helper.gd" id="6_vuxnk"]
 [ext_resource type="Texture2D" uid="uid://cqyuein6rcbw1" path="res://stages/hard_levels/the-missing-plink.png" id="7_jlctm"]
 [ext_resource type="Texture2D" uid="uid://dgj7y78b0yk11" path="res://stages/seussworld/art/extras1.png" id="8_wdguf"]
@@ -126,6 +126,8 @@ script = ExtResource("1_jlctm")
 position = Vector2(0, -1600)
 
 [node name="BackgroundLayers" type="Node2D" parent="." unique_id=1154204795]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="FixedBackground" type="Parallax2D" parent="BackgroundLayers" unique_id=856755979]
 scroll_scale = Vector2(0, 0)
@@ -210,7 +212,7 @@ script = ExtResource("4_5wllk")
 z_index = 1
 
 [node name="PaintedGround" type="CanvasGroup" parent="Terrain" unique_id=317622971]
-material = ExtResource("5_evyhn")
+material = ExtResource("5_jlctm")
 fit_margin = 200.0
 clear_margin = 200.0
 script = ExtResource("6_vuxnk")

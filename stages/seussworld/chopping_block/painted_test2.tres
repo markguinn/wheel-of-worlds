@@ -1,13 +1,13 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://crvqqmrqjr4qv"]
 
 [ext_resource type="Shader" uid="uid://v32bc3ggrbtb" path="res://stages/seussworld/chopping_block/painted4.gdshader" id="1_dkmi7"]
-[ext_resource type="Texture2D" uid="uid://b5blfuqio1hiu" path="res://stages/seussworld/art/Level0_Tiles-1.png" id="2_dxkdd"]
-[ext_resource type="Texture2D" uid="uid://dfoa7mgbo14sn" path="res://stages/seussworld/art/Level0_Tiles-2.png" id="3_ej8y5"]
-[ext_resource type="Texture2D" uid="uid://bdqru57okpp48" path="res://stages/seussworld/art/Level0_Tiles-3.png" id="4_bn53y"]
-[ext_resource type="Texture2D" uid="uid://bao66wm4oa3v7" path="res://stages/seussworld/art/Level0_Tiles-4.png" id="5_m4fgw"]
-[ext_resource type="Texture2D" uid="uid://uwy0oy2080q4" path="res://stages/seussworld/art/Level0_Tiles-5.png" id="6_voh72"]
-[ext_resource type="Texture2D" uid="uid://dtdl0mfbdown" path="res://stages/seussworld/art/Level0_Tiles-6.png" id="7_v3d56"]
-[ext_resource type="Texture2D" uid="uid://dd6wnucf048o1" path="res://stages/seussworld/art/Level0_Tiles-7.png" id="8_dadtk"]
+[ext_resource type="Texture2D" uid="uid://b5blfuqio1hiu" path="res://stages/seussworld/art/fill1.png" id="2_dxkdd"]
+[ext_resource type="Texture2D" uid="uid://dfoa7mgbo14sn" path="res://stages/seussworld/art/fill2.png" id="3_ej8y5"]
+[ext_resource type="Texture2D" uid="uid://bdqru57okpp48" path="res://stages/seussworld/art/fill3.png" id="4_bn53y"]
+[ext_resource type="Texture2D" uid="uid://bao66wm4oa3v7" path="res://stages/seussworld/art/fill4.png" id="5_m4fgw"]
+[ext_resource type="Texture2D" uid="uid://uwy0oy2080q4" path="res://stages/seussworld/art/fill5.png" id="6_voh72"]
+[ext_resource type="Texture2D" uid="uid://dtdl0mfbdown" path="res://stages/seussworld/art/fill6.png" id="7_v3d56"]
+[ext_resource type="Texture2D" uid="uid://dd6wnucf048o1" path="res://stages/seussworld/art/fill7.png" id="8_dadtk"]
 
 [resource]
 shader = ExtResource("1_dkmi7")

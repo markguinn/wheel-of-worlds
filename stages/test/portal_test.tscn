@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bxxbctnq2ubio" path="res://stages/stage.gd" id="1_p3hkb"]
 [ext_resource type="Texture2D" uid="uid://djpsb4jyc0afj" path="res://stages/seussworld/art/mountains.png" id="2_tmdc4"]
 [ext_resource type="Script" uid="uid://ch0wv8cuoudkc" path="res://stages/seussworld/mist.gd" id="3_hg5de"]
-[ext_resource type="Material" uid="uid://w6s6k7r66ghw" path="res://stages/seussworld/chopping_block/painted5.tres" id="4_cod23"]
+[ext_resource type="Material" uid="uid://dej13b0et5yjt" path="res://common/dynamic_edges/world_0_shader.tres" id="4_wgmjg"]
 [ext_resource type="Script" uid="uid://b0waw70vdi075" path="res://common/dynamic_edges/shader_helper.gd" id="5_rs6a6"]
 [ext_resource type="TileSet" uid="uid://dg4yxlibps56a" path="res://stages/seussworld/chopping_block/painted_tiles.tres" id="6_r3j3d"]
 [ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="7_0mgka"]
@@ -199,7 +199,7 @@ texture = SubResource("NoiseTexture2D_gmxw7")
 script = ExtResource("3_hg5de")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=317622971]
-material = ExtResource("4_cod23")
+material = ExtResource("4_wgmjg")
 fit_margin = 200.0
 clear_margin = 200.0
 script = ExtResource("5_rs6a6")

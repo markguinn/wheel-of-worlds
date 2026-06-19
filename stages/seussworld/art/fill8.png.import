@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uwy0oy2080q4"
-path="res://.godot/imported/Level0_Tiles-5.png-825271205175b787d05b958a469ad70f.ctex"
+uid="uid://dadqpldoek2ct"
+path="res://.godot/imported/fill8.png-166aeef322a7469acb29ab64ba112082.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stages/seussworld/art/Level0_Tiles-5.png"
-dest_files=["res://.godot/imported/Level0_Tiles-5.png-825271205175b787d05b958a469ad70f.ctex"]
+source_file="res://stages/seussworld/art/fill8.png"
+dest_files=["res://.godot/imported/fill8.png-166aeef322a7469acb29ab64ba112082.ctex"]
 
 [params]
 
@@ -25,7 +25,7 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
-roughness/mode=0
+roughness/mode=1
 roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0
