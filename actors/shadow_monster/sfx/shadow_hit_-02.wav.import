@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://6xf5od4a16fn"
-path="res://.godot/imported/shadow_hit_-02.wav-f4e1b9177957f07ab9558a396260fcff.sample"
+path="res://.godot/imported/shadow_hit_-02.wav-cbfeff63402920ea0d63899cf507823b.sample"
 
 [deps]
 
-source_file="res://actors/shadow_monster/shadow_hit_-02.wav"
-dest_files=["res://.godot/imported/shadow_hit_-02.wav-f4e1b9177957f07ab9558a396260fcff.sample"]
+source_file="res://actors/shadow_monster/sfx/shadow_hit_-02.wav"
+dest_files=["res://.godot/imported/shadow_hit_-02.wav-cbfeff63402920ea0d63899cf507823b.sample"]
 
 [params]
 

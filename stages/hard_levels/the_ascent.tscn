@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://buvl2i0vdqsau" path="res://common/dynamic_edges/edged_tilemap.gd" id="6_owr3d"]
 [ext_resource type="Texture2D" uid="uid://ddlcjo0hxknqw" path="res://stages/hard_levels/the-ascent.png" id="7_owr3d"]
 [ext_resource type="Texture2D" uid="uid://dgj7y78b0yk11" path="res://stages/seussworld/art/extras1.png" id="8_1b8q2"]
-[ext_resource type="Texture2D" uid="uid://3f3hkt72xexd" path="res://generated/the_ascent_atlas.png" id="8_w8nne"]
 [ext_resource type="Material" uid="uid://t6s3wyv0jdh6" path="res://props/trees/tree-movement-material.tres" id="9_c0787"]
 [ext_resource type="Texture2D" uid="uid://pui7upyox7vw" path="res://stages/seussworld/art/trees.png" id="10_l6htq"]
 [ext_resource type="PackedScene" uid="uid://b85khgplioksi" path="res://actors/player/player.tscn" id="11_lcpf4"]
@@ -160,7 +159,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(834, 50)
-shader_parameter/real_screen_size = Vector2(5087.752, 2204.5198)
+shader_parameter/real_screen_size = Vector2(3150.524, 1478.0066)
 shader_parameter/edges = Array[Texture2D]([SubResource("CompressedTexture2D_qw55a"), SubResource("CompressedTexture2D_r6h17")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -169,7 +168,6 @@ shader_parameter/distortion_strength = 0.0050000002375
 shader_parameter/distortion_size = 7.606000361285
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8nne"]
-texture = ExtResource("8_w8nne")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 

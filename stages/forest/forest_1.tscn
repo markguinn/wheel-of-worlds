@@ -30,7 +30,6 @@
 [ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="28_c7sho"]
 [ext_resource type="PackedScene" uid="uid://bbq81ngylpi8h" path="res://actors/shadow_monster/shadow_monster.tscn" id="30_vf71y"]
 [ext_resource type="PackedScene" uid="uid://cs57yefkh1f4s" path="res://props/lantern/lantern.tscn" id="31_p444m"]
-[ext_resource type="Shader" uid="uid://ce1puydn2x8rp" path="res://actors/shadow_monster/shadow_monster.gdshader" id="32_buyvx"]
 [ext_resource type="PackedScene" uid="uid://bk140x3miwcrc" path="res://stages/forest/prefabs/forest_water.tscn" id="32_u1hea"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l2c6s"]
@@ -365,39 +364,6 @@ turbulence_influence_max = 0.32700002
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eho2t"]
 size = Vector2(1310, 1216)
 
-[sub_resource type="Gradient" id="Gradient_nh4xe"]
-offsets = PackedFloat32Array(0, 0.17148362, 0.4026975, 0.89980733)
-colors = PackedColorArray(0, 0, 0, 1, 0.04696, 0.12, 0.0204, 1, 0.03520005, 0.4, 0.016000008, 1, 0.01528747, 0.0036556995, 0.021934196, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_u1hea"]
-gradient = SubResource("Gradient_nh4xe")
-
-[sub_resource type="Gradient" id="Gradient_kqja0"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_nh4xe"]
-noise_type = 0
-fractal_type = 3
-fractal_octaves = 3
-fractal_lacunarity = 1.27
-fractal_gain = 1.365
-fractal_weighted_strength = 0.5
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5vmcy"]
-noise = SubResource("FastNoiseLite_nh4xe")
-color_ramp = SubResource("Gradient_kqja0")
-in_3d_space = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ilr3d"]
-shader = ExtResource("32_buyvx")
-shader_parameter/noise = SubResource("NoiseTexture2D_5vmcy")
-shader_parameter/monster_color = SubResource("GradientTexture1D_u1hea")
-shader_parameter/monster_body = PackedVector2Array(0.475, 0.51)
-shader_parameter/noise_middle_range = 0.4050000192375
-shader_parameter/monster_thickness = 0.8570000407075
-shader_parameter/monster_radius = 0.4350000206625
-shader_parameter/i_dont_even_know = 1.34000006365
-shader_parameter/noise_offset = Vector2(-0.060722757, 0.0794528)
-
 [node name="Forest1" type="Node2D" unique_id=1313295670]
 script = ExtResource("1_fednj")
 
@@ -693,7 +659,6 @@ position = Vector2(1598, 298)
 
 [node name="Player" parent="." unique_id=317056800 instance=ExtResource("2_776cr")]
 position = Vector2(1598, 298)
-collision_mask = 125
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1858114605]
 remote_path = NodePath("../../StandardCamera")
@@ -804,10 +769,6 @@ position = Vector2(-3872, 305)
 [node name="ShadowBlob" parent="." unique_id=1434955370 node_paths=PackedStringArray("target") instance=ExtResource("30_vf71y")]
 position = Vector2(-1387, 450)
 target = NodePath("../Player")
-lightsource_distance_tolerated = 500.0
-
-[node name="Skin" parent="ShadowBlob" index="0" unique_id=1071322173]
-material = SubResource("ShaderMaterial_ilr3d")
 
 [node name="Lantern" parent="." unique_id=1226786123 instance=ExtResource("31_p444m")]
 position = Vector2(-2503, -814)
@@ -815,5 +776,3 @@ position = Vector2(-2503, -814)
 [node name="Water" parent="." unique_id=1060541789 instance=ExtResource("32_u1hea")]
 
 [connection signal="area_exited" from="CavernArea" to="CavernArea" method="_on_area_exited"]
-
-[editable path="ShadowBlob"]

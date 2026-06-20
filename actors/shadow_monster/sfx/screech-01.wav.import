@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://daxp75a3745qq"
-path="res://.godot/imported/screech-01.wav-367017e5557d3eb515e9d4110088f75a.sample"
+path="res://.godot/imported/screech-01.wav-28d15e6abdfc8255a0d52e1dbc731b80.sample"
 
 [deps]
 
-source_file="res://actors/shadow_monster/screech-01.wav"
-dest_files=["res://.godot/imported/screech-01.wav-367017e5557d3eb515e9d4110088f75a.sample"]
+source_file="res://actors/shadow_monster/sfx/screech-01.wav"
+dest_files=["res://.godot/imported/screech-01.wav-28d15e6abdfc8255a0d52e1dbc731b80.sample"]
 
 [params]
 

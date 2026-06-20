@@ -7,16 +7,21 @@
 [ext_resource type="Script" uid="uid://k47xh1fgxbx0" path="res://actors/shadow_monster/shadow_monster_arm.gd" id="5_6g4ub"]
 [ext_resource type="Texture2D" uid="uid://bmof6pqpby63a" path="res://_source_assets/art/Shadow_arm_arm_only.png" id="6_ysnfm"]
 [ext_resource type="Script" uid="uid://dtrmgwn5s43vp" path="res://actors/shadow_monster/shadow_monster_hand.gd" id="7_bulxd"]
-[ext_resource type="AudioStream" uid="uid://crlpw51lvkn0e" path="res://actors/shadow_monster/shadow_hit_-01.wav" id="8_5o4g7"]
-[ext_resource type="AudioStream" uid="uid://6xf5od4a16fn" path="res://actors/shadow_monster/shadow_hit_-02.wav" id="9_3xfk1"]
-[ext_resource type="AudioStream" uid="uid://cpl3fbqljsdpl" path="res://actors/shadow_monster/shadow_hit_-03.wav" id="10_an2y7"]
-[ext_resource type="AudioStream" uid="uid://dy42ilx0asptb" path="res://actors/shadow_monster/shadow_hit_-04.wav" id="11_sphyl"]
-[ext_resource type="AudioStream" uid="uid://lgfwqf88krpf" path="res://actors/shadow_monster/shadow_hit_-05.wav" id="12_r1q67"]
-[ext_resource type="AudioStream" uid="uid://bvbhqloknqcga" path="res://actors/shadow_monster/shadow_hit_-06.wav" id="13_lweld"]
+[ext_resource type="AudioStream" uid="uid://crlpw51lvkn0e" path="res://actors/shadow_monster/sfx/shadow_hit_-01.wav" id="8_5o4g7"]
+[ext_resource type="AudioStream" uid="uid://6xf5od4a16fn" path="res://actors/shadow_monster/sfx/shadow_hit_-02.wav" id="9_3xfk1"]
+[ext_resource type="AudioStream" uid="uid://cpl3fbqljsdpl" path="res://actors/shadow_monster/sfx/shadow_hit_-03.wav" id="10_an2y7"]
+[ext_resource type="AudioStream" uid="uid://dy42ilx0asptb" path="res://actors/shadow_monster/sfx/shadow_hit_-04.wav" id="11_sphyl"]
+[ext_resource type="AudioStream" uid="uid://lgfwqf88krpf" path="res://actors/shadow_monster/sfx/shadow_hit_-05.wav" id="12_r1q67"]
+[ext_resource type="AudioStream" uid="uid://bvbhqloknqcga" path="res://actors/shadow_monster/sfx/shadow_hit_-06.wav" id="13_lweld"]
 [ext_resource type="Texture2D" uid="uid://csq87sl63icol" path="res://_source_assets/art/Shadow arm.png" id="14_5p3lw"]
-[ext_resource type="AudioStream" uid="uid://daxp75a3745qq" path="res://actors/shadow_monster/screech-01.wav" id="15_tldqd"]
-[ext_resource type="AudioStream" uid="uid://ceuhmnrxbicdp" path="res://actors/shadow_monster/screech-02.wav" id="16_asafn"]
-[ext_resource type="AudioStream" uid="uid://4p54tvqvakqt" path="res://actors/shadow_monster/screech-03.wav" id="17_aspqd"]
+[ext_resource type="AudioStream" uid="uid://daxp75a3745qq" path="res://actors/shadow_monster/sfx/screech-01.wav" id="15_tldqd"]
+[ext_resource type="AudioStream" uid="uid://ceuhmnrxbicdp" path="res://actors/shadow_monster/sfx/screech-02.wav" id="16_asafn"]
+[ext_resource type="AudioStream" uid="uid://4p54tvqvakqt" path="res://actors/shadow_monster/sfx/screech-03.wav" id="17_aspqd"]
+[ext_resource type="Script" uid="uid://vmdvty45rk5y" path="res://common/state_machine/state_machine.gd" id="18_km5do"]
+[ext_resource type="Script" uid="uid://wceknf2sig6i" path="res://actors/shadow_monster/states/shmo_patrol.gd" id="19_3s1mt"]
+[ext_resource type="Script" uid="uid://brseh86jn1nsw" path="res://actors/shadow_monster/states/shmo_alert.gd" id="20_6g4ub"]
+[ext_resource type="Script" uid="uid://om6lwwddw4q2" path="res://actors/shadow_monster/states/shmo_attack.gd" id="21_ysnfm"]
+[ext_resource type="Script" uid="uid://rjajpsd7bya3" path="res://actors/shadow_monster/states/shmo_flee.gd" id="22_ysnfm"]
 
 [sub_resource type="Gradient" id="Gradient_nh4xe"]
 offsets = PackedFloat32Array(0, 0.17148362, 0.4026975, 0.89980733)
@@ -87,7 +92,6 @@ radius = 39.812057
 [node name="ShadowBlob" type="Node2D" unique_id=1434955370]
 z_index = 10
 script = ExtResource("1_se3fp")
-lightsource_distance_tolerated = 430.0
 
 [node name="Skin" type="ColorRect" parent="." unique_id=1071322173]
 z_index = 100
@@ -125,9 +129,8 @@ texture = ExtResource("6_ysnfm")
 texture_mode = 2
 
 [node name="Palm" type="RigidBody2D" parent="Arm" unique_id=901396295 node_paths=PackedStringArray("hand_attached_to")]
-position = Vector2(2, 0)
-collision_layer = 64
-collision_mask = 0
+collision_layer = 72
+collision_mask = 5
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("7_bulxd")
@@ -167,13 +170,16 @@ motor_target_velocity = -3.1648057
 rotation = 0.15707964
 shape = SubResource("CircleShape2D_1yxxb")
 
-[node name="HitSound" type="AudioStreamPlayer2D" parent="Arm/Palm" unique_id=578546637]
+[node name="HitSFX" type="AudioStreamPlayer2D" parent="Arm/Palm" unique_id=578546637]
+unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_jlxop")
 bus = &"SFX"
 
 [node name="TopFinger" type="RigidBody2D" parent="Arm" unique_id=1037081550]
+unique_name_in_owner = true
 position = Vector2(25, -18)
-collision_layer = 64
+collision_layer = 72
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/TopFinger" unique_id=101350688]
 position = Vector2(-1, 6)
@@ -189,8 +195,10 @@ region_enabled = true
 region_rect = Rect2(1396.6796, 610.3897, 579.9817, 327.96582)
 
 [node name="MiddleFinger" type="RigidBody2D" parent="Arm" unique_id=878075442]
+unique_name_in_owner = true
 position = Vector2(34, 0)
-collision_layer = 64
+collision_layer = 72
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/MiddleFinger" unique_id=1463402595]
 position = Vector2(-5, 3)
@@ -206,8 +214,10 @@ region_enabled = true
 region_rect = Rect2(716.58167, 675.98285, 555.8159, 176.06592)
 
 [node name="BottomFinger" type="RigidBody2D" parent="Arm" unique_id=442227264]
+unique_name_in_owner = true
 position = Vector2(20, 16)
-collision_layer = 64
+collision_layer = 72
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/BottomFinger" unique_id=1150600100]
 position = Vector2(-8.34465e-07, -4.7683716e-07)
@@ -223,15 +233,48 @@ texture = ExtResource("14_5p3lw")
 region_enabled = true
 region_rect = Rect2(98.62488, 606.93744, 514.3887, 314.15674)
 
-[node name="Scream" type="AudioStreamPlayer2D" parent="." unique_id=1296899979]
+[node name="ScreamSFX" type="AudioStreamPlayer2D" parent="." unique_id=1296899979]
+unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_w3688")
 bus = &"SFX"
 
 [node name="BodyArea" type="Area2D" parent="." unique_id=532611218]
-collision_layer = 3
+collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BodyArea" unique_id=716367932]
 shape = SubResource("CircleShape2D_se3fp")
+
+[node name="Rays" type="Node2D" parent="." unique_id=1311912705]
+
+[node name="LightRay1" type="RayCast2D" parent="Rays" unique_id=1794098779]
+
+[node name="LightRay2" type="RayCast2D" parent="Rays" unique_id=1178954497]
+
+[node name="LightRay3" type="RayCast2D" parent="Rays" unique_id=1658273668]
+
+[node name="TargetRay" type="RayCast2D" parent="Rays" unique_id=1557460379]
+
+[node name="StateMachine" type="Node" parent="." unique_id=252548755 node_paths=PackedStringArray("target", "initial_state")]
+script = ExtResource("18_km5do")
+target = NodePath("..")
+initial_state = NodePath("Patrol")
+metadata/_custom_type_script = "uid://vmdvty45rk5y"
+
+[node name="Patrol" type="Node" parent="StateMachine" unique_id=1975028717]
+script = ExtResource("19_3s1mt")
+metadata/_custom_type_script = "uid://wq8fffjug6h3"
+
+[node name="Alert" type="Node" parent="StateMachine" unique_id=9639869]
+script = ExtResource("20_6g4ub")
+metadata/_custom_type_script = "uid://wq8fffjug6h3"
+
+[node name="Attack" type="Node" parent="StateMachine" unique_id=795521063]
+script = ExtResource("21_ysnfm")
+metadata/_custom_type_script = "uid://wq8fffjug6h3"
+
+[node name="Flee" type="Node" parent="StateMachine" unique_id=1970590918]
+script = ExtResource("22_ysnfm")
+metadata/_custom_type_script = "uid://wq8fffjug6h3"
 
 [connection signal="body_entered" from="Arm/Palm" to="." method="_on_palm_body_entered"]
