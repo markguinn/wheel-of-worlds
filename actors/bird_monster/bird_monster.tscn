@@ -16,6 +16,14 @@ script = ExtResource("1_jvu33")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1602817327]
 texture = SubResource("PlaceholderTexture2D_jvu33")
 
+[node name="Label" type="Label" parent="Sprite2D" unique_id=246876569]
+offset_left = -103.0
+offset_top = -24.0
+offset_right = 110.0
+offset_bottom = 18.0
+theme_type_variation = &"DarkLabel"
+text = "bird goes here"
+
 [node name="StateMachine" type="Node" parent="." unique_id=1535680804 node_paths=PackedStringArray("target", "initial_state")]
 script = ExtResource("2_7ijfr")
 target = NodePath("..")

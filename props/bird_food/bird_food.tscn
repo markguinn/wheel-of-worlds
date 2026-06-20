@@ -1,25 +1,17 @@
 [gd_scene format=3 uid="uid://v5fvcv8b3fkw"]
 
 [ext_resource type="Script" uid="uid://blygc5sbaxyc8" path="res://props/bird_food/bird_food.gd" id="1_l46h5"]
+[ext_resource type="Texture2D" uid="uid://oabarjm8r4rj" path="res://props/bird_food/art/Bird_Food.png" id="2_2vgc3"]
 [ext_resource type="PackedScene" uid="uid://bw7ujmd6681ln" path="res://common/activator.tscn" id="2_l46h5"]
 [ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://common/grab_box.gd" id="3_nxp1x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xeham"]
-radius = 16.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l46h5"]
-size = Vector2(32, 32)
+radius = 21.0
 
 [node name="BirdFood" type="RigidBody2D" unique_id=2030426815]
 collision_layer = 0
 script = ExtResource("1_l46h5")
 metadata/_custom_type_script = "uid://d1d8irkuomsw0"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1099906103]
-shape = SubResource("CircleShape2D_xeham")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=987959353]
-texture = SubResource("PlaceholderTexture2D_l46h5")
 
 [node name="GrabBox" parent="." unique_id=1410287907 groups=["bird_targets"] instance=ExtResource("2_l46h5")]
 script = ExtResource("3_nxp1x")
@@ -27,3 +19,12 @@ manage_position = true
 hold_offset = Vector2(0, 0)
 hold_degrees = inf
 label_text = "Press X to collect..."
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=987959353]
+texture = ExtResource("2_2vgc3")
+offset = Vector2(0, -4)
+region_enabled = true
+region_rect = Rect2(48, 67, 66, 65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1099906103]
+shape = SubResource("CircleShape2D_xeham")

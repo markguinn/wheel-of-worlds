@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvjel2fc4ae4"
-path="res://.godot/imported/forest_1_atlas.png-589b57d2500d67d7d6987ebfff72611f.ctex"
+uid="uid://oabarjm8r4rj"
+path="res://.godot/imported/Bird_Food.png-0b5062e417035cd11d3807a790760ac3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://generated/forest_1_atlas.png"
-dest_files=["res://.godot/imported/forest_1_atlas.png-589b57d2500d67d7d6987ebfff72611f.ctex"]
+source_file="res://props/bird_food/art/Bird_Food.png"
+dest_files=["res://.godot/imported/Bird_Food.png-0b5062e417035cd11d3807a790760ac3.ctex"]
 
 [params]
 

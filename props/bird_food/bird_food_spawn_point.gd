@@ -44,6 +44,7 @@ func spawn_food() -> void:
 	node.global_position = global_position
 	node.collected.connect(_on_food_taken)
 	node.freeze = true
+	node.rotation = randf_range(-0.5, 0.5)
 	active_food = node
 	Log.debug(self, "spawning food", idx, node)
 

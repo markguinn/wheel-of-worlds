@@ -24,7 +24,6 @@ size = Vector2(1400, 2400)
 
 [node name="WheelWorld" type="Node2D" unique_id=1658201799]
 script = ExtResource("1_slp1w")
-music_type = "wheel"
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1620192141]
 scroll_scale = Vector2(0, 0)
@@ -84,6 +83,7 @@ rotation = -1.5707964
 scale = Vector2(0.4, 0.4)
 portal_name = "ww1"
 linked_stage = "uid://djnwseb73emx0"
+target_portal = "forest1-start"
 
 [node name="Orb" parent="WheelTiles/Portal2" unique_id=1810830352 instance=ExtResource("3_qmu1q")]
 visible = false
