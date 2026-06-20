@@ -11,10 +11,9 @@ func _process(delta: float) -> void:
 		machine.transition_by_name.call_deferred("Attack")
 	elif (not monster.primary_light or monster.primary_light_dist > monster.lightsource_distance_tolerated) and GameManager.now_ms() > entered_at + 500:
 		machine.transition_by_name.call_deferred("Patrol")
-	elif monster.primary_light:
+	elif monster.primary_light and monster.colliding_walls <= 0:
 		var dir = monster.primary_light.global_position.direction_to(monster.global_position)
 		monster.global_position += dir * monster.hover_speed * delta
-		#Log.debounced(monster, "fleeing", dir, monster.hover_speed, monster.global_position)
 
 		# TODO: screech and shake? fade slowly? pulse size? thrash arm?
 		var spasm_cooldown = remap(

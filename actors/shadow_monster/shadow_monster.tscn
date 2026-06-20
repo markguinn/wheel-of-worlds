@@ -178,7 +178,7 @@ bus = &"SFX"
 [node name="TopFinger" type="RigidBody2D" parent="Arm" unique_id=1037081550]
 unique_name_in_owner = true
 position = Vector2(25, -18)
-collision_layer = 72
+collision_layer = 0
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/TopFinger" unique_id=101350688]
@@ -197,7 +197,7 @@ region_rect = Rect2(1396.6796, 610.3897, 579.9817, 327.96582)
 [node name="MiddleFinger" type="RigidBody2D" parent="Arm" unique_id=878075442]
 unique_name_in_owner = true
 position = Vector2(34, 0)
-collision_layer = 72
+collision_layer = 0
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/MiddleFinger" unique_id=1463402595]
@@ -216,7 +216,7 @@ region_rect = Rect2(716.58167, 675.98285, 555.8159, 176.06592)
 [node name="BottomFinger" type="RigidBody2D" parent="Arm" unique_id=442227264]
 unique_name_in_owner = true
 position = Vector2(20, 16)
-collision_layer = 72
+collision_layer = 0
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/BottomFinger" unique_id=1150600100]
@@ -240,7 +240,6 @@ bus = &"SFX"
 
 [node name="BodyArea" type="Area2D" parent="." unique_id=532611218]
 collision_layer = 4
-collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BodyArea" unique_id=716367932]
 shape = SubResource("CircleShape2D_se3fp")
@@ -278,3 +277,5 @@ script = ExtResource("22_ysnfm")
 metadata/_custom_type_script = "uid://wq8fffjug6h3"
 
 [connection signal="body_entered" from="Arm/Palm" to="." method="_on_palm_body_entered"]
+[connection signal="body_entered" from="BodyArea" to="." method="_on_body_area_body_entered"]
+[connection signal="body_exited" from="BodyArea" to="." method="_on_body_area_body_exited"]

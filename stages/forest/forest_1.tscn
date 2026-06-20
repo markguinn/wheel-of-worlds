@@ -765,6 +765,8 @@ position = Vector2(-3396, 0)
 
 [node name="Portal" parent="." unique_id=567549234 instance=ExtResource("28_c7sho")]
 position = Vector2(-3872, 305)
+portal_name = "forest1-end"
+linked_stage = "uid://cdmiqqhm4hsph"
 
 [node name="ShadowBlob" parent="." unique_id=1434955370 node_paths=PackedStringArray("target") instance=ExtResource("30_vf71y")]
 position = Vector2(-1387, 450)

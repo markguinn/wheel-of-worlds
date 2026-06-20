@@ -14,6 +14,7 @@ const MAX_DIST = 1_000_000.0
 @export var attack_cooldown_ms: int = 500
 @export var alert_cooldown_ms: int = 500
 
+var colliding_walls := 0
 
 var gave_warning: bool = false
 
@@ -133,3 +134,13 @@ func byebye() -> void:
 	var byebye_tween: Tween = $Skin.byebye(bye_duration)
 	byebye_tween.tween_property(self, "modulate", Color.TRANSPARENT, bye_duration)
 	byebye_tween.tween_callback(func(): queue_free())
+
+
+# these are for the walls
+
+func _on_body_area_body_entered(body: Node2D) -> void:
+	colliding_walls += 1
+
+
+func _on_body_area_body_exited(body: Node2D) -> void:
+	colliding_walls -= 1
