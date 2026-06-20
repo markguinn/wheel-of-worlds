@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://c1r0md363ajnb"]
+
+[ext_resource type="Script" uid="uid://cbx6wlfmu87ux" path="res://props/stone/stone.gd" id="1_tfevt"]
+[ext_resource type="PackedScene" uid="uid://bw7ujmd6681ln" path="res://common/activator.tscn" id="2_6nvwg"]
+[ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://common/grab_box.gd" id="3_168kd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wqvjq"]
+rough = true
+bounce = 0.24
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqvjq"]
+size = Vector2(128, 128)
+
+[sub_resource type="Gradient" id="Gradient_cki8f"]
+offsets = PackedFloat32Array(0.42564103, 0.83589745)
+colors = PackedColorArray(0, 0, 0, 1, 0.13863751, 0.13863748, 0.13863748, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_34n21"]
+gradient = SubResource("Gradient_cki8f")
+fill_from = Vector2(0.5192308, 0.99572647)
+fill_to = Vector2(0.3611111, 0.05982906)
+
+[node name="BigStone" type="RigidBody2D" unique_id=838538367 groups=["music_box_targets", "persisted"]]
+collision_layer = 36
+collision_mask = 23
+physics_material_override = SubResource("PhysicsMaterial_wqvjq")
+script = ExtResource("1_tfevt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1803141038]
+shape = SubResource("RectangleShape2D_wqvjq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=842565659]
+scale = Vector2(2, 2)
+texture = SubResource("GradientTexture2D_34n21")
+
+[node name="GrabBox" parent="." unique_id=1410287907 groups=["bird_targets"] instance=ExtResource("2_6nvwg")]
+script = ExtResource("3_168kd")
+manage_position = true
+hold_offset = Vector2(0, -40)
+hold_degrees = -30.0
+enabled = false

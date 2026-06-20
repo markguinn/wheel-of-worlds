@@ -2,7 +2,7 @@
 
 [sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_g28q7"]
 resource_name = "Compressor"
-threshold = -10.6
+threshold = -8.9
 ratio = 2.0
 mix = 0.75
 
@@ -13,7 +13,7 @@ resonance = 0.1
 
 [sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_j3pel"]
 resource_name = "Compressor"
-threshold = -36.0
+threshold = -18.5
 ratio = 2.2
 release_ms = 338.0
 mix = 0.67
