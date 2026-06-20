@@ -849,4 +849,23 @@ metadata/_custom_type_script = "uid://bb35kovwb32q7"
 
 [node name="BirdFood" parent="Sprite2D/BirdFoodSpawnPoint2" unique_id=733983732 instance=ExtResource("35_hlg1b")]
 
+[node name="Label" type="Label" parent="." unique_id=661009522]
+offset_left = 2232.0
+offset_top = 52.0
+offset_right = 3209.0
+offset_bottom = 232.0
+text = "This is closer to a museum of the
+forest biome than the final level.
+We'll substantially rework the layout
+and puzzles in this level"
+
+[node name="Label2" type="Label" parent="." unique_id=156917252]
+offset_left = -1162.0
+offset_top = 638.0
+offset_right = -185.0
+offset_bottom = 818.0
+text = "sometimes you have to come
+at your problems from another
+angle, maybe a higher vantage point..."
+
 [connection signal="area_exited" from="CavernArea" to="CavernArea" method="_on_area_exited"]
