@@ -5,6 +5,8 @@ extends Node2D
 const ORB_WAIT_MS = 1000
 const FOLLOW_ORB_LEN = 256.0
 const EYE_MOVEMENT_RADIUS = 50.0
+## How long after entering the level before the orb will activate the portal
+const WAIT_TIME_AFTER_INIT_MS = 5000
 
 @export var portal_name: String
 @export var is_active := true
@@ -17,6 +19,8 @@ var orb_entered_at := 0
 var orbs: Array[Orb] = []
 var iris_start_pos: Vector2
 var anim_state_machine: AnimationNodeStateMachinePlayback
+
+var init_time_ms: int
 
 @onready var activator: Activator = $Activator
 @onready var orb_detector: Area2D = $OrbDetector
@@ -34,7 +38,8 @@ func _ready() -> void:
 	orb_detector.body_entered.connect(_on_body_entered)
 	orb_detector.body_exited.connect(_on_body_exited)
 	iris_start_pos = iris.position
-	
+	init_time_ms = GameManager.now_ms()
+
 	for n in get_children():
 		if n is Orb:
 			orb_is_present = true
@@ -43,6 +48,8 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	if GameManager.now_ms() < init_time_ms + WAIT_TIME_AFTER_INIT_MS:
+		return
 	Log.debug(self, 'orb entered', body)
 	orb_is_present = true
 	orb_entered_at = GameManager.now_ms()
@@ -72,13 +79,14 @@ func _process(_delta: float) -> void:
 			Log.debug(self, 'disabling activator')
 			activator.enabled = false
 			Activator.update_active_candidate()
-	
+
 	if orbs.size() > 0:
 		var orb_pos := to_local(orbs[0].global_position)
 		var orb_dir := orb_pos.normalized()
 		var orb_dist := clampf(orb_pos.length(), 0.0, FOLLOW_ORB_LEN)
 		var eye_dist := EYE_MOVEMENT_RADIUS * orb_dist / FOLLOW_ORB_LEN
 		iris.position = iris_start_pos - iris.offset + orb_dir * eye_dist
+
 
 func _on_activated(_source: Activator) -> void:
 	Log.info(self, 'portal activated', self.name)
