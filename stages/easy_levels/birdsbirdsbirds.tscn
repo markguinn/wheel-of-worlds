@@ -1,0 +1,822 @@
+[gd_scene format=3 uid="uid://cldri6nxux0cp"]
+
+[ext_resource type="Script" uid="uid://bxxbctnq2ubio" path="res://stages/stage.gd" id="1_hlmtr"]
+[ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="2_nfsof"]
+[ext_resource type="Texture2D" uid="uid://djpsb4jyc0afj" path="res://stages/seussworld/art/mountains.png" id="3_6d277"]
+[ext_resource type="Script" uid="uid://ch0wv8cuoudkc" path="res://stages/seussworld/mist.gd" id="4_deev7"]
+[ext_resource type="Material" uid="uid://dej13b0et5yjt" path="res://common/dynamic_edges/world_0_shader.tres" id="5_j8632"]
+[ext_resource type="Script" uid="uid://buvl2i0vdqsau" path="res://common/dynamic_edges/edged_tilemap.gd" id="6_d8c24"]
+[ext_resource type="Texture2D" uid="uid://bbm45ye58y30c" path="res://stages/easy_levels/bumpy_ride.png" id="7_u2i4w"]
+[ext_resource type="Texture2D" uid="uid://dgj7y78b0yk11" path="res://stages/seussworld/art/extras1.png" id="8_nqayp"]
+[ext_resource type="Material" uid="uid://t6s3wyv0jdh6" path="res://props/trees/tree-movement-material.tres" id="9_jduka"]
+[ext_resource type="Texture2D" uid="uid://pui7upyox7vw" path="res://stages/seussworld/art/trees.png" id="10_le3a8"]
+[ext_resource type="PackedScene" uid="uid://b85khgplioksi" path="res://actors/player/player.tscn" id="11_32eg0"]
+[ext_resource type="PackedScene" uid="uid://cq30ppa4eh5d3" path="res://props/orb/orb.tscn" id="12_pujay"]
+[ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="13_8qs5j"]
+[ext_resource type="PackedScene" uid="uid://th5bmfwxjhlq" path="res://actors/bird_monster/bird_monster.tscn" id="14_nfsof"]
+[ext_resource type="PackedScene" uid="uid://ca6l7rdg7ytm5" path="res://props/debris/pile_of_boxes.tscn" id="15_j8632"]
+[ext_resource type="PackedScene" uid="uid://cs57yefkh1f4s" path="res://props/lantern/lantern.tscn" id="16_d8c24"]
+[ext_resource type="PackedScene" uid="uid://cpmxxndn8n308" path="res://props/plank/plank.tscn" id="17_u2i4w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3bs7n"]
+
+[sub_resource type="Gradient" id="Gradient_83wlx"]
+colors = PackedColorArray(0.24015418, 0.25599292, 0.21379125, 1, 0.16078432, 0.17254902, 0.14117648, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tsxbn"]
+gradient = SubResource("Gradient_83wlx")
+width = 500
+height = 500
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_3bs7n"]
+offsets = PackedFloat32Array(0.19917013, 0.46887967, 1)
+colors = PackedColorArray(0.078431375, 0.08235294, 0.0627451, 1, 0.085258566, 0.08747333, 0.06829219, 0.8911917, 0.14117648, 0.12941177, 0.11372549, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1cdy3"]
+gradient = SubResource("Gradient_3bs7n")
+width = 60
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_2layw"]
+offsets = PackedFloat32Array(0.17605634, 0.7793427)
+colors = PackedColorArray(0.16470589, 0.1764706, 0.14509805, 0.79607844, 0.22246751, 0.24016911, 0.1976687, 0.6)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gmxw7"]
+noise_type = 3
+seed = 5
+frequency = 0.007
+fractal_octaves = 4
+fractal_lacunarity = 0.8
+fractal_gain = 0.7
+fractal_weighted_strength = 0.86
+domain_warp_enabled = true
+domain_warp_type = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8bmoi"]
+noise = SubResource("FastNoiseLite_gmxw7")
+color_ramp = SubResource("Gradient_2layw")
+seamless = true
+seamless_blend_skirt = 0.377
+
+[sub_resource type="Gradient" id="Gradient_eprsv"]
+offsets = PackedFloat32Array(0.114107884, 0.28630707, 0.6016598, 1)
+colors = PackedColorArray(0.16470589, 0.17254902, 0.14117648, 1, 0.16398953, 0.17123571, 0.14034073, 0.969555, 0.15821995, 0.16065815, 0.13360955, 0.7243478, 0.14117648, 0.12941177, 0.11372549, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eprsv"]
+gradient = SubResource("Gradient_eprsv")
+width = 160
+height = 128
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_v0ifn"]
+offsets = PackedFloat32Array(0.43983403, 0.78215766)
+colors = PackedColorArray(0.8117647, 0.83137256, 0.78431374, 0.1764706, 0.56078434, 0.5882353, 0.5176471, 0.3137255)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_eksvm"]
+noise_type = 3
+seed = 3
+frequency = 0.005
+fractal_octaves = 4
+fractal_lacunarity = 1.2
+fractal_gain = 0.3
+fractal_weighted_strength = 0.59
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_fractal_octaves = 2
+domain_warp_fractal_gain = 0.6
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eprsv"]
+noise = SubResource("FastNoiseLite_eksvm")
+color_ramp = SubResource("Gradient_v0ifn")
+seamless = true
+seamless_blend_skirt = 0.377
+
+[sub_resource type="Gradient" id="Gradient_k5h24"]
+offsets = PackedFloat32Array(0.68049794, 1)
+colors = PackedColorArray(0.8117647, 0.83137256, 0.78431374, 0, 0.56078434, 0.5882353, 0.5176471, 0.47843137)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_87lg0"]
+noise_type = 4
+seed = 3
+frequency = 0.001
+fractal_type = 2
+fractal_octaves = 3
+fractal_lacunarity = 0.9
+fractal_gain = 0.7
+fractal_weighted_strength = 0.39
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 25.0
+domain_warp_frequency = 0.03
+domain_warp_fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gmxw7"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_87lg0")
+color_ramp = SubResource("Gradient_k5h24")
+seamless = true
+seamless_blend_skirt = 0.377
+
+[node name="Rolling Hills Map" type="Node2D" unique_id=831090977]
+material = SubResource("ShaderMaterial_3bs7n")
+script = ExtResource("1_hlmtr")
+
+[node name="Camera2D" parent="." unique_id=552340171 instance=ExtResource("2_nfsof")]
+position = Vector2(-1650, 640)
+
+[node name="BackgroundLayers" type="Node2D" parent="." unique_id=1154204795]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="FixedBackground" type="Parallax2D" parent="BackgroundLayers" unique_id=856755979]
+scroll_scale = Vector2(0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayers/FixedBackground" unique_id=43248688]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("GradientTexture2D_tsxbn")
+metadata/_edit_use_anchors_ = true
+
+[node name="FarMountains" type="Parallax2D" parent="BackgroundLayers" unique_id=1374407963]
+scroll_scale = Vector2(0.2, 0.1)
+repeat_size = Vector2(995, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundLayers/FarMountains" unique_id=622575544]
+modulate = Color(0.47983426, 0.47983432, 0.4798342, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_6d277")
+offset = Vector2(0, 1110)
+flip_h = true
+region_rect = Rect2(177, 0, 4096, 2048)
+
+[node name="FadeOut" type="Sprite2D" parent="BackgroundLayers/FarMountains" unique_id=784784239]
+position = Vector2(0, 895)
+scale = Vector2(16.584, 8)
+texture = SubResource("GradientTexture2D_1cdy3")
+
+[node name="FarMist" type="Parallax2D" parent="BackgroundLayers" unique_id=180983151]
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(1024, 1024)
+autoscroll = Vector2(30, 14)
+repeat_times = 6
+
+[node name="Mist" type="Sprite2D" parent="BackgroundLayers/FarMist" unique_id=939087428]
+position = Vector2(254, 237)
+scale = Vector2(2, 2)
+texture = SubResource("NoiseTexture2D_8bmoi")
+
+[node name="Mountains" type="Parallax2D" parent="BackgroundLayers" unique_id=2037387024]
+scroll_scale = Vector2(0.4, 0.2)
+repeat_size = Vector2(2653, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundLayers/Mountains" unique_id=913695051]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_6d277")
+offset = Vector2(0, 520)
+region_rect = Rect2(177, 0, 4096, 2048)
+
+[node name="FadeOut" type="Sprite2D" parent="BackgroundLayers/Mountains" unique_id=698875044]
+position = Vector2(0, 1738)
+scale = Vector2(16.583, 8)
+texture = SubResource("GradientTexture2D_eprsv")
+
+[node name="MiddleMist" type="Parallax2D" parent="BackgroundLayers" unique_id=584069698]
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(1024, 1024)
+autoscroll = Vector2(-20, -10)
+repeat_times = 6
+
+[node name="Mist" type="Sprite2D" parent="BackgroundLayers/MiddleMist" unique_id=888440830]
+scale = Vector2(2, 2)
+texture = SubResource("NoiseTexture2D_eprsv")
+
+[node name="NearMist" type="Parallax2D" parent="BackgroundLayers" unique_id=1803075772]
+z_index = 50
+scroll_scale = Vector2(1.1, 1.1)
+repeat_size = Vector2(4096, 2048)
+autoscroll = Vector2(7, -4)
+repeat_times = 10
+
+[node name="Mist" type="Sprite2D" parent="BackgroundLayers/NearMist" unique_id=1957947685]
+z_index = 50
+z_as_relative = false
+scale = Vector2(4, 2)
+texture = SubResource("NoiseTexture2D_gmxw7")
+script = ExtResource("4_deev7")
+
+[node name="Terrain" type="Node2D" parent="." unique_id=590424257]
+z_index = 1
+
+[node name="PaintedGround" type="CanvasGroup" parent="Terrain" unique_id=317622971]
+material = ExtResource("5_j8632")
+script = ExtResource("6_d8c24")
+slug = "bumpy_ride"
+
+[node name="level_data" type="Sprite2D" parent="Terrain/PaintedGround" unique_id=1725807640]
+position = Vector2(0, 600)
+texture = ExtResource("7_u2i4w")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Terrain/PaintedGround/level_data" unique_id=961365353]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/PaintedGround/level_data/StaticBody2D" unique_id=797603066]
+polygon = PackedVector2Array(2000, 500, 2000, -474, 1983, -474, 1983, -472.9, 1941.8999, -470, 1933.6001, -470, 1924.6001, -466, 1921.6001, -466, 1918.6001, -458, 1916.8, -458, 1918, -442.8, 1918, -426.6, 1922, -415.6, 1922, -411.3, 1931, -399, 1932, -397, 1932, -393.4, 1944.8999, -373, 1945.6001, -373, 1954.6001, -349, 1955.2, -349, 1956.2, -339, 1957.2, -339, 1959, -324.8, 1959, -161.9, 1962, -140.70001, 1962, -114, 1959, -101.20001, 1959, -100, 1936.3, -81, 1934.6001, -81, 1932, -74.399994, 1932, -71.70001, 1924.1001, -62, 1922.5, -62, 1920.5, -55, 1919.5, -55, 1910.5, -22, 1909.1001, -22, 1906, 22.900024, 1906, 29.400024, 1897.6001, 50, 1896.2, 50, 1894, 68.900024, 1894, 72.099976, 1881, 86.099976, 1826.8, 91, 1821.5, 91, 1800.5, 103, 1797.2, 103, 1773.2, 127, 1771.7, 127, 1762, 148.59998, 1762, 152.5, 1743, 159.59998, 1683, 161, 1658.8, 161, 1629.7, 166, 1585, 166, 1577, 155.29999, 1577, 153.70001, 1556, 143.70001, 1556, 142.40002, 1514.2, 132, 1510.3, 132, 1477.3999, 118, 1433.8999, 118, 1386.7, 124, 1382.3999, 124, 1367.5, 133, 1365.2, 133, 1353, 145.20001, 1353, 145.90002, 1325, 166, 1257.8999, 169, 1248.6001, 169, 1210.2, 183.5, 1162.2, 173, 1133, 173, 1133, 174, 1125.5, 174, 1107, 183.79999, 1078, 189.29999, 1037.1001, 187, 1031.6001, 187, 1011, 175.70001, 1011, 174.5, 974, 164.5, 974, 163.09998, 947, 161.09998, 947, 159.90002, 912.8999, 161, 884.80005, 161, 875.6001, 163, 870.5, 163, 849.5, 173, 845.3999, 173, 810, 194.90002, 780.6001, 201, 763.30005, 201, 731, 191.5, 731, 190.20001, 697.1001, 186, 687.5, 186, 639, 166.59998, 639, 165.40002, 591, 155.29999, 591, 154.09998, 560.1001, 152, 542.80005, 152, 514.8999, 159, 510.30005, 159, 460, 202.09998, 460, 202.70001, 449.5, 208, 447.30005, 208, 395, 200.20001, 395, 199, 322, 198, 309.3999, 198, 245, 183.29999, 245, 182, 231.69995, 182, 206, 190.59998, 206, 191.29999, 170, 198.40002, 114.19995, 190, 63.100098, 190, 47.19995, 186, 44.5, 186, -14.5, 157, -91.099976, 157, -145.19995, 162, -153.30005, 162, -175.30005, 169, -181.40002, 169, -265, 205.70001, -326.19995, 211, -334.59998, 211, -345.80005, 209, -348.5, 209, -366, 198.79999, -366, 197, -403.19995, 197, -413.40002, 199, -422.30005, 199, -457, 210.59998, -482, 209.09998, -482, 207.90002, -532.1, 210, -539.5, 210, -579, 232.79999, -588, 233, -588, 233.79999, -597.9, 233, -601.30005, 233, -644, 203.90002, -644, 201.59998, -664, 194.5, -664, 192.90002, -682.1, 194, -703.19995, 194, -761.30005, 204, -770.4, 204, -783, 208.59998, -783, 209.20001, -798.19995, 211, -804.4, 211, -828, 220.70001, -854.19995, 224, -872.19995, 224, -902, 231.40002, -944.9, 227, -948.30005, 227, -957, 219.09998, -957, 217.79999, -972, 209.70001, -972, 208.70001, -1002, 195.70001, -1002, 193.79999, -1016.2, 195, -1023.4, 195, -1035, 199.59998, -1035, 200.29999, -1072, 207.29999, -1072, 208, -1124.1, 210, -1132.5, 210, -1153.5, 220, -1195.7, 209, -1198.3, 209, -1210, 200, -1210, 198.5, -1230.7, 193, -1281.3, 193, -1288.2, 195, -1292.8, 195, -1303, 205.09998, -1317.1, 206, -1332.2, 206, -1352, 210.40002, -1352, 211.09998, -1382.1, 213, -1389.3, 213, -1434.4, 229, -1439.6, 229, -1452, 236.90002, -1452, 237.5, -1463.3, 241, -1550.7, 241, -1574.7, 233, -1578.3, 233, -1587, 226, -1587, 224.70001, -1604, 216.70001, -1604, 215.5, -1632, 206.5, -1632, 205, -1683.5, 205, -1712, 193.59998, -1712, 192.29999, -1750.9, 187, -1753.3, 187, -1763.3, 179, -1771, 162.59998, -1771, 157.29999, -1786.9, 155, -1791.5, 155, -1810.5, 145, -1813.1, 145, -1817, 140.29999, -1817, 137.90002, -1828.4, 131, -1833, 122.5, -1833, 120.79999, -1843, 115.70001, -1843, 114.099976, -1884.9, 111, -1889.5, 111, -1907.5, 101, -1909, 101, -1926, 78, -1928, 72, -1928, 67.5, -1952.7, 16, -1953.3, 16, -1957, -5.299988, -1957, -13.399994, -1964.7, -31, -1970, -73.20001, -1970, -78.399994, -1977, -94.399994, -1977, -180, -1963.5, -228, -1962.1, -228, -1961, -244.9, -1961, -253, -1954, -280.8, -1954, -285.4, -1950.9, -290, -1949.4, -290, -1946, -303.8, -1946, -305.2, -1933.1, -319, -1931.8, -319, -1920.8, -341, -1919.1, -341, -1918, -366, -1918, -378.4, -1922, -388.5, -1922, -390.9, -1939, -405.9, -1939, -407.7, -1975.9, -413, -1981.3, -413, -1986, -416.1, -1986, -417.8, -1998.9, -419, -2000, -419, -2000, 500)
+
+[node name="Foliage" type="Node2D" parent="." unique_id=1218368961]
+
+[node name="Envrionment" type="Node2D" parent="Foliage" unique_id=1091488412]
+
+[node name="Tree10" type="Sprite2D" parent="Foliage/Envrionment" unique_id=524985962]
+material = ExtResource("9_jduka")
+position = Vector2(-1638.9999, 242.00003)
+rotation = -0.013218123
+scale = Vector2(1.565, 1.557)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(784, 117, 1152, 1010)
+
+[node name="Tree15" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1963527085]
+material = ExtResource("9_jduka")
+position = Vector2(726.0001, 191.00002)
+rotation = -0.013218123
+scale = Vector2(1.565, 1.557)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(784, 117, 1152, 1010)
+
+[node name="Tree8" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1209479919]
+material = ExtResource("9_jduka")
+position = Vector2(1343, 580)
+scale = Vector2(0.665, 0.558)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(784, 117, 1152, 1010)
+
+[node name="BGBigArch2" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1841399262]
+position = Vector2(-1815.2, 674.85)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_nqayp")
+region_enabled = true
+region_rect = Rect2(1114, 840, 588, 311)
+
+[node name="BGBigArch3" type="Sprite2D" parent="Foliage/Envrionment" unique_id=682930899]
+position = Vector2(1157.9999, 705.99994)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_nqayp")
+region_enabled = true
+region_rect = Rect2(1114, 840, 588, 311)
+
+[node name="BGLittleArch2" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1671855888]
+position = Vector2(-1118, 775)
+rotation = -0.34177393
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_nqayp")
+region_enabled = true
+region_rect = Rect2(1765, 913, 283, 376)
+
+[node name="Tree1" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1874496579]
+material = ExtResource("9_jduka")
+position = Vector2(73, 646)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="Tree2" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1031993569]
+material = ExtResource("9_jduka")
+position = Vector2(186.00002, 747)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(784, 117, 1152, 1010)
+
+[node name="Grass1" type="Sprite2D" parent="Foliage/Envrionment" unique_id=89919555]
+position = Vector2(40.999878, 763)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_le3a8")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass2" type="Sprite2D" parent="Foliage/Envrionment" unique_id=314392674]
+position = Vector2(161.99994, 789)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Bush1" type="Sprite2D" parent="Foliage/Envrionment" unique_id=2127315738]
+z_index = 2
+position = Vector2(-320.99997, 749)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(109, 1083, 428, 369)
+
+[node name="Tree3" type="Sprite2D" parent="Foliage/Envrionment" unique_id=321595252]
+material = ExtResource("9_jduka")
+position = Vector2(943.5999, 599.60004)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="TallTRee" type="Sprite2D" parent="Foliage/Envrionment" unique_id=115557903]
+material = ExtResource("9_jduka")
+position = Vector2(700, 483)
+scale = Vector2(0.665, 1.215)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="TallTRee2" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1339869473]
+material = ExtResource("9_jduka")
+position = Vector2(1152, 483)
+rotation = 0.1915445
+scale = Vector2(0.665, 1.215)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="TallTRee3" type="Sprite2D" parent="Foliage/Envrionment" unique_id=2047486670]
+material = ExtResource("9_jduka")
+position = Vector2(520, 253.00002)
+rotation = 0.039365962
+scale = Vector2(0.665, 1.215)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="TallTRee4" type="Sprite2D" parent="Foliage/Envrionment" unique_id=757816753]
+material = ExtResource("9_jduka")
+position = Vector2(-1003.909, 319.83105)
+scale = Vector2(0.665, 1.215)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="TallTRee5" type="Sprite2D" parent="Foliage/Envrionment" unique_id=395076290]
+material = ExtResource("9_jduka")
+position = Vector2(-551.9092, 319.83105)
+rotation = 0.1915445
+scale = Vector2(0.665, 1.215)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="TallTRee6" type="Sprite2D" parent="Foliage/Envrionment" unique_id=548558662]
+material = ExtResource("9_jduka")
+position = Vector2(-1180.9089, 333.831)
+rotation = 0.17839907
+scale = Vector2(0.665, 1.215)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="TallTRee7" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1326029286]
+material = ExtResource("9_jduka")
+position = Vector2(-537.90906, 442.83105)
+scale = Vector2(0.665, 1.215)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="TallTRee8" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1146023401]
+material = ExtResource("9_jduka")
+position = Vector2(-85.90918, 442.83105)
+rotation = 0.1915445
+scale = Vector2(0.665, 1.215)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="TallTRee9" type="Sprite2D" parent="Foliage/Envrionment" unique_id=909068187]
+material = ExtResource("9_jduka")
+position = Vector2(-714.90894, 456.831)
+rotation = 0.17839907
+scale = Vector2(0.665, 1.215)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="TallTRee10" type="Sprite2D" parent="Foliage/Envrionment" unique_id=44992712]
+material = ExtResource("9_jduka")
+position = Vector2(-258.90915, 456.83105)
+scale = Vector2(0.665, 1.215)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="TallTRee11" type="Sprite2D" parent="Foliage/Envrionment" unique_id=632301632]
+material = ExtResource("9_jduka")
+position = Vector2(193.09076, 456.83105)
+rotation = 0.1915445
+scale = Vector2(0.665, 1.215)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="TallTRee12" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1622068525]
+material = ExtResource("9_jduka")
+position = Vector2(-435.909, 470.831)
+rotation = 0.17839907
+scale = Vector2(0.665, 1.215)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="Tree4" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1521898676]
+material = ExtResource("9_jduka")
+position = Vector2(1188.6, 748.6)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(784, 117, 1152, 1010)
+
+[node name="Grass3" type="Sprite2D" parent="Foliage/Envrionment" unique_id=161993009]
+position = Vector2(675.7, 755.3)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_le3a8")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass4" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1676327402]
+position = Vector2(796.7001, 781.3)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass9" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1471152220]
+position = Vector2(-684.29987, 774.3)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_le3a8")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass10" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1424549265]
+position = Vector2(-563.2998, 800.3)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass11" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1913123152]
+position = Vector2(-1276.2999, 784.3)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_le3a8")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass12" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1284369184]
+position = Vector2(-1155.2998, 810.3)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass7" type="Sprite2D" parent="Foliage/Envrionment" unique_id=100573673]
+position = Vector2(-168, 757)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_le3a8")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass8" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1596069954]
+position = Vector2(-64.400024, 730.8)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Bush4" type="Sprite2D" parent="Foliage/Envrionment" unique_id=825529890]
+z_index = 2
+position = Vector2(-883, 767)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(109, 1083, 428, 369)
+
+[node name="Tree5" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1785680744]
+material = ExtResource("9_jduka")
+position = Vector2(656, 660)
+scale = Vector2(-0.5, 0.515)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="Tree6" type="Sprite2D" parent="Foliage/Envrionment" unique_id=682240500]
+material = ExtResource("9_jduka")
+position = Vector2(1686.2001, 637.6)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(784, 117, 1152, 1010)
+
+[node name="Tree9" type="Sprite2D" parent="Foliage/Envrionment" unique_id=917627057]
+material = ExtResource("9_jduka")
+position = Vector2(-1808.4105, 621.916)
+rotation = -0.013218122
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="Tree11" type="Sprite2D" parent="Foliage/Envrionment" unique_id=299812125]
+material = ExtResource("9_jduka")
+position = Vector2(-718, 561)
+rotation = -0.013218122
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="Tree12" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1694845591]
+material = ExtResource("9_jduka")
+position = Vector2(-692.81055, 724.516)
+rotation = -0.013218122
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(784, 117, 1152, 1010)
+
+[node name="Tree13" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1492310790]
+material = ExtResource("9_jduka")
+position = Vector2(-1225.4106, 635.916)
+rotation = -0.013218122
+scale = Vector2(-0.5, 0.515)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="Tree14" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1452840563]
+material = ExtResource("9_jduka")
+position = Vector2(-195.21045, 613.516)
+rotation = -0.013218122
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(784, 117, 1152, 1010)
+
+[node name="Grass5" type="Sprite2D" parent="Foliage/Envrionment" unique_id=88963005]
+position = Vector2(1229.5999, 726.6)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_le3a8")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Grass6" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1298807367]
+position = Vector2(1350.5999, 752.6)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="Bush3" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1021790436]
+z_index = 2
+position = Vector2(867.6, 712.6)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(109, 1083, 428, 369)
+
+[node name="Bush5" type="Sprite2D" parent="Foliage/Envrionment" unique_id=1747479144]
+z_index = 2
+position = Vector2(-790.9999, 755)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_le3a8")
+region_enabled = true
+region_rect = Rect2(109, 1083, 428, 369)
+
+[node name="Player" parent="." unique_id=42652117 instance=ExtResource("11_32eg0")]
+position = Vector2(-1650, 640)
+speed_multiplier = 1.5
+metadata/_edit_group_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1411017242]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Orb" parent="." unique_id=1391753086 instance=ExtResource("12_pujay")]
+z_index = 1
+position = Vector2(-1400, 640)
+
+[node name="Portal" parent="." unique_id=820677622 instance=ExtResource("13_8qs5j")]
+position = Vector2(1500, 512)
+portal_name = "w0p1"
+linked_stage = "res://stages/easy_levels_rolling_hills.tscn"
+target_portal = "ww0"
+
+[node name="Birdworld" type="Node2D" parent="." unique_id=510735414]
+
+[node name="BirdMonster" parent="Birdworld" unique_id=1506347994 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(-2133, -397)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster2" parent="Birdworld" unique_id=1082089748 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(-1746, -425)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster3" parent="Birdworld" unique_id=961019094 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(-1342, -463)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster4" parent="Birdworld" unique_id=304541282 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(-1038, -484)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster5" parent="Birdworld" unique_id=1099753774 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(-712, -508)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster6" parent="Birdworld" unique_id=1008227200 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(-353, -491)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster7" parent="Birdworld" unique_id=754799108 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(-508, -232)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster8" parent="Birdworld" unique_id=742153701 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(-51, -256)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster9" parent="Birdworld" unique_id=1253255183 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(279, -256)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster10" parent="Birdworld" unique_id=1003214636 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(175, -550)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster11" parent="Birdworld" unique_id=1697783130 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(707, -515)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster12" parent="Birdworld" unique_id=654533246 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(998, -359)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster13" parent="Birdworld" unique_id=1569181589 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(768, -158)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster14" parent="Birdworld" unique_id=497153148 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(1303, -153)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster15" parent="Birdworld" unique_id=340319693 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(1564, -417)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster16" parent="Birdworld" unique_id=471990755 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(1188, -622)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster17" parent="Birdworld" unique_id=482608384 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(1022, 79)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster18" parent="Birdworld" unique_id=573132116 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(504, -21)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster19" parent="Birdworld" unique_id=1634457794 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(38, -11)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster20" parent="Birdworld" unique_id=598105429 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(-407, -4)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster21" parent="Birdworld" unique_id=50666727 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(-852, -4)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster22" parent="Birdworld" unique_id=998116577 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(-1277, -70)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster23" parent="Birdworld" unique_id=1540773856 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(-1646, -18)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster24" parent="Birdworld" unique_id=320946982 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(-2057, -11)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster25" parent="Birdworld" unique_id=1923944515 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(-1933, -273)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster26" parent="Birdworld" unique_id=155788883 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(-1457, -304)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="BirdMonster27" parent="Birdworld" unique_id=2054638486 node_paths=PackedStringArray("nests") instance=ExtResource("14_nfsof")]
+position = Vector2(-922, -318)
+nests = [NodePath("../Nests/Nest1"), NodePath("../Nests/Nest2"), NodePath("../Nests/Nest3"), NodePath("../Nests/Nest4"), NodePath("../Nests/Nest5"), NodePath("../Nests/Nest6"), NodePath("../Nests/Nest7"), NodePath("../Nests/Nest8"), NodePath("../Nests/Nest9"), NodePath("../Nests/Nest10"), NodePath("../Nests/Nest11"), NodePath("../Nests/Nest12"), NodePath("../Nests/Nest13"), NodePath("../Nests/Nest14"), NodePath("../Nests/Nest15"), NodePath("../Nests/Nest16"), NodePath("../Nests/Nest17"), NodePath("../Nests/Nest18"), NodePath("../Nests/Nest19"), NodePath("../Nests/Nest20"), NodePath("../Nests/Nest21"), NodePath("../Nests/Nest22"), NodePath("../Nests/Nest23"), NodePath("../Nests/Nest24"), NodePath("../Nests/Nest25"), NodePath("../Nests/Nest26"), NodePath("../Nests/Nest27")]
+
+[node name="Nests" type="Node2D" parent="Birdworld" unique_id=430357397]
+
+[node name="Nest1" type="Marker2D" parent="Birdworld/Nests" unique_id=567581218]
+position = Vector2(-2134, -80)
+
+[node name="Nest2" type="Marker2D" parent="Birdworld/Nests" unique_id=1118173152]
+position = Vector2(-2063, -259)
+
+[node name="Nest3" type="Marker2D" parent="Birdworld/Nests" unique_id=1110689940]
+position = Vector2(-1903, -191)
+
+[node name="Nest4" type="Marker2D" parent="Birdworld/Nests" unique_id=595411936]
+position = Vector2(-1738, -139)
+
+[node name="Nest5" type="Marker2D" parent="Birdworld/Nests" unique_id=1867063451]
+position = Vector2(-1281, -85)
+
+[node name="Nest6" type="Marker2D" parent="Birdworld/Nests" unique_id=635281836]
+position = Vector2(-1392, -292)
+
+[node name="Nest7" type="Marker2D" parent="Birdworld/Nests" unique_id=582783711]
+position = Vector2(-1111, -290)
+
+[node name="Nest8" type="Marker2D" parent="Birdworld/Nests" unique_id=540692188]
+position = Vector2(-1043, 5)
+
+[node name="Nest9" type="Marker2D" parent="Birdworld/Nests" unique_id=2015077959]
+position = Vector2(-1199, 488)
+
+[node name="Nest10" type="Marker2D" parent="Birdworld/Nests" unique_id=1485356065]
+position = Vector2(-723, 394)
+
+[node name="Nest11" type="Marker2D" parent="Birdworld/Nests" unique_id=1143817765]
+position = Vector2(-683, 113)
+
+[node name="Nest12" type="Marker2D" parent="Birdworld/Nests" unique_id=1522865471]
+position = Vector2(-532, 14)
+
+[node name="Nest13" type="Marker2D" parent="Birdworld/Nests" unique_id=1776350118]
+position = Vector2(-346, 49)
+
+[node name="Nest14" type="Marker2D" parent="Birdworld/Nests" unique_id=1223145393]
+position = Vector2(-235, 181)
+
+[node name="Nest15" type="Marker2D" parent="Birdworld/Nests" unique_id=1555139662]
+position = Vector2(-9, 70)
+
+[node name="Nest16" type="Marker2D" parent="Birdworld/Nests" unique_id=1664064792]
+position = Vector2(182, 181)
+
+[node name="Nest17" type="Marker2D" parent="Birdworld/Nests" unique_id=1570710746]
+position = Vector2(286, 56)
+
+[node name="Nest18" type="Marker2D" parent="Birdworld/Nests" unique_id=1304299547]
+position = Vector2(187, -196)
+
+[node name="Nest19" type="Marker2D" parent="Birdworld/Nests" unique_id=100508836]
+position = Vector2(352, -290)
+
+[node name="Nest20" type="Marker2D" parent="Birdworld/Nests" unique_id=122530225]
+position = Vector2(465, -111)
+
+[node name="Nest21" type="Marker2D" parent="Birdworld/Nests" unique_id=122411835]
+position = Vector2(632, -189)
+
+[node name="Nest22" type="Marker2D" parent="Birdworld/Nests" unique_id=93004156]
+position = Vector2(656, 148)
+
+[node name="Nest23" type="Marker2D" parent="Birdworld/Nests" unique_id=807529396]
+position = Vector2(1005, -276)
+
+[node name="Nest24" type="Marker2D" parent="Birdworld/Nests" unique_id=156655423]
+position = Vector2(1146, -340)
+
+[node name="Nest25" type="Marker2D" parent="Birdworld/Nests" unique_id=1203061082]
+position = Vector2(1273, -213)
+
+[node name="Nest26" type="Marker2D" parent="Birdworld/Nests" unique_id=1083762673]
+position = Vector2(1176, 131)
+
+[node name="Nest27" type="Marker2D" parent="Birdworld/Nests" unique_id=728602264]
+position = Vector2(1124, -206)
+
+[node name="pile-of-boxes" parent="." unique_id=1432650709 instance=ExtResource("15_j8632")]
+position = Vector2(-1857, 710)
+
+[node name="Lantern" parent="." unique_id=1315439554 instance=ExtResource("16_d8c24")]
+position = Vector2(436, 769)
+
+[node name="Plank" parent="." unique_id=1965888217 instance=ExtResource("17_u2i4w")]
+position = Vector2(-1004, 753)
+
+[node name="Plank2" parent="." unique_id=325504086 instance=ExtResource("17_u2i4w")]
+position = Vector2(967, 728)
