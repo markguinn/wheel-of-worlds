@@ -395,6 +395,12 @@ turbulence_influence_max = 0.32700002
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eho2t"]
 size = Vector2(1310, 1216)
 
+[sub_resource type="Curve2D" id="Curve2D_hlg1b"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1468, 310, 0, 0, 0, 0, -1906, 166, 0, 0, 0, 0, -2317, 387, 0, 0, 0, 0, -1838, 144, 0, 0, 0, 0, -1468, 310)
+}
+point_count = 5
+
 [node name="Forest1" type="Node2D" unique_id=1313295670]
 script = ExtResource("1_fednj")
 
@@ -783,7 +789,7 @@ position = Vector2(-3205.455, 428.7887)
 
 [node name="Orb" parent="." unique_id=1425831707 instance=ExtResource("24_rrrxt")]
 z_index = 1
-position = Vector2(2259, -95)
+position = Vector2(2490, -65)
 
 [node name="Stone" parent="." unique_id=838538367 instance=ExtResource("26_isjrt")]
 position = Vector2(-3288, 456)
@@ -802,9 +808,10 @@ portal_name = "forest1-start"
 linked_stage = "uid://b32q0e34faaed"
 target_portal = "ww1"
 
-[node name="ShadowBlob" parent="." unique_id=1434955370 node_paths=PackedStringArray("target") instance=ExtResource("30_vf71y")]
+[node name="ShadowBlob" parent="." unique_id=1434955370 node_paths=PackedStringArray("target", "patrol_path_follow") instance=ExtResource("30_vf71y")]
 position = Vector2(-1387, 450)
 target = NodePath("../Player")
+patrol_path_follow = NodePath("../Path2D/PathFollow2D")
 
 [node name="Lantern" parent="." unique_id=1226786123 instance=ExtResource("31_p444m")]
 position = Vector2(-2503, -814)
@@ -867,5 +874,12 @@ offset_bottom = 818.0
 text = "sometimes you have to come
 at your problems from another
 angle, maybe a higher vantage point..."
+
+[node name="Path2D" type="Path2D" parent="." unique_id=283457190]
+curve = SubResource("Curve2D_hlg1b")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=566390226]
+position = Vector2(-1468, 310)
+rotation = -2.8239572
 
 [connection signal="area_exited" from="CavernArea" to="CavernArea" method="_on_area_exited"]

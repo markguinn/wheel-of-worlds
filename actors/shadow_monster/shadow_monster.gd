@@ -14,7 +14,8 @@ const MAX_DIST = 1_000_000.0
 @export var attack_cooldown_ms: int = 500
 @export var alert_cooldown_ms: int = 500
 
-var colliding_walls := 0
+var colliding_walls: Array[Node2D] = []
+var colliding_direction: Vector2
 
 var gave_warning: bool = false
 
@@ -57,7 +58,7 @@ func _process(delta: float) -> void:
 # attack
 # flee
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# TODO: is there a faster way to do this?
 	# would it be faster to just make a ray for every light?
 	var close_lights: Array[Node2D] = []
@@ -139,8 +140,11 @@ func byebye() -> void:
 # these are for the walls
 
 func _on_body_area_body_entered(body: Node2D) -> void:
-	colliding_walls += 1
+	colliding_walls.append(body)
+	colliding_direction = global_position.direction_to(body.global_position)
 
 
 func _on_body_area_body_exited(body: Node2D) -> void:
-	colliding_walls -= 1
+	colliding_walls.erase(body)
+	if colliding_walls.size() > 0:
+		colliding_direction = global_position.direction_to(colliding_walls[0].global_position)

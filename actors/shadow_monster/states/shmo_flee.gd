@@ -11,11 +11,12 @@ func _process(delta: float) -> void:
 		machine.transition_by_name.call_deferred("Attack")
 	elif (not monster.primary_light or monster.primary_light_dist > monster.lightsource_distance_tolerated) and GameManager.now_ms() > entered_at + 500:
 		machine.transition_by_name.call_deferred("Patrol")
-	elif monster.primary_light and monster.colliding_walls <= 0:
+	elif not monster.colliding_walls.is_empty():
+		monster.global_position += monster.colliding_direction * monster.hover_speed * delta
+	elif monster.primary_light:
 		var dir = monster.primary_light.global_position.direction_to(monster.global_position)
 		monster.global_position += dir * monster.hover_speed * delta
 
-		# TODO: screech and shake? fade slowly? pulse size? thrash arm?
 		var spasm_cooldown = remap(
 			monster.primary_light_dist, 
 			0.0, monster.lightsource_distance_tolerated,

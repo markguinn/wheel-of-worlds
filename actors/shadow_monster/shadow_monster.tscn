@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://lgfwqf88krpf" path="res://actors/shadow_monster/sfx/shadow_hit_-05.wav" id="12_r1q67"]
 [ext_resource type="AudioStream" uid="uid://bvbhqloknqcga" path="res://actors/shadow_monster/sfx/shadow_hit_-06.wav" id="13_lweld"]
 [ext_resource type="Texture2D" uid="uid://csq87sl63icol" path="res://_source_assets/art/Shadow arm.png" id="14_5p3lw"]
+[ext_resource type="Script" uid="uid://d1d8irkuomsw0" path="res://common/moveable_rigid_body.gd" id="14_bulxd"]
 [ext_resource type="AudioStream" uid="uid://daxp75a3745qq" path="res://actors/shadow_monster/sfx/screech-01.wav" id="15_tldqd"]
 [ext_resource type="AudioStream" uid="uid://ceuhmnrxbicdp" path="res://actors/shadow_monster/sfx/screech-02.wav" id="16_asafn"]
 [ext_resource type="AudioStream" uid="uid://4p54tvqvakqt" path="res://actors/shadow_monster/sfx/screech-03.wav" id="17_aspqd"]
@@ -175,11 +176,13 @@ unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_jlxop")
 bus = &"SFX"
 
-[node name="TopFinger" type="RigidBody2D" parent="Arm" unique_id=1037081550]
+[node name="TopFinger" type="RigidBody2D" parent="Arm" unique_id=697312386]
 unique_name_in_owner = true
 position = Vector2(25, -18)
 collision_layer = 0
 collision_mask = 5
+script = ExtResource("14_bulxd")
+metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/TopFinger" unique_id=101350688]
 position = Vector2(-1, 6)
@@ -194,11 +197,13 @@ texture = ExtResource("14_5p3lw")
 region_enabled = true
 region_rect = Rect2(1396.6796, 610.3897, 579.9817, 327.96582)
 
-[node name="MiddleFinger" type="RigidBody2D" parent="Arm" unique_id=878075442]
+[node name="MiddleFinger" type="RigidBody2D" parent="Arm" unique_id=1218627494]
 unique_name_in_owner = true
 position = Vector2(34, 0)
 collision_layer = 0
 collision_mask = 5
+script = ExtResource("14_bulxd")
+metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/MiddleFinger" unique_id=1463402595]
 position = Vector2(-5, 3)
@@ -213,16 +218,18 @@ texture = ExtResource("14_5p3lw")
 region_enabled = true
 region_rect = Rect2(716.58167, 675.98285, 555.8159, 176.06592)
 
-[node name="BottomFinger" type="RigidBody2D" parent="Arm" unique_id=442227264]
+[node name="BottomFinger" type="RigidBody2D" parent="Arm" unique_id=622722812]
 unique_name_in_owner = true
 position = Vector2(20, 16)
 collision_layer = 0
 collision_mask = 5
+script = ExtResource("14_bulxd")
+metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arm/BottomFinger" unique_id=1150600100]
 position = Vector2(-8.34465e-07, -4.7683716e-07)
 rotation = 2.1991148
-scale = Vector2(0.99999994, 0.99999994)
+scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("CapsuleShape2D_1yxxb")
 
 [node name="ShadowArm" type="Sprite2D" parent="Arm/BottomFinger" unique_id=877076512]

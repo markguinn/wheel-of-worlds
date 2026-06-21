@@ -12,8 +12,8 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	
 	# this is a hack to get around cases where the fingers get stuck
 	if hand_attached_to.arm_global_position.distance_to(global_position) > max_length:
-		Log.warn(self, "monster hand got stuck!", get_path())
+		Log.warn(self, "monster hand got stuck!", get_path(), hand_attached_to.global_position)
 		global_position = hand_attached_to.global_position
-		%TopFinger.position = Vector2(25, -18)
-		%MiddleFinger.position = Vector2(34, 0)
-		%BottomFinger.position = Vector2(20, 16)
+		%TopFinger.set_next_global_position(global_position + Vector2(25, -18))
+		%MiddleFinger.set_next_global_position(global_position + Vector2(34, 0))
+		%BottomFinger.set_next_global_position(global_position + Vector2(20, 16))
