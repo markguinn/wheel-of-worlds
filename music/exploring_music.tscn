@@ -3,7 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://ddfjp8egsedu1" path="res://music/exploration-1.ogg" id="1_4vd6y"]
 [ext_resource type="AudioStream" uid="uid://b22ufmhvxubg2" path="res://music/exploration-2.ogg" id="2_r8vh3"]
 [ext_resource type="AudioStream" uid="uid://b4ba61bt1506h" path="res://music/exploration-3.ogg" id="3_xbxf1"]
-[ext_resource type="AudioStream" uid="uid://ydx7pn58o638" path="res://music/exploration-4.ogg" id="4_jf8eo"]
+[ext_resource type="AudioStream" uid="uid://c3g56w7mrm4qo" path="res://music/exploration-4.ogg" id="4_jf8eo"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_fcw4a"]
 stream_count = 4
