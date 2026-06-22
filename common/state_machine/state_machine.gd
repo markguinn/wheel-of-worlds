@@ -14,6 +14,8 @@ signal state_changed(from_state: StateNode, to_state: StateNode)
 var states: Array[StateNode] = []
 var active_state: StateNode
 var next_state: StateNode
+var last_state_change_ms: int
+
 
 func _ready() -> void:
 	if not target:
@@ -79,6 +81,7 @@ func transition(immediate_next_state: StateNode) -> bool:
 		active_state.entered.emit(prev_state)
 
 		state_changed.emit(prev_state, next_state)
+		last_state_change_ms = GameManager.now_ms()
 		return true
 	else:
 		if cur_name != next_state.name:

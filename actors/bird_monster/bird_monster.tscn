@@ -6,9 +6,19 @@
 [ext_resource type="Script" uid="uid://dkhjwjril7w2q" path="res://actors/bird_monster/states/bird_nesting.gd" id="4_hqiho"]
 [ext_resource type="Script" uid="uid://4qx1krqfcsim" path="res://actors/bird_monster/states/bird_attacking.gd" id="5_e210h"]
 [ext_resource type="Script" uid="uid://pr6facki45p8" path="res://actors/bird_monster/states/bird_carrying.gd" id="6_e210h"]
+[ext_resource type="AudioStream" uid="uid://74iry8t8ijtm" path="res://actors/bird_monster/sfx/bird_squawk_1.ogg" id="7_3nprb"]
+[ext_resource type="Script" uid="uid://b43oh6a6u8x02" path="res://actors/bird_monster/states/bird_picking_up.gd" id="7_plkgr"]
+[ext_resource type="AudioStream" uid="uid://gms7sgmhg266" path="res://actors/bird_monster/sfx/bird_squawk_2.ogg" id="8_plkgr"]
+[ext_resource type="AudioStream" uid="uid://xorqxudqw6qw" path="res://actors/bird_monster/sfx/bird_squawk_3.ogg" id="9_rssx8"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jvu33"]
 size = Vector2(334, 132)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_l4bl7"]
+streams_count = 3
+stream_0/stream = ExtResource("7_3nprb")
+stream_1/stream = ExtResource("8_plkgr")
+stream_2/stream = ExtResource("9_rssx8")
 
 [node name="BirdMonster" type="Node2D" unique_id=1506347994]
 script = ExtResource("1_jvu33")
@@ -45,3 +55,11 @@ metadata/_custom_type_script = "uid://dljix40x8qlm1"
 [node name="Carrying" type="Node" parent="StateMachine" unique_id=801669833]
 script = ExtResource("6_e210h")
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
+
+[node name="PickingUp" type="Node" parent="StateMachine" unique_id=1119671870]
+script = ExtResource("7_plkgr")
+metadata/_custom_type_script = "uid://dayscetfsyxng"
+
+[node name="SquawkSound" type="AudioStreamPlayer2D" parent="." unique_id=1530390147]
+stream = SubResource("AudioStreamRandomizer_l4bl7")
+bus = &"SFX"

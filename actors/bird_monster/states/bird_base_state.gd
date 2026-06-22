@@ -42,13 +42,18 @@ func _process(delta: float) -> void:
 			# are we too close to the player?
 			and bird.global_position.distance_to(player.global_position) < bird.min_player_distance
 			# only counts if you're looking at it
-			and signf(bird.global_position.x - player.global_position.x) == player.scale.x
+			#and signf(bird.global_position.x - player.global_position.x) == player.scale.x
 			and not GameManager.rate_limit(500, "bird_escape")
 	):
 		# TODO: change animation to be more hostile?
+		bird.sfx_squawk.play()
 		var dir := Vector2(randf_range(-0.4, 0.4), -1.0)
-		var dist := bird.fly_speed * randf_range(0.2, 1.0)
+		var dist := bird.fly_speed * randf_range(1.0, 2.0)
 		destination = bird.global_position + dir * dist
 		Log.debug(bird, "running away to", destination)
+		if bird.carried_obj:
+			Log.debug(bird, "dropping my thing", bird.carried_obj)
+			bird.carried_obj.put_down.emit()
+			bird.carried_obj = null
 
 	bird.global_position = bird.global_position.move_toward(destination, bird.fly_speed * delta)

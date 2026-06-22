@@ -13,6 +13,8 @@ func _entered(_from: StateNode) -> void:
 
 
 func _before_exit(_to: StateNode) -> void:
+	if not bird.carried_obj:
+		return
 	bird.carried_obj.put_down.emit()
 	if bird.carried_obj.target_node is BirdFood:
 		Log.debug(bird, "eating the food", bird.carried_obj.target_node)
