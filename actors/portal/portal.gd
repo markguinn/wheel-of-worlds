@@ -8,10 +8,15 @@ const EYE_MOVEMENT_RADIUS = 50.0
 ## How long after entering the level before the orb will activate the portal
 const WAIT_TIME_AFTER_INIT_MS = 5000
 
+## This is how other portals reference this one
 @export var portal_name: String
 @export var is_active := true
+## When the player enters, they go to this stage
 @export_file("*.tscn") var linked_stage: String
+## If not blank, the player will go to the portal with this name instead of the usual starting point of the level
 @export var target_portal: String
+## If not blank, this string will be displayed when the portal can be activated instead of "Press X to enter..."
+@export var activator_text: String
 
 var player_is_present := false
 var orb_is_present := false
@@ -35,6 +40,9 @@ func _ready() -> void:
 	anim_state_machine = anim_tree["parameters/playback"]
 	activator.activated.connect(_on_activated)
 	activator.enabled = false
+	if activator_text:
+		activator.label_text = activator_text
+		activator.label.text = activator_text
 	orb_detector.body_entered.connect(_on_body_entered)
 	orb_detector.body_exited.connect(_on_body_exited)
 	iris_start_pos = iris.position
