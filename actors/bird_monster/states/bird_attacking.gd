@@ -39,7 +39,7 @@ func _entered(_from: StateNode) -> void:
 	else:
 		Log.debug(bird, "attack target", attack_target.target_node.name)
 		destination = attack_target.global_position
-		if not found_food:
+		if not found_food and bird.sfx_squawk:
 			bird.sfx_squawk.play()
 
 

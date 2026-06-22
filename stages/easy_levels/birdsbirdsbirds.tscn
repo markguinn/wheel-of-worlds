@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cldri6nxux0cp"]
+[gd_scene format=3 uid="uid://dg1lht5utrc7o"]
 
 [ext_resource type="Script" uid="uid://bxxbctnq2ubio" path="res://stages/stage.gd" id="1_hlmtr"]
 [ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="2_nfsof"]
