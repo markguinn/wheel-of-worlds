@@ -11,9 +11,9 @@ extends Marker2D
 # it will always go for the food instead of a prop.
 
 ## Min amount of time after the food is taken before it grows back
-@export var min_spawn_seconds := 1.0
+@export var min_spawn_seconds := 4.0
 ## Max amount of time after the food is taken before it grows back
-@export var max_spawn_seconds := 2.0
+@export var max_spawn_seconds := 12.0
 
 var templates: Array[BirdFood] = []
 var spawn_id := 1
