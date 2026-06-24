@@ -13,6 +13,9 @@ shader_parameter/speed = 1.4
 shader_parameter/width = 20.0
 shader_parameter/depth = 0.08
 shader_parameter/revs = 2
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/fade_start = 1.0
+shader_parameter/fade_end = 1.0
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_k5h24"]
 frames = 3
@@ -29,6 +32,9 @@ shader_parameter/speed = 1.5
 shader_parameter/width = 30.0
 shader_parameter/depth = 0.1
 shader_parameter/revs = 2
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/fade_start = 1.0
+shader_parameter/fade_end = 1.0
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_qj5ca"]
 frames = 3
@@ -48,6 +54,7 @@ frame_0/texture = ExtResource("6_u3pn3")
 frame_0/duration = 0.4
 
 [node name="Water" type="Control" unique_id=14946250 node_paths=PackedStringArray("wave_layers")]
+light_mask = 0
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
@@ -62,6 +69,7 @@ wave_layers = [NodePath("BG1"), NodePath("BG2"), NodePath("Water1"), NodePath("W
 wave_offset = Vector2(0, -150)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=127477503]
+light_mask = 0
 z_index = 5
 layout_mode = 1
 anchors_preset = 15
@@ -72,56 +80,60 @@ grow_vertical = 2
 color = Color(0.8352941, 0.9372549, 0.91764706, 1)
 
 [node name="BG1" type="TextureRect" parent="." unique_id=1370769884]
+light_mask = 0
 material = SubResource("ShaderMaterial_k4dac")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 27.595879
-offset_top = -151.50862
-offset_right = 27.595703
-offset_bottom = 171.49138
+offset_left = 162.49918
+offset_top = -145.42087
+offset_right = 162.5
+offset_bottom = 177.57913
 grow_horizontal = 2
 texture = SubResource("AnimatedTexture_k5h24")
 stretch_mode = 1
 
 [node name="BG2" type="TextureRect" parent="." unique_id=504008343]
+light_mask = 0
 z_index = 5
 material = SubResource("ShaderMaterial_qj5ca")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = -27.234125
-offset_top = -149.64523
-offset_right = -27.234375
-offset_bottom = 173.35477
+offset_left = 156.23839
+offset_top = -154.68317
+offset_right = 156.23828
+offset_bottom = 168.31683
 grow_horizontal = 2
 texture = SubResource("AnimatedTexture_qj5ca")
 stretch_mode = 1
 
 [node name="Water1" type="TextureRect" parent="." unique_id=739047094]
+light_mask = 0
 z_index = 5
 material = SubResource("ShaderMaterial_k4dac")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = -160.36829
-offset_top = -148.05807
-offset_right = -160.36816
-offset_bottom = 174.94193
+offset_left = -29.260458
+offset_top = -143.43614
+offset_right = -29.259766
+offset_bottom = 179.56386
 grow_horizontal = 2
 texture = SubResource("AnimatedTexture_tt41u")
 stretch_mode = 1
 
 [node name="Water2" type="TextureRect" parent="." unique_id=488215949]
+light_mask = 0
 z_index = 5
 material = SubResource("ShaderMaterial_qj5ca")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 99.54361
-offset_top = -146.85056
-offset_right = 99.54297
-offset_bottom = 176.14944
+offset_left = 166.16258
+offset_top = -154.51706
+offset_right = 166.16211
+offset_bottom = 168.48294
 grow_horizontal = 2
 texture = SubResource("AnimatedTexture_colx8")
 stretch_mode = 1
