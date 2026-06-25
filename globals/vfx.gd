@@ -132,12 +132,19 @@ func white_in(seconds = MID) -> Tween:
 
 var slomo_tween: Tween
 func slomo(seconds = MID, intensity = QUAKE) -> Tween:
+	Engine.time_scale = lerpf(1.0, 0.1, intensity)
+	return tween_time_scale(1.0, seconds)
+
+
+func tween_time_scale(value: float, seconds = MID) -> Tween:
 	if slomo_tween and not slomo_tween.finished:
 		slomo_tween.stop()
 	slomo_tween = get_tree().create_tween()
-	Engine.time_scale = lerpf(1.0, 0.1, intensity)
-	slomo_tween.tween_property(Engine, "time_scale", 1.0, seconds)
+	slomo_tween.set_ease(Tween.EASE_IN_OUT)
+	slomo_tween.set_trans(Tween.TRANS_SINE)
+	slomo_tween.tween_property(Engine, "time_scale", value, seconds)
 	return slomo_tween
+
 
 ## Fade the whole screen or a single node in or out
 # TODO: this doesn't actually fade the title screen in and out, which is weird

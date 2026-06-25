@@ -197,7 +197,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(1000, 50)
-shader_parameter/real_screen_size = Vector2(10896.375, 4787.129)
+shader_parameter/real_screen_size = Vector2(5688.633, 3186.8167)
 shader_parameter/edges = Array[Texture2D]([SubResource("GradientTexture2D_gdb7k"), SubResource("GradientTexture2D_gdb7k")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -1086,6 +1086,30 @@ tracks/6/keys = {
 "update": 0,
 "values": [100.0]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("%AnimatedFishMonster/SplashParticles:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("%AnimatedFishMonster:linear_velocity")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_wt5ny"]
 resource_name = "cutscene"
@@ -1097,10 +1121,10 @@ tracks/0/path = NodePath("AnimatedFishMonster:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5.166667, 6, 6.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 3.8, 5.166667, 6, 6.8333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(2049, 762), Vector2(-849, 373), Vector2(-496, -509), Vector2(-56, -194)]
+"values": [Vector2(2049, 492), Vector2(278.576, 510.193), Vector2(-849, 373), Vector2(-496, -509), Vector2(-56, -134)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1181,8 +1205,8 @@ tracks/7/path = NodePath("FinalCavern")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(3.8000002, 5.0666666, 6, 6.4, 6.8, 6.8333335),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(1.1, 2.1333334, 4.0666666, 4.866667, 5.1666665, 5.4, 6.2, 6.3, 6.8333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [0.5],
 "method": &"shake"
@@ -1195,6 +1219,15 @@ tracks/7/keys = {
 }, {
 "args": [1.2],
 "method": &"shake"
+}, {
+"args": [0.1, 0.2],
+"method": &"set_time_scale"
+}, {
+"args": [0.9, 0.4],
+"method": &"set_time_scale"
+}, {
+"args": [0.6, 0.8],
+"method": &"set_time_scale"
 }, {
 "args": [1.5],
 "method": &"shake"
@@ -1216,6 +1249,30 @@ tracks/8/keys = {
 "args": [null],
 "method": &"_on_activated"
 }]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("%AnimatedFishMonster/SplashParticles:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 4.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("%AnimatedFishMonster:linear_velocity")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(4.9666667),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wt5ny"]
@@ -1659,7 +1716,6 @@ scale_amount_max = 12.0
 unique_name_in_owner = true
 position = Vector2(-537, -26)
 portal_name = "fishboss-end"
-linked_stage = "uid://b32q0e34faaed"
 
 [node name="Activator" parent="FinalStones/EndPortal" index="0" unique_id=1410287907]
 label_text = " "
@@ -1671,29 +1727,29 @@ shape = SubResource("CircleShape2D_wt5ny")
 shape = SubResource("CircleShape2D_gdb7k")
 
 [node name="Sprite2D" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.10015623)
-rotation = 27.704681
-scale = Vector2(0.7001042, 0.7001042)
+modulate = Color(1, 1, 1, 0.3786393)
+rotation = -283.18536
+scale = Vector2(0.88575953, 0.88575953)
 
 [node name="Sprite2D2" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.31978595)
-rotation = -979.9824
-scale = Vector2(0.84652394, 0.84652394)
+modulate = Color(1, 1, 1, 0.26526752)
+rotation = -225.75275
+scale = Vector2(0.81017834, 0.81017834)
 
 [node name="Sprite2D3" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.29288408)
-rotation = 1191.5869
-scale = Vector2(0.8285894, 0.8285894)
+modulate = Color(1, 1, 1, 0.13479117)
+rotation = 949.83765
+scale = Vector2(0.7231941, 0.7231941)
 
 [node name="Sprite2D4" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.12411271)
-rotation = -778.0636
-scale = Vector2(0.7160751, 0.7160751)
+modulate = Color(1, 1, 1, 0.39999098)
+rotation = -596.7253
+scale = Vector2(0.89999396, 0.89999396)
 
 [node name="Sprite2D5" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.33073357)
-rotation = -1249.1573
-scale = Vector2(0.85382235, 0.85382235)
+modulate = Color(1, 1, 1, 0.11282966)
+rotation = -1072.2753
+scale = Vector2(0.70855314, 0.70855314)
 
 [node name="Stone5" parent="FinalStones" unique_id=669896039 groups=["final_stones"] instance=ExtResource("11_7us8x")]
 position = Vector2(-730, -127)

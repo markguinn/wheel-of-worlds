@@ -2,8 +2,8 @@ class_name PlayerUseMusicBox
 extends PlayerState
 
 
-@export var effect_radius := 1000.0
-@export var effect_speed := 50.0
+@export var effect_radius := 1500.0
+@export var effect_speed := 80.0
 
 @onready var music_box_sfx: AudioStreamPlayer2D = %SFX/MusicBox
 
@@ -46,7 +46,7 @@ func _process(delta: float) -> void:
 			n.move_toward_start_pos(delta)
 		else:
 			if "start_pos" in n:
-				var next_pos = n.global_position.move_toward(n.start_pos, delta * 50.0)
+				var next_pos = n.global_position.move_toward(n.start_pos, delta * effect_speed)
 				if n.has_method("set_next_global_position"):
 					n.set_next_global_position(next_pos)
 				else:

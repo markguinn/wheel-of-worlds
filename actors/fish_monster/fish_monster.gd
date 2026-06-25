@@ -217,6 +217,7 @@ func _physics_process(delta: float) -> void:
 		if is_out_of_water:
 			splash_particles.direction = linear_velocity.normalized()
 			if slomo_entry:
+				Log.debug(self, "epic entry triggered")
 				VFX.slomo()
 				VFX.shake(VFX.MID, VFX.FREAK_OUT)
 				slomo_entry = false

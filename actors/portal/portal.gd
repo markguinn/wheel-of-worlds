@@ -110,7 +110,7 @@ func _on_activated(_source: Activator) -> void:
 	await anim_tree.animation_finished
 	activation_complete.emit()
 	if linked_stage:
-		GameManager.change_scene.call_deferred(linked_stage, {"target_portal": target_portal}, true)
+		GameManager.change_scene.call_deferred(linked_stage, {"target_portal": target_portal})
 
 
 func take_player_and_orb() -> void:
