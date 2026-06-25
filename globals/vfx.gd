@@ -73,7 +73,7 @@ func flash(seconds = MID, intensity = QUAKE, type = Flash.NEUTRAL) ->void:
 			flash_tween.stop()
 		flash_tween = create_tween()
 		flash_tween.set_ease(Tween.EASE_IN)
-		flash_tween.set_parallel(true)
+		#flash_tween.set_parallel(true)
 		env.environment.glow_bloom = intensity
 		match type:
 			Flash.LIGHT:
@@ -87,10 +87,57 @@ func flash(seconds = MID, intensity = QUAKE, type = Flash.NEUTRAL) ->void:
 			Flash.BLAND:
 				env.environment.adjustment_saturation = 1.0 - intensity
 		flash_tween.tween_property(env.environment, "glow_bloom", 0.0, seconds)
-		flash_tween.tween_property(env.environment, "adjustment_brightness", 1.0, seconds)
-		flash_tween.tween_property(env.environment, "adjustment_contrast", 1.0, seconds)
-		flash_tween.tween_property(env.environment, "adjustment_saturation", 1.0, seconds)
+		flash_tween.parallel().tween_property(env.environment, "adjustment_brightness", 1.0, seconds)
+		flash_tween.parallel().tween_property(env.environment, "adjustment_contrast", 1.0, seconds)
+		flash_tween.parallel().tween_property(env.environment, "adjustment_saturation", 1.0, seconds)
 
+
+func white_out(seconds = MID) -> Tween:
+	var env := _get_world_env()
+	var screen := _get_fade_screen_rect()
+	var tween := get_tree().create_tween()
+	if not env and not screen:
+		return tween
+	tween.set_ease(Tween.EASE_IN)
+	if env:
+		tween.tween_property(env.environment, "glow_bloom", 1.0, seconds)
+		tween.parallel().tween_property(env.environment, "glow_intensity", 8.0, seconds)
+		tween.parallel().tween_property(env.environment, "adjustment_brightness", 8.0, seconds)
+	if screen:
+		screen.color = Color.TRANSPARENT
+		screen.show()
+		tween.parallel().tween_property(screen, "color", Color.WHITE, seconds)
+	return tween
+
+
+func white_in(seconds = MID) -> Tween:
+	var env := _get_world_env()
+	var screen := _get_fade_screen_rect()
+	var tween := get_tree().create_tween()
+	if not env and not screen:
+		return tween
+	tween.set_ease(Tween.EASE_IN)
+	if env:
+		tween.tween_property(env.environment, "glow_bloom", 0.0, seconds)
+		tween.parallel().tween_property(env.environment, "glow_intensity", 0.5, seconds)
+		tween.parallel().tween_property(env.environment, "adjustment_brightness", 1.0, seconds)
+	if screen:
+		screen.color = Color.WHITE
+		screen.show()
+		tween.parallel().tween_property(screen, "color", Color.TRANSPARENT, seconds)
+		await tween.finished
+		screen.hide()
+	return tween
+
+
+var slomo_tween: Tween
+func slomo(seconds = MID, intensity = QUAKE) -> Tween:
+	if slomo_tween and not slomo_tween.finished:
+		slomo_tween.stop()
+	slomo_tween = get_tree().create_tween()
+	Engine.time_scale = lerpf(1.0, 0.1, intensity)
+	slomo_tween.tween_property(Engine, "time_scale", 1.0, seconds)
+	return slomo_tween
 
 ## Fade the whole screen or a single node in or out
 # TODO: this doesn't actually fade the title screen in and out, which is weird
@@ -119,6 +166,10 @@ func _get_world_env() -> WorldEnvironment:
 	return get_tree().get_first_node_in_group("world_environment")
 
 
+func _get_fade_screen_rect() -> ColorRect:
+	return get_tree().get_first_node_in_group("fade_screen")
+
+
 func _process(delta: float) -> void:
 	var cam = get_viewport().get_camera_2d()
 	if not cam: return
@@ -137,7 +188,7 @@ func _input(event: InputEvent) -> void:
 	if GameManager.DEV_MODE and event is InputEventKey and event.pressed and not event.is_echo():
 		match event.physical_keycode:
 			KEY_1:
-				shake(SHORT, TREMOR)
+				slomo(LONG)
 			KEY_2:
 				hit(LONG, QUAKE, Flash.NEUTRAL)
 			KEY_3:

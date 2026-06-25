@@ -36,6 +36,7 @@
 [ext_resource type="Script" uid="uid://pqhkda8683a4" path="res://common/music_zone.gd" id="29_4dedj"]
 [ext_resource type="PackedScene" uid="uid://c1r0md363ajnb" path="res://props/stone/big_square_stone.tscn" id="30_874j8"]
 [ext_resource type="PackedScene" uid="uid://cssqx3ug7kylk" path="res://props/stone/xl_square_stone.tscn" id="31_7h7o5"]
+[ext_resource type="Script" uid="uid://bid4lhxnnsyu6" path="res://stages/seussworld/final_cavern.gd" id="37_gdb7k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3bs7n"]
 
@@ -157,7 +158,7 @@ size = Vector2(512, 528)
 size = Vector2(2063, 1530)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7h7o5"]
-size = Vector2(8803, 2817)
+size = Vector2(10325, 2817)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_874j8"]
 size = Vector2(1505, 1148)
@@ -196,7 +197,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(1000, 50)
-shader_parameter/real_screen_size = Vector2(4317.3853, 3481.8337)
+shader_parameter/real_screen_size = Vector2(10896.375, 4787.129)
 shader_parameter/edges = Array[Texture2D]([SubResource("GradientTexture2D_gdb7k"), SubResource("GradientTexture2D_gdb7k")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -971,6 +972,258 @@ _data = {
 }
 point_count = 7
 
+[sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_gdb7k"]
+fabrik_data_chain_length = 4
+joint_data/0/bone_index = 0
+joint_data/0/bone2d_node = NodePath("Bone2D")
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("Bone2D/Bone2D")
+joint_data/1/magnet_position = Vector2(0, 0)
+joint_data/2/bone_index = 2
+joint_data/2/bone2d_node = NodePath("Bone2D/Bone2D/Bone2D")
+joint_data/2/magnet_position = Vector2(0, 0)
+joint_data/3/bone_index = 3
+joint_data/3/bone2d_node = NodePath("Bone2D/Bone2D/Bone2D/Bone2D")
+joint_data/3/magnet_position = Vector2(0, 0)
+joint_data/3/use_target_rotation = false
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_wt5ny"]
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DFABRIK_gdb7k")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wt5ny"]
+radius = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gdb7k"]
+radius = 100.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5jdp"]
+size = Vector2(2014, 1180)
+
+[sub_resource type="Animation" id="Animation_gdb7k"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedFishMonster:is_active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedFishMonster:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(793, 762)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EndPortal:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EndPortal:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-537, -26)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedFishMonster/SwimParticles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EndPortal/Activator/CollisionShape2D:shape:radius")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [100.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EndPortal/OrbDetector/CollisionShape2D:shape:radius")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [100.0]
+}
+
+[sub_resource type="Animation" id="Animation_wt5ny"]
+resource_name = "cutscene"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedFishMonster:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.166667, 6, 6.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2049, 762), Vector2(-849, 373), Vector2(-496, -509), Vector2(-56, -194)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedFishMonster:is_active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EndPortal:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.0333333, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(2, 2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EndPortal:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.0333333, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-537, -26), Vector2(-537, -26), Vector2(-7, -209)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedFishMonster/SwimParticles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 5.5333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EndPortal/Activator/CollisionShape2D:shape:radius")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3.0333333, 5.0333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [88.05000000000001, 88.05000000000001, 500.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EndPortal/OrbDetector/CollisionShape2D:shape:radius")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3.0333333, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [60.239999999999995, 60.239999999999995, 500.0]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("FinalCavern")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(3.8000002, 5.0666666, 6, 6.4, 6.8, 6.8333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [0.5],
+"method": &"shake"
+}, {
+"args": [0.8],
+"method": &"shake"
+}, {
+"args": [1.0],
+"method": &"shake"
+}, {
+"args": [1.2],
+"method": &"shake"
+}, {
+"args": [1.5],
+"method": &"shake"
+}, {
+"args": [],
+"method": &"take_fish_too"
+}]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("%EndPortal")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(6.4666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [null],
+"method": &"_on_activated"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wt5ny"]
+_data = {
+&"RESET": SubResource("Animation_gdb7k"),
+&"cutscene": SubResource("Animation_wt5ny")
+}
+
 [node name="FishBossWorld" type="Node2D" unique_id=831090977]
 material = SubResource("ShaderMaterial_3bs7n")
 script = ExtResource("1_rl0jl")
@@ -1065,7 +1318,6 @@ texture = SubResource("NoiseTexture2D_gmxw7")
 script = ExtResource("3_1x6mq")
 
 [node name="Zones" type="Node2D" parent="." unique_id=1094733343]
-z_index = 1
 
 [node name="CavernArea1" type="Area2D" parent="Zones" unique_id=865349689]
 position = Vector2(4319, 11)
@@ -1146,7 +1398,6 @@ position = Vector2(-3.5, 97)
 shape = SubResource("RectangleShape2D_4dedj")
 
 [node name="QuietZone" type="Area2D" parent="Zones" unique_id=227997371]
-visible = false
 position = Vector2(13, -2006)
 collision_layer = 0
 collision_mask = 2
@@ -1158,7 +1409,7 @@ layer4 = 0.0
 metadata/_custom_type_script = "uid://pqhkda8683a4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/QuietZone" unique_id=1539136086]
-position = Vector2(1107.5, 862.5)
+position = Vector2(346.5, 862.5)
 shape = SubResource("RectangleShape2D_7h7o5")
 
 [node name="ShadowMusicZone" type="Area2D" parent="Zones" unique_id=747004752]
@@ -1226,28 +1477,25 @@ collision_enabled = false
 navigation_enabled = false
 
 [node name="Camera2D" parent="." unique_id=552340171 instance=ExtResource("15_ndxdt")]
-position = Vector2(3581, 625)
+unique_name_in_owner = true
+position = Vector2(-3783, 730)
 
 [node name="Player" parent="." unique_id=42652117 instance=ExtResource("16_puw37")]
-position = Vector2(3581, 625)
+position = Vector2(-3783, 730)
 metadata/_edit_group_ = true
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1411017242]
+[node name="CameraFollowTransform" type="RemoteTransform2D" parent="Player" unique_id=1411017242]
+unique_name_in_owner = true
 remote_path = NodePath("../../Camera2D")
 
 [node name="Orb" parent="." unique_id=1391753086 instance=ExtResource("17_dagnt")]
+unique_name_in_owner = true
 z_index = 1
-position = Vector2(3415, 650)
+position = Vector2(-3890, 760)
 
 [node name="Lift" parent="." unique_id=927319953 instance=ExtResource("9_2rneg")]
 position = Vector2(-2709, 1127)
 height = 800.0
-
-[node name="EndPortal" parent="." unique_id=820677622 instance=ExtResource("18_8e2p0")]
-position = Vector2(-5373, 1001)
-portal_name = "w0p1"
-linked_stage = "uid://b32q0e34faaed"
-target_portal = "ww0"
 
 [node name="StartPortal" parent="." unique_id=567549234 instance=ExtResource("18_8e2p0")]
 position = Vector2(3789, 518)
@@ -1269,6 +1517,7 @@ position = Vector2(-8.5, -206.75)
 shape = SubResource("RectangleShape2D_xakyt")
 
 [node name="FishMonster" parent="FishTerritory" unique_id=599123084 instance=ExtResource("22_rdnfq")]
+unique_name_in_owner = true
 position = Vector2(1303, -239)
 patrol_offset = 50.0
 jump_y_max = 2000.0
@@ -1368,68 +1617,207 @@ one light,
 and a little music..."
 
 [node name="Label3" type="Label" parent="." unique_id=2094312753]
-offset_left = 894.0
-offset_top = 1012.0
-offset_right = 1242.0
-offset_bottom = 1192.0
-text = "wounds from an enemy
-can be your friend
-in the end..."
+offset_left = 3415.0
+offset_top = 802.0
+offset_right = 3769.0
+offset_bottom = 982.0
+text = "embrace your monster"
 
 [node name="FinalStones" type="Node2D" parent="." unique_id=1059883015]
 position = Vector2(-4836, 1027)
 
+[node name="AnimatedFishMonster" parent="FinalStones" unique_id=1857891672 node_paths=PackedStringArray("territory") instance=ExtResource("22_rdnfq")]
+unique_name_in_owner = true
+position = Vector2(793, 762)
+collision_layer = 0
+is_active = false
+territory = NodePath("../FishTerritory2")
+patrol_offset = 50.0
+jump_y_max = 2000.0
+jump_x_max = 500.0
+attack_impact = 3.0
+
+[node name="StateMachine" parent="FinalStones/AnimatedFishMonster" index="0" unique_id=336115411 node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("Controlled")
+
+[node name="Patrolling" parent="FinalStones/AnimatedFishMonster/StateMachine" index="0" unique_id=1086534189]
+min_patrolling_ms = 5000
+vertical_range = 50.0
+
+[node name="HitBox" parent="FinalStones/AnimatedFishMonster" index="2" unique_id=1226011668]
+monitoring = false
+monitorable = false
+
+[node name="Skeleton2D" parent="FinalStones/AnimatedFishMonster/SpriteContainer" parent_id_path=PackedInt32Array(1857891672, 306526739) index="2" unique_id=2112981615]
+modification_stack = SubResource("SkeletonModificationStack2D_wt5ny")
+
+[node name="SwimParticles" parent="FinalStones/AnimatedFishMonster" index="5" unique_id=875777099]
+scale_amount_min = 6.0
+scale_amount_max = 12.0
+
+[node name="EndPortal" parent="FinalStones" unique_id=820677622 instance=ExtResource("18_8e2p0")]
+unique_name_in_owner = true
+position = Vector2(-537, -26)
+portal_name = "fishboss-end"
+linked_stage = "uid://b32q0e34faaed"
+
+[node name="Activator" parent="FinalStones/EndPortal" index="0" unique_id=1410287907]
+label_text = " "
+
+[node name="CollisionShape2D" parent="FinalStones/EndPortal/Activator" index="0" unique_id=109296125]
+shape = SubResource("CircleShape2D_wt5ny")
+
+[node name="CollisionShape2D" parent="FinalStones/EndPortal/OrbDetector" parent_id_path=PackedInt32Array(820677622, 70133150) index="0" unique_id=469327766]
+shape = SubResource("CircleShape2D_gdb7k")
+
+[node name="Sprite2D" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="0" unique_id=1141542982]
+modulate = Color(1, 1, 1, 0.10015623)
+rotation = 27.704681
+scale = Vector2(0.7001042, 0.7001042)
+
+[node name="Sprite2D2" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="1" unique_id=1627364316]
+modulate = Color(1, 1, 1, 0.31978595)
+rotation = -979.9824
+scale = Vector2(0.84652394, 0.84652394)
+
+[node name="Sprite2D3" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="2" unique_id=529109281]
+modulate = Color(1, 1, 1, 0.29288408)
+rotation = 1191.5869
+scale = Vector2(0.8285894, 0.8285894)
+
+[node name="Sprite2D4" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="3" unique_id=867959787]
+modulate = Color(1, 1, 1, 0.12411271)
+rotation = -778.0636
+scale = Vector2(0.7160751, 0.7160751)
+
+[node name="Sprite2D5" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="4" unique_id=1590378147]
+modulate = Color(1, 1, 1, 0.33073357)
+rotation = -1249.1573
+scale = Vector2(0.85382235, 0.85382235)
+
 [node name="Stone5" parent="FinalStones" unique_id=669896039 groups=["final_stones"] instance=ExtResource("11_7us8x")]
 position = Vector2(-730, -127)
+
+[node name="Marker2D" type="Marker2D" parent="FinalStones/Stone5" unique_id=474126478]
+position = Vector2(-615, -673)
 
 [node name="Stone6" parent="FinalStones" unique_id=1024329490 groups=["final_stones"] instance=ExtResource("11_7us8x")]
 position = Vector2(-922, 44)
 
+[node name="Marker2D" type="Marker2D" parent="FinalStones/Stone6" unique_id=1092911607]
+position = Vector2(1102, -1074)
+
 [node name="Stone3" parent="FinalStones" unique_id=311877010 groups=["final_stones"] instance=ExtResource("11_7us8x")]
 position = Vector2(-570, -1)
+
+[node name="Marker2D" type="Marker2D" parent="FinalStones/Stone3" unique_id=555984255]
+position = Vector2(287, -1153)
 
 [node name="Stone2" parent="FinalStones" unique_id=411407011 groups=["final_stones"] instance=ExtResource("11_7us8x")]
 position = Vector2(-397, 136)
 
+[node name="Marker2D" type="Marker2D" parent="FinalStones/Stone2" unique_id=1595847158]
+position = Vector2(-975, -435)
+
 [node name="BigStone" parent="FinalStones" unique_id=428774463 groups=["final_stones"] instance=ExtResource("30_874j8")]
 position = Vector2(-297, 53)
+
+[node name="Marker2D" type="Marker2D" parent="FinalStones/BigStone" unique_id=59582810]
+position = Vector2(248, -1159)
 
 [node name="BigStone2" parent="FinalStones" unique_id=1998068842 groups=["final_stones"] instance=ExtResource("30_874j8")]
 position = Vector2(-468, 43)
 
+[node name="Marker2D" type="Marker2D" parent="FinalStones/BigStone2" unique_id=130635060]
+position = Vector2(-924, -134)
+
 [node name="BigStone3" parent="FinalStones" unique_id=28233951 groups=["final_stones"] instance=ExtResource("30_874j8")]
 position = Vector2(-535, 152)
+
+[node name="Marker2D" type="Marker2D" parent="FinalStones/BigStone3" unique_id=419841379]
+position = Vector2(-445, -1169)
 
 [node name="BigStone5" parent="FinalStones" unique_id=1644170321 groups=["final_stones"] instance=ExtResource("30_874j8")]
 position = Vector2(-696, -213)
 
+[node name="Marker2D" type="Marker2D" parent="FinalStones/BigStone5" unique_id=1101369394]
+position = Vector2(151, -967)
+
 [node name="BigStone6" parent="FinalStones" unique_id=1183972114 groups=["final_stones"] instance=ExtResource("30_874j8")]
 position = Vector2(-845, -149)
+
+[node name="Marker2D" type="Marker2D" parent="FinalStones/BigStone6" unique_id=1397476569]
+position = Vector2(-526, -447)
 
 [node name="BigStone4" parent="FinalStones" unique_id=1378184520 groups=["final_stones"] instance=ExtResource("30_874j8")]
 position = Vector2(-633, -90)
 
+[node name="Marker2D" type="Marker2D" parent="FinalStones/BigStone4" unique_id=1146089045]
+position = Vector2(-111, -1049)
+
 [node name="StoneXL" parent="FinalStones" unique_id=1294966368 groups=["final_stones"] instance=ExtResource("31_7h7o5")]
 position = Vector2(-792, 8)
+
+[node name="Marker2D" type="Marker2D" parent="FinalStones/StoneXL" unique_id=1450735159]
+position = Vector2(838, -1250)
 
 [node name="StoneXL4" parent="FinalStones" unique_id=499907324 groups=["final_stones"] instance=ExtResource("31_7h7o5")]
 position = Vector2(-597, -372)
 
+[node name="Marker2D" type="Marker2D" parent="FinalStones/StoneXL4" unique_id=304692674]
+position = Vector2(-659, -681)
+
 [node name="StoneXL3" parent="FinalStones" unique_id=1569911827 groups=["final_stones"] instance=ExtResource("31_7h7o5")]
 position = Vector2(-403, -112)
+
+[node name="Marker2D" type="Marker2D" parent="FinalStones/StoneXL3" unique_id=1966065712]
+position = Vector2(-556, -1134)
 
 [node name="StoneXL2" parent="FinalStones" unique_id=1243029875 groups=["final_stones"] instance=ExtResource("31_7h7o5")]
 position = Vector2(-675, 126)
 
-[node name="Label4" type="Label" parent="." unique_id=708700187]
-offset_left = -4913.0
-offset_top = 496.0
-offset_right = -4452.0
-offset_bottom = 722.0
-text = "Here you'll play your 
-music box and the stones
- will float away
-the fish will then jump through
-the portal when you open it"
+[node name="Marker2D" type="Marker2D" parent="FinalStones/StoneXL2" unique_id=141801780]
+position = Vector2(299, -1428)
+
+[node name="FishTerritory2" type="Area2D" parent="FinalStones" unique_id=1049818995]
+position = Vector2(2, 719)
+collision_layer = 0
+collision_mask = 22
+gravity_space_override = 3
+gravity = 50.0
+script = ExtResource("20_r8yqu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalStones/FishTerritory2" unique_id=1553050024]
+position = Vector2(-8.5, -206.75)
+shape = SubResource("RectangleShape2D_xakyt")
+
+[node name="FinalCavern" type="Area2D" parent="FinalStones" unique_id=2047894286 node_paths=PackedStringArray("anim_player")]
+collision_layer = 0
+collision_mask = 18
+script = ExtResource("37_gdb7k")
+anim_player = NodePath("../FinalCutscenePlayer")
+light_color = Color(0.16862746, 0.12156863, 0.16470589, 1)
+tween_time = 2.0
+room_size = 0.5
+metadata/_custom_type_script = "uid://dj363jf40q41h"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalStones/FinalCavern" unique_id=1597653694]
+position = Vector2(-140, -354)
+shape = SubResource("RectangleShape2D_n5jdp")
+debug_color = Color(0.54213345, 0.41799998, 0.95, 0.13725491)
+
+[node name="FinalCutscenePlayer" type="AnimationPlayer" parent="FinalStones" unique_id=941294896]
+libraries/ = SubResource("AnimationLibrary_wt5ny")
+
+[node name="CameraTarget" type="Marker2D" parent="FinalStones" unique_id=1627177907]
+unique_name_in_owner = true
+position = Vector2(-459, -255)
+
+[node name="PlayerTarget" type="Marker2D" parent="FinalStones" unique_id=555467513]
+unique_name_in_owner = true
+position = Vector2(-16, -211)
 
 [editable path="FishTerritory/FishMonster"]
+[editable path="FinalStones/AnimatedFishMonster"]
+[editable path="FinalStones/EndPortal"]
+[editable path="FinalStones/EndPortal/Activator"]

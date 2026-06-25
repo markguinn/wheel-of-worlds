@@ -1903,7 +1903,7 @@ metadata/_local_pose_override_enabled_ = true
 [node name="ThighL" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=226334277]
 position = Vector2(23, 14)
 rotation = 0.25686535
-scale = Vector2(0.9998028, 0.9998028)
+scale = Vector2(0.9998029, 0.9998029)
 rest = Transform2D(0.967, 0.254, -0.254, 0.967, 23, 14)
 metadata/_local_pose_override_enabled_ = true
 
@@ -1948,8 +1948,8 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="HandL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/Torso/ArmL" unique_id=1933907137]
 position = Vector2(-26.651686, 5.448637)
-rotation = 0.06404062
-scale = Vector2(1.0000485, 1.0000485)
+rotation = 0.06404063
+scale = Vector2(1.0000484, 1.0000484)
 rest = Transform2D(0.9979998, 0.06399999, -0.06399999, 0.9979998, -26.651686, 5.448637)
 auto_calculate_length_and_angle = false
 length = 28.031
@@ -2031,7 +2031,7 @@ region_rect = Rect2(204, 68, 311, 233)
 
 [node name="Eyes" type="AnimatedSprite2D" parent="Sprite/Parts/Head" unique_id=1167826662]
 sprite_frames = SubResource("SpriteFrames_yeioo")
-frame_progress = 0.78957504
+frame_progress = 0.55984706
 offset = Vector2(-35, 387)
 script = ExtResource("7_0wchr")
 

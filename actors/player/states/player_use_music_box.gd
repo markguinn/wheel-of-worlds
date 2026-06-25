@@ -30,7 +30,7 @@ func _before_exit(_to_state: StateNode) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_released("music_box"):
+	if event.is_action_released("music_box") and not player.ignore_inputs:
 		machine.transition_by_name("Idle")
 
 

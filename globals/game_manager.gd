@@ -51,7 +51,7 @@ func rate_limit(min_ms: int, scope: Variant) -> bool:
 ## key to indicate where you're coming into the level. Maybe that's the only one we'll
 ## have. Maybe there will be more. Who knows.
 # TODO: can we keep the instances or the loaded scene in memory?
-func change_scene(new_scene_path: String, params = {}, fade = false) -> void:
+func change_scene(new_scene_path: String, params = {}, fade = true) -> void:
 	Log.info(self, "changing to ", new_scene_path)
 	var container := get_container()
 	var cur_scene := get_active_scene()
@@ -61,7 +61,7 @@ func change_scene(new_scene_path: String, params = {}, fade = false) -> void:
 	var new_instance: Node = new_scene.instantiate()
 	
 	if fade:
-		await VFX.fade_out().finished
+		await VFX.white_out().finished
 	
 	container.add_child(new_instance)
 	container.remove_child(cur_scene)
@@ -70,7 +70,7 @@ func change_scene(new_scene_path: String, params = {}, fade = false) -> void:
 	scene_changed.emit.call_deferred()
 
 	if fade:
-		VFX.fade_in()
+		VFX.white_in()
 	
 	# TODO: show/hide hud - maybe new_instance can have a is_hud_visible()->bool method? or maybe we just always hide the hud when the scene changes and each scene can call GameManager.show_hud()?
 

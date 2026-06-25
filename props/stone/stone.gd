@@ -14,8 +14,14 @@ var start_rot: float
 
 
 func _ready() -> void:
-	start_pos = global_position
-	start_rot = global_rotation
+	var marker_idx := get_children().find_custom(func(n): return n is Marker2D)
+	if marker_idx > -1:
+		var marker: Marker2D = get_child(marker_idx)
+		start_pos = marker.global_position
+		start_rot = marker.global_rotation
+	else:
+		start_pos = global_position
+		start_rot = global_rotation
 	if fixed:
 		$GrabBox.enabled = false
 		freeze = true

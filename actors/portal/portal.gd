@@ -1,12 +1,14 @@
 class_name Portal
 extends Node2D
 
+signal activation_complete
 
 const ORB_WAIT_MS = 1000
 const FOLLOW_ORB_LEN = 256.0
 const EYE_MOVEMENT_RADIUS = 50.0
 ## How long after entering the level before the orb will activate the portal
 const WAIT_TIME_AFTER_INIT_MS = 5000
+const LIGHT_CHANGE_MS = 150
 
 ## This is how other portals reference this one
 @export var portal_name: String
@@ -26,6 +28,7 @@ var iris_start_pos: Vector2
 var anim_state_machine: AnimationNodeStateMachinePlayback
 
 var init_time_ms: int
+var light_changed_ms: int
 
 @onready var activator: Activator = $Activator
 @onready var orb_detector: Area2D = $OrbDetector
@@ -33,7 +36,7 @@ var init_time_ms: int
 @onready var sparkles: Node2D = $Sprites/Sparkles
 @onready var eye_bg: Node2D = $Sprites/EyeBackground
 @onready var iris: Sprite2D = $Sprites/BlackIris
-
+@onready var light: PointLight2D = $PointLight2D
 
 func _ready() -> void:
 	anim_tree.active = true
@@ -88,6 +91,11 @@ func _process(_delta: float) -> void:
 			activator.enabled = false
 			Activator.update_active_candidate()
 
+	if GameManager.now_ms() > light_changed_ms + LIGHT_CHANGE_MS:
+		light_changed_ms = GameManager.now_ms()
+		light.energy = randf_range(0.8, 1.2)
+		light.texture_scale = randf_range(4.5, 5.5)
+
 	if orbs.size() > 0:
 		var orb_pos := to_local(orbs[0].global_position)
 		var orb_dir := orb_pos.normalized()
@@ -100,7 +108,9 @@ func _on_activated(_source: Activator) -> void:
 	Log.info(self, 'portal activated', self.name)
 	anim_state_machine.travel("activated")
 	await anim_tree.animation_finished
-	GameManager.change_scene.call_deferred(linked_stage, {"target_portal": target_portal})
+	activation_complete.emit()
+	if linked_stage:
+		GameManager.change_scene.call_deferred(linked_stage, {"target_portal": target_portal}, true)
 
 
 func take_player_and_orb() -> void:

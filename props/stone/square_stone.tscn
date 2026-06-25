@@ -21,6 +21,9 @@ gradient = SubResource("Gradient_cki8f")
 fill_from = Vector2(0.5192308, 0.99572647)
 fill_to = Vector2(0.3611111, 0.05982906)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wqvjq"]
+polygon = PackedVector2Array(-31, -30, 31, -31, 31, 30, -31, 31)
+
 [node name="Stone" type="RigidBody2D" unique_id=838538367 groups=["music_box_targets", "persisted"]]
 collision_layer = 36
 collision_mask = 23
@@ -38,3 +41,6 @@ script = ExtResource("2_xndk2")
 manage_position = true
 hold_offset = Vector2(0, -40)
 hold_degrees = -30.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1993802769]
+occluder = SubResource("OccluderPolygon2D_wqvjq")

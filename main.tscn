@@ -28,3 +28,15 @@ visible = false
 
 [node name="DevMenu" parent="." unique_id=1159089293 instance=ExtResource("7_272bh")]
 visible = false
+
+[node name="FadeScreen" type="CanvasLayer" parent="." unique_id=437679270]
+unique_name_in_owner = true
+
+[node name="FadeScreenColor" type="ColorRect" parent="FadeScreen" unique_id=1469646593 groups=["fade_screen"]]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

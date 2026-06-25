@@ -45,6 +45,8 @@ func _move() -> void:
 
 
 func _process(_delta) -> void:
+	if not fish.is_active:
+		return
 	var now := GameManager.now_ms()
 	var d := target.global_position.distance_to(GameManager.get_player().global_position)
 	fish.sprite.position.y = sin((now + sine_randomizer) / (200.0 * sine_randomizer2)) * vertical_range

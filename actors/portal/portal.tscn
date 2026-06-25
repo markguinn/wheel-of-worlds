@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://ctd2f824fipq1" path="res://actors/portal/art/Sparkles-3.png" id="21_q6t7m"]
 [ext_resource type="Texture2D" uid="uid://chjrn6567uxp3" path="res://actors/portal/art/Sparkles-4.png" id="22_frp0j"]
 [ext_resource type="Texture2D" uid="uid://bsnpkosxnrpuj" path="res://actors/portal/art/Sparkles-5.png" id="23_frp0j"]
+[ext_resource type="Texture2D" uid="uid://bb38a7h3w0k2g" path="res://common/vfx/basic_light.tres" id="25_v1kun"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eb6dy"]
 radius = 128.0
@@ -871,7 +872,7 @@ states/open/position = Vector2(629.27, 312.12747)
 states/opening/node = SubResource("AnimationNodeAnimation_svfmt")
 states/opening/position = Vector2(473.32, 313.7475)
 transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_s305f"), "Start", "active", SubResource("AnimationNodeStateMachineTransition_wggwm"), "RESET", "active", SubResource("AnimationNodeStateMachineTransition_yol6e"), "active", "opening", SubResource("AnimationNodeStateMachineTransition_plp08"), "active", "RESET", SubResource("AnimationNodeStateMachineTransition_g4wo6"), "opening", "open", SubResource("AnimationNodeStateMachineTransition_q31eb"), "open", "closing", SubResource("AnimationNodeStateMachineTransition_kgc7x"), "closing", "active", SubResource("AnimationNodeStateMachineTransition_qjygk"), "open", "activated", SubResource("AnimationNodeStateMachineTransition_v1kun")]
-graph_offset = Vector2(269.72992, 148.25218)
+graph_offset = Vector2(34.169956, -24.48012)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bl4vs"]
 animations = [{
@@ -975,46 +976,49 @@ advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="Sprites" type="Node2D" parent="." unique_id=1329360371]
+light_mask = 0
 scale = Vector2(0.9, 0.9)
 
 [node name="Sparkles" type="Node2D" parent="Sprites" unique_id=1949234833]
 visible = false
 modulate = Color(1, 1, 1, 0)
+light_mask = 0
 script = ExtResource("3_eb6dy")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.120718)
-rotation = -22.37879
-scale = Vector2(0.713812, 0.713812)
+modulate = Color(1, 1, 1, 0.14864747)
+rotation = 87.0608
+scale = Vector2(0.73243165, 0.73243165)
 texture = ExtResource("19_kncuj")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.110053435)
-rotation = -39.622616
-scale = Vector2(0.7067023, 0.7067023)
+modulate = Color(1, 1, 1, 0.3474918)
+rotation = -163.42665
+scale = Vector2(0.8649945, 0.8649945)
 texture = ExtResource("20_5ni7j")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sprites/Sparkles" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.1603759)
-rotation = 69.35775
-scale = Vector2(0.7402506, 0.7402506)
+modulate = Color(1, 1, 1, 0.35089478)
+rotation = -38.113014
+scale = Vector2(0.8672632, 0.8672632)
 texture = ExtResource("21_q6t7m")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sprites/Sparkles" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.3355708)
-rotation = -1.1591207
-scale = Vector2(0.8570472, 0.8570472)
+modulate = Color(1, 1, 1, 0.39952305)
+rotation = -105.97893
+scale = Vector2(0.89968204, 0.89968204)
 texture = ExtResource("22_frp0j")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.11073268)
-rotation = 51.111816
-scale = Vector2(0.7071551, 0.7071551)
+modulate = Color(1, 1, 1, 0.10789273)
+rotation = 154.72449
+scale = Vector2(0.7052618, 0.7052618)
 texture = ExtResource("23_frp0j")
 
 [node name="EyeBackground" type="Polygon2D" parent="Sprites" unique_id=1865392681]
 visible = false
 clip_children = 2
+light_mask = 0
 scale = Vector2(1.4285713, 1.4285713)
 texture = ExtResource("9_eb6dy")
 texture_offset = Vector2(143, 50)
@@ -1023,12 +1027,14 @@ polygon = PackedVector2Array(-119, 1, -39, -54, 25, -44, 56, -21, 85, 9, 64, 21,
 uv = PackedVector2Array(-119, 1, -39, -54, 25, -44, 56, -21, 85, 9, 64, 21, 24, 37, -13, 45, -45, 26)
 
 [node name="EyeBottom" type="Sprite2D" parent="Sprites" unique_id=2010493060]
+light_mask = 0
 position = Vector2(-91, 6)
 texture = ExtResource("2_wpws7")
 region_enabled = true
 region_rect = Rect2(370, 820, 689, 492)
 
 [node name="EyeTop2" type="Polygon2D" parent="Sprites" unique_id=831143277]
+light_mask = 0
 texture = ExtResource("3_q31eb")
 texture_offset = Vector2(196, 104)
 polygon = PackedVector2Array(-188.8889, 5.555556, -172.22223, -16.666668, -77.77778, 22.222223, -16.666668, 42.222225, 72.22223, 23.333334, 154.44446, 13.333334, 152.22223, 32.222225, 117.77779, 31.111113, 73.333336, 53.333332, -18.88889, 71.111115, -101.111115, 44.444447, -166.66667, 20)
@@ -1037,6 +1043,7 @@ polygons = [PackedInt32Array(1, 11, 0), PackedInt32Array(2, 10, 11, 1), PackedIn
 
 [node name="EyeTop" type="Sprite2D" parent="Sprites" unique_id=1057970646]
 visible = false
+light_mask = 0
 position = Vector2(30, -4)
 scale = Vector2(1, -0.5)
 texture = ExtResource("3_q31eb")
@@ -1044,6 +1051,7 @@ region_rect = Rect2(451, 800, 735, 610)
 
 [node name="YellowFlames" type="AnimatedSprite2D" parent="Sprites" unique_id=2138236906]
 visible = false
+light_mask = 0
 position = Vector2(-10, -112.85715)
 sprite_frames = SubResource("SpriteFrames_bl4vs")
 autoplay = "default"
@@ -1091,9 +1099,16 @@ flip_h = true
 
 [node name="BlackIris" type="Sprite2D" parent="Sprites" unique_id=706849294]
 visible = false
+light_mask = 0
 texture = ExtResource("4_kgc7x")
 offset = Vector2(0, -50)
 region_enabled = true
 region_rect = Rect2(676, 953, 224, 206)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=835684176]
+range_item_cull_mask = 3
+shadow_item_cull_mask = 3
+texture = ExtResource("25_v1kun")
+texture_scale = 4.74
 
 [editable path="Activator"]

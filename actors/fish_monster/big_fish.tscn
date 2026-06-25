@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://vmdvty45rk5y" path="res://common/state_machine/state_machine.gd" id="3_htvvn"]
 [ext_resource type="Texture2D" uid="uid://c08vcn3ytcg2n" path="res://actors/fish_monster/art/blue-monster-test copy 2.png" id="3_ymvi3"]
 [ext_resource type="Script" uid="uid://dxam5420ufq2c" path="res://actors/fish_monster/states/fish_patrolling.gd" id="4_ymvi3"]
+[ext_resource type="Script" uid="uid://bhagt8bpd2sm5" path="res://actors/fish_monster/states/fish_controlled.gd" id="5_th18d"]
 [ext_resource type="Script" uid="uid://chlioeglswitp" path="res://actors/fish_monster/states/fish_attacking.gd" id="5_tienk"]
 [ext_resource type="Gradient" uid="uid://de6ku2qkkuqj8" path="res://stages/seussworld/prefabs/water_gradient.tres" id="7_rgb24"]
 
@@ -54,6 +55,7 @@ collision_mask = 0
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_7b7uw")
+slomo_entry = true
 
 [node name="StateMachine" type="Node" parent="." unique_id=336115411 node_paths=PackedStringArray("target", "initial_state")]
 script = ExtResource("3_htvvn")
@@ -67,6 +69,10 @@ metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="Attacking" type="Node" parent="StateMachine" unique_id=1891119915]
 script = ExtResource("5_tienk")
+metadata/_custom_type_script = "uid://dljix40x8qlm1"
+
+[node name="Controlled" type="Node" parent="StateMachine" unique_id=676641720]
+script = ExtResource("5_th18d")
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2050835415]

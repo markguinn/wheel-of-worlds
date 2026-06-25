@@ -20,6 +20,7 @@ const BUFFER_STEP_S = 0.00416
 
 signal jumping
 
+@export var is_active := true
 ## Defines the area where the beast can roam. Defaults to the parent node.
 @export var territory: Area2D
 ## How far above or below the territory line should splashes appear?
@@ -32,6 +33,8 @@ signal jumping
 @export var jump_x_max := 1000.0
 @export var attack_impact := 2.0
 @export var ragdoll_player := true
+@export var slomo_entry := false
+
 
 var territory_rect: Rect2
 
@@ -119,6 +122,7 @@ func _on_body_entered(body: Node) -> void:
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	super._integrate_forces(state)
+	
 	if global_position.y > territory_rect.position.y + territory_rect.size.y:
 		global_position.y = territory_rect.position.y + territory_rect.size.y
 		linear_velocity.y = -randf_range(jump_y_min, jump_y_max)
@@ -156,6 +160,14 @@ func _dist_along_path(i1: int, i2: int) -> float:
 
 
 func _physics_process(delta: float) -> void:
+	if is_active and freeze:
+		freeze = false
+		visible = true
+	if not is_active:
+		freeze = true
+		visible = false
+		return
+
 	if linear_velocity.x > 0:
 		polygon_r.show()
 		polygon_l.hide()
@@ -204,6 +216,10 @@ func _physics_process(delta: float) -> void:
 	if is_out_of_water != was_out_of_water and not swim_particles.emitting:
 		if is_out_of_water:
 			splash_particles.direction = linear_velocity.normalized()
+			if slomo_entry:
+				VFX.slomo()
+				VFX.shake(VFX.MID, VFX.FREAK_OUT)
+				slomo_entry = false
 		else:
 			splash_particles.direction = -linear_velocity.normalized()
 		splash_particles.global_position = Vector2(last_pos.x, territory_rect.position.y + splash_offset)
