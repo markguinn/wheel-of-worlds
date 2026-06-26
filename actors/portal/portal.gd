@@ -19,6 +19,8 @@ const LIGHT_CHANGE_MS = 150
 @export var target_portal: String
 ## If not blank, this string will be displayed when the portal can be activated instead of "Press X to enter..."
 @export var activator_text: String
+## used in the ending cutscene
+@export var stare_and_blink := false
 
 var player_is_present := false
 var orb_is_present := false

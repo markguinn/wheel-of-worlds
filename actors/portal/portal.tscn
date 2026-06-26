@@ -238,6 +238,42 @@ tracks/16/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Sprites/EyeTop2:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("PointLight2D:texture_scale")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("PointLight2D:energy")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_eb6dy"]
 resource_name = "activated"
@@ -481,6 +517,204 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(4),
 "update": 0,
 "values": [PackedVector2Array(-188.8889, 5.555556, -172.22223, -16.666668, -77.77778, 22.222223, -16.666668, 42.222225, 72.22223, 23.333334, 154.44446, 13.333334, 152.22223, 32.222225, 117.77779, 31.111113, 73.333336, 53.333332, -18.88889, 71.111115, -101.111115, 44.444447, -166.66667, 20)]
+}
+
+[sub_resource type="Animation" id="Animation_v1kun"]
+resource_name = "blinking"
+length = 16.0
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/YellowFlames:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/BlackIris:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/BlackIris:region_rect")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1875, 1),
+"transitions": PackedFloat32Array(5.2780304, 1),
+"update": 0,
+"values": [Rect2(676, 1120, 224, 20), Rect2(676, 953, 224, 206)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites/BlackIris:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(3.958524, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -50)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprites/EyeBackground:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprites/EyeBackground:polygon")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1, 9, 9.5, 10, 15.375),
+"transitions": PackedFloat32Array(5, 1, 1, 5, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(-119, 1, -68.44445, 15.555557, -10.111112, 35.000004, 52, 24, 85, 9, 66.88889, 23.333336, 32.666668, 39.66667, -13, 45, -48.222225, 31.888891), PackedVector2Array(-119, 1, -38.888893, -56.000004, 17.111113, -49.000004, 56, -21, 85, 9, 64, 21, 24, 37, -13, 45, -45, 26), PackedVector2Array(-119, 1, -38.888893, -56.000004, 17.111113, -49.000004, 56, -21, 85, 9, 64, 21, 24, 37, -13, 45, -45, 26), PackedVector2Array(-119, 1, -68.44445, 15.555557, -10.111112, 35.000004, 52, 24, 85, 9, 66.88889, 23.333336, 32.666668, 39.66667, -13, 45, -48.222225, 31.888891), PackedVector2Array(-119, 1, -38.888893, -56.000004, 17.111113, -49.000004, 56, -21, 85, 9, 64, 21, 24, 37, -13, 45, -45, 26), PackedVector2Array(-119, 1, -38.888893, -56.000004, 17.111113, -49.000004, 56, -21, 85, 9, 64, 21, 24, 37, -13, 45, -45, 26)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprites/EyeTop2:polygon")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1, 9, 9.5, 10, 15.375),
+"transitions": PackedFloat32Array(4, 1, 1, 4, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(-188.8889, 5.555556, -172.22223, -16.666668, -77.77778, 22.222223, -16.666668, 42.222225, 72.22223, 23.333334, 154.44446, 13.333334, 152.22223, 32.222225, 117.77779, 31.111113, 73.333336, 53.333332, -18.88889, 71.111115, -101.111115, 44.444447, -166.66667, 20), PackedVector2Array(-188.8889, 5.555556, -172.22223, -16.666668, -70, -87.77778, -1.1111112, -91.111115, 44.444447, -75.55556, 154.44446, 13.333334, 152.22223, 32.222225, 117.77779, 31.111113, 60.000004, -32.222225, -16.666668, -66.66667, -98.88889, -34.444447, -166.66667, 20), PackedVector2Array(-188.8889, 5.555556, -172.22223, -16.666668, -70, -87.77778, -1.1111112, -91.111115, 44.444447, -75.55556, 154.44446, 13.333334, 152.22223, 32.222225, 117.77779, 31.111113, 60.000004, -32.222225, -16.666668, -66.66667, -98.88889, -34.444447, -166.66667, 20), PackedVector2Array(-188.8889, 5.555556, -172.22223, -16.666668, -77.77778, 22.222223, -16.666668, 42.222225, 72.22223, 23.333334, 154.44446, 13.333334, 152.22223, 32.222225, 117.77779, 31.111113, 73.333336, 53.333332, -18.88889, 71.111115, -101.111115, 44.444447, -166.66667, 20), PackedVector2Array(-188.8889, 5.555556, -172.22223, -16.666668, -70, -87.77778, -1.1111112, -91.111115, 44.444447, -75.55556, 154.44446, 13.333334, 152.22223, 32.222225, 117.77779, 31.111113, 60.000004, -32.222225, -16.666668, -66.66667, -98.88889, -34.444447, -166.66667, 20), PackedVector2Array(-188.8889, 5.555556, -172.22223, -16.666668, -70, -87.77778, -1.1111112, -91.111115, 44.444447, -75.55556, 154.44446, 13.333334, 152.22223, 32.222225, 117.77779, 31.111113, 60.000004, -32.222225, -16.666668, -66.66667, -98.88889, -34.444447, -166.66667, 20)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprites/YellowFlames:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1, 9, 9.5, 10, 15.375),
+"transitions": PackedFloat32Array(5, 1, 1, 5, 1, 1),
+"update": 0,
+"values": [Vector2(-10, -150), Vector2(-10, -200), Vector2(-10, -200), Vector2(-10, -150), Vector2(-10, -200), Vector2(-10, -200)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprites/Sparkles:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprites/Sparkles:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.12941177)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Sprites:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("OrbDetector:gravity")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("OrbDetector:gravity_space_override")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Sprites/EyeTop2:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("PointLight2D:texture_scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 1.125, 3.125, 5, 6.125, 7.125, 8.375, 10.5, 10.75, 11.5, 12.375, 12.875, 13.875, 15, 15.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [10.0, 10.2, 9.5, 10.4, 10.0, 9.7, 9.712676, 10.299999999999999, 9.712676, 10.0, 10.5, 9.712676, 10.2, 9.712676, 9.2]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("PointLight2D:energy")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.625, 3.625, 6.625, 7.625, 9.25, 11.25, 13.25, 14.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.5, 1.2, 1.0, 1.3, 1.0, 1.2, 1.0, 0.8, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_q31eb"]
@@ -798,6 +1032,7 @@ _data = {
 &"RESET": SubResource("Animation_2pe5p"),
 &"activated": SubResource("Animation_eb6dy"),
 &"active": SubResource("Animation_fuw3p"),
+&"blinking": SubResource("Animation_v1kun"),
 &"open": SubResource("Animation_q31eb"),
 &"opening": SubResource("Animation_kgc7x")
 }
@@ -810,6 +1045,9 @@ animation = &"activated"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8cwj3"]
 animation = &"active"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v1kun"]
+animation = &"blinking"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kgc7x"]
 animation = &"opening"
@@ -858,6 +1096,11 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v1kun"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vmqas"]
+priority = 10
+advance_mode = 2
+advance_expression = "stare_and_blink"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_j2ixl"]
 states/RESET/node = SubResource("AnimationNodeAnimation_j2ixl")
 states/RESET/position = Vector2(456.81998, -8.752502)
@@ -865,13 +1108,15 @@ states/activated/node = SubResource("AnimationNodeAnimation_eb6dy")
 states/activated/position = Vector2(793.2299, 315.2522)
 states/active/node = SubResource("AnimationNodeAnimation_8cwj3")
 states/active/position = Vector2(458.56998, 120.2475)
+states/blinking/node = SubResource("AnimationNodeAnimation_v1kun")
+states/blinking/position = Vector2(254.66995, 269.01987)
 states/closing/node = SubResource("AnimationNodeAnimation_kgc7x")
 states/closing/position = Vector2(630.63, 133.11728)
 states/open/node = SubResource("AnimationNodeAnimation_q31eb")
 states/open/position = Vector2(629.27, 312.12747)
 states/opening/node = SubResource("AnimationNodeAnimation_svfmt")
 states/opening/position = Vector2(473.32, 313.7475)
-transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_s305f"), "Start", "active", SubResource("AnimationNodeStateMachineTransition_wggwm"), "RESET", "active", SubResource("AnimationNodeStateMachineTransition_yol6e"), "active", "opening", SubResource("AnimationNodeStateMachineTransition_plp08"), "active", "RESET", SubResource("AnimationNodeStateMachineTransition_g4wo6"), "opening", "open", SubResource("AnimationNodeStateMachineTransition_q31eb"), "open", "closing", SubResource("AnimationNodeStateMachineTransition_kgc7x"), "closing", "active", SubResource("AnimationNodeStateMachineTransition_qjygk"), "open", "activated", SubResource("AnimationNodeStateMachineTransition_v1kun")]
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_s305f"), "Start", "active", SubResource("AnimationNodeStateMachineTransition_wggwm"), "RESET", "active", SubResource("AnimationNodeStateMachineTransition_yol6e"), "active", "opening", SubResource("AnimationNodeStateMachineTransition_plp08"), "active", "RESET", SubResource("AnimationNodeStateMachineTransition_g4wo6"), "opening", "open", SubResource("AnimationNodeStateMachineTransition_q31eb"), "open", "closing", SubResource("AnimationNodeStateMachineTransition_kgc7x"), "closing", "active", SubResource("AnimationNodeStateMachineTransition_qjygk"), "open", "activated", SubResource("AnimationNodeStateMachineTransition_v1kun"), "active", "blinking", SubResource("AnimationNodeStateMachineTransition_vmqas")]
 graph_offset = Vector2(34.169956, -24.48012)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bl4vs"]
@@ -986,33 +1231,33 @@ light_mask = 0
 script = ExtResource("3_eb6dy")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.14864747)
-rotation = 87.0608
-scale = Vector2(0.73243165, 0.73243165)
+modulate = Color(1, 1, 1, 0.101229385)
+rotation = 135.80768
+scale = Vector2(0.7008196, 0.7008196)
 texture = ExtResource("19_kncuj")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.3474918)
-rotation = -163.42665
-scale = Vector2(0.8649945, 0.8649945)
+modulate = Color(1, 1, 1, 0.21727829)
+rotation = 26.707258
+scale = Vector2(0.77818555, 0.77818555)
 texture = ExtResource("20_5ni7j")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sprites/Sparkles" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.35089478)
-rotation = -38.113014
-scale = Vector2(0.8672632, 0.8672632)
+modulate = Color(1, 1, 1, 0.16169699)
+rotation = -241.07143
+scale = Vector2(0.7411313, 0.7411313)
 texture = ExtResource("21_q6t7m")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sprites/Sparkles" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.39952305)
-rotation = -105.97893
-scale = Vector2(0.89968204, 0.89968204)
+modulate = Color(1, 1, 1, 0.3298114)
+rotation = 11.422921
+scale = Vector2(0.8532076, 0.8532076)
 texture = ExtResource("22_frp0j")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.10789273)
-rotation = 154.72449
-scale = Vector2(0.7052618, 0.7052618)
+modulate = Color(1, 1, 1, 0.3781951)
+rotation = 124.383934
+scale = Vector2(0.8854634, 0.8854634)
 texture = ExtResource("23_frp0j")
 
 [node name="EyeBackground" type="Polygon2D" parent="Sprites" unique_id=1865392681]
@@ -1109,6 +1354,6 @@ region_rect = Rect2(676, 953, 224, 206)
 range_item_cull_mask = 3
 shadow_item_cull_mask = 3
 texture = ExtResource("25_v1kun")
-texture_scale = 4.74
+texture_scale = 10.0
 
 [editable path="Activator"]

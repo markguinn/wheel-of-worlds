@@ -18,8 +18,11 @@
 [ext_resource type="PackedScene" uid="uid://cunmpxd2cde4q" path="res://stages/forest/prefabs/climbable_tree_1.tscn" id="17_4pv4u"]
 [ext_resource type="PackedScene" uid="uid://0vpsj4uvxge6" path="res://stages/forest/prefabs/climbable_tree_2.tscn" id="18_rh2ai"]
 [ext_resource type="PackedScene" uid="uid://cu4l0skawwtuf" path="res://stages/forest/prefabs/climbable_tree_3.tscn" id="19_jd6sp"]
+[ext_resource type="Texture2D" uid="uid://dgj7y78b0yk11" path="res://stages/seussworld/art/extras1.png" id="21_alpuc"]
 [ext_resource type="PackedScene" uid="uid://beyqs3nx07wae" path="res://stages/forest/prefabs/climbable_tree_5.tscn" id="21_fdida"]
+[ext_resource type="Texture2D" uid="uid://dyfjydb0sbb64" path="res://actors/portal/art/irises.png" id="22_ufx5u"]
 [ext_resource type="Texture2D" uid="uid://bb38a7h3w0k2g" path="res://common/vfx/basic_light.tres" id="22_xlghb"]
+[ext_resource type="Gradient" uid="uid://de6ku2qkkuqj8" path="res://stages/seussworld/prefabs/water_gradient.tres" id="24_h88km"]
 [ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="28_hj67n"]
 [ext_resource type="PackedScene" uid="uid://bk140x3miwcrc" path="res://stages/forest/prefabs/forest_water.tscn" id="31_o660d"]
 
@@ -379,6 +382,46 @@ turbulence_noise_speed = Vector3(100, 0, 0)
 turbulence_influence_min = 0.17500001
 turbulence_influence_max = 0.32700002
 
+[sub_resource type="Gradient" id="Gradient_2fjae"]
+offsets = PackedFloat32Array(0.69, 0.71)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_alpuc"]
+gradient = SubResource("Gradient_2fjae")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_e02gj"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.54, 0.63, 0.67, 0.69, 0.71)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.23921569, 0, 0, 0, 0.6117647, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h88km"]
+gradient = SubResource("Gradient_e02gj")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_asj5l"]
+gradient = ExtResource("24_h88km")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_alpuc"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 20.0
+gravity = Vector3(0, 400, 0)
+scale_min = 3.0
+scale_max = 6.0
+color_initial_ramp = SubResource("GradientTexture1D_asj5l")
+turbulence_enabled = true
+turbulence_noise_strength = 0.1
+turbulence_noise_speed_random = 4.0
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.05
+
 [node name="Forest1" type="Node2D" unique_id=1313295670]
 script = ExtResource("1_leq4r")
 
@@ -626,6 +669,7 @@ tile_set = SubResource("TileSet_h68eo")
 occlusion_enabled = false
 
 [node name="PaintedGround" type="CanvasGroup" parent="." unique_id=731056143]
+z_index = 1
 material = ExtResource("9_smfec")
 fit_margin = 200.0
 clear_margin = 200.0
@@ -676,7 +720,8 @@ scale = Vector2(0.5, 0.5)
 tile_set = SubResource("TileSet_h68eo")
 
 [node name="StandardCamera" parent="." unique_id=552340171 instance=ExtResource("15_6gl0u")]
-position = Vector2(961, 315)
+position = Vector2(958, 186)
+editor_draw_drag_margin = true
 
 [node name="Player" parent="." unique_id=317056800 instance=ExtResource("16_x8x31")]
 position = Vector2(538, 424)
@@ -720,45 +765,102 @@ height = 250.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=760527295]
 unique_name_in_owner = true
-color = Color(0.6945319, 0.7128602, 0.68722624, 1)
+color = Color(0.1610052, 0.17134002, 0.1568493, 1)
 
 [node name="StartPortal" parent="." unique_id=276198131 instance=ExtResource("28_hj67n")]
-position = Vector2(543, 4)
-scale = Vector2(0.7, 0.7)
+position = Vector2(709, 387)
+rotation = 0.05235988
+scale = Vector2(-0.7, 0.7)
 portal_name = "forest1-start"
 linked_stage = "uid://b32q0e34faaed"
 target_portal = "ww1"
 activator_text = " "
+stare_and_blink = true
 
-[node name="Sprite2D" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.30908486)
-rotation = 210.34436
-scale = Vector2(0.8393899, 0.8393899)
-
-[node name="Sprite2D2" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.37708515)
-rotation = -211.18253
-scale = Vector2(0.8847234, 0.8847234)
-
-[node name="Sprite2D3" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.39396974)
-rotation = -191.36205
-scale = Vector2(0.8959798, 0.8959798)
-
-[node name="Sprite2D4" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.29597571)
-rotation = 182.90176
-scale = Vector2(0.83065045, 0.83065045)
-
-[node name="Sprite2D5" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.10354626)
-rotation = 160.26459
-scale = Vector2(0.70236415, 0.70236415)
-
-[node name="EyeTop2" parent="StartPortal/Sprites" parent_id_path=PackedInt32Array(276198131, 1329360371) index="3" unique_id=831143277]
+[node name="Activator" parent="StartPortal" index="0" unique_id=1410287907]
 visible = false
 
+[node name="OrbDetector" parent="StartPortal" index="1" unique_id=70133150]
+visible = false
+
+[node name="AnimationTree" parent="StartPortal" index="3" unique_id=1859768669]
+active = true
+
+[node name="Sprites" parent="StartPortal" index="4" unique_id=1329360371]
+z_index = 1
+
+[node name="Sprite2D" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="0" unique_id=1141542982]
+modulate = Color(1, 1, 1, 0.17413555)
+rotation = -70.20119
+scale = Vector2(0.7494237, 0.7494237)
+
+[node name="Sprite2D2" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="1" unique_id=1627364316]
+modulate = Color(1, 1, 1, 0.27668834)
+rotation = -183.99167
+scale = Vector2(0.81779224, 0.81779224)
+
+[node name="Sprite2D3" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="2" unique_id=529109281]
+modulate = Color(1, 1, 1, 0.2961056)
+rotation = -63.216625
+scale = Vector2(0.83073705, 0.83073705)
+
+[node name="Sprite2D4" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="3" unique_id=867959787]
+modulate = Color(1, 1, 1, 0.2930461)
+rotation = 313.19882
+scale = Vector2(0.8286974, 0.8286974)
+
+[node name="Sprite2D5" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="4" unique_id=1590378147]
+modulate = Color(1, 1, 1, 0.31158772)
+rotation = 11.042147
+scale = Vector2(0.8410585, 0.8410585)
+
+[node name="WhiteSphere" type="Sprite2D" parent="StartPortal/Sprites/EyeBackground" parent_id_path=PackedInt32Array(276198131, 1865392681) index="0" unique_id=1269565657]
+position = Vector2(-15, -11)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("GradientTexture2D_alpuc")
+
+[node name="Iris" type="Sprite2D" parent="StartPortal/Sprites/EyeBackground/WhiteSphere" unique_id=121166118]
+position = Vector2(-1, -1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("22_ufx5u")
+region_enabled = true
+region_rect = Rect2(1011, 1684, 260, 253)
+
+[node name="EdgeShading" type="Sprite2D" parent="StartPortal/Sprites/EyeBackground/WhiteSphere" unique_id=1220076145]
+texture = SubResource("GradientTexture2D_h88km")
+
+[node name="YellowFlames" parent="StartPortal/Sprites" index="5" unique_id=2138236906]
+light_mask = 1
+
+[node name="YellowFlames2" parent="StartPortal/Sprites/YellowFlames" index="1" unique_id=1115341406]
+modulate = Color(1, 1, 1, 1)
+
+[node name="YellowFlames3" parent="StartPortal/Sprites/YellowFlames" index="2" unique_id=1006062682]
+modulate = Color(1, 1, 1, 1)
+
+[node name="Extras1" type="Sprite2D" parent="StartPortal" unique_id=1782732417]
+modulate = Color(0.051970966, 0.05197096, 0.05197095, 1)
+position = Vector2(-100.714, 115.714)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("21_alpuc")
+region_enabled = true
+region_rect = Rect2(724, 1144, 650, 332)
+
+[node name="Extras2" type="Sprite2D" parent="StartPortal" unique_id=1448012204]
+position = Vector2(-95.71426, 115.7143)
+scale = Vector2(0.443, 0.443)
+texture = ExtResource("21_alpuc")
+region_enabled = true
+region_rect = Rect2(724, 1144, 650, 332)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="StartPortal" unique_id=358304758]
+position = Vector2(103.02131, 26.857098)
+amount = 4
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_alpuc")
+
 [node name="StartPortal2" parent="." unique_id=567549234 instance=ExtResource("28_hj67n")]
+visible = false
 position = Vector2(1194, 25.999998)
 scale = Vector2(-0.7, 0.7)
 portal_name = "forest1-start"
@@ -767,32 +869,29 @@ target_portal = "ww1"
 activator_text = " "
 
 [node name="Sprite2D" parent="StartPortal2/Sprites/Sparkles" parent_id_path=PackedInt32Array(567549234, 1949234833) index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.21720943)
-rotation = 205.18419
-scale = Vector2(0.7781396, 0.7781396)
+modulate = Color(1, 1, 1, 0.18713005)
+rotation = 456.4795
+scale = Vector2(0.7580867, 0.7580867)
 
 [node name="Sprite2D2" parent="StartPortal2/Sprites/Sparkles" parent_id_path=PackedInt32Array(567549234, 1949234833) index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.39870462)
-rotation = -209.60759
-scale = Vector2(0.8991364, 0.8991364)
+modulate = Color(1, 1, 1, 0.22317813)
+rotation = -129.38156
+scale = Vector2(0.78211874, 0.78211874)
 
 [node name="Sprite2D3" parent="StartPortal2/Sprites/Sparkles" parent_id_path=PackedInt32Array(567549234, 1949234833) index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.38603106)
-rotation = -192.25694
-scale = Vector2(0.89068735, 0.89068735)
+modulate = Color(1, 1, 1, 0.24748103)
+rotation = -105.10311
+scale = Vector2(0.7983207, 0.7983207)
 
 [node name="Sprite2D4" parent="StartPortal2/Sprites/Sparkles" parent_id_path=PackedInt32Array(567549234, 1949234833) index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.38841048)
-rotation = 175.68338
-scale = Vector2(0.89227366, 0.89227366)
+modulate = Color(1, 1, 1, 0.1417576)
+rotation = 23.293938
+scale = Vector2(0.7278384, 0.7278384)
 
 [node name="Sprite2D5" parent="StartPortal2/Sprites/Sparkles" parent_id_path=PackedInt32Array(567549234, 1949234833) index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.13063018)
-rotation = 156.69765
-scale = Vector2(0.7204201, 0.7204201)
-
-[node name="EyeTop2" parent="StartPortal2/Sprites" parent_id_path=PackedInt32Array(567549234, 1329360371) index="3" unique_id=831143277]
-visible = false
+modulate = Color(1, 1, 1, 0.1614144)
+rotation = 4.460155
+scale = Vector2(0.74094296, 0.74094296)
 
 [node name="Water" parent="." unique_id=1060541789 instance=ExtResource("31_o660d")]
 offset_left = -22.0
