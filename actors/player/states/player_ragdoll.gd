@@ -204,7 +204,7 @@ func temporary_ragdoll(return_after_ms = 500, torso_velocity = Vector2.INF) -> v
 func _input(event: InputEvent) -> void:
 	if player.ignore_inputs:
 		return
-	if event.is_action_pressed("interact") and not transitioning_out:
+	if event.is_action_pressed("ragdoll") and not transitioning_out:
 		machine.transition_by_name("Idle")
 		get_viewport().set_input_as_handled()
 

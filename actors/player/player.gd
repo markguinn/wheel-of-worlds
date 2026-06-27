@@ -94,7 +94,7 @@ func _input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 		elif Activator.active_candidate:
 			Activator.active_candidate.activated.emit.call_deferred(Activator.active_candidate)
-		elif state_machine.get_active() != "Ragdoll":
+	if event.is_action_pressed("ragdoll") and state_machine.get_active() != "Ragdoll":
 			state_machine.transition_by_name.call_deferred("Ragdoll")
 			get_viewport().set_input_as_handled()
 	if event.is_action_pressed("music_box"):

@@ -14,9 +14,9 @@ func _on_accept_dialog_confirmed() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if body is Player and not body.has_music_box:
 		body.has_music_box = true
 		# TODO: use the crouch animation? change to a grab box?
 		sprite.hide()
 		#dialog.popup_exclusive_centered(self)
-		dialog.show()
+		#dialog.show()
