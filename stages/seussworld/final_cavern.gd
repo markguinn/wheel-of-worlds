@@ -79,7 +79,7 @@ func _on_cutscene_complete() -> void:
 	# TODO: tween audio
 	await get_tree().create_timer(3.0).timeout
 	# TODO: go to the final scene instead of the wheel
-	GameManager.change_scene("res://stages/forest/final_scene.tscn", {"fade_out": false})
+	GameManager.change_scene("res://stages/forest/final_scene.tscn", {"fade_out": false, "fade_in": false})
 
 
 func take_fish_too() -> void:

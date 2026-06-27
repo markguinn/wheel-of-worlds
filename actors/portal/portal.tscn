@@ -699,10 +699,10 @@ tracks/14/path = NodePath("PointLight2D:texture_scale")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0, 1.125, 3.125, 5, 6.125, 7.125, 8.375, 10.5, 10.75, 11.5, 12.375, 12.875, 13.875, 15, 15.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.125, 1.625, 3.125, 5, 6.125, 7.125, 8.375, 10.5, 10.75, 11.5, 12.375, 12.875, 13.875, 15, 15.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [10.0, 10.2, 9.5, 10.4, 10.0, 9.7, 9.712676, 10.299999999999999, 9.712676, 10.0, 10.5, 9.712676, 10.2, 9.712676, 9.2]
+"values": [10.0, 10.2, 10.51, 9.5, 10.4, 10.0, 9.7, 9.712676, 10.3, 9.712676, 10.0, 10.5, 9.712676, 10.2, 9.712676, 9.2]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
@@ -711,10 +711,10 @@ tracks/15/path = NodePath("PointLight2D:energy")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0, 0.9, 1.625, 3.625, 6.625, 7.625, 9.25, 11.25, 13.25, 14.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.0, 1.5, 1.2, 1.0, 1.3, 1.0, 1.2, 1.0, 0.8, 1.0]
+"values": [1.5]
 }
 
 [sub_resource type="Animation" id="Animation_q31eb"]
@@ -1231,33 +1231,33 @@ light_mask = 0
 script = ExtResource("3_eb6dy")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.101229385)
-rotation = 135.80768
-scale = Vector2(0.7008196, 0.7008196)
+modulate = Color(1, 1, 1, 0.3939487)
+rotation = 144.15172
+scale = Vector2(0.8959658, 0.8959658)
 texture = ExtResource("19_kncuj")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.21727829)
-rotation = 26.707258
-scale = Vector2(0.77818555, 0.77818555)
+modulate = Color(1, 1, 1, 0.38144687)
+rotation = 50.994213
+scale = Vector2(0.88763124, 0.88763124)
 texture = ExtResource("20_5ni7j")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sprites/Sparkles" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.16169699)
-rotation = -241.07143
-scale = Vector2(0.7411313, 0.7411313)
+modulate = Color(1, 1, 1, 0.22784822)
+rotation = -265.0804
+scale = Vector2(0.7852321, 0.7852321)
 texture = ExtResource("21_q6t7m")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sprites/Sparkles" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.3298114)
-rotation = 11.422921
-scale = Vector2(0.8532076, 0.8532076)
+modulate = Color(1, 1, 1, 0.3825698)
+rotation = 16.926485
+scale = Vector2(0.8883799, 0.8883799)
 texture = ExtResource("22_frp0j")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.3781951)
-rotation = 124.383934
-scale = Vector2(0.8854634, 0.8854634)
+modulate = Color(1, 1, 1, 0.3683361)
+rotation = 149.7127
+scale = Vector2(0.87889075, 0.87889075)
 texture = ExtResource("23_frp0j")
 
 [node name="EyeBackground" type="Polygon2D" parent="Sprites" unique_id=1865392681]

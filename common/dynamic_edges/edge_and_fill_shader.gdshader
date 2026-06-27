@@ -1,5 +1,5 @@
 shader_type canvas_item;
-render_mode world_vertex_coords, unshaded;
+render_mode world_vertex_coords;
 varying vec2 world_pos; 
 
 const float edge_scale = 1.0;

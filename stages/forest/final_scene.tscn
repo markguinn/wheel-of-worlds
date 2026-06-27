@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bxemuwrtyq7yn"]
 
-[ext_resource type="Script" uid="uid://bxxbctnq2ubio" path="res://stages/stage.gd" id="1_leq4r"]
+[ext_resource type="Script" uid="uid://b3kcsr15h4wq0" path="res://stages/forest/final_scene.gd" id="1_h88km"]
 [ext_resource type="Texture2D" uid="uid://bds24227voos8" path="res://stages/forest/art/forestBackground.png" id="3_cbnd1"]
 [ext_resource type="Script" uid="uid://ck52hm002hppc" path="res://common/swaying_background.gd" id="4_pf4sb"]
 [ext_resource type="Texture2D" uid="uid://bwl7qio6w8mu4" path="res://stages/forest/art/shadowBushB.png" id="5_oowct"]
@@ -22,9 +22,19 @@
 [ext_resource type="PackedScene" uid="uid://beyqs3nx07wae" path="res://stages/forest/prefabs/climbable_tree_5.tscn" id="21_fdida"]
 [ext_resource type="Texture2D" uid="uid://dyfjydb0sbb64" path="res://actors/portal/art/irises.png" id="22_ufx5u"]
 [ext_resource type="Texture2D" uid="uid://bb38a7h3w0k2g" path="res://common/vfx/basic_light.tres" id="22_xlghb"]
-[ext_resource type="Gradient" uid="uid://de6ku2qkkuqj8" path="res://stages/seussworld/prefabs/water_gradient.tres" id="24_h88km"]
+[ext_resource type="Gradient" uid="uid://cr01cj04wliyu" path="res://stages/forest/prefabs/forest_water_gradient.tres" id="24_ffid6"]
+[ext_resource type="PackedScene" uid="uid://n0yb8g02gr8b" path="res://actors/fish_monster/big_fish.tscn" id="26_ls0eu"]
+[ext_resource type="PackedScene" uid="uid://3bml3wbyjvgg" path="res://actors/fish_monster/small_fish.tscn" id="27_ffid6"]
 [ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="28_hj67n"]
+[ext_resource type="Texture2D" uid="uid://rweu8spv4nfd" path="res://props/water/water-sprite.png" id="28_iyf6a"]
+[ext_resource type="PackedScene" uid="uid://bbq81ngylpi8h" path="res://actors/shadow_monster/shadow_monster.tscn" id="29_iyf6a"]
+[ext_resource type="PackedScene" uid="uid://th5bmfwxjhlq" path="res://actors/bird_monster/bird_monster.tscn" id="30_4ao4o"]
+[ext_resource type="Script" uid="uid://c8pi532nmx254" path="res://common/file_label.gd" id="31_8a6io"]
 [ext_resource type="PackedScene" uid="uid://bk140x3miwcrc" path="res://stages/forest/prefabs/forest_water.tscn" id="31_o660d"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h88km"]
+noise_type = 4
+fractal_type = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l2c6s"]
 load_path = "res://.godot/imported/shadowBushA.png-ce4ee8a1189b36ba48b13f5e5fe6a2c4.ctex"
@@ -406,24 +416,56 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_asj5l"]
-gradient = ExtResource("24_h88km")
+gradient = ExtResource("24_ffid6")
+
+[sub_resource type="Curve" id="Curve_h88km"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.25761124, 82.24077), 1131.4681, 1131.4681, 0, 0, Vector2(1, 124.59277), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_asj5l"]
+curve = SubResource("Curve_h88km")
+
+[sub_resource type="Curve" id="Curve_ls0eu"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.15925059, 0.9457687), 0.88989985, 0.88989985, 0, 0, Vector2(0.59507036, 0.9843279), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ffid6"]
+curve = SubResource("Curve_ls0eu")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_alpuc"]
 particle_flag_disable_z = true
 emission_shape = 1
-emission_sphere_radius = 20.0
-gravity = Vector3(0, 400, 0)
-scale_min = 3.0
-scale_max = 6.0
+emission_sphere_radius = 10.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 10, 0)
+linear_accel_min = 9.999997
+linear_accel_max = 9.999997
+linear_accel_curve = SubResource("CurveTexture_asj5l")
+scale_min = 4.0
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_ffid6")
 color_initial_ramp = SubResource("GradientTexture1D_asj5l")
-turbulence_enabled = true
 turbulence_noise_strength = 0.1
 turbulence_noise_speed_random = 4.0
 turbulence_influence_min = 0.0
 turbulence_influence_max = 0.05
 
-[node name="Forest1" type="Node2D" unique_id=1313295670]
-script = ExtResource("1_leq4r")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h88km"]
+size = Vector2(2790, 193)
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_ffid6"]
+modification_count = 1
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_iyf6a"]
+modification_count = 1
+
+[node name="FinalForest" type="Node2D" unique_id=1313295670]
+script = ExtResource("1_h88km")
+eye_direction_noise = SubResource("FastNoiseLite_h88km")
+eye_strength = Vector2(30, 10)
+eye_speed = 13.0
 
 [node name="BGLayers" type="Node2D" parent="." unique_id=1459283984]
 metadata/_edit_group_ = true
@@ -669,6 +711,7 @@ tile_set = SubResource("TileSet_h68eo")
 occlusion_enabled = false
 
 [node name="PaintedGround" type="CanvasGroup" parent="." unique_id=731056143]
+light_mask = 5
 z_index = 1
 material = ExtResource("9_smfec")
 fit_margin = 200.0
@@ -692,6 +735,7 @@ navigation_enabled = false
 metadata/_edit_lock_ = true
 
 [node name="NearMist" type="Parallax2D" parent="." unique_id=169595503]
+modulate = Color(1, 1, 1, 0.6509804)
 z_index = 50
 scroll_scale = Vector2(1.1, 1.1)
 repeat_size = Vector2(4096, 2048)
@@ -724,7 +768,9 @@ position = Vector2(958, 186)
 editor_draw_drag_margin = true
 
 [node name="Player" parent="." unique_id=317056800 instance=ExtResource("16_x8x31")]
-position = Vector2(538, 424)
+position = Vector2(465, 423)
+collision_layer = 0
+collision_mask = 1
 ignore_inputs = true
 
 [node name="ClimbableTree" parent="." unique_id=610288396 instance=ExtResource("17_4pv4u")]
@@ -737,11 +783,30 @@ scale = Vector2(0.9, 0.9)
 [node name="ClimbableTree3" parent="." unique_id=213389386 instance=ExtResource("19_jd6sp")]
 position = Vector2(517, 123)
 
+[node name="RemoteTransform2D2" type="RemoteTransform2D" parent="ClimbableTree3/Sprite2D" parent_id_path=PackedInt32Array(213389386, 2107396213) index="1" unique_id=1929766966]
+position = Vector2(-190, -664)
+remote_path = NodePath("../../BirdMonster2")
+
+[node name="BirdMonster2" parent="ClimbableTree3" unique_id=766020118 instance=ExtResource("30_4ao4o")]
+position = Vector2(-47, -280)
+fly_speed = 0.0
+attack_probability = 0.0
+nest_probability = 0.0
+
 [node name="ClimbableTree4" parent="." unique_id=1109684937 instance=ExtResource("21_fdida")]
 position = Vector2(841, 520)
 
+[node name="RemoteTransform2D4" type="RemoteTransform2D" parent="ClimbableTree4/Sprite2D" parent_id_path=PackedInt32Array(1109684937, 2107396213) index="3" unique_id=1694704058]
+position = Vector2(273, -550)
+remote_path = NodePath("../../BirdMonster")
+
+[node name="BirdMonster" parent="ClimbableTree4" unique_id=1506347994 instance=ExtResource("30_4ao4o")]
+position = Vector2(269, -557)
+fly_speed = 0.0
+attack_probability = 0.0
+nest_probability = 0.0
+
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1146283215]
-visible = false
 light_mask = 3
 position = Vector2(357, -229)
 color = Color(0.9792946, 0.8219286, 0.8130152, 1)
@@ -753,11 +818,11 @@ texture_scale = 5.67
 height = 232.0
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=709813443]
-visible = false
 light_mask = 3
-position = Vector2(862, -91)
-color = Color(0.9792946, 0.8219286, 0.8130152, 1)
-range_item_cull_mask = 3
+position = Vector2(985, 738)
+color = Color(0.95508915, 0.85208994, 0.827754, 1)
+energy = 0.6
+range_item_cull_mask = 4
 shadow_item_cull_mask = 3
 texture = ExtResource("22_xlghb")
 texture_scale = 8.0
@@ -765,10 +830,10 @@ height = 250.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=760527295]
 unique_name_in_owner = true
-color = Color(0.1610052, 0.17134002, 0.1568493, 1)
+color = Color(0.25021335, 0.2502135, 0.25021344, 1)
 
 [node name="StartPortal" parent="." unique_id=276198131 instance=ExtResource("28_hj67n")]
-position = Vector2(709, 387)
+position = Vector2(731, 387)
 rotation = 0.05235988
 scale = Vector2(-0.7, 0.7)
 portal_name = "forest1-start"
@@ -790,36 +855,39 @@ active = true
 z_index = 1
 
 [node name="Sprite2D" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.17413555)
-rotation = -70.20119
-scale = Vector2(0.7494237, 0.7494237)
+modulate = Color(1, 1, 1, 0.39172012)
+rotation = 837.11285
+scale = Vector2(0.89448005, 0.89448005)
 
 [node name="Sprite2D2" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.27668834)
-rotation = -183.99167
-scale = Vector2(0.81779224, 0.81779224)
+modulate = Color(1, 1, 1, 0.378068)
+rotation = -922.44934
+scale = Vector2(0.88537866, 0.88537866)
 
 [node name="Sprite2D3" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.2961056)
-rotation = -63.216625
-scale = Vector2(0.83073705, 0.83073705)
+modulate = Color(1, 1, 1, 0.37847427)
+rotation = -371.0757
+scale = Vector2(0.8856495, 0.8856495)
 
 [node name="Sprite2D4" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.2930461)
-rotation = 313.19882
-scale = Vector2(0.8286974, 0.8286974)
+modulate = Color(1, 1, 1, 0.18421495)
+rotation = -250.71257
+scale = Vector2(0.7561433, 0.7561433)
 
 [node name="Sprite2D5" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.31158772)
-rotation = 11.042147
-scale = Vector2(0.8410585, 0.8410585)
+modulate = Color(1, 1, 1, 0.38944077)
+rotation = -483.2253
+scale = Vector2(0.8929605, 0.8929605)
 
 [node name="WhiteSphere" type="Sprite2D" parent="StartPortal/Sprites/EyeBackground" parent_id_path=PackedInt32Array(276198131, 1865392681) index="0" unique_id=1269565657]
+modulate = Color(0.7666196, 0.76661956, 0.76661944, 1)
+light_mask = 2
 position = Vector2(-15, -11)
 scale = Vector2(1.5, 1.5)
 texture = SubResource("GradientTexture2D_alpuc")
 
 [node name="Iris" type="Sprite2D" parent="StartPortal/Sprites/EyeBackground/WhiteSphere" unique_id=121166118]
+unique_name_in_owner = true
 position = Vector2(-1, -1)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("22_ufx5u")
@@ -829,14 +897,24 @@ region_rect = Rect2(1011, 1684, 260, 253)
 [node name="EdgeShading" type="Sprite2D" parent="StartPortal/Sprites/EyeBackground/WhiteSphere" unique_id=1220076145]
 texture = SubResource("GradientTexture2D_h88km")
 
+[node name="EyeBottom" parent="StartPortal/Sprites" index="2" unique_id=2010493060]
+light_mask = 4
+
+[node name="EyeTop2" parent="StartPortal/Sprites" index="3" unique_id=831143277]
+light_mask = 4
+
 [node name="YellowFlames" parent="StartPortal/Sprites" index="5" unique_id=2138236906]
-light_mask = 1
+frame_progress = 0.4080208
 
 [node name="YellowFlames2" parent="StartPortal/Sprites/YellowFlames" index="1" unique_id=1115341406]
-modulate = Color(1, 1, 1, 1)
+modulate = Color(0.8474744, 0.84747446, 0.84747446, 1)
+light_mask = 2
+frame_progress = 0.17962888
 
 [node name="YellowFlames3" parent="StartPortal/Sprites/YellowFlames" index="2" unique_id=1006062682]
-modulate = Color(1, 1, 1, 1)
+modulate = Color(0.9691369, 0.9691369, 0.9691368, 1)
+light_mask = 2
+frame_progress = 0.74198186
 
 [node name="Extras1" type="Sprite2D" parent="StartPortal" unique_id=1782732417]
 modulate = Color(0.051970966, 0.05197096, 0.05197095, 1)
@@ -847,59 +925,209 @@ region_enabled = true
 region_rect = Rect2(724, 1144, 650, 332)
 
 [node name="Extras2" type="Sprite2D" parent="StartPortal" unique_id=1448012204]
+modulate = Color(0.9406359, 0.94063586, 0.94063574, 1)
 position = Vector2(-95.71426, 115.7143)
 scale = Vector2(0.443, 0.443)
 texture = ExtResource("21_alpuc")
 region_enabled = true
 region_rect = Rect2(724, 1144, 650, 332)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="StartPortal" unique_id=358304758]
-position = Vector2(103.02131, 26.857098)
+[node name="TearParticles" type="GPUParticles2D" parent="StartPortal" unique_id=358304758]
+position = Vector2(117.36221, 26.17814)
 amount = 4
-lifetime = 3.0
+lifetime = 5.0
+randomness = 0.29
 process_material = SubResource("ParticleProcessMaterial_alpuc")
 
-[node name="StartPortal2" parent="." unique_id=567549234 instance=ExtResource("28_hj67n")]
-visible = false
-position = Vector2(1194, 25.999998)
-scale = Vector2(-0.7, 0.7)
-portal_name = "forest1-start"
-linked_stage = "uid://b32q0e34faaed"
-target_portal = "ww1"
-activator_text = " "
-
-[node name="Sprite2D" parent="StartPortal2/Sprites/Sparkles" parent_id_path=PackedInt32Array(567549234, 1949234833) index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.18713005)
-rotation = 456.4795
-scale = Vector2(0.7580867, 0.7580867)
-
-[node name="Sprite2D2" parent="StartPortal2/Sprites/Sparkles" parent_id_path=PackedInt32Array(567549234, 1949234833) index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.22317813)
-rotation = -129.38156
-scale = Vector2(0.78211874, 0.78211874)
-
-[node name="Sprite2D3" parent="StartPortal2/Sprites/Sparkles" parent_id_path=PackedInt32Array(567549234, 1949234833) index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.24748103)
-rotation = -105.10311
-scale = Vector2(0.7983207, 0.7983207)
-
-[node name="Sprite2D4" parent="StartPortal2/Sprites/Sparkles" parent_id_path=PackedInt32Array(567549234, 1949234833) index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.1417576)
-rotation = 23.293938
-scale = Vector2(0.7278384, 0.7278384)
-
-[node name="Sprite2D5" parent="StartPortal2/Sprites/Sparkles" parent_id_path=PackedInt32Array(567549234, 1949234833) index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.1614144)
-rotation = 4.460155
-scale = Vector2(0.74094296, 0.74094296)
-
 [node name="Water" parent="." unique_id=1060541789 instance=ExtResource("31_o660d")]
+light_mask = 4
 offset_left = -22.0
 offset_top = 620.0
 offset_right = 1958.0
 offset_bottom = 1733.0
 
+[node name="ColorRect" parent="Water" index="0" unique_id=1888884334]
+light_mask = 4
+z_index = 5
+offset_left = -155.0
+offset_right = 120.0
+
+[node name="water-sprite" parent="Water" index="1" unique_id=2087456986]
+light_mask = 4
+
+[node name="BG1" parent="Water" index="2" unique_id=1786315982]
+light_mask = 4
+offset_left = -88.268654
+offset_top = -34.51574
+offset_right = -82.936646
+offset_bottom = 817.48425
+
+[node name="BG2" parent="Water" index="3" unique_id=1147121301]
+light_mask = 4
+offset_left = -166.39558
+offset_top = -26.279442
+offset_right = 39.341187
+offset_bottom = 1025.589
+
+[node name="BG3" parent="Water" index="4" unique_id=539485018]
+light_mask = 4
+z_index = 25
+offset_left = -171.47234
+offset_top = -26.727821
+offset_right = -47.735474
+offset_bottom = 1025.1406
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1941185685]
+position = Vector2(818, 785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1452091917]
+position = Vector2(94, -27.5)
+shape = SubResource("RectangleShape2D_h88km")
+
+[node name="FishMonster" parent="Area2D" unique_id=1857891672 instance=ExtResource("26_ls0eu")]
+position = Vector2(-871, -35)
+patrol_offset = 50.0
+jump_y_min = 700.0
+jump_y_max = 1000.0
+jump_x_min = 500.0
+jump_x_max = 600.0
+attack_impact = 0.0
+ragdoll_player = false
+slomo_entry = false
+
+[node name="Patrolling" parent="Area2D/FishMonster/StateMachine" parent_id_path=PackedInt32Array(1857891672, 336115411) index="0" unique_id=1086534189]
+move_after_ms = 20000
+attack_distance = 0.0
+
+[node name="SplashParticles" parent="Area2D/FishMonster" index="4" unique_id=1983388862]
+visible = false
+light_mask = 0
+
+[node name="SwimParticles" parent="Area2D/FishMonster" index="5" unique_id=875777099]
+visible = false
+light_mask = 0
+
+[node name="SmallFish" parent="Area2D" unique_id=2013979744 instance=ExtResource("27_ffid6")]
+position = Vector2(-4, -63)
+patrol_offset = -45.0
+jump_y_min = 600.0
+jump_y_max = 800.0
+jump_x_min = 400.0
+jump_x_max = 600.0
+attack_impact = 0.0
+
+[node name="Patrolling" parent="Area2D/SmallFish/StateMachine" parent_id_path=PackedInt32Array(2013979744, 336115411) index="0" unique_id=1086534189]
+move_after_ms = 20000
+move_speed = 500.0
+attack_distance = 0.0
+vertical_range = 50.0
+
+[node name="SplashParticles" parent="Area2D/SmallFish" index="4" unique_id=1634448354]
+visible = false
+light_mask = 0
+
+[node name="SwimParticles" parent="Area2D/SmallFish" index="5" unique_id=1365990803]
+visible = false
+light_mask = 0
+
+[node name="SmallFish2" parent="Area2D" unique_id=544674884 instance=ExtResource("27_ffid6")]
+position = Vector2(997, -68)
+patrol_offset = -45.0
+jump_y_min = 450.0
+jump_y_max = 900.0
+jump_x_min = 450.0
+jump_x_max = 550.0
+attack_impact = 0.0
+
+[node name="Patrolling" parent="Area2D/SmallFish2/StateMachine" parent_id_path=PackedInt32Array(544674884, 336115411) index="0" unique_id=1086534189]
+move_after_ms = 20000
+move_speed = 500.0
+attack_distance = 0.0
+vertical_range = 44.0
+
+[node name="Skeleton2D" parent="Area2D/SmallFish2/SpriteContainer" parent_id_path=PackedInt32Array(544674884, 306526739) index="2" unique_id=2112981615]
+modification_stack = SubResource("SkeletonModificationStack2D_ffid6")
+
+[node name="SplashParticles" parent="Area2D/SmallFish2" index="4" unique_id=1634448354]
+visible = false
+visibility_layer = 0
+
+[node name="SwimParticles" parent="Area2D/SmallFish2" index="5" unique_id=1365990803]
+visible = false
+light_mask = 0
+
+[node name="SmallFish3" parent="Area2D" unique_id=1895565948 instance=ExtResource("27_ffid6")]
+position = Vector2(566, -50)
+patrol_offset = -40.0
+jump_y_min = 700.0
+jump_y_max = 950.0
+jump_x_min = 400.0
+jump_x_max = 650.0
+attack_impact = 0.0
+
+[node name="Patrolling" parent="Area2D/SmallFish3/StateMachine" parent_id_path=PackedInt32Array(1895565948, 336115411) index="0" unique_id=1086534189]
+move_after_ms = 20000
+move_speed = 500.0
+attack_distance = 0.0
+vertical_range = 46.0
+
+[node name="Skeleton2D" parent="Area2D/SmallFish3/SpriteContainer" parent_id_path=PackedInt32Array(1895565948, 306526739) index="2" unique_id=2112981615]
+modification_stack = SubResource("SkeletonModificationStack2D_iyf6a")
+
+[node name="SplashParticles" parent="Area2D/SmallFish3" index="4" unique_id=1634448354]
+visible = false
+light_mask = 0
+
+[node name="SwimParticles" parent="Area2D/SmallFish3" index="5" unique_id=1365990803]
+visible = false
+light_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1879248246]
+visible = false
+position = Vector2(-38, 1068)
+scale = Vector2(1, 1.7734375)
+texture = ExtResource("28_iyf6a")
+
+[node name="ShadowBlob" parent="." unique_id=1434955370 instance=ExtResource("29_iyf6a")]
+position = Vector2(1877, 360)
+
+[node name="ShadowBlob2" parent="." unique_id=1178193283 instance=ExtResource("29_iyf6a")]
+position = Vector2(1879, -204)
+
+[node name="ShadowBlob3" parent="." unique_id=1078970594 instance=ExtResource("29_iyf6a")]
+position = Vector2(1787, -333)
+
+[node name="ShadowBlob4" parent="." unique_id=1291612349 instance=ExtResource("29_iyf6a")]
+position = Vector2(1923, 249)
+
+[node name="ShadowBlob5" parent="." unique_id=2024018219 instance=ExtResource("29_iyf6a")]
+position = Vector2(1544, -362)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=499354175]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=366850002]
+anchors_preset = -1
+anchor_left = 0.7
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = -40.0
+theme_override_constants/line_separation = 8
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
+fit_content = true
+script = ExtResource("31_8a6io")
+file_path = "res://credits.txt"
+metadata/_custom_type_script = "uid://c8pi532nmx254"
+
+[editable path="ClimbableTree3"]
+[editable path="ClimbableTree4"]
 [editable path="StartPortal"]
 [editable path="StartPortal/Activator"]
-[editable path="StartPortal2"]
-[editable path="StartPortal2/Activator"]
+[editable path="Water"]
+[editable path="Area2D/FishMonster"]
+[editable path="Area2D/SmallFish"]
+[editable path="Area2D/SmallFish2"]
+[editable path="Area2D/SmallFish3"]

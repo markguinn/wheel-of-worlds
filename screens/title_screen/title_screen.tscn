@@ -146,11 +146,11 @@ preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_1xf4e")
 
 [node name="IrisNebula" type="Sprite2D" parent="." unique_id=127912379]
-modulate = Color(1, 1, 1, 0.13191302)
+modulate = Color(1, 1, 1, 0.14120454)
 position = Vector2(960, 540)
-rotation = 2.9992537
+rotation = 2.1040473
 scale = Vector2(2, 2)
-skew = 0.077608764
+skew = 0.060936883
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -164,11 +164,11 @@ alpha_speed = 0.4
 speed_factor = 0.1
 
 [node name="IrisNebula2" type="Sprite2D" parent="." unique_id=1740825736]
-modulate = Color(1, 1, 1, 0.17793633)
+modulate = Color(1, 1, 1, 0.1845258)
 position = Vector2(960, 540)
-rotation = 2.0584223
+rotation = 3.0446024
 scale = Vector2(3, 3)
-skew = -0.31811437
+skew = -0.21288118
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -188,45 +188,45 @@ scale = Vector2(0.9, 0.9)
 script = ExtResource("2_1xf4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sparkles" unique_id=972055032]
-modulate = Color(1, 1, 1, 0.11720383)
-rotation = -400.23074
-scale = Vector2(0.71146923, 0.71146923)
+modulate = Color(1, 1, 1, 0.19216858)
+rotation = -393.46127
+scale = Vector2(0.7614457, 0.7614457)
 texture = ExtResource("3_i36ib")
 
 [node name="Mist" type="Sprite2D" parent="Sparkles" unique_id=753486441]
-modulate = Color(1, 1, 1, 0.39936316)
-rotation = 869.8578
-scale = Vector2(0.8995754, 0.8995754)
+modulate = Color(1, 1, 1, 0.1963552)
+rotation = 872.5918
+scale = Vector2(0.7642368, 0.7642368)
 texture = SubResource("NoiseTexture2D_mvehq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sparkles" unique_id=1758360778]
-modulate = Color(1, 1, 1, 0.3874722)
-rotation = -290.77246
-scale = Vector2(0.8916481, 0.8916481)
+modulate = Color(1, 1, 1, 0.21441075)
+rotation = -295.1309
+scale = Vector2(0.77627385, 0.77627385)
 texture = ExtResource("4_wsvuw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sparkles" unique_id=845584023]
-modulate = Color(1, 1, 1, 0.3353824)
-rotation = 2153.074
-scale = Vector2(0.8569216, 0.8569216)
+modulate = Color(1, 1, 1, 0.12083351)
+rotation = 2145.5095
+scale = Vector2(0.713889, 0.713889)
 texture = ExtResource("5_p7yao")
 
 [node name="Mist2" type="Sprite2D" parent="Sparkles" unique_id=1711575947]
-modulate = Color(1, 1, 1, 0.37493762)
-rotation = 1308.4474
-scale = Vector2(0.8832918, 0.8832918)
+modulate = Color(1, 1, 1, 0.38679543)
+rotation = 1297.8893
+scale = Vector2(0.89119697, 0.89119697)
 texture = SubResource("NoiseTexture2D_tsbkc")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sparkles" unique_id=1435232981]
-modulate = Color(1, 1, 1, 0.32440332)
-rotation = 1598.2422
-scale = Vector2(0.8496022, 0.8496022)
+modulate = Color(1, 1, 1, 0.26836425)
+rotation = 1582.1752
+scale = Vector2(0.8122428, 0.8122428)
 texture = ExtResource("6_mi1m4")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sparkles" unique_id=2086365118]
-modulate = Color(1, 1, 1, 0.30116132)
-rotation = 736.507
-scale = Vector2(0.8341076, 0.8341076)
+modulate = Color(1, 1, 1, 0.34678838)
+rotation = 740.99744
+scale = Vector2(0.8645256, 0.8645256)
 texture = ExtResource("7_v8lo7")
 
 [node name="WheelTiles" type="TileMapLayer" parent="." unique_id=2085374435]
@@ -299,14 +299,14 @@ ignore_inputs = true
 perma_ragdoll = true
 
 [node name="HandL" parent="WheelTiles/Player/Sprite/Skeleton2D/Hips/Torso/ArmL" parent_id_path=PackedInt32Array(317056800, 1793998611) index="0" unique_id=1933907137]
-scale = Vector2(1.000048, 1.000048)
+scale = Vector2(1.0000479, 1.0000479)
 
 [node name="Head" parent="WheelTiles/Player/Sprite/Parts" parent_id_path=PackedInt32Array(317056800, 1880770915) index="3" unique_id=857872474]
 position = Vector2(11.08728, -62.294434)
 scale = Vector2(0.17002498, 0.17001219)
 
 [node name="Eyes" parent="WheelTiles/Player/Sprite/Parts/Head" index="0" unique_id=1167826662]
-frame_progress = 0.39999688
+frame_progress = 0.66101813
 
 [node name="DizzyParticles" parent="WheelTiles/Player/Sprite/VFX" parent_id_path=PackedInt32Array(317056800, 1603292766) index="2" unique_id=806147118]
 position = Vector2(11.08728, -62.294434)
@@ -431,6 +431,16 @@ flat = true
 alignment = 0
 script = ExtResource("4_p4pbn")
 target_scene = "uid://cnhxmmj677hgw"
+metadata/_custom_type_script = "uid://dwlqg5ma8i6be"
+
+[node name="Final Scene" type="Button" parent="TestLevels" unique_id=1613431484]
+layout_mode = 2
+focus_neighbor_right = NodePath("../../WheelTiles/Options")
+text = "Final Scene"
+flat = true
+alignment = 0
+script = ExtResource("4_p4pbn")
+target_scene = "uid://bxemuwrtyq7yn"
 metadata/_custom_type_script = "uid://dwlqg5ma8i6be"
 
 [node name="BonusLevels" type="VBoxContainer" parent="." unique_id=1287239522]

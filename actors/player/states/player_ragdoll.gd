@@ -3,14 +3,15 @@ extends PlayerState
 
 
 const STILLNESS_THRESHOLD = 100.0
-const STILLNESS_WINDOW_MS = 1000
 const STANDUP_DIST = 80.0
-const STANDUP_TIME = 0.2
 
 var last_ragdoll_movement := 0
 var temp_return_at := 0
 var temp_return_to: StateNode = null
 var temp_torso_velocity: Vector2 = Vector2.INF
+
+@export var stillness_window_ms := 1000
+@export var standup_time := 0.2
 
 # NOTE: these need to be in the same order as ragdoll_bodies
 @onready var guidepoints: Array[Marker2D] = [
@@ -185,9 +186,9 @@ func transition_before_exit(to_state: StateNode) -> void:
 	var body := ragdoll_bodies[0]
 	body.set_deferred("freeze", true)
 	var tween := create_tween()
-	tween.tween_property(body, "rotation", 0.0, STANDUP_TIME)
+	tween.tween_property(body, "rotation", 0.0, standup_time)
 	if player.ground_detector.is_colliding():
-		tween.parallel().tween_property(body, "position", body.position + Vector2(0, -STANDUP_DIST), STANDUP_TIME)
+		tween.parallel().tween_property(body, "position", body.position + Vector2(0, -STANDUP_DIST), standup_time)
 	await tween.finished
 	player.ground_detector.rotation = -player.rotation
 
@@ -221,7 +222,7 @@ func _physics_process(delta: float) -> void:
 
 	# when the player has stopped moving for a short time, switch back to idle
 	if diff.length() / delta < STILLNESS_THRESHOLD and not player.perma_ragdoll:
-		if not transitioning_out and now_ms > last_ragdoll_movement + STILLNESS_WINDOW_MS:
+		if not transitioning_out and now_ms > last_ragdoll_movement + stillness_window_ms:
 			machine.transition_by_name("Idle")
 	else:
 		last_ragdoll_movement = now_ms
