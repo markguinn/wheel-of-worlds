@@ -146,11 +146,11 @@ preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_1xf4e")
 
 [node name="IrisNebula" type="Sprite2D" parent="." unique_id=127912379]
-modulate = Color(1, 1, 1, 0.14120454)
+modulate = Color(1, 1, 1, 0.2694226)
 position = Vector2(960, 540)
-rotation = 2.1040473
+rotation = 3.7967308
 scale = Vector2(2, 2)
-skew = 0.060936883
+skew = 0.037141055
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -164,11 +164,11 @@ alpha_speed = 0.4
 speed_factor = 0.1
 
 [node name="IrisNebula2" type="Sprite2D" parent="." unique_id=1740825736]
-modulate = Color(1, 1, 1, 0.1845258)
+modulate = Color(1, 1, 1, 0.13749684)
 position = Vector2(960, 540)
-rotation = 3.0446024
+rotation = 4.737845
 scale = Vector2(3, 3)
-skew = -0.21288118
+skew = -0.27423108
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -188,45 +188,45 @@ scale = Vector2(0.9, 0.9)
 script = ExtResource("2_1xf4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sparkles" unique_id=972055032]
-modulate = Color(1, 1, 1, 0.19216858)
-rotation = -393.46127
-scale = Vector2(0.7614457, 0.7614457)
+modulate = Color(1, 1, 1, 0.20573865)
+rotation = -391.202
+scale = Vector2(0.77049243, 0.77049243)
 texture = ExtResource("3_i36ib")
 
 [node name="Mist" type="Sprite2D" parent="Sparkles" unique_id=753486441]
-modulate = Color(1, 1, 1, 0.1963552)
-rotation = 872.5918
-scale = Vector2(0.7642368, 0.7642368)
+modulate = Color(1, 1, 1, 0.20145032)
+rotation = 873.5041
+scale = Vector2(0.76763356, 0.76763356)
 texture = SubResource("NoiseTexture2D_mvehq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sparkles" unique_id=1758360778]
-modulate = Color(1, 1, 1, 0.21441075)
-rotation = -295.1309
-scale = Vector2(0.77627385, 0.77627385)
+modulate = Color(1, 1, 1, 0.3706789)
+rotation = -296.5882
+scale = Vector2(0.8804526, 0.8804526)
 texture = ExtResource("4_wsvuw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sparkles" unique_id=845584023]
-modulate = Color(1, 1, 1, 0.12083351)
-rotation = 2145.5095
-scale = Vector2(0.713889, 0.713889)
+modulate = Color(1, 1, 1, 0.30032244)
+rotation = 2142.7754
+scale = Vector2(0.8335483, 0.8335483)
 texture = ExtResource("5_p7yao")
 
 [node name="Mist2" type="Sprite2D" parent="Sparkles" unique_id=1711575947]
-modulate = Color(1, 1, 1, 0.38679543)
-rotation = 1297.8893
-scale = Vector2(0.89119697, 0.89119697)
+modulate = Color(1, 1, 1, 0.10553864)
+rotation = 1294.3925
+scale = Vector2(0.70369244, 0.70369244)
 texture = SubResource("NoiseTexture2D_tsbkc")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sparkles" unique_id=1435232981]
-modulate = Color(1, 1, 1, 0.26836425)
-rotation = 1582.1752
-scale = Vector2(0.8122428, 0.8122428)
+modulate = Color(1, 1, 1, 0.33127218)
+rotation = 1576.8097
+scale = Vector2(0.85418147, 0.85418147)
 texture = ExtResource("6_mi1m4")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sparkles" unique_id=2086365118]
-modulate = Color(1, 1, 1, 0.34678838)
-rotation = 740.99744
-scale = Vector2(0.8645256, 0.8645256)
+modulate = Color(1, 1, 1, 0.102267765)
+rotation = 742.4918
+scale = Vector2(0.70151186, 0.70151186)
 texture = ExtResource("7_v8lo7")
 
 [node name="WheelTiles" type="TileMapLayer" parent="." unique_id=2085374435]
@@ -298,15 +298,41 @@ scale = Vector2(0.8333333, 0.8333333)
 ignore_inputs = true
 perma_ragdoll = true
 
-[node name="HandL" parent="WheelTiles/Player/Sprite/Skeleton2D/Hips/Torso/ArmL" parent_id_path=PackedInt32Array(317056800, 1793998611) index="0" unique_id=1933907137]
-scale = Vector2(1.0000479, 1.0000479)
+[node name="ThighR" parent="WheelTiles/Player/Sprite/Skeleton2D/Hips" parent_id_path=PackedInt32Array(317056800, 598144107) index="0" unique_id=25801670]
+rotation = -0.21382824
+scale = Vector2(0.99000025, 0.99000025)
+
+[node name="ShinR" parent="WheelTiles/Player/Sprite/Skeleton2D/Hips/ThighR" index="0" unique_id=1375386282]
+rotation = 0.3767522
+
+[node name="ThighL" parent="WheelTiles/Player/Sprite/Skeleton2D/Hips" parent_id_path=PackedInt32Array(317056800, 598144107) index="1" unique_id=226334277]
+rotation = 0.5987614
+
+[node name="ShinL" parent="WheelTiles/Player/Sprite/Skeleton2D/Hips/ThighL" index="0" unique_id=919169516]
+rotation = -1.0863252
+
+[node name="Head" parent="WheelTiles/Player/Sprite/Skeleton2D/Hips/Torso" parent_id_path=PackedInt32Array(317056800, 2022925139) index="0" unique_id=1580104760]
+rotation = 0.05108816
+
+[node name="ArmL" parent="WheelTiles/Player/Sprite/Skeleton2D/Hips/Torso" parent_id_path=PackedInt32Array(317056800, 2022925139) index="1" unique_id=1793998611]
+rotation = 0.08742155
+
+[node name="HandL" parent="WheelTiles/Player/Sprite/Skeleton2D/Hips/Torso/ArmL" index="0" unique_id=1933907137]
+rotation = -0.35640353
+scale = Vector2(1.0000478, 1.0000478)
+
+[node name="ArmR" parent="WheelTiles/Player/Sprite/Skeleton2D/Hips/Torso" parent_id_path=PackedInt32Array(317056800, 2022925139) index="2" unique_id=1756135333]
+rotation = 1.4468224
+
+[node name="HandR" parent="WheelTiles/Player/Sprite/Skeleton2D/Hips/Torso/ArmR" index="0" unique_id=88591762]
+rotation = -0.026903363
 
 [node name="Head" parent="WheelTiles/Player/Sprite/Parts" parent_id_path=PackedInt32Array(317056800, 1880770915) index="3" unique_id=857872474]
 position = Vector2(11.08728, -62.294434)
-scale = Vector2(0.17002498, 0.17001219)
+scale = Vector2(0.17002498, 0.1700122)
 
 [node name="Eyes" parent="WheelTiles/Player/Sprite/Parts/Head" index="0" unique_id=1167826662]
-frame_progress = 0.66101813
+frame_progress = 0.53970397
 
 [node name="DizzyParticles" parent="WheelTiles/Player/Sprite/VFX" parent_id_path=PackedInt32Array(317056800, 1603292766) index="2" unique_id=806147118]
 position = Vector2(11.08728, -62.294434)

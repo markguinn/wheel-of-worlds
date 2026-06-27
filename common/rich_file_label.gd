@@ -1,5 +1,5 @@
-class_name FileLabel
-extends Label
+class_name RichFileLabel
+extends RichTextLabel
 
 ##########################################################
 ## A label that replaces its text with the contents of a file

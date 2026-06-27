@@ -197,7 +197,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(1000, 50)
-shader_parameter/real_screen_size = Vector2(5688.633, 3186.8167)
+shader_parameter/real_screen_size = Vector2(3537.6995, 2401.783)
 shader_parameter/edges = Array[Texture2D]([SubResource("GradientTexture2D_gdb7k"), SubResource("GradientTexture2D_gdb7k")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -1535,10 +1535,10 @@ navigation_enabled = false
 
 [node name="Camera2D" parent="." unique_id=552340171 instance=ExtResource("15_ndxdt")]
 unique_name_in_owner = true
-position = Vector2(-3783, 730)
+position = Vector2(3780, 627)
 
 [node name="Player" parent="." unique_id=42652117 instance=ExtResource("16_puw37")]
-position = Vector2(-3783, 730)
+position = Vector2(3780, 627)
 metadata/_edit_group_ = true
 
 [node name="CameraFollowTransform" type="RemoteTransform2D" parent="Player" unique_id=1411017242]
@@ -1548,7 +1548,7 @@ remote_path = NodePath("../../Camera2D")
 [node name="Orb" parent="." unique_id=1391753086 instance=ExtResource("17_dagnt")]
 unique_name_in_owner = true
 z_index = 1
-position = Vector2(-3890, 760)
+position = Vector2(3673, 657)
 
 [node name="Lift" parent="." unique_id=927319953 instance=ExtResource("9_2rneg")]
 position = Vector2(-2709, 1127)
@@ -1727,29 +1727,29 @@ shape = SubResource("CircleShape2D_wt5ny")
 shape = SubResource("CircleShape2D_gdb7k")
 
 [node name="Sprite2D" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.3786393)
-rotation = -283.18536
-scale = Vector2(0.88575953, 0.88575953)
+modulate = Color(1, 1, 1, 0.1618203)
+rotation = -280.10864
+scale = Vector2(0.74121356, 0.74121356)
 
 [node name="Sprite2D2" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.26526752)
-rotation = -225.75275
-scale = Vector2(0.81017834, 0.81017834)
+modulate = Color(1, 1, 1, 0.3855217)
+rotation = -216.43687
+scale = Vector2(0.8903478, 0.8903478)
 
 [node name="Sprite2D3" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.13479117)
-rotation = 949.83765
-scale = Vector2(0.7231941, 0.7231941)
+modulate = Color(1, 1, 1, 0.39996916)
+rotation = 950.7854
+scale = Vector2(0.8999794, 0.8999794)
 
 [node name="Sprite2D4" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.39999098)
-rotation = -596.7253
-scale = Vector2(0.89999396, 0.89999396)
+modulate = Color(1, 1, 1, 0.30564743)
+rotation = -599.7309
+scale = Vector2(0.8370983, 0.8370983)
 
 [node name="Sprite2D5" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.11282966)
-rotation = -1072.2753
-scale = Vector2(0.70855314, 0.70855314)
+modulate = Color(1, 1, 1, 0.20935017)
+rotation = -1069.8129
+scale = Vector2(0.7729001, 0.7729001)
 
 [node name="Stone5" parent="FinalStones" unique_id=669896039 groups=["final_stones"] instance=ExtResource("11_7us8x")]
 position = Vector2(-730, -127)
