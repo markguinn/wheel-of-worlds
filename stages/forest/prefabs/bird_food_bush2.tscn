@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bwcpc0g6titdt"]
+
+[ext_resource type="Texture2D" uid="uid://2d04n7tv1el0" path="res://stages/forest/art/bigBushB.png" id="1_gctri"]
+[ext_resource type="Script" uid="uid://bb35kovwb32q7" path="res://props/bird_food/bird_food_spawn_point.gd" id="2_g68u8"]
+[ext_resource type="PackedScene" uid="uid://dowisr6f7st5q" path="res://props/bird_food/bird_food2.tscn" id="3_gctri"]
+
+[node name="BirdFoodBush" type="Sprite2D" unique_id=1927335692]
+texture = ExtResource("1_gctri")
+
+[node name="BirdFoodSpawnPoint" type="Marker2D" parent="." unique_id=184790568]
+position = Vector2(20, 36)
+script = ExtResource("2_g68u8")
+metadata/_custom_type_script = "uid://bb35kovwb32q7"
+
+[node name="BirdFood" parent="BirdFoodSpawnPoint" unique_id=2030426815 instance=ExtResource("3_gctri")]
+position = Vector2(-13, 15)

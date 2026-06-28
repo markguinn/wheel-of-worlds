@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dowisr6f7st5q"]
+
+[ext_resource type="Script" uid="uid://blygc5sbaxyc8" path="res://props/bird_food/bird_food.gd" id="1_pp8rh"]
+[ext_resource type="PackedScene" uid="uid://bw7ujmd6681ln" path="res://common/activator.tscn" id="2_io1f6"]
+[ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://common/grab_box.gd" id="3_3xygn"]
+[ext_resource type="Texture2D" uid="uid://oabarjm8r4rj" path="res://props/bird_food/art/Bird_Food.png" id="4_jt34t"]
+
+[node name="BirdFood" type="RigidBody2D" unique_id=2030426815]
+collision_layer = 0
+script = ExtResource("1_pp8rh")
+metadata/_custom_type_script = "uid://d1d8irkuomsw0"
+
+[node name="GrabBox" parent="." unique_id=1410287907 groups=["bird_targets"] instance=ExtResource("2_io1f6")]
+script = ExtResource("3_3xygn")
+manage_position = true
+hold_offset = Vector2(0, 0)
+hold_degrees = inf
+label_text = "Press X to collect..."
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=987959353]
+texture = ExtResource("4_jt34t")
+offset = Vector2(0, -4)
+region_enabled = true
+region_rect = Rect2(137, 119, 86, 82)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=195656354]
+polygon = PackedVector2Array(-15, -38, 8, -35, 32, -15, 34, 12, 23, 30, -16, 29, -38, 11)
