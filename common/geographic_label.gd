@@ -19,7 +19,7 @@ func _ready() -> void:
 		else:
 			Log.warn(self, "GeographicLabel has no visible area. It will stay permanently visible")
 	if visible_area:
-		visible = false
+		modulate = Color.TRANSPARENT
 		visible_area.body_entered.connect(_on_body_entered)
 		visible_area.body_exited.connect(_on_body_exited)
 
@@ -27,14 +27,14 @@ func _ready() -> void:
 func _on_body_entered(_body: Node2D) -> void:
 	body_count += 1
 	Log.debug(self, "entered", body_count)
-	if not visible:
+	if body_count == 1:
 		_show()
 
 
 func _on_body_exited(_body: Node2D) -> void:
 	body_count = max(0, body_count - 1)
 	Log.debug(self, "exited", body_count)
-	if body_count == 0 and visible:
+	if body_count == 0:
 		_hide()
 
 
@@ -43,7 +43,6 @@ func _on_body_exited(_body: Node2D) -> void:
 func _show() -> Tween:
 	if tween and tween.is_running():
 		tween.stop()
-	visible = true
 	tween = get_tree().create_tween()
 	tween.tween_property(self, "modulate", Color.WHITE, fade_seconds)
 	return tween
@@ -54,5 +53,4 @@ func _hide() -> Tween:
 		tween.stop()
 	tween = get_tree().create_tween()
 	tween.tween_property(self, "modulate", Color.TRANSPARENT, fade_seconds)
-	tween.finished.connect(hide)
 	return tween

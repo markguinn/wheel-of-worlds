@@ -6,6 +6,15 @@
 [ext_resource type="FontFile" uid="uid://b854s1nv333qu" path="res://fonts/Henny_Penny/HennyPenny-Regular.ttf" id="3_1rmny"]
 [ext_resource type="FontFile" uid="uid://dsxbpt12k0xt3" path="res://fonts/Mountains_of_Christmas/MountainsofChristmas-Bold.ttf" id="3_05tig"]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_05tig"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1rmny"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yin2u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mihib"]
+content_margin_top = 30.0
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1rmny"]
 content_margin_top = 10.0
 content_margin_bottom = 10.0
@@ -73,6 +82,15 @@ expand_margin_left = 8.0
 
 [resource]
 default_font = ExtResource("2_vj6dk")
+AcceptDialog/constants/buttons_separation = 20
+AcceptDialog/constants/title_height = 60
+AcceptDialog/constants/title_outline_size = 6
+AcceptDialog/font_sizes/title_font_size = 32
+AcceptDialog/fonts/title_font = ExtResource("3_05tig")
+AcceptDialog/icons/close = SubResource("CanvasTexture_05tig")
+AcceptDialog/icons/close_pressed = SubResource("CanvasTexture_1rmny")
+AcceptDialog/styles/embedded_border = SubResource("StyleBoxEmpty_yin2u")
+AcceptDialog/styles/panel = SubResource("StyleBoxEmpty_mihib")
 BigButton/base_type = &"Button"
 BigButton/constants/h_separation = 10
 BigButton/constants/icon_max_width = 90
@@ -85,9 +103,10 @@ Button/colors/font_hover_pressed_color = Color(0.07450981, 0.101960786, 0.074509
 Button/colors/font_outline_color = Color(0.015686275, 0.023529412, 0.015686275, 1)
 Button/colors/font_pressed_color = Color(0.07450981, 0.101960786, 0.07450981, 1)
 Button/colors/icon_focus_color = Color(1, 1, 1, 1)
-Button/colors/icon_hover_color = Color(1, 1, 1, 0)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 0.6862745)
 Button/colors/icon_normal_color = Color(1, 1, 1, 0)
-Button/colors/icon_pressed_color = Color(1, 1, 1, 0)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 0.78431374)
 Button/constants/icon_max_width = 60
 Button/font_sizes/font_size = 30
 Button/icons/icon = ExtResource("1_110ce")

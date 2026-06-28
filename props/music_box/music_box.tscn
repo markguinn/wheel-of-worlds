@@ -14,11 +14,14 @@ script = ExtResource("1_o0o4k")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1157296578]
 
 [node name="AcceptDialog" type="AcceptDialog" parent="CanvasLayer" unique_id=1190817345]
+process_mode = 3
+transparent_bg = true
 oversampling_override = 1.0
 title = "Bert's Old Music Box"
 initial_position = 1
-size = Vector2i(724, 227)
-visible = true
+size = Vector2i(690, 234)
+content_scale_mode = 1
+content_scale_aspect = 1
 dialog_text = "You can now press Z to play the music box.
 This will reset items to their starting position.
 TODO: replace this with something whimsical."

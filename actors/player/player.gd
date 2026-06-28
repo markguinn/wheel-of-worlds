@@ -131,6 +131,8 @@ func pick_up_prop(target_node: Node2D, grab_box: GrabBox) -> bool:
 
 # this is called by the animation player at the point when it makes sense in the animation
 func finish_pickup() -> void:
+	if not active_grab_box:
+		return
 	Log.debug(self, "finished pick up")
 	is_holding_prop = active_grab_box.target_node
 	active_grab_box.picked_up.emit(holding_hand)
