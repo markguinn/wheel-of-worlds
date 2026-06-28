@@ -28,3 +28,6 @@ position = Vector2(3684, 272)
 
 [node name="StandardCamera" parent="." unique_id=552340171 instance=ExtResource("5_mgx0m")]
 position = Vector2(2477, 184)
+
+[node name="Chipmunk2" parent="." unique_id=1874853518 instance=ExtResource("4_wigic")]
+position = Vector2(1042, 372)

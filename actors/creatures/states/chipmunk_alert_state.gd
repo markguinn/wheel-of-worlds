@@ -30,4 +30,11 @@ func _on_alert_area_2d_body_exited(_body: Node2D) -> void:
 
 func _on_flee_area_2d_body_entered(_body: Node2D) -> void:
 	_disconnect_collisions()
+
+	# Direction of flee
+	if _body.position.x < chipmunk.position.x:
+		chipmunk.flee_direction = 1
+	else:
+		chipmunk.flee_direction = -1
+
 	machine.transition_by_name("Flee")
