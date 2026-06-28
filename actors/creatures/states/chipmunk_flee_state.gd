@@ -17,7 +17,8 @@ func _entered(_from_state: StateNode) -> void:
 
 
 func _process(_delta: float) -> void:
-	chipmunk.position.x += speed
+	chipmunk.position.x += speed * chipmunk.flee_direction
+	chipmunk.animated_sprite_2d.flip_h = chipmunk.flee_direction < 0
 
 
 func _on_timer_complete() -> void:
