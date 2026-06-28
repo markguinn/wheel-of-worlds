@@ -140,6 +140,12 @@ polygon = PackedVector2Array(-64, -64, 64, -64, 64, 8, -40, 32, -64, 64)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kgcps"]
 polygon = PackedVector2Array(64, -64, 64, 64, -64, 64, -32, 48, 0, -16, 32, -56)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lolr4"]
+polygon = PackedVector2Array(64, -40, 64, 64, -64, 64, -64, 0, 0, -8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ns35j"]
+polygon = PackedVector2Array(0, -64, 64, -64, 64, 64, -64, 64, -64, 0, -32, -8, -8, -32)
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h08sg"]
 polygon = PackedVector2Array(-64, 64, -64, 32, 64, 32, 64, 64)
 
@@ -157,6 +163,12 @@ polygon = PackedVector2Array(-64, -64, 64, -64, 64, 0, -64, 8)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_s8bxw"]
 polygon = PackedVector2Array(64, 0, 64, 64, -64, 64, -32, 56, -8, 32, 16, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ets3l"]
+polygon = PackedVector2Array(64, -64, 64, 64, -64, 64, -64, -40, -24, -56, 16, -64)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_s3en8"]
+polygon = PackedVector2Array(64, 8, 64, 64, 8, 64, 48, 48)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m1kyv"]
 texture = ExtResource("1_2d7kt")
@@ -317,6 +329,18 @@ texture_region_size = Vector2i(128, 128)
 5:6/0 = 0
 5:6/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_2bv36")
 5:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 0, 64, 64, -64, 64, -64, 24, -8, 8)
+6:6/0 = 0
+6:6/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_lolr4")
+6:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 0, -64, 64, 64, 64, 64, -40, 24, -16, -24, 0)
+7:6/0 = 0
+7:6/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ets3l")
+7:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -40, -8, -56, 64, -64, 64, 64, -64, 64)
+7:7/0 = 0
+7:7/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_s3en8")
+7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 8, 64, 64, 8, 64, 48, 48)
+6:7/0 = 0
+6:7/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ns35j")
+6:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -64, 64, -64, 64, 64, -64, 64, -64, 0, -16, -16)
 
 [resource]
 tile_size = Vector2i(128, 128)

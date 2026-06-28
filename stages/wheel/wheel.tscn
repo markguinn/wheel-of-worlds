@@ -63,9 +63,10 @@ tile_set = ExtResource("1_hpkw7")
 position = Vector2(-310, 0)
 rotation = 1.5707964
 scale = Vector2(0.4, 0.4)
-portal_name = "ww0"
+portal_name = "ww-tutorial"
 linked_stage = "uid://obcnvoariac3"
-target_portal = "w0p1"
+target_portal = "tutorial-end"
+activator_text = "From whence you came..."
 
 [node name="Orb" parent="WheelTiles/Portal" unique_id=1425831707 instance=ExtResource("3_qmu1q")]
 visible = false
@@ -81,9 +82,10 @@ debounce_impact_ms = null
 position = Vector2(310, 0)
 rotation = -1.5707964
 scale = Vector2(0.4, 0.4)
-portal_name = "ww1"
+portal_name = "ww-forest1"
 linked_stage = "uid://djnwseb73emx0"
 target_portal = "forest1-start"
+activator_text = "The smell of leaves and the song of birds..."
 
 [node name="Orb" parent="WheelTiles/Portal2" unique_id=1810830352 instance=ExtResource("3_qmu1q")]
 visible = false

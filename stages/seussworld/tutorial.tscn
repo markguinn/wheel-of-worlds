@@ -826,7 +826,7 @@ position = Vector2(-5430, 1138)
 
 [node name="Portal" parent="." unique_id=820677622 instance=ExtResource("18_vov62")]
 position = Vector2(3327, 635)
-portal_name = "w0p1"
+portal_name = "tutorial-end"
 linked_stage = "uid://b32q0e34faaed"
 target_portal = "ww0"
 
