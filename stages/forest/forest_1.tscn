@@ -802,18 +802,6 @@ position = Vector2(-1061, -455)
 [node name="Nest4" type="Marker2D" parent="Puzzle3" unique_id=1553903128]
 position = Vector2(691, -1111)
 
-[node name="BirdFoodBush" parent="Puzzle3" unique_id=1927335692 instance=ExtResource("25_novlh")]
-position = Vector2(-133, -286)
-
-[node name="BirdFoodBush2" parent="Puzzle3" unique_id=1662643953 instance=ExtResource("25_novlh")]
-position = Vector2(-4538, 35)
-
-[node name="BirdFoodSpawnPoint" parent="Puzzle3/BirdFoodBush2" index="0" unique_id=184790568]
-position = Vector2(-41, 10)
-
-[node name="BirdFoodSpawnPoint2" parent="Puzzle3/BirdFoodBush2" index="1" unique_id=1536794982]
-position = Vector2(23, 70)
-
 [node name="Plank3" parent="Puzzle3" unique_id=1669722706 instance=ExtResource("27_novlh")]
 position = Vector2(-1253, 386)
 
@@ -831,8 +819,11 @@ attack_max_seconds = 5.0
 nests = [NodePath("../Nest1"), NodePath("../Nest2"), NodePath("../Nest3"), NodePath("../Nest4")]
 max_target_distance = 4000.0
 
-[node name="BirdFoodBush3" parent="Puzzle3" unique_id=987066431 instance=ExtResource("27_c7sho")]
-position = Vector2(-1051, 428)
+[node name="BirdFoodBush" parent="Puzzle3" unique_id=1927335692 instance=ExtResource("27_c7sho")]
+position = Vector2(-1783, 420)
+
+[node name="BirdFoodBush2" parent="Puzzle3" unique_id=318897443 instance=ExtResource("25_novlh")]
+position = Vector2(-127, -288)
 
 [node name="StartPortal" parent="." unique_id=567549234 instance=ExtResource("28_c7sho")]
 position = Vector2(-3874, 320)
@@ -846,5 +837,3 @@ position = Vector2(7669, -723)
 portal_name = "forest1-end"
 linked_stage = "uid://cdmiqqhm4hsph"
 target_portal = "boss1-start"
-
-[editable path="Puzzle3/BirdFoodBush2"]
