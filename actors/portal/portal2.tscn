@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bo36wjbc5u0xj"]
+
+[ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="1_2durl"]
+
+[node name="Portal" unique_id=567549234 instance=ExtResource("1_2durl")]
+rotation = 0.05235988
+scale = Vector2(-1, 1)
+
+[node name="Activator" parent="." index="0" unique_id=1410287907]
+rotation = 0.05235988
+scale = Vector2(-1, 1)
+
+[node name="PedestalOutline" parent="." index="4" unique_id=36406042]
+rotation = 0.017453292
+
+[node name="Pedestal" parent="." index="5" unique_id=599056942]
+rotation = 0.017453292
+
+[node name="Sprite2D" parent="Sprites/Sparkles" parent_id_path=PackedInt32Array(1949234833) index="0" unique_id=1141542982]
+modulate = Color(1, 1, 1, 0.23886259)
+rotation = 170.69768
+scale = Vector2(0.79257506, 0.79257506)
+
+[node name="Sprite2D2" parent="Sprites/Sparkles" parent_id_path=PackedInt32Array(1949234833) index="1" unique_id=1627364316]
+modulate = Color(1, 1, 1, 0.18893489)
+rotation = 57.64027
+scale = Vector2(0.7592899, 0.7592899)
+
+[node name="Sprite2D3" parent="Sprites/Sparkles" parent_id_path=PackedInt32Array(1949234833) index="2" unique_id=529109281]
+modulate = Color(1, 1, 1, 0.101949364)
+rotation = -276.52255
+scale = Vector2(0.70129955, 0.70129955)
+
+[node name="Sprite2D4" parent="Sprites/Sparkles" parent_id_path=PackedInt32Array(1949234833) index="3" unique_id=867959787]
+modulate = Color(1, 1, 1, 0.28533858)
+rotation = 14.251855
+scale = Vector2(0.82355905, 0.82355905)
+
+[node name="Sprite2D5" parent="Sprites/Sparkles" parent_id_path=PackedInt32Array(1949234833) index="4" unique_id=1590378147]
+modulate = Color(1, 1, 1, 0.13195504)
+rotation = 140.95067
+scale = Vector2(0.72130334, 0.72130334)
+
+[editable path="Activator"]

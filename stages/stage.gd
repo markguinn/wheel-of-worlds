@@ -14,6 +14,7 @@ func _ready() -> void:
 	AudioManager.reset_music()
 	GameManager.is_in_game = true
 
+
 func init_with_state(_persisted_state: Dictionary, params: Dictionary) -> void:
 	var target_portal = params.get("target_portal")
 	if target_portal:

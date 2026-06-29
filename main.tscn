@@ -12,6 +12,12 @@ glow_enabled = true
 glow_intensity = 0.5
 adjustment_enabled = true
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+bg_color = Color(0, 0, 0, 0.5019608)
+border_width_bottom = 16
+border_color = Color(0, 0, 0, 0)
+border_blend = true
+
 [node name="Main" type="Node2D" unique_id=1319895979]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=725012286 groups=["world_environment"]]
@@ -22,6 +28,17 @@ environment = SubResource("Environment_lquwl")
 [node name="TitleScreen" parent="Container" unique_id=1220633124 instance=ExtResource("1_ig7tw")]
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=61485945]
+
+[node name="Label" type="Label" parent="HUD" unique_id=1762874186 groups=["hud"]]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_h2yge")
+text = "
+Z for music box    |    X to interact    |    C to ragdoll    |    Esc/P to pause
+"
+horizontal_alignment = 1
 
 [node name="PauseMenu" parent="." unique_id=1472950510 instance=ExtResource("6_7mycd")]
 visible = false

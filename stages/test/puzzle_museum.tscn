@@ -256,7 +256,6 @@ limit_bottom = 1800
 
 [node name="Player" parent="." unique_id=42652117 instance=ExtResource("15_3dpil")]
 position = Vector2(2145, -1580)
-collision_mask = 125
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1411017242]

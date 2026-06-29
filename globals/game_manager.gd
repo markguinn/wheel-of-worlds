@@ -73,8 +73,39 @@ func change_scene(new_scene_path: String, params = {}) -> void:
 
 	if fade_in:
 		VFX.white_in()
-	
-	# TODO: show/hide hud - maybe new_instance can have a is_hud_visible()->bool method? or maybe we just always hide the hud when the scene changes and each scene can call GameManager.show_hud()?
+
+
+var _hud: CanvasItem
+func get_hud() -> CanvasItem:
+	if not _hud:
+		_hud = get_tree().get_first_node_in_group("hud")
+	return _hud
+
+
+func is_hud_visible() -> bool:
+	var hud := get_hud()
+	return hud and hud.visible
+
+
+func hide_hud(immediate = false) -> void:
+	var hud := get_hud()
+	if hud and hud.visible:
+		Log.info(self, "hiding hud")
+		if not immediate:
+			var t = create_tween()
+			t.tween_property(hud, "modulate", Color.TRANSPARENT, 0.2)
+			await t.finished
+		hud.hide()
+
+
+func show_hud() -> void:
+	var hud := get_hud()
+	if hud and not hud.visible:
+		Log.info(self, "showing hud")
+		hud.modulate = Color.TRANSPARENT
+		hud.show()
+		var t = create_tween()
+		t.tween_property(hud, "modulate", Color.WHITE, 1.5)
 
 
 func quit_to_title() -> void:

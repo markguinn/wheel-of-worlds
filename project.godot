@@ -68,6 +68,7 @@ bird_targets=""
 music_box_targets=""
 light_sources="Objects emitting light"
 fade_screen=""
+hud=""
 
 [gui]
 

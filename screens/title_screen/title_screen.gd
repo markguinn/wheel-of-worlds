@@ -16,6 +16,7 @@ func _ready() -> void:
 	options_menu.hide()
 	options_bg.hide()
 	GameManager.is_in_game = false
+	GameManager.hide_hud(true)
 	AudioManager.reset_music()
 
 

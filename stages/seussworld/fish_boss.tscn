@@ -197,7 +197,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(1000, 50)
-shader_parameter/real_screen_size = Vector2(3537.6995, 2401.783)
+shader_parameter/real_screen_size = Vector2(1922.8866, 926.5422)
 shader_parameter/edges = Array[Texture2D]([SubResource("GradientTexture2D_gdb7k"), SubResource("GradientTexture2D_gdb7k")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -1545,6 +1545,13 @@ metadata/_edit_group_ = true
 unique_name_in_owner = true
 remote_path = NodePath("../../Camera2D")
 
+[node name="StartPortal" parent="." unique_id=567549234 instance=ExtResource("18_8e2p0")]
+position = Vector2(3773, 531)
+rotation = -0.034906585
+portal_name = "boss1-start"
+linked_stage = "uid://b32q0e34faaed"
+target_portal = "ww-boss1"
+
 [node name="Orb" parent="." unique_id=1391753086 instance=ExtResource("17_dagnt")]
 unique_name_in_owner = true
 z_index = 1
@@ -1553,12 +1560,6 @@ position = Vector2(3673, 657)
 [node name="Lift" parent="." unique_id=927319953 instance=ExtResource("9_2rneg")]
 position = Vector2(-2709, 1127)
 height = 800.0
-
-[node name="StartPortal" parent="." unique_id=567549234 instance=ExtResource("18_8e2p0")]
-position = Vector2(3789, 518)
-portal_name = "boss1-start"
-linked_stage = "uid://b32q0e34faaed"
-target_portal = "ww-boss1"
 
 [node name="FishTerritory" type="Area2D" parent="." unique_id=1678249276]
 position = Vector2(6, 1746)
@@ -1726,30 +1727,36 @@ shape = SubResource("CircleShape2D_wt5ny")
 [node name="CollisionShape2D" parent="FinalStones/EndPortal/OrbDetector" parent_id_path=PackedInt32Array(820677622, 70133150) index="0" unique_id=469327766]
 shape = SubResource("CircleShape2D_gdb7k")
 
+[node name="PedestalOutline" parent="FinalStones/EndPortal" index="4" unique_id=36406042]
+visible = false
+
+[node name="Pedestal" parent="FinalStones/EndPortal" index="5" unique_id=599056942]
+visible = false
+
 [node name="Sprite2D" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.1618203)
-rotation = -280.10864
-scale = Vector2(0.74121356, 0.74121356)
+modulate = Color(1, 1, 1, 0.12645021)
+rotation = -276.46567
+scale = Vector2(0.7176335, 0.7176335)
 
 [node name="Sprite2D2" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.3855217)
-rotation = -216.43687
-scale = Vector2(0.8903478, 0.8903478)
+modulate = Color(1, 1, 1, 0.2313706)
+rotation = -221.88728
+scale = Vector2(0.7875804, 0.7875804)
 
 [node name="Sprite2D3" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.39996916)
-rotation = 950.7854
-scale = Vector2(0.8999794, 0.8999794)
+modulate = Color(1, 1, 1, 0.16247319)
+rotation = 925.54346
+scale = Vector2(0.7416488, 0.7416488)
 
 [node name="Sprite2D4" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.30564743)
-rotation = -599.7309
-scale = Vector2(0.8370983, 0.8370983)
+modulate = Color(1, 1, 1, 0.13876376)
+rotation = -581.6072
+scale = Vector2(0.72584254, 0.72584254)
 
 [node name="Sprite2D5" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.20935017)
-rotation = -1069.8129
-scale = Vector2(0.7729001, 0.7729001)
+modulate = Color(1, 1, 1, 0.10366983)
+rotation = -1084.3175
+scale = Vector2(0.7024466, 0.7024466)
 
 [node name="Stone5" parent="FinalStones" unique_id=669896039 groups=["final_stones"] instance=ExtResource("11_7us8x")]
 position = Vector2(-730, -127)

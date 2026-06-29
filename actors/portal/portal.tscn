@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://chluslqty1lns" path="res://actors/portal/portal.gd" id="1_j2ixl"]
 [ext_resource type="PackedScene" uid="uid://bw7ujmd6681ln" path="res://common/activator.tscn" id="2_tllh5"]
 [ext_resource type="Texture2D" uid="uid://cm0rw4xd34o8s" path="res://actors/portal/art/eye-bottom.png" id="2_wpws7"]
+[ext_resource type="Texture2D" uid="uid://dgj7y78b0yk11" path="res://stages/seussworld/art/extras1.png" id="3_4lb1l"]
 [ext_resource type="Script" uid="uid://0y0hoei7t43g" path="res://actors/portal/sparkles.gd" id="3_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://c11leea0uangm" path="res://actors/portal/art/eye-top.png" id="3_q31eb"]
 [ext_resource type="Texture2D" uid="uid://dkkkdd8g8ryvf" path="res://actors/portal/art/black-iris.png" id="4_kgc7x"]
+[ext_resource type="Gradient" uid="uid://cr01cj04wliyu" path="res://stages/forest/prefabs/forest_water_gradient.tres" id="4_x26ei"]
 [ext_resource type="Texture2D" uid="uid://fcm7bjicr3rb" path="res://actors/portal/art/Flame-1.png" id="6_uaach"]
 [ext_resource type="Texture2D" uid="uid://bx1q77xijabl" path="res://actors/portal/art/Flame-2.png" id="7_kncuj"]
 [ext_resource type="Texture2D" uid="uid://da0tmarujincx" path="res://actors/portal/art/Flame-3.png" id="8_5ni7j"]
@@ -1119,6 +1121,55 @@ states/opening/position = Vector2(473.32, 313.7475)
 transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_s305f"), "Start", "active", SubResource("AnimationNodeStateMachineTransition_wggwm"), "RESET", "active", SubResource("AnimationNodeStateMachineTransition_yol6e"), "active", "opening", SubResource("AnimationNodeStateMachineTransition_plp08"), "active", "RESET", SubResource("AnimationNodeStateMachineTransition_g4wo6"), "opening", "open", SubResource("AnimationNodeStateMachineTransition_q31eb"), "open", "closing", SubResource("AnimationNodeStateMachineTransition_kgc7x"), "closing", "active", SubResource("AnimationNodeStateMachineTransition_qjygk"), "open", "activated", SubResource("AnimationNodeStateMachineTransition_v1kun"), "active", "blinking", SubResource("AnimationNodeStateMachineTransition_vmqas")]
 graph_offset = Vector2(34.169956, -24.48012)
 
+[sub_resource type="Gradient" id="Gradient_4lb1l"]
+offsets = PackedFloat32Array(0.6673913, 0.92608696)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x26ei"]
+gradient = SubResource("Gradient_4lb1l")
+width = 9
+height = 9
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_asj5l"]
+gradient = ExtResource("4_x26ei")
+
+[sub_resource type="Curve" id="Curve_ixwjg"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.25761124, 82.24077), 1131.4681, 1131.4681, 0, 0, Vector2(1, 124.59277), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_asj5l"]
+curve = SubResource("Curve_ixwjg")
+
+[sub_resource type="Curve" id="Curve_bl4vs"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.15925059, 0.9457687), 0.88989985, 0.88989985, 0, 0, Vector2(0.59507036, 0.9843279), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ffid6"]
+curve = SubResource("Curve_bl4vs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6lg4c"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 10, 0)
+linear_accel_min = 9.999997
+linear_accel_max = 9.999997
+linear_accel_curve = SubResource("CurveTexture_asj5l")
+scale_min = 1.5
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_ffid6")
+color_initial_ramp = SubResource("GradientTexture1D_asj5l")
+turbulence_noise_strength = 0.1
+turbulence_noise_speed_random = 4.0
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.05
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_bl4vs"]
 animations = [{
 "frames": [{
@@ -1220,6 +1271,32 @@ tree_root = SubResource("AnimationNodeStateMachine_j2ixl")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 
+[node name="PedestalOutline" type="Sprite2D" parent="." unique_id=36406042]
+modulate = Color(0.051970966, 0.05197096, 0.05197095, 1)
+position = Vector2(-99.714, 115.714)
+rotation = -0.017453292
+scale = Vector2(0.48, 0.5)
+texture = ExtResource("3_4lb1l")
+region_enabled = true
+region_rect = Rect2(724, 1144, 650, 332)
+
+[node name="Pedestal" type="Sprite2D" parent="." unique_id=599056942]
+modulate = Color(0.65628535, 0.6562854, 0.6562854, 1)
+position = Vector2(-95.71426, 115.7143)
+rotation = -0.017453292
+scale = Vector2(0.443, 0.443)
+texture = ExtResource("3_4lb1l")
+region_enabled = true
+region_rect = Rect2(724, 1144, 650, 332)
+
+[node name="TearParticles" type="GPUParticles2D" parent="." unique_id=1183820109]
+position = Vector2(117.36221, 26.17814)
+amount = 4
+texture = SubResource("GradientTexture2D_x26ei")
+lifetime = 5.0
+randomness = 0.29
+process_material = SubResource("ParticleProcessMaterial_6lg4c")
+
 [node name="Sprites" type="Node2D" parent="." unique_id=1329360371]
 light_mask = 0
 scale = Vector2(0.9, 0.9)
@@ -1231,33 +1308,33 @@ light_mask = 0
 script = ExtResource("3_eb6dy")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.3939487)
-rotation = 144.15172
-scale = Vector2(0.8959658, 0.8959658)
+modulate = Color(1, 1, 1, 0.22077179)
+rotation = 209.57207
+scale = Vector2(0.78051454, 0.78051454)
 texture = ExtResource("19_kncuj")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.38144687)
-rotation = 50.994213
-scale = Vector2(0.88763124, 0.88763124)
+modulate = Color(1, 1, 1, 0.14435698)
+rotation = 57.668396
+scale = Vector2(0.72957134, 0.72957134)
 texture = ExtResource("20_5ni7j")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sprites/Sparkles" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.22784822)
-rotation = -265.0804
-scale = Vector2(0.7852321, 0.7852321)
+modulate = Color(1, 1, 1, 0.37518838)
+rotation = -293.66437
+scale = Vector2(0.8834589, 0.8834589)
 texture = ExtResource("21_q6t7m")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sprites/Sparkles" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.3825698)
-rotation = 16.926485
-scale = Vector2(0.8883799, 0.8883799)
+modulate = Color(1, 1, 1, 0.27426627)
+rotation = 16.608183
+scale = Vector2(0.81617755, 0.81617755)
 texture = ExtResource("22_frp0j")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.3683361)
-rotation = 149.7127
-scale = Vector2(0.87889075, 0.87889075)
+modulate = Color(1, 1, 1, 0.38156325)
+rotation = 133.74884
+scale = Vector2(0.88770884, 0.88770884)
 texture = ExtResource("23_frp0j")
 
 [node name="EyeBackground" type="Polygon2D" parent="Sprites" unique_id=1865392681]
@@ -1351,6 +1428,7 @@ region_enabled = true
 region_rect = Rect2(676, 953, 224, 206)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=835684176]
+color = Color(1, 1, 1, 0.54901963)
 range_item_cull_mask = 3
 shadow_item_cull_mask = 3
 texture = ExtResource("25_v1kun")

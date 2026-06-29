@@ -1948,8 +1948,8 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="HandL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/Torso/ArmL" unique_id=1933907137]
 position = Vector2(-26.651686, 5.448637)
-rotation = 0.064040646
-scale = Vector2(1.0000482, 1.0000482)
+rotation = 0.06404065
+scale = Vector2(1.000048, 1.000048)
 rest = Transform2D(0.9979998, 0.06399999, -0.06399999, 0.9979998, -26.651686, 5.448637)
 auto_calculate_length_and_angle = false
 length = 28.031
@@ -2031,7 +2031,7 @@ region_rect = Rect2(204, 68, 311, 233)
 
 [node name="Eyes" type="AnimatedSprite2D" parent="Sprite/Parts/Head" unique_id=1167826662]
 sprite_frames = SubResource("SpriteFrames_yeioo")
-frame_progress = 0.4620297
+frame_progress = 0.7062642
 offset = Vector2(-35, 387)
 script = ExtResource("7_0wchr")
 
@@ -2369,8 +2369,9 @@ metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="Jump" type="Node" parent="StateMachine" unique_id=1167554938]
 script = ExtResource("10_hiosj")
+carrying_jump_strength = 800.0
 horizontal_speed = 450.0
-carrying_speed = 300.0
+carrying_speed = 350.0
 wall_bounce_amount = 1.0
 wall_bounce_ms = 500
 can_jump = false

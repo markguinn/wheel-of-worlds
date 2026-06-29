@@ -25,8 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://d078yu8onj8i7" path="res://stages/forest/prefabs/bird_food_bush.tscn" id="25_novlh"]
 [ext_resource type="PackedScene" uid="uid://bwcpc0g6titdt" path="res://stages/forest/prefabs/bird_food_bush2.tscn" id="27_c7sho"]
 [ext_resource type="PackedScene" uid="uid://bacx53cmt8t6y" path="res://props/plank/big_plank.tscn" id="27_novlh"]
-[ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="28_c7sho"]
 [ext_resource type="PackedScene" uid="uid://cgfm70mgiyngn" path="res://stages/forest/prefabs/bird_food_bush3.tscn" id="28_fednj"]
+[ext_resource type="PackedScene" uid="uid://bo36wjbc5u0xj" path="res://actors/portal/portal2.tscn" id="29_vf71y"]
 [ext_resource type="PackedScene" uid="uid://th5bmfwxjhlq" path="res://actors/bird_monster/bird_monster.tscn" id="32_buyvx"]
 [ext_resource type="PackedScene" uid="uid://bk140x3miwcrc" path="res://stages/forest/prefabs/forest_water.tscn" id="32_u1hea"]
 
@@ -712,6 +712,23 @@ preprocess = 10.0
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_35axu")
 
+[node name="StartPortal" parent="." unique_id=567549234 instance=ExtResource("29_vf71y")]
+position = Vector2(-3853.9998, 329)
+rotation = -3.0892327
+scale = Vector2(1, -1)
+portal_name = "forest1-start"
+linked_stage = "uid://b32q0e34faaed"
+target_portal = "ww-forest1"
+activator_text = "Return to the Wheel..."
+
+[node name="EndPortal" parent="." unique_id=885721043 instance=ExtResource("29_vf71y")]
+position = Vector2(7625, -702)
+rotation = -3.0892327
+scale = Vector2(1, -1)
+portal_name = "forest1-end"
+linked_stage = "uid://cdmiqqhm4hsph"
+target_portal = "boss1-start"
+
 [node name="Terrain" type="Node2D" parent="." unique_id=608783669]
 
 [node name="BackgroundTiles" type="TileMapLayer" parent="Terrain" unique_id=649489315]
@@ -905,16 +922,3 @@ attack_probability = 0.2
 attack_max_seconds = 5.0
 nests = [NodePath("../Nest1"), NodePath("../Nest2"), NodePath("../Nest3"), NodePath("../Nest4")]
 max_target_distance = 4000.0
-
-[node name="StartPortal" parent="." unique_id=567549234 instance=ExtResource("28_c7sho")]
-position = Vector2(-3874, 320)
-portal_name = "forest1-start"
-linked_stage = "uid://b32q0e34faaed"
-target_portal = "ww-forest1"
-activator_text = "Press X to return to the Wheel..."
-
-[node name="EndPortal" parent="." unique_id=1244751072 instance=ExtResource("28_c7sho")]
-position = Vector2(7669, -723)
-portal_name = "forest1-end"
-linked_stage = "uid://cdmiqqhm4hsph"
-target_portal = "boss1-start"
