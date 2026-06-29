@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://buvl2i0vdqsau" path="res://common/dynamic_edges/edged_tilemap.gd" id="8_6knip"]
 [ext_resource type="TileSet" uid="uid://dg4yxlibps56a" path="res://stages/seussworld/chopping_block/painted_tiles.tres" id="9_fcw4a"]
 [ext_resource type="Texture2D" uid="uid://dqp47w8k862ai" path="res://generated/world_0_atlas.png" id="10_odwnf"]
-[ext_resource type="PackedScene" uid="uid://dn6gswqjkyx14" path="res://props/stone/square_stone.tscn" id="11_pondg"]
 [ext_resource type="PackedScene" uid="uid://b2c4465p08yf4" path="res://props/lift/lift.tscn" id="13_xxuqp"]
 [ext_resource type="Script" uid="uid://xvc1m08j4dmv" path="res://common/geographic_label.gd" id="15_03fdn"]
 [ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="15_liddl"]
@@ -425,9 +424,6 @@ size = Vector2(316, 409)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovy2w"]
 size = Vector2(582, 924)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbars"]
-size = Vector2(458, 924)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gvf8"]
 size = Vector2(332, 924)
 
@@ -441,16 +437,19 @@ size = Vector2(693, 749)
 size = Vector2(1038, 848.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0ifn"]
-size = Vector2(504, 437)
+size = Vector2(459, 757)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xakyt"]
-size = Vector2(3304, 714.5)
+size = Vector2(2267, 714.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjxan"]
 size = Vector2(67, 4282)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ayy2"]
 size = Vector2(12449, 433)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8neq"]
+size = Vector2(230, 466)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1cdy3"]
 size = Vector2(733, 545)
@@ -727,7 +726,7 @@ position = Vector2(-5430, 1138)
 position = Vector2(3327, 635)
 portal_name = "tutorial-end"
 linked_stage = "uid://b32q0e34faaed"
-target_portal = "ww0"
+target_portal = "ww-tutorial"
 
 [node name="Area1 - movement and orb" type="Node2D" parent="." unique_id=1218368961]
 
@@ -870,6 +869,7 @@ script = ExtResource("15_03fdn")
 metadata/_custom_type_script = "uid://xvc1m08j4dmv"
 
 [node name="Tutorial - push2" type="Label" parent="Area1 - movement and orb/Tutorial - Pushing" unique_id=816719439]
+z_index = 15
 offset_left = -7.0
 offset_top = 936.0
 offset_right = 443.0
@@ -935,32 +935,6 @@ metadata/_custom_type_script = "uid://xvc1m08j4dmv"
 
 [node name="Area2 - props and fish" type="Node2D" parent="." unique_id=1009025412]
 
-[node name="Tutorial - props" type="Area2D" parent="Area2 - props and fish" unique_id=1472609275]
-visible = false
-position = Vector2(-3338, 368)
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2 - props and fish/Tutorial - props" unique_id=813083731]
-position = Vector2(95, 412)
-shape = SubResource("RectangleShape2D_nbars")
-debug_color = Color(0, 0.59607846, 0.7019608, 0.12941177)
-
-[node name="About the stone" type="Label" parent="Area2 - props and fish/Tutorial - props" unique_id=2143529058]
-offset_left = 9.0
-offset_top = 261.0
-offset_right = 408.0
-offset_bottom = 579.0
-text = "TODO: craft this text
-
-There are many objects you can pick up and interact with"
-autowrap_mode = 3
-script = ExtResource("15_03fdn")
-metadata/_custom_type_script = "uid://xvc1m08j4dmv"
-
-[node name="Stone" parent="Area2 - props and fish" unique_id=838538367 instance=ExtResource("11_pondg")]
-position = Vector2(-3326, 726)
-
 [node name="Tutorial - music box" type="Area2D" parent="Area2 - props and fish" unique_id=1456787501]
 visible = false
 position = Vector2(-2880, 377)
@@ -984,20 +958,23 @@ autowrap_mode = 3
 script = ExtResource("15_03fdn")
 metadata/_custom_type_script = "uid://xvc1m08j4dmv"
 
-[node name="MusicBox" parent="Area2 - props and fish" unique_id=631358649 instance=ExtResource("24_pj5sl")]
+[node name="Tutorial - about the music box" type="Label" parent="Area2 - props and fish" unique_id=2110121738]
+offset_left = -3030.0
+offset_top = 615.0
+offset_right = -2260.0
+offset_bottom = 933.0
+text = "TODO: polish this text
+
+Bert sees his grandmother's old music box, washed up in the wreckage of the flood. It used to comfort him when the world felt wrong.
+
+Press Z to use the music box."
+autowrap_mode = 3
+
+[node name="MusicBox" parent="Area2 - props and fish" unique_id=631358649 node_paths=PackedStringArray("label") instance=ExtResource("24_pj5sl")]
 z_index = 1
 position = Vector2(-2667, 1068)
 scale = Vector2(1.5, 1.5)
-
-[node name="AcceptDialog" parent="Area2 - props and fish/MusicBox/CanvasLayer" parent_id_path=PackedInt32Array(631358649, 1157296578) index="0" unique_id=1190817345]
-screen_space_aa = 1
-title = "Music Box"
-size = Vector2i(750, 468)
-dialog_text = "You can now press Z to play the music box.
-This will reset items to their starting position.
-
-TODO: replace this with something whimsical."
-dialog_autowrap = true
+label = NodePath("../Tutorial - about the music box")
 
 [node name="Tutorial - plank" type="Area2D" parent="Area2 - props and fish" unique_id=1561225418]
 position = Vector2(-2368, 388)
@@ -1079,7 +1056,7 @@ collision_mask = 22
 script = ExtResource("23_kjcn1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint" unique_id=1120260330]
-position = Vector2(-123, -125.5)
+position = Vector2(137.5, -125.5)
 shape = SubResource("RectangleShape2D_v0ifn")
 debug_color = Color(0, 0.6, 0, 0.41960785)
 
@@ -1092,7 +1069,7 @@ gravity = 50.0
 script = ExtResource("20_j00bg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FishTerritory" unique_id=882843566]
-position = Vector2(643, -267.75)
+position = Vector2(676.5, -267.75)
 shape = SubResource("RectangleShape2D_xakyt")
 
 [node name="FishMonster" parent="FishTerritory" unique_id=599123084 instance=ExtResource("22_rhdql")]
@@ -1117,8 +1094,8 @@ collision_mask = 22
 script = ExtResource("23_kjcn1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint2" unique_id=1103427110]
-position = Vector2(-123, -125.5)
-shape = SubResource("RectangleShape2D_v0ifn")
+position = Vector2(235, -111)
+shape = SubResource("RectangleShape2D_s8neq")
 debug_color = Color(0, 0.6, 0, 0.41960785)
 
 [node name="KillZone" type="Area2D" parent="." unique_id=1631316216]
@@ -1138,5 +1115,3 @@ shape = SubResource("RectangleShape2D_1cdy3")
 [node name="Water" parent="." unique_id=14946250 instance=ExtResource("25_mpqe7")]
 offset_left = -10328.0
 offset_right = 7125.0
-
-[editable path="Area2 - props and fish/MusicBox"]

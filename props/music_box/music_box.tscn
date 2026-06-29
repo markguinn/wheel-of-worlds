@@ -12,6 +12,7 @@ script = ExtResource("1_o0o4k")
 [node name="Sprite2D" parent="." unique_id=1032438263 instance=ExtResource("1_l6wei")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1157296578]
+visible = false
 
 [node name="AcceptDialog" type="AcceptDialog" parent="CanvasLayer" unique_id=1190817345]
 process_mode = 3

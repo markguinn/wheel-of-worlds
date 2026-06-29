@@ -9,4 +9,4 @@ func _ready() -> void:
 func _on_body_enter(body: Node2D) -> void:
 	if body.has_method("set_checkpoint"):
 		body.set_checkpoint()
-		Log.info(self, "checkpoint set for", body.name)
+		Log.info(self, "checkpoint set for", body.name, "at", get_path())
