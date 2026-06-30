@@ -72,8 +72,7 @@ tile_set = ExtResource("1_hpkw7")
 
 [node name="Tutorial Portal" parent="WheelTiles" unique_id=567549234 instance=ExtResource("4_fjyco")]
 z_index = -1
-position = Vector2(-279.5, 16.999998)
-rotation = 1.5707964
+position = Vector2(15.499998, 279.50003)
 scale = Vector2(0.4, 0.4)
 portal_name = "ww-tutorial"
 linked_stage = "uid://obcnvoariac3"
@@ -81,6 +80,26 @@ target_portal = "tutorial-end"
 activator_text = "From whence you came..."
 
 [node name="Orb" parent="WheelTiles/Tutorial Portal" unique_id=1425831707 instance=ExtResource("3_qmu1q")]
+visible = false
+position = Vector2(0, -30)
+rotation = -1.5707964
+collision_layer = 0
+collision_mask = 0
+freeze = true
+debounce_impact_scope = null
+debounce_impact_ms = null
+
+[node name="Waterfall Portal" parent="WheelTiles" unique_id=1414914643 instance=ExtResource("4_fjyco")]
+z_index = -1
+position = Vector2(-17.499998, -278.99997)
+rotation = -3.1415927
+scale = Vector2(0.4, 0.4)
+portal_name = "ww-waterfall"
+linked_stage = "uid://x08jlrrsi88x"
+target_portal = "waterfall-wheel"
+activator_text = "The faint sound of rushing water..."
+
+[node name="Orb" parent="WheelTiles/Waterfall Portal" unique_id=963116980 instance=ExtResource("3_qmu1q")]
 visible = false
 position = Vector2(0, -30)
 rotation = -1.5707964
@@ -100,6 +119,26 @@ linked_stage = "uid://djnwseb73emx0"
 target_portal = "forest1-start"
 
 [node name="Orb2" parent="WheelTiles/Forest1 Portal" unique_id=1938641029 instance=ExtResource("3_qmu1q")]
+visible = false
+position = Vector2(-15.050156, -23.319458)
+rotation = 1.6231562
+scale = Vector2(1, -1)
+collision_layer = 0
+collision_mask = 0
+freeze = true
+debounce_impact_scope = null
+debounce_impact_ms = null
+
+[node name="Forest2 Portal" parent="WheelTiles" unique_id=2046297355 instance=ExtResource("5_bn8xg")]
+z_index = -1
+position = Vector2(-277, -13)
+rotation = 1.6231562
+scale = Vector2(-0.4, 0.4)
+portal_name = "ww-forest2"
+linked_stage = "uid://bdtjgqgcd0tqf"
+target_portal = "forest2-start"
+
+[node name="Orb2" parent="WheelTiles/Forest2 Portal" unique_id=519146708 instance=ExtResource("3_qmu1q")]
 visible = false
 position = Vector2(-15.050156, -23.319458)
 rotation = 1.6231562

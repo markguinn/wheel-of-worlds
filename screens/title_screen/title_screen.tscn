@@ -146,11 +146,11 @@ preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_1xf4e")
 
 [node name="IrisNebula" type="Sprite2D" parent="." unique_id=127912379]
-modulate = Color(1, 1, 1, 0.2694226)
+modulate = Color(1, 1, 1, 0.20124888)
 position = Vector2(960, 540)
-rotation = 3.7967308
+rotation = 1.2965542
 scale = Vector2(2, 2)
-skew = 0.037141055
+skew = -0.14809504
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -164,11 +164,11 @@ alpha_speed = 0.4
 speed_factor = 0.1
 
 [node name="IrisNebula2" type="Sprite2D" parent="." unique_id=1740825736]
-modulate = Color(1, 1, 1, 0.13749684)
+modulate = Color(1, 1, 1, 0.120952144)
 position = Vector2(960, 540)
-rotation = 4.737845
+rotation = 2.2377388
 scale = Vector2(3, 3)
-skew = -0.27423108
+skew = 0.029200923
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -188,45 +188,45 @@ scale = Vector2(0.9, 0.9)
 script = ExtResource("2_1xf4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sparkles" unique_id=972055032]
-modulate = Color(1, 1, 1, 0.20573865)
-rotation = -391.202
-scale = Vector2(0.77049243, 0.77049243)
+modulate = Color(1, 1, 1, 0.20717737)
+rotation = -383.5297
+scale = Vector2(0.7714516, 0.7714516)
 texture = ExtResource("3_i36ib")
 
 [node name="Mist" type="Sprite2D" parent="Sparkles" unique_id=753486441]
-modulate = Color(1, 1, 1, 0.20145032)
-rotation = 873.5041
-scale = Vector2(0.76763356, 0.76763356)
+modulate = Color(1, 1, 1, 0.25939524)
+rotation = 865.92847
+scale = Vector2(0.8062635, 0.8062635)
 texture = SubResource("NoiseTexture2D_mvehq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sparkles" unique_id=1758360778]
-modulate = Color(1, 1, 1, 0.3706789)
-rotation = -296.5882
-scale = Vector2(0.8804526, 0.8804526)
+modulate = Color(1, 1, 1, 0.1468636)
+rotation = -296.19724
+scale = Vector2(0.7312424, 0.7312424)
 texture = ExtResource("4_wsvuw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sparkles" unique_id=845584023]
-modulate = Color(1, 1, 1, 0.30032244)
-rotation = 2142.7754
-scale = Vector2(0.8335483, 0.8335483)
+modulate = Color(1, 1, 1, 0.16040218)
+rotation = 2141.9495
+scale = Vector2(0.7402681, 0.7402681)
 texture = ExtResource("5_p7yao")
 
 [node name="Mist2" type="Sprite2D" parent="Sparkles" unique_id=1711575947]
-modulate = Color(1, 1, 1, 0.10553864)
-rotation = 1294.3925
-scale = Vector2(0.70369244, 0.70369244)
+modulate = Color(1, 1, 1, 0.32982194)
+rotation = 1297.2684
+scale = Vector2(0.8532146, 0.8532146)
 texture = SubResource("NoiseTexture2D_tsbkc")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sparkles" unique_id=1435232981]
-modulate = Color(1, 1, 1, 0.33127218)
-rotation = 1576.8097
-scale = Vector2(0.85418147, 0.85418147)
+modulate = Color(1, 1, 1, 0.12589821)
+rotation = 1574.6832
+scale = Vector2(0.7172655, 0.7172655)
 texture = ExtResource("6_mi1m4")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sparkles" unique_id=2086365118]
-modulate = Color(1, 1, 1, 0.102267765)
-rotation = 742.4918
-scale = Vector2(0.70151186, 0.70151186)
+modulate = Color(1, 1, 1, 0.32264692)
+rotation = 738.2961
+scale = Vector2(0.8484313, 0.8484313)
 texture = ExtResource("7_v8lo7")
 
 [node name="WheelTiles" type="TileMapLayer" parent="." unique_id=2085374435]
@@ -299,7 +299,7 @@ ignore_inputs = true
 perma_ragdoll = true
 
 [node name="ThighR" parent="WheelTiles/Player/Sprite/Skeleton2D/Hips" parent_id_path=PackedInt32Array(317056800, 598144107) index="0" unique_id=25801670]
-rotation = -0.21382824
+rotation = -0.21382822
 scale = Vector2(0.99000025, 0.99000025)
 
 [node name="ShinR" parent="WheelTiles/Player/Sprite/Skeleton2D/Hips/ThighR" index="0" unique_id=1375386282]
@@ -329,10 +329,10 @@ rotation = -0.026903363
 
 [node name="Head" parent="WheelTiles/Player/Sprite/Parts" parent_id_path=PackedInt32Array(317056800, 1880770915) index="3" unique_id=857872474]
 position = Vector2(11.08728, -62.294434)
-scale = Vector2(0.17002498, 0.1700122)
+scale = Vector2(0.17002498, 0.17001273)
 
 [node name="Eyes" parent="WheelTiles/Player/Sprite/Parts/Head" index="0" unique_id=1167826662]
-frame_progress = 0.53970397
+frame_progress = 0.737247
 
 [node name="DizzyParticles" parent="WheelTiles/Player/Sprite/VFX" parent_id_path=PackedInt32Array(317056800, 1603292766) index="2" unique_id=806147118]
 position = Vector2(11.08728, -62.294434)
@@ -493,6 +493,27 @@ horizontal_alignment = 1
 layout_mode = 2
 focus_neighbor_left = NodePath("../../WheelTiles/QuitGame")
 text = "Forest World
+"
+flat = true
+alignment = 0
+script = ExtResource("4_p4pbn")
+target_scene = "uid://djnwseb73emx0"
+is_primary = null
+
+[node name="Level2Button" type="Button" parent="BonusLevels" unique_id=1927403528]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../WheelTiles/QuitGame")
+text = "Waterfall World"
+flat = true
+alignment = 0
+script = ExtResource("4_p4pbn")
+target_scene = "uid://djnwseb73emx0"
+is_primary = null
+
+[node name="Level3Button" type="Button" parent="BonusLevels" unique_id=910073122]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../WheelTiles/QuitGame")
+text = "Forest Part 2
 "
 flat = true
 alignment = 0
