@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dgj7y78b0yk11" path="res://stages/seussworld/art/extras1.png" id="3_4lb1l"]
 [ext_resource type="Script" uid="uid://0y0hoei7t43g" path="res://actors/portal/sparkles.gd" id="3_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://c11leea0uangm" path="res://actors/portal/art/eye-top.png" id="3_q31eb"]
+[ext_resource type="AudioStream" uid="uid://cf2dxg2nk1dg5" path="res://_source_assets/sfx/portal-opening-drone-loop.ogg" id="3_x26ei"]
 [ext_resource type="Texture2D" uid="uid://dkkkdd8g8ryvf" path="res://actors/portal/art/black-iris.png" id="4_kgc7x"]
 [ext_resource type="Gradient" uid="uid://cr01cj04wliyu" path="res://stages/forest/prefabs/forest_water_gradient.tres" id="4_x26ei"]
 [ext_resource type="Texture2D" uid="uid://fcm7bjicr3rb" path="res://actors/portal/art/Flame-1.png" id="6_uaach"]
@@ -1119,7 +1120,7 @@ states/open/position = Vector2(629.27, 312.12747)
 states/opening/node = SubResource("AnimationNodeAnimation_svfmt")
 states/opening/position = Vector2(473.32, 313.7475)
 transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_s305f"), "Start", "active", SubResource("AnimationNodeStateMachineTransition_wggwm"), "RESET", "active", SubResource("AnimationNodeStateMachineTransition_yol6e"), "active", "opening", SubResource("AnimationNodeStateMachineTransition_plp08"), "active", "RESET", SubResource("AnimationNodeStateMachineTransition_g4wo6"), "opening", "open", SubResource("AnimationNodeStateMachineTransition_q31eb"), "open", "closing", SubResource("AnimationNodeStateMachineTransition_kgc7x"), "closing", "active", SubResource("AnimationNodeStateMachineTransition_qjygk"), "open", "activated", SubResource("AnimationNodeStateMachineTransition_v1kun"), "active", "blinking", SubResource("AnimationNodeStateMachineTransition_vmqas")]
-graph_offset = Vector2(34.169956, -24.48012)
+graph_offset = Vector2(34.169956, -9.4674225)
 
 [sub_resource type="Gradient" id="Gradient_4lb1l"]
 offsets = PackedFloat32Array(0.6673913, 0.92608696)
@@ -1271,6 +1272,9 @@ tree_root = SubResource("AnimationNodeStateMachine_j2ixl")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=498059737]
+stream = ExtResource("3_x26ei")
+
 [node name="PedestalOutline" type="Sprite2D" parent="." unique_id=36406042]
 modulate = Color(0.051970966, 0.05197096, 0.05197095, 1)
 position = Vector2(-99.714, 115.714)
@@ -1308,33 +1312,33 @@ light_mask = 0
 script = ExtResource("3_eb6dy")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.22077179)
-rotation = 209.57207
-scale = Vector2(0.78051454, 0.78051454)
+modulate = Color(1, 1, 1, 0.17298944)
+rotation = 623.99335
+scale = Vector2(0.7486596, 0.7486596)
 texture = ExtResource("19_kncuj")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.14435698)
-rotation = 57.668396
-scale = Vector2(0.72957134, 0.72957134)
+modulate = Color(1, 1, 1, 0.16503325)
+rotation = 73.069016
+scale = Vector2(0.7433555, 0.7433555)
 texture = ExtResource("20_5ni7j")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sprites/Sparkles" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.37518838)
-rotation = -293.66437
-scale = Vector2(0.8834589, 0.8834589)
+modulate = Color(1, 1, 1, 0.35352674)
+rotation = -253.5365
+scale = Vector2(0.86901784, 0.86901784)
 texture = ExtResource("21_q6t7m")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sprites/Sparkles" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.27426627)
-rotation = 16.608183
-scale = Vector2(0.81617755, 0.81617755)
+modulate = Color(1, 1, 1, 0.115028515)
+rotation = -345.4528
+scale = Vector2(0.710019, 0.710019)
 texture = ExtResource("22_frp0j")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.38156325)
-rotation = 133.74884
-scale = Vector2(0.88770884, 0.88770884)
+modulate = Color(1, 1, 1, 0.16282974)
+rotation = -34.524895
+scale = Vector2(0.7418865, 0.7418865)
 texture = ExtResource("23_frp0j")
 
 [node name="EyeBackground" type="Polygon2D" parent="Sprites" unique_id=1865392681]
