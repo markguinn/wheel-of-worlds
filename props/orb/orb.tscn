@@ -66,6 +66,7 @@ stream_5/stream = ExtResource("10_bdpk3")
 stream_6/stream = ExtResource("11_1sxwp")
 
 [node name="Orb" type="RigidBody2D" unique_id=1425831707 groups=["music_box_targets", "persisted"]]
+light_mask = 0
 collision_layer = 16
 collision_mask = 61
 collision_priority = 10.0
@@ -103,9 +104,11 @@ texture = SubResource("GradientTexture2D_8tufr")
 
 [node name="WhiteSphere" type="Sprite2D" parent="SquishContainer" unique_id=1567054001]
 clip_children = 2
+light_mask = 2
 texture = SubResource("GradientTexture2D_e02gj")
 
 [node name="Iris" type="Sprite2D" parent="SquishContainer/WhiteSphere" unique_id=2116573146]
+light_mask = 3
 position = Vector2(-2, -1)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_2fjae")
@@ -113,6 +116,7 @@ region_enabled = true
 region_rect = Rect2(1011, 1684, 260, 253)
 
 [node name="EdgeShading" type="Sprite2D" parent="SquishContainer/WhiteSphere" unique_id=509281602]
+light_mask = 3
 texture = SubResource("GradientTexture2D_0nb2d")
 
 [node name="SFX" type="Node" parent="." unique_id=1365234192]

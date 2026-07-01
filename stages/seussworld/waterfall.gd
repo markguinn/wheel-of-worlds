@@ -41,7 +41,6 @@ func _apply_blockage() -> void:
 		waterfall_material.emission_sphere_radius = 10
 		waterfall_bottom.global_position = waterfall_particles.global_position
 		for n in get_tree().get_nodes_in_group("waterfall_barriers"):
-			Log.info(self, "waterfall stopping", n)
 			if n is CollisionShape2D:
 				n.disabled = true
 			if n is Area2D:
