@@ -86,8 +86,6 @@ rotation = -1.5707964
 collision_layer = 0
 collision_mask = 0
 freeze = true
-debounce_impact_scope = null
-debounce_impact_ms = null
 
 [node name="Waterfall Portal" parent="WheelTiles" unique_id=1414914643 instance=ExtResource("4_fjyco")]
 z_index = -1
@@ -106,8 +104,6 @@ rotation = -1.5707964
 collision_layer = 0
 collision_mask = 0
 freeze = true
-debounce_impact_scope = null
-debounce_impact_ms = null
 
 [node name="Forest1 Portal" parent="WheelTiles" unique_id=1147199114 instance=ExtResource("5_bn8xg")]
 z_index = -1
@@ -126,8 +122,6 @@ scale = Vector2(1, -1)
 collision_layer = 0
 collision_mask = 0
 freeze = true
-debounce_impact_scope = null
-debounce_impact_ms = null
 
 [node name="Forest2 Portal" parent="WheelTiles" unique_id=2046297355 instance=ExtResource("5_bn8xg")]
 z_index = -1
@@ -136,7 +130,7 @@ rotation = 1.6231562
 scale = Vector2(-0.4, 0.4)
 portal_name = "ww-forest2"
 linked_stage = "uid://bdtjgqgcd0tqf"
-target_portal = "forest2-start"
+target_portal = "forest2-start2"
 
 [node name="Orb2" parent="WheelTiles/Forest2 Portal" unique_id=519146708 instance=ExtResource("3_qmu1q")]
 visible = false
@@ -146,8 +140,6 @@ scale = Vector2(1, -1)
 collision_layer = 0
 collision_mask = 0
 freeze = true
-debounce_impact_scope = null
-debounce_impact_ms = null
 
 [node name="Camera" parent="." unique_id=552340171 instance=ExtResource("5_slp1w")]
 position = Vector2(-81, 603)
