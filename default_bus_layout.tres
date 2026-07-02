@@ -27,6 +27,9 @@ wet = 0.2
 
 [sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_g28q7"]
 resource_name = "LowPassFilter"
+cutoff_hz = 2.0
+resonance = 1.0
+db = 3
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_g28q7"]
 resource_name = "Reverb"

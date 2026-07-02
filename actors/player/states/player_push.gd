@@ -37,8 +37,11 @@ func can_enter(from_state: StateNode) -> bool:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump") and orb:
+		var strength = KICK_STRENGTH
+		if orb.is_in_portal_grav:
+			strength *= 3.0
 		get_viewport().set_input_as_handled()
-		orb.apply_central_impulse(_get_input_vector() * KICK_STRENGTH)
+		orb.apply_central_impulse(_get_input_vector() * strength)
 	
 
 func _entered(_from_state: StateNode) -> void:

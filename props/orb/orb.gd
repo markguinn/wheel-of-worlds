@@ -19,6 +19,7 @@ var start_pos: Vector2
 var last_pos: Vector2
 var iris_velocity: Vector2
 var iris_base_scale: Vector2
+var is_in_portal_grav := false
 
 @onready var shape: CollisionShape2D = $CollisionShape2D
 @onready var iris: Sprite2D = $SquishContainer/WhiteSphere/Iris

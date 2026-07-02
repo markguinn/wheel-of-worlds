@@ -145,13 +145,17 @@ func pop_music_layers(layers: Array[float]) -> void:
 
 
 func pause_music() -> void:
-	Log.info(self, "music paused")
-	get_stream_player().stream_paused = true
+	var p := get_stream_player()
+	if p:
+		Log.info(self, "music paused")
+		p.stream_paused = true
 
 
 func resume_music() -> void:
-	Log.info(self, "music resumed")
-	get_stream_player().stream_paused = false
+	var p := get_stream_player()
+	if p:
+		Log.info(self, "music resumed")
+		p.stream_paused = false
 
 
 func get_room_size() -> float:

@@ -40,7 +40,7 @@ var light_changed_ms: int
 @onready var eye_bg: Node2D = $Sprites/EyeBackground
 @onready var iris: Sprite2D = $Sprites/BlackIris
 @onready var light: PointLight2D = $PointLight2D
-@onready var opening_sound: AudioStreamPlayer2D = $OpeningSound
+@onready var opening_sound: AudioStreamPlayer = $OpeningSound
 
 
 func _ready() -> void:
@@ -55,6 +55,7 @@ func _ready() -> void:
 	orb_detector.body_exited.connect(_on_body_exited)
 	iris_start_pos = iris.position
 	init_time_ms = GameManager.now_ms()
+	opening_sound.volume_linear = 0.0
 
 	for n in get_children():
 		if n is Orb:
@@ -72,12 +73,16 @@ func _on_body_entered(body: Node2D) -> void:
 	orb_is_present = true
 	orb_entered_at = GameManager.now_ms()
 	orbs.append(body)
+	if body is Orb:
+		body.is_in_portal_grav = true
 	
 
 
 func _on_body_exited(body: Node2D) -> void:
 	Log.debug(self, 'orb exited', body)
 	orbs.erase(body)
+	if body is Orb:
+		body.is_in_portal_grav = false
 	if orbs.is_empty():
 		orb_is_present = false
 		orb_entered_at = 0
@@ -119,10 +124,10 @@ func start_sound() -> void:
 		lpf_tween.stop()
 	var lpf := AudioManager.get_portal_lpf()
 	lpf_tween = create_tween()
-	lpf_tween.set_ease(Tween.EASE_IN_OUT)
-	lpf_tween.set_trans(Tween.TRANS_SINE)
-	lpf_tween.tween_property(lpf, "cutoff_hz", 22000.0, SFX_TWEEN_SECONDS)
-	lpf_tween.parallel().tween_property(opening_sound, "volume_linear", 1.0, SFX_TWEEN_SECONDS)
+	lpf_tween.set_ease(Tween.EASE_IN)
+	lpf_tween.set_trans(Tween.TRANS_EXPO)
+	lpf_tween.tween_property(lpf, "cutoff_hz", 22000.0, SFX_TWEEN_SECONDS * 1.8)
+	lpf_tween.parallel().tween_property(opening_sound, "volume_linear", 1.0, SFX_TWEEN_SECONDS / 4.0)
 	opening_sound.play()
 
 
@@ -131,10 +136,10 @@ func stop_sound() -> void:
 		lpf_tween.stop()
 	var lpf := AudioManager.get_portal_lpf()
 	lpf_tween = create_tween()
-	lpf_tween.set_ease(Tween.EASE_IN_OUT)
+	lpf_tween.set_ease(Tween.EASE_OUT)
 	lpf_tween.set_trans(Tween.TRANS_SINE)
-	lpf_tween.tween_property(lpf, "cutoff_hz", 20.0, SFX_TWEEN_SECONDS)
-	lpf_tween.parallel().tween_property(opening_sound, "volume_linear", 0.0, SFX_TWEEN_SECONDS)
+	lpf_tween.tween_property(lpf, "cutoff_hz", 20.0, SFX_TWEEN_SECONDS * 0.6)
+	lpf_tween.tween_property(opening_sound, "volume_linear", 0.0, SFX_TWEEN_SECONDS / 4.0)
 	await lpf_tween.finished
 	opening_sound.stop()
 
