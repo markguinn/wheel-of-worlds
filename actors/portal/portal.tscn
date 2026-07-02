@@ -1120,7 +1120,7 @@ states/open/position = Vector2(629.27, 312.12747)
 states/opening/node = SubResource("AnimationNodeAnimation_svfmt")
 states/opening/position = Vector2(473.32, 313.7475)
 transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_s305f"), "Start", "active", SubResource("AnimationNodeStateMachineTransition_wggwm"), "RESET", "active", SubResource("AnimationNodeStateMachineTransition_yol6e"), "active", "opening", SubResource("AnimationNodeStateMachineTransition_plp08"), "active", "RESET", SubResource("AnimationNodeStateMachineTransition_g4wo6"), "opening", "open", SubResource("AnimationNodeStateMachineTransition_q31eb"), "open", "closing", SubResource("AnimationNodeStateMachineTransition_kgc7x"), "closing", "active", SubResource("AnimationNodeStateMachineTransition_qjygk"), "open", "activated", SubResource("AnimationNodeStateMachineTransition_v1kun"), "active", "blinking", SubResource("AnimationNodeStateMachineTransition_vmqas")]
-graph_offset = Vector2(34.169956, -9.4674225)
+graph_offset = Vector2(-51.10499, -35.05745)
 
 [sub_resource type="Gradient" id="Gradient_4lb1l"]
 offsets = PackedFloat32Array(0.6673913, 0.92608696)
@@ -1272,8 +1272,9 @@ tree_root = SubResource("AnimationNodeStateMachine_j2ixl")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=498059737]
+[node name="OpeningSound" type="AudioStreamPlayer" parent="." unique_id=498059737]
 stream = ExtResource("3_x26ei")
+bus = &"Portal"
 
 [node name="PedestalOutline" type="Sprite2D" parent="." unique_id=36406042]
 modulate = Color(0.051970966, 0.05197096, 0.05197095, 1)
@@ -1312,33 +1313,33 @@ light_mask = 0
 script = ExtResource("3_eb6dy")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.17298944)
-rotation = 623.99335
-scale = Vector2(0.7486596, 0.7486596)
+modulate = Color(1, 1, 1, 0.15159419)
+rotation = 732.3627
+scale = Vector2(0.7343961, 0.7343961)
 texture = ExtResource("19_kncuj")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.16503325)
-rotation = 73.069016
-scale = Vector2(0.7433555, 0.7433555)
+modulate = Color(1, 1, 1, 0.35672617)
+rotation = -82.26637
+scale = Vector2(0.8711508, 0.8711508)
 texture = ExtResource("20_5ni7j")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sprites/Sparkles" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.35352674)
-rotation = -253.5365
-scale = Vector2(0.86901784, 0.86901784)
+modulate = Color(1, 1, 1, 0.2912653)
+rotation = -126.59968
+scale = Vector2(0.82751024, 0.82751024)
 texture = ExtResource("21_q6t7m")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sprites/Sparkles" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.115028515)
-rotation = -345.4528
-scale = Vector2(0.710019, 0.710019)
+modulate = Color(1, 1, 1, 0.3740309)
+rotation = -236.22183
+scale = Vector2(0.8826873, 0.8826873)
 texture = ExtResource("22_frp0j")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.16282974)
-rotation = -34.524895
-scale = Vector2(0.7418865, 0.7418865)
+modulate = Color(1, 1, 1, 0.2609258)
+rotation = -213.43625
+scale = Vector2(0.8072839, 0.8072839)
 texture = ExtResource("23_frp0j")
 
 [node name="EyeBackground" type="Polygon2D" parent="Sprites" unique_id=1865392681]

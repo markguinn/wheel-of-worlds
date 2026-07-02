@@ -14,6 +14,7 @@ const MIN_REVERB_SPREAD = 0.4
 const MAX_REVERB_SPREAD = 1.0
 const SFX_REVERB_INDEX = 0
 const MUSIC_LOW_PASS_INDEX = 0
+const PORTAL_LOW_PASS_INDEX = 0
 const MIN_LP_FREQ = 2000
 const MAX_LP_FREQ = 20500
 const LAYER_TWEEN_TIME = 2.0
@@ -21,6 +22,7 @@ const LAYER_TWEEN_TIME = 2.0
 var bus_music: int
 var bus_sfx: int
 var bus_atmosphere: int
+var bus_portal: int
 
 var cur_damping := 0.0
 var cur_room_size := 0.0
@@ -37,6 +39,7 @@ func _ready() -> void:
 	bus_music = AudioServer.get_bus_index("Music")
 	bus_sfx = AudioServer.get_bus_index("SFX")
 	bus_atmosphere = AudioServer.get_bus_index("Atmosphere")
+	bus_portal = AudioServer.get_bus_index("Portal")
 	reset_music_damping()
 	reset_room_size()
 
@@ -136,7 +139,6 @@ func pop_music_layers(layers: Array[float]) -> void:
 			Log.debug(self, "popped layer", j, layer_stack)
 			break
 	var next_layer = layer_stack.back() if layer_stack.size() > 0 else base_layers
-	Log.info(self, next_layer, base_layers, layer_stack)
 	if not next_layer or next_layer.size() == 0:
 		next_layer = [1.0, 0.0, 0.0, 0.0]
 	tween_music_layers(next_layer)
@@ -180,6 +182,10 @@ func set_music_damping(amount: float) -> void:
 
 func reset_music_damping() -> void:
 	set_music_damping(0.0)
+
+
+func get_portal_lpf() -> AudioEffectLowPassFilter:
+	return AudioServer.get_bus_effect(bus_portal, PORTAL_LOW_PASS_INDEX)
 
 
 func _set_stream_level(idx: int, linear_volume: float) -> void:

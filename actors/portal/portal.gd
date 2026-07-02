@@ -9,6 +9,7 @@ const EYE_MOVEMENT_RADIUS = 50.0
 ## How long after entering the level before the orb will activate the portal
 const WAIT_TIME_AFTER_INIT_MS = 5000
 const LIGHT_CHANGE_MS = 150
+const SFX_TWEEN_SECONDS = 1.0
 
 ## This is how other portals reference this one
 @export var portal_name: String
@@ -39,6 +40,8 @@ var light_changed_ms: int
 @onready var eye_bg: Node2D = $Sprites/EyeBackground
 @onready var iris: Sprite2D = $Sprites/BlackIris
 @onready var light: PointLight2D = $PointLight2D
+@onready var opening_sound: AudioStreamPlayer2D = $OpeningSound
+
 
 func _ready() -> void:
 	anim_tree.active = true
@@ -64,9 +67,12 @@ func _on_body_entered(body: Node2D) -> void:
 	if GameManager.now_ms() < init_time_ms + WAIT_TIME_AFTER_INIT_MS:
 		return
 	Log.debug(self, 'orb entered', body)
+	if not orb_is_present:
+		start_sound.call_deferred()
 	orb_is_present = true
 	orb_entered_at = GameManager.now_ms()
 	orbs.append(body)
+	
 
 
 func _on_body_exited(body: Node2D) -> void:
@@ -75,6 +81,7 @@ func _on_body_exited(body: Node2D) -> void:
 	if orbs.is_empty():
 		orb_is_present = false
 		orb_entered_at = 0
+		stop_sound.call_deferred()
 
 
 func _process(_delta: float) -> void:
@@ -105,6 +112,31 @@ func _process(_delta: float) -> void:
 		var eye_dist := EYE_MOVEMENT_RADIUS * orb_dist / FOLLOW_ORB_LEN
 		iris.position = iris_start_pos - iris.offset + orb_dir * eye_dist
 
+
+var lpf_tween: Tween
+func start_sound() -> void:
+	if lpf_tween and lpf_tween.is_running():
+		lpf_tween.stop()
+	var lpf := AudioManager.get_portal_lpf()
+	lpf_tween = create_tween()
+	lpf_tween.set_ease(Tween.EASE_IN_OUT)
+	lpf_tween.set_trans(Tween.TRANS_SINE)
+	lpf_tween.tween_property(lpf, "cutoff_hz", 22000.0, SFX_TWEEN_SECONDS)
+	lpf_tween.parallel().tween_property(opening_sound, "volume_linear", 1.0, SFX_TWEEN_SECONDS)
+	opening_sound.play()
+
+
+func stop_sound() -> void:
+	if lpf_tween and lpf_tween.is_running():
+		lpf_tween.stop()
+	var lpf := AudioManager.get_portal_lpf()
+	lpf_tween = create_tween()
+	lpf_tween.set_ease(Tween.EASE_IN_OUT)
+	lpf_tween.set_trans(Tween.TRANS_SINE)
+	lpf_tween.tween_property(lpf, "cutoff_hz", 20.0, SFX_TWEEN_SECONDS)
+	lpf_tween.parallel().tween_property(opening_sound, "volume_linear", 0.0, SFX_TWEEN_SECONDS)
+	await lpf_tween.finished
+	opening_sound.stop()
 
 func _on_activated(_source: Activator) -> void:
 	Log.info(self, 'portal activated', self.name)
