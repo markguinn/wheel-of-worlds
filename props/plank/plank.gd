@@ -27,7 +27,6 @@ var resting_point: Node2D = null
 
 func _ready() -> void:
 	super._ready()
-	# TODO: add checkpoints where this can be reset
 	start_pos = global_position
 	start_rot = global_rotation
 	impact.connect(_on_impact)

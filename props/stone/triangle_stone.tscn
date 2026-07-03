@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cbx6wlfmu87ux" path="res://props/stone/stone.gd" id="1_cki8f"]
 [ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://common/grab_box.gd" id="2_34n21"]
 [ext_resource type="PackedScene" uid="uid://bw7ujmd6681ln" path="res://common/activator.tscn" id="2_owgpg"]
+[ext_resource type="AudioStream" uid="uid://bggmjkip0hc6w" path="res://props/stone/stone_drop.ogg" id="4_r17fn"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_6iym6"]
 points = PackedVector2Array(-36, 32, 0, -32, 36, 32)
@@ -16,9 +17,15 @@ gradient = SubResource("Gradient_cki8f")
 fill_from = Vector2(0.5192308, 0.99572647)
 fill_to = Vector2(0.3611111, 0.05982906)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_a1mpv"]
+streams_count = 1
+stream_0/stream = ExtResource("4_r17fn")
+
 [node name="Stone" type="RigidBody2D" unique_id=838538367 groups=["music_box_targets", "persisted"]]
 collision_layer = 4
 collision_mask = 23
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_cki8f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1803141038]
@@ -38,3 +45,6 @@ script = ExtResource("2_34n21")
 manage_position = true
 hold_offset = Vector2(0, -40)
 hold_degrees = -30.0
+
+[node name="DropSound" type="AudioStreamPlayer2D" parent="." unique_id=190098784]
+stream = SubResource("AudioStreamRandomizer_a1mpv")

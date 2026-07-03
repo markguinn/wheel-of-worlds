@@ -912,10 +912,10 @@ position = Vector2(2518, 272)
 position = Vector2(4405, -128)
 
 [node name="Label" type="Label" parent="." unique_id=749163761]
-offset_left = 5401.0
-offset_top = 504.0
-offset_right = 6306.0
-offset_bottom = 546.0
+offset_left = 5099.0
+offset_top = 509.0
+offset_right = 6438.0
+offset_bottom = 643.0
 text = "TODO: village ruins? - what's this? did Bert's people live here? And baby fish in the water? 
 
 THEN a cavern snaking up and back to the left, with some more shadow monsters"

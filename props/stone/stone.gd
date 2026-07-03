@@ -12,8 +12,13 @@ var last_rot: float
 var start_pos: Vector2
 var start_rot: float
 
+@onready var sfx_impact: AudioStreamPlayer2D #= $DropSound
+@onready var vfx_dust: CPUParticles2D #= $DustParticles
+
 
 func _ready() -> void:
+	super._ready()
+	impact.connect(_on_impact)
 	var marker_idx := get_children().find_custom(func(n): return n is Marker2D)
 	if marker_idx > -1:
 		var marker: Marker2D = get_child(marker_idx)
@@ -25,6 +30,19 @@ func _ready() -> void:
 	if fixed:
 		$GrabBox.enabled = false
 		freeze = true
+	sfx_impact = get_node_or_null("DropSound")
+	vfx_dust = get_node_or_null("DustParticles")
+
+
+func _on_impact(pos: Vector2, vel: Vector2, _obj: Node, _part) -> void:
+	Log.info(self, "impact", vel)
+	
+	if sfx_impact:
+		sfx_impact.volume_linear = inverse_lerp(300, 2000, vel.length())
+		sfx_impact.play()
+	if vfx_dust:
+		vfx_dust.global_position = pos
+		vfx_dust.emitting = true
 
 
 func set_checkpoint() -> void:
