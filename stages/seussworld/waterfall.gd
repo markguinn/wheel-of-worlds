@@ -26,7 +26,7 @@ func _ready() -> void:
 func _on_stone_entered_block_zone(_body: Node2D) -> void:
 	if remaining_stones > 0:
 		remaining_stones -= 1
-		_apply_blockage()
+		_apply_blockage.call_deferred()
 
 
 func _apply_blockage() -> void:

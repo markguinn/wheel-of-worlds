@@ -1948,8 +1948,8 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="HandL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/Torso/ArmL" unique_id=1933907137]
 position = Vector2(-26.651686, 5.448637)
-rotation = 0.06404065
-scale = Vector2(1.000048, 1.000048)
+rotation = 0.06404066
+scale = Vector2(1.0000479, 1.0000479)
 rest = Transform2D(0.9979998, 0.06399999, -0.06399999, 0.9979998, -26.651686, 5.448637)
 auto_calculate_length_and_angle = false
 length = 28.031
@@ -2021,7 +2021,7 @@ bones = ["Hips", PackedFloat32Array(1, 1, 1, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0,
 light_mask = 2
 visibility_layer = 3
 position = Vector2(11.087276, -62.294453)
-rotation = -0.0710845
+rotation = -0.07108461
 scale = Vector2(0.17002374, 0.17001218)
 skew = -5.888939e-05
 texture = SubResource("CanvasTexture_2vokq")
@@ -2031,7 +2031,7 @@ region_rect = Rect2(204, 68, 311, 233)
 
 [node name="Eyes" type="AnimatedSprite2D" parent="Sprite/Parts/Head" unique_id=1167826662]
 sprite_frames = SubResource("SpriteFrames_yeioo")
-frame_progress = 0.7062642
+frame_progress = 0.3524795
 offset = Vector2(-35, 387)
 script = ExtResource("7_0wchr")
 
@@ -2144,7 +2144,7 @@ position = Vector2(48, 60)
 [node name="DizzyParticles" type="GPUParticles2D" parent="Sprite/VFX" unique_id=806147118]
 unique_name_in_owner = true
 position = Vector2(11.087276, -62.294453)
-rotation = -1.5197668
+rotation = -1.5197669
 scale = Vector2(0.9999446, 0.9999507)
 skew = 5.9127808e-05
 emitting = false
@@ -2356,7 +2356,8 @@ metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="Walk" type="Node" parent="StateMachine" unique_id=1602864386]
 script = ExtResource("9_lsln6")
-horizontal_speed = 320.0
+horizontal_speed = 360.0
+carrying_speed = 300.0
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="Push" type="Node" parent="StateMachine" unique_id=791453019]
