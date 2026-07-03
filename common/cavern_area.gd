@@ -18,6 +18,7 @@ static var total_active := 0
 func _ready() -> void:
 	body_entered.connect(_on_body_enter)
 	body_exited.connect(_on_body_exit)
+	area_exited.connect(_on_area_exited)
 	if not canvas_modulate:
 		push_warning("Level doesn't have CanvasModulate node")
 		canvas_modulate = CanvasModulate.new()
