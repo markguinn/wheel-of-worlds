@@ -7,6 +7,7 @@ signal became_empty(plate: Teleplate)
 
 
 @export var linked_plates: Array[Teleplate] = []
+@export var target_offset := Vector2(0, -50)
 
 var last_pos: Vector2
 var last_rot: float
@@ -84,7 +85,7 @@ func _on_activate(_source: Activator) -> void:
 	for plate in linked_plates:
 		for node in plate.active_props:
 			var relative_pos := node.global_position - plate.global_position
-			node.global_position = global_position + relative_pos
+			node.global_position = global_position + relative_pos + target_offset
 			Log.debug(self, "teleported", node, "from", plate, "at offset", relative_pos)
 
 

@@ -9,10 +9,15 @@ extends Node2D
 # This makes sure we're not overlapping the orb (which shoots it off into the aether)
 const OFFSET_FROM_PORTAL = Vector2(-128, 0)
 
+@export var bloom := 0.4
+@export var brightness := 1.0
+@export var contrast := 1.0
+@export var saturation := 1.0
 
 func _ready() -> void:
 	AudioManager.reset_music()
 	GameManager.is_in_game = true
+	VFX.set_baseline(bloom, brightness, contrast, saturation)
 
 
 func init_with_state(_persisted_state: Dictionary, params: Dictionary) -> void:

@@ -174,7 +174,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(1000, 50)
-shader_parameter/real_screen_size = Vector2(6991.091, 4746.328)
+shader_parameter/real_screen_size = Vector2(20851.408, 14156.25)
 shader_parameter/edges = Array[Texture2D]([SubResource("GradientTexture2D_gdb7k"), SubResource("GradientTexture2D_gdb7k")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -284,7 +284,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(834, 50)
-shader_parameter/real_screen_size = Vector2(6991.091, 4746.328)
+shader_parameter/real_screen_size = Vector2(20851.408, 14156.25)
 shader_parameter/edges = Array[Texture2D]([SubResource("CompressedTexture2D_qw55a"), SubResource("CompressedTexture2D_r6h17")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -970,6 +970,7 @@ point_count = 4
 [node name="Waterfall_2" type="Node2D" unique_id=138582908]
 material = SubResource("ShaderMaterial_3bs7n")
 script = ExtResource("1_xokyg")
+saturation = 1.4
 metadata/_custom_type_script = "uid://bxxbctnq2ubio"
 metadata/_edit_horizontal_guides_ = [1230.0, -3566.0, 1708.0]
 metadata/_edit_vertical_guides_ = [-11979.0, 5232.0, -3756.0]
@@ -1065,7 +1066,7 @@ script = ExtResource("4_yc5m4")
 [node name="CavernArea" type="Area2D" parent="." unique_id=1621378377]
 position = Vector2(1220, -2406)
 script = ExtResource("30_ljk5p")
-light_color = Color(0.2502251, 0.15047964, 0.2586996, 1)
+light_color = Color(0.25882354, 0.22745098, 0.25882354, 1)
 metadata/_custom_type_script = "uid://dj363jf40q41h"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CavernArea" unique_id=996355818]
@@ -1285,7 +1286,6 @@ script = ExtResource("24_d2bd0")
 [node name="WaterfallParticles" type="GPUParticles2D" parent="Waterfall" unique_id=1901664950]
 z_index = 2
 position = Vector2(2972, -1403)
-emitting = false
 amount = 400
 texture = SubResource("GradientTexture2D_1bnnv")
 lifetime = 2.1999999999999997
@@ -1297,7 +1297,6 @@ process_material = SubResource("ParticleProcessMaterial_ljlj5")
 [node name="BottomSplash" type="CPUParticles2D" parent="Waterfall" unique_id=846280099]
 z_index = 10
 position = Vector2(2978, 1202)
-emitting = false
 amount = 100
 randomness = 0.49
 emission_shape = 3

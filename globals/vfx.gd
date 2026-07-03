@@ -31,6 +31,25 @@ var flash_tween: Tween
 # allows the user to turn down shaking
 var shake_volume_setting := 1.0
 
+var baseline_bloom := 0.0 
+var baseline_brightness := 1.0
+var baseline_contrast := 1.0
+var baseline_saturation := 1.0
+
+
+func set_baseline(bloom: float, brightness: float, contrast: float, saturation: float) -> void:
+	Log.info(self, "set vfx baseline", bloom, brightness, contrast, saturation)
+	baseline_bloom = bloom
+	baseline_brightness = brightness
+	baseline_contrast = contrast
+	baseline_saturation = saturation
+	var env := _get_world_env()
+	if env:
+		env.environment.glow_bloom = baseline_bloom
+		env.environment.adjustment_brightness = baseline_brightness
+		env.environment.adjustment_contrast = baseline_contrast
+		env.environment.adjustment_saturation = baseline_saturation
+
 
 func set_shake_volume(value: float) -> void:
 	shake_volume_setting = value
@@ -86,10 +105,10 @@ func flash(seconds = MID, intensity = QUAKE, type = Flash.NEUTRAL) ->void:
 				env.environment.adjustment_saturation = 1.0 + intensity * 5.0
 			Flash.BLAND:
 				env.environment.adjustment_saturation = 1.0 - intensity
-		flash_tween.tween_property(env.environment, "glow_bloom", 0.0, seconds)
-		flash_tween.parallel().tween_property(env.environment, "adjustment_brightness", 1.0, seconds)
-		flash_tween.parallel().tween_property(env.environment, "adjustment_contrast", 1.0, seconds)
-		flash_tween.parallel().tween_property(env.environment, "adjustment_saturation", 1.0, seconds)
+		flash_tween.tween_property(env.environment, "glow_bloom", baseline_bloom, seconds)
+		flash_tween.parallel().tween_property(env.environment, "adjustment_brightness", baseline_brightness, seconds)
+		flash_tween.parallel().tween_property(env.environment, "adjustment_contrast", baseline_contrast, seconds)
+		flash_tween.parallel().tween_property(env.environment, "adjustment_saturation", baseline_saturation, seconds)
 
 
 func white_out(seconds = MID) -> Tween:
@@ -118,9 +137,9 @@ func white_in(seconds = MID) -> Tween:
 		return tween
 	tween.set_ease(Tween.EASE_IN)
 	if env:
-		tween.tween_property(env.environment, "glow_bloom", 0.0, seconds)
+		tween.tween_property(env.environment, "glow_bloom", baseline_bloom, seconds)
 		tween.parallel().tween_property(env.environment, "glow_intensity", 0.5, seconds)
-		tween.parallel().tween_property(env.environment, "adjustment_brightness", 1.0, seconds)
+		tween.parallel().tween_property(env.environment, "adjustment_brightness", baseline_brightness, seconds)
 	if screen:
 		screen.color = Color.WHITE
 		screen.show()
