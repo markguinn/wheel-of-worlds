@@ -34,7 +34,7 @@ signal jumping
 @export var attack_impact := 2.0
 @export var ragdoll_player := true
 @export var slomo_entry := false
-
+#@export buffer_step_s
 
 var territory_rect: Rect2
 
@@ -96,10 +96,11 @@ func _ready() -> void:
 	#print(polygon_r.polygon)
 	#print(polygon_r.uv)
 	#print(pointz)
+	var h = polygon_l.texture.get_height()
 	polygon_r = polygon_l.duplicate(DUPLICATE_USE_INSTANTIATION)
 	var flipped_poly = []
 	for p in polygon_r.polygon:
-		flipped_poly.append(Vector2(p.x, 532.0 - p.y))
+		flipped_poly.append(Vector2(p.x, h - p.y))
 	polygon_r.set_polygon(PackedVector2Array(flipped_poly))
 	polygon_l.add_sibling(polygon_r)
 

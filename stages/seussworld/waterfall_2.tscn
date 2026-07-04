@@ -23,9 +23,9 @@
 [ext_resource type="Script" uid="uid://cl1c4dhmxnis6" path="res://stages/seussworld/waterfall_barrier.gd" id="16_khvn7"]
 [ext_resource type="PackedScene" uid="uid://cpmxxndn8n308" path="res://props/plank/plank.tscn" id="18_qmiuv"]
 [ext_resource type="Script" uid="uid://bbb2phdibbqcc" path="res://common/kill_zone.gd" id="21_t2hj3"]
-[ext_resource type="PackedScene" uid="uid://3bml3wbyjvgg" path="res://actors/fish_monster/small_fish_old.tscn" id="22_rc4jm"]
 [ext_resource type="PackedScene" uid="uid://tyaekwp4wxwa" path="res://stages/seussworld/prefabs/world0_water.tscn" id="23_bu3qw"]
 [ext_resource type="PackedScene" uid="uid://dn6gswqjkyx14" path="res://props/stone/square_stone.tscn" id="23_uyb62"]
+[ext_resource type="PackedScene" uid="uid://34x00fhep38m" path="res://actors/fish_monster/small_fish.tscn" id="24_8xadv"]
 [ext_resource type="Script" uid="uid://c2f8uekfuklk7" path="res://stages/seussworld/waterfall.gd" id="24_d2bd0"]
 [ext_resource type="PackedScene" uid="uid://bacx53cmt8t6y" path="res://props/plank/big_plank.tscn" id="25_uc71k"]
 [ext_resource type="PackedScene" uid="uid://rdlq677coghs" path="res://props/stone/triangle_stone.tscn" id="26_2hsx2"]
@@ -174,7 +174,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(1000, 50)
-shader_parameter/real_screen_size = Vector2(6991.091, 4746.328)
+shader_parameter/real_screen_size = Vector2(477.32013, 324.0579)
 shader_parameter/edges = Array[Texture2D]([SubResource("GradientTexture2D_gdb7k"), SubResource("GradientTexture2D_gdb7k")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -284,7 +284,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(834, 50)
-shader_parameter/real_screen_size = Vector2(6991.091, 4746.328)
+shader_parameter/real_screen_size = Vector2(477.32013, 324.0579)
 shader_parameter/edges = Array[Texture2D]([SubResource("CompressedTexture2D_qw55a"), SubResource("CompressedTexture2D_r6h17")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -1249,11 +1249,11 @@ script = ExtResource("21_t2hj3")
 position = Vector2(4753.5, 171.75)
 shape = SubResource("RectangleShape2D_1cdy3")
 
-[node name="SmallFish" parent="KillZone" unique_id=1857891672 instance=ExtResource("22_rc4jm")]
-position = Vector2(3610, 168)
+[node name="FishMonster" parent="KillZone" unique_id=275104279 instance=ExtResource("24_8xadv")]
+position = Vector2(3932.8657, 92.765625)
 
-[node name="SmallFish2" parent="KillZone" unique_id=1667260089 instance=ExtResource("22_rc4jm")]
-position = Vector2(5856, 226)
+[node name="FishMonster2" parent="KillZone" unique_id=1857891672 instance=ExtResource("24_8xadv")]
+position = Vector2(5240, 106)
 
 [node name="Water" parent="." unique_id=14946250 instance=ExtResource("23_bu3qw")]
 offset_left = -4144.0

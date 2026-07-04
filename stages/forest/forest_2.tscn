@@ -31,7 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://cu4l0skawwtuf" path="res://stages/forest/prefabs/climbable_tree_3.tscn" id="29_e5fpa"]
 [ext_resource type="PackedScene" uid="uid://3blkd8ecbtig" path="res://stages/forest/prefabs/climbable_tree_4.tscn" id="30_e5fpa"]
 [ext_resource type="PackedScene" uid="uid://b2c4465p08yf4" path="res://props/lift/lift.tscn" id="31_y42hd"]
-[ext_resource type="PackedScene" uid="uid://3bml3wbyjvgg" path="res://actors/fish_monster/small_fish_old.tscn" id="32_kowcg"]
+[ext_resource type="PackedScene" uid="uid://34x00fhep38m" path="res://actors/fish_monster/small_fish.tscn" id="33_1ax13"]
 [ext_resource type="PackedScene" uid="uid://bk140x3miwcrc" path="res://stages/forest/prefabs/forest_water.tscn" id="33_xon5m"]
 [ext_resource type="PackedScene" uid="uid://bbq81ngylpi8h" path="res://actors/shadow_monster/shadow_monster.tscn" id="34_sue17"]
 [ext_resource type="PackedScene" uid="uid://cunmpxd2cde4q" path="res://stages/forest/prefabs/climbable_tree_1.tscn" id="35_kykxy"]
@@ -968,14 +968,14 @@ metadata/_custom_type_script = "uid://bbb2phdibbqcc"
 position = Vector2(-93.5, 113)
 shape = SubResource("RectangleShape2D_y42hd")
 
-[node name="SmallFish" parent="Puzzle2/FishArea" unique_id=1857891672 instance=ExtResource("32_kowcg")]
-position = Vector2(357, -64)
+[node name="FishMonster" parent="Puzzle2/FishArea" unique_id=805913488 instance=ExtResource("33_1ax13")]
+position = Vector2(-768.7666, -141.52454)
 
-[node name="SmallFish2" parent="Puzzle2/FishArea" unique_id=1240779431 instance=ExtResource("32_kowcg")]
-position = Vector2(-987, -121)
+[node name="FishMonster3" parent="Puzzle2/FishArea" unique_id=299781493 instance=ExtResource("33_1ax13")]
+position = Vector2(435.31348, -157.27563)
 
-[node name="SmallFish3" parent="Puzzle2/FishArea" unique_id=236254846 instance=ExtResource("32_kowcg")]
-position = Vector2(-331, -160)
+[node name="FishMonster2" parent="Puzzle2/FishArea" unique_id=1392331223 instance=ExtResource("33_1ax13")]
+position = Vector2(-63.469727, -83.77075)
 
 [node name="Lantern" parent="Puzzle2" unique_id=937303915 instance=ExtResource("23_7wk6t")]
 position = Vector2(8001, 92)

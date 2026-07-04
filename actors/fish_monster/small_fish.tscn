@@ -1,5 +1,46 @@
 [gd_scene format=3 uid="uid://34x00fhep38m"]
 
 [ext_resource type="PackedScene" uid="uid://n0yb8g02gr8b" path="res://actors/fish_monster/big_fish.tscn" id="1_o0aos"]
+[ext_resource type="Texture2D" uid="uid://bf4csiyc2u287" path="res://actors/fish_monster/art/small_fish.png" id="2_g2uyv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2uyv"]
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_467b7"]
+radius = 50.0
 
 [node name="FishMonster" unique_id=1857891672 instance=ExtResource("1_o0aos")]
+patrol_offset = 15.0
+jump_y_max = 1600.0
+jump_x_max = 500.0
+attack_impact = 1.0
+ragdoll_player = false
+slomo_entry = false
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=2050835415]
+shape = SubResource("CircleShape2D_g2uyv")
+
+[node name="CollisionShape2D" parent="HitBox" parent_id_path=PackedInt32Array(1226011668) index="0" unique_id=409700252]
+shape = SubResource("CircleShape2D_467b7")
+
+[node name="PolygonL" parent="SpriteContainer" parent_id_path=PackedInt32Array(306526739) index="0" unique_id=94408846]
+position = Vector2(-93, -65)
+texture = ExtResource("2_g2uyv")
+polygon = PackedVector2Array(8.000004, 56, 24, 40, 104.00001, 24, 144, 24, 208, 7.999999, 216, 24, 200, 40, 248, 48.000004, 280, 56, 384, 24, 376.00003, 72.00001, 352, 120, 272, 88, 232, 96.00001, 216, 120, 168, 104.00001, 79.99999, 96.00001, 24, 72.00001, 56, 64, 104.00001, 56, 136, 80, 152, 48.000004, 208, 48.000004, 216, 80, 152, 72.00001, 152, 72.00001, 280, 72.00001)
+uv = PackedVector2Array(8.000004, 56, 24, 40, 104.00001, 24, 144, 24, 208, 7.999999, 216, 24, 200, 40, 248, 48.000004, 280, 56, 384, 24, 376.00003, 72.00001, 352, 120, 272, 88, 232, 96.00001, 216, 120, 168, 104.00001, 79.99999, 96.00001, 24, 72.00001, 56, 64, 104.00001, 56, 136, 80, 152, 48.000004, 208, 48.000004, 216, 80, 152, 72.00001, 152, 72.00001, 280, 72.00001)
+polygons = [PackedInt32Array(1, 18, 17, 0), PackedInt32Array(2, 19, 18, 1), PackedInt32Array(2, 3, 21, 19), PackedInt32Array(3, 4, 5, 6, 22, 21), PackedInt32Array(19, 20, 18), PackedInt32Array(19, 21, 25, 20), PackedInt32Array(20, 16, 17, 18), PackedInt32Array(25, 15, 16, 20), PackedInt32Array(25, 23, 13, 14, 15), PackedInt32Array(22, 23, 25, 21), PackedInt32Array(6, 7, 8, 26, 12, 13, 23, 22), PackedInt32Array(8, 9, 10, 11, 12, 26)]
+bones = ["Bone2D", PackedFloat32Array(1, 1, 1, 0.58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0.58, 1, 1, 0.58, 0, 0, 0.58, 0.58, 0), "Bone2D/Bone2D", PackedFloat32Array(0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0.58, 1, 1, 0, 0, 0, 0, 0, 1, 0.58, 0.58, 1, 1, 0), "Bone2D/Bone2D/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0.58, 1, 1, 0, 0, 0, 1, 0.58, 0, 0, 0, 0, 0, 0, 0, 0, 0.58, 0.58, 0, 0, 1), "Bone2D/Bone2D/Bone2D/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+internal_vertex_count = 9
+
+[node name="Bone2D" parent="SpriteContainer/Skeleton2D/Bone2D" parent_id_path=PackedInt32Array(564159811) index="0" unique_id=790891990]
+position = Vector2(40, 0)
+rest = Transform2D(1, 0, 0, 1, 40, 0)
+
+[node name="Bone2D" parent="SpriteContainer/Skeleton2D/Bone2D/Bone2D" index="0" unique_id=18012786]
+position = Vector2(46.4, 0)
+rest = Transform2D(0.99999994, 0, 0, 0.99999994, 46.4, 0)
+
+[node name="Bone2D" parent="SpriteContainer/Skeleton2D/Bone2D/Bone2D/Bone2D" index="0" unique_id=114724586]
+position = Vector2(55, 0)
+rest = Transform2D(1, 0, 0, 1, 55, 0)
+length = 70.0

@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://dyfjydb0sbb64" path="res://actors/portal/art/irises.png" id="22_ufx5u"]
 [ext_resource type="Texture2D" uid="uid://bb38a7h3w0k2g" path="res://common/vfx/basic_light.tres" id="22_xlghb"]
 [ext_resource type="PackedScene" uid="uid://n0yb8g02gr8b" path="res://actors/fish_monster/big_fish.tscn" id="26_ls0eu"]
+[ext_resource type="PackedScene" uid="uid://34x00fhep38m" path="res://actors/fish_monster/small_fish.tscn" id="27_8a6io"]
 [ext_resource type="PackedScene" uid="uid://3bml3wbyjvgg" path="res://actors/fish_monster/small_fish_old.tscn" id="27_ffid6"]
 [ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="28_hj67n"]
 [ext_resource type="Texture2D" uid="uid://rweu8spv4nfd" path="res://props/water/water-sprite.png" id="28_iyf6a"]
@@ -423,6 +424,44 @@ modification_count = 1
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_iyf6a"]
 modification_count = 1
 
+[sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_8a6io"]
+fabrik_data_chain_length = 4
+joint_data/0/bone_index = 0
+joint_data/0/bone2d_node = NodePath("Bone2D")
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("Bone2D/Bone2D")
+joint_data/1/magnet_position = Vector2(0, 0)
+joint_data/2/bone_index = 2
+joint_data/2/bone2d_node = NodePath("Bone2D/Bone2D/Bone2D")
+joint_data/2/magnet_position = Vector2(0, 0)
+joint_data/3/bone_index = 3
+joint_data/3/bone2d_node = NodePath("Bone2D/Bone2D/Bone2D/Bone2D")
+joint_data/3/magnet_position = Vector2(0, 0)
+joint_data/3/use_target_rotation = false
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_pnveb"]
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DFABRIK_8a6io")
+
+[sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_oofyl"]
+fabrik_data_chain_length = 4
+joint_data/0/bone_index = 0
+joint_data/0/bone2d_node = NodePath("Bone2D")
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("Bone2D/Bone2D")
+joint_data/1/magnet_position = Vector2(0, 0)
+joint_data/2/bone_index = 2
+joint_data/2/bone2d_node = NodePath("Bone2D/Bone2D/Bone2D")
+joint_data/2/magnet_position = Vector2(0, 0)
+joint_data/3/bone_index = 3
+joint_data/3/bone2d_node = NodePath("Bone2D/Bone2D/Bone2D/Bone2D")
+joint_data/3/magnet_position = Vector2(0, 0)
+joint_data/3/use_target_rotation = false
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_qrbgp"]
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DFABRIK_oofyl")
+
 [node name="FinalForest" type="Node2D" unique_id=1313295670]
 script = ExtResource("1_h88km")
 eye_direction_noise = SubResource("FastNoiseLite_h88km")
@@ -811,33 +850,33 @@ visible = false
 [node name="AnimationTree" parent="StartPortal" index="3" unique_id=1859768669]
 active = true
 
-[node name="Sprites" parent="StartPortal" index="7" unique_id=1329360371]
+[node name="Sprites" parent="StartPortal" index="8" unique_id=1329360371]
 z_index = 1
 
 [node name="Sprite2D" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.18720788)
-rotation = 830.4646
-scale = Vector2(0.7581386, 0.7581386)
+modulate = Color(1, 1, 1, 0.3680111)
+rotation = 803.0287
+scale = Vector2(0.8786741, 0.8786741)
 
 [node name="Sprite2D2" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.10001992)
-rotation = -897.2269
-scale = Vector2(0.7000133, 0.7000133)
+modulate = Color(1, 1, 1, 0.38074815)
+rotation = -932.0204
+scale = Vector2(0.8871654, 0.8871654)
 
 [node name="Sprite2D3" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.23129182)
-rotation = -371.579
-scale = Vector2(0.78752786, 0.78752786)
+modulate = Color(1, 1, 1, 0.31172997)
+rotation = -473.47308
+scale = Vector2(0.8411533, 0.8411533)
 
 [node name="Sprite2D4" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.10289242)
-rotation = -266.62726
-scale = Vector2(0.70192826, 0.70192826)
+modulate = Color(1, 1, 1, 0.14824735)
+rotation = -110.41586
+scale = Vector2(0.7321649, 0.7321649)
 
 [node name="Sprite2D5" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.101512074)
-rotation = -482.83954
-scale = Vector2(0.701008, 0.701008)
+modulate = Color(1, 1, 1, 0.39804485)
+rotation = -531.18695
+scale = Vector2(0.8986966, 0.8986966)
 
 [node name="WhiteSphere" type="Sprite2D" parent="StartPortal/Sprites/EyeBackground" parent_id_path=PackedInt32Array(276198131, 1865392681) index="0" unique_id=1269565657]
 modulate = Color(0.7666196, 0.76661956, 0.76661944, 1)
@@ -876,7 +915,7 @@ modulate = Color(0.9691369, 0.9691369, 0.9691368, 1)
 light_mask = 2
 frame_progress = 0.74198186
 
-[node name="PointLight2D" parent="StartPortal" index="8" unique_id=835684176]
+[node name="PointLight2D" parent="StartPortal" index="9" unique_id=835684176]
 color = Color(1, 1, 1, 1)
 
 [node name="Water" parent="." unique_id=1060541789 instance=ExtResource("31_o660d")]
@@ -897,25 +936,25 @@ light_mask = 4
 
 [node name="BG1" parent="Water" index="2" unique_id=1786315982]
 light_mask = 4
-offset_left = -14.255397
-offset_top = -30.172707
-offset_right = -8.923584
-offset_bottom = 821.8273
+offset_left = 189.87447
+offset_top = -36.23997
+offset_right = 195.23218
+offset_bottom = 815.76
 
 [node name="BG2" parent="Water" index="3" unique_id=1147121301]
 light_mask = 4
-offset_left = 197.88911
-offset_top = -33.065514
-offset_right = 403.62598
-offset_bottom = 1018.8029
+offset_left = 21.524979
+offset_top = -24.920273
+offset_right = 227.26172
+offset_bottom = 1026.9481
 
 [node name="BG3" parent="Water" index="4" unique_id=539485018]
 light_mask = 4
 z_index = 25
-offset_left = -179.00873
-offset_top = -23.763481
-offset_right = -55.271973
-offset_bottom = 1028.105
+offset_left = -160.91397
+offset_top = -27.09584
+offset_right = -37.177124
+offset_bottom = 1024.7726
 
 [node name="FishTerritory" type="Area2D" parent="." unique_id=1941185685]
 position = Vector2(818, 785)
@@ -926,18 +965,23 @@ shape = SubResource("RectangleShape2D_h88km")
 
 [node name="FishMonster" parent="FishTerritory" unique_id=1857891672 instance=ExtResource("26_ls0eu")]
 position = Vector2(-871, -35)
-patrol_offset = 50.0
+patrol_offset = -50.0
 jump_y_min = 700.0
 jump_y_max = 1000.0
-jump_x_min = 500.0
-jump_x_max = 600.0
+jump_x_min = 600.0
+jump_x_max = 700.0
 attack_impact = 0.0
 ragdoll_player = false
 slomo_entry = false
 
 [node name="Patrolling" parent="FishTerritory/FishMonster/StateMachine" parent_id_path=PackedInt32Array(1857891672, 336115411) index="0" unique_id=1086534189]
 move_after_ms = 20000
+move_speed = 600.0
 attack_distance = 0.0
+vertical_range = 70.0
+
+[node name="SpriteContainer" parent="FishTerritory/FishMonster" index="3" unique_id=306526739]
+scale = Vector2(0.7, 0.7)
 
 [node name="SplashParticles" parent="FishTerritory/FishMonster" index="4" unique_id=1983388862]
 visible = false
@@ -948,6 +992,7 @@ visible = false
 light_mask = 0
 
 [node name="SmallFish" parent="FishTerritory" unique_id=2013979744 instance=ExtResource("27_ffid6")]
+visible = false
 position = Vector2(-4, -63)
 patrol_offset = -45.0
 jump_y_min = 600.0
@@ -971,6 +1016,7 @@ visible = false
 light_mask = 0
 
 [node name="SmallFish2" parent="FishTerritory" unique_id=544674884 instance=ExtResource("27_ffid6")]
+visible = false
 position = Vector2(997, -68)
 patrol_offset = -45.0
 jump_y_min = 450.0
@@ -997,6 +1043,7 @@ visible = false
 light_mask = 0
 
 [node name="SmallFish3" parent="FishTerritory" unique_id=1895565948 instance=ExtResource("27_ffid6")]
+visible = false
 position = Vector2(566, -50)
 patrol_offset = -40.0
 jump_y_min = 700.0
@@ -1021,6 +1068,72 @@ light_mask = 0
 [node name="SwimParticles" parent="FishTerritory/SmallFish3" index="5" unique_id=1365990803]
 visible = false
 light_mask = 0
+
+[node name="SmallFish4" parent="FishTerritory" unique_id=640209945 instance=ExtResource("27_8a6io")]
+position = Vector2(-437.7379, 39.104126)
+patrol_offset = -45.0
+jump_y_min = 600.0
+jump_y_max = 800.0
+jump_x_min = 400.0
+jump_x_max = 600.0
+attack_impact = 0.0
+
+[node name="Patrolling" parent="FishTerritory/SmallFish4/StateMachine" parent_id_path=PackedInt32Array(640209945, 336115411) index="0" unique_id=1086534189]
+move_after_ms = 20000
+attack_distance = 0.0
+vertical_range = 50.0
+
+[node name="SplashParticles" parent="FishTerritory/SmallFish4" index="4" unique_id=1983388862]
+visible = false
+
+[node name="SwimParticles" parent="FishTerritory/SmallFish4" index="5" unique_id=875777099]
+visible = false
+
+[node name="SmallFish5" parent="FishTerritory" unique_id=753281134 instance=ExtResource("27_8a6io")]
+position = Vector2(917, -7)
+patrol_offset = -45.0
+jump_y_min = 450.0
+jump_y_max = 900.0
+jump_x_min = 450.0
+jump_x_max = 550.0
+attack_impact = 0.0
+
+[node name="Patrolling" parent="FishTerritory/SmallFish5/StateMachine" parent_id_path=PackedInt32Array(753281134, 336115411) index="0" unique_id=1086534189]
+move_after_ms = 20000
+attack_distance = 0.0
+vertical_range = 60.0
+
+[node name="Skeleton2D" parent="FishTerritory/SmallFish5/SpriteContainer" parent_id_path=PackedInt32Array(753281134, 306526739) index="1" unique_id=2112981615]
+modification_stack = SubResource("SkeletonModificationStack2D_pnveb")
+
+[node name="SplashParticles" parent="FishTerritory/SmallFish5" index="4" unique_id=1983388862]
+visible = false
+
+[node name="SwimParticles" parent="FishTerritory/SmallFish5" index="5" unique_id=875777099]
+visible = false
+
+[node name="SmallFish6" parent="FishTerritory" unique_id=1446254443 instance=ExtResource("27_8a6io")]
+position = Vector2(310, -14)
+patrol_offset = -40.0
+jump_y_min = 700.0
+jump_y_max = 950.0
+jump_x_min = 400.0
+jump_x_max = 650.0
+attack_impact = 0.0
+
+[node name="Patrolling" parent="FishTerritory/SmallFish6/StateMachine" parent_id_path=PackedInt32Array(1446254443, 336115411) index="0" unique_id=1086534189]
+move_after_ms = 20000
+attack_distance = 0.0
+vertical_range = 50.0
+
+[node name="Skeleton2D" parent="FishTerritory/SmallFish6/SpriteContainer" parent_id_path=PackedInt32Array(1446254443, 306526739) index="1" unique_id=2112981615]
+modification_stack = SubResource("SkeletonModificationStack2D_qrbgp")
+
+[node name="SplashParticles" parent="FishTerritory/SmallFish6" index="4" unique_id=1983388862]
+visible = false
+
+[node name="SwimParticles" parent="FishTerritory/SmallFish6" index="5" unique_id=875777099]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1879248246]
 visible = false
@@ -1083,3 +1196,6 @@ metadata/_custom_type_script = "uid://c8pi532nmx254"
 [editable path="FishTerritory/SmallFish"]
 [editable path="FishTerritory/SmallFish2"]
 [editable path="FishTerritory/SmallFish3"]
+[editable path="FishTerritory/SmallFish4"]
+[editable path="FishTerritory/SmallFish5"]
+[editable path="FishTerritory/SmallFish6"]
