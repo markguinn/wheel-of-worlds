@@ -60,6 +60,7 @@ func _input(event: InputEvent) -> void:
 		return
 	if raised and event.is_action_pressed("down"):
 		a.activated.emit.call_deferred(a)
+		get_viewport().set_input_as_handled()
 	if not raised and event.is_action_pressed("up"):
 		a.activated.emit.call_deferred(a)
-	get_viewport().set_input_as_handled()
+		get_viewport().set_input_as_handled()
