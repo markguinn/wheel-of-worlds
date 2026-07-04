@@ -94,11 +94,14 @@ func _input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 		elif Activator.active_candidate and not Activator.active_candidate.manually_activated:
 			Activator.active_candidate.activated.emit.call_deferred(Activator.active_candidate)
+		get_viewport().set_input_as_handled()
 	if event.is_action_pressed("ragdoll") and state_machine.get_active() != "Ragdoll":
 			state_machine.transition_by_name.call_deferred("Ragdoll")
 			get_viewport().set_input_as_handled()
 	if event.is_action_pressed("music_box"):
 		state_machine.transition_by_name("UseMusicBox")
+	if event.is_action_pressed("next_candidate") and Activator.candidates.size() > 1:
+		Activator.rotate_candidate()
 
 
 func _process(_delta: float) -> void:

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dn6gswqjkyx14"]
 
 [ext_resource type="Script" uid="uid://cbx6wlfmu87ux" path="res://props/stone/stone.gd" id="1_wqvjq"]
+[ext_resource type="Texture2D" uid="uid://c0twvbs0dtxk1" path="res://common/vfx/prop_glow.tres" id="2_32iop"]
 [ext_resource type="PackedScene" uid="uid://bw7ujmd6681ln" path="res://common/activator.tscn" id="2_wqvjq"]
 [ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://common/grab_box.gd" id="2_xndk2"]
 [ext_resource type="AudioStream" uid="uid://bggmjkip0hc6w" path="res://props/stone/stone_drop.ogg" id="4_xndk2"]
@@ -41,6 +42,21 @@ debounce_impact_ms = 250
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1803141038]
 shape = SubResource("RectangleShape2D_wqvjq")
+
+[node name="Glow" type="TextureRect" parent="." unique_id=1529587537]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_32iop")
+expand_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=842565659]
 texture = SubResource("GradientTexture2D_34n21")

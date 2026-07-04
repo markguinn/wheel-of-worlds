@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bw7ujmd6681ln" path="res://common/activator.tscn" id="2_6xxwn"]
 [ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://common/grab_box.gd" id="3_6xxwn"]
 [ext_resource type="Texture2D" uid="uid://bb38a7h3w0k2g" path="res://common/vfx/basic_light.tres" id="4_4eg2o"]
+[ext_resource type="Texture2D" uid="uid://c0twvbs0dtxk1" path="res://common/vfx/prop_glow.tres" id="4_yhnoj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ylm5t"]
 rough = true
@@ -67,8 +68,15 @@ _data = {
 &"ready": SubResource("Animation_6xxwn")
 }
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_85bnm"]
-size = Vector2(100, 10)
+[sub_resource type="Gradient" id="Gradient_4eg2o"]
+offsets = PackedFloat32Array(0.3375959, 0.4398977)
+colors = PackedColorArray(0.15667456, 0.15667456, 0.15667456, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yhnoj"]
+gradient = SubResource("Gradient_4eg2o")
+width = 250
+height = 20
+fill_to = Vector2(0, 1)
 
 [node name="Teleplate" type="RigidBody2D" unique_id=1403177829 groups=["music_box_targets"]]
 collision_layer = 4
@@ -76,6 +84,10 @@ collision_mask = 55
 physics_material_override = SubResource("PhysicsMaterial_ylm5t")
 script = ExtResource("1_tb1x0")
 metadata/_custom_type_script = "uid://d1d8irkuomsw0"
+
+[node name="Glow" type="Sprite2D" parent="." unique_id=1646166753]
+scale = Vector2(0.45, 0.08)
+texture = ExtResource("4_yhnoj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1788157113]
 shape = SubResource("RectangleShape2D_tgbn4")
@@ -105,7 +117,8 @@ libraries/ = SubResource("AnimationLibrary_4eg2o")
 autoplay = &"RESET"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=143403095]
-texture = SubResource("PlaceholderTexture2D_85bnm")
+scale = Vector2(0.4, 0.5)
+texture = SubResource("GradientTexture2D_yhnoj")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=330248526]
 light_mask = 3

@@ -10,6 +10,7 @@ signal resign_candidate(next_candidate: Activator)
 
 static var candidates: Array[Activator] = []
 static var active_candidate: Activator = null
+static var chosen_candidate: int = -1
 
 @export var enabled := true
 ## If false, the player's "interact" will activate
@@ -43,12 +44,14 @@ func _exit_tree() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		candidates.append(self)
+		chosen_candidate = -1
 		update_active_candidate()
 
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player:
 		candidates.erase(self)
+		chosen_candidate = -1
 		update_active_candidate()
 
 
@@ -84,6 +87,13 @@ static func clear_candidates() -> void:
 	candidates = []
 
 
+static func rotate_candidate() -> void:
+	if chosen_candidate < 0:
+		chosen_candidate = candidates.find(active_candidate)
+	chosen_candidate = (chosen_candidate + 1) % candidates.size()
+	set_active_candidate(candidates[chosen_candidate])
+
+
 # NOTE: the number of active candidates is always small, usually only one.
 # so we don't have to be too clever here.
 static func update_active_candidate() -> void:
@@ -95,6 +105,8 @@ static func update_active_candidate() -> void:
 	if player.is_holding_prop:
 		if active_candidate:
 			set_active_candidate(null)
+		return
+	if chosen_candidate >= 0:
 		return
 
 	var next_active: Activator = candidates[0] if candidates.size() > 0 and candidates[0].enabled else null

@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b2c4465p08yf4" path="res://props/lift/lift.tscn" id="13_jpblq"]
 
 [sub_resource type="Gradient" id="Gradient_83wlx"]
-colors = PackedColorArray(0.7919991, 0.79199916, 0.7919991, 1, 0.5951543, 0.5951542, 0.5951543, 1)
+colors = PackedColorArray(0.4411564, 0.71793133, 0.55080914, 1, 0.90658176, 0.4002967, 0.55271316, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tsxbn"]
 gradient = SubResource("Gradient_83wlx")

@@ -21,6 +21,7 @@ var ready_partners: Array[Teleplate] = []
 @onready var grab_box: GrabBox = $GrabBox
 @onready var prop_detector: Area2D = $PropDetector
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var glow: Node = $Glow
 
 
 func _ready() -> void:
@@ -33,6 +34,11 @@ func _ready() -> void:
 		if p != self:
 			p.became_ready.connect(_on_partner_ready)
 			p.became_empty.connect(_on_partner_empty)
+	glow.hide()
+	grab_box.become_candidate.connect(_on_become_active_candidate)
+	grab_box.resign_candidate.connect(_on_resign_active_candidate)
+	activator.become_candidate.connect(_on_become_active_candidate)
+	activator.resign_candidate.connect(_on_resign_active_candidate)
 
 
 func _on_prop_entered(prop: Node2D) -> void:
@@ -120,3 +126,11 @@ func _physics_process(_delta: float) -> void:
 		persisted_state_changed.emit(self)
 		last_pos = global_position
 		last_rot = global_rotation
+
+
+func _on_become_active_candidate(_prev: Activator) -> void:
+	glow.show()
+
+
+func _on_resign_active_candidate(_next: Activator) -> void:
+	glow.hide()

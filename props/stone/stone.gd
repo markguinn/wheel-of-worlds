@@ -14,7 +14,8 @@ var start_rot: float
 
 @onready var sfx_impact: AudioStreamPlayer2D #= $DropSound
 @onready var vfx_dust: CPUParticles2D #= $DustParticles
-
+@onready var glow: Node = $Glow
+@onready var grab_box: GrabBox = $GrabBox
 
 func _ready() -> void:
 	super._ready()
@@ -32,6 +33,9 @@ func _ready() -> void:
 		freeze = true
 	sfx_impact = get_node_or_null("DropSound")
 	vfx_dust = get_node_or_null("DustParticles")
+	glow.hide()
+	grab_box.become_candidate.connect(_on_become_active_candidate)
+	grab_box.resign_candidate.connect(_on_resign_active_candidate)
 
 
 func _on_impact(pos: Vector2, vel: Vector2, _obj: Node, _part) -> void:
@@ -75,3 +79,11 @@ func _physics_process(_delta: float) -> void:
 		persisted_state_changed.emit(self)
 		last_pos = global_position
 		last_rot = global_rotation
+
+
+func _on_become_active_candidate(_prev: Activator) -> void:
+	glow.show()
+
+
+func _on_resign_active_candidate(_next: Activator) -> void:
+	glow.hide()

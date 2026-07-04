@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dy8eeto3iw88" path="res://props/plank/plank.gd" id="1_vpluj"]
 [ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://common/grab_box.gd" id="2_w4302"]
 [ext_resource type="PackedScene" uid="uid://bw7ujmd6681ln" path="res://common/activator.tscn" id="3_eqyr0"]
+[ext_resource type="Texture2D" uid="uid://c0twvbs0dtxk1" path="res://common/vfx/prop_glow.tres" id="3_s74ur"]
 [ext_resource type="PackedScene" uid="uid://y7c5vk1033l6" path="res://common/vfx/dust_particles.tscn" id="4_jou1n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jou1n"]
@@ -71,6 +72,18 @@ target_position = Vector2(8, 0)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite" unique_id=1914264648]
 occluder = SubResource("OccluderPolygon2D_w4302")
+
+[node name="Glow" type="TextureRect" parent="Sprite" unique_id=1563404144]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -15.0
+offset_right = 255.0
+offset_bottom = 15.0
+grow_vertical = 2
+texture = ExtResource("3_s74ur")
+expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="Sprite" unique_id=698020548]
 anchors_preset = 4

@@ -24,16 +24,23 @@ var resting_point: Node2D = null
 @onready var vfx_dust: CPUParticles2D = $DustParticles
 @onready var wall_detector: RayCast2D = $WallDetector
 @onready var floor_detector: RayCast2D = $FloorDetector
+@onready var glow: Node = $Sprite/Glow
+
 
 func _ready() -> void:
 	super._ready()
 	start_pos = global_position
 	start_rot = global_rotation
+	glow.hide()
 	impact.connect(_on_impact)
 	grab_box_l.picked_up.connect(_on_left_pickup)
 	grab_box_l.put_down.connect(_on_put_down)
+	grab_box_l.become_candidate.connect(_on_become_active_candidate)
+	grab_box_l.resign_candidate.connect(_on_resign_active_candidate)
 	grab_box_r.picked_up.connect(_on_right_pickup)
 	grab_box_r.put_down.connect(_on_put_down)
+	grab_box_r.become_candidate.connect(_on_become_active_candidate)
+	grab_box_r.resign_candidate.connect(_on_resign_active_candidate)
 	shape.disabled = false
 	shape2.disabled = true
 	joint.node_a = ""
@@ -140,3 +147,11 @@ func _physics_process(_delta: float) -> void:
 			var ang := holding_point.global_position.angle_to_point(resting_point.global_position)
 			set_next_global_position(holding_point.global_position)
 			set_next_global_rotation(ang)
+
+
+func _on_become_active_candidate(_prev: Activator) -> void:
+	glow.show()
+
+
+func _on_resign_active_candidate(_next: Activator) -> void:
+	glow.hide()

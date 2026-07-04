@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cbx6wlfmu87ux" path="res://props/stone/stone.gd" id="1_cki8f"]
 [ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://common/grab_box.gd" id="2_34n21"]
+[ext_resource type="Texture2D" uid="uid://c0twvbs0dtxk1" path="res://common/vfx/prop_glow.tres" id="2_a1mpv"]
 [ext_resource type="PackedScene" uid="uid://bw7ujmd6681ln" path="res://common/activator.tscn" id="2_owgpg"]
 [ext_resource type="AudioStream" uid="uid://bggmjkip0hc6w" path="res://props/stone/stone_drop.ogg" id="4_r17fn"]
 
@@ -34,6 +35,11 @@ shape = SubResource("ConvexPolygonShape2D_6iym6")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=842565659]
 visible = false
 texture = SubResource("GradientTexture2D_34n21")
+
+[node name="Glow" type="Polygon2D" parent="." unique_id=92417479]
+texture = ExtResource("2_a1mpv")
+polygon = PackedVector2Array(-44, 37, 0, -40, 44, 37)
+uv = PackedVector2Array(0, 256, 0, 0, 255.99998, 256)
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=50576003]
 color = Color(0.04755766, 0.047557645, 0.047557645, 1)

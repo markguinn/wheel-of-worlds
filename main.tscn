@@ -36,7 +36,7 @@ offset_bottom = 42.0
 grow_horizontal = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_h2yge")
 text = "
-Z for music box    |    X to interact    |    C to ragdoll    |    Esc/P to pause
+Z for music box    |    X to interact    |    C to ragdoll    |    Esc/P to pause    |    Tab to switch objects
 "
 horizontal_alignment = 1
 

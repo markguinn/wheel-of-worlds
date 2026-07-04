@@ -20,6 +20,8 @@ var start_light_energy: float
 @onready var sfx_impact: AudioStreamPlayer2D = $ImpactSFX
 @onready var vfx_dust: CPUParticles2D = $DustParticles
 @onready var light: PointLight2D = $PointLight2D
+@onready var glow: Node = $Glow
+@onready var grab_box: GrabBox = $GrabBox
 
 func _ready() -> void:
 	super._ready()
@@ -27,7 +29,10 @@ func _ready() -> void:
 	start_rot = global_rotation
 	start_light_energy = light.energy
 	start_light_scale = light.texture_scale
-	
+	glow.hide()
+	grab_box.become_candidate.connect(_on_become_active_candidate)
+	grab_box.resign_candidate.connect(_on_resign_active_candidate)
+
 	hp = starting_hp
 	if fixed:
 		$GrabBox.enabled = false
@@ -97,3 +102,11 @@ func _physics_process(_delta: float) -> void:
 		persisted_state_changed.emit(self)
 		last_pos = global_position
 		last_rot = global_rotation
+
+
+func _on_become_active_candidate(_prev: Activator) -> void:
+	glow.show()
+
+
+func _on_resign_active_candidate(_next: Activator) -> void:
+	glow.hide()

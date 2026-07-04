@@ -13,14 +13,17 @@ func _entered(_from_state: StateNode) -> void:
 		player.did_pick_up.connect(_on_picked_up)
 		player.did_put_down.connect(_on_put_down)
 
+
 func _before_exit(_to_state: StateNode) -> void:
 	GameManager.hide_hud()
 	if player.did_pick_up.is_connected(_on_picked_up):
 		player.did_pick_up.disconnect(_on_picked_up)
 		player.did_put_down.disconnect(_on_put_down)
 
+
 func _on_picked_up(_node: Node2D) -> void:
 	player.anim_player.play("idle_carry")
+
 
 func _on_put_down(_node: Node2D) -> void:
 	player.anim_player.play("idle", 0.4)

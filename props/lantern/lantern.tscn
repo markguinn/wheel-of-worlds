@@ -49,6 +49,11 @@ label_text = "Press X to pick up!"
 [node name="ImpactSFX" type="AudioStreamPlayer2D" parent="." unique_id=1966220360]
 position = Vector2(127, -1)
 
+[node name="Glow" type="Polygon2D" parent="." unique_id=1572139151]
+color = Color(0.12041845, 0.12041845, 0.12041845, 1)
+polygon = PackedVector2Array(-11, -30, -4, -39, 7, -39, 14, -31, 18, -15, 15, 7, 18, 14, 19, 28, 16, 37, 0, 38, -16, 36, -19, 29, -18, 15, -15, 8, -16, -15)
+uv = PackedVector2Array(40, 0, 184, 0, 256, 0, 256, 24.000008, 256, 64.00001, 256, 168, 256, 192, 256, 224, 256, 256, 128.00002, 256, 0, 256, 0, 200, 0, 144, 0, 72, 0, 16)
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1904787679]
 modulate = Color(0.69965345, 0.69965345, 0.69965345, 1)
 z_index = 1
@@ -63,8 +68,8 @@ scale_amount_max = 50.0
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=133246274]
 light_mask = 0
+position = Vector2(-2, -1)
 color = Color(1, 1, 0.84313726, 1)
-energy = 2.0
 range_item_cull_mask = 3
 shadow_enabled = true
 shadow_item_cull_mask = 3
