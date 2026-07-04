@@ -31,7 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://cu4l0skawwtuf" path="res://stages/forest/prefabs/climbable_tree_3.tscn" id="29_e5fpa"]
 [ext_resource type="PackedScene" uid="uid://3blkd8ecbtig" path="res://stages/forest/prefabs/climbable_tree_4.tscn" id="30_e5fpa"]
 [ext_resource type="PackedScene" uid="uid://b2c4465p08yf4" path="res://props/lift/lift.tscn" id="31_y42hd"]
-[ext_resource type="PackedScene" uid="uid://3bml3wbyjvgg" path="res://actors/fish_monster/small_fish.tscn" id="32_kowcg"]
+[ext_resource type="PackedScene" uid="uid://3bml3wbyjvgg" path="res://actors/fish_monster/small_fish_old.tscn" id="32_kowcg"]
 [ext_resource type="PackedScene" uid="uid://bk140x3miwcrc" path="res://stages/forest/prefabs/forest_water.tscn" id="33_xon5m"]
 [ext_resource type="PackedScene" uid="uid://bbq81ngylpi8h" path="res://actors/shadow_monster/shadow_monster.tscn" id="34_sue17"]
 [ext_resource type="PackedScene" uid="uid://cunmpxd2cde4q" path="res://stages/forest/prefabs/climbable_tree_1.tscn" id="35_kykxy"]
@@ -791,7 +791,7 @@ collision_layer = 0
 collision_mask = 0
 fixed = true
 
-[node name="PointLight2D" parent="CavernArea/FixedLantern1" index="5" unique_id=133246274]
+[node name="PointLight2D" parent="CavernArea/FixedLantern1" index="6" unique_id=133246274]
 texture_scale = 2.5
 
 [node name="FixedLantern2" parent="CavernArea" unique_id=268454633 instance=ExtResource("23_7wk6t")]
@@ -800,7 +800,7 @@ collision_layer = 0
 collision_mask = 0
 fixed = true
 
-[node name="PointLight2D" parent="CavernArea/FixedLantern2" index="5" unique_id=133246274]
+[node name="PointLight2D" parent="CavernArea/FixedLantern2" index="6" unique_id=133246274]
 texture_scale = 2.5
 
 [node name="FixedLantern3" parent="CavernArea" unique_id=2006822580 instance=ExtResource("23_7wk6t")]
@@ -809,7 +809,7 @@ collision_layer = 0
 collision_mask = 0
 fixed = true
 
-[node name="PointLight2D" parent="CavernArea/FixedLantern3" index="5" unique_id=133246274]
+[node name="PointLight2D" parent="CavernArea/FixedLantern3" index="6" unique_id=133246274]
 texture_scale = 2.5
 
 [node name="FixedLantern4" parent="CavernArea" unique_id=1575287355 instance=ExtResource("23_7wk6t")]
@@ -818,7 +818,7 @@ collision_layer = 0
 collision_mask = 0
 fixed = true
 
-[node name="PointLight2D" parent="CavernArea/FixedLantern4" index="5" unique_id=133246274]
+[node name="PointLight2D" parent="CavernArea/FixedLantern4" index="6" unique_id=133246274]
 texture_scale = 2.5
 
 [node name="MushroomPlatform" parent="CavernArea" unique_id=1534789953 instance=ExtResource("24_otepg")]
@@ -1010,7 +1010,7 @@ collision_layer = 0
 collision_mask = 0
 fixed = true
 
-[node name="PointLight2D" parent="Puzzle2/CavernArea/FixedLantern1" index="5" unique_id=133246274]
+[node name="PointLight2D" parent="Puzzle2/CavernArea/FixedLantern1" index="6" unique_id=133246274]
 texture_scale = 2.5
 
 [node name="FixedLantern3" parent="Puzzle2/CavernArea" unique_id=1773848900 instance=ExtResource("23_7wk6t")]
@@ -1019,7 +1019,7 @@ collision_layer = 0
 collision_mask = 0
 fixed = true
 
-[node name="PointLight2D" parent="Puzzle2/CavernArea/FixedLantern3" index="5" unique_id=133246274]
+[node name="PointLight2D" parent="Puzzle2/CavernArea/FixedLantern3" index="6" unique_id=133246274]
 texture_scale = 2.5
 
 [node name="ClimbableTree" parent="Puzzle2" unique_id=124574008 instance=ExtResource("35_kykxy")]

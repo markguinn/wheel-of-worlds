@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dkqotn282b1im" path="res://actors/portal/portal.tscn" id="17_26pv4"]
 [ext_resource type="Script" uid="uid://bbb2phdibbqcc" path="res://common/kill_zone.gd" id="17_am4y6"]
 [ext_resource type="Script" uid="uid://dj363jf40q41h" path="res://common/cavern_area.gd" id="17_y0ayx"]
-[ext_resource type="PackedScene" uid="uid://3bml3wbyjvgg" path="res://actors/fish_monster/small_fish.tscn" id="17_ym7ew"]
+[ext_resource type="PackedScene" uid="uid://3bml3wbyjvgg" path="res://actors/fish_monster/small_fish_old.tscn" id="17_ym7ew"]
 [ext_resource type="PackedScene" uid="uid://cpmxxndn8n308" path="res://props/plank/plank.tscn" id="18_v0yp0"]
 [ext_resource type="PackedScene" uid="uid://bacx53cmt8t6y" path="res://props/plank/big_plank.tscn" id="19_wa7km"]
 [ext_resource type="Texture2D" uid="uid://bb38a7h3w0k2g" path="res://common/vfx/basic_light.tres" id="21_oroxn"]

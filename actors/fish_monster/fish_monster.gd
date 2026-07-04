@@ -49,6 +49,7 @@ var bone_idx: Array[int] = [0, 0, 0, 0]
 var bone_len: Array[float] = []
 
 var splash_idx := 0
+var polygon_r: Polygon2D
 
 @onready var hit_box: Area2D = $HitBox
 @onready var splash_particles: CPUParticles2D = $SplashParticles
@@ -56,7 +57,6 @@ var splash_idx := 0
 @onready var sprite: Node2D = $SpriteContainer
 @onready var main_shape: CollisionShape2D = $CollisionShape2D
 @onready var polygon_l: Polygon2D = $SpriteContainer/PolygonL
-@onready var polygon_r: Polygon2D = $SpriteContainer/PolygonR
 @onready var bones: Array[Bone2D] = [
 	$SpriteContainer/Skeleton2D/Bone2D,
 	$SpriteContainer/Skeleton2D/Bone2D/Bone2D,
@@ -96,6 +96,12 @@ func _ready() -> void:
 	#print(polygon_r.polygon)
 	#print(polygon_r.uv)
 	#print(pointz)
+	polygon_r = polygon_l.duplicate(DUPLICATE_USE_INSTANTIATION)
+	var flipped_poly = []
+	for p in polygon_r.polygon:
+		flipped_poly.append(Vector2(p.x, 532.0 - p.y))
+	polygon_r.set_polygon(PackedVector2Array(flipped_poly))
+	polygon_l.add_sibling(polygon_r)
 
 	# initialize the length of the buffer once
 	for i in range(BUFFER_POINTS):
