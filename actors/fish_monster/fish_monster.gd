@@ -66,12 +66,13 @@ var splash_idx := 0
 
 
 func _ready() -> void:
-	if not territory:
+	if not territory and get_parent() is Area2D:
 		territory = get_parent()
-	for node in territory.get_children():
-		if node is CollisionShape2D:
-			territory_rect = node.shape.get_rect()
-			territory_rect.position = node.to_global(territory_rect.position)
+	if territory:
+		for node in territory.get_children():
+			if node is CollisionShape2D:
+				territory_rect = node.shape.get_rect()
+				territory_rect.position = node.to_global(territory_rect.position)
 	if not territory_rect:
 		Log.warn(self, self.get_path(), "no territory rect found. This node should be the child of an Area2d")
 
@@ -85,10 +86,16 @@ func _ready() -> void:
 	# the second polygon is the same image flipped _vertically_ (weird, I know). It works
 	# that way because the bones don't change direction. Creating by hand may not be possible
 	# though because of the orientation of the rest position of the underlying bones.
+	var pointz = []
 	for p in polygon_r.polygon:
-		p.y = 700.0 - p.y
+		p.y = 532.0 - p.y
+		pointz.append(p.x)
+		pointz.append(p.y)
 	for p in polygon_r.uv:
-		p.y = 700.0 - p.y
+		p.y = 532.0 - p.y
+	#print(polygon_r.polygon)
+	#print(polygon_r.uv)
+	print(pointz)
 
 	# initialize the length of the buffer once
 	for i in range(BUFFER_POINTS):
