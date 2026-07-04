@@ -423,7 +423,7 @@ size = Vector2(772, 557)
 [node name="Forest2" type="Node2D" unique_id=1313295670]
 script = ExtResource("1_mgqfi")
 bloom = 0.6
-contrast = 1.5
+contrast = 1.4
 metadata/_edit_vertical_guides_ = [-4990.0, 8997.0]
 metadata/_edit_horizontal_guides_ = [-4121.0, 1997.0]
 
@@ -756,7 +756,7 @@ position = Vector2(890, 445)
 [node name="CavernArea" type="Area2D" parent="." unique_id=528772286]
 position = Vector2(-3392, 198)
 script = ExtResource("19_g1pkn")
-light_color = Color(0.38270608, 0.4237475, 0.36224672, 1)
+light_color = Color(0.5114928, 0.55633324, 0.48471975, 1)
 metadata/_custom_type_script = "uid://dj363jf40q41h"
 
 [node name="Orb2" parent="CavernArea" unique_id=1624977266 instance=ExtResource("17_3xp4m")]
@@ -984,7 +984,7 @@ position = Vector2(8943, -61)
 collision_layer = 0
 collision_mask = 6
 script = ExtResource("19_g1pkn")
-light_color = Color(0.28059623, 0.30775437, 0.2697391, 1)
+light_color = Color(0.37721288, 0.4059283, 0.36287257, 1)
 metadata/_custom_type_script = "uid://dj363jf40q41h"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzle2/CavernArea" unique_id=2007804849]

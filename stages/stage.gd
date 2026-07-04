@@ -14,6 +14,7 @@ const OFFSET_FROM_PORTAL = Vector2(-128, 0)
 @export var contrast := 1.0
 @export var saturation := 1.0
 
+
 func _ready() -> void:
 	AudioManager.reset_music()
 	GameManager.is_in_game = true
@@ -27,7 +28,10 @@ func init_with_state(_persisted_state: Dictionary, params: Dictionary) -> void:
 		for portal in get_tree().get_nodes_in_group("portals"):
 			if portal.portal_name == target_portal and self.is_ancestor_of(portal):
 				Log.debug(self, "found target at ", portal.global_position)
-				GameManager.get_player().global_position = portal.global_position + OFFSET_FROM_PORTAL
+				var player: Player = GameManager.get_player()
+				if player:
+					player.global_position = portal.global_position + OFFSET_FROM_PORTAL
+					player.start_pos = player.global_position
 				# this allows individual stages to add their own initialization
 				# this may only be needed in the wheel (which adjusts its rotation to the players position)
 				if self.has_method("init_player_at_portal"):

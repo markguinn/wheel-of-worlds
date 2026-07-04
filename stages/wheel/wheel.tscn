@@ -113,6 +113,7 @@ scale = Vector2(-0.4, 0.4)
 portal_name = "ww-forest1"
 linked_stage = "uid://djnwseb73emx0"
 target_portal = "forest1-start"
+activator_text = "Birdsong and the smell of berries..."
 
 [node name="Orb2" parent="WheelTiles/Forest1 Portal" unique_id=1938641029 instance=ExtResource("3_qmu1q")]
 visible = false
@@ -131,6 +132,7 @@ scale = Vector2(-0.4, 0.4)
 portal_name = "ww-forest2"
 linked_stage = "uid://bdtjgqgcd0tqf"
 target_portal = "forest2-start2"
+activator_text = "A feeling of cavernous darkness..."
 
 [node name="Orb2" parent="WheelTiles/Forest2 Portal" unique_id=519146708 instance=ExtResource("3_qmu1q")]
 visible = false
