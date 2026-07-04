@@ -43,7 +43,7 @@ func toggle_raised() -> void:
 
 func _update_activators() -> void:
 	activator.enabled = true
-	activator2.enabled = !raised
+	activator2.enabled = raised
 	var txt := "Press DOWN/S to lower..." if raised else "Press UP/W to raise..."
 	activator.label.text = txt
 	activator2.label.text = txt
