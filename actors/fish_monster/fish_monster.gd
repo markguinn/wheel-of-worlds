@@ -86,16 +86,16 @@ func _ready() -> void:
 	# the second polygon is the same image flipped _vertically_ (weird, I know). It works
 	# that way because the bones don't change direction. Creating by hand may not be possible
 	# though because of the orientation of the rest position of the underlying bones.
-	var pointz = []
-	for p in polygon_r.polygon:
-		p.y = 532.0 - p.y
-		pointz.append(p.x)
-		pointz.append(p.y)
-	for p in polygon_r.uv:
-		p.y = 532.0 - p.y
+	#var pointz = []
+	#for p in polygon_r.polygon:
+		#p.y = 532.0 - p.y
+		#pointz.append(p.x)
+		#pointz.append(p.y)
+	#for p in polygon_r.uv:
+		#p.y = 532.0 - p.y
 	#print(polygon_r.polygon)
 	#print(polygon_r.uv)
-	print(pointz)
+	#print(pointz)
 
 	# initialize the length of the buffer once
 	for i in range(BUFFER_POINTS):
@@ -105,26 +105,31 @@ func _ready() -> void:
 		bone_len.append(b.get_length() * b.global_scale.x)
 
 
+const DIRS = [PI / 4.0, PI / -4.0]
 func _on_body_entered(body: Node) -> void:
-	Log.debug(self, "contact with ", body.name)
+	if GameManager.rate_limit(500, "fish_bounce"):
+		return
+	var bounce_dir: float = DIRS[randi_range(0, 1)]
+	var new_dir: Vector2 = linear_velocity.rotated(bounce_dir)
+	Log.debug(self, "contact with ", body.name, new_dir, bounce_dir)
 	if body is Stone:
 		VFX.shake(VFX.SHORT, VFX.QUAKE)
-		apply_impulse(-linear_velocity * 2)
+		apply_impulse(-new_dir * 2)
 	elif body is Player and body.state_machine.get_active() != "Ragdoll":
 		VFX.shake(VFX.MID, VFX.QUAKE)
 		body.velocity = linear_velocity * attack_impact
 		if ragdoll_player:
 			body.state_machine.transition_by_name.call_deferred("Ragdoll")
-		apply_impulse(-linear_velocity * 1.5)
+		apply_impulse(-new_dir * 1.5)
 	elif body is Plank or body is Teleplate:
 		body.apply_impulse(linear_velocity * attack_impact * 0.4)
-		apply_impulse(-linear_velocity * 1.5)
+		apply_impulse(-new_dir * 1.5)
 	elif body is Teleplate:
 		body.apply_impulse(linear_velocity * attack_impact)
-		apply_impulse(-linear_velocity * 1.5)
+		apply_impulse(-new_dir * 1.5)
 	elif body is Orb:
 		body.apply_impulse(linear_velocity * attack_impact * 0.005)
-		apply_impulse(-linear_velocity * 1.5)
+		apply_impulse(-new_dir * 1.5)
 
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
