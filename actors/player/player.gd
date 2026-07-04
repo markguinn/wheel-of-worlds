@@ -92,7 +92,7 @@ func _input(event: InputEvent) -> void:
 		if is_holding_prop:
 			put_down_prop.call_deferred()
 			get_viewport().set_input_as_handled()
-		elif Activator.active_candidate:
+		elif Activator.active_candidate and not Activator.active_candidate.manually_activated:
 			Activator.active_candidate.activated.emit.call_deferred(Activator.active_candidate)
 	if event.is_action_pressed("ragdoll") and state_machine.get_active() != "Ragdoll":
 			state_machine.transition_by_name.call_deferred("Ragdoll")
@@ -137,7 +137,7 @@ func finish_pickup() -> void:
 	is_holding_prop = active_grab_box.target_node
 	active_grab_box.picked_up.emit(holding_hand)
 	did_pick_up.emit(active_grab_box.target_node)
-	Activator.clear_candidates()
+	Activator.update_active_candidate()
 
 
 func put_down_prop() -> void:

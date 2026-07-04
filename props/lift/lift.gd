@@ -15,6 +15,7 @@ func _ready() -> void:
 	activator.activated.connect(_on_activated)
 	activator2.activated.connect(_on_activated)
 	activator2.enabled = false
+	_update_activators.call_deferred()
 
 
 func _on_activated(_source: Activator) -> void:
@@ -22,16 +23,42 @@ func _on_activated(_source: Activator) -> void:
 
 
 func toggle_raised() -> void:
-	if not tween:
-		tween = create_tween()
-		tween.set_ease(Tween.EASE_IN_OUT)
-		tween.set_trans(Tween.TRANS_QUAD)
-		if raised:
-			activator2.enabled = false
-			tween.tween_property(platform, "position", Vector2.ZERO, seconds_to_raise)
-		else:
-			activator2.enabled = true
-			tween.tween_property(platform, "position", Vector2(0.0, -height), seconds_to_raise)
-		raised = not raised
-		await tween.finished
-		tween = null
+	if tween:
+		return
+	tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_QUAD)
+	activator.enabled = false
+	activator2.enabled = false
+	Activator.update_active_candidate()
+	if raised:
+		tween.tween_property(platform, "position", Vector2.ZERO, seconds_to_raise)
+	else:
+		tween.tween_property(platform, "position", Vector2(0.0, -height), seconds_to_raise)
+	raised = not raised
+	await tween.finished
+	tween = null
+	_update_activators()
+
+
+func _update_activators() -> void:
+	activator.enabled = true
+	activator2.enabled = !raised
+	var txt := "Press DOWN/S to lower..." if raised else "Press UP/W to raise..."
+	activator.label.text = txt
+	activator2.label.text = txt
+	Activator.update_active_candidate()
+
+
+func _input(event: InputEvent) -> void:
+	var a: Activator
+	if activator.enabled and activator in Activator.candidates:
+		a = activator
+	elif activator2.enabled and activator2 in Activator.candidates:
+		a = activator2
+	else:
+		return
+	if raised and event.is_action_pressed("down"):
+		a.activated.emit.call_deferred(a)
+	if not raised and event.is_action_pressed("up"):
+		a.activated.emit.call_deferred(a)

@@ -10,6 +10,12 @@ script = ExtResource("1_bhsea")
 collision_layer = 4
 
 [node name="Activator2" parent="Base" unique_id=1410287907 instance=ExtResource("1_craks")]
+manually_activated = true
+candidate_priority = 5
+
+[node name="Label" parent="Base/Activator2" index="1" unique_id=1100468939]
+offset_top = -300.0
+offset_bottom = -258.0
 
 [node name="Polygon2D" type="Polygon2D" parent="Base" unique_id=1143860453]
 color = Color(0, 0, 0, 1)
@@ -23,6 +29,12 @@ collision_layer = 4
 collision_mask = 27
 
 [node name="Activator" parent="Platform" unique_id=2065890854 instance=ExtResource("1_craks")]
+manually_activated = true
+candidate_priority = 5
+
+[node name="Label" parent="Platform/Activator" index="1" unique_id=1100468939]
+offset_top = -300.0
+offset_bottom = -258.0
 
 [node name="Polygon2D" type="Polygon2D" parent="Platform" unique_id=531429209]
 color = Color(0, 0, 0, 1)
@@ -30,3 +42,6 @@ polygon = PackedVector2Array(-100, 0, -150, -50, 0, -25, 150, -50, 100, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform" unique_id=324174884]
 polygon = PackedVector2Array(-100, 0, -150, -50, 0, -25, 150, -50, 100, 0)
+
+[editable path="Base/Activator2"]
+[editable path="Platform/Activator"]

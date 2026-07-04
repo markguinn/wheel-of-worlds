@@ -1,7 +1,7 @@
 class_name PlayerIdleState
 extends PlayerState
 
-const HUD_MS = 5000
+const HUD_MS = 8000
 
 
 func _entered(_from_state: StateNode) -> void:

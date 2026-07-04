@@ -12,7 +12,13 @@ static var candidates: Array[Activator] = []
 static var active_candidate: Activator = null
 
 @export var enabled := true
+## If false, the player's "interact" will activate
+## If ture, something else in the scene will
+@export var manually_activated := false
+## Only set if you need to override the default
 @export var label_text := ""
+## Higher priorities will always take the active candidate if preset
+@export var candidate_priority := 10
 
 @onready var label: Label = $Label
 
@@ -54,6 +60,10 @@ func _resign_active_candidate(_next: Activator) -> void:
 	label.hide()
 
 
+func is_active_candidate() -> bool:
+	return active_candidate == self
+
+
 static func get_active_candidate() -> Activator:
 	return active_candidate
 
@@ -83,16 +93,20 @@ static func update_active_candidate() -> void:
 			set_active_candidate(null)
 		return
 	if player.is_holding_prop:
-		clear_candidates()
+		if active_candidate:
+			set_active_candidate(null)
 		return
 
 	var next_active: Activator = candidates[0] if candidates.size() > 0 and candidates[0].enabled else null
 	if candidates.size() > 1:
 		var min_dist: float = 1_000_000.0
+		var max_pri := 0
 		for obj in candidates:
 			var my_dist = obj.global_position.distance_squared_to(player.global_position)
-			if obj.enabled and my_dist < min_dist:
+			if obj.enabled and my_dist < min_dist and obj.candidate_priority >= max_pri:
 				next_active = obj
+				max_pri = obj.candidate_priority
+				min_dist = my_dist
 
 	if active_candidate != next_active:
 		set_active_candidate(next_active)
