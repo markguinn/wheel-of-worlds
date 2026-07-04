@@ -830,8 +830,9 @@ position = Vector2(1904, -341)
 [node name="MushroomPlatform3" parent="CavernArea" unique_id=2097879540 instance=ExtResource("24_otepg")]
 position = Vector2(1396, -192)
 
-[node name="Teleplate_PairA1" parent="CavernArea" unique_id=1403177829 instance=ExtResource("21_kpglx")]
+[node name="Teleplate_PairA1" parent="CavernArea" unique_id=1403177829 node_paths=PackedStringArray("linked_plates") instance=ExtResource("21_kpglx")]
 position = Vector2(-37, 232)
+linked_plates = [NodePath("../../Puzzle2/Teleplate_PairA2")]
 
 [node name="Teleplate_PairB1" parent="CavernArea" unique_id=1370265316 node_paths=PackedStringArray("linked_plates") instance=ExtResource("21_kpglx")]
 position = Vector2(2537, 273)
@@ -903,13 +904,13 @@ position = Vector2(-16.5, 70.5)
 shape = SubResource("RectangleShape2D_p63l4")
 debug_color = Color(0, 0.59607846, 0.7019608, 0.0627451)
 
-[node name="Teleplate" parent="Puzzle1" unique_id=259328010 node_paths=PackedStringArray("linked_plates") instance=ExtResource("21_kpglx")]
+[node name="Teleplate_PairC1" parent="Puzzle1" unique_id=259328010 node_paths=PackedStringArray("linked_plates") instance=ExtResource("21_kpglx")]
 position = Vector2(1902, 1175)
-linked_plates = [NodePath("../Teleplate2")]
+linked_plates = [NodePath("../Teleplate_PairC2")]
 
-[node name="Teleplate2" parent="Puzzle1" unique_id=1889383200 node_paths=PackedStringArray("linked_plates") instance=ExtResource("21_kpglx")]
+[node name="Teleplate_PairC2" parent="Puzzle1" unique_id=1889383200 node_paths=PackedStringArray("linked_plates") instance=ExtResource("21_kpglx")]
 position = Vector2(2501, 628)
-linked_plates = [NodePath("../Teleplate")]
+linked_plates = [NodePath("../Teleplate_PairC1")]
 
 [node name="ClimbableTree" parent="Puzzle1" unique_id=610288396 instance=ExtResource("27_p63l4")]
 position = Vector2(2831, 517)
@@ -934,7 +935,7 @@ autowrap_mode = 3
 [node name="EndPortal2" parent="." unique_id=2106314658 instance=ExtResource("29_5avfb")]
 position = Vector2(8531, -694)
 portal_name = "forest2-end1"
-linked_stage = "uid://x08jlrrsi88x"
+linked_stage = "uid://djnwseb73emx0"
 target_portal = "forest1-switchback"
 
 [node name="Puzzle2" type="Node2D" parent="." unique_id=3515964]
@@ -1049,8 +1050,9 @@ collision_mask = 63
 position = Vector2(5962, 491)
 collision_mask = 63
 
-[node name="Teleplate_PairA2" parent="Puzzle2" unique_id=157711104 instance=ExtResource("21_kpglx")]
+[node name="Teleplate_PairA2" parent="Puzzle2" unique_id=157711104 node_paths=PackedStringArray("linked_plates") instance=ExtResource("21_kpglx")]
 position = Vector2(9467, -523)
+linked_plates = [NodePath("../../CavernArea/Teleplate_PairA1")]
 
 [node name="Plank4" parent="Puzzle2" unique_id=1197892591 instance=ExtResource("18_kuygk")]
 position = Vector2(9648, -525.9999)
