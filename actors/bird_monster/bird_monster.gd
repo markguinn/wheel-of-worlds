@@ -40,7 +40,7 @@ extends Node2D
 var carried_obj: GrabBox = null
 var recently_carried: Array[GrabBox] = []
 
-@onready var tail_target: RigidBody2D = $TailTarget
+@onready var tail_target: MoveableRigidBody2D = $TailTarget
 @onready var tail_joint: PinJoint2D = %TailJoint
 @onready var skeleton: Skeleton2D = %Skeleton2D
 @onready var front_foot: Bone2D = %FrontFoot
@@ -48,7 +48,11 @@ var recently_carried: Array[GrabBox] = []
 @onready var head: Bone2D = %Head
 @onready var sprite: Node2D = $Sprite
 @onready var tail_anchor: StaticBody2D = %TailAnchor
-
+@onready var tail_nodes: Array[Bone2D] = [
+	$Sprite/Skeleton2D/Controller/Tail,
+	$Sprite/Skeleton2D/Controller/Tail/Tail2,
+	$Sprite/Skeleton2D/Controller/Tail/Tail2/Tail3,
+]
 
 func _ready() -> void:
 	_setup_tail.call_deferred()

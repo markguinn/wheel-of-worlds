@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://du42e86rurhbw" path="res://actors/bird_monster/art/bird_body.png" id="11_rssx8"]
 [ext_resource type="Texture2D" uid="uid://dgnphowrdd4nv" path="res://actors/bird_monster/art/bird_foot.png" id="12_3paxl"]
 [ext_resource type="Texture2D" uid="uid://cq06wse0uxlxw" path="res://actors/bird_monster/art/bird_wing.png" id="13_whj6i"]
+[ext_resource type="Script" uid="uid://d1d8irkuomsw0" path="res://common/moveable_rigid_body.gd" id="14_whj6i"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jvu33"]
 size = Vector2(334, 132)
@@ -304,7 +305,6 @@ rotation = 3.1415925
 scale = Vector2(1, -1)
 node_a = NodePath("../TailAnchor")
 node_b = NodePath("../TailTarget")
-angular_limit_enabled = true
 angular_limit_upper = 3.1415927
 
 [node name="TailAnchor" type="StaticBody2D" parent="." unique_id=512485087]
@@ -443,10 +443,12 @@ polygons = [PackedInt32Array(28, 6, 5, 4, 3, 23), PackedInt32Array(23, 2, 3), Pa
 bones = ["Controller", PackedFloat32Array(0, 0, 0, 0, 0, 0.5, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/BackLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/BackLeg/BackFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/FrontLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/FrontLeg/FrontFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/Tail", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/Tail/Tail2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/Tail/Tail2/Tail3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/BackWing", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/FrontWing", PackedFloat32Array(1, 1, 1, 1, 1, 0.5, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 1, 1, 1, 1, 1, 0.5, 1, 1, 1)]
 internal_vertex_count = 16
 
-[node name="TailTarget" type="RigidBody2D" parent="." unique_id=204938659]
+[node name="TailTarget" type="RigidBody2D" parent="." unique_id=260394225]
 position = Vector2(-273, 91)
 collision_layer = 0
 collision_mask = 0
+script = ExtResource("14_whj6i")
+metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TailTarget" unique_id=1499084183]
 shape = SubResource("CircleShape2D_whj6i")
