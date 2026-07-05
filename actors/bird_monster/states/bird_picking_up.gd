@@ -17,10 +17,12 @@ func _entered(_from: StateNode) -> void:
 	_pick_destination()
 	ff_pos = bird.front_foot.position
 	bf_pos = bird.back_foot.position
+	bird.front_foot.scale = Vector2.ONE * 0.8
 
 
 func _before_exit(_to: StateNode) -> void:
 	bird.front_foot.position = ff_pos
+	bird.front_foot.scale = Vector2.ONE
 	bird.back_foot.position = bf_pos
 
 

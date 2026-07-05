@@ -57,3 +57,15 @@ func _process(delta: float) -> void:
 			bird.carried_obj = null
 
 	bird.global_position = bird.global_position.move_toward(destination, bird.fly_speed * delta)
+	
+	var facing: float = -1.0 if destination.x < bird.global_position.x else 1.0
+	if facing != bird.sprite.scale.x and not GameManager.rate_limit(500, "bird_flip"):
+		bird.sprite.scale.x = facing
+		bird.tail_anchor.position.x = -absf(bird.tail_anchor.position.x) * facing
+
+	#var looking: float = bird.global_position.angle_to_point(destination)
+	#if facing < 0.0:
+		#looking -= PI
+	##else:
+		##looking -= PI * 0.2 # account for the beak angling down
+	#bird.head.rotation = looking # clampf(looking, -PI * 0.5, PI * 0.5)

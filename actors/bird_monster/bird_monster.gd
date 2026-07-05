@@ -40,12 +40,14 @@ extends Node2D
 var carried_obj: GrabBox = null
 var recently_carried: Array[GrabBox] = []
 
-
 @onready var tail_target: RigidBody2D = $TailTarget
-@onready var tail_joint: PinJoint2D = $TailJoint
+@onready var tail_joint: PinJoint2D = %TailJoint
 @onready var skeleton: Skeleton2D = %Skeleton2D
 @onready var front_foot: Bone2D = %FrontFoot
 @onready var back_foot: Bone2D = %BackFoot
+@onready var head: Bone2D = %Head
+@onready var sprite: Node2D = $Sprite
+@onready var tail_anchor: StaticBody2D = %TailAnchor
 
 
 func _ready() -> void:

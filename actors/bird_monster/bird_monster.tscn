@@ -206,8 +206,8 @@ _data = {
 &"flying": SubResource("Animation_whj6i")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3paxl"]
-radius = 36.55
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3paxl"]
+size = Vector2(50, 50)
 
 [sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_3paxl"]
 target_nodepath = NodePath("../../TailTarget")
@@ -297,11 +297,25 @@ bus = &"SFX"
 libraries/ = SubResource("AnimationLibrary_whj6i")
 autoplay = &"flying"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=512485087]
-position = Vector2(-94, -89)
+[node name="TailJoint" type="PinJoint2D" parent="." unique_id=1458939835]
+unique_name_in_owner = true
+position = Vector2(-188, -17)
+rotation = 3.1415925
+scale = Vector2(1, -1)
+node_a = NodePath("../TailAnchor")
+node_b = NodePath("../TailTarget")
+angular_limit_enabled = true
+angular_limit_upper = 3.1415927
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1398053992]
-shape = SubResource("CircleShape2D_3paxl")
+[node name="TailAnchor" type="StaticBody2D" parent="." unique_id=512485087]
+unique_name_in_owner = true
+position = Vector2(-94, -89)
+collision_layer = 4096
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TailAnchor" unique_id=1398053992]
+z_index = 1
+shape = SubResource("RectangleShape2D_3paxl")
 
 [node name="Sprite" type="Node2D" parent="." unique_id=803212504]
 
@@ -342,6 +356,7 @@ position = Vector2(58, 10)
 rest = Transform2D(1, 0, 0, 1, 58, 10)
 
 [node name="Head" type="Bone2D" parent="Sprite/Skeleton2D/Controller/Neck" unique_id=1929041710]
+unique_name_in_owner = true
 position = Vector2(88, 27)
 rest = Transform2D(1, 0, 0, 1, 88, 27)
 auto_calculate_length_and_angle = false
@@ -428,18 +443,10 @@ polygons = [PackedInt32Array(28, 6, 5, 4, 3, 23), PackedInt32Array(23, 2, 3), Pa
 bones = ["Controller", PackedFloat32Array(0, 0, 0, 0, 0, 0.5, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/BackLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/BackLeg/BackFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/FrontLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/FrontLeg/FrontFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/Tail", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/Tail/Tail2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/Tail/Tail2/Tail3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/BackWing", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Controller/FrontWing", PackedFloat32Array(1, 1, 1, 1, 1, 0.5, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 1, 1, 1, 1, 1, 0.5, 1, 1, 1)]
 internal_vertex_count = 16
 
-[node name="TailJoint" type="PinJoint2D" parent="." unique_id=1458939835]
-position = Vector2(-192, -38)
-node_a = NodePath("../StaticBody2D")
-node_b = NodePath("../TailTarget")
-bias = 0.9
-softness = 0.68
-
 [node name="TailTarget" type="RigidBody2D" parent="." unique_id=204938659]
 position = Vector2(-273, 91)
 collision_layer = 0
 collision_mask = 0
-gravity_scale = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TailTarget" unique_id=1499084183]
 shape = SubResource("CircleShape2D_whj6i")
