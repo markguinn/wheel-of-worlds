@@ -197,7 +197,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(1000, 50)
-shader_parameter/real_screen_size = Vector2(3036.7373, 1395.0094)
+shader_parameter/real_screen_size = Vector2(3036.7373, 2061.6743)
 shader_parameter/edges = Array[Texture2D]([SubResource("GradientTexture2D_gdb7k"), SubResource("GradientTexture2D_gdb7k")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -1724,29 +1724,29 @@ visible = false
 visible = false
 
 [node name="Sprite2D" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.18383914)
-rotation = -37.667416
-scale = Vector2(0.75589275, 0.75589275)
+modulate = Color(1, 1, 1, 0.12564346)
+rotation = -17.089155
+scale = Vector2(0.7170956, 0.7170956)
 
 [node name="Sprite2D2" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.1468796)
-rotation = 53.27156
-scale = Vector2(0.7312531, 0.7312531)
+modulate = Color(1, 1, 1, 0.21472403)
+rotation = 77.03754
+scale = Vector2(0.7764827, 0.7764827)
 
 [node name="Sprite2D3" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.39772084)
-rotation = 1013.89246
-scale = Vector2(0.8984806, 0.8984806)
+modulate = Color(1, 1, 1, 0.36519396)
+rotation = 1021.5562
+scale = Vector2(0.876796, 0.876796)
 
 [node name="Sprite2D4" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.31291005)
-rotation = -867.9617
-scale = Vector2(0.84194005, 0.84194005)
+modulate = Color(1, 1, 1, 0.23684435)
+rotation = -892.56976
+scale = Vector2(0.79122955, 0.79122955)
 
 [node name="Sprite2D5" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.13178658)
-rotation = -923.25195
-scale = Vector2(0.72119105, 0.72119105)
+modulate = Color(1, 1, 1, 0.1015203)
+rotation = -909.0221
+scale = Vector2(0.7010135, 0.7010135)
 
 [node name="Stone5" parent="FinalStones" unique_id=669896039 groups=["final_stones"] instance=ExtResource("11_7us8x")]
 position = Vector2(-730, -127)

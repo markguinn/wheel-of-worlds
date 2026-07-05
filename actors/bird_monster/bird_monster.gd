@@ -39,3 +39,20 @@ extends Node2D
 # TODO: can it pick up the orb or player?
 var carried_obj: GrabBox = null
 var recently_carried: Array[GrabBox] = []
+
+
+@onready var tail_target: RigidBody2D = $TailTarget
+@onready var tail_joint: PinJoint2D = $TailJoint
+@onready var skeleton: Skeleton2D = %Skeleton2D
+@onready var front_foot: Bone2D = %FrontFoot
+@onready var back_foot: Bone2D = %BackFoot
+
+
+func _ready() -> void:
+	_setup_tail.call_deferred()
+	skeleton.get_modification_stack().enabled = true
+
+
+func _setup_tail() -> void:
+	tail_target.reparent(get_parent())
+	tail_joint.node_b = tail_target.get_path()
