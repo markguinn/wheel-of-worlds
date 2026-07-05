@@ -1,12 +1,12 @@
 class_name PlayerJumpState
 extends PlayerState
 
-const WIND_UP_TIME = 0.34
+const WIND_UP_TIME = 0.2
 const RAGDOLL_SECONDS = 0.2
+const JUMP_DAMP = 4.0
 
-
-@export var jump_strength := 900.0
-@export var carrying_jump_strength := 700.0
+@export var jump_strength := 1200.0
+@export var carrying_jump_strength := 1000.0
 
 
 func _entered(from_state: StateNode) -> void:
@@ -19,7 +19,7 @@ func _entered(from_state: StateNode) -> void:
 
 	var old_horizontal_speed := horizontal_speed
 	horizontal_speed = 0
-	player.velocity.x /= 2
+	player.velocity.x /= 2.0
 	await get_tree().create_timer(WIND_UP_TIME).timeout
 	horizontal_speed = old_horizontal_speed
 	
@@ -34,4 +34,4 @@ func _process(delta: float) -> void:
 	# If they let up on the jump button early we want to end the jump a little 
 	# earlier so we slow them down gently but not immediately
 	if not Input.is_action_pressed("jump"):
-		player.velocity.y = move_toward(player.velocity.y, 0.0, jump_strength * delta * 1.5)
+		player.velocity.y = move_toward(player.velocity.y, 0.0, jump_strength * delta * JUMP_DAMP)

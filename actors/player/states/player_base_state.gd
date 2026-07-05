@@ -9,15 +9,15 @@ const WALK_ACCEL = 0.2
 const TURNING_ACCEL = 0.1
 const WALL_BOUNCE_COOLDOWN_MS = 1000
 
-const GRAVITY_MULTIPLIER = 1.8
+const GRAVITY_MULTIPLIER = 3.0
 const GRAVITY_DIRECTION = Vector2.DOWN
 
 const ROT_TWEEN = 0.2
 const PUSH_FORCE = 1.0 # Applied to the orb
 const PLANK_FORCE = Vector2(0.2, 0.6) # Applied to the plank
 
-@export var horizontal_speed := 250.0
-@export var carrying_speed := 160.0
+@export var horizontal_speed := 400.0
+@export var carrying_speed := 350.0
 @export var wall_bounce_amount := 0.0
 @export var wall_bounce_ms := 250
 @export var can_jump := true
@@ -123,7 +123,7 @@ func _move_and_slide(delta: float) -> void:
 					%SFX.play_tripped()
 					machine.transition_by_name("Ragdoll")
 			else:
-				player.position.y -= 100.0 * delta
+				player.position.y -= 250.0 * delta
 				# if we don't do this ugly special case, you can get stuck in a jump up there
 				# because your velocity is instantly 0
 				if name == "Jump":
