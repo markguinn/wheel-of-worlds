@@ -1724,29 +1724,29 @@ visible = false
 visible = false
 
 [node name="Sprite2D" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.2900947)
-rotation = -199.69492
-scale = Vector2(0.8267298, 0.8267298)
+modulate = Color(1, 1, 1, 0.18383914)
+rotation = -37.667416
+scale = Vector2(0.75589275, 0.75589275)
 
 [node name="Sprite2D2" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.37150455)
-rotation = -133.73827
-scale = Vector2(0.881003, 0.881003)
+modulate = Color(1, 1, 1, 0.1468796)
+rotation = 53.27156
+scale = Vector2(0.7312531, 0.7312531)
 
 [node name="Sprite2D3" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.1000102)
-rotation = 954.27856
-scale = Vector2(0.7000068, 0.7000068)
+modulate = Color(1, 1, 1, 0.39772084)
+rotation = 1013.89246
+scale = Vector2(0.8984806, 0.8984806)
 
 [node name="Sprite2D4" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.16296807)
-rotation = -672.4801
-scale = Vector2(0.7419787, 0.7419787)
+modulate = Color(1, 1, 1, 0.31291005)
+rotation = -867.9617
+scale = Vector2(0.84194005, 0.84194005)
 
 [node name="Sprite2D5" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.34907603)
-rotation = -1033.7423
-scale = Vector2(0.86605066, 0.86605066)
+modulate = Color(1, 1, 1, 0.13178658)
+rotation = -923.25195
+scale = Vector2(0.72119105, 0.72119105)
 
 [node name="Stone5" parent="FinalStones" unique_id=669896039 groups=["final_stones"] instance=ExtResource("11_7us8x")]
 position = Vector2(-730, -127)
