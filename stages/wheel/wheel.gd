@@ -16,13 +16,14 @@ const MAX_ZOOM = 1.0
 var spin_velocity := 0.0
 var in_gravity := 0.0
 
-@onready var wheel_body: Node2D = $WheelTiles
+@onready var wheel_body: Node2D = $RotatingBody
 # We're sort of forcing the physics here with two area2d's.
 # If you enter one, it starts rotating the wheel and moving you until you're back in the middle.
 # I think that will be less glitchy than using a rigidbody and force/impule.
 @onready var left_gravity: Area2D = $LeftGravity
 @onready var right_gravity: Area2D = $RightGravity
 @onready var wheel_sfx: AudioStreamPlayer = $WheelSFX
+@onready var far_bg: Parallax2D = $Parallax2D
 
 
 func _ready() -> void:
@@ -58,6 +59,8 @@ func _process(delta: float) -> void:
 		var zoom := clampf(1.0 - absf(spin_velocity) * CAMERA_FACTOR, MIN_ZOOM, MAX_ZOOM)
 		var cam := get_viewport().get_camera_2d()
 		cam.zoom = cam.zoom.move_toward(Vector2(zoom, zoom), delta)
+		var zoom_compensate := 1.0 + (1.0 - zoom) * 1.5
+		#far_bg.scale = Vector2(zoom_compensate, zoom_compensate)
 	elif wheel_sfx.playing:
 		wheel_sfx.stop()
 
