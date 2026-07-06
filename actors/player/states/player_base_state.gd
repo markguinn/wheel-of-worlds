@@ -73,12 +73,13 @@ func _update_facing_direction(dir: Vector2) -> void:
 		player.sprite.scale.x = 1.0
 
 
-func _update_camera_offset(dir: Vector2, _delta: float) -> void:
+func _update_camera_offset(dir: Vector2, delta: float) -> void:
 	var cam := get_viewport().get_camera_2d()
 	if cam and player.set_horizontal_camera_offset:
 		if dir.x:
 			cam.drag_horizontal_offset = CAMERA_HORIZONTAL_OFFSET * signf(dir.x)
-		cam.position_smoothing_speed = 1.0 if absf(player.velocity.y) < 100.0 else 20.0
+		var target_speed: float = 1.0 if absf(player.velocity.y) < 250.0 else 20.0
+		cam.position_smoothing_speed = move_toward(cam.position_smoothing_speed, target_speed, 20 * delta)
 
 
 func _apply_gravity(delta: float) -> void:
@@ -112,17 +113,20 @@ func _move_and_slide(delta: float) -> void:
 
 	var v := player.velocity
 	if player.move_and_slide():
-		Log.debounced(player, [
-			player.velocity.x,
-			v.x,
-			is_zero_approx(player.velocity.x),
-			not is_zero_approx(v.x),
-			foot_ray.is_colliding(),
-			not shin_ray.is_colliding(),
-		])
+		#Log.debounced(player, [
+			#player.velocity.x,
+			#v.x,
+			#is_zero_approx(player.velocity.x),
+			#not is_zero_approx(v.x),
+			#foot_ray.is_colliding(),
+			#not shin_ray.is_colliding(),
+		#])
 		# bump up a little bit if you just hit a low ledge, but add a slight risk of tripping
 		if (
-			#is_zero_approx(player.velocity.x) and
+			(
+				is_zero_approx(player.velocity.x) or
+				is_zero_approx(player.history_buffer.get_average_velocity().x)
+			) and
 			not is_zero_approx(v.x) and
 			foot_ray.is_colliding() and
 			not shin_ray.is_colliding()
@@ -136,8 +140,9 @@ func _move_and_slide(delta: float) -> void:
 					%SFX.play_tripped()
 					machine.transition_by_name("Ragdoll")
 			else:
-				Log.info(player, "bumps", player.position.y, delta, player.is_on_floor())
+				Log.debug(player, "bumping up", player.position.y, delta, player.is_on_floor())
 				player.position.y -= 500.0 * delta
+				#player.velocity.y = min(-1.0, player.velocity.y)
 				# if we don't do this ugly special case, you can get stuck in a jump up there
 				# because your velocity is instantly 0
 				if name == "Jump":
