@@ -31,7 +31,7 @@ const levels = {
 	#"GameManager": DEBUG,
 	#"GrabBox": DEBUG,
 	#"Plank": DEBUG,
-	#"Player": DEBUG,
+	"Player": DEBUG,
 	#"Portal": DEBUG,
 	#"ShadowBlob": DEBUG,
 	#"StateMachine": DEBUG,

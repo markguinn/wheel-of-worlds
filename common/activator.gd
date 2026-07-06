@@ -106,6 +106,10 @@ static func update_active_candidate() -> void:
 		if active_candidate:
 			set_active_candidate(null)
 		return
+	if player.state_machine.get_active() == "Push":
+		if active_candidate:
+			set_active_candidate(null)
+		return
 	if chosen_candidate >= 0:
 		return
 

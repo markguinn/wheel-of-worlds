@@ -75,10 +75,10 @@ func _update_facing_direction(dir: Vector2) -> void:
 
 func _update_camera_offset(dir: Vector2, _delta: float) -> void:
 	var cam := get_viewport().get_camera_2d()
-	if cam:
+	if cam and player.set_horizontal_camera_offset:
 		if dir.x:
 			cam.drag_horizontal_offset = CAMERA_HORIZONTAL_OFFSET * signf(dir.x)
-		cam.position_smoothing_speed = 5.0 if absf(player.velocity.y) < 100.0 else 20.0
+		cam.position_smoothing_speed = 1.0 if absf(player.velocity.y) < 100.0 else 20.0
 
 
 func _apply_gravity(delta: float) -> void:
@@ -112,18 +112,32 @@ func _move_and_slide(delta: float) -> void:
 
 	var v := player.velocity
 	if player.move_and_slide():
+		Log.debounced(player, [
+			player.velocity.x,
+			v.x,
+			is_zero_approx(player.velocity.x),
+			not is_zero_approx(v.x),
+			foot_ray.is_colliding(),
+			not shin_ray.is_colliding(),
+		])
 		# bump up a little bit if you just hit a low ledge, but add a slight risk of tripping
-		if is_zero_approx(player.velocity.x) and not is_zero_approx(v.x) and foot_ray.is_colliding() and not shin_ray.is_colliding():
+		if (
+			#is_zero_approx(player.velocity.x) and
+			not is_zero_approx(v.x) and
+			foot_ray.is_colliding() and
+			not shin_ray.is_colliding()
+		):
 			player.velocity = v
 			if not GameManager.rate_limit(TRIP_ROLL_DEBOUNCE, "player_trip_roll"):
 				var trip_roll := randf()
-				Log.debug(self, "rolled trip save", trip_roll)
+				Log.debug(player, "rolled trip save", trip_roll)
 				if trip_roll <= trip_roll_dc:
-					Log.info(self, "failed trip save", trip_roll)
+					Log.info(player, "failed trip save", trip_roll)
 					%SFX.play_tripped()
 					machine.transition_by_name("Ragdoll")
 			else:
-				player.position.y -= 250.0 * delta
+				Log.info(player, "bumps", player.position.y, delta, player.is_on_floor())
+				player.position.y -= 500.0 * delta
 				# if we don't do this ugly special case, you can get stuck in a jump up there
 				# because your velocity is instantly 0
 				if name == "Jump":

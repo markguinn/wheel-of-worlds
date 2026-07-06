@@ -27,6 +27,7 @@ var in_gravity := 0.0
 
 
 func _ready() -> void:
+	super._ready()
 	left_gravity.body_entered.connect(_on_enter_gravity.bind(-1.0))
 	left_gravity.body_exited.connect(_on_exit_gravity)
 	right_gravity.body_entered.connect(_on_enter_gravity.bind(1.0))

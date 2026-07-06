@@ -23,6 +23,8 @@ const COYOTE_TIME_MS = 100
 @export var emotional_state := EmotionalState.NEUTRAL
 @export var ignore_inputs := false
 @export var perma_ragdoll := false
+@export var set_horizontal_camera_offset := true
+
 
 var last_floor_touch: int
 var is_holding_prop: Node2D = null
