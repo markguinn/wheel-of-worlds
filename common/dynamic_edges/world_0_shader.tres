@@ -24,7 +24,7 @@ color_ramp = SubResource("Gradient_ruemm")
 
 [resource]
 shader = ExtResource("1_4ul7f")
-shader_parameter/target = Color(0.99215686, 0.9882353, 0.9882353, 1)
+shader_parameter/target = Color(1, 1, 1, 1)
 shader_parameter/base_color = Color(0.27058825, 0.30980393, 0.21960784, 1)
 shader_parameter/patterns = Array[Texture2D]([ExtResource("2_118wr"), ExtResource("3_y6lf2"), ExtResource("4_87let"), ExtResource("5_r0pm4")])
 shader_parameter/pattern_distortions = Array[Texture2D]([SubResource("NoiseTexture2D_byorn")])

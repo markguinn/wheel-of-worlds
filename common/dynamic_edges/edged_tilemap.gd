@@ -39,6 +39,7 @@ func _process(_delta: float) -> void:
 	if not use_baked and not baking:
 		var vpr := get_viewport_rect().size / get_viewport_transform().get_scale()
 		shader_material.set_shader_parameter("real_screen_size", vpr)
+	shader_material.set_shader_parameter("rotation", global_rotation)
 
 
 func _cancel_bake() -> void:
@@ -87,7 +88,7 @@ func _bake_edges() -> void:
 	original_scale = get_parent().scale
 	get_parent().scale = Vector2.ONE
 	target_layer.scale = Vector2.ONE
-	self.scale = Vector2.ONE
+	#self.scale = Vector2.ONE
 	
 	popup = popup_scene.instantiate()
 	if Engine.is_editor_hint():

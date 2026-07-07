@@ -22,6 +22,7 @@ uniform float offsets[4];
 uniform float scales[4];
 // opacity per layer to make some layers stand out less
 uniform float opacities[4];
+uniform float rotation = 0.0;
 // the amount of overlap when tiling the textures
 uniform float margin = 100.0;
 // the size of the fill textures
@@ -55,6 +56,13 @@ void vertex() {
 	world_pos = VERTEX;
 }
 
+vec2 rotate(vec2 uv, float angle) {
+	return uv * mat2(
+		vec2(sin(angle), -cos(angle)),
+		vec2(cos(angle), sin(angle))
+	);
+}
+
 const float PI_DOUBLE = PI * 2.;
 uniform float distortion_strength: hint_range(0.0, 0.25) = 1.;
 uniform float distortion_size: hint_range(0.0, 100.0) = 4.;
@@ -70,15 +78,16 @@ vec4 get_sample(sampler2D tex, sampler2D distortion_offset, float offset, float 
 	float m2 = m + m;
 	float m3 = 1.0 - m;
 	float m4 = 1.0 - m2;
+	vec2 rot_pos = rotate(world_pos, rotation);
 	// we take out the margin area of the texture, then mod the current world position
 	// against that inner width, then bump back out to the middle of the texture and 
 	// convert to uv
 	float inner_size = size - margin_px * 2.0;
-	float distortion_angle = texture(distortion_offset, mod(world_pos, pattern_size * distortion_size ) / (pattern_size * distortion_size)).r * PI_DOUBLE;
+	float distortion_angle = texture(distortion_offset, mod(rot_pos, pattern_size * distortion_size ) / (pattern_size * distortion_size)).r * PI_DOUBLE;
 	vec2 tex_uv = clamp(
 		vec2(
-			(mod((world_pos.x + offset) / scale, inner_size) + margin_px) / size,
-			(mod((world_pos.y + offset) / scale, inner_size) + margin_px) / size
+			(mod((rot_pos.x + offset) / scale, inner_size) + margin_px) / size,
+			(mod((rot_pos.y + offset) / scale, inner_size) + margin_px) / size
 		) 
 		+ vec2(cos(distortion_angle), sin(distortion_angle)) * distortion_strength
 		, 0.1, 0.9
