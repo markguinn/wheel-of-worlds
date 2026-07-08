@@ -36,7 +36,8 @@ func _ready() -> void:
 
 func init_player_at_portal(portal: Node2D) -> void:
 	var player := GameManager.get_player()
-	var rot := player.position.normalized().angle() + PI / 2.0
+	Log.info(self, "starting at portal", portal.name, player.position, rad_to_deg(player.position.normalized().angle()))
+	var rot := -player.position.normalized().angle() + PI / 2.0
 	wheel_body.rotation = rot
 	player.global_position = portal.global_position
 
@@ -60,7 +61,7 @@ func _process(delta: float) -> void:
 		var zoom := clampf(1.0 - absf(spin_velocity) * CAMERA_FACTOR, MIN_ZOOM, MAX_ZOOM)
 		var cam := get_viewport().get_camera_2d()
 		cam.zoom = cam.zoom.move_toward(Vector2(zoom, zoom), delta)
-		var zoom_compensate := 1.0 + (1.0 - zoom) * 1.5
+		#var zoom_compensate := 1.0 + (1.0 - zoom) * 1.5
 		#far_bg.scale = Vector2(zoom_compensate, zoom_compensate)
 	elif wheel_sfx.playing:
 		wheel_sfx.stop()
