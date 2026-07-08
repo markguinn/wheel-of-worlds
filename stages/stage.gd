@@ -18,7 +18,7 @@ const OFFSET_FROM_PORTAL = Vector2(-128, 0)
 func _ready() -> void:
 	AudioManager.reset_music()
 	GameManager.is_in_game = true
-	VFX.set_baseline(bloom, brightness, contrast, saturation)
+	VFX.set_baseline(bloom, brightness, contrast, saturation, false)
 
 
 func init_with_state(_persisted_state: Dictionary, params: Dictionary) -> void:

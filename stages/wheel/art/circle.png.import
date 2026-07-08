@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tpr68jovftvt"
-path="res://.godot/imported/wheel_atlas.png-7743eb6d96615c3b7eb24ad5e48951fb.ctex"
+uid="uid://dih62xx2erihd"
+path="res://.godot/imported/circle.png-947d38c3d602da31d02c34093074b0ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://generated/wheel_atlas.png"
-dest_files=["res://.godot/imported/wheel_atlas.png-7743eb6d96615c3b7eb24ad5e48951fb.ctex"]
+source_file="res://stages/wheel/art/circle.png"
+dest_files=["res://.godot/imported/circle.png-947d38c3d602da31d02c34093074b0ad.ctex"]
 
 [params]
 

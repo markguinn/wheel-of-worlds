@@ -37,14 +37,14 @@ var baseline_contrast := 1.0
 var baseline_saturation := 1.0
 
 
-func set_baseline(bloom: float, brightness: float, contrast: float, saturation: float) -> void:
+func set_baseline(bloom: float, brightness: float, contrast: float, saturation: float, apply = true) -> void:
 	Log.info(self, "set vfx baseline", bloom, brightness, contrast, saturation)
 	baseline_bloom = bloom
 	baseline_brightness = brightness
 	baseline_contrast = contrast
 	baseline_saturation = saturation
 	var env := _get_world_env()
-	if env:
+	if env and apply:
 		env.environment.glow_bloom = baseline_bloom
 		env.environment.adjustment_brightness = baseline_brightness
 		env.environment.adjustment_contrast = baseline_contrast

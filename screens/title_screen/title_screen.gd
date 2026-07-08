@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var options_btn: Button = %Options
 @onready var start_btn: Button = %StartGame
 @onready var quit_btn: Button = %QuitGame
-@onready var wheel: Node2D = $WheelTiles
+@onready var wheel: Node2D = $RotatingBody
 @onready var wheel_sfx: AudioStreamPlayer = $WheelTurn
 
 var rotate_tween: Tween
