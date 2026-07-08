@@ -210,20 +210,20 @@ func _process(delta: float) -> void:
 
 
 # This is just for testing. We should remove it before release
-func _input(event: InputEvent) -> void:
-	if GameManager.DEV_MODE and event is InputEventKey and event.pressed and not event.is_echo():
-		match event.physical_keycode:
-			KEY_1:
-				slomo(LONG)
-			KEY_2:
-				hit(LONG, QUAKE, Flash.NEUTRAL)
-			KEY_3:
-				hit(LONG, QUAKE, Flash.LIGHT)
-			KEY_4:
-				hit(LONG, QUAKE, Flash.DARK)
-			KEY_5:
-				hit(LONG, QUAKE, Flash.STARK)
-			KEY_6:
-				hit(LONG, QUAKE, Flash.BLAND)
-			KEY_7:
-				flash(MID, MID, Flash.NEUTRAL)
+#func _input(event: InputEvent) -> void:
+	#if GameManager.DEV_MODE and event is InputEventKey and event.pressed and not event.is_echo():
+		#match event.physical_keycode:
+			#KEY_1:
+				#slomo(LONG)
+			#KEY_2:
+				#hit(LONG, QUAKE, Flash.NEUTRAL)
+			#KEY_3:
+				#hit(LONG, QUAKE, Flash.LIGHT)
+			#KEY_4:
+				#hit(LONG, QUAKE, Flash.DARK)
+			#KEY_5:
+				#hit(LONG, QUAKE, Flash.STARK)
+			#KEY_6:
+				#hit(LONG, QUAKE, Flash.BLAND)
+			#KEY_7:
+				#flash(MID, MID, Flash.NEUTRAL)

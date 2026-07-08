@@ -26,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://tpr68jovftvt" path="res://generated/wheel_atlas.png" id="18_2o0wg"]
 [ext_resource type="PackedScene" uid="uid://b7dpqa8b75pvp" path="res://music/theme_music.tscn" id="18_mhrfk"]
 [ext_resource type="Texture2D" uid="uid://dih62xx2erihd" path="res://stages/wheel/art/circle.png" id="19_5cxmk"]
-[ext_resource type="Texture2D" uid="uid://bb38a7h3w0k2g" path="res://common/vfx/basic_light.tres" id="27_7cxjv"]
 
 [sub_resource type="Gradient" id="Gradient_i36ib"]
 offsets = PackedFloat32Array(0.17901234, 1)
@@ -149,11 +148,11 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(834, 95)
-shader_parameter/real_screen_size = Vector2(2236.9229, 1168.2865)
+shader_parameter/real_screen_size = Vector2(1952.155, 1283.1948)
 shader_parameter/edges = Array[Texture2D]([ExtResource("11_7cxjv"), ExtResource("11_7cxjv")])
 shader_parameter/edge_smoothness = 1.50400007144
 shader_parameter/fill_enabled = true
-shader_parameter/edge_enabled = true
+shader_parameter/edge_enabled = false
 shader_parameter/distortion_strength = 0.0530000025175
 shader_parameter/distortion_size = 5.0000002375
 
@@ -380,10 +379,10 @@ preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_1xf4e")
 
 [node name="IrisNebula" type="Sprite2D" parent="." unique_id=127912379]
-modulate = Color(1, 1, 1, 0.23981254)
-rotation = 3.4070992
+modulate = Color(1, 1, 1, 0.25122923)
+rotation = 2.4290335
 scale = Vector2(2, 2)
-skew = -0.015359492
+skew = 0.024149695
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -397,10 +396,10 @@ alpha_speed = 0.4
 speed_factor = 0.1
 
 [node name="IrisNebula2" type="Sprite2D" parent="." unique_id=1740825736]
-modulate = Color(1, 1, 1, 0.12590465)
-rotation = 3.290529
+modulate = Color(1, 1, 1, 0.1443434)
+rotation = 1.0200648
 scale = Vector2(3, 3)
-skew = -0.3320272
+skew = -0.10232117
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -419,45 +418,45 @@ scale = Vector2(0.9, 0.9)
 script = ExtResource("2_1xf4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sparkles" unique_id=972055032]
-modulate = Color(1, 1, 1, 0.2258292)
-rotation = -698.36005
-scale = Vector2(0.78388613, 0.78388613)
+modulate = Color(1, 1, 1, 0.3846243)
+rotation = -940.8378
+scale = Vector2(0.8897495, 0.8897495)
 texture = ExtResource("3_i36ib")
 
 [node name="Mist" type="Sprite2D" parent="Sparkles" unique_id=753486441]
-modulate = Color(1, 1, 1, 0.39725456)
-rotation = 731.71857
-scale = Vector2(0.8981697, 0.8981697)
+modulate = Color(1, 1, 1, 0.32013223)
+rotation = 619.6575
+scale = Vector2(0.84675485, 0.84675485)
 texture = SubResource("NoiseTexture2D_mvehq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sparkles" unique_id=1758360778]
-modulate = Color(1, 1, 1, 0.30258623)
-rotation = -39.206554
-scale = Vector2(0.8350575, 0.8350575)
+modulate = Color(1, 1, 1, 0.13086759)
+rotation = 154.91281
+scale = Vector2(0.7205784, 0.7205784)
 texture = ExtResource("4_wsvuw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sparkles" unique_id=845584023]
-modulate = Color(1, 1, 1, 0.11226759)
-rotation = 2189.5952
-scale = Vector2(0.7081784, 0.7081784)
+modulate = Color(1, 1, 1, 0.26681685)
+rotation = 2226.7178
+scale = Vector2(0.8112112, 0.8112112)
 texture = ExtResource("5_p7yao")
 
 [node name="Mist2" type="Sprite2D" parent="Sparkles" unique_id=1711575947]
-modulate = Color(1, 1, 1, 0.39983496)
-rotation = 1176.2244
-scale = Vector2(0.89988995, 0.89988995)
+modulate = Color(1, 1, 1, 0.30027893)
+rotation = 1087.0494
+scale = Vector2(0.8335193, 0.8335193)
 texture = SubResource("NoiseTexture2D_tsbkc")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sparkles" unique_id=1435232981]
-modulate = Color(1, 1, 1, 0.39993912)
-rotation = 1410.1543
-scale = Vector2(0.8999594, 0.8999594)
+modulate = Color(1, 1, 1, 0.28948918)
+rotation = 1277.0454
+scale = Vector2(0.82632613, 0.82632613)
 texture = ExtResource("6_mi1m4")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sparkles" unique_id=2086365118]
-modulate = Color(1, 1, 1, 0.1159963)
-rotation = 763.43195
-scale = Vector2(0.7106642, 0.7106642)
+modulate = Color(1, 1, 1, 0.14656095)
+rotation = 778.5087
+scale = Vector2(0.73104066, 0.73104066)
 texture = ExtResource("7_v8lo7")
 
 [node name="RotatingBody" type="Node2D" parent="." unique_id=1912110947]
@@ -471,9 +470,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -307.0
+offset_left = -229.0
 offset_top = 420.0
-offset_right = 110.0
+offset_right = 188.0
 offset_bottom = 518.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -492,10 +491,10 @@ is_primary = true
 [node name="Options" type="Button" parent="RotatingBody" unique_id=402697830]
 unique_name_in_owner = true
 z_index = 1
-offset_left = -423.0
-offset_top = -256.00003
-offset_right = -100.0
-offset_bottom = -158.00003
+offset_left = -429.0
+offset_top = -207.0
+offset_right = -83.0
+offset_bottom = -109.0
 rotation = 1.5707964
 focus_neighbor_left = NodePath("../../TestLevels/ShadowMonsterTest")
 focus_neighbor_right = NodePath("../StartGame")
@@ -509,10 +508,10 @@ alignment = 0
 [node name="QuitGame" type="Button" parent="RotatingBody" unique_id=575462075]
 unique_name_in_owner = true
 z_index = 1
-offset_left = 424.0
-offset_top = 305.0
-offset_right = 828.0
-offset_bottom = 403.0
+offset_left = 427.0
+offset_top = 266.0
+offset_right = 831.0
+offset_bottom = 364.0
 rotation = -1.5707964
 focus_neighbor_left = NodePath("../StartGame")
 focus_neighbor_right = NodePath("../../BonusLevels/Level1Button")
@@ -557,10 +556,10 @@ rotation = 1.4468224
 rotation = -0.026903363
 
 [node name="Head" parent="RotatingBody/Player/Sprite/Parts" parent_id_path=PackedInt32Array(317056800, 1880770915) index="3" unique_id=857872474]
-scale = Vector2(0.17002706, 0.17001356)
+scale = Vector2(0.17002708, 0.17001356)
 
 [node name="Eyes" parent="RotatingBody/Player/Sprite/Parts/Head" index="0" unique_id=1167826662]
-frame_progress = 0.048066888
+frame_progress = 0.3482994
 
 [node name="Ouch" parent="RotatingBody/Player/SFX" parent_id_path=PackedInt32Array(317056800, 2054879864) index="2" unique_id=1678676952]
 volume_db = -80.0
@@ -783,9 +782,9 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1299.0
+offset_left = -1329.0
 offset_top = -540.0
-offset_right = -990.0
+offset_right = -1010.0
 offset_bottom = -540.0
 grow_horizontal = 0
 grow_vertical = 2
@@ -940,6 +939,7 @@ texture = ExtResource("14_1xf4e")
 
 [node name="OptionsBackground" type="TextureRect" parent="." unique_id=1948573745]
 visible = false
+z_index = 1
 clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -954,8 +954,6 @@ texture = SubResource("GradientTexture2D_7jf2m")
 
 [node name="OptionsMenu" parent="." unique_id=1472950510 instance=ExtResource("7_hnpdw")]
 visible = false
-offset = Vector2(-960, -540)
-transform = Transform2D(1, 0, 0, 1, -960, -540)
 
 [node name="WheelTurn" type="AudioStreamPlayer" parent="." unique_id=1740168787]
 stream = ExtResource("15_yvje3")
@@ -964,13 +962,6 @@ pitch_scale = 0.75
 bus = &"SFX"
 
 [node name="BackgroundMusic" parent="." unique_id=1022284647 instance=ExtResource("18_mhrfk")]
-
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2008898757]
-z_index = 4
-position = Vector2(114, -168)
-energy = 2.93
-texture = ExtResource("27_7cxjv")
-texture_scale = 4.75
 
 [connection signal="focus_entered" from="RotatingBody/StartGame" to="." method="_on_start_game_focus_entered"]
 [connection signal="focus_entered" from="RotatingBody/Options" to="." method="_on_options_focus_entered"]
