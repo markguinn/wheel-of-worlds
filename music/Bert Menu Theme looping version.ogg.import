@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bg71u1c87u1ra"
+path="res://.godot/imported/Bert Menu Theme looping version.ogg-2a1e852dd9b84a3370463ba965f04940.oggvorbisstr"
+
+[deps]
+
+source_file="res://music/Bert Menu Theme looping version.ogg"
+dest_files=["res://.godot/imported/Bert Menu Theme looping version.ogg-2a1e852dd9b84a3370463ba965f04940.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=13.803
+bpm=100.0
+beat_count=0
+bar_beats=3
