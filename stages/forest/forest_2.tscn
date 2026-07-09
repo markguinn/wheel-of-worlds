@@ -1006,7 +1006,7 @@ position = Vector2(890, 445)
 [node name="CavernArea" type="Area2D" parent="." unique_id=528772286]
 position = Vector2(-3392, 198)
 script = ExtResource("19_g1pkn")
-light_color = Color(0.5114928, 0.55633324, 0.48471975, 1)
+light_color = Color(0.3706165, 0.40991047, 0.34914392, 1)
 metadata/_custom_type_script = "uid://dj363jf40q41h"
 
 [node name="Orb2" parent="CavernArea" unique_id=1624977266 instance=ExtResource("17_3xp4m")]

@@ -4,7 +4,7 @@
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" unique_id=1022284647 groups=["background_music"]]
 stream = ExtResource("1_spoop")
-volume_db = -3.854
+volume_db = -6.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
