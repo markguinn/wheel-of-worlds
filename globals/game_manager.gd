@@ -39,6 +39,10 @@ func now_ms() -> int:
 	return _now
 
 
+func now_sec() -> float:
+	return float(_now) / 1000.0
+
+
 var last_times: Dictionary[Variant, int] = {}
 func rate_limit(min_ms: int, scope: Variant) -> bool:
 	if last_times.has(scope) and _now < last_times[scope] + min_ms:

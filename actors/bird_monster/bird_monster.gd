@@ -40,7 +40,8 @@ extends Node2D
 var carried_obj: GrabBox = null
 var recently_carried: Array[GrabBox] = []
 
-@onready var tail_target: MoveableRigidBody2D = $TailTarget
+@onready var histbuf: PositionHistoryBuffer= $Sprite/PositionHistoryBuffer
+@onready var tail_target: MoveableRigidBody2D = $Sprite/TailTarget
 @onready var tail_joint: PinJoint2D = %TailJoint
 @onready var skeleton: Skeleton2D = %Skeleton2D
 @onready var front_foot: Bone2D = %FrontFoot
@@ -54,11 +55,26 @@ var recently_carried: Array[GrabBox] = []
 	$Sprite/Skeleton2D/Controller/Tail/Tail2/Tail3,
 ]
 
+
 func _ready() -> void:
-	_setup_tail.call_deferred()
+	#_setup_tail.call_deferred()
 	skeleton.get_modification_stack().enabled = true
 
 
 func _setup_tail() -> void:
 	tail_target.reparent(get_parent())
 	tail_joint.node_b = tail_target.get_path()
+
+
+func _process(delta: float) -> void:
+	var t = GameManager.now_sec() * PI
+	var target = histbuf.get_start() + Vector2(
+		cos(t * 2.0) * 50.0, 
+		sin(t) * 50.0,
+	)
+	tail_target.global_position = tail_target.global_position.move_toward(
+		target, 
+		delta * fly_speed * 2.0,
+	)
+		
+	
