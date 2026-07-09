@@ -43,6 +43,11 @@
 [ext_resource type="AudioStream" uid="uid://5y02f2636kwl" path="res://actors/player/sfx/lift3.ogg" id="36_rfvym"]
 [ext_resource type="AudioStream" uid="uid://ceicjkmb1162q" path="res://actors/player/sfx/ouch4.ogg" id="37_s7w8x"]
 [ext_resource type="AudioStream" uid="uid://qhhbkg3rsccg" path="res://actors/player/sfx/ouch5.ogg" id="38_i0btr"]
+[ext_resource type="AudioStream" uid="uid://wxm4geajc7j6" path="res://actors/player/sfx/whistle1.ogg" id="44_rswtf"]
+[ext_resource type="AudioStream" uid="uid://d3y4eatrdve3j" path="res://actors/player/sfx/whistle2.ogg" id="45_wn017"]
+[ext_resource type="AudioStream" uid="uid://cl2p5e0j87xqs" path="res://actors/player/sfx/whistle3.ogg" id="46_mnwg7"]
+[ext_resource type="AudioStream" uid="uid://hx783wa2lrjr" path="res://actors/player/sfx/humming1.ogg" id="47_2cxsc"]
+[ext_resource type="AudioStream" uid="uid://c1oyslt3mscwa" path="res://actors/player/sfx/humming2.ogg" id="48_0lnjk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
 radius = 18.0
@@ -1833,6 +1838,14 @@ stream_2/stream = ExtResource("36_c1klp")
 stream_3/stream = ExtResource("37_s7w8x")
 stream_4/stream = ExtResource("38_i0btr")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_q1aq0"]
+streams_count = 5
+stream_0/stream = ExtResource("44_rswtf")
+stream_1/stream = ExtResource("45_wn017")
+stream_2/stream = ExtResource("46_mnwg7")
+stream_3/stream = ExtResource("47_2cxsc")
+stream_4/stream = ExtResource("48_0lnjk")
+
 [node name="Player" type="CharacterBody2D" unique_id=317056800 node_paths=PackedStringArray("holding_hand", "resting_point") groups=["player"]]
 z_index = 1
 collision_layer = 2
@@ -1948,8 +1961,8 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="HandL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/Torso/ArmL" unique_id=1933907137]
 position = Vector2(-26.651686, 5.448637)
-rotation = 0.064040676
-scale = Vector2(1.0000477, 1.0000477)
+rotation = 0.06404068
+scale = Vector2(1.0000476, 1.0000476)
 rest = Transform2D(0.9979998, 0.06399999, -0.06399999, 0.9979998, -26.651686, 5.448637)
 auto_calculate_length_and_angle = false
 length = 28.031
@@ -2021,7 +2034,7 @@ bones = ["Hips", PackedFloat32Array(1, 1, 1, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0,
 light_mask = 2
 visibility_layer = 3
 position = Vector2(11.087276, -62.294453)
-rotation = -0.07108461
+rotation = -0.0710845
 scale = Vector2(0.17002374, 0.17001218)
 skew = -5.888939e-05
 texture = SubResource("CanvasTexture_2vokq")
@@ -2031,7 +2044,7 @@ region_rect = Rect2(204, 68, 311, 233)
 
 [node name="Eyes" type="AnimatedSprite2D" parent="Sprite/Parts/Head" unique_id=1167826662]
 sprite_frames = SubResource("SpriteFrames_yeioo")
-frame_progress = 0.28805226
+frame_progress = 0.17142683
 offset = Vector2(-35, 387)
 script = ExtResource("7_0wchr")
 
@@ -2144,7 +2157,7 @@ position = Vector2(48, 60)
 [node name="DizzyParticles" type="GPUParticles2D" parent="Sprite/VFX" unique_id=806147118]
 unique_name_in_owner = true
 position = Vector2(11.087276, -62.294453)
-rotation = -1.5197669
+rotation = -1.5197668
 scale = Vector2(0.9999446, 0.9999507)
 skew = 5.9127808e-05
 emitting = false
@@ -2412,6 +2425,10 @@ bus = &"SFX"
 [node name="MusicBox" type="AudioStreamPlayer2D" parent="SFX" unique_id=479519000]
 stream = ExtResource("25_yeioo")
 volume_db = -12.0
+bus = &"SFX"
+
+[node name="Idle" type="AudioStreamPlayer2D" parent="SFX" unique_id=756277898]
+stream = SubResource("AudioStreamRandomizer_q1aq0")
 bus = &"SFX"
 
 [connection signal="body_entered" from="Sprite/Ragdoll/FootR" to="StateMachine/Ragdoll" method="_on_torso_body_entered"]

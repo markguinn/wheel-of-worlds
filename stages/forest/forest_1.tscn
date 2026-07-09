@@ -1004,7 +1004,7 @@ position = Vector2(1404, -570)
 [node name="BirdMonster" parent="Puzzle3" unique_id=1506347994 node_paths=PackedStringArray("nests") instance=ExtResource("32_buyvx")]
 position = Vector2(-1754, -179)
 fly_speed = 400.0
-attack_probability = 0.2
+attack_probability = 0.25
 attack_max_seconds = 5.0
 nests = [NodePath("../Nest1"), NodePath("../Nest2"), NodePath("../Nest3"), NodePath("../Nest4")]
 max_target_distance = 4000.0

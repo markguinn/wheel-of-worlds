@@ -30,6 +30,9 @@ var last_floor_touch: int
 var is_holding_prop: Node2D = null
 var active_grab_box: GrabBox = null
 var start_pos: Vector2
+var last_action_at: int
+
+@onready var sfx: PlayerSFX = %SFX
 
 @onready var history_buffer: PositionHistoryBuffer = $PositionHistoryBuffer
 @onready var state_machine: StateMachine = $StateMachine
@@ -88,6 +91,7 @@ func puff_right_dust(dust_scale = 10.0) -> void:
 func _input(event: InputEvent) -> void:
 	if ignore_inputs:
 		return
+	last_action_at = GameManager.now_ms()
 	if event.is_action_pressed("jump") and can_jump():
 		state_machine.transition_by_name("Jump")
 		get_viewport().set_input_as_handled()
@@ -99,8 +103,8 @@ func _input(event: InputEvent) -> void:
 			Activator.active_candidate.activated.emit.call_deferred(Activator.active_candidate)
 		get_viewport().set_input_as_handled()
 	if event.is_action_pressed("ragdoll") and state_machine.get_active() != "Ragdoll":
-			state_machine.transition_by_name.call_deferred("Ragdoll")
-			get_viewport().set_input_as_handled()
+		state_machine.transition_by_name.call_deferred("Ragdoll")
+		get_viewport().set_input_as_handled()
 	if event.is_action_pressed("music_box"):
 		state_machine.transition_by_name("UseMusicBox")
 	if event.is_action_pressed("next_candidate") and Activator.candidates.size() > 1:
