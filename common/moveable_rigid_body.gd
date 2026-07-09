@@ -63,3 +63,8 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if not is_inf(next_angular_velocity):
 		angular_velocity = next_angular_velocity
 		next_angular_velocity = INF
+	if global_position.y > 10000.0:
+		if has_method("reset_after_fall"):
+			call_deferred("reset_after_fall")
+		if has_signal("entered_kill_zone"):
+			emit_signal("entered_kill_zone")

@@ -55,6 +55,7 @@ func set_checkpoint() -> void:
 
 
 func reset_after_fall() -> void:
+	Log.info(self, "resetting after fall", start_pos, velocity)
 	position = start_pos
 	velocity = Vector2.ZERO
 	state_machine.transition_by_name("Ragdoll")
@@ -113,6 +114,8 @@ func _process(_delta: float) -> void:
 		Activator.update_active_candidate()
 	if perma_ragdoll and state_machine.get_active() != "Ragdoll":
 		state_machine.call_deferred("transition_by_name", "Ragdoll")
+	if global_position.y > 10000.0 and state_machine.get_active() != "Ragdoll":
+		reset_after_fall.call_deferred()
 
 
 func pick_up_prop(target_node: Node2D, grab_box: GrabBox) -> bool:
