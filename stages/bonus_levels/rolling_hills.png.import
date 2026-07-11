@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://taheih3duphw"
-path="res://.godot/imported/toothy_grin.png-2b6d66fd7834f63a2a63915788719acf.ctex"
+uid="uid://cfc4giseit1q7"
+path="res://.godot/imported/rolling_hills.png-eddb7b4c27032d549add81322327f8d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stages/easy_levels/toothy_grin.png"
-dest_files=["res://.godot/imported/toothy_grin.png-2b6d66fd7834f63a2a63915788719acf.ctex"]
+source_file="res://stages/bonus_levels/rolling_hills.png"
+dest_files=["res://.godot/imported/rolling_hills.png-eddb7b4c27032d549add81322327f8d0.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfc4giseit1q7"
-path="res://.godot/imported/rolling_hills.png-e6b600e1e36501608ba1825cc7cbe43c.ctex"
+uid="uid://bbm45ye58y30c"
+path="res://.godot/imported/bumpy_ride.png-a86bb775de581f75af0a7a55d829341a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stages/easy_levels/rolling_hills.png"
-dest_files=["res://.godot/imported/rolling_hills.png-e6b600e1e36501608ba1825cc7cbe43c.ctex"]
+source_file="res://stages/bonus_levels/bumpy_ride.png"
+dest_files=["res://.godot/imported/bumpy_ride.png-a86bb775de581f75af0a7a55d829341a.ctex"]
 
 [params]
 

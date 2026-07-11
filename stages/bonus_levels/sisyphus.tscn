@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://ch0wv8cuoudkc" path="res://stages/seussworld/mist.gd" id="4_f3u4r"]
 [ext_resource type="Material" uid="uid://dej13b0et5yjt" path="res://common/dynamic_edges/world_0_shader.tres" id="5_bwunr"]
 [ext_resource type="Script" uid="uid://buvl2i0vdqsau" path="res://common/dynamic_edges/edged_tilemap.gd" id="6_8dn2v"]
-[ext_resource type="Texture2D" uid="uid://vih5pj0kp5ls" path="res://stages/hard_levels/sisyphus-level.png" id="7_7lbda"]
+[ext_resource type="Texture2D" uid="uid://vih5pj0kp5ls" path="res://stages/bonus_levels/sisyphus-level.png" id="7_7lbda"]
 [ext_resource type="Texture2D" uid="uid://dgj7y78b0yk11" path="res://stages/seussworld/art/extras1.png" id="8_1hlo2"]
 [ext_resource type="Texture2D" uid="uid://c3xfqt7y7pycs" path="res://generated/sisyphus_atlas.png" id="8_4ugd7"]
 [ext_resource type="Material" uid="uid://t6s3wyv0jdh6" path="res://props/trees/tree-movement-material.tres" id="9_usygg"]

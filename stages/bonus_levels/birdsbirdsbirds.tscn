@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://ch0wv8cuoudkc" path="res://stages/seussworld/mist.gd" id="4_deev7"]
 [ext_resource type="Material" uid="uid://dej13b0et5yjt" path="res://common/dynamic_edges/world_0_shader.tres" id="5_j8632"]
 [ext_resource type="Script" uid="uid://buvl2i0vdqsau" path="res://common/dynamic_edges/edged_tilemap.gd" id="6_d8c24"]
-[ext_resource type="Texture2D" uid="uid://bbm45ye58y30c" path="res://stages/easy_levels/bumpy_ride.png" id="7_u2i4w"]
+[ext_resource type="Texture2D" uid="uid://bbm45ye58y30c" path="res://stages/bonus_levels/bumpy_ride.png" id="7_u2i4w"]
 [ext_resource type="Texture2D" uid="uid://dgj7y78b0yk11" path="res://stages/seussworld/art/extras1.png" id="8_nqayp"]
 [ext_resource type="Material" uid="uid://t6s3wyv0jdh6" path="res://props/trees/tree-movement-material.tres" id="9_jduka"]
 [ext_resource type="Texture2D" uid="uid://pui7upyox7vw" path="res://stages/seussworld/art/trees.png" id="10_le3a8"]

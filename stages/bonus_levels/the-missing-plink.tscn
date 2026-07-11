@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://ch0wv8cuoudkc" path="res://stages/seussworld/mist.gd" id="4_5wllk"]
 [ext_resource type="Material" uid="uid://dej13b0et5yjt" path="res://common/dynamic_edges/world_0_shader.tres" id="5_jlctm"]
 [ext_resource type="Script" uid="uid://b0waw70vdi075" path="res://common/dynamic_edges/shader_helper.gd" id="6_vuxnk"]
-[ext_resource type="Texture2D" uid="uid://cqyuein6rcbw1" path="res://stages/hard_levels/the-missing-plink.png" id="7_jlctm"]
+[ext_resource type="Texture2D" uid="uid://cqyuein6rcbw1" path="res://stages/bonus_levels/the-missing-plink.png" id="7_jlctm"]
 [ext_resource type="Texture2D" uid="uid://dgj7y78b0yk11" path="res://stages/seussworld/art/extras1.png" id="8_wdguf"]
 [ext_resource type="Material" uid="uid://t6s3wyv0jdh6" path="res://props/trees/tree-movement-material.tres" id="9_oj6ve"]
 [ext_resource type="Texture2D" uid="uid://pui7upyox7vw" path="res://stages/seussworld/art/trees.png" id="10_yjnj8"]

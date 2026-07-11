@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddlcjo0hxknqw"
-path="res://.godot/imported/the-ascent.png-e0a8f0d364e8a40b7f094e3a0fc1a3c5.ctex"
+uid="uid://vih5pj0kp5ls"
+path="res://.godot/imported/sisyphus-level.png-743817a32489d8ae24a1bfb272e4b71b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stages/hard_levels/the-ascent.png"
-dest_files=["res://.godot/imported/the-ascent.png-e0a8f0d364e8a40b7f094e3a0fc1a3c5.ctex"]
+source_file="res://stages/bonus_levels/sisyphus-level.png"
+dest_files=["res://.godot/imported/sisyphus-level.png-743817a32489d8ae24a1bfb272e4b71b.ctex"]
 
 [params]
 

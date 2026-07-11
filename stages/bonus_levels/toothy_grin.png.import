@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbm45ye58y30c"
-path="res://.godot/imported/bumpy_ride.png-f72eb99ae501f229dde8d73e50c0686e.ctex"
+uid="uid://taheih3duphw"
+path="res://.godot/imported/toothy_grin.png-c96ee0523fa1cc44d0b93237613a6df9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stages/easy_levels/bumpy_ride.png"
-dest_files=["res://.godot/imported/bumpy_ride.png-f72eb99ae501f229dde8d73e50c0686e.ctex"]
+source_file="res://stages/bonus_levels/toothy_grin.png"
+dest_files=["res://.godot/imported/toothy_grin.png-c96ee0523fa1cc44d0b93237613a6df9.ctex"]
 
 [params]
 
