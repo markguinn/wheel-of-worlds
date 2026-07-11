@@ -63,6 +63,7 @@ func _process(delta: float) -> void:
 		bird.sprite.scale.x = facing
 		bird.tail_anchor.position.x = -absf(bird.tail_anchor.position.x) * facing
 
+
 	# TODO: it'd be cool if it was looking around
 	#var looking: float = bird.global_position.angle_to_point(destination)
 	#if facing < 0.0:
@@ -72,9 +73,9 @@ func _process(delta: float) -> void:
 	#bird.head.rotation = looking # clampf(looking, -PI * 0.5, PI * 0.5)
 
 	# try to keep the tail under control
-	if bird.tail_target.global_position.y < bird.tail_anchor.global_position.y:
-		bird.tail_target.set_next_linear_velocity(Vector2.ZERO)
-		bird.tail_target.set_next_global_position(Vector2(bird.tail_target.global_position.x, bird.tail_anchor.global_position.y))
-	for n in bird.tail_nodes:
-		if n.scale.length() > 2.0:
-			n.scale = Vector2.ONE
+	#if bird.tail_target.global_position.y < bird.tail_anchor.global_position.y:
+		#bird.tail_target.set_next_linear_velocity(Vector2.ZERO)
+		#bird.tail_target.set_next_global_position(Vector2(bird.tail_target.global_position.x, bird.tail_anchor.global_position.y))
+	#for n in bird.tail_nodes:
+		#if n.scale.length() > 2.0:
+			#n.scale = Vector2.ONE

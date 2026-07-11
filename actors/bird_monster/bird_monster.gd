@@ -76,5 +76,7 @@ func _process(delta: float) -> void:
 		target, 
 		delta * fly_speed * 2.0,
 	)
+	#tail_target.skew = 1.0
+	#tail_target.scale = Vector2.ONE
 		
 	

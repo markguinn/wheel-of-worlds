@@ -799,13 +799,6 @@ position = Vector2(841, 520)
 
 [node name="RemoteTransform2D4" type="RemoteTransform2D" parent="ClimbableTree4/Sprite2D" parent_id_path=PackedInt32Array(1109684937, 2107396213) index="3" unique_id=1694704058]
 position = Vector2(273, -550)
-remote_path = NodePath("../../BirdMonster")
-
-[node name="BirdMonster" parent="ClimbableTree4" unique_id=1506347994 instance=ExtResource("30_4ao4o")]
-position = Vector2(269, -557)
-fly_speed = 0.0
-attack_probability = 0.0
-nest_probability = 0.0
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1146283215]
 light_mask = 3
@@ -854,29 +847,29 @@ active = true
 z_index = 1
 
 [node name="Sprite2D" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.3680111)
-rotation = 803.0287
-scale = Vector2(0.8786741, 0.8786741)
+modulate = Color(1, 1, 1, 0.1005175)
+rotation = 643.8372
+scale = Vector2(0.700345, 0.700345)
 
 [node name="Sprite2D2" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.38074815)
-rotation = -932.0204
-scale = Vector2(0.8871654, 0.8871654)
+modulate = Color(1, 1, 1, 0.39685717)
+rotation = -1042.6068
+scale = Vector2(0.8979048, 0.8979048)
 
 [node name="Sprite2D3" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.31172997)
-rotation = -473.47308
-scale = Vector2(0.8411533, 0.8411533)
+modulate = Color(1, 1, 1, 0.38871452)
+rotation = -706.5055
+scale = Vector2(0.8924763, 0.8924763)
 
 [node name="Sprite2D4" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.14824735)
-rotation = -110.41586
-scale = Vector2(0.7321649, 0.7321649)
+modulate = Color(1, 1, 1, 0.26864144)
+rotation = -566.2096
+scale = Vector2(0.81242764, 0.81242764)
 
 [node name="Sprite2D5" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.39804485)
-rotation = -531.18695
-scale = Vector2(0.8986966, 0.8986966)
+modulate = Color(1, 1, 1, 0.39936814)
+rotation = -173.48007
+scale = Vector2(0.89957875, 0.89957875)
 
 [node name="WhiteSphere" type="Sprite2D" parent="StartPortal/Sprites/EyeBackground" parent_id_path=PackedInt32Array(276198131, 1865392681) index="0" unique_id=1269565657]
 modulate = Color(0.7666196, 0.76661956, 0.76661944, 1)
@@ -936,25 +929,25 @@ light_mask = 4
 
 [node name="BG1" parent="Water" index="2" unique_id=1786315982]
 light_mask = 4
-offset_left = 189.87447
-offset_top = -36.23997
-offset_right = 195.23218
-offset_bottom = 815.76
+offset_left = -135.59059
+offset_top = -28.991783
+offset_right = -130.23413
+offset_bottom = 823.00824
 
 [node name="BG2" parent="Water" index="3" unique_id=1147121301]
 light_mask = 4
-offset_left = 21.524979
-offset_top = -24.920273
-offset_right = 227.26172
-offset_bottom = 1026.9481
+offset_left = 26.460735
+offset_top = -33.082054
+offset_right = 232.19751
+offset_bottom = 1018.7864
 
 [node name="BG3" parent="Water" index="4" unique_id=539485018]
 light_mask = 4
 z_index = 25
-offset_left = -160.91397
-offset_top = -27.09584
-offset_right = -37.177124
-offset_bottom = 1024.7726
+offset_left = -54.292294
+offset_top = -20.398933
+offset_right = 69.44458
+offset_bottom = 1031.4695
 
 [node name="FishTerritory" type="Area2D" parent="." unique_id=1941185685]
 position = Vector2(818, 785)
@@ -1170,7 +1163,7 @@ target_attack_distance = 0.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Credits" unique_id=366850002]
 anchors_preset = -1
-anchor_left = 0.7
+anchor_left = 0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 40.0

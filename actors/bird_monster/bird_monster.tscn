@@ -221,29 +221,17 @@ ccdik_data_chain_length = 3
 joint_data/0/bone_index = 7
 joint_data/0/bone2d_node = NodePath("Controller/Tail")
 joint_data/0/rotate_from_joint = false
-joint_data/0/enable_constraint = true
-joint_data/0/constraint_angle_min = -28.100996
-joint_data/0/constraint_angle_max = 60.0
-joint_data/0/constraint_angle_invert = true
-joint_data/0/constraint_in_localspace = true
+joint_data/0/enable_constraint = false
 joint_data/0/editor_draw_gizmo = true
 joint_data/1/bone_index = 8
 joint_data/1/bone2d_node = NodePath("Controller/Tail/Tail2")
 joint_data/1/rotate_from_joint = false
-joint_data/1/enable_constraint = true
-joint_data/1/constraint_angle_min = -86.581985
-joint_data/1/constraint_angle_max = 77.46799
-joint_data/1/constraint_angle_invert = true
-joint_data/1/constraint_in_localspace = true
+joint_data/1/enable_constraint = false
 joint_data/1/editor_draw_gizmo = true
 joint_data/2/bone_index = 9
 joint_data/2/bone2d_node = NodePath("Controller/Tail/Tail2/Tail3")
 joint_data/2/rotate_from_joint = false
-joint_data/2/enable_constraint = true
-joint_data/2/constraint_angle_min = 0.0
-joint_data/2/constraint_angle_max = 86.58198
-joint_data/2/constraint_angle_invert = false
-joint_data/2/constraint_in_localspace = true
+joint_data/2/enable_constraint = false
 joint_data/2/editor_draw_gizmo = true
 
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_whj6i"]
@@ -324,6 +312,12 @@ shape = SubResource("RectangleShape2D_3paxl")
 position = Vector2(-273, 91)
 collision_layer = 0
 collision_mask = 0
+lock_rotation = true
+freeze = true
+linear_damp_mode = 1
+linear_damp = 100.0
+angular_damp_mode = 1
+angular_damp = 100.0
 script = ExtResource("14_whj6i")
 metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 
@@ -331,7 +325,7 @@ metadata/_custom_type_script = "uid://d1d8irkuomsw0"
 shape = SubResource("CircleShape2D_whj6i")
 
 [node name="PositionHistoryBuffer" type="Node2D" parent="Sprite" unique_id=1763754416]
-position = Vector2(-176, 93)
+position = Vector2(-219, 98)
 script = ExtResource("15_3kjnx")
 metadata/_custom_type_script = "uid://cqn2pmvgavl2o"
 
@@ -377,7 +371,7 @@ position = Vector2(88, 27)
 rest = Transform2D(1, 0, 0, 1, 88, 27)
 auto_calculate_length_and_angle = false
 length = 78.558
-bone_angle = 28.488995
+bone_angle = 28.488993
 
 [node name="Tail" type="Bone2D" parent="Sprite/Skeleton2D/Controller" unique_id=395565811]
 position = Vector2(-60, 26)
