@@ -379,10 +379,10 @@ preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_1xf4e")
 
 [node name="IrisNebula" type="Sprite2D" parent="." unique_id=127912379]
-modulate = Color(1, 1, 1, 0.16053665)
-rotation = 3.598562
+modulate = Color(1, 1, 1, 0.11916338)
+rotation = 4.965834
 scale = Vector2(2, 2)
-skew = -0.190354
+skew = -0.119591065
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -396,10 +396,10 @@ alpha_speed = 0.4
 speed_factor = 0.1
 
 [node name="IrisNebula2" type="Sprite2D" parent="." unique_id=1740825736]
-modulate = Color(1, 1, 1, 0.12858634)
-rotation = 1.0378996
+modulate = Color(1, 1, 1, 0.110596016)
+rotation = 3.5755231
 scale = Vector2(3, 3)
-skew = 0.19303131
+skew = -0.032363813
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -418,45 +418,45 @@ scale = Vector2(0.9, 0.9)
 script = ExtResource("2_1xf4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sparkles" unique_id=972055032]
-modulate = Color(1, 1, 1, 0.17224696)
-rotation = -1831.6085
-scale = Vector2(0.74816465, 0.74816465)
+modulate = Color(1, 1, 1, 0.121401325)
+rotation = -1839.2009
+scale = Vector2(0.71426755, 0.71426755)
 texture = ExtResource("3_i36ib")
 
 [node name="Mist" type="Sprite2D" parent="Sparkles" unique_id=753486441]
-modulate = Color(1, 1, 1, 0.11111967)
-rotation = 590.0174
-scale = Vector2(0.70741314, 0.70741314)
+modulate = Color(1, 1, 1, 0.100714706)
+rotation = 594.417
+scale = Vector2(0.70047647, 0.70047647)
 texture = SubResource("NoiseTexture2D_mvehq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sparkles" unique_id=1758360778]
-modulate = Color(1, 1, 1, 0.26647297)
-rotation = 435.29984
-scale = Vector2(0.810982, 0.810982)
+modulate = Color(1, 1, 1, 0.33409703)
+rotation = 440.8292
+scale = Vector2(0.8560647, 0.8560647)
 texture = ExtResource("4_wsvuw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sparkles" unique_id=845584023]
-modulate = Color(1, 1, 1, 0.1007509)
-rotation = 2528.8184
-scale = Vector2(0.7005006, 0.7005006)
+modulate = Color(1, 1, 1, 0.11098153)
+rotation = 2537.4543
+scale = Vector2(0.70732105, 0.70732105)
 texture = ExtResource("5_p7yao")
 
 [node name="Mist2" type="Sprite2D" parent="Sparkles" unique_id=1711575947]
-modulate = Color(1, 1, 1, 0.30350542)
-rotation = 1451.3104
-scale = Vector2(0.8356703, 0.8356703)
+modulate = Color(1, 1, 1, 0.23198527)
+rotation = 1448.3805
+scale = Vector2(0.78799015, 0.78799015)
 texture = SubResource("NoiseTexture2D_tsbkc")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sparkles" unique_id=1435232981]
-modulate = Color(1, 1, 1, 0.39660907)
-rotation = 970.95917
-scale = Vector2(0.8977394, 0.8977394)
+modulate = Color(1, 1, 1, 0.3944817)
+rotation = 963.5682
+scale = Vector2(0.8963211, 0.8963211)
 texture = ExtResource("6_mi1m4")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sparkles" unique_id=2086365118]
-modulate = Color(1, 1, 1, 0.3333593)
-rotation = 1233.453
-scale = Vector2(0.8555729, 0.8555729)
+modulate = Color(1, 1, 1, 0.26558894)
+rotation = 1231.7838
+scale = Vector2(0.8103926, 0.8103926)
 texture = ExtResource("7_v8lo7")
 
 [node name="RotatingBody" type="Node2D" parent="." unique_id=1912110947]
@@ -583,7 +583,7 @@ rotation = -0.026904797
 scale = Vector2(0.1700271, 0.17001356)
 
 [node name="Eyes" parent="RotatingBody/Player/Sprite/Parts/Head" index="0" unique_id=1167826662]
-frame_progress = 0.99770504
+frame_progress = 0.3478731
 
 [node name="Ouch" parent="RotatingBody/Player/SFX" parent_id_path=PackedInt32Array(317056800, 2054879864) index="2" unique_id=1678676952]
 volume_db = -80.0
@@ -731,6 +731,7 @@ flat = true
 alignment = 0
 
 [node name="TestLevels" type="VBoxContainer" parent="." unique_id=1723145764]
+visible = false
 z_index = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -856,6 +857,7 @@ target_scene = "uid://bxemuwrtyq7yn"
 metadata/_custom_type_script = "uid://dwlqg5ma8i6be"
 
 [node name="BonusLevels" type="VBoxContainer" parent="." unique_id=1287239522]
+visible = false
 z_index = 1
 anchors_preset = 11
 anchor_left = 1.0
