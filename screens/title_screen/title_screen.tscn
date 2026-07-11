@@ -379,10 +379,10 @@ preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_1xf4e")
 
 [node name="IrisNebula" type="Sprite2D" parent="." unique_id=127912379]
-modulate = Color(1, 1, 1, 0.21361649)
-rotation = 2.3076727
+modulate = Color(1, 1, 1, 0.15398385)
+rotation = 2.1658745
 scale = Vector2(2, 2)
-skew = 0.013191031
+skew = 0.16115269
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -396,10 +396,10 @@ alpha_speed = 0.4
 speed_factor = 0.1
 
 [node name="IrisNebula2" type="Sprite2D" parent="." unique_id=1740825736]
-modulate = Color(1, 1, 1, 0.11456267)
-rotation = 2.591209
+modulate = Color(1, 1, 1, 0.1276621)
+rotation = 4.350617
 scale = Vector2(3, 3)
-skew = -0.117975034
+skew = -0.2072842
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -418,45 +418,45 @@ scale = Vector2(0.9, 0.9)
 script = ExtResource("2_1xf4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sparkles" unique_id=972055032]
-modulate = Color(1, 1, 1, 0.22950853)
-rotation = -1343.0497
-scale = Vector2(0.78633904, 0.78633904)
+modulate = Color(1, 1, 1, 0.13472676)
+rotation = -1397.4037
+scale = Vector2(0.72315115, 0.72315115)
 texture = ExtResource("3_i36ib")
 
 [node name="Mist" type="Sprite2D" parent="Sparkles" unique_id=753486441]
-modulate = Color(1, 1, 1, 0.1561768)
-rotation = 403.8472
-scale = Vector2(0.7374512, 0.7374512)
+modulate = Color(1, 1, 1, 0.10181225)
+rotation = 339.76498
+scale = Vector2(0.7012082, 0.7012082)
 texture = SubResource("NoiseTexture2D_mvehq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sparkles" unique_id=1758360778]
-modulate = Color(1, 1, 1, 0.20151205)
-rotation = 173.90375
-scale = Vector2(0.7676747, 0.7676747)
+modulate = Color(1, 1, 1, 0.30982882)
+rotation = 120.31339
+scale = Vector2(0.8398859, 0.8398859)
 texture = ExtResource("4_wsvuw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sparkles" unique_id=845584023]
-modulate = Color(1, 1, 1, 0.10181207)
-rotation = 2079.0425
-scale = Vector2(0.70120806, 0.70120806)
+modulate = Color(1, 1, 1, 0.12484735)
+rotation = 2038.4983
+scale = Vector2(0.7165649, 0.7165649)
 texture = ExtResource("5_p7yao")
 
 [node name="Mist2" type="Sprite2D" parent="Sparkles" unique_id=1711575947]
-modulate = Color(1, 1, 1, 0.39938927)
-rotation = 1595.3304
-scale = Vector2(0.8995928, 0.8995928)
+modulate = Color(1, 1, 1, 0.35126382)
+rotation = 1618.0321
+scale = Vector2(0.86750925, 0.86750925)
 texture = SubResource("NoiseTexture2D_tsbkc")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sparkles" unique_id=1435232981]
-modulate = Color(1, 1, 1, 0.17015865)
-rotation = 1354.5431
-scale = Vector2(0.7467724, 0.7467724)
+modulate = Color(1, 1, 1, 0.105437286)
+rotation = 1392.2357
+scale = Vector2(0.70362484, 0.70362484)
 texture = ExtResource("6_mi1m4")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sparkles" unique_id=2086365118]
-modulate = Color(1, 1, 1, 0.39472112)
-rotation = 1297.4674
-scale = Vector2(0.89648074, 0.89648074)
+modulate = Color(1, 1, 1, 0.33034703)
+rotation = 1331.5087
+scale = Vector2(0.8535647, 0.8535647)
 texture = ExtResource("7_v8lo7")
 
 [node name="RotatingBody" type="Node2D" parent="." unique_id=1912110947]
@@ -583,7 +583,8 @@ rotation = -0.026904797
 scale = Vector2(0.1700271, 0.17001356)
 
 [node name="Eyes" parent="RotatingBody/Player/Sprite/Parts/Head" index="0" unique_id=1167826662]
-frame_progress = 0.44734353
+animation = &"blink"
+frame_progress = 0.32763
 
 [node name="Ouch" parent="RotatingBody/Player/SFX" parent_id_path=PackedInt32Array(317056800, 2054879864) index="2" unique_id=1678676952]
 volume_db = -80.0
