@@ -1961,8 +1961,8 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="HandL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/Torso/ArmL" unique_id=1933907137]
 position = Vector2(-26.651686, 5.448637)
-rotation = 0.06404068
-scale = Vector2(1.0000476, 1.0000476)
+rotation = 0.06404069
+scale = Vector2(1.0000474, 1.0000474)
 rest = Transform2D(0.9979998, 0.06399999, -0.06399999, 0.9979998, -26.651686, 5.448637)
 auto_calculate_length_and_angle = false
 length = 28.031
@@ -2034,7 +2034,7 @@ bones = ["Hips", PackedFloat32Array(1, 1, 1, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0,
 light_mask = 2
 visibility_layer = 3
 position = Vector2(11.087276, -62.294453)
-rotation = -0.0710845
+rotation = -0.07108461
 scale = Vector2(0.17002374, 0.17001218)
 skew = -5.888939e-05
 texture = SubResource("CanvasTexture_2vokq")
@@ -2044,7 +2044,7 @@ region_rect = Rect2(204, 68, 311, 233)
 
 [node name="Eyes" type="AnimatedSprite2D" parent="Sprite/Parts/Head" unique_id=1167826662]
 sprite_frames = SubResource("SpriteFrames_yeioo")
-frame_progress = 0.17142683
+frame_progress = 0.9359785
 offset = Vector2(-35, 387)
 script = ExtResource("7_0wchr")
 
@@ -2157,7 +2157,7 @@ position = Vector2(48, 60)
 [node name="DizzyParticles" type="GPUParticles2D" parent="Sprite/VFX" unique_id=806147118]
 unique_name_in_owner = true
 position = Vector2(11.087276, -62.294453)
-rotation = -1.5197668
+rotation = -1.5197669
 scale = Vector2(0.9999446, 0.9999507)
 skew = 5.9127808e-05
 emitting = false
@@ -2365,6 +2365,8 @@ metadata/_custom_type_script = "uid://vmdvty45rk5y"
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=1311911710]
 script = ExtResource("8_lsln6")
+min_sfx_ms = 10000
+max_sfx_ms = 20000
 metadata/_custom_type_script = "uid://dljix40x8qlm1"
 
 [node name="Walk" type="Node" parent="StateMachine" unique_id=1602864386]
@@ -2429,6 +2431,7 @@ bus = &"SFX"
 
 [node name="Idle" type="AudioStreamPlayer2D" parent="SFX" unique_id=756277898]
 stream = SubResource("AudioStreamRandomizer_q1aq0")
+volume_db = -6.0
 bus = &"SFX"
 
 [connection signal="body_entered" from="Sprite/Ragdoll/FootR" to="StateMachine/Ragdoll" method="_on_torso_body_entered"]

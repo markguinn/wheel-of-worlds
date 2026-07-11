@@ -6,6 +6,7 @@ extends Node2D
 @onready var platform: StaticBody2D = $Platform
 @onready var activator: Activator = $Platform/Activator
 @onready var activator2: Activator = $Base/Activator2
+@onready var pillar: Sprite2D = $Pillar
 
 var tween: Tween = null
 var raised := false
@@ -48,6 +49,14 @@ func _update_activators() -> void:
 	activator.label.text = txt
 	activator2.label.text = txt
 	Activator.update_active_candidate()
+
+
+func _process(_delta: float) -> void:
+	var h := absf(platform.position.y)
+	var half := h / 2.0
+	pillar.position.y = -half - 10.0
+	pillar.region_rect.size.x = h + 20.0
+	pillar.region_rect.position.x = min(500.0, 2048.0 - h)
 
 
 func _input(event: InputEvent) -> void:
