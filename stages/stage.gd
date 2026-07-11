@@ -13,6 +13,7 @@ const OFFSET_FROM_PORTAL = Vector2(-128, 0)
 @export var brightness := 1.0
 @export var contrast := 1.0
 @export var saturation := 1.0
+@export var persist_as_current := true
 
 
 func _ready() -> void:

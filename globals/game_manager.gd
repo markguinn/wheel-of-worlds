@@ -51,6 +51,20 @@ func rate_limit(min_ms: int, scope: Variant) -> bool:
 	return false
 
 
+func start_new_game() -> void:
+	StateManager.reset()
+	change_scene("res://stages/seussworld/tutorial.tscn")
+
+
+func resume_previous_scene() -> void:
+	if StateManager.has_key("path", "cur_scene"):
+		var path = StateManager.get_key("path", "cur_scene")
+		var params = StateManager.get_key("params", "cur_scene", {})
+		change_scene(path, params)
+	else:
+		start_new_game()
+
+
 ## Load in a new scene. For playable stages, params can generally have a "target_portal"
 ## key to indicate where you're coming into the level. Maybe that's the only one we'll
 ## have. Maybe there will be more. Who knows.
@@ -65,6 +79,8 @@ func change_scene(new_scene_path: String, params = {}) -> void:
 	if not new_scene:
 		new_scene = load(TITLE_SCREEN)
 	var new_instance: Node = new_scene.instantiate()
+	if new_instance.get("persist_as_current"):
+		StateManager.set_keys.call_deferred({ "path": new_scene_path, "params": params }, "cur_scene")
 	
 	if fade_out:
 		await VFX.white_out().finished
@@ -121,12 +137,12 @@ func _physics_process(delta: float) -> void:
 
 
 # This is just for testing. We should remove it before release
-func _input(event: InputEvent) -> void:
-	if GameManager.DEV_MODE and event is InputEventKey and event.pressed and not event.is_echo():
-		match event.physical_keycode:
-			KEY_0:
-				Engine.time_scale = 1.0
-			KEY_9:
-				Engine.time_scale = 0.5
-			KEY_8:
-				Engine.time_scale = 0.25
+#func _input(event: InputEvent) -> void:
+	#if GameManager.DEV_MODE and event is InputEventKey and event.pressed and not event.is_echo():
+		#match event.physical_keycode:
+			#KEY_0:
+				#Engine.time_scale = 1.0
+			#KEY_9:
+				#Engine.time_scale = 0.5
+			#KEY_8:
+				#Engine.time_scale = 0.25

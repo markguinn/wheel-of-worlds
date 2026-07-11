@@ -24,4 +24,5 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
-	GameManager.change_scene(target_scene, params)
+	if target_scene:
+		GameManager.change_scene(target_scene, params)

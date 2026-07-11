@@ -467,6 +467,7 @@ script = ExtResource("1_h88km")
 eye_direction_noise = SubResource("FastNoiseLite_h88km")
 eye_strength = Vector2(30, 10)
 eye_speed = 13.0
+persist_as_current = false
 
 [node name="BGLayers" type="Node2D" parent="." unique_id=1459283984]
 metadata/_edit_group_ = true
@@ -847,29 +848,29 @@ active = true
 z_index = 1
 
 [node name="Sprite2D" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.1005175)
-rotation = 643.8372
-scale = Vector2(0.700345, 0.700345)
+modulate = Color(1, 1, 1, 0.2691175)
+rotation = 592.10724
+scale = Vector2(0.81274503, 0.81274503)
 
 [node name="Sprite2D2" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.39685717)
-rotation = -1042.6068
-scale = Vector2(0.8979048, 0.8979048)
+modulate = Color(1, 1, 1, 0.10839625)
+rotation = -1023.33264
+scale = Vector2(0.7055975, 0.7055975)
 
 [node name="Sprite2D3" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.38871452)
-rotation = -706.5055
-scale = Vector2(0.8924763, 0.8924763)
+modulate = Color(1, 1, 1, 0.17966682)
+rotation = -695.46606
+scale = Vector2(0.7531112, 0.7531112)
 
 [node name="Sprite2D4" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.26864144)
-rotation = -566.2096
-scale = Vector2(0.81242764, 0.81242764)
+modulate = Color(1, 1, 1, 0.3980193)
+rotation = -520.53644
+scale = Vector2(0.89867955, 0.89867955)
 
 [node name="Sprite2D5" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.39936814)
-rotation = -173.48007
-scale = Vector2(0.89957875, 0.89957875)
+modulate = Color(1, 1, 1, 0.35543326)
+rotation = -199.96983
+scale = Vector2(0.87028885, 0.87028885)
 
 [node name="WhiteSphere" type="Sprite2D" parent="StartPortal/Sprites/EyeBackground" parent_id_path=PackedInt32Array(276198131, 1865392681) index="0" unique_id=1269565657]
 modulate = Color(0.7666196, 0.76661956, 0.76661944, 1)
@@ -929,25 +930,25 @@ light_mask = 4
 
 [node name="BG1" parent="Water" index="2" unique_id=1786315982]
 light_mask = 4
-offset_left = -135.59059
-offset_top = -28.991783
-offset_right = -130.23413
-offset_bottom = 823.00824
+offset_left = -128.71951
+offset_top = -29.172478
+offset_right = -123.36304
+offset_bottom = 822.8275
 
 [node name="BG2" parent="Water" index="3" unique_id=1147121301]
 light_mask = 4
-offset_left = 26.460735
-offset_top = -33.082054
-offset_right = 232.19751
-offset_bottom = 1018.7864
+offset_left = -72.8684
+offset_top = -32.282074
+offset_right = 132.86841
+offset_bottom = 1019.5863
 
 [node name="BG3" parent="Water" index="4" unique_id=539485018]
 light_mask = 4
 z_index = 25
-offset_left = -54.292294
-offset_top = -20.398933
-offset_right = 69.44458
-offset_bottom = 1031.4695
+offset_left = 139.22618
+offset_top = -19.448845
+offset_right = 262.9629
+offset_bottom = 1032.4196
 
 [node name="FishTerritory" type="Area2D" parent="." unique_id=1941185685]
 position = Vector2(818, 785)

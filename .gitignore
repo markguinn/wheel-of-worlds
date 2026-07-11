@@ -12,3 +12,4 @@ export.cfg
 _ignored_assets
 .vscode
 .idea/
+config.local.ini

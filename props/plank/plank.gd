@@ -122,14 +122,14 @@ func _on_put_down() -> void:
 
 func get_persisted_state() -> Dictionary:
 	return { 
-		"position": position,
+		"position": global_position,
 		"rotation": rotation,
 	}
 
 
 func restore_persisted_state(data: Dictionary) -> void:
-	if "position" in data:
-		position = data.get("position")
+	if "position" in data and data["position"] is Vector2:
+		set_next_global_position(data["position"])
 	if "rotation" in data:
 		rotation = data.get("rotation")
 

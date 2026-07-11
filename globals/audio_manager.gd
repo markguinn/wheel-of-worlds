@@ -42,6 +42,8 @@ func _ready() -> void:
 	bus_portal = AudioServer.get_bus_index("Portal")
 	reset_music_damping()
 	reset_room_size()
+	set_music_balance(StateManager.get_key("music", "settings", 0.5), false)
+	set_sfx_balance(StateManager.get_key("sfx", "settings", 1.0), false)
 
 
 func get_stream_player() -> AudioStreamPlayer:
@@ -208,19 +210,23 @@ func get_music_balance() -> float:
 	return AudioServer.get_bus_volume_linear(bus_music)
 
 
-func set_music_balance(v: float) -> void:
+func set_music_balance(v: float, persist = true) -> void:
 	Log.info(self, "setting music balance", v)
 	AudioServer.set_bus_volume_linear(bus_music, v)
+	if persist:
+		StateManager.set_key("music", v, "settings")
 
 	
 func get_sfx_balance() -> float:
 	return AudioServer.get_bus_volume_linear(bus_sfx)
 
 
-func set_sfx_balance(v: float) -> void:
+func set_sfx_balance(v: float, persist = true) -> void:
 	Log.info(self, "setting sfx balance", v)
 	AudioServer.set_bus_volume_linear(bus_sfx, v)
 	AudioServer.set_bus_volume_linear(bus_atmosphere, v)
+	if persist:
+		StateManager.set_key("sfx", v, "settings")
 
 
 func _input(event: InputEvent) -> void:

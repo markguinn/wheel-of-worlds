@@ -31,8 +31,8 @@ func get_persisted_state() -> Dictionary:
 
 
 func restore_persisted_state(data: Dictionary) -> void:
-	if "position" in data:
-		set_next_global_position(data.get("position"))
+	if "position" in data and data["position"] is Vector2:
+		set_next_global_position(data["position"])
 	if "rotation" in data:
 		set_next_global_rotation(data.get("rotation"))
 

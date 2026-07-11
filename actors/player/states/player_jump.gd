@@ -24,9 +24,9 @@ func _entered(from_state: StateNode) -> void:
 	horizontal_speed = old_horizontal_speed
 	
 	if player.is_holding_prop:
-		player.velocity += -GRAVITY_DIRECTION * carrying_jump_strength * player.jump_multiplier
+		player.velocity.y = -GRAVITY_DIRECTION.y * carrying_jump_strength * player.jump_multiplier
 	else:
-		player.velocity += -GRAVITY_DIRECTION * jump_strength * player.jump_multiplier
+		player.velocity.y = -GRAVITY_DIRECTION.y * jump_strength * player.jump_multiplier
 
 
 func _process(delta: float) -> void:

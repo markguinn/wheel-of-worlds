@@ -7,7 +7,6 @@ const ERROR = 4
 const EMPTY = []
 
 const HEADER_FORMAT = "[%s] %8d %s:"
-const DEFAULT_LEVEL = INFO
 
 const LABELS = {
 	DEBUG: "D",
@@ -16,28 +15,15 @@ const LABELS = {
 	ERROR: "E",
 }
 
-# TODO: move this to a gitignored json file?
-# Feel free to add any component here that's too noisy or that we might want more output 
-# from during development. What's listed here will be the minimum level that gets through
-const levels = {
-	#"AudioManager": DEBUG,
-	#"BirdFood": DEBUG,
-	#"BirdMonster": DEBUG,
-	#"CavernArea": DEBUG,
-	#"ClimbableTree": DEBUG,
-	#"Activator": DEBUG,
-	#"FishMonster": DEBUG,
-	#"FishPatrollingState": DEBUG,
-	#"GameManager": DEBUG,
-	#"GrabBox": DEBUG,
-	#"Plank": DEBUG,
-	#"Player": DEBUG,
-	#"Portal": DEBUG,
-	#"ShadowBlob": DEBUG,
-	#"StateMachine": DEBUG,
-	#"StateManager": DEBUG,
-	#"Teleplate": DEBUG,
-}
+var default_level: int
+var cfg: ConfigFile = ConfigFile.new()
+
+
+func _ready() -> void:
+	cfg.load("res://config.ini")
+	if FileAccess.file_exists("res://config.local.ini"):
+		cfg.load("res://config.local.ini")
+	default_level = cfg.get_value("log_levels", "DEFAULT", 3)
 
 
 func _format(source: Variant, level: int, args: Array[Variant]) -> Array[Variant]:
@@ -51,7 +37,8 @@ func _format(source: Variant, level: int, args: Array[Variant]) -> Array[Variant
 			source_name = source.name
 		else:
 			source_name = str(source)
-	if level < levels.get(source_name, DEFAULT_LEVEL):
+	var target_level = cfg.get_value("log_levels", source_name, default_level)
+	if level < target_level:
 		return EMPTY
 	var header := HEADER_FORMAT % [
 		LABELS[level],
@@ -88,8 +75,7 @@ func warn(source: Variant, ...args) -> void:
 
 
 func info(source: Variant, ...args) -> void:
-	if GameManager.DEV_MODE:
-		_log(source, INFO, args)
+	_log(source, INFO, args)
 
 
 func debug(source: Variant, ...args) -> void:

@@ -32,16 +32,8 @@ func _on_options_menu_vis() -> void:
 	options_bg.visible = options_menu.visible
 	
 
-func _on_start_game_focus_entered() -> void:
-	_rotate_wheel(0.0)
-
-
-func _on_options_focus_entered() -> void:
-	_rotate_wheel(-90.0)
-
-
-func _on_quit_game_focus_entered() -> void:
-	_rotate_wheel(90.0)
+func _on_wheel_button_focus_entered(btn) -> void:
+	_rotate_wheel(-btn.rotation_degrees)
 
 
 func _rotate_wheel(deg: float) -> void:
@@ -52,4 +44,18 @@ func _rotate_wheel(deg: float) -> void:
 		rotate_tween = create_tween()
 		rotate_tween.set_ease(Tween.EASE_IN_OUT)
 		rotate_tween.set_trans(Tween.TRANS_BOUNCE)
+		while absf(wheel.rotation_degrees - deg) > 180.0:
+			if deg > wheel.rotation_degrees:
+				deg -= 360.0
+			else:
+				deg += 360.0
+		Log.debug(self, "rotating wheel", wheel.rotation_degrees, deg)
 		rotate_tween.tween_property(wheel, "rotation_degrees", deg, 0.4)
+
+
+func _on_start_game_pressed() -> void:
+	GameManager.start_new_game()
+
+
+func _on_continue_pressed() -> void:
+	GameManager.resume_previous_scene()

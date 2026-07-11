@@ -39,12 +39,20 @@ func _on_put_down(_node: Node2D) -> void:
 func _process(delta: float) -> void:
 	super._process(delta)
 
-	if GameManager.now_ms() > player.last_action_at + HUD_MS and not GameManager.is_hud_visible():
+	if (
+		GameManager.now_ms() > player.last_action_at + HUD_MS and 
+		not GameManager.is_hud_visible() and 
+		not player.ignore_inputs
+	):
 		GameManager.show_hud()
-	if GameManager.now_ms() > next_sfx_time:
+	if (
+		GameManager.now_ms() > next_sfx_time and
+		not player.ignore_inputs
+	):
 		%SFX/Idle.play()
 		_pick_next_sfx()
 		player.emotional_state = Player.EmotionalState.SCARED
+		face_change_time = GameManager.now_ms() + 500
 	if GameManager.now_ms() > face_change_time:
 		player.emotional_state = Player.EmotionalState.NEUTRAL
 

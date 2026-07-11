@@ -46,12 +46,12 @@ func reset_after_fall() -> void:
 
 
 func get_persisted_state() -> Dictionary:
-	return { "position": position }
+	return { "position": global_position }
 
 
 func restore_persisted_state(data: Dictionary) -> void:
-	if "position" in data:
-		position = data.get("position")
+	if "position" in data and data["position"] is Vector2:
+		set_next_global_position(data["position"])
 
 
 func _physics_process(_delta: float) -> void:

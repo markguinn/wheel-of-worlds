@@ -37,6 +37,10 @@ var baseline_contrast := 1.0
 var baseline_saturation := 1.0
 
 
+func _ready() -> void:
+	shake_volume_setting = StateManager.get_key("shake", "settings", 1.0)
+
+
 func set_baseline(bloom: float, brightness: float, contrast: float, saturation: float, apply = true) -> void:
 	Log.info(self, "set vfx baseline", bloom, brightness, contrast, saturation)
 	baseline_bloom = bloom
@@ -51,8 +55,15 @@ func set_baseline(bloom: float, brightness: float, contrast: float, saturation: 
 		env.environment.adjustment_saturation = baseline_saturation
 
 
-func set_shake_volume(value: float) -> void:
+func get_shake_volume() -> float:
+	return shake_volume_setting
+
+
+func set_shake_volume(value: float, persist = true) -> void:
+	Log.info(self, "setting shake volumne", value)
 	shake_volume_setting = value
+	if persist:
+		StateManager.set_key("shake", value, "settings")
 
 
 ## Timesaver for shake + flash. Use flash_intensity_ratio if you want a stronger shake than flash.

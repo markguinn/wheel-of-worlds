@@ -27,12 +27,12 @@ buses/default_bus_layout="uid://bxeygrg1rwug6"
 
 [autoload]
 
-GameManager="*res://globals/game_manager.gd"
-StateManager="*uid://1wumj61m8a4e"
-AudioManager="*uid://dl6qiwmawjdvr"
-VFX="*uid://jmlethaw3ljf"
 Log="*uid://dchokurr8lg8t"
 Flags="*uid://o1sxvgsnlpji"
+StateManager="*uid://1wumj61m8a4e"
+GameManager="*res://globals/game_manager.gd"
+AudioManager="*uid://dl6qiwmawjdvr"
+VFX="*uid://jmlethaw3ljf"
 
 [display]
 

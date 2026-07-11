@@ -148,7 +148,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(834, 95)
-shader_parameter/real_screen_size = Vector2(1952.155, 868.25977)
+shader_parameter/real_screen_size = Vector2(2787.8965, 1832.5463)
 shader_parameter/edges = Array[Texture2D]([ExtResource("11_7cxjv"), ExtResource("11_7cxjv")])
 shader_parameter/edge_smoothness = 1.50400007144
 shader_parameter/fill_enabled = true
@@ -379,10 +379,10 @@ preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_1xf4e")
 
 [node name="IrisNebula" type="Sprite2D" parent="." unique_id=127912379]
-modulate = Color(1, 1, 1, 0.27974913)
-rotation = 3.3298173
+modulate = Color(1, 1, 1, 0.21361649)
+rotation = 2.3076727
 scale = Vector2(2, 2)
-skew = -0.042435016
+skew = 0.013191031
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -396,10 +396,10 @@ alpha_speed = 0.4
 speed_factor = 0.1
 
 [node name="IrisNebula2" type="Sprite2D" parent="." unique_id=1740825736]
-modulate = Color(1, 1, 1, 0.15683295)
-rotation = 1.7571739
+modulate = Color(1, 1, 1, 0.11456267)
+rotation = 2.591209
 scale = Vector2(3, 3)
-skew = -0.17056876
+skew = -0.117975034
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -418,151 +418,80 @@ scale = Vector2(0.9, 0.9)
 script = ExtResource("2_1xf4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sparkles" unique_id=972055032]
-modulate = Color(1, 1, 1, 0.23009954)
-rotation = -943.2907
-scale = Vector2(0.78673303, 0.78673303)
+modulate = Color(1, 1, 1, 0.22950853)
+rotation = -1343.0497
+scale = Vector2(0.78633904, 0.78633904)
 texture = ExtResource("3_i36ib")
 
 [node name="Mist" type="Sprite2D" parent="Sparkles" unique_id=753486441]
-modulate = Color(1, 1, 1, 0.39392534)
-rotation = 631.27594
-scale = Vector2(0.8959502, 0.8959502)
+modulate = Color(1, 1, 1, 0.1561768)
+rotation = 403.8472
+scale = Vector2(0.7374512, 0.7374512)
 texture = SubResource("NoiseTexture2D_mvehq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sparkles" unique_id=1758360778]
-modulate = Color(1, 1, 1, 0.111327894)
-rotation = 173.72139
-scale = Vector2(0.70755196, 0.70755196)
+modulate = Color(1, 1, 1, 0.20151205)
+rotation = 173.90375
+scale = Vector2(0.7676747, 0.7676747)
 texture = ExtResource("4_wsvuw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sparkles" unique_id=845584023]
-modulate = Color(1, 1, 1, 0.13215698)
-rotation = 2205.7654
-scale = Vector2(0.721438, 0.721438)
+modulate = Color(1, 1, 1, 0.10181207)
+rotation = 2079.0425
+scale = Vector2(0.70120806, 0.70120806)
 texture = ExtResource("5_p7yao")
 
 [node name="Mist2" type="Sprite2D" parent="Sparkles" unique_id=1711575947]
-modulate = Color(1, 1, 1, 0.2569713)
-rotation = 1095.7338
-scale = Vector2(0.8046475, 0.8046475)
+modulate = Color(1, 1, 1, 0.39938927)
+rotation = 1595.3304
+scale = Vector2(0.8995928, 0.8995928)
 texture = SubResource("NoiseTexture2D_tsbkc")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sparkles" unique_id=1435232981]
-modulate = Color(1, 1, 1, 0.39327535)
-rotation = 1272.3885
-scale = Vector2(0.8955169, 0.8955169)
+modulate = Color(1, 1, 1, 0.17015865)
+rotation = 1354.5431
+scale = Vector2(0.7467724, 0.7467724)
 texture = ExtResource("6_mi1m4")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sparkles" unique_id=2086365118]
-modulate = Color(1, 1, 1, 0.16542532)
-rotation = 783.5434
-scale = Vector2(0.7436169, 0.7436169)
+modulate = Color(1, 1, 1, 0.39472112)
+rotation = 1297.4674
+scale = Vector2(0.89648074, 0.89648074)
 texture = ExtResource("7_v8lo7")
 
 [node name="RotatingBody" type="Node2D" parent="." unique_id=1912110947]
 light_mask = 5
 
-[node name="StartGame" type="Button" parent="RotatingBody" unique_id=339056221]
-unique_name_in_owner = true
-z_index = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -229.0
-offset_top = 420.0
-offset_right = 188.0
-offset_bottom = 518.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_neighbor_left = NodePath("../Options")
-focus_neighbor_right = NodePath("../QuitGame")
-focus_next = NodePath("../QuitGame")
-focus_previous = NodePath("../Options")
-theme_type_variation = &"BigButton"
-text = "Start Game"
-flat = true
-alignment = 0
-script = ExtResource("4_p4pbn")
-target_scene = "uid://obcnvoariac3"
-is_primary = true
+[node name="StaticBody2D" type="StaticBody2D" parent="RotatingBody" unique_id=819683219]
+visible = false
+scale = Vector2(0.55, 0.55)
 
-[node name="Options" type="Button" parent="RotatingBody" unique_id=402697830]
-unique_name_in_owner = true
-z_index = 1
-offset_left = -429.0
-offset_top = -207.0
-offset_right = -83.0
-offset_bottom = -109.0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotatingBody/StaticBody2D" unique_id=182824182]
+polygon = PackedVector2Array(0, 738, 125, 730, 262, 693, 383, 635, 505, 543, 614, 414, 687, 292, 733, 134, 738, 0, 960, 0, 960, 932, 0, 943)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="RotatingBody" unique_id=1154696191]
+visible = false
 rotation = 1.5707964
-focus_neighbor_left = NodePath("../../TestLevels/ShadowMonsterTest")
-focus_neighbor_right = NodePath("../StartGame")
-focus_next = NodePath("../StartGame")
-focus_previous = NodePath("../../TestLevels/ShadowMonsterTest")
-theme_type_variation = &"BigButton"
-text = "Options"
-flat = true
-alignment = 0
+scale = Vector2(0.55, 0.55)
 
-[node name="QuitGame" type="Button" parent="RotatingBody" unique_id=575462075]
-unique_name_in_owner = true
-z_index = 1
-offset_left = 427.0
-offset_top = 266.0
-offset_right = 831.0
-offset_bottom = 364.0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotatingBody/StaticBody2D2" unique_id=1141222102]
+polygon = PackedVector2Array(3.2259006e-05, 738, 125, 730, 262, 693, 383, 635, 505, 543, 614, 414, 687, 292, 733, 134, 738, -3.2259006e-05, 960, 0, 960, 932, 0, 943)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="RotatingBody" unique_id=62655239]
+visible = false
+rotation = -3.1415925
+scale = Vector2(0.55, 0.55)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotatingBody/StaticBody2D3" unique_id=311776429]
+polygon = PackedVector2Array(6.4430584e-05, 737, 125, 730, 262, 693, 383, 635, 505, 543, 614, 414, 687, 292, 733, 134, 738, -6.451801e-05, 960, 0, 960, 932, 0, 943)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="RotatingBody" unique_id=1433558895]
+visible = false
 rotation = -1.5707964
-focus_neighbor_left = NodePath("../StartGame")
-focus_neighbor_right = NodePath("../../BonusLevels/Level1Button")
-focus_next = NodePath("../../BonusLevels/Level1Button")
-focus_previous = NodePath("../StartGame")
-theme_type_variation = &"BigButton"
-text = "Quit Game"
-flat = true
-alignment = 0
+scale = Vector2(0.55, 0.55)
 
-[node name="Player" parent="RotatingBody" unique_id=317056800 instance=ExtResource("16_e6237")]
-position = Vector2(3, 12)
-ignore_inputs = true
-perma_ragdoll = true
-
-[node name="ThighR" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips" parent_id_path=PackedInt32Array(317056800, 598144107) index="0" unique_id=25801670]
-rotation = -0.21382818
-scale = Vector2(0.99000025, 0.99000025)
-
-[node name="ShinR" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/ThighR" index="0" unique_id=1375386282]
-rotation = 0.37675267
-
-[node name="ThighL" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips" parent_id_path=PackedInt32Array(317056800, 598144107) index="1" unique_id=226334277]
-rotation = 0.59875965
-
-[node name="ShinL" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/ThighL" index="0" unique_id=919169516]
-rotation = -1.0863235
-
-[node name="Head" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/Torso" parent_id_path=PackedInt32Array(317056800, 2022925139) index="0" unique_id=1580104760]
-rotation = 0.051088758
-
-[node name="ArmL" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/Torso" parent_id_path=PackedInt32Array(317056800, 2022925139) index="1" unique_id=1793998611]
-rotation = 0.08742276
-
-[node name="HandL" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/Torso/ArmL" index="0" unique_id=1933907137]
-rotation = -0.35640442
-
-[node name="ArmR" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/Torso" parent_id_path=PackedInt32Array(317056800, 2022925139) index="2" unique_id=1756135333]
-rotation = 1.4468238
-
-[node name="HandR" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/Torso/ArmR" index="0" unique_id=88591762]
-rotation = -0.026904797
-
-[node name="Head" parent="RotatingBody/Player/Sprite/Parts" parent_id_path=PackedInt32Array(317056800, 1880770915) index="3" unique_id=857872474]
-scale = Vector2(0.1700271, 0.17001356)
-
-[node name="Eyes" parent="RotatingBody/Player/Sprite/Parts/Head" index="0" unique_id=1167826662]
-frame_progress = 0.37369537
-
-[node name="Ouch" parent="RotatingBody/Player/SFX" parent_id_path=PackedInt32Array(317056800, 2054879864) index="2" unique_id=1678676952]
-volume_db = -80.0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotatingBody/StaticBody2D4" unique_id=1663167988]
+polygon = PackedVector2Array(8.800562e-06, 738, 125, 730, 262, 693, 383, 635, 505, 543, 614, 414, 687, 292, 733, 134, 737, -8.788637e-06, 960, 0, 960, 932, 0, 943)
 
 [node name="WheelTilesShader" type="CanvasGroup" parent="RotatingBody" unique_id=1122700903 node_paths=PackedStringArray("target_layer")]
 light_mask = 5
@@ -572,6 +501,7 @@ target_layer = NodePath("../BakedEdges")
 tile_size = Vector2(64, 64)
 bake_region = Rect2(0, 0, 2500, 2500)
 slug = "title"
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="RotatingBody/WheelTilesShader" unique_id=2117626130]
 light_mask = 5
@@ -616,38 +546,192 @@ occlusion_enabled = false
 collision_enabled = false
 navigation_enabled = false
 
-[node name="StaticBody2D" type="StaticBody2D" parent="RotatingBody" unique_id=819683219]
-visible = false
-scale = Vector2(0.55, 0.55)
+[node name="Player" parent="RotatingBody" unique_id=317056800 instance=ExtResource("16_e6237")]
+position = Vector2(3, 12)
+ignore_inputs = true
+perma_ragdoll = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotatingBody/StaticBody2D" unique_id=182824182]
-polygon = PackedVector2Array(0, 738, 125, 730, 262, 693, 383, 635, 505, 543, 614, 414, 687, 292, 733, 134, 738, 0, 960, 0, 960, 932, 0, 943)
+[node name="ThighR" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips" parent_id_path=PackedInt32Array(317056800, 598144107) index="0" unique_id=25801670]
+rotation = -0.2138282
+scale = Vector2(0.99000025, 0.99000025)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="RotatingBody" unique_id=1154696191]
-visible = false
-rotation = 1.5707964
-scale = Vector2(0.55, 0.55)
+[node name="ShinR" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/ThighR" index="0" unique_id=1375386282]
+rotation = 0.37675267
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotatingBody/StaticBody2D2" unique_id=1141222102]
-polygon = PackedVector2Array(3.2259006e-05, 738, 125, 730, 262, 693, 383, 635, 505, 543, 614, 414, 687, 292, 733, 134, 738, -3.2259006e-05, 960, 0, 960, 932, 0, 943)
+[node name="ThighL" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips" parent_id_path=PackedInt32Array(317056800, 598144107) index="1" unique_id=226334277]
+rotation = 0.59875965
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="RotatingBody" unique_id=62655239]
-visible = false
-rotation = -3.1415925
-scale = Vector2(0.55, 0.55)
+[node name="ShinL" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/ThighL" index="0" unique_id=919169516]
+rotation = -1.0863235
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotatingBody/StaticBody2D3" unique_id=311776429]
-polygon = PackedVector2Array(6.4430584e-05, 737, 125, 730, 262, 693, 383, 635, 505, 543, 614, 414, 687, 292, 733, 134, 738, -6.451801e-05, 960, 0, 960, 932, 0, 943)
+[node name="Head" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/Torso" parent_id_path=PackedInt32Array(317056800, 2022925139) index="0" unique_id=1580104760]
+rotation = 0.051088758
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="RotatingBody" unique_id=1433558895]
-visible = false
-rotation = -1.5707964
-scale = Vector2(0.55, 0.55)
+[node name="ArmL" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/Torso" parent_id_path=PackedInt32Array(317056800, 2022925139) index="1" unique_id=1793998611]
+rotation = 0.08742276
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotatingBody/StaticBody2D4" unique_id=1663167988]
-polygon = PackedVector2Array(8.800562e-06, 738, 125, 730, 262, 693, 383, 635, 505, 543, 614, 414, 687, 292, 733, 134, 737, -8.788637e-06, 960, 0, 960, 932, 0, 943)
+[node name="HandL" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/Torso/ArmL" index="0" unique_id=1933907137]
+rotation = -0.3564044
+
+[node name="ArmR" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/Torso" parent_id_path=PackedInt32Array(317056800, 2022925139) index="2" unique_id=1756135333]
+rotation = 1.4468238
+
+[node name="HandR" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/Torso/ArmR" index="0" unique_id=88591762]
+rotation = -0.026904797
+
+[node name="Head" parent="RotatingBody/Player/Sprite/Parts" parent_id_path=PackedInt32Array(317056800, 1880770915) index="3" unique_id=857872474]
+scale = Vector2(0.1700271, 0.17001356)
+
+[node name="Eyes" parent="RotatingBody/Player/Sprite/Parts/Head" index="0" unique_id=1167826662]
+frame_progress = 0.44734353
+
+[node name="Ouch" parent="RotatingBody/Player/SFX" parent_id_path=PackedInt32Array(317056800, 2054879864) index="2" unique_id=1678676952]
+volume_db = -80.0
+
+[node name="StartGame" type="Button" parent="RotatingBody" unique_id=339056221]
+unique_name_in_owner = true
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = 420.0
+offset_right = 188.0
+offset_bottom = 518.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(229, -420)
+focus_neighbor_left = NodePath("../Continue")
+focus_neighbor_right = NodePath("../AltWheel")
+focus_next = NodePath("../AltWheel")
+focus_previous = NodePath("../Continue")
+theme_type_variation = &"BigButton"
+text = "New Story"
+flat = true
+alignment = 0
+script = ExtResource("4_p4pbn")
+is_primary = true
+
+[node name="AltWheel" type="Button" parent="RotatingBody" unique_id=338055929]
+unique_name_in_owner = true
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = 420.0
+offset_right = 188.0
+offset_bottom = 518.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.0471976
+pivot_offset = Vector2(229, -420)
+focus_neighbor_left = NodePath("../StartGame")
+focus_neighbor_right = NodePath("../Options")
+focus_next = NodePath("../Options")
+focus_previous = NodePath("../StartGame")
+theme_type_variation = &"BigButton"
+text = "B Sides"
+flat = true
+alignment = 0
+script = ExtResource("4_p4pbn")
+target_scene = "uid://b32q0e34faaed"
+
+[node name="Continue" type="Button" parent="RotatingBody" unique_id=715926209]
+unique_name_in_owner = true
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = 420.0
+offset_right = 188.0
+offset_bottom = 518.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.0471976
+pivot_offset = Vector2(229, -420)
+focus_neighbor_left = NodePath("../Credits")
+focus_neighbor_right = NodePath("../StartGame")
+focus_next = NodePath("../StartGame")
+focus_previous = NodePath("../Credits")
+theme_type_variation = &"BigButton"
+text = "Continue"
+flat = true
+alignment = 0
+script = ExtResource("4_p4pbn")
+
+[node name="Credits" type="Button" parent="RotatingBody" unique_id=1140054243]
+unique_name_in_owner = true
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = 420.0
+offset_right = 188.0
+offset_bottom = 518.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 2.0943952
+pivot_offset = Vector2(229, -420)
+focus_neighbor_left = NodePath("../QuitGame")
+focus_neighbor_right = NodePath("../Continue")
+focus_next = NodePath("../Continue")
+focus_previous = NodePath("../QuitGame")
+theme_type_variation = &"BigButton"
+text = "Credits"
+flat = true
+alignment = 0
+script = ExtResource("4_p4pbn")
+target_scene = "uid://bxemuwrtyq7yn"
+
+[node name="Options" type="Button" parent="RotatingBody" unique_id=402697830]
+unique_name_in_owner = true
+z_index = 1
+offset_left = -173.0
+offset_top = 420.0
+offset_right = 173.0
+offset_bottom = 518.0
+rotation = -2.0943952
+pivot_offset = Vector2(173, -420)
+focus_neighbor_left = NodePath("../AltWheel")
+focus_neighbor_right = NodePath("../QuitGame")
+focus_next = NodePath("../QuitGame")
+focus_previous = NodePath("../AltWheel")
+theme_type_variation = &"BigButton"
+text = "Options"
+flat = true
+alignment = 0
+
+[node name="QuitGame" type="Button" parent="RotatingBody" unique_id=575462075]
+unique_name_in_owner = true
+z_index = 1
+offset_left = -202.0
+offset_top = 420.0
+offset_right = 202.0
+offset_bottom = 518.0
+rotation = -3.1415927
+pivot_offset = Vector2(202, -420)
+focus_neighbor_left = NodePath("../Options")
+focus_neighbor_right = NodePath("../Credits")
+focus_next = NodePath("../Credits")
+focus_previous = NodePath("../Options")
+theme_type_variation = &"BigButton"
+text = "Quit Game"
+flat = true
+alignment = 0
 
 [node name="TestLevels" type="VBoxContainer" parent="." unique_id=1723145764]
+z_index = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = -960.0
@@ -674,7 +758,6 @@ flat = true
 alignment = 0
 script = ExtResource("4_p4pbn")
 target_scene = "uid://obcnvoariac4"
-is_primary = null
 
 [node name="FishArena" type="Button" parent="TestLevels" unique_id=976171538]
 layout_mode = 2
@@ -684,7 +767,6 @@ flat = true
 alignment = 0
 script = ExtResource("4_p4pbn")
 target_scene = "uid://kp1emqrppuje"
-is_primary = null
 
 [node name="BirdArena" type="Button" parent="TestLevels" unique_id=1172115935]
 layout_mode = 2
@@ -694,7 +776,6 @@ flat = true
 alignment = 0
 script = ExtResource("4_p4pbn")
 target_scene = "uid://bx5liwka2cee0"
-is_primary = null
 
 [node name="Puzzle Museum" type="Button" parent="TestLevels" unique_id=1817950069]
 layout_mode = 2
@@ -705,7 +786,6 @@ flat = true
 alignment = 0
 script = ExtResource("4_p4pbn")
 target_scene = "uid://duod8hfxbeiwr"
-is_primary = null
 
 [node name="PropMuseum" type="Button" parent="TestLevels" unique_id=1773347547]
 layout_mode = 2
@@ -715,7 +795,6 @@ flat = true
 alignment = 0
 script = ExtResource("4_p4pbn")
 target_scene = "uid://c71noy568icli"
-is_primary = null
 
 [node name="PortalTest" type="Button" parent="TestLevels" unique_id=1325434459]
 layout_mode = 2
@@ -726,7 +805,6 @@ flat = true
 alignment = 0
 script = ExtResource("4_p4pbn")
 target_scene = "uid://b080kave2n6fp"
-is_primary = null
 
 [node name="FishMovementTest" type="Button" parent="TestLevels" unique_id=75856200]
 layout_mode = 2
@@ -736,7 +814,6 @@ flat = true
 alignment = 0
 script = ExtResource("4_p4pbn")
 target_scene = "uid://bdj8pam5dyb26"
-is_primary = null
 
 [node name="Giant" type="Button" parent="TestLevels" unique_id=1047357496]
 layout_mode = 2
@@ -779,6 +856,7 @@ target_scene = "uid://bxemuwrtyq7yn"
 metadata/_custom_type_script = "uid://dwlqg5ma8i6be"
 
 [node name="BonusLevels" type="VBoxContainer" parent="." unique_id=1287239522]
+z_index = 1
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
@@ -809,7 +887,6 @@ flat = true
 alignment = 0
 script = ExtResource("4_p4pbn")
 target_scene = "uid://djnwseb73emx0"
-is_primary = null
 
 [node name="Level2Button" type="Button" parent="BonusLevels" unique_id=1927403528]
 layout_mode = 2
@@ -819,7 +896,6 @@ flat = true
 alignment = 0
 script = ExtResource("4_p4pbn")
 target_scene = "uid://x08jlrrsi88x"
-is_primary = null
 
 [node name="Level3Button" type="Button" parent="BonusLevels" unique_id=910073122]
 layout_mode = 2
@@ -830,7 +906,6 @@ flat = true
 alignment = 0
 script = ExtResource("4_p4pbn")
 target_scene = "uid://bdtjgqgcd0tqf"
-is_primary = null
 
 [node name="FishBossButton" type="Button" parent="BonusLevels" unique_id=1370658865]
 layout_mode = 2
@@ -840,7 +915,6 @@ flat = true
 alignment = 0
 script = ExtResource("4_p4pbn")
 target_scene = "uid://cdmiqqhm4hsph"
-is_primary = null
 
 [node name="WheelButton" type="Button" parent="BonusLevels" unique_id=500953345]
 layout_mode = 2
@@ -850,7 +924,6 @@ flat = true
 alignment = 0
 script = ExtResource("4_p4pbn")
 target_scene = "uid://b32q0e34faaed"
-is_primary = null
 
 [node name="Easy1" type="Button" parent="BonusLevels" unique_id=431453243]
 layout_mode = 2
@@ -860,7 +933,6 @@ flat = true
 alignment = 0
 script = ExtResource("4_p4pbn")
 target_scene = "uid://b3nakjnxtdeqc"
-is_primary = null
 
 [node name="Easy2" type="Button" parent="BonusLevels" unique_id=1817541671]
 layout_mode = 2
@@ -870,7 +942,6 @@ flat = true
 alignment = 0
 script = ExtResource("4_p4pbn")
 target_scene = "uid://b3y8g2vlw0hm1"
-is_primary = null
 
 [node name="East3" type="Button" parent="BonusLevels" unique_id=1809788232]
 layout_mode = 2
@@ -880,7 +951,6 @@ flat = true
 alignment = 0
 script = ExtResource("4_p4pbn")
 target_scene = "uid://it4o2hor8od2"
-is_primary = null
 
 [node name="Hard1" type="Button" parent="BonusLevels" unique_id=1886771547]
 layout_mode = 2
@@ -964,10 +1034,15 @@ bus = &"SFX"
 
 [node name="BackgroundMusic" parent="." unique_id=1022284647 instance=ExtResource("18_mhrfk")]
 
-[connection signal="focus_entered" from="RotatingBody/StartGame" to="." method="_on_start_game_focus_entered"]
-[connection signal="focus_entered" from="RotatingBody/Options" to="." method="_on_options_focus_entered"]
+[connection signal="focus_entered" from="RotatingBody/StartGame" to="." method="_on_wheel_button_focus_entered" flags=18]
+[connection signal="pressed" from="RotatingBody/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="focus_entered" from="RotatingBody/AltWheel" to="." method="_on_wheel_button_focus_entered" flags=18]
+[connection signal="focus_entered" from="RotatingBody/Continue" to="." method="_on_wheel_button_focus_entered" flags=18]
+[connection signal="pressed" from="RotatingBody/Continue" to="." method="_on_continue_pressed"]
+[connection signal="focus_entered" from="RotatingBody/Credits" to="." method="_on_wheel_button_focus_entered" flags=18]
+[connection signal="focus_entered" from="RotatingBody/Options" to="." method="_on_wheel_button_focus_entered" flags=18]
 [connection signal="pressed" from="RotatingBody/Options" to="." method="_on_options_pressed"]
-[connection signal="focus_entered" from="RotatingBody/QuitGame" to="." method="_on_quit_game_focus_entered"]
+[connection signal="focus_entered" from="RotatingBody/QuitGame" to="." method="_on_wheel_button_focus_entered" flags=18]
 [connection signal="pressed" from="RotatingBody/QuitGame" to="." method="_on_quit_game_pressed"]
 
 [editable path="RotatingBody/Player"]

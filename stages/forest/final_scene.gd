@@ -11,6 +11,7 @@ var iris_home: Vector2
 
 
 func _ready() -> void:
+	super._ready()
 	iris_home = iris.position
 	#player.sprite.scale.x = -1.0
 	get_tree().create_timer(0.1).timeout.connect(_ragdoll_me)
