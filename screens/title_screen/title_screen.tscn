@@ -148,7 +148,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(834, 95)
-shader_parameter/real_screen_size = Vector2(2612.848, 1162.116)
+shader_parameter/real_screen_size = Vector2(2787.8965, 1832.5463)
 shader_parameter/edges = Array[Texture2D]([ExtResource("11_7cxjv"), ExtResource("11_7cxjv")])
 shader_parameter/edge_smoothness = 1.50400007144
 shader_parameter/fill_enabled = true
@@ -379,10 +379,10 @@ preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_1xf4e")
 
 [node name="IrisNebula" type="Sprite2D" parent="." unique_id=127912379]
-modulate = Color(1, 1, 1, 0.17418191)
-rotation = 2.882354
+modulate = Color(1, 1, 1, 0.21658866)
+rotation = 3.543372
 scale = Vector2(2, 2)
-skew = -0.12116627
+skew = -0.029380826
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -396,10 +396,10 @@ alpha_speed = 0.4
 speed_factor = 0.1
 
 [node name="IrisNebula2" type="Sprite2D" parent="." unique_id=1740825736]
-modulate = Color(1, 1, 1, 0.09775817)
-rotation = 3.3907435
+modulate = Color(1, 1, 1, 0.17246068)
+rotation = 1.2280744
 scale = Vector2(3, 3)
-skew = -0.25654975
+skew = -0.033740137
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -418,45 +418,45 @@ scale = Vector2(0.9, 0.9)
 script = ExtResource("2_1xf4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sparkles" unique_id=972055032]
-modulate = Color(1, 1, 1, 0.23969208)
-rotation = -1424.669
-scale = Vector2(0.7931281, 0.7931281)
+modulate = Color(1, 1, 1, 0.16211846)
+rotation = -1613.9205
+scale = Vector2(0.7414123, 0.7414123)
 texture = ExtResource("3_i36ib")
 
 [node name="Mist" type="Sprite2D" parent="Sparkles" unique_id=753486441]
-modulate = Color(1, 1, 1, 0.15254636)
-rotation = 355.42526
-scale = Vector2(0.7350309, 0.7350309)
+modulate = Color(1, 1, 1, 0.2518663)
+rotation = 464.97006
+scale = Vector2(0.8012442, 0.8012442)
 texture = SubResource("NoiseTexture2D_mvehq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sparkles" unique_id=1758360778]
-modulate = Color(1, 1, 1, 0.19630222)
-rotation = 140.09616
-scale = Vector2(0.76420146, 0.76420146)
+modulate = Color(1, 1, 1, 0.3809152)
+rotation = 277.74176
+scale = Vector2(0.8872768, 0.8872768)
 texture = ExtResource("4_wsvuw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sparkles" unique_id=845584023]
-modulate = Color(1, 1, 1, 0.12422345)
-rotation = 2069.5547
-scale = Vector2(0.716149, 0.716149)
+modulate = Color(1, 1, 1, 0.29430053)
+rotation = 2284.359
+scale = Vector2(0.8295337, 0.8295337)
 texture = ExtResource("5_p7yao")
 
 [node name="Mist2" type="Sprite2D" parent="Sparkles" unique_id=1711575947]
-modulate = Color(1, 1, 1, 0.36178523)
-rotation = 1607.4529
-scale = Vector2(0.87452346, 0.87452346)
+modulate = Color(1, 1, 1, 0.10009278)
+rotation = 1534.552
+scale = Vector2(0.70006186, 0.70006186)
 texture = SubResource("NoiseTexture2D_tsbkc")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sparkles" unique_id=1435232981]
-modulate = Color(1, 1, 1, 0.36576462)
-rotation = 1365.7258
-scale = Vector2(0.8771764, 0.8771764)
+modulate = Color(1, 1, 1, 0.22213155)
+rotation = 1181.59
+scale = Vector2(0.78142107, 0.78142107)
 texture = ExtResource("6_mi1m4")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sparkles" unique_id=2086365118]
-modulate = Color(1, 1, 1, 0.3812467)
-rotation = 1325.2894
-scale = Vector2(0.8874978, 0.8874978)
+modulate = Color(1, 1, 1, 0.10268039)
+rotation = 1282.9637
+scale = Vector2(0.70178694, 0.70178694)
 texture = ExtResource("7_v8lo7")
 
 [node name="RotatingBody" type="Node2D" parent="." unique_id=1912110947]
@@ -583,7 +583,7 @@ rotation = -0.026904797
 scale = Vector2(0.1700271, 0.17001356)
 
 [node name="Eyes" parent="RotatingBody/Player/Sprite/Parts/Head" index="0" unique_id=1167826662]
-frame_progress = 0.17990252
+frame_progress = 0.19320172
 
 [node name="Ouch" parent="RotatingBody/Player/SFX" parent_id_path=PackedInt32Array(317056800, 2054879864) index="2" unique_id=1678676952]
 volume_db = -80.0

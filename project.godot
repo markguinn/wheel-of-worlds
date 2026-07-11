@@ -17,8 +17,8 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Bert and the Wheel of Worlds"
 run/main_scene="uid://cmb0mj478j8hq"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-boot_splash/bg_color=Color(0.06666667, 0.09411765, 0.06666667, 1)
-boot_splash/image="uid://cc0e0l442ej06"
+boot_splash/bg_color=Color(0.15294118, 0.16470589, 0.13725491, 1)
+boot_splash/image="uid://dtdl271m3utkm"
 config/icon="uid://cbes0uptrr53g"
 
 [audio]

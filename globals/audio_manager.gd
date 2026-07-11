@@ -224,7 +224,11 @@ func get_sfx_balance() -> float:
 func set_sfx_balance(v: float, persist = true) -> void:
 	Log.info(self, "setting sfx balance", v)
 	AudioServer.set_bus_volume_linear(bus_sfx, v)
-	AudioServer.set_bus_volume_linear(bus_atmosphere, v)
+	AudioServer.set_bus_volume_linear(bus_portal, v)
+	# the atmosphere bus feeds into the sfx bus, so we don't need to do anything
+	# here, but my thought is that we want to highlight the important sounds as
+	# the overall level gets lower
+	AudioServer.set_bus_volume_linear(bus_atmosphere, lerpf(0.5, 1.0, v))
 	if persist:
 		StateManager.set_key("sfx", v, "settings")
 
