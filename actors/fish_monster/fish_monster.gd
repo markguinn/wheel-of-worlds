@@ -122,11 +122,14 @@ func _on_body_entered(body: Node) -> void:
 	if body is Stone:
 		VFX.shake(VFX.SHORT, VFX.QUAKE)
 		apply_impulse(-new_dir * 2)
+		%HitSFX.play()
 	elif body is Player and body.state_machine.get_active() != "Ragdoll":
 		VFX.shake(VFX.MID, VFX.QUAKE)
 		body.velocity = linear_velocity * attack_impact
 		if ragdoll_player:
 			body.state_machine.transition_by_name.call_deferred("Ragdoll")
+			%HitSFX.play()
+		get_tree().create_timer(0.4).timeout.connect(%RoarSFX.play)
 		apply_impulse(-new_dir * 1.5)
 	elif body is Plank or body is Teleplate:
 		body.apply_impulse(linear_velocity * attack_impact * 0.4)
@@ -137,6 +140,7 @@ func _on_body_entered(body: Node) -> void:
 	elif body is Orb:
 		body.apply_impulse(linear_velocity * attack_impact * 0.005)
 		apply_impulse(-new_dir * 1.5)
+		%HitSFX.play()
 
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
@@ -240,7 +244,10 @@ func _physics_process(delta: float) -> void:
 				VFX.slomo()
 				VFX.shake(VFX.MID, VFX.FREAK_OUT)
 				slomo_entry = false
+				%HitSFX.play()
+				%RoarSFX.play()
 		else:
 			splash_particles.direction = -linear_velocity.normalized()
+		%SplashSFX.play()
 		splash_particles.global_position = Vector2(last_pos.x, territory_rect.position.y + splash_offset)
 		splash_particles.call_deferred("restart")

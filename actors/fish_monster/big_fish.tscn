@@ -6,7 +6,14 @@
 [ext_resource type="Script" uid="uid://bhagt8bpd2sm5" path="res://actors/fish_monster/states/fish_controlled.gd" id="5_th18d"]
 [ext_resource type="Script" uid="uid://chlioeglswitp" path="res://actors/fish_monster/states/fish_attacking.gd" id="5_tienk"]
 [ext_resource type="Gradient" uid="uid://de6ku2qkkuqj8" path="res://stages/seussworld/prefabs/water_gradient.tres" id="7_rgb24"]
+[ext_resource type="AudioStream" uid="uid://l05r65qphlex" path="res://actors/fish_monster/sfx/fish-splash-1.ogg" id="8_6dnje"]
 [ext_resource type="Texture2D" uid="uid://bj43pvoid6jme" path="res://actors/fish_monster/art/big_fish.png" id="8_61cef"]
+[ext_resource type="AudioStream" uid="uid://cb1bd08gqp864" path="res://actors/fish_monster/sfx/fish-monster-hit.ogg" id="8_th18d"]
+[ext_resource type="AudioStream" uid="uid://dqy86gacamsxw" path="res://actors/fish_monster/sfx/fish-splash-2.ogg" id="9_y1x0e"]
+[ext_resource type="AudioStream" uid="uid://dsd61rlmd6f3n" path="res://actors/fish_monster/sfx/fish-splash-3.ogg" id="10_1cu52"]
+[ext_resource type="AudioStream" uid="uid://fifhevuntuwr" path="res://actors/fish_monster/sfx/fish-monster-roar-1.ogg" id="12_xk35o"]
+[ext_resource type="AudioStream" uid="uid://xa6tfrpht52h" path="res://actors/fish_monster/sfx/fish-monster-roar-2.ogg" id="13_47f1x"]
+[ext_resource type="AudioStream" uid="uid://dcvj05ck2fwau" path="res://actors/fish_monster/sfx/fish-monster-roar-3.ogg" id="14_e2g7b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_61cef"]
 radius = 100.0
@@ -44,6 +51,18 @@ colors = PackedColorArray(1, 1, 1, 1, 0.9714662, 0.9814652, 0.9960979, 0.9378109
 [sub_resource type="Gradient" id="Gradient_nsxo1"]
 offsets = PackedFloat32Array(0, 0.5522388, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.9714662, 0.9814652, 0.9960979, 0.93781096, 0.5411765, 0.7019608, 0.9372549, 0)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xk35o"]
+streams_count = 3
+stream_0/stream = ExtResource("8_6dnje")
+stream_1/stream = ExtResource("9_y1x0e")
+stream_2/stream = ExtResource("10_1cu52")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8vte6"]
+streams_count = 3
+stream_0/stream = ExtResource("12_xk35o")
+stream_1/stream = ExtResource("13_47f1x")
+stream_2/stream = ExtResource("14_e2g7b")
 
 [node name="FishMonster" type="RigidBody2D" unique_id=1857891672]
 z_index = 5
@@ -165,3 +184,22 @@ scale_amount_max = 8.0
 scale_amount_curve = SubResource("Curve_ymvi3")
 color_ramp = SubResource("Gradient_nsxo1")
 color_initial_ramp = ExtResource("7_rgb24")
+
+[node name="SplashSFX" type="AudioStreamPlayer2D" parent="." unique_id=1949355655]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_xk35o")
+volume_db = -7.8
+max_polyphony = 3
+bus = &"SFX"
+
+[node name="HitSFX" type="AudioStreamPlayer2D" parent="." unique_id=613558981]
+unique_name_in_owner = true
+stream = ExtResource("8_th18d")
+bus = &"SFX"
+
+[node name="RoarSFX" type="AudioStreamPlayer2D" parent="." unique_id=1036651271]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_8vte6")
+max_distance = 4096.0
+attenuation = 0.4665164
+bus = &"SFX"

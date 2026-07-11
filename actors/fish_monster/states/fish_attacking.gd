@@ -14,6 +14,7 @@ func _entered(_from_state: StateNode) -> void:
 	fish.gravity_scale = 1.0
 	entered_at = GameManager.now_ms()
 	fish.jumping.connect(_on_jump)
+	%RoarSFX.play()
 
 
 func _before_exit(_to_state: StateNode) -> void:
