@@ -1,21 +1,14 @@
-[b]Mark Guinn:[/b] Project lead, core gameplay, Bert art/animation, main level design (wheel, forest areas, intro, fish boss, puzzle museum), animal implementation, music box, paint edge shader, UI, sounds (orb, wheel turn, Bert noises, portal), lantern, lift functionality, music system, portals, tuning, title screen, stone texture, dust effect
-
-[b]Aaron Sherman:[/b] Exploration music (incl. layers), menu music, portal drone, bird monster sounds
-
-[b]Dávid Tóth:[/b] Shadow monster hand (incl. warning screech), dynamic shadows, paint edge shader fix, assorted bug fixes
-
-[b]Christer Kaitila:[/b] Environment shaders, lantern, level design (sisyphus, ascent, missing plink), debris, blinking, improved level format, tutorial hints, stone sounds, big head mode
-
-[b]APV:[/b] Scarecrow, bird monster, fish, bird-shaped fruit, lift, lore writing
-
-[b]Keith Smyth:[/b] Creatures (woodpecker, chipmunk, nature), linux compatibility fix, giant prototype area
-
+[b]Mark Guinn:[/b] Project lead, core gameplay, Bert art, main level design (wheel, forest, waterfall, fish cavern), fish and bird gameplay, item mechanics (plank, lift, etc), painted effect shaders, UI, sounds (orb, wheel, Bert)
+[b]Aaron Sherman:[/b] All music, portal drone, bird and fish sounds, environment sounds
+[b]Amanda Stanley:[/b] Forest environment art
+[b]Dávid Tóth:[/b] Shadow monster idea, art, gameplay, and sounds, shader fixes
+[b]Christer Kaitila:[/b] Environment shaders, lantern, level design (sisyphus, ascent, missing plink), debris, blinking eyes, stone sounds
+[b]APV:[/b] Fish and lift art, story development and writing, additional concept art
+[b]Mike Lawrence[/b]: bird art, title screen logo text
+[b]Keith Smyth:[/b] Woodpecker and chipmunk creatures, giant prototype, bug fixes, environment sounds
 [b]Michael Avrie:[/b] Ragdoll dizzy stars, birds level
-
-[b]Amanda Stanley:[/b] Forest world sprites
-
-[b]Quame Bailey:[/b] Options menu with sliers
-
+[b]Quame Bailey:[/b] Options menu with sliders
 [b]Jakob Harris:[/b] Pause menu
-
 [b]Chris DeLeon:[/b] Night nature recordings
+[b]Tim Ruswick:[/b] Itch page logo and design advice
+[b]Play testing:[/b] Hunter Jones, Dávid Tóth (davids91), TopHatCroat, Tim Ruswick, Baguette
