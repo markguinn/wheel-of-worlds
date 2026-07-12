@@ -9,7 +9,7 @@ const ROTATION_FACTOR = 4.0
 # TODO: we can probably derive this from above using radius of wheel
 const OBJECT_FACTOR = 50.0 
 const CAMERA_FACTOR = 0.05
-const MIN_ZOOM = 0.5
+const MIN_ZOOM = 0.6
 const MAX_ZOOM = 1.0
 
 

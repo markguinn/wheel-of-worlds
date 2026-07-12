@@ -8,11 +8,6 @@ extends CanvasLayer
 @onready var wheel: Node2D = $RotatingBody
 @onready var wheel_sfx: AudioStreamPlayer = $WheelTurn
 
-@onready var mists: Array[Node2D] = [
-	$Mist, $Mist2, $Mist3, $Mist4
-]
-var speeds = [5.0, -6.0, 7.0, -8.0]
-
 var rotate_tween: Tween
 
 
@@ -23,11 +18,6 @@ func _ready() -> void:
 	GameManager.is_in_game = false
 	GameManager.hide_hud(true)
 	AudioManager.reset_music()
-
-
-func _process(delta: float) -> void:
-	for i in range(speeds.size()):
-		mists[i].rotation_degrees += delta * speeds[i]
 
 
 func _on_quit_game_pressed() -> void:

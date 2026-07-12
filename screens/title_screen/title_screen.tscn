@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://tpr68jovftvt" path="res://generated/wheel_atlas.png" id="18_2o0wg"]
 [ext_resource type="PackedScene" uid="uid://b7dpqa8b75pvp" path="res://music/theme_music.tscn" id="18_mhrfk"]
 [ext_resource type="Texture2D" uid="uid://dih62xx2erihd" path="res://stages/wheel/art/circle.png" id="19_5cxmk"]
-[ext_resource type="Texture2D" uid="uid://belpvygam52j6" path="res://screens/title_screen/new_noise_texture_2d.tres" id="27_qd2g0"]
+[ext_resource type="PackedScene" uid="uid://thwc2okwmfj1" path="res://screens/title_screen/edge_darkness.tscn" id="29_pvcqs"]
 [ext_resource type="Texture2D" uid="uid://d00dwx1w6cv8h" path="res://screens/title_screen/art/godot_logo.png" id="30_lnnji"]
 [ext_resource type="Texture2D" uid="uid://bdi3thpdpx8sh" path="res://screens/title_screen/art/Dev_Pods_Logo_Large.png" id="31_2o0wg"]
 
@@ -384,10 +384,10 @@ preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_1xf4e")
 
 [node name="IrisNebula" type="Sprite2D" parent="." unique_id=127912379]
-modulate = Color(1, 1, 1, 0.2885856)
-rotation = 1.0356282
+modulate = Color(1, 1, 1, 0.19491667)
+rotation = 2.9202714
 scale = Vector2(2, 2)
-skew = -0.059023965
+skew = -0.029951273
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -401,10 +401,10 @@ alpha_speed = 0.4
 speed_factor = 0.1
 
 [node name="IrisNebula2" type="Sprite2D" parent="." unique_id=1740825736]
-modulate = Color(1, 1, 1, 0.16326383)
-rotation = 2.0190766
+modulate = Color(1, 1, 1, 0.1117188)
+rotation = 5.4433756
 scale = Vector2(3, 3)
-skew = 0.12731567
+skew = 0.05266137
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -423,45 +423,45 @@ scale = Vector2(0.9, 0.9)
 script = ExtResource("2_1xf4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sparkles" unique_id=972055032]
-modulate = Color(1, 1, 1, 0.33335367)
-rotation = -2993.8716
-scale = Vector2(0.8555691, 0.8555691)
+modulate = Color(1, 1, 1, 0.3020568)
+rotation = -2995.6528
+scale = Vector2(0.8347045, 0.8347045)
 texture = ExtResource("3_i36ib")
 
 [node name="Mist" type="Sprite2D" parent="Sparkles" unique_id=753486441]
-modulate = Color(1, 1, 1, 0.18830563)
-rotation = 16.105688
-scale = Vector2(0.7588704, 0.7588704)
+modulate = Color(1, 1, 1, 0.10000324)
+rotation = 23.426088
+scale = Vector2(0.7000022, 0.7000022)
 texture = SubResource("NoiseTexture2D_mvehq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sparkles" unique_id=1758360778]
-modulate = Color(1, 1, 1, 0.12546419)
-rotation = -442.94873
-scale = Vector2(0.7169761, 0.7169761)
+modulate = Color(1, 1, 1, 0.25473282)
+rotation = -412.83002
+scale = Vector2(0.80315524, 0.80315524)
 texture = ExtResource("4_wsvuw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sparkles" unique_id=845584023]
-modulate = Color(1, 1, 1, 0.3959778)
-rotation = 2861.7017
-scale = Vector2(0.89731854, 0.89731854)
+modulate = Color(1, 1, 1, 0.32078114)
+rotation = 2861.008
+scale = Vector2(0.8471874, 0.8471874)
 texture = ExtResource("5_p7yao")
 
 [node name="Mist2" type="Sprite2D" parent="Sparkles" unique_id=1711575947]
-modulate = Color(1, 1, 1, 0.17122634)
-rotation = 1908.487
-scale = Vector2(0.7474842, 0.7474842)
+modulate = Color(1, 1, 1, 0.1023985)
+rotation = 1899.9276
+scale = Vector2(0.701599, 0.701599)
 texture = SubResource("NoiseTexture2D_tsbkc")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sparkles" unique_id=1435232981]
-modulate = Color(1, 1, 1, 0.13378201)
-rotation = 2010.169
-scale = Vector2(0.72252136, 0.72252136)
+modulate = Color(1, 1, 1, 0.30536938)
+rotation = 1992.7202
+scale = Vector2(0.83691293, 0.83691293)
 texture = ExtResource("6_mi1m4")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sparkles" unique_id=2086365118]
-modulate = Color(1, 1, 1, 0.11125534)
-rotation = 235.19936
-scale = Vector2(0.70750356, 0.70750356)
+modulate = Color(1, 1, 1, 0.20245999)
+rotation = 209.18626
+scale = Vector2(0.7683067, 0.7683067)
 texture = ExtResource("7_v8lo7")
 
 [node name="RotatingBody" type="Node2D" parent="." unique_id=1912110947]
@@ -561,44 +561,46 @@ ignore_inputs = true
 perma_ragdoll = true
 
 [node name="ThighR" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips" parent_id_path=PackedInt32Array(317056800, 598144107) index="0" unique_id=25801670]
-rotation = -0.21382818
-scale = Vector2(0.99000025, 0.99000025)
+rotation = -0.21382543
+scale = Vector2(0.99000055, 0.99000055)
 
 [node name="ShinR" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/ThighR" index="0" unique_id=1375386282]
-rotation = 0.37675267
+rotation = 0.37674737
+scale = Vector2(0.99999934, 0.99999934)
 
 [node name="ThighL" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips" parent_id_path=PackedInt32Array(317056800, 598144107) index="1" unique_id=226334277]
-rotation = 0.5987595
+rotation = 0.59876084
+scale = Vector2(0.9998028, 0.9998028)
 
 [node name="Head" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/Torso" parent_id_path=PackedInt32Array(317056800, 2022925139) index="0" unique_id=1580104760]
-rotation = 0.051088758
+rotation = 0.051088996
 
 [node name="ArmL" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/Torso" parent_id_path=PackedInt32Array(317056800, 2022925139) index="1" unique_id=1793998611]
-rotation = 0.08742276
+rotation = 0.08742357
 
 [node name="HandL" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/Torso/ArmL" index="0" unique_id=1933907137]
-rotation = -0.3564044
+rotation = -0.35640463
 
 [node name="ArmR" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/Torso" parent_id_path=PackedInt32Array(317056800, 2022925139) index="2" unique_id=1756135333]
-rotation = 1.4468238
+rotation = 1.4468226
 
 [node name="HandR" parent="RotatingBody/Player/Sprite/Skeleton2D/Hips/Torso/ArmR" index="0" unique_id=88591762]
-rotation = -0.026904797
+rotation = -0.02690474
 
 [node name="Head" parent="RotatingBody/Player/Sprite/Parts" parent_id_path=PackedInt32Array(317056800, 1880770915) index="3" unique_id=857872474]
-position = Vector2(11.087173, -62.294453)
-rotation = -0.07108439
-scale = Vector2(0.1700271, 0.17001356)
-skew = -6.1273575e-05
+position = Vector2(11.087018, -62.294453)
+rotation = -0.07108418
+scale = Vector2(0.1700271, 0.17001355)
+skew = -6.484985e-05
 
 [node name="Eyes" parent="RotatingBody/Player/Sprite/Parts/Head" index="0" unique_id=1167826662]
-frame_progress = 0.4987435
+frame_progress = 0.59746116
 
 [node name="DizzyParticles" parent="RotatingBody/Player/Sprite/VFX" parent_id_path=PackedInt32Array(317056800, 1603292766) index="2" unique_id=806147118]
-position = Vector2(11.087173, -62.294453)
-rotation = -1.5197691
-scale = Vector2(0.99994445, 0.99995077)
-skew = 6.151199e-05
+position = Vector2(11.087018, -62.294453)
+rotation = -1.5197724
+scale = Vector2(0.99994427, 0.99995095)
+skew = 6.508827e-05
 
 [node name="Ouch" parent="RotatingBody/Player/SFX" parent_id_path=PackedInt32Array(317056800, 2054879864) index="2" unique_id=1678676952]
 volume_db = -80.0
@@ -1036,41 +1038,6 @@ bus = &"SFX"
 
 [node name="BackgroundMusic" parent="." unique_id=1022284647 instance=ExtResource("18_mhrfk")]
 
-[node name="Mist" type="Sprite2D" parent="." unique_id=1992314136]
-z_index = 50
-z_as_relative = false
-position = Vector2(12.999971, 3)
-scale = Vector2(3, 2.9)
-texture = ExtResource("27_qd2g0")
-offset = Vector2(-10.6666565, 139.99998)
-
-[node name="Mist2" type="Sprite2D" parent="." unique_id=730614534]
-z_index = 50
-z_as_relative = false
-position = Vector2(0.14132118, 3.3559265)
-rotation = 2.6179938
-scale = Vector2(3.1, 3.2)
-texture = ExtResource("27_qd2g0")
-offset = Vector2(-42.276764, 129.72821)
-
-[node name="Mist3" type="Sprite2D" parent="." unique_id=1295490553]
-z_index = 50
-z_as_relative = false
-position = Vector2(0.14142227, 1.2640076)
-rotation = -0.7853982
-scale = Vector2(3.1, 3.2)
-texture = ExtResource("27_qd2g0")
-offset = Vector2(-7.9756165, 112.57866)
-
-[node name="Mist4" type="Sprite2D" parent="." unique_id=1714020396]
-z_index = 50
-z_as_relative = false
-position = Vector2(4.325239, 13.815643)
-rotation = 1.0471976
-scale = Vector2(3.1, 3)
-texture = ExtResource("27_qd2g0")
-offset = Vector2(-9.718872, 108.394775)
-
 [node name="VersionLabel" type="Label" parent="." unique_id=2059173511]
 z_index = 5
 anchors_preset = 3
@@ -1109,6 +1076,8 @@ texture = ExtResource("31_2o0wg")
 position = Vector2(129.05, -193.79999)
 scale = Vector2(0.9, 1)
 texture = ExtResource("30_lnnji")
+
+[node name="EdgeDarkness" parent="." unique_id=841074894 instance=ExtResource("29_pvcqs")]
 
 [connection signal="focus_entered" from="RotatingBody/StartGame" to="." method="_on_wheel_button_focus_entered" flags=18]
 [connection signal="pressed" from="RotatingBody/StartGame" to="." method="_on_start_game_pressed"]

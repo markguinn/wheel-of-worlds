@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://thwc2okwmfj1"]
+
+[ext_resource type="Script" uid="uid://bwfdp3oyhfwfv" path="res://screens/title_screen/edge_darkness.gd" id="1_h27cx"]
+[ext_resource type="Texture2D" uid="uid://belpvygam52j6" path="res://screens/title_screen/new_noise_texture_2d.tres" id="2_lt372"]
+
+[node name="EdgeDarkness" type="Node2D" unique_id=841074894]
+script = ExtResource("1_h27cx")
+
+[node name="Mist" type="Sprite2D" parent="." unique_id=1474698409]
+z_index = 50
+z_as_relative = false
+position = Vector2(12.999971, 3)
+scale = Vector2(3, 2.9)
+texture = ExtResource("2_lt372")
+offset = Vector2(-10.6666565, 139.99998)
+
+[node name="Mist2" type="Sprite2D" parent="." unique_id=420839588]
+z_index = 50
+z_as_relative = false
+position = Vector2(0.14132118, 3.3559265)
+rotation = 2.6179938
+scale = Vector2(3.1, 3.2)
+texture = ExtResource("2_lt372")
+offset = Vector2(-42.276764, 129.72821)
+
+[node name="Mist3" type="Sprite2D" parent="." unique_id=1510949763]
+z_index = 50
+z_as_relative = false
+position = Vector2(0.14142227, 1.2640076)
+rotation = -0.7853982
+scale = Vector2(3.1, 3.2)
+texture = ExtResource("2_lt372")
+offset = Vector2(-7.9756165, 112.57866)
+
+[node name="Mist4" type="Sprite2D" parent="." unique_id=73741499]
+z_index = 50
+z_as_relative = false
+position = Vector2(4.325239, 13.815643)
+rotation = 1.0471976
+scale = Vector2(3.1, 3)
+texture = ExtResource("2_lt372")
+offset = Vector2(-9.718872, 108.394775)
