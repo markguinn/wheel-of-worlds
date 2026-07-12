@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dxwk30u27b5np"]
+
+[ext_resource type="Gradient" uid="uid://cr01cj04wliyu" path="res://stages/forest/prefabs/forest_water_gradient.tres" id="1_15ipd"]
+
+[sub_resource type="Gradient" id="Gradient_4lb1l"]
+offsets = PackedFloat32Array(0.6673913, 0.92608696)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x26ei"]
+gradient = SubResource("Gradient_4lb1l")
+width = 9
+height = 9
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_asj5l"]
+gradient = ExtResource("1_15ipd")
+
+[sub_resource type="Curve" id="Curve_ixwjg"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.25761124, 82.24077), 1131.4681, 1131.4681, 0, 0, Vector2(1, 124.59277), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_asj5l"]
+curve = SubResource("Curve_ixwjg")
+
+[sub_resource type="Curve" id="Curve_bl4vs"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.15925059, 0.9457687), 0.88989985, 0.88989985, 0, 0, Vector2(0.59507036, 0.9843279), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ffid6"]
+curve = SubResource("Curve_bl4vs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6lg4c"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 10, 0)
+linear_accel_min = 9.999997
+linear_accel_max = 9.999997
+linear_accel_curve = SubResource("CurveTexture_asj5l")
+scale_min = 1.5
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_ffid6")
+color_initial_ramp = SubResource("GradientTexture1D_asj5l")
+turbulence_noise_strength = 0.1
+turbulence_noise_speed_random = 4.0
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.05
+
+[node name="TearParticles" type="GPUParticles2D" unique_id=724187552]
+amount = 4
+texture = SubResource("GradientTexture2D_x26ei")
+lifetime = 5.0
+randomness = 0.29
+process_material = SubResource("ParticleProcessMaterial_6lg4c")

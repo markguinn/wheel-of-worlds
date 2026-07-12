@@ -1896,7 +1896,7 @@ metadata/_edit_lock_ = true
 [node name="Hips" type="Bone2D" parent="Sprite/Skeleton2D" unique_id=598144107]
 position = Vector2(3, -19)
 scale = Vector2(0.9999928, 0.9999928)
-skew = -6.186962e-05
+skew = -6.54459e-05
 rest = Transform2D(1, 0, 0, 1, 0, -20)
 
 [node name="ThighR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=25801670]
@@ -2037,9 +2037,9 @@ bones = ["Hips", PackedFloat32Array(1, 1, 1, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0,
 [node name="Head" type="Sprite2D" parent="Sprite/Parts" unique_id=857872474]
 light_mask = 2
 visibility_layer = 3
-position = Vector2(12.50551, -62.07115)
-rotation = 0.69252634
-scale = Vector2(0.170026, 0.1700128)
+position = Vector2(11.895633, -62.16598)
+rotation = 0.68698025
+scale = Vector2(0.17002559, 0.170006)
 skew = -1.3947487e-05
 texture = SubResource("CanvasTexture_2vokq")
 offset = Vector2(7, 18)
@@ -2048,7 +2048,7 @@ region_rect = Rect2(204, 68, 311, 233)
 
 [node name="Eyes" type="AnimatedSprite2D" parent="Sprite/Parts/Head" unique_id=1167826662]
 sprite_frames = SubResource("SpriteFrames_yeioo")
-frame_progress = 0.79057544
+frame_progress = 0.9760196
 offset = Vector2(-35, 387)
 script = ExtResource("7_0wchr")
 
@@ -2159,9 +2159,9 @@ position = Vector2(48, 60)
 
 [node name="DizzyParticles" type="GPUParticles2D" parent="Sprite/VFX" unique_id=806147118]
 unique_name_in_owner = true
-position = Vector2(12.50551, -62.07115)
-rotation = -0.75610334
-scale = Vector2(0.99987084, 0.9999326)
+position = Vector2(11.895633, -62.16598)
+rotation = -0.7616491
+scale = Vector2(0.99974483, 0.9998104)
 emitting = false
 amount = 6
 texture = ExtResource("7_7aotz")

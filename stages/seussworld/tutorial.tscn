@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://obcnvoariac3"]
 
-[ext_resource type="Script" uid="uid://bxxbctnq2ubio" path="res://stages/stage.gd" id="1_ys5li"]
+[ext_resource type="Script" uid="uid://ujjr50gb24v6" path="res://stages/seussworld/tutorial.gd" id="1_s8neq"]
 [ext_resource type="Texture2D" uid="uid://djpsb4jyc0afj" path="res://stages/seussworld/art/mountains.png" id="2_03fdn"]
 [ext_resource type="Script" uid="uid://ch0wv8cuoudkc" path="res://stages/seussworld/mist.gd" id="3_ovy2w"]
 [ext_resource type="Texture2D" uid="uid://dgj7y78b0yk11" path="res://stages/seussworld/art/extras1.png" id="4_3ayy2"]
@@ -20,11 +20,19 @@
 [ext_resource type="Script" uid="uid://bbb2phdibbqcc" path="res://common/kill_zone.gd" id="20_j00bg"]
 [ext_resource type="PackedScene" uid="uid://n0yb8g02gr8b" path="res://actors/fish_monster/big_fish.tscn" id="22_rhdql"]
 [ext_resource type="Script" uid="uid://b4pqw6kubesjc" path="res://common/checkpoint.gd" id="23_kjcn1"]
+[ext_resource type="PackedScene" uid="uid://dxwk30u27b5np" path="res://common/tear_particles.tscn" id="23_ys5li"]
+[ext_resource type="Script" uid="uid://pqhkda8683a4" path="res://common/music_zone.gd" id="24_nbars"]
 [ext_resource type="PackedScene" uid="uid://yvxjjw3xw1wh" path="res://props/music_box/music_box.tscn" id="24_pj5sl"]
 [ext_resource type="PackedScene" uid="uid://tyaekwp4wxwa" path="res://stages/seussworld/prefabs/world0_water.tscn" id="25_mpqe7"]
 [ext_resource type="PackedScene" uid="uid://c8oclbuhrdst6" path="res://music/exploring_music.tscn" id="26_03fdn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3bs7n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gvf8"]
+size = Vector2(2919, 1476)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbars"]
+size = Vector2(2499, 1476)
 
 [sub_resource type="Gradient" id="Gradient_83wlx"]
 colors = PackedColorArray(0.24015418, 0.25599292, 0.21379125, 1, 0.16078432, 0.17254902, 0.14117648, 1)
@@ -424,8 +432,8 @@ size = Vector2(316, 409)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovy2w"]
 size = Vector2(582, 924)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gvf8"]
-size = Vector2(332, 924)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8neq"]
+size = Vector2(230, 466)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyw4n"]
 size = Vector2(977, 924)
@@ -433,14 +441,14 @@ size = Vector2(977, 924)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scr4g"]
 size = Vector2(693, 749)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6knip"]
-size = Vector2(1038, 848.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0ifn"]
 size = Vector2(459, 757)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xakyt"]
 size = Vector2(2267, 714.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6knip"]
+size = Vector2(1038, 848.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjxan"]
 size = Vector2(67, 4282)
@@ -448,19 +456,47 @@ size = Vector2(67, 4282)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ayy2"]
 size = Vector2(12449, 433)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8neq"]
-size = Vector2(230, 466)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1cdy3"]
 size = Vector2(733, 545)
 
 [node name="Tutorial" type="Node2D" unique_id=831090977]
 material = SubResource("ShaderMaterial_3bs7n")
-script = ExtResource("1_ys5li")
+script = ExtResource("1_s8neq")
 metadata/_edit_horizontal_guides_ = [1248.0, -4041.0, 1999.0]
 metadata/_edit_vertical_guides_ = [-11979.0, 4969.0]
 
 [node name="ExploringMusic" parent="." unique_id=645564139 instance=ExtResource("26_03fdn")]
+
+[node name="ConflictMusicZone" type="Area2D" parent="." unique_id=105172003]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("24_nbars")
+layer1 = 0.0
+layer2 = 0.5
+layer4 = 0.5
+metadata/_custom_type_script = "uid://pqhkda8683a4"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ConflictMusicZone" unique_id=1810545295]
+position = Vector2(957.5, 592)
+shape = SubResource("RectangleShape2D_3gvf8")
+debug_color = Color(0.72, 0.48540002, 0.10799999, 0.09803922)
+
+[node name="ThinkingMusicZone" type="Area2D" parent="." unique_id=557652205]
+position = Vector2(-2291, 147)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("24_nbars")
+layer1 = 0.75
+layer3 = 0.5
+layer4 = 0.0
+metadata/_custom_type_script = "uid://pqhkda8683a4"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ThinkingMusicZone" unique_id=535441685]
+position = Vector2(412.5, 592)
+shape = SubResource("RectangleShape2D_nbars")
+debug_color = Color(0.47955585, 0.5207883, 0.76863223, 0.09803922)
 
 [node name="BackgroundLayers" type="Node2D" parent="." unique_id=1154204795]
 metadata/_edit_group_ = true
@@ -545,144 +581,11 @@ scale = Vector2(4, 2)
 texture = SubResource("NoiseTexture2D_gmxw7")
 script = ExtResource("3_ovy2w")
 
-[node name="BackgroundDetail" type="Node2D" parent="." unique_id=1330678695]
-visible = false
-
-[node name="BGBlocks" type="Sprite2D" parent="BackgroundDetail" unique_id=1514494665]
-position = Vector2(-1293, 525)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_3ayy2")
-region_enabled = true
-region_rect = Rect2(0, 996, 674, 464)
-
-[node name="BGBigArch" type="Sprite2D" parent="BackgroundDetail" unique_id=284232495]
-visible = false
-position = Vector2(-4598, 898.99994)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("4_3ayy2")
-region_enabled = true
-region_rect = Rect2(729, 840, 973, 648)
-
-[node name="BGGrass" type="Sprite2D" parent="BackgroundDetail" unique_id=748390274]
-position = Vector2(4247, 1109)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_3ayy2")
-region_enabled = true
-region_rect = Rect2(533, 1680, 281, 161)
-
-[node name="BGLittleArch" type="Sprite2D" parent="BackgroundDetail" unique_id=1158860313]
-visible = false
-position = Vector2(-3512, 980)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("4_3ayy2")
-region_enabled = true
-region_rect = Rect2(1683, 913, 365, 376)
-
-[node name="BGVines" type="Sprite2D" parent="BackgroundDetail" unique_id=1026871574]
-position = Vector2(-444, 284)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_3ayy2")
-flip_h = true
-region_enabled = true
-region_rect = Rect2(467, 285, 342, 569)
-
-[node name="Tree1" type="Sprite2D" parent="BackgroundDetail" unique_id=1193119921]
-material = ExtResource("5_3gvf8")
-position = Vector2(18, 453)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("6_kyw4n")
-region_enabled = true
-region_rect = Rect2(172, 63, 621, 908)
-
-[node name="Tree2" type="Sprite2D" parent="BackgroundDetail" unique_id=351934374]
-material = ExtResource("5_3gvf8")
-position = Vector2(1094, 57.000015)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("6_kyw4n")
-region_enabled = true
-region_rect = Rect2(784, 117, 1152, 1010)
-
-[node name="Grass1" type="Sprite2D" parent="BackgroundDetail" unique_id=1111298002]
-position = Vector2(-407, 703)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_kyw4n")
-flip_h = true
-region_enabled = true
-region_rect = Rect2(1434, 1275, 257, 193)
-
-[node name="Grass2" type="Sprite2D" parent="BackgroundDetail" unique_id=1149594095]
-position = Vector2(-464.99997, 690)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("6_kyw4n")
-region_enabled = true
-region_rect = Rect2(1434, 1275, 257, 193)
-
-[node name="Bush1" type="Sprite2D" parent="BackgroundDetail" unique_id=72904763]
-z_index = 2
-position = Vector2(-125.99999, 564)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("6_kyw4n")
-region_enabled = true
-region_rect = Rect2(109, 1083, 428, 369)
-
-[node name="Commentary2" type="Node2D" parent="." unique_id=623798867]
-visible = false
-z_index = 1
-
-[node name="Village note" type="Label" parent="Commentary2" unique_id=432667910]
-offset_left = -6892.0
-offset_top = 861.0
-offset_right = -4655.0
-offset_bottom = 988.0
-theme_override_font_sizes/font_size = 88
-text = "This is a placeholder for the village your tribe lived in"
-
-[node name="Tutorial - movement" type="Label" parent="Commentary2" unique_id=1930966351]
-offset_left = -3372.0
-offset_top = 985.0
-offset_right = -2984.0
-offset_bottom = 1079.0
-text = "Arrows or WASD to move
-SPACEBAR to jump"
-
-[node name="Tutorial - push" type="Label" parent="Commentary2" unique_id=1875621869]
-offset_left = -1472.0
-offset_top = 876.0
-offset_right = -1278.0
-offset_bottom = 925.0
-text = "Push me..."
-
-[node name="Tutorial - hint 1" type="Label" parent="Commentary2" unique_id=322387714]
-offset_left = 876.0
-offset_top = 272.0
-offset_right = 1195.0
-offset_bottom = 321.0
-text = "Hint: bring a friend..."
-
-[node name="Tutorial - jump" type="Label" parent="Commentary2" unique_id=988200957]
-offset_left = 2121.0
-offset_top = 383.0
-offset_right = 2315.0
-offset_bottom = 432.0
-text = "Danger! "
-
-[node name="Tutorial - hint 2" type="Label" parent="Commentary2" unique_id=1752464171]
-offset_left = 5096.0
-offset_top = 1080.0
-offset_right = 5290.0
-offset_bottom = 1129.0
-text = "Up here!"
-
-[node name="Tutorial - goal" type="Label" parent="Commentary2" unique_id=930426793]
-offset_left = 5901.0
-offset_top = 626.0
-offset_right = 6095.0
-offset_bottom = 675.0
-text = "You made it!"
-
 [node name="Terrain" type="Node2D" parent="." unique_id=590424257]
 z_index = 1
 scale = Vector2(0.8, 0.8)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="PaintedGround" type="CanvasGroup" parent="Terrain" unique_id=317622971 node_paths=PackedStringArray("target_layer")]
 material = ExtResource("7_scr4g")
@@ -709,11 +612,14 @@ navigation_enabled = false
 
 [node name="Camera2D" parent="." unique_id=552340171 instance=ExtResource("15_liddl")]
 position = Vector2(-6981, 826)
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=42652117 instance=ExtResource("16_uhfbk")]
 position = Vector2(-6981, 826)
 has_music_box = false
+perma_ragdoll = true
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1411017242]
 remote_path = NodePath("../../Camera2D")
@@ -722,75 +628,118 @@ remote_path = NodePath("../../Camera2D")
 z_index = 1
 position = Vector2(-5430, 1138)
 
-[node name="Portal" parent="." unique_id=820677622 instance=ExtResource("18_vov62")]
-position = Vector2(3335, 645)
-portal_name = "tutorial-end"
-linked_stage = "uid://b32q0e34faaed"
-target_portal = "ww-tutorial"
-
 [node name="Area1 - movement and orb" type="Node2D" parent="." unique_id=1218368961]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
-[node name="Envrionment" type="Node2D" parent="Area1 - movement and orb" unique_id=1091488412]
-visible = false
+[node name="Environment" type="Node2D" parent="Area1 - movement and orb" unique_id=1091488412]
 
-[node name="BGBigArch2" type="Sprite2D" parent="Area1 - movement and orb/Envrionment" unique_id=1841399262]
-position = Vector2(-4300, 882)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("4_3ayy2")
-region_enabled = true
-region_rect = Rect2(1114, 840, 588, 311)
-
-[node name="BGLittleArch2" type="Sprite2D" parent="Area1 - movement and orb/Envrionment" unique_id=1671855888]
-position = Vector2(-3484, 944.99994)
-rotation = -0.34177393
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("4_3ayy2")
-region_enabled = true
-region_rect = Rect2(1765, 913, 283, 376)
-
-[node name="Tree1" type="Sprite2D" parent="Area1 - movement and orb/Envrionment" unique_id=1874496579]
-material = ExtResource("5_3gvf8")
-position = Vector2(18, 453)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("6_kyw4n")
-region_enabled = true
-region_rect = Rect2(172, 63, 621, 908)
-
-[node name="Tree2" type="Sprite2D" parent="Area1 - movement and orb/Envrionment" unique_id=1031993569]
-material = ExtResource("5_3gvf8")
-position = Vector2(1097, 273)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("6_kyw4n")
-region_enabled = true
-region_rect = Rect2(784, 117, 1152, 1010)
-
-[node name="Grass1" type="Sprite2D" parent="Area1 - movement and orb/Envrionment" unique_id=89919555]
-position = Vector2(-1046, 907)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_kyw4n")
-flip_h = true
-region_enabled = true
-region_rect = Rect2(1434, 1275, 257, 193)
-
-[node name="Grass2" type="Sprite2D" parent="Area1 - movement and orb/Envrionment" unique_id=314392674]
-position = Vector2(-673.99994, 998)
+[node name="Grass3" type="Sprite2D" parent="Area1 - movement and orb/Environment" unique_id=1377883504]
+position = Vector2(-3877, 653)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("6_kyw4n")
 region_enabled = true
 region_rect = Rect2(1434, 1275, 257, 193)
 
-[node name="Bush1" type="Sprite2D" parent="Area1 - movement and orb/Envrionment" unique_id=2127315738]
-z_index = 2
-position = Vector2(-125.99999, 564)
+[node name="Bush3" type="Sprite2D" parent="Area1 - movement and orb/Environment" unique_id=2129131125]
+self_modulate = Color(0.756525, 0.77, 0.7161, 0.8784314)
+position = Vector2(-6860, 866)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("6_kyw4n")
 region_enabled = true
 region_rect = Rect2(109, 1083, 428, 369)
 
+[node name="Bush5" type="Sprite2D" parent="Area1 - movement and orb/Environment/Bush3" unique_id=142646995]
+position = Vector2(-120, 75)
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("6_kyw4n")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(109, 1083, 428, 369)
+
+[node name="Grass4" type="Sprite2D" parent="Area1 - movement and orb/Environment" unique_id=1236656520]
+position = Vector2(-7000, 916)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_kyw4n")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="BGBigArch" type="Sprite2D" parent="Area1 - movement and orb/Environment" unique_id=284232495]
+position = Vector2(-8221, 984.99994)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_3ayy2")
+region_enabled = true
+region_rect = Rect2(729, 840, 973, 648)
+
+[node name="BigRock" type="Sprite2D" parent="Area1 - movement and orb/Environment" unique_id=1181785535]
+position = Vector2(-6178.0005, 1081)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_3ayy2")
+region_enabled = true
+region_rect = Rect2(1369, 1279, 333, 209)
+
+[node name="BGLittleArch" type="Sprite2D" parent="Area1 - movement and orb/Environment" unique_id=1158860313]
+position = Vector2(-7278, 928)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_3ayy2")
+region_enabled = true
+region_rect = Rect2(1683, 913, 365, 376)
+
+[node name="Bush2" type="Sprite2D" parent="Area1 - movement and orb/Environment" unique_id=402446758]
+modulate = Color(0.8625217, 0.86252177, 0.86252177, 0.94509804)
+position = Vector2(-4566.0005, 934.2499)
+rotation = 0.32986724
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_kyw4n")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(109, 1083, 428, 369)
+
+[node name="BGBlocks3" type="Sprite2D" parent="Area1 - movement and orb/Environment" unique_id=2048023250]
+self_modulate = Color(0.28485027, 0.28485027, 0.28485027, 1)
+z_index = 1
+position = Vector2(-4541, 948)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_3ayy2")
+region_enabled = true
+region_rect = Rect2(501, 1271, 173, 189)
+
+[node name="BGBlocks4" type="Sprite2D" parent="Area1 - movement and orb/Environment/BGBlocks3" unique_id=373058496]
+position = Vector2(-2, 6)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("4_3ayy2")
+region_enabled = true
+region_rect = Rect2(501, 1271, 173, 189)
+
+[node name="Bush4" type="Sprite2D" parent="Area1 - movement and orb/Environment" unique_id=1985089117]
+z_index = 2
+position = Vector2(-4674, 909.25)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_kyw4n")
+region_enabled = true
+region_rect = Rect2(109, 1083, 428, 369)
+
+[node name="BGBlocks2" type="Sprite2D" parent="Area1 - movement and orb/Environment" unique_id=1821345659]
+position = Vector2(-5327.0005, 1173.9999)
+rotation = -0.55152404
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_3ayy2")
+region_enabled = true
+region_rect = Rect2(0, 996, 674, 464)
+
+[node name="BGGrass5" type="Sprite2D" parent="Area1 - movement and orb/Environment" unique_id=1741584517]
+position = Vector2(-4986, 1107)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_3ayy2")
+region_enabled = true
+region_rect = Rect2(533, 1680, 281, 161)
+
 [node name="Tutorial - Movement 1" type="Area2D" parent="Area1 - movement and orb" unique_id=338837029]
 position = Vector2(-6250, 333)
 collision_layer = 0
 collision_mask = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area1 - movement and orb/Tutorial - Movement 1" unique_id=1886548793]
 position = Vector2(-1045, 419)
@@ -803,11 +752,17 @@ offset_left = -1554.0
 offset_top = 104.0
 offset_right = -844.0
 offset_bottom = 560.0
-text = "TODO: craft this text. these are placeholders of the ideas. style and words can change
+theme_type_variation = &"DarkLabel"
+text = "Slowly Bert came back to himself, unearthed after the flood, memories welling up...
 
-Slowly Bert awakens after the flood.
+His village collapsing under relentless water...
 
-Fuzzy memories of his village being destroyed. Was that a giant fish breaking through the dam? He's lived a quiet life and never really left his home."
+His quiet life swept away as the dam broke...
+
+A giant fish? That must have been a dream.
+
+How can he move forward now?
+Where can he go from here?"
 autowrap_mode = 3
 script = ExtResource("15_03fdn")
 metadata/_custom_type_script = "uid://xvc1m08j4dmv"
@@ -827,6 +782,8 @@ metadata/_custom_type_script = "uid://xvc1m08j4dmv"
 position = Vector2(-6250, 333)
 collision_layer = 0
 collision_mask = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area1 - movement and orb/Tutorial - Movement 2" unique_id=493266527]
 position = Vector2(10, 667.5)
@@ -847,6 +804,8 @@ script = ExtResource("15_03fdn")
 position = Vector2(-5682, 340)
 collision_layer = 0
 collision_mask = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area1 - movement and orb/Tutorial - Pushing" unique_id=1877500798]
 position = Vector2(84, 410)
@@ -855,26 +814,38 @@ debug_color = Color(0, 0.59607846, 0.7019608, 0.12941177)
 
 [node name="Tutorial - push" type="Label" parent="Area1 - movement and orb/Tutorial - Pushing" unique_id=860434287]
 z_index = 10
-offset_left = -82.0
-offset_top = 280.0
-offset_right = 628.0
-offset_bottom = 619.0
-text = "TODO: craft this text
+offset_left = -113.0
+offset_top = 432.0
+offset_right = 597.0
+offset_bottom = 842.0
+theme_type_variation = &"DarkLabel"
+text = "Was that the Great Eye that used to top the sacred monument at the center of his village?
 
-Bert recognizes the eye that used to top the sacred monument at the center of his village.
+It pained him to see it brought low like this."
+autowrap_mode = 3
+script = ExtResource("15_03fdn")
+metadata/_custom_type_script = "uid://xvc1m08j4dmv"
 
-He wants to protect it and keep it with him for when he gets back to his village."
+[node name="Tutorial - push3" type="Label" parent="Area1 - movement and orb/Tutorial - Pushing" unique_id=614835097]
+z_index = 10
+offset_left = -449.0
+offset_top = 1001.0
+offset_right = 261.0
+offset_bottom = 1411.0
+theme_type_variation = &"DarkLabel"
+text = "No one ever told him why it was so Great, but he'd always loved dancing around the Eye at the Turning Festival."
 autowrap_mode = 3
 script = ExtResource("15_03fdn")
 metadata/_custom_type_script = "uid://xvc1m08j4dmv"
 
 [node name="Tutorial - push2" type="Label" parent="Area1 - movement and orb/Tutorial - Pushing" unique_id=816719439]
 z_index = 15
-offset_left = -7.0
-offset_top = 936.0
-offset_right = 443.0
-offset_bottom = 1070.0
-text = "It's too heavy to carry but looks like it would roll if pushed."
+offset_left = 344.0
+offset_top = 1002.0
+offset_right = 794.0
+offset_bottom = 1136.0
+theme_type_variation = &"DarkLabel"
+text = "Maybe he should bring it with him to keep it safe?"
 autowrap_mode = 3
 script = ExtResource("15_03fdn")
 metadata/_custom_type_script = "uid://xvc1m08j4dmv"
@@ -883,6 +854,8 @@ metadata/_custom_type_script = "uid://xvc1m08j4dmv"
 position = Vector2(-4747, 349)
 collision_layer = 0
 collision_mask = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area1 - movement and orb/Tutorial - Kicking" unique_id=436100304]
 position = Vector2(-14, 412)
@@ -905,6 +878,8 @@ z_index = 1
 position = Vector2(-3793, 274)
 collision_layer = 0
 collision_mask = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area1 - movement and orb/Tutorial - Ragdoll" unique_id=1335409176]
 position = Vector2(-14, 412)
@@ -922,52 +897,147 @@ script = ExtResource("15_03fdn")
 metadata/_custom_type_script = "uid://xvc1m08j4dmv"
 
 [node name="How to rag doll2" type="Label" parent="Area1 - movement and orb/Tutorial - Ragdoll" unique_id=196397853]
-offset_left = -266.0
-offset_top = -21.0
-offset_right = 239.0
-offset_bottom = 205.0
-text = "TODO: craft this text
+offset_left = -244.0
+offset_top = -101.0
+offset_right = 261.0
+offset_bottom = 217.0
+theme_type_variation = &"DarkLabel"
+text = "Bert remembered sliding down this hill as a child.
 
-Bert is overcome with a sudden desire to slide down this hill like he did as a child."
+He was never allowed to cross the stream beyond it, but now the stream was just another part of the flood..."
 autowrap_mode = 3
 script = ExtResource("15_03fdn")
 metadata/_custom_type_script = "uid://xvc1m08j4dmv"
+
+[node name="Checkpoint" type="Area2D" parent="Area1 - movement and orb" unique_id=1010360703]
+position = Vector2(-3657, 725)
+collision_layer = 0
+collision_mask = 22
+script = ExtResource("23_kjcn1")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area1 - movement and orb/Checkpoint" unique_id=1103427110]
+position = Vector2(235, -111)
+shape = SubResource("RectangleShape2D_s8neq")
+debug_color = Color(0, 0.6, 0, 0.41960785)
 
 [node name="Area2 - props and fish" type="Node2D" parent="." unique_id=1009025412]
+metadata/_edit_lock_ = true
 
-[node name="Tutorial - music box" type="Area2D" parent="Area2 - props and fish" unique_id=1456787501]
+[node name="Environment" type="Node2D" parent="Area2 - props and fish" unique_id=1035970708]
+
+[node name="Bush1" type="Sprite2D" parent="Area2 - props and fish/Environment" unique_id=72904763]
+position = Vector2(-2945, 1069)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_kyw4n")
+region_enabled = true
+region_rect = Rect2(109, 1083, 428, 369)
+
+[node name="Tree4" type="Sprite2D" parent="Area2 - props and fish/Environment" unique_id=1851006523]
 visible = false
-position = Vector2(-2880, 377)
-collision_layer = 0
-collision_mask = 2
+material = ExtResource("5_3gvf8")
+position = Vector2(-2979, 978.00006)
+scale = Vector2(0.39999998, 0.39999998)
+texture = ExtResource("6_kyw4n")
+region_enabled = true
+region_rect = Rect2(784, 117, 1152, 1010)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2 - props and fish/Tutorial - music box" unique_id=1921351815]
-position = Vector2(111, 412)
-shape = SubResource("RectangleShape2D_3gvf8")
-debug_color = Color(0, 0.59607846, 0.7019608, 0.12941177)
+[node name="Tree3" type="Sprite2D" parent="Area2 - props and fish/Environment" unique_id=1476427983]
+material = ExtResource("5_3gvf8")
+position = Vector2(-2295, 757)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_kyw4n")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
 
-[node name="About the music box" type="Label" parent="Area2 - props and fish/Tutorial - music box" unique_id=1661318703]
-offset_left = 9.0
-offset_top = 261.0
-offset_right = 408.0
-offset_bottom = 579.0
-text = "TODO: craft this text
+[node name="BGGrass2" type="Sprite2D" parent="Area2 - props and fish/Environment" unique_id=2004058612]
+position = Vector2(-3005, 1110)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_3ayy2")
+region_enabled = true
+region_rect = Rect2(533, 1680, 281, 161)
 
-Bert sees his mother's old music box among the flood's debris. It's music always used to comfort him when he was hurt."
-autowrap_mode = 3
-script = ExtResource("15_03fdn")
-metadata/_custom_type_script = "uid://xvc1m08j4dmv"
+[node name="BGGrass3" type="Sprite2D" parent="Area2 - props and fish/Environment" unique_id=178182280]
+position = Vector2(-2641, 1055)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_3ayy2")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(533, 1680, 281, 161)
+
+[node name="BGBlocks" type="Sprite2D" parent="Area2 - props and fish/Environment" unique_id=1514494665]
+position = Vector2(-1546, 982)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_3ayy2")
+region_enabled = true
+region_rect = Rect2(0, 996, 674, 464)
+
+[node name="BGGrass4" type="Sprite2D" parent="Area2 - props and fish/Environment" unique_id=281232012]
+position = Vector2(-1466, 1062)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_3ayy2")
+region_enabled = true
+region_rect = Rect2(533, 1680, 281, 161)
+
+[node name="Grass2" type="Sprite2D" parent="Area2 - props and fish/Environment" unique_id=1149594095]
+z_index = 2
+position = Vector2(-1683, 1051)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_kyw4n")
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
+
+[node name="BGGrass" type="Sprite2D" parent="Area2 - props and fish/Environment" unique_id=748390274]
+position = Vector2(739, 1001)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_3ayy2")
+region_enabled = true
+region_rect = Rect2(533, 1680, 281, 161)
+
+[node name="Tree1" type="Sprite2D" parent="Area2 - props and fish/Environment" unique_id=1193119921]
+material = ExtResource("5_3gvf8")
+position = Vector2(-605, 162.00002)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_kyw4n")
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="Tree2" type="Sprite2D" parent="Area2 - props and fish/Environment" unique_id=156719593]
+material = ExtResource("5_3gvf8")
+position = Vector2(-440.00006, 319)
+rotation = 0.44156832
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_kyw4n")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(172, 63, 621, 908)
+
+[node name="Grass1" type="Sprite2D" parent="Area2 - props and fish/Environment" unique_id=1111298002]
+position = Vector2(-443, 398)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_kyw4n")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1434, 1275, 257, 193)
 
 [node name="Tutorial - about the music box" type="Label" parent="Area2 - props and fish" unique_id=2110121738]
-offset_left = -3030.0
-offset_top = 615.0
-offset_right = -2260.0
-offset_bottom = 933.0
-text = "TODO: polish this text
+offset_left = -3087.0
+offset_top = 557.0
+offset_right = -2558.0
+offset_bottom = 921.0
+theme_type_variation = &"DarkLabel"
+text = "His grandmother's old music box! It must have washed up in the wreckage of the flood.
 
-Bert sees his grandmother's old music box, washed up in the wreckage of the flood. It used to comfort him when the world felt wrong.
+It used to comfort him when the world felt wrong."
+autowrap_mode = 3
 
-Press Z to use the music box."
+[node name="Tutorial - about the music box2" type="Label" parent="Area2 - props and fish/Tutorial - about the music box" unique_id=2114903664]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 303.0
+offset_right = 531.0
+offset_bottom = 667.0
+text = "Press Z to use the music box."
 autowrap_mode = 3
 
 [node name="MusicBox" parent="Area2 - props and fish" unique_id=631358649 node_paths=PackedStringArray("label") instance=ExtResource("24_pj5sl")]
@@ -976,17 +1046,18 @@ position = Vector2(-2667, 1068)
 scale = Vector2(1.5, 1.5)
 label = NodePath("../Tutorial - about the music box")
 
-[node name="Tutorial - plank" type="Area2D" parent="Area2 - props and fish" unique_id=1561225418]
+[node name="Tutorial - plank - DELETE?" type="Area2D" parent="Area2 - props and fish" unique_id=1561225418]
+visible = false
 position = Vector2(-2368, 388)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2 - props and fish/Tutorial - plank" unique_id=743996386]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2 - props and fish/Tutorial - plank - DELETE?" unique_id=743996386]
 position = Vector2(578.5, 397)
 shape = SubResource("RectangleShape2D_kyw4n")
 debug_color = Color(0, 0.59607846, 0.7019608, 0.12941177)
 
-[node name="About the plank" type="Label" parent="Area2 - props and fish/Tutorial - plank" unique_id=1479853567]
+[node name="About the plank" type="Label" parent="Area2 - props and fish/Tutorial - plank - DELETE?" unique_id=1479853567]
 offset_left = 504.0
 offset_top = 181.0
 offset_right = 903.0
@@ -1005,6 +1076,8 @@ position = Vector2(-2574, 1005)
 position = Vector2(-984, -78)
 collision_layer = 0
 collision_mask = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2 - props and fish/Tutorial - fish" unique_id=676219898]
 position = Vector2(492.5, 309.5)
@@ -1012,13 +1085,14 @@ shape = SubResource("RectangleShape2D_scr4g")
 debug_color = Color(0, 0.59607846, 0.7019608, 0.12941177)
 
 [node name="About the fish" type="Label" parent="Area2 - props and fish/Tutorial - fish" unique_id=1041429555]
-offset_left = 333.0
-offset_top = 90.0
-offset_right = 732.0
-offset_bottom = 408.0
-text = "TODO: craft this text
+offset_left = 483.0
+offset_top = 33.0
+offset_right = 965.0
+offset_bottom = 351.0
+theme_type_variation = &"DarkLabel"
+text = "Bert couldn't believe his eyes as he looked down from the hill.
 
-Look out for the fish!"
+Maybe that giant fish wasn't a dream after all..."
 autowrap_mode = 3
 script = ExtResource("15_03fdn")
 metadata/_custom_type_script = "uid://xvc1m08j4dmv"
@@ -1027,57 +1101,128 @@ metadata/_custom_type_script = "uid://xvc1m08j4dmv"
 position = Vector2(2050, 1027)
 height = 550.0
 
-[node name="Tutorial - portal" type="Area2D" parent="." unique_id=328755334]
-position = Vector2(3146, 365)
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tutorial - portal" unique_id=581732025]
-position = Vector2(186, 81.75)
-shape = SubResource("RectangleShape2D_6knip")
-debug_color = Color(0, 0.59607846, 0.7019608, 0.12941177)
-
-[node name="About the portal" type="Label" parent="Tutorial - portal" unique_id=30481104]
-offset_left = -7.0
-offset_top = -172.0
-offset_right = 392.0
-offset_bottom = 146.0
-text = "TODO: craft this text
-
-Something something portal, orb, strange feelings, etc"
-autowrap_mode = 3
-script = ExtResource("15_03fdn")
-metadata/_custom_type_script = "uid://xvc1m08j4dmv"
-
-[node name="Checkpoint" type="Area2D" parent="." unique_id=323401980]
+[node name="Checkpoint" type="Area2D" parent="Area2 - props and fish" unique_id=323401980]
 position = Vector2(-365, 367)
 collision_layer = 0
 collision_mask = 22
 script = ExtResource("23_kjcn1")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint" unique_id=1120260330]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2 - props and fish/Checkpoint" unique_id=1120260330]
 position = Vector2(137.5, -125.5)
 shape = SubResource("RectangleShape2D_v0ifn")
 debug_color = Color(0, 0.6, 0, 0.41960785)
 
-[node name="FishTerritory" type="Area2D" parent="." unique_id=1678249276]
+[node name="FishTerritory" type="Area2D" parent="Area2 - props and fish" unique_id=1678249276]
 position = Vector2(455, 1890)
 collision_layer = 0
 collision_mask = 22
 gravity_space_override = 3
 gravity = 50.0
 script = ExtResource("20_j00bg")
+metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FishTerritory" unique_id=882843566]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2 - props and fish/FishTerritory" unique_id=882843566]
 position = Vector2(676.5, -267.75)
 shape = SubResource("RectangleShape2D_xakyt")
 
-[node name="FishMonster" parent="FishTerritory" unique_id=599123084 instance=ExtResource("22_rhdql")]
+[node name="FishMonster" parent="Area2 - props and fish/FishTerritory" unique_id=599123084 instance=ExtResource("22_rhdql")]
 position = Vector2(2571, -145)
 jump_y_max = 1790.0
 
+[node name="Area3 - portal" type="Node2D" parent="." unique_id=126453642]
+position = Vector2(3043, 353)
+metadata/_edit_lock_ = true
+
+[node name="Environment" type="Node2D" parent="Area3 - portal" unique_id=1330678695]
+position = Vector2(-3043, -353)
+
+[node name="BGGrass4" type="Sprite2D" parent="Area3 - portal/Environment" unique_id=1518706706]
+position = Vector2(2455, 388)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_3ayy2")
+region_enabled = true
+region_rect = Rect2(533, 1680, 281, 161)
+
+[node name="BGVines" type="Sprite2D" parent="Area3 - portal/Environment" unique_id=1026871574]
+position = Vector2(2664, 710)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_3ayy2")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(467, 285, 342, 569)
+
+[node name="BGVines2" type="Sprite2D" parent="Area3 - portal/Environment" unique_id=1989817401]
+position = Vector2(3670, 85)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_3ayy2")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(467, 285, 342, 569)
+
+[node name="BGVines3" type="Sprite2D" parent="Area3 - portal/Environment" unique_id=2048711186]
+position = Vector2(3207, -352)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_3ayy2")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(467, 285, 172, 569)
+
+[node name="Tree2" type="Sprite2D" parent="Area3 - portal/Environment" unique_id=351934374]
+material = ExtResource("5_3gvf8")
+position = Vector2(2400, 255.99998)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_kyw4n")
+region_enabled = true
+region_rect = Rect2(784, 117, 1152, 1010)
+
+[node name="TearParticles" parent="Area3 - portal/Environment" unique_id=724187552 instance=ExtResource("23_ys5li")]
+position = Vector2(3610, -20)
+
+[node name="TearParticles3" parent="Area3 - portal/Environment" unique_id=2090449934 instance=ExtResource("23_ys5li")]
+position = Vector2(3681, -1)
+scale = Vector2(0.7, 0.7)
+
+[node name="TearParticles2" parent="Area3 - portal/Environment" unique_id=950560719 instance=ExtResource("23_ys5li")]
+position = Vector2(3175, -444)
+scale = Vector2(0.7, 0.7)
+
+[node name="Tutorial - portal" type="Area2D" parent="Area3 - portal" unique_id=328755334]
+position = Vector2(103, 12)
+collision_layer = 0
+collision_mask = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area3 - portal/Tutorial - portal" unique_id=581732025]
+position = Vector2(186, 81.75)
+shape = SubResource("RectangleShape2D_6knip")
+debug_color = Color(0, 0.59607846, 0.7019608, 0.12941177)
+
+[node name="About the portal" type="Label" parent="Area3 - portal/Tutorial - portal" unique_id=30481104]
+offset_left = -76.0
+offset_top = -172.0
+offset_right = 394.0
+offset_bottom = 146.0
+theme_type_variation = &"DarkLabel"
+text = "Bert's insides thrummed to a familiar rhythm. The pedestal looked strangely similar to the sacred monument.
+
+What was it doing out here?"
+autowrap_mode = 3
+script = ExtResource("15_03fdn")
+metadata/_custom_type_script = "uid://xvc1m08j4dmv"
+
+[node name="Portal" parent="Area3 - portal" unique_id=820677622 instance=ExtResource("18_vov62")]
+position = Vector2(324, 290)
+portal_name = "tutorial-end"
+linked_stage = "uid://b32q0e34faaed"
+target_portal = "ww-tutorial"
+metadata/_edit_lock_ = true
+
 [node name="InvisibleWall" type="StaticBody2D" parent="." unique_id=1886159291]
 position = Vector2(-4366, 296)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall" unique_id=1174997351]
 position = Vector2(-3859, -1376)
@@ -1087,22 +1232,13 @@ shape = SubResource("RectangleShape2D_hjxan")
 position = Vector2(2131.5, -3300.5)
 shape = SubResource("RectangleShape2D_3ayy2")
 
-[node name="Checkpoint2" type="Area2D" parent="." unique_id=1010360703]
-position = Vector2(-3657, 725)
-collision_layer = 0
-collision_mask = 22
-script = ExtResource("23_kjcn1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint2" unique_id=1103427110]
-position = Vector2(235, -111)
-shape = SubResource("RectangleShape2D_s8neq")
-debug_color = Color(0, 0.6, 0, 0.41960785)
-
 [node name="KillZone" type="Area2D" parent="." unique_id=1631316216]
 position = Vector2(-4388, 1389)
 collision_layer = 0
 collision_mask = 22
 script = ExtResource("20_j00bg")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=1674815199]
 position = Vector2(-3445, 223)
@@ -1115,3 +1251,4 @@ shape = SubResource("RectangleShape2D_1cdy3")
 [node name="Water" parent="." unique_id=14946250 instance=ExtResource("25_mpqe7")]
 offset_left = -10328.0
 offset_right = 7125.0
+metadata/_edit_lock_ = true
