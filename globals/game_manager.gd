@@ -75,6 +75,12 @@ func change_scene(new_scene_path: String, params = {}) -> void:
 	var fade_out: bool = params.get("fade_out", true)
 	var container := get_container()
 	var cur_scene := get_active_scene()
+
+	# start the fade early so we load while it's fading
+	var fade_out_tween: Tween
+	if fade_out:
+		fade_out_tween = VFX.white_out()
+
 	var new_scene: Resource = load(new_scene_path)
 	if not new_scene:
 		new_scene = load(TITLE_SCREEN)
@@ -83,11 +89,14 @@ func change_scene(new_scene_path: String, params = {}) -> void:
 		StateManager.set_keys.call_deferred({ "path": new_scene_path, "params": params }, "cur_scene")
 	
 	if fade_out:
-		await VFX.white_out().finished
+		await fade_out_tween.finished
 	
 	container.add_child(new_instance)
 	container.remove_child(cur_scene)
 	cur_scene.queue_free()
+	var t = get_tree()
+	if t:
+		await get_tree().physics_frame
 	StateManager.manage_scene.call_deferred(new_instance, new_scene_path, params)
 	scene_changed.emit.call_deferred()
 

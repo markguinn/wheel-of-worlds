@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bw7ujmd6681ln" path="res://common/activator.tscn" id="1_craks"]
 [ext_resource type="Texture2D" uid="uid://dfurw0yohjuko" path="res://props/lift/Lift.png" id="3_5qbfe"]
 [ext_resource type="Texture2D" uid="uid://dqtg3j6q3b2hu" path="res://stages/wheel/art/woodgrain.png" id="4_plj52"]
+[ext_resource type="Texture2D" uid="uid://c6lihausi66q5" path="res://props/music_box/art/music_box.png" id="5_5u61m"]
 
 [node name="Lift" type="Node2D" unique_id=927319953]
 script = ExtResource("1_bhsea")
@@ -14,7 +15,14 @@ position = Vector2(0, -21)
 rotation = 1.5707964
 texture = ExtResource("4_plj52")
 region_enabled = true
-region_rect = Rect2(0, 170, 2034, 71)
+region_rect = Rect2(0, 180, 2034, 50)
+
+[node name="MusicBox" type="Sprite2D" parent="." unique_id=1269432114]
+position = Vector2(-117, -94)
+texture = ExtResource("5_5u61m")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(22, 94, 97, 139)
 
 [node name="Base" type="StaticBody2D" parent="." unique_id=1711520863]
 collision_layer = 4
@@ -22,6 +30,9 @@ collision_layer = 4
 [node name="Activator2" parent="Base" unique_id=1410287907 instance=ExtResource("1_craks")]
 manually_activated = true
 candidate_priority = 5
+
+[node name="CollisionShape2D" parent="Base/Activator2" index="0" unique_id=109296125]
+visible = false
 
 [node name="Label" parent="Base/Activator2" index="1" unique_id=1100468939]
 offset_top = -300.0
@@ -32,6 +43,7 @@ color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-200, 0, -150, -50, 0, -25, 150, -50, 200, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Base" unique_id=1929314528]
+visible = false
 polygon = PackedVector2Array(-200, 0, -150, -50, 0, -25, 150, -50, 200, 0)
 
 [node name="Platform" type="StaticBody2D" parent="." unique_id=859494839]
@@ -43,6 +55,9 @@ collision_mask = 27
 manually_activated = true
 candidate_priority = 5
 
+[node name="CollisionShape2D" parent="Platform/Activator" index="0" unique_id=109296125]
+visible = false
+
 [node name="Label" parent="Platform/Activator" index="1" unique_id=1100468939]
 offset_top = -300.0
 offset_bottom = -258.0
@@ -53,6 +68,7 @@ color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-100, 0, -150, -50, 0, -25, 150, -50, 100, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform" unique_id=324174884]
+visible = false
 polygon = PackedVector2Array(-100, 0, -150, -50, 0, -25, 150, -50, 100, 0)
 one_way_collision = true
 one_way_collision_margin = 100.0
