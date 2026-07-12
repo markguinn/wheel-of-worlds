@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cilrbdws8h45c"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6vd14"]
-size = Vector2(32, 16)
+[ext_resource type="Texture2D" uid="uid://c6lihausi66q5" path="res://props/music_box/art/music_box.png" id="1_qgemt"]
 
 [node name="MusicBoxSprite" type="Sprite2D" unique_id=1032438263]
-modulate = Color(0.058800004, 0.094733305, 0.49, 1)
-texture = SubResource("PlaceholderTexture2D_6vd14")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_qgemt")
+region_enabled = true
+region_rect = Rect2(142, 41, 114, 79)

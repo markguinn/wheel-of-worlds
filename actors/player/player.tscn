@@ -1272,7 +1272,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(30, -23)]
+"values": [Vector2(44, -23)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1344,7 +1344,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0.16666667),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(20, -19)]
+"values": [Vector2(29, -19)]
 }
 
 [sub_resource type="Animation" id="Animation_p47bc"]
@@ -1896,17 +1896,20 @@ metadata/_edit_lock_ = true
 [node name="Hips" type="Bone2D" parent="Sprite/Skeleton2D" unique_id=598144107]
 position = Vector2(3, -19)
 scale = Vector2(0.9999928, 0.9999928)
-skew = -5.9485435e-05
+skew = -6.186962e-05
 rest = Transform2D(1, 0, 0, 1, 0, -20)
 
 [node name="ThighR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=25801670]
 position = Vector2(-13, 15)
-scale = Vector2(0.99, 0.99)
+rotation = -0.22004591
+scale = Vector2(0.9900001, 0.9900001)
 rest = Transform2D(0.99, 0, 0, 0.99, -13, 15)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighR" unique_id=1375386282]
 position = Vector2(1.0101013, 38.38384)
+rotation = 0.29803357
+scale = Vector2(0.9999994, 0.9999994)
 rest = Transform2D(1, 0, 0, 1, 1.0101013, 38.38384)
 auto_calculate_length_and_angle = false
 length = 30.0
@@ -1915,14 +1918,14 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ThighL" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=226334277]
 position = Vector2(23, 14)
-rotation = 0.25686538
-scale = Vector2(0.9998029, 0.9998029)
+rotation = 0.559025
+scale = Vector2(0.99980277, 0.99980277)
 rest = Transform2D(0.967, 0.254, -0.254, 0.967, 23, 14)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighL" unique_id=919169516]
 position = Vector2(17.09175, 29.636705)
-rotation = -0.58827996
+rotation = -1.0863186
 scale = Vector2(1.0001245, 1.0001245)
 rest = Transform2D(0.83199996, -0.555, 0.555, 0.83199996, 17.09175, 29.636705)
 auto_calculate_length_and_angle = false
@@ -1937,8 +1940,8 @@ rest = Transform2D(0, -1, 1, 0, 0, -32)
 
 [node name="Head" type="Bone2D" parent="Sprite/Skeleton2D/Hips/Torso" unique_id=1580104760]
 position = Vector2(11.294762, 8.0899105)
-rotation = 0.19200166
-scale = Vector2(0.9999549, 0.9999549)
+rotation = 0.7822057
+scale = Vector2(0.9999548, 0.9999548)
 rest = Transform2D(0.98157996, 0.19081554, -0.19081554, 0.98157996, 11.294762, 8.0899105)
 auto_calculate_length_and_angle = false
 length = 16.0
@@ -1955,14 +1958,14 @@ remote_path = NodePath("../../../../../VFX/DizzyParticles")
 
 [node name="ArmL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/Torso" unique_id=1793998611]
 position = Vector2(7, 33)
-rotation = -0.09683907
+rotation = -0.5175302
 rest = Transform2D(0.9953148, -0.09668779, 0.09668779, 0.9953148, 7, 33)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="HandL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/Torso/ArmL" unique_id=1933907137]
 position = Vector2(-26.651686, 5.448637)
-rotation = 0.06404069
-scale = Vector2(1.0000474, 1.0000474)
+rotation = 1.4313142
+scale = Vector2(1.0000473, 1.0000473)
 rest = Transform2D(0.9979998, 0.06399999, -0.06399999, 0.9979998, -26.651686, 5.448637)
 auto_calculate_length_and_angle = false
 length = 28.031
@@ -1971,13 +1974,14 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ArmR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/Torso" unique_id=1756135333]
 position = Vector2(2, -35)
-rotation = 1.5350726
+rotation = 1.0611072
+scale = Vector2(0.9999997, 0.9999997)
 rest = Transform2D(0.035716165, 0.999362, -0.999362, 0.035716165, 2, -35)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="HandR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/Torso/ArmR" unique_id=88591762]
 position = Vector2(0.8915224, 31.051653)
-rotation = -0.0378131
+rotation = -0.804112
 rest = Transform2D(0.99928516, -0.03780409, 0.03780409, 0.99928516, 0.8915224, 31.051653)
 auto_calculate_length_and_angle = false
 length = 24.969
@@ -2033,10 +2037,10 @@ bones = ["Hips", PackedFloat32Array(1, 1, 1, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0,
 [node name="Head" type="Sprite2D" parent="Sprite/Parts" unique_id=857872474]
 light_mask = 2
 visibility_layer = 3
-position = Vector2(11.087276, -62.294453)
-rotation = -0.07108461
-scale = Vector2(0.17002374, 0.17001218)
-skew = -5.888939e-05
+position = Vector2(12.50551, -62.07115)
+rotation = 0.69252634
+scale = Vector2(0.170026, 0.1700128)
+skew = -1.3947487e-05
 texture = SubResource("CanvasTexture_2vokq")
 offset = Vector2(7, 18)
 region_enabled = true
@@ -2044,7 +2048,7 @@ region_rect = Rect2(204, 68, 311, 233)
 
 [node name="Eyes" type="AnimatedSprite2D" parent="Sprite/Parts/Head" unique_id=1167826662]
 sprite_frames = SubResource("SpriteFrames_yeioo")
-frame_progress = 0.9359785
+frame_progress = 0.79057544
 offset = Vector2(-35, 387)
 script = ExtResource("7_0wchr")
 
@@ -2082,7 +2086,6 @@ internal_vertex_count = 8
 [node name="MusicBoxSprite" parent="Sprite/Parts" unique_id=1032438263 instance=ExtResource("9_yeioo")]
 visible = false
 position = Vector2(17, -25)
-scale = Vector2(0.5, 0.5)
 
 [node name="GuidePoints" type="Node2D" parent="Sprite" unique_id=1022049703]
 unique_name_in_owner = true
@@ -2156,10 +2159,9 @@ position = Vector2(48, 60)
 
 [node name="DizzyParticles" type="GPUParticles2D" parent="Sprite/VFX" unique_id=806147118]
 unique_name_in_owner = true
-position = Vector2(11.087276, -62.294453)
-rotation = -1.5197669
-scale = Vector2(0.9999446, 0.9999507)
-skew = 5.9127808e-05
+position = Vector2(12.50551, -62.07115)
+rotation = -0.75610334
+scale = Vector2(0.99987084, 0.9999326)
 emitting = false
 amount = 6
 texture = ExtResource("7_7aotz")
