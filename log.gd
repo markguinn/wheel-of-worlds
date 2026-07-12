@@ -7,6 +7,7 @@ const ERROR = 4
 const EMPTY = []
 
 const HEADER_FORMAT = "[%s] %8d %s:"
+const VENDOR_LICENSE_PATH = "res://vendor_licenses.txt"
 
 const LABELS = {
 	DEBUG: "D",
@@ -24,6 +25,10 @@ func _ready() -> void:
 	if FileAccess.file_exists("res://config.local.ini"):
 		cfg.load("res://config.local.ini")
 	default_level = cfg.get_value("log_levels", "DEFAULT", 3)
+
+	if FileAccess.file_exists(VENDOR_LICENSE_PATH):
+		var file = FileAccess.open(VENDOR_LICENSE_PATH, FileAccess.READ)
+		prints(file.get_as_text())
 
 
 func _format(source: Variant, level: int, args: Array[Variant]) -> Array[Variant]:

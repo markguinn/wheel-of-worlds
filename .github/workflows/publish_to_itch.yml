@@ -65,7 +65,7 @@ jobs:
       - name: Write version file
         shell: bash
         run: |
-          echo "${GITHUB_REF_NAME}" > version.txt
+          echo -n "${GITHUB_REF_NAME}" > version.txt
 
       - name: Open project once to import assets in editor mode
         shell: bash

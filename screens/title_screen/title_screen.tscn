@@ -27,8 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://b7dpqa8b75pvp" path="res://music/theme_music.tscn" id="18_mhrfk"]
 [ext_resource type="Texture2D" uid="uid://dih62xx2erihd" path="res://stages/wheel/art/circle.png" id="19_5cxmk"]
 [ext_resource type="Texture2D" uid="uid://belpvygam52j6" path="res://screens/title_screen/new_noise_texture_2d.tres" id="27_qd2g0"]
-[ext_resource type="Texture2D" uid="uid://dmx7o5mgxgl6o" path="res://screens/title_screen/art/logo_large_monochrome_dark.png" id="29_bup36"]
-[ext_resource type="Texture2D" uid="uid://d00dwx1w6cv8h" path="res://screens/title_screen/art/logo_small_monochrome_dark.png" id="30_lnnji"]
+[ext_resource type="Texture2D" uid="uid://d00dwx1w6cv8h" path="res://screens/title_screen/art/godot_logo.png" id="30_lnnji"]
 [ext_resource type="Texture2D" uid="uid://bdi3thpdpx8sh" path="res://screens/title_screen/art/Dev_Pods_Logo_Large.png" id="31_2o0wg"]
 
 [sub_resource type="Gradient" id="Gradient_i36ib"]
@@ -152,7 +151,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(834, 95)
-shader_parameter/real_screen_size = Vector2(6303.9043, 4143.6963)
+shader_parameter/real_screen_size = Vector2(2568.759, 1688.5023)
 shader_parameter/edges = Array[Texture2D]([ExtResource("11_7cxjv"), ExtResource("11_7cxjv")])
 shader_parameter/edge_smoothness = 1.50400007144
 shader_parameter/fill_enabled = true
@@ -362,6 +361,8 @@ fill_to = Vector2(0, 1)
 offset = Vector2(960, 540)
 transform = Transform2D(1, 0, 0, 1, 960, 540)
 script = ExtResource("1_phvg6")
+metadata/_edit_vertical_guides_ = [1920.0, 1880.0, 40.0, 298.0]
+metadata/_edit_horizontal_guides_ = [1080.0, 1050.0, 935.0, 905.0]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=17924135]
 anchors_preset = 15
@@ -383,10 +384,10 @@ preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_1xf4e")
 
 [node name="IrisNebula" type="Sprite2D" parent="." unique_id=127912379]
-modulate = Color(1, 1, 1, 0.24051897)
-rotation = 1.116623
+modulate = Color(1, 1, 1, 0.1449144)
+rotation = 2.0339153
 scale = Vector2(2, 2)
-skew = -0.087295115
+skew = 0.21703339
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -400,10 +401,10 @@ alpha_speed = 0.4
 speed_factor = 0.1
 
 [node name="IrisNebula2" type="Sprite2D" parent="." unique_id=1740825736]
-modulate = Color(1, 1, 1, 0.11948326)
-rotation = 5.148459
+modulate = Color(1, 1, 1, 0.12335797)
+rotation = 0.6987532
 scale = Vector2(3, 3)
-skew = 0.46476766
+skew = -0.31674004
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -422,80 +423,84 @@ scale = Vector2(0.9, 0.9)
 script = ExtResource("2_1xf4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sparkles" unique_id=972055032]
-modulate = Color(1, 1, 1, 0.10579545)
-rotation = -2596.7932
-scale = Vector2(0.7038636, 0.7038636)
+modulate = Color(1, 1, 1, 0.39431164)
+rotation = -2984.9224
+scale = Vector2(0.89620775, 0.89620775)
 texture = ExtResource("3_i36ib")
 
 [node name="Mist" type="Sprite2D" parent="Sparkles" unique_id=753486441]
-modulate = Color(1, 1, 1, 0.21146171)
-rotation = 215.71623
-scale = Vector2(0.7743078, 0.7743078)
+modulate = Color(1, 1, 1, 0.35915843)
+rotation = 23.353848
+scale = Vector2(0.8727723, 0.8727723)
 texture = SubResource("NoiseTexture2D_mvehq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sparkles" unique_id=1758360778]
-modulate = Color(1, 1, 1, 0.26603884)
-rotation = -147.41968
-scale = Vector2(0.81069255, 0.81069255)
+modulate = Color(1, 1, 1, 0.3149786)
+rotation = -445.5863
+scale = Vector2(0.84331906, 0.84331906)
 texture = ExtResource("4_wsvuw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sparkles" unique_id=845584023]
-modulate = Color(1, 1, 1, 0.10000159)
-rotation = 2753.972
-scale = Vector2(0.70000106, 0.70000106)
+modulate = Color(1, 1, 1, 0.37783465)
+rotation = 2864.8076
+scale = Vector2(0.8852231, 0.8852231)
 texture = ExtResource("5_p7yao")
 
 [node name="Mist2" type="Sprite2D" parent="Sparkles" unique_id=1711575947]
-modulate = Color(1, 1, 1, 0.1000056)
-rotation = 1753.595
-scale = Vector2(0.70000374, 0.70000374)
+modulate = Color(1, 1, 1, 0.37678483)
+rotation = 1907.0675
+scale = Vector2(0.8845232, 0.8845232)
 texture = SubResource("NoiseTexture2D_tsbkc")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sparkles" unique_id=1435232981]
-modulate = Color(1, 1, 1, 0.39060673)
-rotation = 1658.8761
-scale = Vector2(0.89373785, 0.89373785)
+modulate = Color(1, 1, 1, 0.15804842)
+rotation = 2010.956
+scale = Vector2(0.73869896, 0.73869896)
 texture = ExtResource("6_mi1m4")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sparkles" unique_id=2086365118]
-modulate = Color(1, 1, 1, 0.39678177)
-rotation = 564.939
-scale = Vector2(0.8978545, 0.8978545)
+modulate = Color(1, 1, 1, 0.14155176)
+rotation = 228.44724
+scale = Vector2(0.7277012, 0.7277012)
 texture = ExtResource("7_v8lo7")
 
 [node name="RotatingBody" type="Node2D" parent="." unique_id=1912110947]
 light_mask = 5
 
 [node name="StaticBody2D" type="StaticBody2D" parent="RotatingBody" unique_id=819683219]
-visible = false
+z_index = 1
 scale = Vector2(0.55, 0.55)
+collision_priority = 10.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotatingBody/StaticBody2D" unique_id=182824182]
-polygon = PackedVector2Array(0, 738, 125, 730, 262, 693, 383, 635, 505, 543, 614, 414, 687, 292, 733, 134, 738, 0, 960, 0, 960, 932, 0, 943)
+polygon = PackedVector2Array(-9.090942, 739.99994, 125, 730, 262, 693, 383, 635, 505, 543, 614, 414, 687, 292, 733, 134, 738.18176, -12.727295, 960, 0, 960, 932, 0, 943)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="RotatingBody" unique_id=1154696191]
-visible = false
+z_index = 1
 rotation = 1.5707964
 scale = Vector2(0.55, 0.55)
+collision_priority = 10.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotatingBody/StaticBody2D2" unique_id=1141222102]
-polygon = PackedVector2Array(3.2259006e-05, 738, 125, 730, 262, 693, 383, 635, 505, 543, 614, 414, 687, 292, 733, 134, 738, -3.2259006e-05, 960, 0, 960, 932, 0, 943)
+polygon = PackedVector2Array(-5.45459, 739.9999, 125, 730, 262, 693, 383, 635, 505, 543, 614, 414, 687, 292, 733, 134, 739.9999, -3.6364746, 960, 0, 960, 932, 0, 943)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="RotatingBody" unique_id=62655239]
-visible = false
+z_index = 1
 rotation = -3.1415925
 scale = Vector2(0.55, 0.55)
+collision_priority = 10.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotatingBody/StaticBody2D3" unique_id=311776429]
-polygon = PackedVector2Array(6.4430584e-05, 737, 125, 730, 262, 693, 383, 635, 505, 543, 614, 414, 687, 292, 733, 134, 738, -6.451801e-05, 960, 0, 960, 932, 0, 943)
+polygon = PackedVector2Array(-10.908936, 736.36365, 125, 730, 262, 693, 383, 635, 505, 543, 614, 414, 687, 292, 733, 134, 739.99994, -9.091003, 960, 0, 960, 932, 0, 943)
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="RotatingBody" unique_id=1433558895]
-visible = false
+z_index = 1
 rotation = -1.5707964
 scale = Vector2(0.55, 0.55)
+collision_priority = 10.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotatingBody/StaticBody2D4" unique_id=1663167988]
-polygon = PackedVector2Array(8.800562e-06, 738, 125, 730, 262, 693, 383, 635, 505, 543, 614, 414, 687, 292, 733, 134, 737, -8.788637e-06, 960, 0, 960, 932, 0, 943)
+polygon = PackedVector2Array(-10.909119, 739.9999, 125, 730, 262, 693, 383, 635, 505, 543, 614, 414, 687, 292, 733, 134, 738.1818, -9.090942, 960, 0, 960, 932, 0, 943)
 
 [node name="WheelTilesShader" type="CanvasGroup" parent="RotatingBody" unique_id=1122700903 node_paths=PackedStringArray("target_layer")]
 light_mask = 5
@@ -587,7 +592,7 @@ rotation = -0.026904797
 scale = Vector2(0.1700271, 0.17001356)
 
 [node name="Eyes" parent="RotatingBody/Player/Sprite/Parts/Head" index="0" unique_id=1167826662]
-frame_progress = 0.2069316
+frame_progress = 0.19424364
 
 [node name="Ouch" parent="RotatingBody/Player/SFX" parent_id_path=PackedInt32Array(317056800, 2054879864) index="2" unique_id=1678676952]
 volume_db = -80.0
@@ -612,6 +617,7 @@ focus_neighbor_right = NodePath("../AltWheel")
 focus_next = NodePath("../AltWheel")
 focus_previous = NodePath("../Continue")
 theme_type_variation = &"BigButton"
+theme_override_colors/font_color = Color(0.15294118, 0.16470589, 0.13725491, 1)
 text = "New Story"
 flat = true
 alignment = 0
@@ -639,6 +645,7 @@ focus_neighbor_right = NodePath("../Options")
 focus_next = NodePath("../Options")
 focus_previous = NodePath("../StartGame")
 theme_type_variation = &"BigButton"
+theme_override_colors/font_color = Color(0.15294118, 0.16470589, 0.13725491, 1)
 text = "B Sides"
 flat = true
 alignment = 0
@@ -666,6 +673,7 @@ focus_neighbor_right = NodePath("../StartGame")
 focus_next = NodePath("../StartGame")
 focus_previous = NodePath("../Credits")
 theme_type_variation = &"BigButton"
+theme_override_colors/font_color = Color(0.15294118, 0.16470589, 0.13725491, 1)
 text = "Continue"
 flat = true
 alignment = 0
@@ -692,6 +700,7 @@ focus_neighbor_right = NodePath("../Continue")
 focus_next = NodePath("../Continue")
 focus_previous = NodePath("../QuitGame")
 theme_type_variation = &"BigButton"
+theme_override_colors/font_color = Color(0.15294118, 0.16470589, 0.13725491, 1)
 text = "Credits"
 flat = true
 alignment = 0
@@ -712,6 +721,7 @@ focus_neighbor_right = NodePath("../QuitGame")
 focus_next = NodePath("../QuitGame")
 focus_previous = NodePath("../AltWheel")
 theme_type_variation = &"BigButton"
+theme_override_colors/font_color = Color(0.15294118, 0.16470589, 0.13725491, 1)
 text = "Options"
 flat = true
 alignment = 0
@@ -730,6 +740,7 @@ focus_neighbor_right = NodePath("../Credits")
 focus_next = NodePath("../Credits")
 focus_previous = NodePath("../Options")
 theme_type_variation = &"BigButton"
+theme_override_colors/font_color = Color(0.15294118, 0.16470589, 0.13725491, 1)
 text = "Quit Game"
 flat = true
 alignment = 0
@@ -988,30 +999,6 @@ script = ExtResource("4_p4pbn")
 target_scene = "uid://d3fvd1rp5q4hh"
 metadata/_custom_type_script = "uid://dwlqg5ma8i6be"
 
-[node name="VersionLabel" type="Label" parent="." unique_id=2059173511]
-z_index = 5
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1172.0
-offset_top = -588.0
-offset_right = -999.0
-offset_bottom = -549.0
-grow_horizontal = 0
-grow_vertical = 0
-pivot_offset = Vector2(103, 29)
-size_flags_vertical = 10
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 0
-theme_override_fonts/font = ExtResource("5_4p7k8")
-text = "dev build"
-horizontal_alignment = 2
-vertical_alignment = 2
-script = ExtResource("6_3tw6p")
-file_path = "res://version.txt"
-
 [node name="TitleLogo" type="Sprite2D" parent="." unique_id=1107410125]
 z_index = 10
 position = Vector2(12, 45)
@@ -1078,20 +1065,44 @@ scale = Vector2(3.1, 3)
 texture = ExtResource("27_qd2g0")
 offset = Vector2(-9.718872, 108.394775)
 
-[node name="LogoLargeMonochromeDark" type="Sprite2D" parent="." unique_id=642784394]
-visible = false
-position = Vector2(1809, -71)
-texture = ExtResource("29_bup36")
+[node name="VersionLabel" type="Label" parent="." unique_id=2059173511]
+z_index = 5
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1170.0
+offset_top = -601.0
+offset_right = -997.0
+offset_bottom = -562.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(170, 31)
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(0.15294118, 0.16470589, 0.13725491, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_4p7k8")
+text = "dev build"
+horizontal_alignment = 2
+vertical_alignment = 2
+script = ExtResource("6_3tw6p")
+file_path = "res://version.txt"
 
-[node name="LogoSmallMonochromeDark" type="Sprite2D" parent="." unique_id=1457466957]
-visible = false
-position = Vector2(481, 1204)
-texture = ExtResource("30_lnnji")
+[node name="Logos" type="Node2D" parent="." unique_id=1824380812]
+modulate = Color(0.15294118, 0.16470589, 0.13725491, 1)
+position = Vector2(-920, 510)
+scale = Vector2(0.7, 0.7)
 
-[node name="DevPodsLogoLarge" type="Sprite2D" parent="." unique_id=664081885]
-visible = false
-position = Vector2(457, -287)
+[node name="DevPodsLogoLarge" type="Sprite2D" parent="Logos" unique_id=664081885]
+position = Vector2(128.24283, -55.371826)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("31_2o0wg")
+
+[node name="LogoSmallMonochromeDark" type="Sprite2D" parent="Logos" unique_id=1457466957]
+position = Vector2(129.05, -193.79999)
+scale = Vector2(0.9, 1)
+texture = ExtResource("30_lnnji")
 
 [connection signal="focus_entered" from="RotatingBody/StartGame" to="." method="_on_wheel_button_focus_entered" flags=18]
 [connection signal="pressed" from="RotatingBody/StartGame" to="." method="_on_start_game_pressed"]

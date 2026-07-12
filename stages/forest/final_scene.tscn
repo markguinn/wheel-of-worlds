@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://34ynbgjxsbt4" path="res://generated/forest_1_atlas.png" id="12_iwmxf"]
 [ext_resource type="Texture2D" uid="uid://bohu00to04x8j" path="res://stages/forest/prefabs/near_mist_texture.tres" id="13_4nscu"]
 [ext_resource type="Script" uid="uid://ch0wv8cuoudkc" path="res://stages/seussworld/mist.gd" id="14_an7wk"]
+[ext_resource type="Texture2D" uid="uid://bdi3thpdpx8sh" path="res://screens/title_screen/art/Dev_Pods_Logo_Large.png" id="14_pnveb"]
 [ext_resource type="PackedScene" uid="uid://csc4mxjijlm81" path="res://common/standard_camera.tscn" id="15_6gl0u"]
 [ext_resource type="PackedScene" uid="uid://b85khgplioksi" path="res://actors/player/player.tscn" id="16_x8x31"]
 [ext_resource type="PackedScene" uid="uid://cunmpxd2cde4q" path="res://stages/forest/prefabs/climbable_tree_1.tscn" id="17_4pv4u"]
@@ -31,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://b7dpqa8b75pvp" path="res://music/theme_music.tscn" id="30_8a6io"]
 [ext_resource type="Script" uid="uid://ca4tif1vg2be1" path="res://common/rich_file_label.gd" id="31_8a6io"]
 [ext_resource type="PackedScene" uid="uid://bk140x3miwcrc" path="res://stages/forest/prefabs/forest_water.tscn" id="31_o660d"]
+[ext_resource type="Texture2D" uid="uid://d00dwx1w6cv8h" path="res://screens/title_screen/art/godot_logo.png" id="32_oofyl"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_h88km"]
 noise_type = 4
@@ -463,18 +465,20 @@ modification_count = 1
 modifications/0 = SubResource("SkeletonModification2DFABRIK_oofyl")
 
 [sub_resource type="Gradient" id="Gradient_8a6io"]
-offsets = PackedFloat32Array(0, 0.4125)
-colors = PackedColorArray(0, 0, 0, 0, 0.09, 0.09, 0.09, 0.20392157)
+offsets = PackedFloat32Array(0, 0.19375)
+colors = PackedColorArray(0, 0, 0, 0, 0.09019608, 0.09019608, 0.09019608, 0.49803922)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_pnveb"]
 gradient = SubResource("Gradient_8a6io")
+width = 512
+height = 100
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oofyl"]
 texture = SubResource("GradientTexture2D_pnveb")
-expand_margin_left = 20.0
-expand_margin_top = 20.0
-expand_margin_right = 20.0
-expand_margin_bottom = 20.0
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
 
 [node name="FinalForest" type="Node2D" unique_id=1313295670]
 script = ExtResource("1_h88km")
@@ -482,6 +486,8 @@ eye_direction_noise = SubResource("FastNoiseLite_h88km")
 eye_strength = Vector2(30, 10)
 eye_speed = 13.0
 persist_as_current = false
+metadata/_edit_horizontal_guides_ = [40.0, 1039.0, 955.0]
+metadata/_edit_vertical_guides_ = [40.0, 232.0, 272.0]
 
 [node name="BGLayers" type="Node2D" parent="." unique_id=1459283984]
 metadata/_edit_group_ = true
@@ -862,29 +868,29 @@ active = true
 z_index = 1
 
 [node name="Sprite2D" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.15810618)
-rotation = 705.42126
-scale = Vector2(0.73873746, 0.73873746)
+modulate = Color(1, 1, 1, 0.12892412)
+rotation = 808.3852
+scale = Vector2(0.71928275, 0.71928275)
 
 [node name="Sprite2D2" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.13754514)
-rotation = -1509.8638
-scale = Vector2(0.72503006, 0.72503006)
+modulate = Color(1, 1, 1, 0.14763159)
+rotation = -1951.8301
+scale = Vector2(0.7317544, 0.7317544)
 
 [node name="Sprite2D3" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.38298464)
-rotation = -197.06848
-scale = Vector2(0.88865644, 0.88865644)
+modulate = Color(1, 1, 1, 0.1843498)
+rotation = 256.03928
+scale = Vector2(0.7562332, 0.7562332)
 
 [node name="Sprite2D4" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.17036517)
-rotation = -855.61584
-scale = Vector2(0.7469101, 0.7469101)
+modulate = Color(1, 1, 1, 0.12071051)
+rotation = -1160.0032
+scale = Vector2(0.713807, 0.713807)
 
 [node name="Sprite2D5" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.28912047)
-rotation = 259.2298
-scale = Vector2(0.8260803, 0.8260803)
+modulate = Color(1, 1, 1, 0.1063401)
+rotation = 676.66675
+scale = Vector2(0.70422673, 0.70422673)
 
 [node name="WhiteSphere" type="Sprite2D" parent="StartPortal/Sprites/EyeBackground" parent_id_path=PackedInt32Array(276198131, 1865392681) index="0" unique_id=1269565657]
 modulate = Color(0.7666196, 0.76661956, 0.76661944, 1)
@@ -944,25 +950,25 @@ light_mask = 4
 
 [node name="BG1" parent="Water" index="2" unique_id=1786315982]
 light_mask = 4
-offset_left = -42.816555
-offset_top = -32.549477
-offset_right = -37.460083
-offset_bottom = 819.4505
+offset_left = -50.389038
+offset_top = -31.662064
+offset_right = -45.032593
+offset_bottom = 820.33795
 
 [node name="BG2" parent="Water" index="3" unique_id=1147121301]
 light_mask = 4
-offset_left = -150.04468
-offset_top = -27.646698
-offset_right = 55.69214
-offset_bottom = 1024.2217
+offset_left = -156.32603
+offset_top = -30.177834
+offset_right = 49.410767
+offset_bottom = 1021.69055
 
 [node name="BG3" parent="Water" index="4" unique_id=539485018]
 light_mask = 4
 z_index = 25
-offset_left = -36.809376
-offset_top = -24.496132
-offset_right = 86.92749
-offset_bottom = 1027.3723
+offset_left = -44.44181
+offset_top = -23.717087
+offset_right = 79.29492
+offset_bottom = 1028.1514
 
 [node name="FishTerritory" type="Area2D" parent="." unique_id=1941185685]
 position = Vector2(818, 785)
@@ -1176,14 +1182,12 @@ target_attack_distance = 0.0
 
 [node name="Credits" type="CanvasLayer" parent="." unique_id=499354175]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Credits" unique_id=366850002]
+[node name="Credits Text" type="RichTextLabel" parent="Credits" unique_id=366850002]
 anchors_preset = -1
 anchor_left = 0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 40.0
-offset_right = -40.0
-offset_bottom = -40.0
+offset_left = -40.0
 theme_override_constants/line_separation = 6
 theme_override_constants/paragraph_separation = 18
 theme_override_font_sizes/normal_font_size = 20
@@ -1209,6 +1213,41 @@ scroll_active = false
 script = ExtResource("31_8a6io")
 file_path = "res://credits.txt"
 metadata/_custom_type_script = "uid://c8pi532nmx254"
+
+[node name="Label" type="Label" parent="Credits" unique_id=546967162]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 256.0
+offset_top = -73.0
+offset_right = 1341.0
+offset_bottom = -31.0
+grow_vertical = 0
+pivot_offset = Vector2(-1, 42)
+theme_type_variation = &"DarkLabel"
+theme_override_colors/font_color = Color(0.84705883, 0.8509804, 0.8352941, 1)
+text = "made with love in 2026
+all contributors own their own creations"
+
+[node name="Node2D" type="Node2D" parent="Credits" unique_id=2059322933]
+position = Vector2(40, 1039)
+scale = Vector2(0.8, 0.8)
+
+[node name="Dev Pods Logo" type="Sprite2D" parent="Credits/Node2D" unique_id=935491820]
+modulate = Color(0.84705883, 0.8509804, 0.8352941, 1)
+z_index = 10
+position = Vector2(0, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_pnveb")
+offset = Vector2(321, -139)
+
+[node name="GodotLogo" type="Sprite2D" parent="Credits/Node2D" unique_id=1841260926]
+modulate = Color(0.84705883, 0.8509804, 0.8352941, 1)
+position = Vector2(233, 0)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("32_oofyl")
+offset = Vector2(142, -49)
 
 [node name="BackgroundMusic" parent="." unique_id=1022284647 instance=ExtResource("30_8a6io")]
 
