@@ -40,6 +40,7 @@ func _process(delta: float) -> void:
 	super._process(delta)
 
 	if (
+		player.last_action_at and
 		GameManager.now_ms() > player.last_action_at + HUD_MS and 
 		not GameManager.is_hud_visible() and 
 		not player.ignore_inputs
