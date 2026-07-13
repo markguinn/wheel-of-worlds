@@ -86,6 +86,8 @@ size = Vector2(879, 812)
 
 [node name="Content museum" type="Node2D" unique_id=1867699732]
 script = ExtResource("1_0nrkx")
+bloom = 0.6
+persist_as_current = false
 
 [node name="ParallaxSky" type="Parallax2D" parent="." unique_id=214130224]
 scale = Vector2(3, 3)
