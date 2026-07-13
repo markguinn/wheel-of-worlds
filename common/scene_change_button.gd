@@ -51,7 +51,7 @@ func debounce() -> bool: ## Returns true if debouncer is running (prevent), or f
 
 func _on_pressed() -> void:
 	if press_disabled:
-		Log.debug("%s pressed but has already been pressed once, so it is disabled.")
+		Log.debug(self, "Pressed but has already been pressed once, so it is disabled.")
 		return
 	
 	if debounce():
