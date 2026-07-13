@@ -7,7 +7,7 @@ extends Node2D
 @onready var waterfall_particles: GPUParticles2D = $WaterfallParticles
 @onready var waterfall_bottom: CPUParticles2D = $BottomSplash
 @onready var waterfall_top: CPUParticles2D = $TopSplash
-
+@onready var waterfall_sfx: AudioStreamPlayer2D = $WaterfallSFX
 
 var remaining_stones: int
 var starting_width: float
@@ -85,6 +85,7 @@ func _apply_blockage() -> void:
 		var r := inverse_lerp(0, required_stones, remaining_stones)
 		waterfall_particles.amount_ratio = r
 		waterfall_material.emission_sphere_radius = lerpf(0, starting_width, r)
+		waterfall_sfx.volume_db = lerpf(-12.0, 12, r)
 		Log.info(self, "waterfall diminished", remaining_stones, waterfall_particles.amount)
 		waterfall_top.emitting = true
 		await get_tree().create_timer(0.5).timeout
@@ -95,6 +96,7 @@ func _apply_blockage() -> void:
 		waterfall_material.emission_sphere_radius = 10
 		waterfall_bottom.emitting = false
 		waterfall_top.emitting = true
+		waterfall_sfx.volume_db = -24.0
 		for n in get_tree().get_nodes_in_group("waterfall_barriers"):
 			if n is CollisionShape2D:
 				n.disabled = true

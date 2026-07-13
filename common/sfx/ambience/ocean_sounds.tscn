@@ -9,3 +9,4 @@ autoplay = true
 attenuation = 2.0
 panning_strength = 2.0
 bus = &"Atmosphere"
+parameters/looping = true

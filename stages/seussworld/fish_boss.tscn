@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://c1r0md363ajnb" path="res://props/stone/big_square_stone.tscn" id="30_874j8"]
 [ext_resource type="PackedScene" uid="uid://cssqx3ug7kylk" path="res://props/stone/xl_square_stone.tscn" id="31_7h7o5"]
 [ext_resource type="Script" uid="uid://bid4lhxnnsyu6" path="res://stages/seussworld/final_cavern.gd" id="37_gdb7k"]
+[ext_resource type="PackedScene" uid="uid://ccgrdl10og84x" path="res://common/sfx/ambience/ocean_sounds.tscn" id="38_wt5ny"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3bs7n"]
 
@@ -193,11 +194,12 @@ shader_parameter/pattern_distortions = Array[Texture2D]([SubResource("NoiseTextu
 shader_parameter/offsets = PackedFloat32Array(0, 100, 250, 400)
 shader_parameter/scales = PackedFloat32Array(3.8, 2.44, 3.1, 1.9)
 shader_parameter/opacities = PackedFloat32Array(0.6, 0.4, 0.3, 0.4)
+shader_parameter/rotation = 0.0
 shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(1000, 50)
-shader_parameter/real_screen_size = Vector2(3036.7373, 2061.6743)
+shader_parameter/real_screen_size = Vector2(14821.8545, 8474.254)
 shader_parameter/edges = Array[Texture2D]([SubResource("GradientTexture2D_gdb7k"), SubResource("GradientTexture2D_gdb7k")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -1724,29 +1726,29 @@ visible = false
 visible = false
 
 [node name="Sprite2D" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.12564346)
-rotation = -17.089155
-scale = Vector2(0.7170956, 0.7170956)
+modulate = Color(1, 1, 1, 0.20394886)
+rotation = 2.3521755
+scale = Vector2(0.7692992, 0.7692992)
 
 [node name="Sprite2D2" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.21472403)
-rotation = 77.03754
-scale = Vector2(0.7764827, 0.7764827)
+modulate = Color(1, 1, 1, 0.12403255)
+rotation = 140.89809
+scale = Vector2(0.7160217, 0.7160217)
 
 [node name="Sprite2D3" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.36519396)
-rotation = 1021.5562
-scale = Vector2(0.876796, 0.876796)
+modulate = Color(1, 1, 1, 0.12917475)
+rotation = 989.42865
+scale = Vector2(0.7194498, 0.7194498)
 
 [node name="Sprite2D4" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.23684435)
-rotation = -892.56976
-scale = Vector2(0.79122955, 0.79122955)
+modulate = Color(1, 1, 1, 0.2557173)
+rotation = -933.32214
+scale = Vector2(0.80381155, 0.80381155)
 
 [node name="Sprite2D5" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.1015203)
-rotation = -909.0221
-scale = Vector2(0.7010135, 0.7010135)
+modulate = Color(1, 1, 1, 0.101802014)
+rotation = -919.9777
+scale = Vector2(0.7012013, 0.7012013)
 
 [node name="Stone5" parent="FinalStones" unique_id=669896039 groups=["final_stones"] instance=ExtResource("11_7us8x")]
 position = Vector2(-730, -127)
@@ -1869,6 +1871,18 @@ position = Vector2(-459, -255)
 [node name="PlayerTarget" type="Marker2D" parent="FinalStones" unique_id=555467513]
 unique_name_in_owner = true
 position = Vector2(-16, -211)
+
+[node name="OceanSounds" parent="." unique_id=1458799657 instance=ExtResource("38_wt5ny")]
+position = Vector2(1987, 1419)
+
+[node name="OceanSounds2" parent="." unique_id=152537287 instance=ExtResource("38_wt5ny")]
+position = Vector2(-420, 1457)
+
+[node name="OceanSounds3" parent="." unique_id=775682029 instance=ExtResource("38_wt5ny")]
+position = Vector2(-2236, 1426)
+
+[node name="OceanSounds4" parent="." unique_id=2092154634 instance=ExtResource("38_wt5ny")]
+position = Vector2(-4551, 1445)
 
 [editable path="FishTerritory/FishMonster"]
 [editable path="FinalStones/AnimatedFishMonster"]

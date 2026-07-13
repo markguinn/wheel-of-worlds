@@ -39,7 +39,7 @@ func _ready() -> void:
 
 
 func _on_impact(pos: Vector2, vel: Vector2, _obj: Node, _part) -> void:
-	if sfx_impact:
+	if sfx_impact and vel.length() > 200.0:
 		#var vol = clampf(inverse_lerp(300, 2000, vel.length()), 0.0, 1.0)
 		#sfx_impact.volume_linear = vol
 		sfx_impact.play()

@@ -33,7 +33,10 @@
 [ext_resource type="PackedScene" uid="uid://cs57yefkh1f4s" path="res://props/lantern/lantern.tscn" id="29_r71fb"]
 [ext_resource type="Script" uid="uid://dj363jf40q41h" path="res://common/cavern_area.gd" id="30_ljk5p"]
 [ext_resource type="Texture2D" uid="uid://bb38a7h3w0k2g" path="res://common/vfx/basic_light.tres" id="31_qjvgk"]
+[ext_resource type="AudioStream" uid="uid://dqy86gacamsxw" path="res://actors/fish_monster/sfx/fish-splash-2.ogg" id="32_ar6rq"]
 [ext_resource type="PackedScene" uid="uid://bbq81ngylpi8h" path="res://actors/shadow_monster/shadow_monster.tscn" id="32_bhxdt"]
+[ext_resource type="PackedScene" uid="uid://ccgrdl10og84x" path="res://common/sfx/ambience/ocean_sounds.tscn" id="35_8xadv"]
+[ext_resource type="AudioStream" uid="uid://bbjitx6txkcwu" path="res://common/sfx/waterfall.ogg" id="36_40crb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3bs7n"]
 
@@ -175,7 +178,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(1000, 50)
-shader_parameter/real_screen_size = Vector2(4760.228, 3129.0034)
+shader_parameter/real_screen_size = Vector2(12278.59, 5273.742)
 shader_parameter/edges = Array[Texture2D]([SubResource("GradientTexture2D_gdb7k"), SubResource("GradientTexture2D_gdb7k")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -286,7 +289,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(834, 50)
-shader_parameter/real_screen_size = Vector2(4760.228, 3129.0034)
+shader_parameter/real_screen_size = Vector2(12278.59, 5273.742)
 shader_parameter/edges = Array[Texture2D]([SubResource("CompressedTexture2D_qw55a"), SubResource("CompressedTexture2D_r6h17")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -1426,6 +1429,23 @@ position = Vector2(2960, -608)
 [node name="CamMarker1" type="Marker2D" parent="Waterfall" unique_id=1469551271]
 position = Vector2(2954, -1427)
 
+[node name="EjectorSFX" type="AudioStreamPlayer" parent="Waterfall" unique_id=1706570295]
+unique_name_in_owner = true
+stream = ExtResource("32_ar6rq")
+pitch_scale = 2.0
+bus = &"SFX"
+
+[node name="WaterfallSFX" type="AudioStreamPlayer2D" parent="Waterfall" unique_id=94522852]
+position = Vector2(2967, -569)
+stream = ExtResource("36_40crb")
+volume_db = 12.0
+autoplay = true
+max_distance = 4096.0
+attenuation = 2.0
+panning_strength = 3.0
+bus = &"SFX"
+parameters/looping = true
+
 [node name="Lift" parent="." unique_id=927319953 instance=ExtResource("28_wxuku")]
 position = Vector2(1626, -1019)
 height = 680.0
@@ -1482,6 +1502,10 @@ curve = SubResource("Curve2D_bhxdt")
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=94283630]
 position = Vector2(-387.8872, 32.991943)
 rotation = -0.26543033
+
+[node name="OceanSounds" parent="." unique_id=1458799657 instance=ExtResource("35_8xadv")]
+position = Vector2(77, 1467)
+max_distance = 4096.0
 
 [editable path="FixedLantern1"]
 [editable path="FixedLantern2"]

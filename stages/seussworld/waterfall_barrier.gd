@@ -6,7 +6,7 @@ extends Area2D
 @export var eject_power := 500.0
 
 @onready var splash_particles: CPUParticles2D = $SplashParticles
-
+@onready var sfx: AudioStreamPlayer = %EjectorSFX
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -20,4 +20,5 @@ func _on_body_entered(body: Node2D) -> void:
 		body.state_machine.transition_by_name.call_deferred("Ragdoll")
 	splash_particles.global_position.y = body.global_position.y
 	splash_particles.restart()
+	sfx.play()
 		

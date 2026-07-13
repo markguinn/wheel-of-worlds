@@ -33,6 +33,7 @@
 [ext_resource type="Script" uid="uid://ca4tif1vg2be1" path="res://common/rich_file_label.gd" id="31_8a6io"]
 [ext_resource type="PackedScene" uid="uid://bk140x3miwcrc" path="res://stages/forest/prefabs/forest_water.tscn" id="31_o660d"]
 [ext_resource type="Texture2D" uid="uid://d00dwx1w6cv8h" path="res://screens/title_screen/art/godot_logo.png" id="32_oofyl"]
+[ext_resource type="PackedScene" uid="uid://ccgrdl10og84x" path="res://common/sfx/ambience/ocean_sounds.tscn" id="34_qrbgp"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_h88km"]
 noise_type = 4
@@ -868,29 +869,29 @@ active = true
 z_index = 1
 
 [node name="Sprite2D" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.12892412)
-rotation = 808.3852
-scale = Vector2(0.71928275, 0.71928275)
+modulate = Color(1, 1, 1, 0.3966738)
+rotation = 816.23444
+scale = Vector2(0.8977825, 0.8977825)
 
 [node name="Sprite2D2" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.14763159)
-rotation = -1951.8301
-scale = Vector2(0.7317544, 0.7317544)
+modulate = Color(1, 1, 1, 0.15071245)
+rotation = -1999.2456
+scale = Vector2(0.7338083, 0.7338083)
 
 [node name="Sprite2D3" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.1843498)
-rotation = 256.03928
-scale = Vector2(0.7562332, 0.7562332)
+modulate = Color(1, 1, 1, 0.34235546)
+rotation = 309.82816
+scale = Vector2(0.8615703, 0.8615703)
 
 [node name="Sprite2D4" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.12071051)
-rotation = -1160.0032
-scale = Vector2(0.713807, 0.713807)
+modulate = Color(1, 1, 1, 0.23865898)
+rotation = -1188.6118
+scale = Vector2(0.79243934, 0.79243934)
 
 [node name="Sprite2D5" parent="StartPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(276198131, 1949234833) index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.1063401)
-rotation = 676.66675
-scale = Vector2(0.70422673, 0.70422673)
+modulate = Color(1, 1, 1, 0.11646889)
+rotation = 719.35645
+scale = Vector2(0.7109793, 0.7109793)
 
 [node name="WhiteSphere" type="Sprite2D" parent="StartPortal/Sprites/EyeBackground" parent_id_path=PackedInt32Array(276198131, 1865392681) index="0" unique_id=1269565657]
 modulate = Color(0.7666196, 0.76661956, 0.76661944, 1)
@@ -950,25 +951,25 @@ light_mask = 4
 
 [node name="BG1" parent="Water" index="2" unique_id=1786315982]
 light_mask = 4
-offset_left = -50.389038
-offset_top = -31.662064
-offset_right = -45.032593
-offset_bottom = 820.33795
+offset_left = -81.74397
+offset_top = -35.624283
+offset_right = -76.38757
+offset_bottom = 816.37573
 
 [node name="BG2" parent="Water" index="3" unique_id=1147121301]
 light_mask = 4
-offset_left = -156.32603
-offset_top = -30.177834
-offset_right = 49.410767
-offset_bottom = 1021.69055
+offset_left = -166.69989
+offset_top = -25.897438
+offset_right = 39.036865
+offset_bottom = 1025.971
 
 [node name="BG3" parent="Water" index="4" unique_id=539485018]
 light_mask = 4
 z_index = 25
-offset_left = -44.44181
-offset_top = -23.717087
-offset_right = 79.29492
-offset_bottom = 1028.1514
+offset_left = -61.31271
+offset_top = -27.731056
+offset_right = 62.424072
+offset_bottom = 1024.1373
 
 [node name="FishTerritory" type="Area2D" parent="." unique_id=1941185685]
 position = Vector2(818, 785)
@@ -1250,6 +1251,10 @@ texture = ExtResource("32_oofyl")
 offset = Vector2(142, -49)
 
 [node name="BackgroundMusic" parent="." unique_id=1022284647 instance=ExtResource("30_8a6io")]
+
+[node name="OceanSounds" parent="." unique_id=1458799657 instance=ExtResource("34_qrbgp")]
+position = Vector2(743, 799)
+volume_db = -12.0
 
 [editable path="ClimbableTree3"]
 [editable path="ClimbableTree4"]
