@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c8y2ykrqcfoex"]
+
+[ext_resource type="Script" uid="uid://dd8umyfps6xo4" path="res://common/uisfx.gd" id="1_1f0ao"]
+[ext_resource type="AudioStream" uid="uid://bwljya64wsffr" path="res://common/sfx/ui-4.ogg" id="1_awqbg"]
+[ext_resource type="AudioStream" uid="uid://bx2rib3mmwkrg" path="res://common/sfx/ui-1.ogg" id="2_xbms7"]
+[ext_resource type="AudioStream" uid="uid://bqxfkkehc8pwd" path="res://common/sfx/ui-2.ogg" id="3_1f0ao"]
+[ext_resource type="AudioStream" uid="uid://ba882yph2rrm2" path="res://common/sfx/ui-5.ogg" id="3_5mnco"]
+
+[node name="UISFX" type="Node" unique_id=1315244668]
+script = ExtResource("1_1f0ao")
+
+[node name="MenuOpen" type="AudioStreamPlayer" parent="." unique_id=669478654]
+stream = ExtResource("1_awqbg")
+volume_db = -12.0
+bus = &"SFX"
+
+[node name="MenuClose" type="AudioStreamPlayer" parent="." unique_id=1721134414]
+stream = ExtResource("3_5mnco")
+volume_db = -12.0
+bus = &"SFX"
+
+[node name="Press" type="AudioStreamPlayer" parent="." unique_id=1786694040]
+stream = ExtResource("2_xbms7")
+bus = &"SFX"
+
+[node name="Focus" type="AudioStreamPlayer" parent="." unique_id=1486252326]
+stream = ExtResource("3_1f0ao")
+bus = &"SFX"

@@ -16,10 +16,12 @@ func _on_visibility_changed() -> void:
 		get_tree().paused = true
 		AudioManager.set_music_damping(1.0)
 		resume_button.grab_focus()
+		$UISFX.play_menu_open()
 	else:
 		options_menu.visible = false
 		get_tree().paused = false
 		AudioManager.reset_music_damping()
+		$UISFX.play_menu_close()
 
 
 func _input(event: InputEvent) -> void: 

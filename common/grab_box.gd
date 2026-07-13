@@ -51,7 +51,8 @@ func _on_picked_up(_holding_point: Node2D) -> void:
 func _on_put_down() -> void:
 	Log.debug(self, "was put down")
 	holding_point = null
-	target_node.z_index -= 1
+	if target_node.z_index > 0:
+		target_node.z_index -= 1
 	if not is_inf(hold_degrees):
 		target_node.global_rotation = 0.0
 	target_node.set_deferred("freeze", false)

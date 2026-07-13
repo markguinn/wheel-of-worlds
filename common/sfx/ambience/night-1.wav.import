@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://i3hkh31jvlsy"
-path="res://.godot/imported/night-1.wav-090ed3dd94eb0c05476bc3c75e1b04f4.sample"
+uid="uid://dihhlyh38vw7j"
+path="res://.godot/imported/night-1.wav-adadbdde8c70883c4149c135e33b557f.sample"
 
 [deps]
 
-source_file="res://_source_assets/sfx/night-1.wav"
-dest_files=["res://.godot/imported/night-1.wav-090ed3dd94eb0c05476bc3c75e1b04f4.sample"]
+source_file="res://common/sfx/ambience/night-1.wav"
+dest_files=["res://.godot/imported/night-1.wav-adadbdde8c70883c4149c135e33b557f.sample"]
 
 [params]
 

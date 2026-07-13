@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var music_slider := %MusicVolumeSlider
 @onready var sfx_slider := %SfxVolumeSlider
 @onready var screen_shake_slider := %ScreenShakeVolumeSlider
+@onready var uisfx: UISFX = $UISFX
 
 var prev_focus: Control
 
@@ -19,8 +20,10 @@ func _on_visibility_changed() -> void:
 	if visible:
 		prev_focus = get_viewport().gui_get_focus_owner()
 		return_button.grab_focus()
+		uisfx.play_menu_open()
 	else:
 		prev_focus.grab_focus()
+		uisfx.play_menu_close()
 	for n in get_tree().get_nodes_in_group("hidden_for_options"):
 		n.visible = !self.visible
 

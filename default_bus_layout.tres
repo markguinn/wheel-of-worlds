@@ -25,6 +25,10 @@ room_size = 0.57
 damping = 0.61
 wet = 0.2
 
+[sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_j3pel"]
+resource_name = "HighPassFilter"
+cutoff_hz = 150.0
+
 [sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_g28q7"]
 resource_name = "LowPassFilter"
 cutoff_hz = 2.0
@@ -59,8 +63,10 @@ bus/3/name = &"Atmosphere"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
-bus/3/volume_db = -3.0160062
+bus/3/volume_db = -2.212512
 bus/3/send = &"SFX"
+bus/3/effect/0/effect = SubResource("AudioEffectHighPassFilter_j3pel")
+bus/3/effect/0/enabled = true
 bus/4/name = &"Portal"
 bus/4/solo = false
 bus/4/mute = false

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxf8j8ukcaptm" path="res://screens/pause_menu/pause_menu.gd" id="1_ja6ds"]
 [ext_resource type="PackedScene" uid="uid://cfbmxx5s8x8bm" path="res://screens/options_menu/options_menu.tscn" id="2_lq4p1"]
+[ext_resource type="PackedScene" uid="uid://c8y2ykrqcfoex" path="res://common/uisfx.tscn" id="3_jhilx"]
 
 [sub_resource type="Gradient" id="Gradient_lq4p1"]
 offsets = PackedFloat32Array(0, 0.10699589, 0.3580247, 0.6646091, 1)
@@ -87,6 +88,8 @@ alignment = 0
 
 [node name="OptionsMenu" parent="." unique_id=171469446 instance=ExtResource("2_lq4p1")]
 visible = false
+
+[node name="UISFX" parent="." unique_id=1315244668 instance=ExtResource("3_jhilx")]
 
 [connection signal="pressed" from="ResumeButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
