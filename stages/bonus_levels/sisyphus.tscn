@@ -316,14 +316,15 @@ size = Vector2(3829.5, 2536.5)
 [node name="Sisyphus Level" type="Node2D" unique_id=831090977]
 material = SubResource("ShaderMaterial_3bs7n")
 script = ExtResource("1_7lbda")
+persist_as_current = false
 metadata/_edit_vertical_guides_ = [-4200.0, 7795.0]
 metadata/_edit_horizontal_guides_ = [1190.0]
 
 [node name="Camera2D" parent="." unique_id=552340171 instance=ExtResource("2_katuq")]
 position = Vector2(-3805, 1001)
-limit_left = -4200
-limit_right = 7795
-limit_bottom = 1190
+limit_left = -4180
+limit_right = 7775
+limit_bottom = 1180
 
 [node name="BackgroundLayers" type="Node2D" parent="." unique_id=1154204795]
 metadata/_edit_group_ = true
