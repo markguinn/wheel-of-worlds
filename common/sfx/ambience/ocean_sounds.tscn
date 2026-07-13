@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ccgrdl10og84x"]
+
+[ext_resource type="AudioStream" uid="uid://cxvoda27b6gt5" path="res://common/sfx/ambience/ocean-ambient-loop-edit.ogg" id="1_pc2ye"]
+
+[node name="OceanSounds" type="AudioStreamPlayer2D" unique_id=1458799657]
+stream = ExtResource("1_pc2ye")
+volume_db = -3.0
+autoplay = true
+attenuation = 2.0
+panning_strength = 2.0
+bus = &"Atmosphere"

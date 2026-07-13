@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://yvxjjw3xw1wh" path="res://props/music_box/music_box.tscn" id="24_pj5sl"]
 [ext_resource type="PackedScene" uid="uid://tyaekwp4wxwa" path="res://stages/seussworld/prefabs/world0_water.tscn" id="25_mpqe7"]
 [ext_resource type="PackedScene" uid="uid://c8oclbuhrdst6" path="res://music/exploring_music.tscn" id="26_03fdn"]
+[ext_resource type="PackedScene" uid="uid://ccgrdl10og84x" path="res://common/sfx/ambience/ocean_sounds.tscn" id="26_ovy2w"]
+[ext_resource type="AudioStream" uid="uid://dihhlyh38vw7j" path="res://common/sfx/ambience/night-1.wav" id="27_ovy2w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3bs7n"]
 
@@ -1252,3 +1254,34 @@ shape = SubResource("RectangleShape2D_1cdy3")
 offset_left = -10328.0
 offset_right = 7125.0
 metadata/_edit_lock_ = true
+
+[node name="OceanSounds" parent="." unique_id=1458799657 instance=ExtResource("26_ovy2w")]
+position = Vector2(-2027, 1480)
+
+[node name="OceanSounds2" parent="." unique_id=442590397 instance=ExtResource("26_ovy2w")]
+position = Vector2(-5434, 1497)
+
+[node name="OceanSounds3" parent="." unique_id=1056553317 instance=ExtResource("26_ovy2w")]
+position = Vector2(-7769, 1327)
+
+[node name="OceanSounds4" parent="." unique_id=1063837011 instance=ExtResource("26_ovy2w")]
+position = Vector2(323, 1398)
+
+[node name="OceanSounds5" parent="." unique_id=868422127 instance=ExtResource("26_ovy2w")]
+position = Vector2(2253, 1426)
+
+[node name="Night1" type="AudioStreamPlayer2D" parent="." unique_id=133239391]
+position = Vector2(-657, -15)
+stream = ExtResource("27_ovy2w")
+volume_db = 6.0
+autoplay = true
+panning_strength = 3.0
+bus = &"Atmosphere"
+
+[node name="Night2" type="AudioStreamPlayer2D" parent="." unique_id=1304802074]
+position = Vector2(-7895, 652)
+stream = ExtResource("27_ovy2w")
+volume_db = 6.0
+autoplay = true
+panning_strength = 3.0
+bus = &"Atmosphere"

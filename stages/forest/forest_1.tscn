@@ -37,7 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://7y6rxl1elcec" path="res://actors/creatures/woodpecker.tscn" id="33_u1hea"]
 [ext_resource type="PackedScene" uid="uid://bnmvx5vogw7h7" path="res://actors/creatures/chipmunk.tscn" id="34_ilr3d"]
 [ext_resource type="AudioStream" uid="uid://b2gicq6sta8ho" path="res://common/sfx/ambience/morning-6.wav" id="37_ds54q"]
-[ext_resource type="AudioStream" uid="uid://cxvoda27b6gt5" path="res://common/sfx/ambience/ocean-ambient-loop-edit.ogg" id="38_s3o82"]
+[ext_resource type="PackedScene" uid="uid://ccgrdl10og84x" path="res://common/sfx/ambience/ocean_sounds.tscn" id="37_o8v3q"]
 [ext_resource type="AudioStream" uid="uid://gih12agluxui" path="res://common/sfx/ambience/morning-5-also-duck.wav" id="39_15rpk"]
 [ext_resource type="AudioStream" uid="uid://dd2x1uvqm5w7i" path="res://common/sfx/ambience/morning-3.wav" id="40_o8v3q"]
 
@@ -1153,20 +1153,15 @@ fixed = true
 [node name="Woodpecker" parent="." unique_id=406525009 instance=ExtResource("33_u1hea")]
 position = Vector2(-877, 403)
 
+[node name="OceanSounds" parent="." unique_id=1458799657 instance=ExtResource("37_o8v3q")]
+position = Vector2(2123, 1604)
+
 [node name="Morning6" type="AudioStreamPlayer2D" parent="." unique_id=2118164481]
 position = Vector2(-1911, 613)
 stream = ExtResource("37_ds54q")
 volume_db = 12.0
 autoplay = true
 panning_strength = 3.0
-bus = &"Atmosphere"
-
-[node name="OceanAmbientLoopEdit" type="AudioStreamPlayer2D" parent="." unique_id=4753616]
-position = Vector2(2123, 1604)
-stream = ExtResource("38_s3o82")
-autoplay = true
-attenuation = 2.0
-panning_strength = 2.0
 bus = &"Atmosphere"
 
 [node name="Morning5AlsoDuck" type="AudioStreamPlayer2D" parent="." unique_id=1491215717]
