@@ -1000,6 +1000,10 @@ tile_set = SubResource("TileSet_hlg1b")
 
 [node name="StandardCamera" parent="." unique_id=552340171 instance=ExtResource("3_t70ix")]
 position = Vector2(-3891, 387)
+limit_left = -5600
+limit_top = -3500
+limit_right = 8700
+limit_bottom = 1700
 
 [node name="Player" parent="." unique_id=317056800 instance=ExtResource("2_776cr")]
 position = Vector2(-3891, 387)

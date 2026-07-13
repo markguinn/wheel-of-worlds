@@ -614,6 +614,10 @@ navigation_enabled = false
 
 [node name="Camera2D" parent="." unique_id=552340171 instance=ExtResource("15_liddl")]
 position = Vector2(-6981, 826)
+limit_left = -8350
+limit_top = -3000
+limit_right = 4200
+limit_bottom = 1500
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=42652117 instance=ExtResource("16_uhfbk")]

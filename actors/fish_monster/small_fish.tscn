@@ -44,3 +44,14 @@ rest = Transform2D(0.99999994, 0, 0, 0.99999994, 46.4, 0)
 position = Vector2(55, 0)
 rest = Transform2D(1, 0, 0, 1, 55, 0)
 length = 70.0
+
+[node name="SplashSFX" parent="." index="6" unique_id=1949355655]
+pitch_scale = 1.5
+
+[node name="HitSFX" parent="." index="7" unique_id=613558981]
+volume_db = -6.0
+pitch_scale = 1.5
+
+[node name="RoarSFX" parent="." index="8" unique_id=1036651271]
+volume_db = -9.0
+pitch_scale = 2.5

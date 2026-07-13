@@ -41,6 +41,8 @@ func _ready() -> void:
 		impact.connect(_on_impact)
 
 
+
+
 func _on_impact(pos: Vector2, vel: Vector2, _obj: Node, _part) -> void:
 	sfx_impact.play()
 	vfx_dust.global_position = pos
@@ -110,3 +112,20 @@ func _on_become_active_candidate(_prev: Activator) -> void:
 
 func _on_resign_active_candidate(_next: Activator) -> void:
 	glow.hide()
+
+
+var light_tween: Tween
+func _on_attention_grabber_body_entered(_body: Node2D) -> void:
+	if light_tween and light_tween.is_running():
+		light_tween.stop()
+	light_tween = create_tween()
+	light_tween.tween_property($PointLight2D, "texture_scale", 6.0, 1.0)
+	#light_tween.tween_property($PointLight2D, "energy", 2.0, 1.0)
+
+
+func _on_attention_grabber_body_exited(_body: Node2D) -> void:
+	if light_tween and light_tween.is_running():
+		light_tween.stop()
+	light_tween = create_tween()
+	#light_tween.tween_property($PointLight2D, "energy", 1.0, 1.0)
+	light_tween.tween_property($PointLight2D, "texture_scale", 2.5, 1.0)
