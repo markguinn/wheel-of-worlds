@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://cssqx3ug7kylk" path="res://props/stone/xl_square_stone.tscn" id="31_7h7o5"]
 [ext_resource type="Script" uid="uid://bid4lhxnnsyu6" path="res://stages/seussworld/final_cavern.gd" id="37_gdb7k"]
 [ext_resource type="PackedScene" uid="uid://ccgrdl10og84x" path="res://common/sfx/ambience/ocean_sounds.tscn" id="38_wt5ny"]
+[ext_resource type="AudioStream" uid="uid://dqy86gacamsxw" path="res://actors/fish_monster/sfx/fish-splash-2.ogg" id="39_ndxdt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3bs7n"]
 
@@ -1567,13 +1568,14 @@ position = Vector2(3673, 657)
 position = Vector2(-2709, 1127)
 height = 800.0
 
-[node name="FishTerritory" type="Area2D" parent="." unique_id=1678249276]
+[node name="FishTerritory" type="Area2D" parent="." unique_id=1678249276 node_paths=PackedStringArray("splash")]
 position = Vector2(6, 1746)
 collision_layer = 0
 collision_mask = 22
 gravity_space_override = 3
 gravity = 50.0
 script = ExtResource("20_r8yqu")
+splash = NodePath("../KillZoneSplash")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FishTerritory" unique_id=882843566]
@@ -1730,29 +1732,29 @@ visible = false
 visible = false
 
 [node name="Sprite2D" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.15657906)
-rotation = -5.800942
-scale = Vector2(0.73771936, 0.73771936)
+modulate = Color(1, 1, 1, 0.34074578)
+rotation = 0.0800121
+scale = Vector2(0.8604972, 0.8604972)
 
 [node name="Sprite2D2" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.10341001)
-rotation = 156.46513
-scale = Vector2(0.70227337, 0.70227337)
+modulate = Color(1, 1, 1, 0.2184)
+rotation = 152.60194
+scale = Vector2(0.77893335, 0.77893335)
 
 [node name="Sprite2D3" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.10559547)
-rotation = 970.686
-scale = Vector2(0.7037303, 0.7037303)
+modulate = Color(1, 1, 1, 0.39871868)
+rotation = 975.1837
+scale = Vector2(0.8991458, 0.8991458)
 
 [node name="Sprite2D4" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.20250864)
-rotation = -932.05884
-scale = Vector2(0.7683391, 0.7683391)
+modulate = Color(1, 1, 1, 0.39987177)
+rotation = -933.11383
+scale = Vector2(0.8999145, 0.8999145)
 
 [node name="Sprite2D5" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.11948852)
-rotation = -925.8201
-scale = Vector2(0.71299237, 0.71299237)
+modulate = Color(1, 1, 1, 0.3761185)
+rotation = -931.70074
+scale = Vector2(0.884079, 0.884079)
 
 [node name="Stone5" parent="FinalStones" unique_id=669896039 groups=["final_stones"] instance=ExtResource("11_7us8x")]
 position = Vector2(-730, -127)
@@ -1887,6 +1889,12 @@ position = Vector2(-2236, 1426)
 
 [node name="OceanSounds4" parent="." unique_id=2092154634 instance=ExtResource("38_wt5ny")]
 position = Vector2(-4551, 1445)
+
+[node name="KillZoneSplash" type="AudioStreamPlayer" parent="." unique_id=465868683]
+unique_name_in_owner = true
+stream = ExtResource("39_ndxdt")
+pitch_scale = 2.0
+bus = &"SFX"
 
 [editable path="FishTerritory/FishMonster"]
 [editable path="FinalStones/AnimatedFishMonster"]

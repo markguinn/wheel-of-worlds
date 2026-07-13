@@ -1245,11 +1245,12 @@ portal_name = "waterfall-end2"
 linked_stage = "uid://bdtjgqgcd0tqf"
 target_portal = "forest2-start1"
 
-[node name="KillZone" type="Area2D" parent="." unique_id=1631316216]
+[node name="KillZone" type="Area2D" parent="." unique_id=1631316216 node_paths=PackedStringArray("splash")]
 position = Vector2(-4388, 1389)
 collision_layer = 0
 collision_mask = 22
 script = ExtResource("21_t2hj3")
+splash = NodePath("../KillZoneSplash")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=1674815199]
 position = Vector2(4753.5, 171.75)
@@ -1506,6 +1507,12 @@ rotation = -0.26543033
 [node name="OceanSounds" parent="." unique_id=1458799657 instance=ExtResource("35_8xadv")]
 position = Vector2(77, 1467)
 max_distance = 4096.0
+
+[node name="KillZoneSplash" type="AudioStreamPlayer" parent="." unique_id=561697039]
+unique_name_in_owner = true
+stream = ExtResource("32_ar6rq")
+pitch_scale = 2.0
+bus = &"SFX"
 
 [editable path="FixedLantern1"]
 [editable path="FixedLantern2"]

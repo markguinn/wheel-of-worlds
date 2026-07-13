@@ -7,6 +7,7 @@ extends Area2D
 ## reset to their starting position or destroyed.
 ########################################################
 
+@export var splash: AudioStreamPlayer
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -17,3 +18,5 @@ func _on_body_entered(body: Node) -> void:
 		body.reset_after_fall.call_deferred()
 	if body.get_script() and body.get_script().has_script_signal("entered_kill_zone"):
 		body.emit_signal("entered_kill_zone")
+	if splash:
+		splash.play()

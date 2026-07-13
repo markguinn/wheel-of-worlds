@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://c8oclbuhrdst6" path="res://music/exploring_music.tscn" id="26_03fdn"]
 [ext_resource type="PackedScene" uid="uid://ccgrdl10og84x" path="res://common/sfx/ambience/ocean_sounds.tscn" id="26_ovy2w"]
 [ext_resource type="AudioStream" uid="uid://dihhlyh38vw7j" path="res://common/sfx/ambience/night-1.wav" id="27_ovy2w"]
+[ext_resource type="AudioStream" uid="uid://dqy86gacamsxw" path="res://actors/fish_monster/sfx/fish-splash-2.ogg" id="28_3ayy2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3bs7n"]
 
@@ -1238,11 +1239,12 @@ shape = SubResource("RectangleShape2D_hjxan")
 position = Vector2(2131.5, -3300.5)
 shape = SubResource("RectangleShape2D_3ayy2")
 
-[node name="KillZone" type="Area2D" parent="." unique_id=1631316216]
+[node name="KillZone" type="Area2D" parent="." unique_id=1631316216 node_paths=PackedStringArray("splash")]
 position = Vector2(-4388, 1389)
 collision_layer = 0
 collision_mask = 22
 script = ExtResource("20_j00bg")
+splash = NodePath("../KillZoneSplash")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
@@ -1289,3 +1291,9 @@ volume_db = 6.0
 autoplay = true
 panning_strength = 3.0
 bus = &"Atmosphere"
+
+[node name="KillZoneSplash" type="AudioStreamPlayer" parent="." unique_id=2085774110]
+unique_name_in_owner = true
+stream = ExtResource("28_3ayy2")
+pitch_scale = 2.0
+bus = &"SFX"

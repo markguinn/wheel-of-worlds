@@ -40,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://ccgrdl10og84x" path="res://common/sfx/ambience/ocean_sounds.tscn" id="37_o8v3q"]
 [ext_resource type="AudioStream" uid="uid://gih12agluxui" path="res://common/sfx/ambience/morning-5-also-duck.wav" id="39_15rpk"]
 [ext_resource type="AudioStream" uid="uid://dd2x1uvqm5w7i" path="res://common/sfx/ambience/morning-3.wav" id="40_o8v3q"]
+[ext_resource type="AudioStream" uid="uid://dqy86gacamsxw" path="res://actors/fish_monster/sfx/fish-splash-2.ogg" id="41_5w70x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ds54q"]
 size = Vector2(1032, 3425)
@@ -1038,12 +1039,13 @@ offset_bottom = 2468.0
 [node name="Plank2" parent="Puzzle2" unique_id=1965888217 instance=ExtResource("27_novlh")]
 position = Vector2(-182, 114)
 
-[node name="KillZone" type="Area2D" parent="Puzzle2" unique_id=1573468548]
+[node name="KillZone" type="Area2D" parent="Puzzle2" unique_id=1573468548 node_paths=PackedStringArray("splash")]
 z_index = 13
 position = Vector2(1732, 1379)
 collision_layer = 0
 collision_mask = 22
 script = ExtResource("20_q88xe")
+splash = NodePath("../../KillZoneSplash")
 metadata/_custom_type_script = "uid://bbb2phdibbqcc"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzle2/KillZone" unique_id=1235682461]
@@ -1181,3 +1183,9 @@ stream = ExtResource("40_o8v3q")
 volume_db = 12.0
 autoplay = true
 panning_strength = 3.0
+
+[node name="KillZoneSplash" type="AudioStreamPlayer" parent="." unique_id=1303056084]
+unique_name_in_owner = true
+stream = ExtResource("41_5w70x")
+pitch_scale = 2.0
+bus = &"SFX"

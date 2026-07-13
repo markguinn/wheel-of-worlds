@@ -44,6 +44,7 @@
 [ext_resource type="AudioStream" uid="uid://dihhlyh38vw7j" path="res://common/sfx/ambience/night-1.wav" id="42_b1w02"]
 [ext_resource type="PackedScene" uid="uid://bnmvx5vogw7h7" path="res://actors/creatures/chipmunk.tscn" id="43_mjlcd"]
 [ext_resource type="PackedScene" uid="uid://7y6rxl1elcec" path="res://actors/creatures/woodpecker.tscn" id="44_r6ff1"]
+[ext_resource type="AudioStream" uid="uid://dqy86gacamsxw" path="res://actors/fish_monster/sfx/fish-splash-2.ogg" id="45_3xp4m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vxte"]
 size = Vector2(8671, 218)
@@ -1052,11 +1053,12 @@ position = Vector2(525, 391.75)
 shape = SubResource("RectangleShape2D_2cbng")
 debug_color = Color(0, 0.59607846, 0.7019608, 0.08235294)
 
-[node name="KillZone" type="Area2D" parent="CavernArea" unique_id=1049861976]
+[node name="KillZone" type="Area2D" parent="CavernArea" unique_id=1049861976 node_paths=PackedStringArray("splash")]
 position = Vector2(653, 729)
 collision_layer = 0
 collision_mask = 22
 script = ExtResource("20_gr1sa")
+splash = NodePath("../../KillZoneSplash")
 metadata/_custom_type_script = "uid://bbb2phdibbqcc"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CavernArea/KillZone" unique_id=8521340]
@@ -1141,11 +1143,12 @@ target_portal = "boss1-start"
 
 [node name="Puzzle1" type="Node2D" parent="." unique_id=1035833004]
 
-[node name="KillZone2" type="Area2D" parent="Puzzle1" unique_id=1859365047]
+[node name="KillZone2" type="Area2D" parent="Puzzle1" unique_id=1859365047 node_paths=PackedStringArray("splash")]
 position = Vector2(117, 966)
 collision_layer = 0
 collision_mask = 22
 script = ExtResource("20_gr1sa")
+splash = NodePath("../../KillZoneSplash")
 metadata/_custom_type_script = "uid://bbb2phdibbqcc"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzle1/KillZone2" unique_id=1065491813]
@@ -1412,6 +1415,12 @@ bus = &"Atmosphere"
 [node name="Woodpecker2" parent="." unique_id=1342656215 instance=ExtResource("44_r6ff1")]
 position = Vector2(4310, 133)
 scale = Vector2(-1, 1)
+
+[node name="KillZoneSplash" type="AudioStreamPlayer" parent="." unique_id=1576821160]
+unique_name_in_owner = true
+stream = ExtResource("45_3xp4m")
+pitch_scale = 2.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="Puzzle2/CavernArea/FixedLantern3/AttentionGrabber" to="Puzzle2/CavernArea/FixedLantern3" method="_on_attention_grabber_body_entered"]
 [connection signal="body_exited" from="Puzzle2/CavernArea/FixedLantern3/AttentionGrabber" to="Puzzle2/CavernArea/FixedLantern3" method="_on_attention_grabber_body_exited"]
