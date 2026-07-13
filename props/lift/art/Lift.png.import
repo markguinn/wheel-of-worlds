@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfurw0yohjuko"
-path="res://.godot/imported/Lift.png-4fedc7e708ae36555ab71af174971c26.ctex"
+path="res://.godot/imported/Lift.png-30e9f755fca2b3e0eb58fbd124914583.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://props/lift/Lift.png"
-dest_files=["res://.godot/imported/Lift.png-4fedc7e708ae36555ab71af174971c26.ctex"]
+source_file="res://props/lift/art/Lift.png"
+dest_files=["res://.godot/imported/Lift.png-30e9f755fca2b3e0eb58fbd124914583.ctex"]
 
 [params]
 

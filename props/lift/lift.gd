@@ -7,6 +7,8 @@ extends Node2D
 @onready var activator: Activator = $Platform/Activator
 @onready var activator2: Activator = $Base/Activator2
 @onready var pillar: Sprite2D = $Pillar
+@onready var sfx_activate: AudioStreamPlayer2D = $ActivateSFX
+@onready var sfx_loop: AudioStreamPlayer2D = $RaisingLoop
 
 var tween: Tween = null
 var raised := false
@@ -26,6 +28,8 @@ func _on_activated(_source: Activator) -> void:
 func toggle_raised() -> void:
 	if tween:
 		return
+	sfx_activate.play()
+	sfx_loop.play()
 	tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_QUAD)
@@ -39,6 +43,7 @@ func toggle_raised() -> void:
 	raised = not raised
 	await tween.finished
 	tween = null
+	sfx_loop.stop()
 	_update_activators()
 
 

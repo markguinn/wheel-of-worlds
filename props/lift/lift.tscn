@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cpplt3nug7jk2" path="res://props/lift/lift.gd" id="1_bhsea"]
 [ext_resource type="PackedScene" uid="uid://bw7ujmd6681ln" path="res://common/activator.tscn" id="1_craks"]
-[ext_resource type="Texture2D" uid="uid://dfurw0yohjuko" path="res://props/lift/Lift.png" id="3_5qbfe"]
+[ext_resource type="Texture2D" uid="uid://dfurw0yohjuko" path="res://props/lift/art/Lift.png" id="3_5qbfe"]
 [ext_resource type="Texture2D" uid="uid://dqtg3j6q3b2hu" path="res://stages/wheel/art/woodgrain.png" id="4_plj52"]
 [ext_resource type="Texture2D" uid="uid://c6lihausi66q5" path="res://props/music_box/art/music_box.png" id="5_5u61m"]
+[ext_resource type="AudioStream" uid="uid://carpq5i0vm0om" path="res://props/lift/sfx/lift-prop-1.ogg" id="6_4rke6"]
+[ext_resource type="AudioStream" uid="uid://cenyjeemyqkk2" path="res://props/lift/sfx/lift-prop-2.ogg" id="7_txec7"]
 
 [node name="Lift" type="Node2D" unique_id=927319953]
 script = ExtResource("1_bhsea")
@@ -79,6 +81,16 @@ position = Vector2(9, -31)
 rotation = 0.0418879
 scale = Vector2(1.5, 1.3)
 texture = ExtResource("3_5qbfe")
+
+[node name="ActivateSFX" type="AudioStreamPlayer2D" parent="." unique_id=459389232]
+stream = ExtResource("6_4rke6")
+
+[node name="RaisingLoop" type="AudioStreamPlayer2D" parent="." unique_id=1451437690]
+stream = ExtResource("7_txec7")
+volume_db = -6.0
+pitch_scale = 1.2
+bus = &"SFX"
+parameters/looping = true
 
 [editable path="Base/Activator2"]
 [editable path="Platform/Activator"]
