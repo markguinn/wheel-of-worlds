@@ -1538,6 +1538,10 @@ navigation_enabled = false
 [node name="Camera2D" parent="." unique_id=552340171 instance=ExtResource("15_ndxdt")]
 unique_name_in_owner = true
 position = Vector2(3780, 627)
+limit_left = -6000
+limit_top = -2560
+limit_right = 5070
+limit_bottom = 1500
 
 [node name="Player" parent="." unique_id=42652117 instance=ExtResource("16_puw37")]
 position = Vector2(3780, 627)
@@ -1726,29 +1730,29 @@ visible = false
 visible = false
 
 [node name="Sprite2D" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.20394886)
-rotation = 2.3521755
-scale = Vector2(0.7692992, 0.7692992)
+modulate = Color(1, 1, 1, 0.15657906)
+rotation = -5.800942
+scale = Vector2(0.73771936, 0.73771936)
 
 [node name="Sprite2D2" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.12403255)
-rotation = 140.89809
-scale = Vector2(0.7160217, 0.7160217)
+modulate = Color(1, 1, 1, 0.10341001)
+rotation = 156.46513
+scale = Vector2(0.70227337, 0.70227337)
 
 [node name="Sprite2D3" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.12917475)
-rotation = 989.42865
-scale = Vector2(0.7194498, 0.7194498)
+modulate = Color(1, 1, 1, 0.10559547)
+rotation = 970.686
+scale = Vector2(0.7037303, 0.7037303)
 
 [node name="Sprite2D4" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.2557173)
-rotation = -933.32214
-scale = Vector2(0.80381155, 0.80381155)
+modulate = Color(1, 1, 1, 0.20250864)
+rotation = -932.05884
+scale = Vector2(0.7683391, 0.7683391)
 
 [node name="Sprite2D5" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.101802014)
-rotation = -919.9777
-scale = Vector2(0.7012013, 0.7012013)
+modulate = Color(1, 1, 1, 0.11948852)
+rotation = -925.8201
+scale = Vector2(0.71299237, 0.71299237)
 
 [node name="Stone5" parent="FinalStones" unique_id=669896039 groups=["final_stones"] instance=ExtResource("11_7us8x")]
 position = Vector2(-730, -127)

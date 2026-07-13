@@ -88,7 +88,7 @@ func _bake_edges() -> void:
 	original_scale = get_parent().scale
 	get_parent().scale = Vector2.ONE
 	target_layer.scale = Vector2.ONE
-	#self.scale = Vector2.ONE
+	self.scale = Vector2.ONE
 	
 	popup = popup_scene.instantiate()
 	if Engine.is_editor_hint():
