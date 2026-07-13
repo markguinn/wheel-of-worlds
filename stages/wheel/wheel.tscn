@@ -99,7 +99,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(834, 95)
-shader_parameter/real_screen_size = Vector2(5009.276, 3292.7083)
+shader_parameter/real_screen_size = Vector2(15977.975, 9135.255)
 shader_parameter/edges = Array[Texture2D]([ExtResource("14_fiqrw"), ExtResource("14_fiqrw")])
 shader_parameter/edge_smoothness = 1.50400007144
 shader_parameter/fill_enabled = true
@@ -338,11 +338,11 @@ preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_6bvep")
 
 [node name="IrisNebula" type="Sprite2D" parent="Parallax2D" unique_id=1247382500]
-modulate = Color(1, 1, 1, 0.21898468)
+modulate = Color(1, 1, 1, 0.24807726)
 texture_filter = 2
-rotation = 5.6262326
+rotation = 4.5277596
 scale = Vector2(8.3, 8.3)
-skew = 0.12027493
+skew = 0.1504885
 texture = ExtResource("4_tdhyv")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -356,11 +356,11 @@ alpha_speed = 0.4
 speed_factor = 0.1
 
 [node name="IrisNebula2" type="Sprite2D" parent="Parallax2D" unique_id=1650115457]
-modulate = Color(1, 1, 1, 0.12643756)
+modulate = Color(1, 1, 1, 0.08082146)
 texture_filter = 2
-rotation = 4.1940603
+rotation = 3.1756
 scale = Vector2(7, 7)
-skew = -0.21074131
+skew = -0.14390077
 texture = ExtResource("4_tdhyv")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -568,29 +568,29 @@ min_opacity = 0.1
 max_opacity = 0.2
 
 [node name="Sprite2D" parent="RotatingBody/Tutorial Portal/Sprites/Sparkles" index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.01258605)
-rotation = 449.5326
-scale = Vector2(0.11258605, 0.11258605)
+modulate = Color(1, 1, 1, 0.19999307)
+rotation = 446.1868
+scale = Vector2(0.29999307, 0.29999307)
 
 [node name="Sprite2D2" parent="RotatingBody/Tutorial Portal/Sprites/Sparkles" index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.04866092)
-rotation = -2198.749
-scale = Vector2(0.14866091, 0.14866091)
+modulate = Color(1, 1, 1, 0.18596067)
+rotation = -2236.6887
+scale = Vector2(0.28596067, 0.28596067)
 
 [node name="Sprite2D3" parent="RotatingBody/Tutorial Portal/Sprites/Sparkles" index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.02435349)
-rotation = -1371.6855
-scale = Vector2(0.12435349, 0.12435349)
+modulate = Color(1, 1, 1, 0.13546348)
+rotation = -1331.6862
+scale = Vector2(0.23546347, 0.23546347)
 
 [node name="Sprite2D4" parent="RotatingBody/Tutorial Portal/Sprites/Sparkles" index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.008705342)
-rotation = -1283.9489
-scale = Vector2(0.10870534, 0.10870534)
+modulate = Color(1, 1, 1, 0.16092221)
+rotation = -1331.0271
+scale = Vector2(0.26092222, 0.26092222)
 
 [node name="Sprite2D5" parent="RotatingBody/Tutorial Portal/Sprites/Sparkles" index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.1903497)
-rotation = 56.880714
-scale = Vector2(0.2903497, 0.2903497)
+modulate = Color(1, 1, 1, 0.04088435)
+rotation = 95.894394
+scale = Vector2(0.14088435, 0.14088435)
 
 [node name="Orb" parent="RotatingBody/Tutorial Portal" unique_id=1425831707 instance=ExtResource("3_qmu1q")]
 visible = false
@@ -619,29 +619,29 @@ min_opacity = 0.1
 max_opacity = 0.2
 
 [node name="Sprite2D" parent="RotatingBody/Waterfall Portal/Sprites/Sparkles" index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.0031105266)
-rotation = -667.862
-scale = Vector2(0.10311053, 0.10311053)
+modulate = Color(1, 1, 1, 0.17347899)
+rotation = -645.1833
+scale = Vector2(0.27347898, 0.27347898)
 
 [node name="Sprite2D2" parent="RotatingBody/Waterfall Portal/Sprites/Sparkles" index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.1990342)
-rotation = -2106.8489
-scale = Vector2(0.2990342, 0.2990342)
+modulate = Color(1, 1, 1, 0.019460939)
+rotation = -2099.792
+scale = Vector2(0.11946094, 0.11946094)
 
 [node name="Sprite2D3" parent="RotatingBody/Waterfall Portal/Sprites/Sparkles" index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.05931414)
-rotation = -146.84248
-scale = Vector2(0.15931414, 0.15931414)
+modulate = Color(1, 1, 1, 0.17921847)
+rotation = -128.25711
+scale = Vector2(0.27921847, 0.27921847)
 
 [node name="Sprite2D4" parent="RotatingBody/Waterfall Portal/Sprites/Sparkles" index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.015842538)
-rotation = -0.17384064
-scale = Vector2(0.115842536, 0.115842536)
+modulate = Color(1, 1, 1, 0.1997171)
+rotation = -22.052708
+scale = Vector2(0.2997171, 0.2997171)
 
 [node name="Sprite2D5" parent="RotatingBody/Waterfall Portal/Sprites/Sparkles" index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.048318002)
-rotation = 357.93765
-scale = Vector2(0.14831801, 0.14831801)
+modulate = Color(1, 1, 1, 0.1861644)
+rotation = 321.70383
+scale = Vector2(0.2861644, 0.2861644)
 
 [node name="Orb" parent="RotatingBody/Waterfall Portal" unique_id=963116980 instance=ExtResource("3_qmu1q")]
 visible = false
@@ -670,29 +670,29 @@ min_opacity = 0.1
 max_opacity = 0.2
 
 [node name="Sprite2D" parent="RotatingBody/Forest1 Portal/Sprites/Sparkles" index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.08773502)
-rotation = -5.169729
-scale = Vector2(0.18773502, 0.18773502)
+modulate = Color(1, 1, 1, 0.1579673)
+rotation = -50.402733
+scale = Vector2(0.2579673, 0.2579673)
 
 [node name="Sprite2D2" parent="RotatingBody/Forest1 Portal/Sprites/Sparkles" index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.13370314)
-rotation = -719.83026
-scale = Vector2(0.23370315, 0.23370315)
+modulate = Color(1, 1, 1, 0.025593784)
+rotation = -766.6553
+scale = Vector2(0.12559378, 0.12559378)
 
 [node name="Sprite2D3" parent="RotatingBody/Forest1 Portal/Sprites/Sparkles" index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.07874459)
-rotation = -1031.3993
-scale = Vector2(0.17874458, 0.17874458)
+modulate = Color(1, 1, 1, 0.1651497)
+rotation = -992.8679
+scale = Vector2(0.2651497, 0.2651497)
 
 [node name="Sprite2D4" parent="RotatingBody/Forest1 Portal/Sprites/Sparkles" index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.14739984)
-rotation = 678.694
-scale = Vector2(0.24739984, 0.24739984)
+modulate = Color(1, 1, 1, 0.10015418)
+rotation = 703.609
+scale = Vector2(0.20015417, 0.20015417)
 
 [node name="Sprite2D5" parent="RotatingBody/Forest1 Portal/Sprites/Sparkles" index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.050640408)
-rotation = 279.40198
-scale = Vector2(0.15064041, 0.15064041)
+modulate = Color(1, 1, 1, 0.10208502)
+rotation = 232.76393
+scale = Vector2(0.20208502, 0.20208502)
 
 [node name="Orb2" parent="RotatingBody/Forest1 Portal" unique_id=1938641029 instance=ExtResource("3_qmu1q")]
 visible = false
@@ -722,29 +722,29 @@ min_opacity = 0.1
 max_opacity = 0.2
 
 [node name="Sprite2D" parent="RotatingBody/Forest2 Portal/Sprites/Sparkles" index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.12939169)
-rotation = -160.09036
-scale = Vector2(0.22939168, 0.22939168)
+modulate = Color(1, 1, 1, 0.11957732)
+rotation = -134.29727
+scale = Vector2(0.21957731, 0.21957731)
 
 [node name="Sprite2D2" parent="RotatingBody/Forest2 Portal/Sprites/Sparkles" index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.1687739)
-rotation = 1615.59
-scale = Vector2(0.2687739, 0.2687739)
+modulate = Color(1, 1, 1, 0.07400194)
+rotation = 1617.9119
+scale = Vector2(0.17400195, 0.17400195)
 
 [node name="Sprite2D3" parent="RotatingBody/Forest2 Portal/Sprites/Sparkles" index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.07606421)
-rotation = -889.01544
-scale = Vector2(0.17606421, 0.17606421)
+modulate = Color(1, 1, 1, 0.074904814)
+rotation = -852.6701
+scale = Vector2(0.17490482, 0.17490482)
 
 [node name="Sprite2D4" parent="RotatingBody/Forest2 Portal/Sprites/Sparkles" index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.06641271)
-rotation = 853.2612
-scale = Vector2(0.16641271, 0.16641271)
+modulate = Color(1, 1, 1, 0.08477581)
+rotation = 812.62573
+scale = Vector2(0.18477581, 0.18477581)
 
 [node name="Sprite2D5" parent="RotatingBody/Forest2 Portal/Sprites/Sparkles" index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.19833976)
-rotation = -371.53506
-scale = Vector2(0.29833975, 0.29833975)
+modulate = Color(1, 1, 1, 0.004855307)
+rotation = -336.7507
+scale = Vector2(0.10485531, 0.10485531)
 
 [node name="Orb2" parent="RotatingBody/Forest2 Portal" unique_id=519146708 instance=ExtResource("3_qmu1q")]
 visible = false

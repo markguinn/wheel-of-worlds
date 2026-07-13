@@ -2,7 +2,7 @@
 
 [sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_g28q7"]
 resource_name = "Compressor"
-threshold = -8.9
+threshold = -9.0
 ratio = 2.0
 mix = 0.75
 

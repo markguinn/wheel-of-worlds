@@ -40,8 +40,8 @@ func _ready() -> void:
 
 func _on_impact(pos: Vector2, vel: Vector2, _obj: Node, _part) -> void:
 	if sfx_impact:
-		var vol = clampf(inverse_lerp(300, 2000, vel.length()), 0.0, 1.0)
-		sfx_impact.volume_linear = vol
+		#var vol = clampf(inverse_lerp(300, 2000, vel.length()), 0.0, 1.0)
+		#sfx_impact.volume_linear = vol
 		sfx_impact.play()
 	if vfx_dust:
 		vfx_dust.global_position = pos

@@ -27,6 +27,8 @@ fill_to = Vector2(0.3611111, 0.05982906)
 polygon = PackedVector2Array(-31, -30, 31, -31, 31, 30, -31, 31)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_32iop"]
+random_pitch = 1.122462
+random_volume_offset_db = 2.0
 streams_count = 1
 stream_0/stream = ExtResource("4_xndk2")
 
@@ -72,3 +74,5 @@ occluder = SubResource("OccluderPolygon2D_wqvjq")
 
 [node name="DropSound" type="AudioStreamPlayer2D" parent="." unique_id=992987443]
 stream = SubResource("AudioStreamRandomizer_32iop")
+pitch_scale = 0.8
+bus = &"SFX"

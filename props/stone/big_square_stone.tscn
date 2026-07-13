@@ -72,3 +72,5 @@ occluder = SubResource("OccluderPolygon2D_tfevt")
 
 [node name="DropSound" type="AudioStreamPlayer2D" parent="." unique_id=359643370]
 stream = SubResource("AudioStreamRandomizer_168kd")
+pitch_scale = 0.6
+bus = &"SFX"
