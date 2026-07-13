@@ -3,11 +3,22 @@
 [ext_resource type="Script" uid="uid://bojv88q6py4d3" path="res://props/lantern/lantern.gd" id="1_5pot1"]
 [ext_resource type="PackedScene" uid="uid://y7c5vk1033l6" path="res://common/vfx/dust_particles.tscn" id="2_5pot1"]
 [ext_resource type="PackedScene" uid="uid://bw7ujmd6681ln" path="res://common/activator.tscn" id="3_vhwrs"]
+[ext_resource type="AudioStream" uid="uid://ciojjh1q6skvs" path="res://props/lantern/sfx/lantern1.ogg" id="4_7qgeh"]
 [ext_resource type="Script" uid="uid://dow018kqyajrv" path="res://common/grab_box.gd" id="4_kml0u"]
-[ext_resource type="Texture2D" uid="uid://nsve366mbp7i" path="res://props/lantern/lantern-sprite.png" id="5_5pot1"]
+[ext_resource type="Texture2D" uid="uid://nsve366mbp7i" path="res://props/lantern/art/lantern-sprite.png" id="5_5pot1"]
+[ext_resource type="AudioStream" uid="uid://iekotrgebvxm" path="res://props/lantern/sfx/lantern2.ogg" id="5_2051u"]
+[ext_resource type="AudioStream" uid="uid://cxs576bth8xwn" path="res://props/lantern/sfx/lantern3.ogg" id="6_ys281"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pot1"]
 size = Vector2(60, 20)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hg34g"]
+random_pitch = 1.122462
+random_volume_offset_db = 2.0
+streams_count = 3
+stream_0/stream = ExtResource("4_7qgeh")
+stream_1/stream = ExtResource("5_2051u")
+stream_2/stream = ExtResource("6_ys281")
 
 [sub_resource type="Gradient" id="Gradient_35axu"]
 offsets = PackedFloat32Array(0, 0.39661655, 0.7199248, 1)
@@ -48,6 +59,10 @@ label_text = "Press X to pick up!"
 
 [node name="ImpactSFX" type="AudioStreamPlayer2D" parent="." unique_id=1966220360]
 position = Vector2(127, -1)
+stream = SubResource("AudioStreamRandomizer_hg34g")
+attenuation = 2.0
+max_polyphony = 2
+bus = &"SFX"
 
 [node name="Glow" type="Polygon2D" parent="." unique_id=1572139151]
 color = Color(0.12041845, 0.12041845, 0.12041845, 1)
