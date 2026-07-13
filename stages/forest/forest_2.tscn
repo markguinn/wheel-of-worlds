@@ -1028,8 +1028,6 @@ limit_bottom = 1500
 
 [node name="Player" parent="." unique_id=317056800 instance=ExtResource("16_r6ff1")]
 position = Vector2(715, 419)
-jump_multiplier = 2.0
-speed_multiplier = 3.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1858114605]
 remote_path = NodePath("../../StandardCamera")

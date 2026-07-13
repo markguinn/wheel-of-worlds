@@ -21,7 +21,7 @@ func _on_new_scene() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if GameManager.DEV_MODE and event.is_action_pressed("dev_menu"):
+	if event.is_action_pressed("dev_menu"):
 		if visible:
 			hide()
 			get_tree().paused = false

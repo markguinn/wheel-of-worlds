@@ -41,16 +41,16 @@ func _on_stone_exited_block_zone(_body: Node2D) -> void:
 
 
 
-func _input(event: InputEvent) -> void:
-	if GameManager.DEV_MODE and event is InputEventKey and event.pressed and not event.is_echo():
-		match event.physical_keycode:
-			KEY_1:
-				is_first_stone = true
-				remaining_stones = 3
-			KEY_2:
-				_on_stone_entered_block_zone(null)
-			KEY_3:
-				_on_stone_exited_block_zone(null)
+#func _input(event: InputEvent) -> void:
+	#if GameManager.DEV_MODE and event is InputEventKey and event.pressed and not event.is_echo():
+		#match event.physical_keycode:
+			#KEY_1:
+				#is_first_stone = true
+				#remaining_stones = 3
+			#KEY_2:
+				#_on_stone_entered_block_zone(null)
+			#KEY_3:
+				#_on_stone_exited_block_zone(null)
 
 
 func _do_first_stone_animation() -> void:

@@ -8,7 +8,7 @@ extends Node
 signal scene_changed
 
 # we can use this to enable/disable logging, cheats, debug visuals, etc
-const DEV_MODE = true
+const DEV_MODE = false
 const TITLE_SCREEN = "res://screens/title_screen/title_screen.tscn"
 
 var _now := 0
