@@ -161,7 +161,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(834, 50)
-shader_parameter/real_screen_size = Vector2(4566.519, 2974.5447)
+shader_parameter/real_screen_size = Vector2(8088.5415, 4624.547)
 shader_parameter/edges = Array[Texture2D]([SubResource("CompressedTexture2D_qw55a"), SubResource("CompressedTexture2D_r6h17")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -1096,8 +1096,8 @@ position = Vector2(-991, 823)
 [node name="Portal" parent="." unique_id=820677622 instance=ExtResource("13_mi4gu")]
 position = Vector2(-841, -319)
 portal_name = "w0p1"
-linked_stage = "res://stages/easy_levels_rolling_hills.tscn"
-target_portal = "ww0"
+linked_stage = "uid://jxrfi2hwqqdp"
+target_portal = "aw5"
 
 [node name="Hints" type="Node2D" parent="." unique_id=654361086]
 visible = false

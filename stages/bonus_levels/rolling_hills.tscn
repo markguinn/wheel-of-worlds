@@ -392,5 +392,5 @@ position = Vector2(-1400, 800)
 [node name="Portal" parent="." unique_id=820677622 instance=ExtResource("17_ymhis")]
 position = Vector2(1498, 846)
 portal_name = "w0p1"
-linked_stage = "res://stages/easy_levels_rolling_hills.tscn"
-target_portal = "ww0"
+linked_stage = "uid://jxrfi2hwqqdp"
+target_portal = "aw1"

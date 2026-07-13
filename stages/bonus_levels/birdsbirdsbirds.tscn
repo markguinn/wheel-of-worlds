@@ -703,8 +703,8 @@ position = Vector2(-1400, 640)
 [node name="Portal" parent="." unique_id=820677622 instance=ExtResource("13_8qs5j")]
 position = Vector2(1646, 594)
 portal_name = "w0p1"
-linked_stage = "res://stages/easy_levels_rolling_hills.tscn"
-target_portal = "ww0"
+linked_stage = "uid://jxrfi2hwqqdp"
+target_portal = "aw7"
 
 [node name="Birdworld" type="Node2D" parent="." unique_id=510735414]
 

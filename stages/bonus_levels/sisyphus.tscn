@@ -514,8 +514,8 @@ position = Vector2(-3481, 981)
 [node name="Portal" parent="." unique_id=820677622 instance=ExtResource("13_e34vp")]
 position = Vector2(7415, -2660)
 portal_name = "w0p1"
-linked_stage = "res://stages/easy_levels_rolling_hills.tscn"
-target_portal = "ww0"
+linked_stage = "uid://jxrfi2hwqqdp"
+target_portal = "aw6"
 
 [node name="Tree2" parent="." unique_id=1861183849 instance=ExtResource("14_f3u4r")]
 position = Vector2(-3957, 964)

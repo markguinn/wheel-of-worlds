@@ -1056,16 +1056,17 @@ z_index = 1
 position = Vector2(0, -1200)
 
 [node name="p0" parent="." unique_id=567549234 instance=ExtResource("15_kansy")]
-position = Vector2(0, -1200)
+position = Vector2(85, -1260)
 portal_name = "p0"
 is_active = false
-linked_stage = "res://stages/the-missing-plink.tscn"
+linked_stage = "uid://jxrfi2hwqqdp"
+target_portal = "aw4"
 
 [node name="p1" parent="." unique_id=820677622 instance=ExtResource("15_kansy")]
 position = Vector2(0, 1600)
 portal_name = "p1"
-linked_stage = "res://stages/the-missing-plink.tscn"
-target_portal = "p0"
+linked_stage = "uid://jxrfi2hwqqdp"
+target_portal = "aw4"
 
 [node name="p2" parent="." unique_id=715042056 instance=ExtResource("15_kansy")]
 position = Vector2(768, 1600)
