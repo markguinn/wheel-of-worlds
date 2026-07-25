@@ -22,7 +22,7 @@ on:
 #   - cron: '6 7 * * *'  # run daily at 7:06am UTC
 
 env:
-  GODOT_VERSION: 4.6
+  GODOT_VERSION: 4.7.1
   GODOT_CHANNEL: stable
   GODOT_PROJECT_LOCATION: project.godot
   WORKING_DIRECTORY: .
