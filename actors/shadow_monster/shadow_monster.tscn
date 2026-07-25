@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bx63s05emcisp" path="res://actors/shadow_monster/shadow_monster.gd" id="1_se3fp"]
 [ext_resource type="Shader" uid="uid://ce1puydn2x8rp" path="res://actors/shadow_monster/shadow_monster.gdshader" id="2_km5do"]
 [ext_resource type="Script" uid="uid://cc00tb1m3epjv" path="res://actors/shadow_monster/shadow_skin.gd" id="3_qijrk"]
-[ext_resource type="Texture2D" uid="uid://bts53sg7ym5vn" path="res://_temp_replace_me_please/dark_boi.png" id="4_3s1mt"]
+[ext_resource type="Texture2D" uid="uid://bts53sg7ym5vn" path="res://actors/shadow_monster/dark_boi.png" id="4_3s1mt"]
 [ext_resource type="Script" uid="uid://k47xh1fgxbx0" path="res://actors/shadow_monster/shadow_monster_arm.gd" id="5_6g4ub"]
 [ext_resource type="Texture2D" uid="uid://bmof6pqpby63a" path="res://_source_assets/art/Shadow_arm_arm_only.png" id="6_ysnfm"]
 [ext_resource type="Script" uid="uid://dtrmgwn5s43vp" path="res://actors/shadow_monster/shadow_monster_hand.gd" id="7_bulxd"]

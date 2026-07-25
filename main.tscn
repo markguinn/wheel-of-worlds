@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cmb0mj478j8hq"]
 
 [ext_resource type="PackedScene" uid="uid://c3o0udsehlyxh" path="res://screens/title_screen/title_screen.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dvhcpjyewau2g" path="res://mobile_inputs.gd" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dxykffs3v4670" path="res://screens/pause_menu/pause_menu.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bmcqlphjm2pkh" path="res://screens/dev_menu/dev_menu.tscn" id="7_272bh"]
 
@@ -17,6 +18,106 @@ bg_color = Color(0, 0, 0, 0.5019608)
 border_width_bottom = 16
 border_color = Color(0, 0, 0, 0)
 border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.14821333, 0.16, 0.1328, 0.2509804)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.14821333, 0.16, 0.1328, 0.3764706)
+corner_radius_top_left = 10000
+corner_radius_top_right = 10000
+corner_radius_bottom_right = 10000
+corner_radius_bottom_left = 10000
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.14901961, 0.16078432, 0.13333334, 0.627451)
+border_width_left = 12
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 12
+border_color = Color(0.14901961, 0.16078432, 0.13333334, 0.5019608)
+border_blend = true
+corner_radius_top_left = 10000
+corner_radius_top_right = 10000
+corner_radius_bottom_right = 10000
+corner_radius_bottom_left = 10000
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.14821333, 0.16, 0.1328, 0.1254902)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(0.14821333, 0.16, 0.1328, 0.5019608)
+border_blend = true
+corner_radius_top_left = 10000
+corner_radius_top_right = 10000
+corner_radius_bottom_right = 10000
+corner_radius_bottom_left = 10000
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.14901961, 0.16078432, 0.13333334, 0.627451)
+border_width_left = 12
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 12
+border_color = Color(0.14901961, 0.16078432, 0.13333334, 0.76862746)
+border_blend = true
+corner_radius_top_left = 10000
+corner_radius_top_right = 10000
+corner_radius_bottom_right = 10000
+corner_radius_bottom_left = 10000
+corner_detail = 20
+
+[sub_resource type="Gradient" id="Gradient_1bvp3"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.89, 0.9, 0.99, 1)
+colors = PackedColorArray(0.14821333, 0.16, 0.1328, 0.2901961, 0.14821333, 0.16, 0.1328, 0.2509804, 0.14821333, 0.16, 0.1328, 0.5019608, 0.14821333, 0.16, 0.1328, 0.5019608, 0.14821333, 0.16, 0.1328, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lquwl"]
+gradient = SubResource("Gradient_1bvp3")
+width = 100
+height = 100
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_lquwl"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.89, 0.9, 0.99, 1)
+colors = PackedColorArray(0.14821333, 0.16, 0.1328, 0.76862746, 0.14901961, 0.16078432, 0.13333334, 0.76862746, 0.14821333, 0.16, 0.1328, 1, 0.14821333, 0.16, 0.1328, 1, 0.14821333, 0.16, 0.1328, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7mycd"]
+gradient = SubResource("Gradient_lquwl")
+width = 100
+height = 100
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1bvp3"]
+radius = 50.0
 
 [node name="Main" type="Node2D" unique_id=1319895979]
 
@@ -41,9 +142,11 @@ Z for music box    |    X to interact    |    C to ragdoll    |    Esc/P to paus
 horizontal_alignment = 1
 
 [node name="PauseMenu" parent="." unique_id=1472950510 instance=ExtResource("6_7mycd")]
+unique_name_in_owner = true
 visible = false
 
 [node name="DevMenu" parent="." unique_id=1159089293 instance=ExtResource("7_272bh")]
+unique_name_in_owner = true
 visible = false
 
 [node name="FadeScreen" type="CanvasLayer" parent="." unique_id=437679270]
@@ -58,3 +161,141 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MobileInputs" type="CanvasLayer" parent="." unique_id=1403337066 groups=["mobile_inputs"]]
+layer = 4
+script = ExtResource("4_1bvp3")
+
+[node name="VirtualJoystick" type="VirtualJoystick" parent="MobileInputs" unique_id=1812265019]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = -100.0
+grow_vertical = 0
+theme_override_styles/normal_joystick = SubResource("StyleBoxFlat_1bvp3")
+theme_override_styles/normal_tip = SubResource("StyleBoxFlat_lquwl")
+theme_override_styles/pressed_joystick = SubResource("StyleBoxFlat_7mycd")
+theme_override_styles/pressed_tip = SubResource("StyleBoxFlat_272bh")
+joystick_size = 200.0
+tip_size = 75.0
+action_left = &"left"
+action_right = &"right"
+action_up = &"up"
+action_down = &"down"
+
+[node name="JumpButton" type="TouchScreenButton" parent="MobileInputs" unique_id=1661261111]
+position = Vector2(1600, 880)
+texture_normal = SubResource("GradientTexture2D_lquwl")
+texture_pressed = SubResource("GradientTexture2D_7mycd")
+shape = SubResource("CircleShape2D_1bvp3")
+action = "jump"
+visibility_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MobileInputs/JumpButton" unique_id=1489027846]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "^"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicBox" type="TouchScreenButton" parent="MobileInputs" unique_id=1541160936]
+position = Vector2(1600, 680)
+texture_normal = SubResource("GradientTexture2D_lquwl")
+texture_pressed = SubResource("GradientTexture2D_7mycd")
+shape = SubResource("CircleShape2D_1bvp3")
+action = "music_box"
+visibility_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MobileInputs/MusicBox" unique_id=325318623]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Z"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Interact" type="TouchScreenButton" parent="MobileInputs" unique_id=404879400]
+position = Vector2(1480, 780)
+texture_normal = SubResource("GradientTexture2D_lquwl")
+texture_pressed = SubResource("GradientTexture2D_7mycd")
+shape = SubResource("CircleShape2D_1bvp3")
+action = "interact"
+visibility_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MobileInputs/Interact" unique_id=2058911130]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RagDoll" type="TouchScreenButton" parent="MobileInputs" unique_id=1903724592]
+position = Vector2(1720, 780)
+texture_normal = SubResource("GradientTexture2D_lquwl")
+texture_pressed = SubResource("GradientTexture2D_7mycd")
+shape = SubResource("CircleShape2D_1bvp3")
+action = "ragdoll"
+visibility_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MobileInputs/RagDoll" unique_id=93737157]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "C"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TabButton" type="TouchScreenButton" parent="MobileInputs" unique_id=221067569]
+position = Vector2(1720, 100)
+texture_normal = SubResource("GradientTexture2D_lquwl")
+texture_pressed = SubResource("GradientTexture2D_7mycd")
+shape = SubResource("CircleShape2D_1bvp3")
+action = "next_candidate"
+visibility_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MobileInputs/TabButton" unique_id=528886162]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Tab"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EscButton" type="TouchScreenButton" parent="MobileInputs" unique_id=1366537894]
+position = Vector2(100, 100)
+texture_normal = SubResource("GradientTexture2D_lquwl")
+texture_pressed = SubResource("GradientTexture2D_7mycd")
+shape = SubResource("CircleShape2D_1bvp3")
+action = "pause_menu"
+visibility_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MobileInputs/EscButton" unique_id=1487345269]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Esc"
+horizontal_alignment = 1
+vertical_alignment = 1

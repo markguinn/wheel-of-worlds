@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bts53sg7ym5vn"
-path="res://.godot/imported/dark_boi.png-21949ee95482deb2327e8eac5ae917b7.ctex"
+path="res://.godot/imported/dark_boi.png-aaa7f8fd42ffad50f266d6c26e6dde41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_temp_replace_me_please/dark_boi.png"
-dest_files=["res://.godot/imported/dark_boi.png-21949ee95482deb2327e8eac5ae917b7.ctex"]
+source_file="res://actors/shadow_monster/dark_boi.png"
+dest_files=["res://.godot/imported/dark_boi.png-aaa7f8fd42ffad50f266d6c26e6dde41.ctex"]
 
 [params]
 

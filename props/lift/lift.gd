@@ -72,9 +72,12 @@ func _input(event: InputEvent) -> void:
 		a = activator2
 	else:
 		return
-	if raised and event.is_action_pressed("down"):
+	var stick_up = not tween and Input.get_axis("up", "down") < -0.5
+	var stick_down = not tween and Input.get_axis("up", "down") > 0.5
+	Log.info(self, "stick", event.get_action_strength("up"), Input.get_axis("up", "down"))
+	if raised and stick_down:
 		a.activated.emit.call_deferred(a)
 		get_viewport().set_input_as_handled()
-	if not raised and event.is_action_pressed("up"):
+	if not raised and stick_up:
 		a.activated.emit.call_deferred(a)
 		get_viewport().set_input_as_handled()

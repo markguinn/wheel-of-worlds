@@ -4,7 +4,6 @@ extends CanvasLayer
 @onready var options_menu: CanvasLayer = $OptionsMenu
 @onready var resume_button: Button = $ResumeButton
 
-
 func _ready() -> void:
 	visible = false
 	options_menu.visible = false

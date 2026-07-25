@@ -61,6 +61,24 @@ texture = ExtResource("1_e1x85")
 texture_margin_top = 16.0
 texture_margin_bottom = 16.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mihib"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.14821333, 0.16, 0.1328, 0.2509804)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.14821333, 0.16, 0.1328, 0.3764706)
+corner_radius_top_left = 10000
+corner_radius_top_right = 10000
+corner_radius_bottom_right = 10000
+corner_radius_bottom_left = 10000
+corner_detail = 20
+shadow_color = Color(0, 0, 0, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rmny"]
 content_margin_left = 16.0
 content_margin_top = 8.0
@@ -148,5 +166,12 @@ MarginContainer/constants/margin_bottom = 32
 MarginContainer/constants/margin_left = 32
 MarginContainer/constants/margin_right = 32
 MarginContainer/constants/margin_top = 32
+MobileButton/base_type = &"Button"
+MobileButton/colors/font_color = Color(0.14901961, 0.16078432, 0.13333334, 1)
+MobileButton/colors/font_pressed_color = Color(0.14901961, 0.16078432, 0.13333334, 0.76862746)
+MobileButton/constants/icon_max_width = 1
+MobileButton/font_sizes/font_size = 40
+MobileButton/fonts/font = ExtResource("3_05tig")
+MobileButton/styles/normal = SubResource("StyleBoxFlat_mihib")
 Panel/styles/panel = SubResource("StyleBoxFlat_1rmny")
 VBoxContainer/constants/separation = 10
