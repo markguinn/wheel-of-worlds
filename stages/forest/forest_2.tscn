@@ -666,6 +666,63 @@ size = Vector2(373, 409)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y42hd"]
 size = Vector2(2355, 794)
 
+[sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_3xp4m"]
+fabrik_data_chain_length = 4
+joint_data/0/bone_index = 0
+joint_data/0/bone2d_node = NodePath("Bone2D")
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("Bone2D/Bone2D")
+joint_data/1/magnet_position = Vector2(0, 0)
+joint_data/2/bone_index = 2
+joint_data/2/bone2d_node = NodePath("Bone2D/Bone2D/Bone2D")
+joint_data/2/magnet_position = Vector2(0, 0)
+joint_data/3/bone_index = 3
+joint_data/3/bone2d_node = NodePath("Bone2D/Bone2D/Bone2D/Bone2D")
+joint_data/3/magnet_position = Vector2(0, 0)
+joint_data/3/use_target_rotation = false
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_kuygk"]
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DFABRIK_3xp4m")
+
+[sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_t06de"]
+fabrik_data_chain_length = 4
+joint_data/0/bone_index = 0
+joint_data/0/bone2d_node = NodePath("Bone2D")
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("Bone2D/Bone2D")
+joint_data/1/magnet_position = Vector2(0, 0)
+joint_data/2/bone_index = 2
+joint_data/2/bone2d_node = NodePath("Bone2D/Bone2D/Bone2D")
+joint_data/2/magnet_position = Vector2(0, 0)
+joint_data/3/bone_index = 3
+joint_data/3/bone2d_node = NodePath("Bone2D/Bone2D/Bone2D/Bone2D")
+joint_data/3/magnet_position = Vector2(0, 0)
+joint_data/3/use_target_rotation = false
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_gr1sa"]
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DFABRIK_t06de")
+
+[sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_kuygk"]
+fabrik_data_chain_length = 4
+joint_data/0/bone_index = 0
+joint_data/0/bone2d_node = NodePath("Bone2D")
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("Bone2D/Bone2D")
+joint_data/1/magnet_position = Vector2(0, 0)
+joint_data/2/bone_index = 2
+joint_data/2/bone2d_node = NodePath("Bone2D/Bone2D/Bone2D")
+joint_data/2/magnet_position = Vector2(0, 0)
+joint_data/3/bone_index = 3
+joint_data/3/bone2d_node = NodePath("Bone2D/Bone2D/Bone2D/Bone2D")
+joint_data/3/magnet_position = Vector2(0, 0)
+joint_data/3/use_target_rotation = false
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_t06de"]
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DFABRIK_kuygk")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xon5m"]
 size = Vector2(1758, 2240)
 
@@ -1246,11 +1303,20 @@ shape = SubResource("RectangleShape2D_y42hd")
 [node name="FishMonster" parent="Puzzle2/FishArea" unique_id=805913488 instance=ExtResource("33_1ax13")]
 position = Vector2(-768.7666, -141.52454)
 
+[node name="Skeleton2D" parent="Puzzle2/FishArea/FishMonster/SpriteContainer" parent_id_path=PackedInt32Array(805913488, 306526739) index="1" unique_id=2112981615]
+modification_stack = SubResource("SkeletonModificationStack2D_kuygk")
+
 [node name="FishMonster3" parent="Puzzle2/FishArea" unique_id=299781493 instance=ExtResource("33_1ax13")]
 position = Vector2(435.31348, -157.27563)
 
+[node name="Skeleton2D" parent="Puzzle2/FishArea/FishMonster3/SpriteContainer" parent_id_path=PackedInt32Array(299781493, 306526739) index="1" unique_id=2112981615]
+modification_stack = SubResource("SkeletonModificationStack2D_gr1sa")
+
 [node name="FishMonster2" parent="Puzzle2/FishArea" unique_id=1392331223 instance=ExtResource("33_1ax13")]
 position = Vector2(-63.469727, -83.77075)
+
+[node name="Skeleton2D" parent="Puzzle2/FishArea/FishMonster2/SpriteContainer" parent_id_path=PackedInt32Array(1392331223, 306526739) index="1" unique_id=2112981615]
+modification_stack = SubResource("SkeletonModificationStack2D_t06de")
 
 [node name="Lantern" parent="Puzzle2" unique_id=937303915 instance=ExtResource("23_7wk6t")]
 position = Vector2(8001, 92)
@@ -1427,5 +1493,8 @@ bus = &"SFX"
 [editable path="CavernArea/FixedLantern2"]
 [editable path="CavernArea/FixedLantern3"]
 [editable path="CavernArea/FixedLantern4"]
+[editable path="Puzzle2/FishArea/FishMonster"]
+[editable path="Puzzle2/FishArea/FishMonster3"]
+[editable path="Puzzle2/FishArea/FishMonster2"]
 [editable path="Puzzle2/CavernArea/FixedLantern1"]
 [editable path="Puzzle2/CavernArea/FixedLantern3"]

@@ -178,7 +178,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(1000, 50)
-shader_parameter/real_screen_size = Vector2(13246.067, 7573.313)
+shader_parameter/real_screen_size = Vector2(9874.642, 4957.979)
 shader_parameter/edges = Array[Texture2D]([SubResource("GradientTexture2D_gdb7k"), SubResource("GradientTexture2D_gdb7k")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -289,7 +289,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(834, 50)
-shader_parameter/real_screen_size = Vector2(13246.067, 7573.313)
+shader_parameter/real_screen_size = Vector2(9874.642, 4957.979)
 shader_parameter/edges = Array[Texture2D]([SubResource("CompressedTexture2D_qw55a"), SubResource("CompressedTexture2D_r6h17")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -919,6 +919,44 @@ sources/1 = SubResource("TileSetAtlasSource_jhdwk")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1cdy3"]
 size = Vector2(4061, 647.5)
 
+[sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_ar6rq"]
+fabrik_data_chain_length = 4
+joint_data/0/bone_index = 0
+joint_data/0/bone2d_node = NodePath("Bone2D")
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("Bone2D/Bone2D")
+joint_data/1/magnet_position = Vector2(0, 0)
+joint_data/2/bone_index = 2
+joint_data/2/bone2d_node = NodePath("Bone2D/Bone2D/Bone2D")
+joint_data/2/magnet_position = Vector2(0, 0)
+joint_data/3/bone_index = 3
+joint_data/3/bone2d_node = NodePath("Bone2D/Bone2D/Bone2D/Bone2D")
+joint_data/3/magnet_position = Vector2(0, 0)
+joint_data/3/use_target_rotation = false
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_odmdo"]
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DFABRIK_ar6rq")
+
+[sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_jxmyy"]
+fabrik_data_chain_length = 4
+joint_data/0/bone_index = 0
+joint_data/0/bone2d_node = NodePath("Bone2D")
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("Bone2D/Bone2D")
+joint_data/1/magnet_position = Vector2(0, 0)
+joint_data/2/bone_index = 2
+joint_data/2/bone2d_node = NodePath("Bone2D/Bone2D/Bone2D")
+joint_data/2/magnet_position = Vector2(0, 0)
+joint_data/3/bone_index = 3
+joint_data/3/bone2d_node = NodePath("Bone2D/Bone2D/Bone2D/Bone2D")
+joint_data/3/magnet_position = Vector2(0, 0)
+joint_data/3/use_target_rotation = false
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_nyj6r"]
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DFABRIK_jxmyy")
+
 [sub_resource type="Gradient" id="Gradient_khvn7"]
 offsets = PackedFloat32Array(0.6673913, 0.92608696)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -1259,8 +1297,14 @@ shape = SubResource("RectangleShape2D_1cdy3")
 [node name="FishMonster" parent="KillZone" unique_id=275104279 instance=ExtResource("24_8xadv")]
 position = Vector2(3932.8657, 92.765625)
 
+[node name="Skeleton2D" parent="KillZone/FishMonster/SpriteContainer" parent_id_path=PackedInt32Array(275104279, 306526739) index="1" unique_id=2112981615]
+modification_stack = SubResource("SkeletonModificationStack2D_odmdo")
+
 [node name="FishMonster2" parent="KillZone" unique_id=1857891672 instance=ExtResource("24_8xadv")]
 position = Vector2(5240, 106)
+
+[node name="Skeleton2D" parent="KillZone/FishMonster2/SpriteContainer" parent_id_path=PackedInt32Array(1857891672, 306526739) index="1" unique_id=2112981615]
+modification_stack = SubResource("SkeletonModificationStack2D_nyj6r")
 
 [node name="Water" parent="." unique_id=14946250 instance=ExtResource("23_bu3qw")]
 offset_left = -4144.0
@@ -1521,3 +1565,5 @@ bus = &"SFX"
 [editable path="FixedLantern4"]
 [editable path="FixedLantern5"]
 [editable path="FixedLantern6"]
+[editable path="KillZone/FishMonster"]
+[editable path="KillZone/FishMonster2"]
