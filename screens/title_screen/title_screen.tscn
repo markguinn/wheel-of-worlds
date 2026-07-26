@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cfbmxx5s8x8bm" path="res://screens/options_menu/options_menu.tscn" id="7_hnpdw"]
 [ext_resource type="Texture2D" uid="uid://bsnpkosxnrpuj" path="res://actors/portal/art/Sparkles-5.png" id="7_v8lo7"]
 [ext_resource type="Shader" uid="uid://cdne4tlbiqua3" path="res://common/dynamic_edges/edge_and_fill_shader.gdshader" id="10_5cxmk"]
-[ext_resource type="Texture2D" uid="uid://dnbggmtuq7rxa" path="res://stages/seussworld/art/level0-edges_0001_Layer-3.png" id="11_7cxjv"]
+[ext_resource type="Texture2D" uid="uid://dnbggmtuq7rxa" path="res://stages/seussworld/art/edge3.png" id="11_7cxjv"]
 [ext_resource type="Texture2D" uid="uid://cpons2domeouf" path="res://stages/wheel/art/stone4.png" id="12_uk48k"]
 [ext_resource type="Texture2D" uid="uid://dmuk3per1ojkq" path="res://stages/wheel/art/stone3.png" id="13_pvcqs"]
 [ext_resource type="Texture2D" uid="uid://dfmfykdvwqa5g" path="res://screens/title_screen/art/white_logo_square.png" id="14_1xf4e"]
@@ -384,10 +384,10 @@ preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_1xf4e")
 
 [node name="IrisNebula" type="Sprite2D" parent="." unique_id=127912379]
-modulate = Color(1, 1, 1, 0.17986432)
-rotation = 5.90047
+modulate = Color(1, 1, 1, 0.2448181)
+rotation = 4.544323
 scale = Vector2(2, 2)
-skew = 0.11143111
+skew = 0.07659197
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -401,10 +401,10 @@ alpha_speed = 0.4
 speed_factor = 0.1
 
 [node name="IrisNebula2" type="Sprite2D" parent="." unique_id=1740825736]
-modulate = Color(1, 1, 1, 0.08288686)
-rotation = 2.7102861
+modulate = Color(1, 1, 1, 0.11417328)
+rotation = 4.6019077
 scale = Vector2(3, 3)
-skew = -0.33025482
+skew = 0.25840753
 texture = ExtResource("2_y13wa")
 region_enabled = true
 region_rect = Rect2(988, 1671, 314, 294)
@@ -423,45 +423,45 @@ scale = Vector2(0.9, 0.9)
 script = ExtResource("2_1xf4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sparkles" unique_id=972055032]
-modulate = Color(1, 1, 1, 0.38413054)
-rotation = -3070.2798
-scale = Vector2(0.88942033, 0.88942033)
+modulate = Color(1, 1, 1, 0.39186692)
+rotation = -3067.3635
+scale = Vector2(0.894578, 0.894578)
 texture = ExtResource("3_i36ib")
 
 [node name="Mist" type="Sprite2D" parent="Sparkles" unique_id=753486441]
-modulate = Color(1, 1, 1, 0.39999902)
-rotation = 915.64716
-scale = Vector2(0.8999993, 0.8999993)
+modulate = Color(1, 1, 1, 0.39859566)
+rotation = 923.0446
+scale = Vector2(0.89906377, 0.89906377)
 texture = SubResource("NoiseTexture2D_mvehq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sparkles" unique_id=1758360778]
-modulate = Color(1, 1, 1, 0.22792166)
-rotation = 2523.2095
-scale = Vector2(0.7852811, 0.7852811)
+modulate = Color(1, 1, 1, 0.24784186)
+rotation = 2515.9873
+scale = Vector2(0.7985612, 0.7985612)
 texture = ExtResource("4_wsvuw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sparkles" unique_id=845584023]
-modulate = Color(1, 1, 1, 0.34402153)
-rotation = 3058.6855
-scale = Vector2(0.86268103, 0.86268103)
+modulate = Color(1, 1, 1, 0.35872477)
+rotation = 3065.0447
+scale = Vector2(0.8724832, 0.8724832)
 texture = ExtResource("5_p7yao")
 
 [node name="Mist2" type="Sprite2D" parent="Sparkles" unique_id=1711575947]
-modulate = Color(1, 1, 1, 0.2710362)
-rotation = 990.2074
-scale = Vector2(0.81402415, 0.81402415)
+modulate = Color(1, 1, 1, 0.25110513)
+rotation = 992.3482
+scale = Vector2(0.8007368, 0.8007368)
 texture = SubResource("NoiseTexture2D_tsbkc")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sparkles" unique_id=1435232981]
-modulate = Color(1, 1, 1, 0.37615305)
-rotation = 196.7046
-scale = Vector2(0.88410205, 0.88410205)
+modulate = Color(1, 1, 1, 0.3642449)
+rotation = 196.05118
+scale = Vector2(0.87616324, 0.87616324)
 texture = ExtResource("6_mi1m4")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sparkles" unique_id=2086365118]
-modulate = Color(1, 1, 1, 0.22504632)
-rotation = -2544.3857
-scale = Vector2(0.78336424, 0.78336424)
+modulate = Color(1, 1, 1, 0.20560427)
+rotation = -2546.1614
+scale = Vector2(0.77040285, 0.77040285)
 texture = ExtResource("7_v8lo7")
 
 [node name="RotatingBody" type="Node2D" parent="." unique_id=1912110947]
@@ -594,7 +594,7 @@ scale = Vector2(0.1700271, 0.17001355)
 skew = -6.484985e-05
 
 [node name="Eyes" parent="RotatingBody/Player/Sprite/Parts/Head" index="0" unique_id=1167826662]
-frame_progress = 0.4012083
+frame_progress = 0.07287199
 
 [node name="DizzyParticles" parent="RotatingBody/Player/Sprite/VFX" parent_id_path=PackedInt32Array(317056800, 1603292766) index="2" unique_id=806147118]
 position = Vector2(11.087018, -62.294453)

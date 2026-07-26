@@ -31,8 +31,8 @@ func _ready() -> void:
 	shader_material.set_shader_parameter("edge_enabled", !use_baked)
 	if target_layer:
 		target_layer.visible = use_baked
-	if use_baked:
-		shader_material.set_shader_parameter("edges", [])
+	#if use_baked:
+		#shader_material.set_shader_parameter("edges", [])
 
 
 func _process(_delta: float) -> void:

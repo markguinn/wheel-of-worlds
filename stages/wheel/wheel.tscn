@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dqtg3j6q3b2hu" path="res://stages/wheel/art/woodgrain.png" id="11_72kdk"]
 [ext_resource type="Script" uid="uid://buvl2i0vdqsau" path="res://common/dynamic_edges/edged_tilemap.gd" id="13_6pmal"]
 [ext_resource type="Shader" uid="uid://cdne4tlbiqua3" path="res://common/dynamic_edges/edge_and_fill_shader.gdshader" id="13_fiqrw"]
-[ext_resource type="Texture2D" uid="uid://dnbggmtuq7rxa" path="res://stages/seussworld/art/level0-edges_0001_Layer-3.png" id="14_fiqrw"]
+[ext_resource type="Texture2D" uid="uid://dnbggmtuq7rxa" path="res://stages/seussworld/art/edge3.png" id="14_fiqrw"]
 [ext_resource type="Texture2D" uid="uid://cpons2domeouf" path="res://stages/wheel/art/stone4.png" id="15_iaqqt"]
 [ext_resource type="Texture2D" uid="uid://dmuk3per1ojkq" path="res://stages/wheel/art/stone3.png" id="16_rc4b6"]
 [ext_resource type="Texture2D" uid="uid://dih62xx2erihd" path="res://stages/wheel/art/circle.png" id="17_iaqqt"]

@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/waterfall.ogg-9bf034c04c0c30b5cc7136221846a41
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/morning-bird-call-03.ogg-6f4abe990cd2c6c85f63
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

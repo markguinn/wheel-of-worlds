@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Bert Theme Sketch 3.ogg-3a49a39f7a7c563d9fd81
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

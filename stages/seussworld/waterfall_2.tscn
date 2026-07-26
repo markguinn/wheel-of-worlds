@@ -178,7 +178,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(1000, 50)
-shader_parameter/real_screen_size = Vector2(9874.642, 4957.979)
+shader_parameter/real_screen_size = Vector2(1986.2172, 1304.7535)
 shader_parameter/edges = Array[Texture2D]([SubResource("GradientTexture2D_gdb7k"), SubResource("GradientTexture2D_gdb7k")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -276,6 +276,7 @@ noise = SubResource("FastNoiseLite_ar6rq")
 color_ramp = SubResource("Gradient_40crb")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jxmyy"]
+resource_local_to_scene = true
 shader = ExtResource("5_m5ddp")
 shader_parameter/target = Color(1, 1, 1, 1)
 shader_parameter/base_color = Color(0.27058825, 0.30980393, 0.21960784, 1)
@@ -289,7 +290,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(834, 50)
-shader_parameter/real_screen_size = Vector2(9874.642, 4957.979)
+shader_parameter/real_screen_size = Vector2(1986.2172, 1304.7535)
 shader_parameter/edges = Array[Texture2D]([SubResource("CompressedTexture2D_qw55a"), SubResource("CompressedTexture2D_r6h17")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -993,10 +994,10 @@ offsets = PackedFloat32Array(0, 0.5522388, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.9714662, 0.9814652, 0.9960979, 0.93781096, 0.5411765, 0.7019608, 0.9372549, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uf7ys"]
-size = Vector2(155, 934)
+size = Vector2(116, 934)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5ddp"]
-size = Vector2(155, 612)
+size = Vector2(92, 612)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khvn7"]
 size = Vector2(67, 1683)
@@ -1385,9 +1386,10 @@ color_ramp = SubResource("Gradient_1bnnv")
 color_initial_ramp = ExtResource("15_uf7ys")
 
 [node name="EjectorRight" type="Area2D" parent="Waterfall" unique_id=1814192528 groups=["waterfall_barriers"]]
-position = Vector2(3001, 22)
+position = Vector2(3023, 22)
 collision_layer = 0
 collision_mask = 30
+priority = 4
 script = ExtResource("16_khvn7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waterfall/EjectorRight" unique_id=848867315 groups=["waterfall_barriers"]]
@@ -1421,11 +1423,12 @@ color_initial_ramp = ExtResource("15_uf7ys")
 position = Vector2(3001, 22)
 collision_layer = 0
 collision_mask = 30
+priority = 4
 script = ExtResource("16_khvn7")
 eject_direction = Vector2(-1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waterfall/EjectorLeft" unique_id=153335511 groups=["waterfall_barriers"]]
-position = Vector2(-32, -867)
+position = Vector2(-52, -867)
 shape = SubResource("RectangleShape2D_m5ddp")
 
 [node name="SplashParticles" type="CPUParticles2D" parent="Waterfall/EjectorLeft" unique_id=502639533]

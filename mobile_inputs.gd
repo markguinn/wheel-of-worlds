@@ -15,7 +15,7 @@ func _ready() -> void:
 	if active:
 		Log.info(self, "mobile controls active")
 	else:
-		queue_free()
+		queue_free.call_deferred()
 	#use_ui_events(true)
 	#GameManager.scene_changed.connect(_on_scene_changed)
 	#pause_menu.visibility_changed.connect(_on_scene_changed)

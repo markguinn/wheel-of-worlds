@@ -2,15 +2,11 @@
 
 [ext_resource type="Shader" uid="uid://cdne4tlbiqua3" path="res://common/dynamic_edges/edge_and_fill_shader.gdshader" id="1_4ul7f"]
 [ext_resource type="Texture2D" uid="uid://b5blfuqio1hiu" path="res://stages/seussworld/art/fill1.png" id="2_118wr"]
+[ext_resource type="Texture2D" uid="uid://tbvumppwgfl4" path="res://stages/seussworld/art/edge1.png" id="2_r0pm4"]
+[ext_resource type="Texture2D" uid="uid://w2wwxqm76u4u" path="res://stages/seussworld/art/edge2.png" id="3_r2lwc"]
 [ext_resource type="Texture2D" uid="uid://dadqpldoek2ct" path="res://stages/seussworld/art/fill8.png" id="3_y6lf2"]
 [ext_resource type="Texture2D" uid="uid://bao66wm4oa3v7" path="res://stages/seussworld/art/fill4.png" id="4_87let"]
 [ext_resource type="Texture2D" uid="uid://b3wdc36ysewoa" path="res://stages/seussworld/art/fill9.png" id="5_r0pm4"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qw55a"]
-load_path = "res://.godot/imported/level0-edges_0003_Layer-1.png-610f9f59e2435051340d54bfd846f34f.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r6h17"]
-load_path = "res://.godot/imported/level0-edges_0002_Layer-2.png-1240848e5519222e36584116375114ae.ctex"
 
 [sub_resource type="Gradient" id="Gradient_ruemm"]
 
@@ -23,6 +19,7 @@ noise = SubResource("FastNoiseLite_5raij")
 color_ramp = SubResource("Gradient_ruemm")
 
 [resource]
+resource_local_to_scene = true
 shader = ExtResource("1_4ul7f")
 shader_parameter/target = Color(1, 1, 1, 1)
 shader_parameter/base_color = Color(0.27058825, 0.30980393, 0.21960784, 1)
@@ -36,8 +33,8 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(834, 50)
-shader_parameter/real_screen_size = Vector2(5424.3877, 3019.4526)
-shader_parameter/edges = Array[Texture2D]([SubResource("CompressedTexture2D_qw55a"), SubResource("CompressedTexture2D_r6h17")])
+shader_parameter/real_screen_size = Vector2(1986.2172, 1304.7535)
+shader_parameter/edges = Array[Texture2D]([ExtResource("2_r0pm4"), ExtResource("3_r2lwc")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
 shader_parameter/edge_enabled = true
