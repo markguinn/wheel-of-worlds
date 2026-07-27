@@ -1295,5 +1295,6 @@ bus = &"Atmosphere"
 [node name="KillZoneSplash" type="AudioStreamPlayer" parent="." unique_id=2085774110]
 unique_name_in_owner = true
 stream = ExtResource("28_3ayy2")
+volume_db = -6.933
 pitch_scale = 2.0
 bus = &"SFX"

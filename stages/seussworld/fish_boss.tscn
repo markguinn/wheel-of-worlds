@@ -200,7 +200,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(1000, 50)
-shader_parameter/real_screen_size = Vector2(14821.8545, 8474.254)
+shader_parameter/real_screen_size = Vector2(10855.183, 7262.9863)
 shader_parameter/edges = Array[Texture2D]([SubResource("GradientTexture2D_gdb7k"), SubResource("GradientTexture2D_gdb7k")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -1732,29 +1732,29 @@ visible = false
 visible = false
 
 [node name="Sprite2D" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="0" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.34074578)
-rotation = 0.0800121
-scale = Vector2(0.8604972, 0.8604972)
+modulate = Color(1, 1, 1, 0.1546072)
+rotation = 0.8549487
+scale = Vector2(0.7364048, 0.7364048)
 
 [node name="Sprite2D2" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="1" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.2184)
-rotation = 152.60194
-scale = Vector2(0.77893335, 0.77893335)
+modulate = Color(1, 1, 1, 0.34096974)
+rotation = 152.21645
+scale = Vector2(0.8606465, 0.8606465)
 
 [node name="Sprite2D3" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="2" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.39871868)
-rotation = 975.1837
-scale = Vector2(0.8991458, 0.8991458)
+modulate = Color(1, 1, 1, 0.12453922)
+rotation = 975.97943
+scale = Vector2(0.7163595, 0.7163595)
 
 [node name="Sprite2D4" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="3" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.39987177)
-rotation = -933.11383
-scale = Vector2(0.8999145, 0.8999145)
+modulate = Color(1, 1, 1, 0.18605866)
+rotation = -933.0226
+scale = Vector2(0.75737244, 0.75737244)
 
 [node name="Sprite2D5" parent="FinalStones/EndPortal/Sprites/Sparkles" parent_id_path=PackedInt32Array(820677622, 1949234833) index="4" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.3761185)
-rotation = -931.70074
-scale = Vector2(0.884079, 0.884079)
+modulate = Color(1, 1, 1, 0.13100973)
+rotation = -930.9449
+scale = Vector2(0.72067314, 0.72067314)
 
 [node name="Stone5" parent="FinalStones" unique_id=669896039 groups=["final_stones"] instance=ExtResource("11_7us8x")]
 position = Vector2(-730, -127)
@@ -1893,6 +1893,7 @@ position = Vector2(-4551, 1445)
 [node name="KillZoneSplash" type="AudioStreamPlayer" parent="." unique_id=465868683]
 unique_name_in_owner = true
 stream = ExtResource("39_ndxdt")
+volume_db = -6.0
 pitch_scale = 2.0
 bus = &"SFX"
 

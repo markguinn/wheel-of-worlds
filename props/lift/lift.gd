@@ -74,7 +74,6 @@ func _input(event: InputEvent) -> void:
 		return
 	var stick_up = not tween and Input.get_axis("up", "down") < -0.5
 	var stick_down = not tween and Input.get_axis("up", "down") > 0.5
-	Log.info(self, "stick", event.get_action_strength("up"), Input.get_axis("up", "down"))
 	if raised and stick_down:
 		a.activated.emit.call_deferred(a)
 		get_viewport().set_input_as_handled()

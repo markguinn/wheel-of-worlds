@@ -64,7 +64,7 @@ func reset_music() -> void:
 	reset_music_damping()
 	reset_room_size()
 	base_layers = get_music_layers().duplicate()
-	Log.info(self, "base music layers", base_layers)
+	Log.debug(self, "base music layers", base_layers)
 	var p := get_stream_player()
 	if p:
 		p.play()
@@ -102,7 +102,7 @@ func set_music_layer(linear_vol: float, i: int) -> void:
 
 
 func push_music_layers(layers: Array[float]) -> void:
-	Log.info(self, "push layers", layers, layer_stack)
+	Log.debug(self, "push layers", layers, layer_stack)
 	if not base_layers or base_layers.size() == 0:
 		base_layers = get_music_layers()
 	if layers.size() <= 0:
@@ -131,7 +131,7 @@ func _same_layers(l1: Array[float], l2: Array[float]) -> bool:
 
 
 func pop_music_layers(layers: Array[float]) -> void:
-	Log.info(self, "pop layers", layers, layer_stack)
+	Log.debug(self, "pop layers", layers, layer_stack)
 	if layers.size() <= 0:
 		return
 	for i in range(layer_stack.size()):

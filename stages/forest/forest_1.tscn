@@ -1187,5 +1187,6 @@ panning_strength = 3.0
 [node name="KillZoneSplash" type="AudioStreamPlayer" parent="." unique_id=1303056084]
 unique_name_in_owner = true
 stream = ExtResource("41_5w70x")
+volume_db = -5.633
 pitch_scale = 2.0
 bus = &"SFX"

@@ -178,7 +178,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(1000, 50)
-shader_parameter/real_screen_size = Vector2(1986.2172, 1304.7535)
+shader_parameter/real_screen_size = Vector2(1986.2172, 1305.5846)
 shader_parameter/edges = Array[Texture2D]([SubResource("GradientTexture2D_gdb7k"), SubResource("GradientTexture2D_gdb7k")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -290,7 +290,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(834, 50)
-shader_parameter/real_screen_size = Vector2(1986.2172, 1304.7535)
+shader_parameter/real_screen_size = Vector2(1986.2172, 1305.5846)
 shader_parameter/edges = Array[Texture2D]([SubResource("CompressedTexture2D_qw55a"), SubResource("CompressedTexture2D_r6h17")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -1558,6 +1558,7 @@ max_distance = 4096.0
 [node name="KillZoneSplash" type="AudioStreamPlayer" parent="." unique_id=561697039]
 unique_name_in_owner = true
 stream = ExtResource("32_ar6rq")
+volume_db = -6.067
 pitch_scale = 2.0
 bus = &"SFX"
 

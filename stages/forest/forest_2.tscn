@@ -1483,6 +1483,7 @@ scale = Vector2(-1, 1)
 [node name="KillZoneSplash" type="AudioStreamPlayer" parent="." unique_id=1576821160]
 unique_name_in_owner = true
 stream = ExtResource("45_3xp4m")
+volume_db = -6.0
 pitch_scale = 2.0
 bus = &"SFX"
 
