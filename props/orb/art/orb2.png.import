@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3cyjt0ydh0eb"
-path="res://.godot/imported/bert-arm.png-95f0269b8414297afd66f45c34301aa4.ctex"
+uid="uid://cxr34rjwh2afh"
+path="res://.godot/imported/orb2.png-63bddbee3f6d314a7a332583b95f1b3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://actors/player/art/bert-arm.png"
-dest_files=["res://.godot/imported/bert-arm.png-95f0269b8414297afd66f45c34301aa4.ctex"]
+source_file="res://props/orb/art/orb2.png"
+dest_files=["res://.godot/imported/orb2.png-63bddbee3f6d314a7a332583b95f1b3b.ctex"]
 
 [params]
 

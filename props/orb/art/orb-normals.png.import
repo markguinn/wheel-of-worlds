@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0xsp47hu4mpe"
-path="res://.godot/imported/bert-torso2.png-62db3d77743a8c3921095f9bd8d8f540.ctex"
+uid="uid://xfy1wdbj1dqk"
+path="res://.godot/imported/orb-normals.png-61dfd91dd6cce2f566b8e49e792a5de3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://actors/player/art/bert-torso2.png"
-dest_files=["res://.godot/imported/bert-torso2.png-62db3d77743a8c3921095f9bd8d8f540.ctex"]
+source_file="res://props/orb/art/orb-normals.png"
+dest_files=["res://.godot/imported/orb-normals.png-61dfd91dd6cce2f566b8e49e792a5de3.ctex"]
 
 [params]
 

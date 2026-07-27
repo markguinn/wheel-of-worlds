@@ -1260,33 +1260,33 @@ light_mask = 0
 script = ExtResource("3_eb6dy")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1141542982]
-modulate = Color(1, 1, 1, 0.1133518)
-rotation = 697.86914
-scale = Vector2(0.7089012, 0.7089012)
+modulate = Color(1, 1, 1, 0.39961866)
+rotation = 708.8784
+scale = Vector2(0.89974576, 0.89974576)
 texture = ExtResource("19_kncuj")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1627364316]
-modulate = Color(1, 1, 1, 0.10327015)
-rotation = -130.82646
-scale = Vector2(0.7021801, 0.7021801)
+modulate = Color(1, 1, 1, 0.3943981)
+rotation = -143.95377
+scale = Vector2(0.8962654, 0.8962654)
 texture = ExtResource("20_5ni7j")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sprites/Sparkles" unique_id=529109281]
-modulate = Color(1, 1, 1, 0.2541707)
-rotation = -126.116684
-scale = Vector2(0.80278045, 0.80278045)
+modulate = Color(1, 1, 1, 0.12408631)
+rotation = -105.798294
+scale = Vector2(0.71605754, 0.71605754)
 texture = ExtResource("21_q6t7m")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sprites/Sparkles" unique_id=867959787]
-modulate = Color(1, 1, 1, 0.12616706)
-rotation = -187.65013
-scale = Vector2(0.7174447, 0.7174447)
+modulate = Color(1, 1, 1, 0.24441208)
+rotation = -179.60875
+scale = Vector2(0.7962747, 0.7962747)
 texture = ExtResource("22_frp0j")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sprites/Sparkles" unique_id=1590378147]
-modulate = Color(1, 1, 1, 0.2680584)
-rotation = -238.40086
-scale = Vector2(0.81203896, 0.81203896)
+modulate = Color(1, 1, 1, 0.33570004)
+rotation = -224.63812
+scale = Vector2(0.8571333, 0.8571333)
 texture = ExtResource("23_frp0j")
 
 [node name="EyeBackground" type="Polygon2D" parent="Sprites" unique_id=1865392681]
@@ -1387,6 +1387,7 @@ range_item_cull_mask = 3
 shadow_item_cull_mask = 3
 texture = ExtResource("25_v1kun")
 texture_scale = 10.0
+height = 200.0
 
 [node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=787524551]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddh3of4qnwhyn"
-path="res://.godot/imported/blue-monster-test.png-81cbfb531f239f98745061bc6df0e0c4.ctex"
+uid="uid://tcolmlu56re5"
+path="res://.godot/imported/orb.png-3fd1f0604a26b8909210bd385f6c3ff5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://actors/fish_monster/art/blue-monster-test.png"
-dest_files=["res://.godot/imported/blue-monster-test.png-81cbfb531f239f98745061bc6df0e0c4.ctex"]
+source_file="res://props/orb/art/orb.png"
+dest_files=["res://.godot/imported/orb.png-3fd1f0604a26b8909210bd385f6c3ff5.ctex"]
 
 [params]
 

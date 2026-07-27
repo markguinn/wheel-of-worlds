@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cq30ppa4eh5d3"]
 
 [ext_resource type="Script" uid="uid://ju74l0h2oc0a" path="res://props/orb/orb.gd" id="1_kl2ba"]
-[ext_resource type="Texture2D" uid="uid://dyfjydb0sbb64" path="res://actors/portal/art/irises.png" id="2_2fjae"]
 [ext_resource type="Script" uid="uid://cqn2pmvgavl2o" path="res://common/position_history_buffer.gd" id="2_e02gj"]
+[ext_resource type="Texture2D" uid="uid://qbtmmtjmiljy" path="res://props/orb/art/white-sphere.tres" id="3_fc66a"]
+[ext_resource type="Texture2D" uid="uid://cxr34rjwh2afh" path="res://props/orb/art/orb2.png" id="3_saf7d"]
+[ext_resource type="Texture2D" uid="uid://xfy1wdbj1dqk" path="res://props/orb/art/orb-normals.png" id="4_bdpk3"]
 [ext_resource type="AudioStream" uid="uid://mkx0fo803dj6" path="res://props/orb/sfx/stab1.ogg" id="4_pvlmb"]
 [ext_resource type="Script" uid="uid://cjjabfkmvqsoj" path="res://props/orb/orb_sfx.gd" id="4_q6uaq"]
 [ext_resource type="AudioStream" uid="uid://c1trj3xqcmvec" path="res://props/orb/sfx/stab3.ogg" id="6_rxrp7"]
@@ -31,16 +33,9 @@ height = 128
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="Gradient" id="Gradient_2fjae"]
-offsets = PackedFloat32Array(0.69, 0.71)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_e02gj"]
-gradient = SubResource("Gradient_2fjae")
-width = 128
-height = 128
-fill = 1
-fill_from = Vector2(0.5, 0.5)
+[sub_resource type="CanvasTexture" id="CanvasTexture_e0e1a"]
+diffuse_texture = ExtResource("3_fc66a")
+normal_texture = ExtResource("4_bdpk3")
 
 [sub_resource type="Gradient" id="Gradient_e02gj"]
 interpolation_mode = 2
@@ -105,14 +100,12 @@ texture = SubResource("GradientTexture2D_8tufr")
 [node name="WhiteSphere" type="Sprite2D" parent="SquishContainer" unique_id=1567054001]
 clip_children = 2
 light_mask = 2
-texture = SubResource("GradientTexture2D_e02gj")
+texture = SubResource("CanvasTexture_e0e1a")
 
 [node name="Iris" type="Sprite2D" parent="SquishContainer/WhiteSphere" unique_id=2116573146]
 light_mask = 3
-position = Vector2(-2, -1)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_2fjae")
-region_enabled = true
+position = Vector2(-4, 5)
+texture = ExtResource("3_saf7d")
 region_rect = Rect2(1011, 1684, 260, 253)
 
 [node name="EdgeShading" type="Sprite2D" parent="SquishContainer/WhiteSphere" unique_id=509281602]
