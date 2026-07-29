@@ -65,11 +65,16 @@ func resume_previous_scene() -> void:
 		start_new_game()
 
 
+var is_changing := false
 ## Load in a new scene. For playable stages, params can generally have a "target_portal"
 ## key to indicate where you're coming into the level. Maybe that's the only one we'll
 ## have. Maybe there will be more. Who knows.
 # TODO: can we keep the instances or the loaded scene in memory?
 func change_scene(new_scene_path: String, params = {}) -> void:
+	if is_changing:
+		Log.warn(self, "asked to change to", new_scene_path, "but in the middle of another change")
+		return
+	is_changing = true
 	Log.info(self, "changing to ", new_scene_path, params)
 	var fade_in: bool = params.get("fade_in", true)
 	var fade_out: bool = params.get("fade_out", true)
@@ -102,6 +107,8 @@ func change_scene(new_scene_path: String, params = {}) -> void:
 
 	if fade_in:
 		VFX.white_in()
+
+	is_changing = false
 
 
 var _hud: CanvasItem
