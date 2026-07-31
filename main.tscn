@@ -117,7 +117,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bvp3"]
-radius = 50.0
+radius = 75.0
 
 [node name="Main" type="Node2D" unique_id=1319895979]
 
@@ -179,8 +179,8 @@ theme_override_styles/normal_joystick = SubResource("StyleBoxFlat_1bvp3")
 theme_override_styles/normal_tip = SubResource("StyleBoxFlat_lquwl")
 theme_override_styles/pressed_joystick = SubResource("StyleBoxFlat_7mycd")
 theme_override_styles/pressed_tip = SubResource("StyleBoxFlat_272bh")
-joystick_size = 200.0
-tip_size = 75.0
+joystick_size = 300.0
+tip_size = 100.0
 action_left = &"left"
 action_right = &"right"
 action_up = &"up"
