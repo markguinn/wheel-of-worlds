@@ -1,23 +1,28 @@
 [gd_scene format=3 uid="uid://c8oclbuhrdst6"]
 
-[ext_resource type="AudioStream" uid="uid://ddfjp8egsedu1" path="res://music/exploration-1.ogg" id="1_4vd6y"]
-[ext_resource type="AudioStream" uid="uid://b22ufmhvxubg2" path="res://music/exploration-2.ogg" id="2_r8vh3"]
-[ext_resource type="AudioStream" uid="uid://b4ba61bt1506h" path="res://music/exploration-3.ogg" id="3_xbxf1"]
-[ext_resource type="AudioStream" uid="uid://c3g56w7mrm4qo" path="res://music/exploration-4.ogg" id="4_jf8eo"]
+[ext_resource type="AudioStream" uid="uid://7t6w21yvsrlw" path="res://music/exploration-0.ogg" id="1_ax8nl"]
+[ext_resource type="AudioStream" uid="uid://ci1rckx62xnh8" path="res://music/exploring_sync_player.tres" id="2_4jxsa"]
 
-[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_fcw4a"]
-stream_count = 4
-stream_0/stream = ExtResource("1_4vd6y")
-stream_0/volume = 0.0
-stream_1/stream = ExtResource("2_r8vh3")
-stream_1/volume = -60.0
-stream_2/stream = ExtResource("3_xbxf1")
-stream_2/volume = -60.0
-stream_3/stream = ExtResource("4_jf8eo")
-stream_3/volume = -60.0
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_4jxsa"]
+clip_count = 2
+clip_0/name = &"Exploration 0"
+clip_0/stream = ExtResource("1_ax8nl")
+clip_0/auto_advance = 1
+clip_0/next_clip = 1
+clip_1/name = &"sync_player"
+clip_1/stream = ExtResource("2_4jxsa")
+clip_1/auto_advance = 0
+_transitions = {
+Vector2i(0, 1): {
+"fade_beats": 14.0,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 0
+}
+}
 
 [node name="ExploringMusic" type="AudioStreamPlayer" unique_id=645564139 groups=["background_music"]]
-stream = SubResource("AudioStreamSynchronized_fcw4a")
-volume_db = -12.0
+stream = SubResource("AudioStreamInteractive_4jxsa")
+volume_db = -9.0
 autoplay = true
 bus = &"Music"

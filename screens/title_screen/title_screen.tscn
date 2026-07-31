@@ -151,7 +151,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(834, 95)
-shader_parameter/real_screen_size = Vector2(1942.1138, 1276.5945)
+shader_parameter/real_screen_size = Vector2(2, 2)
 shader_parameter/edges = Array[Texture2D]([ExtResource("11_7cxjv"), ExtResource("11_7cxjv")])
 shader_parameter/edge_smoothness = 1.50400007144
 shader_parameter/fill_enabled = true
@@ -384,10 +384,10 @@ preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_1xf4e")
 
 [node name="IrisNebula" type="Sprite2D" parent="." unique_id=127912379]
-modulate = Color(1, 1, 1, 0.18200797)
-rotation = 5.2855763
+modulate = Color(1, 1, 1, 0.4415381)
+rotation = 4.814548
 scale = Vector2(2, 2)
-skew = 0.13557087
+skew = 0.016337285
 texture = ExtResource("2_qd2g0")
 offset = Vector2(-5, 15)
 region_rect = Rect2(988, 1671, 314, 294)
@@ -401,10 +401,10 @@ alpha_speed = 0.4
 speed_factor = 0.1
 
 [node name="IrisNebula2" type="Sprite2D" parent="." unique_id=1740825736]
-modulate = Color(1, 1, 1, 0.095818035)
-rotation = 3.117309
+modulate = Color(1, 1, 1, 0.47258613)
+rotation = 2.646268
 scale = Vector2(3, 3)
-skew = -0.2844551
+skew = 0.18608765
 texture = ExtResource("2_qd2g0")
 offset = Vector2(-5, 15)
 region_rect = Rect2(988, 1671, 314, 294)
@@ -423,45 +423,45 @@ scale = Vector2(0.9, 0.9)
 script = ExtResource("2_1xf4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sparkles" unique_id=972055032]
-modulate = Color(1, 1, 1, 0.30892178)
-rotation = -3095.2039
-scale = Vector2(0.8392812, 0.8392812)
+modulate = Color(1, 1, 1, 0.19809692)
+rotation = -3096.023
+scale = Vector2(0.76539797, 0.76539797)
 texture = ExtResource("3_i36ib")
 
 [node name="Mist" type="Sprite2D" parent="Sparkles" unique_id=753486441]
-modulate = Color(1, 1, 1, 0.38786334)
-rotation = 902.03546
-scale = Vector2(0.8919089, 0.8919089)
+modulate = Color(1, 1, 1, 0.15468141)
+rotation = 901.69385
+scale = Vector2(0.73645425, 0.73645425)
 texture = SubResource("NoiseTexture2D_mvehq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sparkles" unique_id=1758360778]
-modulate = Color(1, 1, 1, 0.11161042)
-rotation = 2529.801
-scale = Vector2(0.7077403, 0.7077403)
+modulate = Color(1, 1, 1, 0.39948136)
+rotation = 2528.161
+scale = Vector2(0.89965427, 0.89965427)
 texture = ExtResource("4_wsvuw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sparkles" unique_id=845584023]
-modulate = Color(1, 1, 1, 0.25726762)
-rotation = 3092.4163
-scale = Vector2(0.8048451, 0.8048451)
+modulate = Color(1, 1, 1, 0.20526713)
+rotation = 3091.0393
+scale = Vector2(0.7701781, 0.7701781)
 texture = ExtResource("5_p7yao")
 
 [node name="Mist2" type="Sprite2D" parent="Sparkles" unique_id=1711575947]
-modulate = Color(1, 1, 1, 0.2810787)
-rotation = 1001.7355
-scale = Vector2(0.8207191, 0.8207191)
+modulate = Color(1, 1, 1, 0.39026877)
+rotation = 1003.04834
+scale = Vector2(0.89351255, 0.89351255)
 texture = SubResource("NoiseTexture2D_tsbkc")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sparkles" unique_id=1435232981]
-modulate = Color(1, 1, 1, 0.102760315)
-rotation = 177.3705
-scale = Vector2(0.7018402, 0.7018402)
+modulate = Color(1, 1, 1, 0.3533349)
+rotation = 176.95677
+scale = Vector2(0.8688899, 0.8688899)
 texture = ExtResource("6_mi1m4")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sparkles" unique_id=2086365118]
-modulate = Color(1, 1, 1, 0.1944564)
-rotation = -2503.7341
-scale = Vector2(0.7629709, 0.7629709)
+modulate = Color(1, 1, 1, 0.22055514)
+rotation = -2504.29
+scale = Vector2(0.7803701, 0.7803701)
 texture = ExtResource("7_v8lo7")
 
 [node name="RotatingBody" type="Node2D" parent="." unique_id=1912110947]
@@ -590,7 +590,7 @@ rotation = -0.02690474
 scale = Vector2(0.1700271, 0.17001355)
 
 [node name="Eyes" parent="RotatingBody/Player/Sprite/Parts/Head" index="0" unique_id=1167826662]
-frame_progress = 0.37033525
+frame_progress = 0.5559498
 
 [node name="DizzyParticles" parent="RotatingBody/Player/Sprite/VFX" parent_id_path=PackedInt32Array(317056800, 1603292766) index="2" unique_id=806147118]
 scale = Vector2(0.99994427, 0.99995095)

@@ -84,6 +84,7 @@ func change_scene(new_scene_path: String, params = {}) -> void:
 	# start the fade early so we load while it's fading
 	var fade_out_tween: Tween
 	if fade_out:
+		AudioManager.fade_out()
 		fade_out_tween = VFX.white_out()
 
 	var new_scene: Resource = load(new_scene_path)

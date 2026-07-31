@@ -19,6 +19,7 @@ const MIN_LP_FREQ = 2000
 const MAX_LP_FREQ = 20500
 const LAYER_TWEEN_TIME = 2.0
 
+var bus_master: int
 var bus_music: int
 var bus_sfx: int
 var bus_atmosphere: int
@@ -32,10 +33,9 @@ var layer_stack: Array[Array] = []
 var cur_layers: Array[float] = []
 var layer_tween: Tween
 
-# TODO: persist the volume settings
-
 
 func _ready() -> void:
+	bus_master = AudioServer.get_bus_index("Master")
 	bus_music = AudioServer.get_bus_index("Music")
 	bus_sfx = AudioServer.get_bus_index("SFX")
 	bus_atmosphere = AudioServer.get_bus_index("Atmosphere")
@@ -57,7 +57,19 @@ func get_sync_player() -> AudioStreamSynchronized:
 	var stream_player := get_stream_player()
 	if stream_player and stream_player.stream is AudioStreamSynchronized:
 		return stream_player.stream
+	if stream_player and stream_player.stream is AudioStreamInteractive:
+		var asi: AudioStreamInteractive = stream_player.stream
+		if asi.get_clip_stream(1) is AudioStreamSynchronized:
+			return asi.get_clip_stream(1)
 	return null
+
+
+func fade_out(seconds = 0.5) -> Tween:
+	var t = create_tween()
+	var p = get_stream_player()
+	t.tween_property(p, "volume_linear", 0.0, seconds)
+	p.remove_from_group("background_music")
+	return t
 
 
 func reset_music() -> void:

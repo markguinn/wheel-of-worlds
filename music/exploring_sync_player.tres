@@ -1,0 +1,17 @@
+[gd_resource type="AudioStreamSynchronized" format=3 uid="uid://ci1rckx62xnh8"]
+
+[ext_resource type="AudioStream" uid="uid://ddfjp8egsedu1" path="res://music/exploration-1.ogg" id="1_rgjv5"]
+[ext_resource type="AudioStream" uid="uid://b22ufmhvxubg2" path="res://music/exploration-2.ogg" id="2_qumr2"]
+[ext_resource type="AudioStream" uid="uid://b4ba61bt1506h" path="res://music/exploration-3.ogg" id="3_556d7"]
+[ext_resource type="AudioStream" uid="uid://c3g56w7mrm4qo" path="res://music/exploration-4.ogg" id="4_y7fmh"]
+
+[resource]
+stream_count = 4
+stream_0/stream = ExtResource("1_rgjv5")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("2_qumr2")
+stream_1/volume = -60.0
+stream_2/stream = ExtResource("3_556d7")
+stream_2/volume = -60.0
+stream_3/stream = ExtResource("4_y7fmh")
+stream_3/volume = -60.0
