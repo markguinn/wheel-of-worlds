@@ -51,5 +51,4 @@ func _on_return_button_pressed() -> void:
 
 
 func _on_extra_shaders_toggled(value: bool) -> void:
-	Log.info(self, "sdafadsadfs", value)
 	VFX.set_slow_shaders_enabled(value)

@@ -178,7 +178,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(1000, 50)
-shader_parameter/real_screen_size = Vector2(1986.2172, 1305.5846)
+shader_parameter/real_screen_size = Vector2(1986.2172, 1304.7535)
 shader_parameter/edges = Array[Texture2D]([SubResource("GradientTexture2D_gdb7k"), SubResource("GradientTexture2D_gdb7k")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -290,7 +290,7 @@ shader_parameter/margin = 96.0
 shader_parameter/pattern_size = 512.0
 shader_parameter/overall_scale = 1.5
 shader_parameter/edge_size = Vector2(834, 50)
-shader_parameter/real_screen_size = Vector2(1986.2172, 1305.5846)
+shader_parameter/real_screen_size = Vector2(1986.2172, 1304.7535)
 shader_parameter/edges = Array[Texture2D]([SubResource("CompressedTexture2D_qw55a"), SubResource("CompressedTexture2D_r6h17")])
 shader_parameter/edge_smoothness = 2.9050001379875
 shader_parameter/fill_enabled = true
@@ -1261,7 +1261,7 @@ position = Vector2(4086, 657)
 [node name="StartPortal1" parent="." unique_id=555948425 instance=ExtResource("15_f3j27")]
 position = Vector2(-1393, -1409)
 portal_name = "waterfall-start1"
-linked_stage = "uid://b32q0e34faaed"
+linked_stage = "uid://djnwseb73emx0"
 target_portal = "forest1-end"
 activator_text = "Return to the forest..."
 

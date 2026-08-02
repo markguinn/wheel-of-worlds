@@ -49,7 +49,7 @@ func _ready() -> void:
 func get_stream_player() -> AudioStreamPlayer:
 	var stream_player: AudioStreamPlayer = get_tree().get_first_node_in_group("background_music")
 	if not stream_player:
-		Log.warn(self, "no audio stream player found")
+		Log.debug(self, "no audio stream player found")
 	return stream_player
 
 
@@ -65,11 +65,14 @@ func get_sync_player() -> AudioStreamSynchronized:
 
 
 func fade_out(seconds = 0.5) -> Tween:
-	var t = create_tween()
 	var p = get_stream_player()
-	t.tween_property(p, "volume_linear", 0.0, seconds)
-	p.remove_from_group("background_music")
-	return t
+	if p:
+		var t = create_tween()
+		t.tween_property(p, "volume_linear", 0.0, seconds)
+		p.remove_from_group("background_music")
+		return t
+	else:
+		return null
 
 
 func reset_music() -> void:
@@ -128,6 +131,10 @@ func tween_music_layers(layers: Array[float]) -> void:
 		layer_tween.stop()
 	layer_tween = create_tween()
 	cur_layers = get_music_layers()
+	if cur_layers.size() == 0:
+		cur_layers = layers
+	if layers.size() == 0:
+		return
 	layer_tween.tween_method(set_music_layer.bind(0), cur_layers[0], layers[0], LAYER_TWEEN_TIME)
 	for i in range(1, layers.size()):
 		layer_tween.parallel().tween_method(set_music_layer.bind(i), cur_layers[i], layers[i], LAYER_TWEEN_TIME)

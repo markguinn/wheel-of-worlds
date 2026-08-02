@@ -86,6 +86,7 @@ func change_scene(new_scene_path: String, params = {}) -> void:
 	if fade_out:
 		AudioManager.fade_out()
 		fade_out_tween = VFX.white_out()
+		await fade_out_tween.finished
 
 	var new_scene: Resource = load(new_scene_path)
 	if not new_scene:
@@ -94,11 +95,11 @@ func change_scene(new_scene_path: String, params = {}) -> void:
 	if new_instance.get("persist_as_current"):
 		StateManager.set_keys.call_deferred({ "path": new_scene_path, "params": params }, "cur_scene")
 	
-	if fade_out:
-		await fade_out_tween.finished
+	#if fade_out:
+		#await fade_out_tween.finished
 	
-	container.add_child(new_instance)
 	container.remove_child(cur_scene)
+	container.add_child(new_instance)
 	cur_scene.queue_free()
 	var t = get_tree()
 	if t:

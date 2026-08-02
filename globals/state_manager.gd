@@ -78,7 +78,7 @@ func manage_node(node: Node, key: String, parent_key = "") -> void:
 
 
 func manage_scene(scene_instance: Node, scene_key: String, params: Dictionary) -> void:
-	if not get_tree():
+	if not is_inside_tree():
 		return
 	Log.debug(self, "managing scene:", scene_key)
 	for node in get_tree().get_nodes_in_group("persisted"):

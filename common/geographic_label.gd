@@ -51,7 +51,7 @@ func _show() -> Tween:
 func _hide() -> Tween:
 	if tween and tween.is_running():
 		tween.stop()
-	if not get_tree():
+	if not is_inside_tree():
 		return
 	tween = get_tree().create_tween()
 	tween.tween_property(self, "modulate", Color.TRANSPARENT, fade_seconds)

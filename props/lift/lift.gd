@@ -64,7 +64,7 @@ func _process(_delta: float) -> void:
 	pillar.region_rect.position.x = min(500.0, 2048.0 - h)
 
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	var a: Activator
 	if activator.enabled and activator in Activator.candidates:
 		a = activator
