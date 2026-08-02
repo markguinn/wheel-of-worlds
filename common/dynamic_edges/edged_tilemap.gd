@@ -40,6 +40,8 @@ func _process(_delta: float) -> void:
 		var vpr := get_viewport_rect().size / get_viewport_transform().get_scale()
 		shader_material.set_shader_parameter("real_screen_size", vpr)
 	shader_material.set_shader_parameter("rotation", global_rotation)
+	if !Engine.is_editor_hint():
+		shader_material.set_shader_parameter("fill_enabled", VFX.slow_shaders_enabled)
 
 
 func _cancel_bake() -> void:

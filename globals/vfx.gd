@@ -30,6 +30,7 @@ var flash_tween: Tween
 
 # allows the user to turn down shaking
 var shake_volume_setting := 1.0
+var slow_shaders_enabled := true
 
 var baseline_bloom := 0.0 
 var baseline_brightness := 1.0
@@ -39,6 +40,9 @@ var baseline_saturation := 1.0
 
 func _ready() -> void:
 	shake_volume_setting = StateManager.get_key("shake", "settings", 1.0)
+	slow_shaders_enabled = StateManager.get_key("slow_shaders_enabled", "settings", true)
+	Log.info(self, "screen shake setting", shake_volume_setting)
+	Log.info(self, "extra shaders", slow_shaders_enabled)
 
 
 func set_baseline(bloom: float, brightness: float, contrast: float, saturation: float, apply = true) -> void:
@@ -64,6 +68,16 @@ func set_shake_volume(value: float, persist = true) -> void:
 	shake_volume_setting = value
 	if persist:
 		StateManager.set_key("shake", value, "settings")
+
+
+func is_slow_shaders_enabled() -> bool:
+	return slow_shaders_enabled
+	
+func set_slow_shaders_enabled(v: bool, persist = true) -> void:
+	Log.info(self, "extra shaders", v)
+	slow_shaders_enabled = v
+	if persist:
+		StateManager.set_key("slow_shaders_enabled", v, "settings")
 
 
 ## Timesaver for shake + flash. Use flash_intensity_ratio if you want a stronger shake than flash.

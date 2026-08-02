@@ -12,6 +12,29 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b1ofp"]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_jc3pe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jc3pe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05tig"]
+bg_color = Color(0.5411765, 0.70980394, 0.44705883, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+
+[sub_resource type="DPITexture" id="DPITexture_jc3pe"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"7\"/><circle cx=\"24\" cy=\"8\" r=\"5\" fill=\"#1a1a1a\"/></svg>
+"
+base_scale = 3.0
+
+[sub_resource type="DPITexture" id="DPITexture_k6si2"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><g fill-opacity=\".5\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" rx=\"7\"/><circle cx=\"8\" cy=\"8\" r=\"5\" fill=\"#fff\"/></g></svg>
+"
+base_scale = 3.0
+
 [node name="OptionsMenu" type="CanvasLayer" unique_id=1472950510]
 process_mode = 3
 layer = 2
@@ -162,14 +185,55 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 focus_neighbor_top = NodePath("../../../SfxPanel/SfxVolumeContainer/SfxVolumeSlider")
-focus_neighbor_bottom = NodePath("../../../../ReturnButton")
-focus_next = NodePath("../../../../ReturnButton")
+focus_neighbor_bottom = NodePath("../../../SlowShadersPanel/Container/ExtraShadersToggle")
+focus_next = NodePath("../../../SlowShadersPanel/Container/ExtraShadersToggle")
 focus_previous = NodePath("../../../SfxPanel/SfxVolumeContainer/SfxVolumeSlider")
 theme_override_icons/grabber = ExtResource("1_n2ask")
 theme_override_icons/grabber_highlight = ExtResource("2_hpsuu")
 theme_override_icons/grabber_disabled = ExtResource("1_n2ask")
 theme_override_icons/tick = ExtResource("3_cu0nl")
 value = 100.0
+
+[node name="SlowShadersPanel" type="Panel" parent="VBoxContainer" unique_id=977337181]
+custom_minimum_size = Vector2(800, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_b1ofp")
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/SlowShadersPanel" unique_id=1765769935]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = -30.0
+offset_right = 285.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/SlowShadersPanel/Container" unique_id=437998027]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_type_variation = &"DarkLabel"
+text = "Extra shaders"
+
+[node name="ExtraShadersToggle" type="CheckButton" parent="VBoxContainer/SlowShadersPanel/Container" unique_id=1693233110]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../../../ShakePanel/ScreenShakeVolumeContainer/ScreenShakeVolumeSlider")
+focus_neighbor_bottom = NodePath("../../../../ReturnButton")
+focus_next = NodePath(".")
+focus_previous = NodePath("../../../../ReturnButton")
+theme_override_constants/icon_max_width = 100
+theme_override_icons/icon = SubResource("CanvasTexture_jc3pe")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jc3pe")
+theme_override_styles/hover = SubResource("StyleBoxFlat_05tig")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_05tig")
+theme_override_styles/focus = SubResource("StyleBoxFlat_05tig")
+theme_override_icons/checked = SubResource("DPITexture_jc3pe")
+theme_override_icons/unchecked = SubResource("DPITexture_k6si2")
 
 [node name="UISFX" parent="." unique_id=1315244668 instance=ExtResource("5_jc3pe")]
 
@@ -182,3 +246,4 @@ value = 100.0
 [connection signal="value_changed" from="VBoxContainer/SfxPanel/SfxVolumeContainer/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
 [connection signal="drag_ended" from="VBoxContainer/ShakePanel/ScreenShakeVolumeContainer/ScreenShakeVolumeSlider" to="." method="_on_screen_shake_volume_slider_drag_ended"]
 [connection signal="value_changed" from="VBoxContainer/ShakePanel/ScreenShakeVolumeContainer/ScreenShakeVolumeSlider" to="." method="_on_screen_shake_volume_slider_value_changed"]
+[connection signal="toggled" from="VBoxContainer/SlowShadersPanel/Container/ExtraShadersToggle" to="." method="_on_extra_shaders_toggled"]

@@ -4,9 +4,11 @@ extends CanvasLayer
 @onready var music_slider := %MusicVolumeSlider
 @onready var sfx_slider := %SfxVolumeSlider
 @onready var screen_shake_slider := %ScreenShakeVolumeSlider
+@onready var extra_shaders_toggle: CheckButton = %ExtraShadersToggle
 @onready var uisfx: UISFX = $UISFX
 
 var prev_focus: Control
+
 
 func _ready()->void:
 	visible = false
@@ -14,6 +16,7 @@ func _ready()->void:
 	music_slider.value = AudioManager.get_music_balance() * 100.0
 	sfx_slider.value = AudioManager.get_sfx_balance() * 100.0
 	screen_shake_slider.value = VFX.get_shake_volume() * 100.0
+	extra_shaders_toggle.button_pressed = VFX.is_slow_shaders_enabled()
 
 
 func _on_visibility_changed() -> void:
@@ -45,3 +48,8 @@ func _on_music_volume_slider_value_changed(value: float) -> void:
 
 func _on_return_button_pressed() -> void:
 	visible = false
+
+
+func _on_extra_shaders_toggled(value: bool) -> void:
+	Log.info(self, "sdafadsadfs", value)
+	VFX.set_slow_shaders_enabled(value)
