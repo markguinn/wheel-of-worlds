@@ -19,6 +19,23 @@ func _ready() -> void:
 	GameManager.hide_hud(true)
 	AudioManager.reset_music()
 
+func _unhandled_key_input(event: InputEvent) -> void:
+	## Allows for turning the wheel with WASD keys
+	if event.is_action_pressed("up"):
+		translate_event("up")
+	elif event.is_action_pressed("down"):
+		translate_event("down")
+	elif event.is_action_pressed("left"):
+		translate_event("left")
+	elif event.is_action_pressed("right"):
+		translate_event("right")
+
+func translate_event(event_name: String) -> void:
+	assert(event_name in ["up", "down", "left", "right"])
+	var v := InputEventAction.new()
+	v.action = "ui_" + event_name
+	v.pressed = true
+	Input.parse_input_event(v)
 
 func _on_quit_game_pressed() -> void:
 	get_tree().quit()
