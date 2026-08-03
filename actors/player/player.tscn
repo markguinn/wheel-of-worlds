@@ -1674,7 +1674,7 @@ metadata/_snap_enabled = true
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_up1yc"]
 gradient = SubResource("Gradient_mnwg7")
-width = 512
+width = 256
 height = 12
 fill = 2
 fill_from = Vector2(0.5, 0.5)

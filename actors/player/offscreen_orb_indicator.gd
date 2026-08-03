@@ -8,6 +8,8 @@ class_name OffscreenOrbIndicator extends Node2D
 ## Leave false and the indicator will stay hidden until the first time the orb goes off-screen.
 @export var apply_immediately: bool = false
 
+@export var rescale_x_with_distance: bool = true
+
 var on_screen_notifier: VisibleOnScreenNotifier2D = null:
 	set(v):
 		on_screen_notifier = v
@@ -37,6 +39,15 @@ func _process(_delta: float) -> void:
 		return
 	
 	look_at(on_screen_notifier.global_position)
+	if rescale_x_with_distance:
+		scale.x = clampf(
+			remap(
+				global_position.distance_to(on_screen_notifier.global_position),
+				2000.0, 12000.0,
+				0.75, 6.0
+				),
+			0.33, 6.0
+			)
 
 var _fade_tween: Tween
 func visibility_changed(orb_is_visible: bool) -> void:
