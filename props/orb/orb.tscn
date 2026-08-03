@@ -119,3 +119,5 @@ script = ExtResource("4_q6uaq")
 stream = SubResource("AudioStreamRandomizer_fc66a")
 max_polyphony = 2
 bus = &"SFX"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1553215102]

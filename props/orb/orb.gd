@@ -28,13 +28,22 @@ var is_in_portal_grav := false
 @onready var pos_history: PositionHistoryBuffer = $PositionHistoryBuffer
 @onready var sfx: OrbSFX = $SFX
 
+## Used for a HUD element
+@onready var visible_on_screen_notifier_2d: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 
 func _ready() -> void:
 	super._ready()
 	start_pos = global_position
 	iris_base_scale = iris.scale
 	impact.connect(_on_impact)
+	connect_visible_on_screen_enabler()
 
+func connect_visible_on_screen_enabler() -> void:
+	var player: Player = GameManager.get_player()
+	if player:
+		var offscreen_orb_indicator = player.offscreen_orb_indicator
+		if offscreen_orb_indicator:
+			offscreen_orb_indicator.on_screen_notifier = visible_on_screen_notifier_2d
 
 func set_checkpoint() -> void:
 	start_pos = global_position

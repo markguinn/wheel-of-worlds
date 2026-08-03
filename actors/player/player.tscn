@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b3vikmg8i8dr3" path="res://actors/player/player.gd" id="1_8afob"]
 [ext_resource type="Texture2D" uid="uid://bb38a7h3w0k2g" path="res://common/vfx/basic_light.tres" id="3_i0btr"]
 [ext_resource type="Texture2D" uid="uid://cg128mp6k24xi" path="res://actors/player/body_canvas_tex.tres" id="4_qct7d"]
+[ext_resource type="Script" uid="uid://dpeteefdwpq3p" path="res://actors/player/offscreen_orb_indicator.gd" id="4_wn017"]
 [ext_resource type="PhysicsMaterial" uid="uid://cnt2e34s48efd" path="res://actors/player/ragdoll_physics_material.tres" id="6_15y17"]
 [ext_resource type="Script" uid="uid://cn4cp7mcr2aj8" path="res://actors/player/guidepoints_syncing.gd" id="6_k67x5"]
 [ext_resource type="Script" uid="uid://qkfutrbwbkhj" path="res://actors/player/blinking-eyes.gd" id="7_0wchr"]
@@ -1664,6 +1665,20 @@ _data = {
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_12xki"]
 graph_offset = Vector2(-120.959595, -159.5101)
 
+[sub_resource type="Gradient" id="Gradient_mnwg7"]
+interpolation_mode = 2
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.3, 0.9)
+colors = PackedColorArray(1, 1, 1, 1, 0.8654238, 0.783665, 0.36128548, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_up1yc"]
+gradient = SubResource("Gradient_mnwg7")
+width = 512
+height = 12
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_lsln6"]
 target_nodepath = NodePath("../GuidePoints/ArmL")
 flip_bend_direction = true
@@ -1885,6 +1900,16 @@ energy = 0.5
 texture = ExtResource("3_i0btr")
 texture_scale = 6.0
 
+[node name="OffscreenOrbIndicator" type="Node2D" parent="." unique_id=837861153]
+script = ExtResource("4_wn017")
+
+[node name="Sprite2D" type="Sprite2D" parent="OffscreenOrbIndicator" unique_id=192417108]
+modulate = Color(1, 1, 1, 0.8235294)
+light_mask = 0
+texture_filter = 2
+texture = SubResource("GradientTexture2D_up1yc")
+offset = Vector2(320, 0)
+
 [node name="Sprite" type="Node2D" parent="." unique_id=2112411734]
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Sprite" unique_id=1146146976]
@@ -1908,8 +1933,8 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighR" unique_id=1375386282]
 position = Vector2(1.0101013, 38.38384)
-rotation = 0.29803357
-scale = Vector2(0.99999934, 0.99999934)
+rotation = 0.2980336
+scale = Vector2(0.9999993, 0.9999993)
 rest = Transform2D(1, 0, 0, 1, 1.0101013, 38.38384)
 auto_calculate_length_and_angle = false
 length = 30.0
@@ -2048,7 +2073,7 @@ region_rect = Rect2(204, 68, 311, 233)
 
 [node name="Eyes" type="AnimatedSprite2D" parent="Sprite/Parts/Head" unique_id=1167826662]
 sprite_frames = SubResource("SpriteFrames_yeioo")
-frame_progress = 0.50000083
+frame_progress = 0.40556276
 offset = Vector2(-35, 387)
 script = ExtResource("7_0wchr")
 

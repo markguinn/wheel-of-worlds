@@ -13,3 +13,4 @@ _ignored_assets
 .vscode
 .idea/
 config.local.ini
+.godotlauncher
