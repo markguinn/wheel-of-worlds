@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bh6wia2ufmi2g" path="res://actors/player/art/dizzystars.png" id="7_7aotz"]
 [ext_resource type="Script" uid="uid://vmdvty45rk5y" path="res://common/state_machine/state_machine.gd" id="7_a744p"]
 [ext_resource type="Texture2D" uid="uid://b37mwfkb8uu3r" path="res://actors/player/art/eyes-blink.png" id="8_0nck3"]
+[ext_resource type="Texture2D" uid="uid://chjrn6567uxp3" path="res://actors/portal/art/Sparkles-4.png" id="8_52j8m"]
 [ext_resource type="Script" uid="uid://ctkj6n8ftkcm8" path="res://actors/player/states/player_idle.gd" id="8_lsln6"]
 [ext_resource type="Texture2D" uid="uid://cy24t75c4v6el" path="res://actors/player/art/eyes.png" id="8_qct7d"]
 [ext_resource type="Texture2D" uid="uid://du1xkv8s6mivi" path="res://actors/player/art/eyes-x.png" id="9_2vokq"]
@@ -1679,6 +1680,56 @@ height = 12
 fill = 2
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mnwg7"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_2cxsc"]
+_data = [Vector2(0, 0.12322271), 0.0, 0.0, 0, 0, Vector2(0.30451867, 1), 0.0, 0.0, 0, 0, Vector2(0.8428291, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_mnwg7"]
+width = 64
+curve = SubResource("Curve_2cxsc")
+
+[sub_resource type="Curve" id="Curve_58gsw"]
+_data = [Vector2(0, 0.09952605), 0.0, 0.35591647, 0, 0, Vector2(1, 0.92890996), 1.3095466, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wn017"]
+width = 64
+curve = SubResource("Curve_58gsw")
+
+[sub_resource type="Curve" id="Curve_t27cx"]
+_limits = [1.0, 2.5, 0.0, 100.0]
+_data = [Vector2(0, 2.5), 0.0, 0.0, 0, 0, Vector2(100, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mofx2"]
+width = 32
+curve = SubResource("Curve_t27cx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_up1yc"]
+lifetime_randomness = 0.05
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(4, 4, 1)
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+spread = 2.0
+initial_velocity_min = 20.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 63.999996
+linear_accel_max = 95.99999
+scale_min = 0.01
+scale_max = 0.02
+scale_curve = SubResource("CurveTexture_wn017")
+scale_over_velocity_min = 1.0
+scale_over_velocity_max = 1.0
+scale_over_velocity_curve = SubResource("CurveTexture_mofx2")
+alpha_curve = SubResource("CurveTexture_mnwg7")
+
 [sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_lsln6"]
 target_nodepath = NodePath("../GuidePoints/ArmL")
 flip_bend_direction = true
@@ -1901,14 +1952,30 @@ texture = ExtResource("3_i0btr")
 texture_scale = 6.0
 
 [node name="OffscreenOrbIndicator" type="Node2D" parent="." unique_id=837861153]
+position = Vector2(0, -45)
 script = ExtResource("4_wn017")
+rescale_x_with_distance = false
 
 [node name="Sprite2D" type="Sprite2D" parent="OffscreenOrbIndicator" unique_id=192417108]
+visible = false
 modulate = Color(1, 1, 1, 0.8235294)
 light_mask = 0
 texture_filter = 2
 texture = SubResource("GradientTexture2D_up1yc")
 offset = Vector2(320, 0)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="OffscreenOrbIndicator" unique_id=1843990598]
+material = SubResource("CanvasItemMaterial_mnwg7")
+position = Vector2(67, 0)
+amount = 48
+texture = ExtResource("8_52j8m")
+lifetime = 4.0
+randomness = 0.3
+fixed_fps = 18
+visibility_rect = Rect2(-600, -150, 1920, 300)
+local_coords = true
+draw_order = 2
+process_material = SubResource("ParticleProcessMaterial_up1yc")
 
 [node name="Sprite" type="Node2D" parent="." unique_id=2112411734]
 
@@ -2073,7 +2140,7 @@ region_rect = Rect2(204, 68, 311, 233)
 
 [node name="Eyes" type="AnimatedSprite2D" parent="Sprite/Parts/Head" unique_id=1167826662]
 sprite_frames = SubResource("SpriteFrames_yeioo")
-frame_progress = 0.40556276
+frame_progress = 0.6340174
 offset = Vector2(-35, 387)
 script = ExtResource("7_0wchr")
 
