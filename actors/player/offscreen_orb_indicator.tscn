@@ -22,7 +22,7 @@ blend_mode = 1
 light_mode = 1
 
 [sub_resource type="Curve" id="Curve_2cxsc"]
-_data = [Vector2(0, 0.12322271), 0.0, 0.0, 0, 0, Vector2(0.30451867, 1), 0.0, 0.0, 0, 0, Vector2(0.8428291, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.12322271), 0.0, 0.0, 0, 0, Vector2(0.30451867, 1), 0.0, 0.0, 0, 0, Vector2(0.6581533, 0.7677725), -1.139152, -1.139152, 0, 0, Vector2(1, 0), -0.04385993, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_mnwg7"]
@@ -47,7 +47,7 @@ width = 32
 curve = SubResource("Curve_t27cx")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_up1yc"]
-lifetime_randomness = 0.05
+lifetime_randomness = 0.15
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(4, 4, 1)
@@ -85,9 +85,9 @@ material = SubResource("CanvasItemMaterial_mnwg7")
 position = Vector2(67, 0)
 amount = 48
 texture = ExtResource("2_op8b7")
-lifetime = 4.0
+lifetime = 3.6999999999999997
 randomness = 0.3
-fixed_fps = 18
+fixed_fps = 12
 visibility_rect = Rect2(-600, -150, 1920, 300)
 local_coords = true
 draw_order = 2
