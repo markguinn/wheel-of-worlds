@@ -1,9 +1,9 @@
 class_name Orb
 extends MoveableRigidBody2D
 
-
 signal persisted_state_changed(node: Node)
 
+const OFFSCREEN_ORB_INDICATOR = preload("res://actors/player/offscreen_orb_indicator.tscn")
 
 const RADIUS = 64.0
 const SMOOSHING_EASE = PI
@@ -41,9 +41,10 @@ func _ready() -> void:
 func connect_visible_on_screen_enabler() -> void:
 	var player: Player = GameManager.get_player()
 	if player:
-		var offscreen_orb_indicator = player.offscreen_orb_indicator
-		if offscreen_orb_indicator:
-			offscreen_orb_indicator.on_screen_notifier = visible_on_screen_notifier_2d
+		var offscreen_orb_indicator: OffscreenOrbIndicator = OFFSCREEN_ORB_INDICATOR.instantiate()
+		offscreen_orb_indicator.on_screen_notifier = visible_on_screen_notifier_2d
+		self.tree_exiting.connect(offscreen_orb_indicator.queue_free)
+		player.add_child(offscreen_orb_indicator)
 
 func set_checkpoint() -> void:
 	start_pos = global_position

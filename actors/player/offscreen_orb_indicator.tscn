@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://dqlqkgmnfctvs"]
+
+[ext_resource type="Script" uid="uid://dpeteefdwpq3p" path="res://actors/player/offscreen_orb_indicator.gd" id="1_bvixk"]
+[ext_resource type="Texture2D" uid="uid://chjrn6567uxp3" path="res://actors/portal/art/Sparkles-4.png" id="2_op8b7"]
+
+[sub_resource type="Gradient" id="Gradient_mnwg7"]
+interpolation_mode = 2
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.3, 0.9)
+colors = PackedColorArray(1, 1, 1, 1, 0.8654238, 0.783665, 0.36128548, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_up1yc"]
+gradient = SubResource("Gradient_mnwg7")
+width = 256
+height = 12
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mnwg7"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_2cxsc"]
+_data = [Vector2(0, 0.12322271), 0.0, 0.0, 0, 0, Vector2(0.30451867, 1), 0.0, 0.0, 0, 0, Vector2(0.8428291, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_mnwg7"]
+width = 64
+curve = SubResource("Curve_2cxsc")
+
+[sub_resource type="Curve" id="Curve_58gsw"]
+_data = [Vector2(0, 0.09952605), 0.0, 0.35591647, 0, 0, Vector2(1, 0.92890996), 1.3095466, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wn017"]
+width = 64
+curve = SubResource("Curve_58gsw")
+
+[sub_resource type="Curve" id="Curve_t27cx"]
+_limits = [1.0, 2.5, 0.0, 100.0]
+_data = [Vector2(0, 2.5), 0.0, 0.0, 0, 0, Vector2(100, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mofx2"]
+width = 32
+curve = SubResource("Curve_t27cx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_up1yc"]
+lifetime_randomness = 0.05
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(4, 4, 1)
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+spread = 2.0
+initial_velocity_min = 20.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 63.999996
+linear_accel_max = 95.99999
+scale_min = 0.01
+scale_max = 0.02
+scale_curve = SubResource("CurveTexture_wn017")
+scale_over_velocity_min = 1.0
+scale_over_velocity_max = 1.0
+scale_over_velocity_curve = SubResource("CurveTexture_mofx2")
+alpha_curve = SubResource("CurveTexture_mnwg7")
+
+[node name="OffscreenOrbIndicator" type="Node2D" unique_id=1968704861]
+position = Vector2(0, -45)
+script = ExtResource("1_bvixk")
+rescale_x_with_distance = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2110382932]
+visible = false
+modulate = Color(1, 1, 1, 0.8235294)
+light_mask = 0
+texture_filter = 2
+texture = SubResource("GradientTexture2D_up1yc")
+offset = Vector2(320, 0)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=2119484661]
+material = SubResource("CanvasItemMaterial_mnwg7")
+position = Vector2(67, 0)
+amount = 48
+texture = ExtResource("2_op8b7")
+lifetime = 4.0
+randomness = 0.3
+fixed_fps = 18
+visibility_rect = Rect2(-600, -150, 1920, 300)
+local_coords = true
+draw_order = 2
+process_material = SubResource("ParticleProcessMaterial_up1yc")

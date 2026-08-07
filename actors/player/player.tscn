@@ -3,14 +3,12 @@
 [ext_resource type="Script" uid="uid://b3vikmg8i8dr3" path="res://actors/player/player.gd" id="1_8afob"]
 [ext_resource type="Texture2D" uid="uid://bb38a7h3w0k2g" path="res://common/vfx/basic_light.tres" id="3_i0btr"]
 [ext_resource type="Texture2D" uid="uid://cg128mp6k24xi" path="res://actors/player/body_canvas_tex.tres" id="4_qct7d"]
-[ext_resource type="Script" uid="uid://dpeteefdwpq3p" path="res://actors/player/offscreen_orb_indicator.gd" id="4_wn017"]
 [ext_resource type="PhysicsMaterial" uid="uid://cnt2e34s48efd" path="res://actors/player/ragdoll_physics_material.tres" id="6_15y17"]
 [ext_resource type="Script" uid="uid://cn4cp7mcr2aj8" path="res://actors/player/guidepoints_syncing.gd" id="6_k67x5"]
 [ext_resource type="Script" uid="uid://qkfutrbwbkhj" path="res://actors/player/blinking-eyes.gd" id="7_0wchr"]
 [ext_resource type="Texture2D" uid="uid://bh6wia2ufmi2g" path="res://actors/player/art/dizzystars.png" id="7_7aotz"]
 [ext_resource type="Script" uid="uid://vmdvty45rk5y" path="res://common/state_machine/state_machine.gd" id="7_a744p"]
 [ext_resource type="Texture2D" uid="uid://b37mwfkb8uu3r" path="res://actors/player/art/eyes-blink.png" id="8_0nck3"]
-[ext_resource type="Texture2D" uid="uid://chjrn6567uxp3" path="res://actors/portal/art/Sparkles-4.png" id="8_52j8m"]
 [ext_resource type="Script" uid="uid://ctkj6n8ftkcm8" path="res://actors/player/states/player_idle.gd" id="8_lsln6"]
 [ext_resource type="Texture2D" uid="uid://cy24t75c4v6el" path="res://actors/player/art/eyes.png" id="8_qct7d"]
 [ext_resource type="Texture2D" uid="uid://du1xkv8s6mivi" path="res://actors/player/art/eyes-x.png" id="9_2vokq"]
@@ -1666,70 +1664,6 @@ _data = {
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_12xki"]
 graph_offset = Vector2(-120.959595, -159.5101)
 
-[sub_resource type="Gradient" id="Gradient_mnwg7"]
-interpolation_mode = 2
-interpolation_color_space = 2
-offsets = PackedFloat32Array(0, 0.3, 0.9)
-colors = PackedColorArray(1, 1, 1, 1, 0.8654238, 0.783665, 0.36128548, 1, 1, 1, 1, 0)
-metadata/_snap_enabled = true
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_up1yc"]
-gradient = SubResource("Gradient_mnwg7")
-width = 256
-height = 12
-fill = 2
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mnwg7"]
-blend_mode = 1
-light_mode = 1
-
-[sub_resource type="Curve" id="Curve_2cxsc"]
-_data = [Vector2(0, 0.12322271), 0.0, 0.0, 0, 0, Vector2(0.30451867, 1), 0.0, 0.0, 0, 0, Vector2(0.8428291, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_mnwg7"]
-width = 64
-curve = SubResource("Curve_2cxsc")
-
-[sub_resource type="Curve" id="Curve_58gsw"]
-_data = [Vector2(0, 0.09952605), 0.0, 0.35591647, 0, 0, Vector2(1, 0.92890996), 1.3095466, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_wn017"]
-width = 64
-curve = SubResource("Curve_58gsw")
-
-[sub_resource type="Curve" id="Curve_t27cx"]
-_limits = [1.0, 2.5, 0.0, 100.0]
-_data = [Vector2(0, 2.5), 0.0, 0.0, 0, 0, Vector2(100, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_mofx2"]
-width = 32
-curve = SubResource("Curve_t27cx")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_up1yc"]
-lifetime_randomness = 0.05
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(4, 4, 1)
-angle_min = 1.0728835e-05
-angle_max = 360.00003
-spread = 2.0
-initial_velocity_min = 20.0
-initial_velocity_max = 30.0
-gravity = Vector3(0, 0, 0)
-linear_accel_min = 63.999996
-linear_accel_max = 95.99999
-scale_min = 0.01
-scale_max = 0.02
-scale_curve = SubResource("CurveTexture_wn017")
-scale_over_velocity_min = 1.0
-scale_over_velocity_max = 1.0
-scale_over_velocity_curve = SubResource("CurveTexture_mofx2")
-alpha_curve = SubResource("CurveTexture_mnwg7")
-
 [sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_lsln6"]
 target_nodepath = NodePath("../GuidePoints/ArmL")
 flip_bend_direction = true
@@ -1951,32 +1885,6 @@ energy = 0.5
 texture = ExtResource("3_i0btr")
 texture_scale = 6.0
 
-[node name="OffscreenOrbIndicator" type="Node2D" parent="." unique_id=837861153]
-position = Vector2(0, -45)
-script = ExtResource("4_wn017")
-rescale_x_with_distance = false
-
-[node name="Sprite2D" type="Sprite2D" parent="OffscreenOrbIndicator" unique_id=192417108]
-visible = false
-modulate = Color(1, 1, 1, 0.8235294)
-light_mask = 0
-texture_filter = 2
-texture = SubResource("GradientTexture2D_up1yc")
-offset = Vector2(320, 0)
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="OffscreenOrbIndicator" unique_id=1843990598]
-material = SubResource("CanvasItemMaterial_mnwg7")
-position = Vector2(67, 0)
-amount = 48
-texture = ExtResource("8_52j8m")
-lifetime = 4.0
-randomness = 0.3
-fixed_fps = 18
-visibility_rect = Rect2(-600, -150, 1920, 300)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_up1yc")
-
 [node name="Sprite" type="Node2D" parent="." unique_id=2112411734]
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Sprite" unique_id=1146146976]
@@ -1993,15 +1901,15 @@ rest = Transform2D(1, 0, 0, 1, 0, -20)
 
 [node name="ThighR" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=25801670]
 position = Vector2(-13, 15)
-rotation = -0.22004591
-scale = Vector2(0.9900001, 0.9900001)
+rotation = -0.21382096
+scale = Vector2(0.9900003, 0.9900003)
 rest = Transform2D(0.99, 0, 0, 0.99, -13, 15)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighR" unique_id=1375386282]
 position = Vector2(1.0101013, 38.38384)
-rotation = 0.2980336
-scale = Vector2(0.9999993, 0.9999993)
+rotation = 0.37673885
+scale = Vector2(0.9999991, 0.9999991)
 rest = Transform2D(1, 0, 0, 1, 1.0101013, 38.38384)
 auto_calculate_length_and_angle = false
 length = 30.0
@@ -2010,14 +1918,14 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ThighL" type="Bone2D" parent="Sprite/Skeleton2D/Hips" unique_id=226334277]
 position = Vector2(23, 14)
-rotation = 0.559025
-scale = Vector2(0.99980277, 0.99980277)
+rotation = 0.59876287
+scale = Vector2(0.9998028, 0.9998028)
 rest = Transform2D(0.967, 0.254, -0.254, 0.967, 23, 14)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/ThighL" unique_id=919169516]
 position = Vector2(17.09175, 29.636705)
-rotation = -1.0863186
+rotation = -1.0863241
 scale = Vector2(1.0001245, 1.0001245)
 rest = Transform2D(0.83199996, -0.555, 0.555, 0.83199996, 17.09175, 29.636705)
 auto_calculate_length_and_angle = false
@@ -2032,7 +1940,7 @@ rest = Transform2D(0, -1, 1, 0, 0, -32)
 
 [node name="Head" type="Bone2D" parent="Sprite/Skeleton2D/Hips/Torso" unique_id=1580104760]
 position = Vector2(11.294762, 8.0899105)
-rotation = 0.7822057
+rotation = 0.051089354
 scale = Vector2(0.9999548, 0.9999548)
 rest = Transform2D(0.98157996, 0.19081554, -0.19081554, 0.98157996, 11.294762, 8.0899105)
 auto_calculate_length_and_angle = false
@@ -2050,14 +1958,15 @@ remote_path = NodePath("../../../../../VFX/DizzyParticles")
 
 [node name="ArmL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/Torso" unique_id=1793998611]
 position = Vector2(7, 33)
-rotation = -0.5175302
+rotation = 0.08742511
+scale = Vector2(0.9999997, 0.9999997)
 rest = Transform2D(0.9953148, -0.09668779, 0.09668779, 0.9953148, 7, 33)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="HandL" type="Bone2D" parent="Sprite/Skeleton2D/Hips/Torso/ArmL" unique_id=1933907137]
 position = Vector2(-26.651686, 5.448637)
-rotation = 1.4313142
-scale = Vector2(1.0000473, 1.0000473)
+rotation = -0.35640517
+scale = Vector2(1.0000472, 1.0000472)
 rest = Transform2D(0.9979998, 0.06399999, -0.06399999, 0.9979998, -26.651686, 5.448637)
 auto_calculate_length_and_angle = false
 length = 28.031
@@ -2066,14 +1975,15 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="ArmR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/Torso" unique_id=1756135333]
 position = Vector2(2, -35)
-rotation = 1.0611072
+rotation = 1.4468209
 scale = Vector2(0.9999997, 0.9999997)
 rest = Transform2D(0.035716165, 0.999362, -0.999362, 0.035716165, 2, -35)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="HandR" type="Bone2D" parent="Sprite/Skeleton2D/Hips/Torso/ArmR" unique_id=88591762]
 position = Vector2(0.8915224, 31.051653)
-rotation = -0.804112
+rotation = -0.02690464
+scale = Vector2(0.9999997, 0.9999997)
 rest = Transform2D(0.99928516, -0.03780409, 0.03780409, 0.99928516, 0.8915224, 31.051653)
 auto_calculate_length_and_angle = false
 length = 24.969
@@ -2130,7 +2040,7 @@ bones = ["Hips", PackedFloat32Array(1, 1, 1, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0,
 light_mask = 2
 visibility_layer = 3
 position = Vector2(11.087018, -62.294453)
-rotation = -0.07108405
+rotation = -0.071084276
 scale = Vector2(0.1700256, 0.1700072)
 skew = -6.484985e-05
 texture = SubResource("CanvasTexture_2vokq")
@@ -2140,7 +2050,7 @@ region_rect = Rect2(204, 68, 311, 233)
 
 [node name="Eyes" type="AnimatedSprite2D" parent="Sprite/Parts/Head" unique_id=1167826662]
 sprite_frames = SubResource("SpriteFrames_yeioo")
-frame_progress = 0.6340174
+frame_progress = 0.955055
 offset = Vector2(-35, 387)
 script = ExtResource("7_0wchr")
 
@@ -2252,8 +2162,8 @@ position = Vector2(48, 60)
 [node name="DizzyParticles" type="GPUParticles2D" parent="Sprite/VFX" unique_id=806147118]
 unique_name_in_owner = true
 position = Vector2(11.087018, -62.294453)
-rotation = -1.5197723
-scale = Vector2(0.9999442, 0.9999509)
+rotation = -1.5197725
+scale = Vector2(0.99994427, 0.99995095)
 skew = 6.508827e-05
 emitting = false
 amount = 6

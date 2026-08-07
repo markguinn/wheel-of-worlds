@@ -41,7 +41,6 @@ var last_action_at: int
 @onready var skeleton: Skeleton2D = $Sprite/Skeleton2D
 @onready var shape: CollisionShape2D = $NormalCollision
 @onready var ground_detector: RayCast2D = $Sprite/Rays/GroundDetector
-@onready var offscreen_orb_indicator: OffscreenOrbIndicator = $OffscreenOrbIndicator
 
 @onready var dust_particles_l: CPUParticles2D = %DustParticlesL
 @onready var dust_particles_r: CPUParticles2D = %DustParticlesR
